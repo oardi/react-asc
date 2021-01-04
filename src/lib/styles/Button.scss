@@ -1,0 +1,19 @@
+.btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	min-width: 64px;
+	font-size: 0.875rem;
+
+	&:disabled {
+		&:hover {
+			cursor: not-allowed;
+		}
+	}
+
+	.svg-icon {
+		margin-left: -4px;
+		margin-right: 8px;
+	}
+}

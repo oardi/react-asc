@@ -1,0 +1,29 @@
+$enable-shadows: true;
+@import "./lib/styles/colors.scss";
+@import "~bootstrap/scss/bootstrap";
+@import "./lib/styles/style.scss";
+
+html,
+body,
+#app {
+	height: 100%;
+}
+
+#app {
+	display: flex;
+}
+
+.overflow-x-hidden {
+	overflow-x: hidden;
+}
+
+.overflow-y {
+	overflow-y: scroll;
+}
+
+.home {
+	.card {
+		flex: 1 1 0px;
+		margin: 5px;
+	}
+}

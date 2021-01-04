@@ -1,0 +1,184 @@
+
+# Changelog
+
+## TODO 
+
+- form - add generic interface for controly keys -> IControls<T>
+- tooltip - add component
+- radio - add component (formControl)
+- select - add component (formControl)
+- form - add match validator (i.e. password) + error message
+- form - password autocomplete
+- form - prepend, append inputGroup
+- modal - cancel should not throw unhandled error
+- showcase - sourcecode for all comp
+
+
+## v1.14.1
+- modalSerivce - show only one dialog
+
+## v1.14.0
+- treeView - use iconButton and checkBox
+- checkbox - use in treeview
+- form - fixed validation
+
+## v1.13.0
+- form - added setState on update props (initial)
+- showcase - removed unneeded checks
+- showcase - added HOC withOptions for example pages and template inheritance
+
+## v1.12.2
+- form - fixed checkboxGroup
+
+## v1.12.1
+- form - fixed handleChange, handleSubmit
+
+## v1.12.0
+- checkbox - cleanup
+- checkboxGroup - added component
+- checkboxGroup - set initial
+
+## v1.11.0
+- form - changed to component instead of FOC
+- form - added onChange
+- form - removed formContext
+- modal - changed submit
+
+## v1.10.0
+- checkbox - added component
+- added basics input interface
+- form - added new checkbox
+
+## v1.9.2
+- dropdown - added click on dropdown
+- removed new-password
+
+## v1.9.1
+- form - fixed onSubmit
+
+## v1.9.0
+- dropDown - item click hide dropdown
+- dropDown - added transparent backdrop
+- dropDown - added dropDownContext for internal behavior
+- list - added ListItemText child component
+
+## v1.8.1
+- dropDown - add onClickToggle
+- dopdDown - added prop for position right
+- dopdDown - added stop propagation
+
+## v1.8.0
+- listItem - added listItemAvatar
+- listItem - added listItemAction
+
+## v1.7.2
+- dropDownItem - fixes
+
+## v1.7.1
+- moved icons
+
+## v1.7.0
+- dropdown: added component
+
+## v1.6.0
+- iconButton: added component
+- added theme-colors (check if able to override)
+
+## v1.5.18
+- forms: fixed empty validator
+
+## v1.5.17
+- forms: fixed textareaOptions
+
+## v1.5.16
+- httpService: removed from lib
+
+## v1.5.15
+- httpService: fixed config
+
+## v1.5.14
+- fileLoaderService: added service
+
+## v1.5.13
+- httpSevice: added loggerservice, added apiUrl
+
+## v1.5.12
+- form: fixed input-group styles
+
+## v1.5.11
+- snackbar: added auto hide on timeout
+
+## v1.5.10
+- form: added interfaces
+
+## v1.5.9
+- button: added icon spacing
+
+## v1.5.8
+- button: added className
+
+## v1.5.7
+- modal: changed description to string | vnode
+
+## v1.5.6
+- form: show hint only if provided
+
+## v1.5.5
+- list: added onClick
+
+## v1.5.4
+- form: changed context reset optional
+
+## v1.5.3
+- modal: added isDismissable
+
+## v1.5.2
+- modal: added showOkButton, showCancelButton
+
+## v1.5.1
+- modal & button style fixes
+
+## v1.5.0
+- added snackbar
+- deleted old icon
+
+## v1.4.1
+- extended generic form, fixed isSubmitted, isValid, cleaned up modalService
+
+## v1.4.0
+- added component svgIcon
+- added default svg icons
+- removed fontAwesome icons
+- fixed showcase layout
+- added svg import for rollup
+
+## v1.3.0
+- added component AppBar
+
+## v1.2.0
+- added component LineChart
+- added FontAwesome
+- added component Icon
+
+## v1.1.0
+added components 
+- Icon
+- TreeView
+
+added showcase
+- icon
+- treeview
+
+added material icons
+
+## v1.0.2
+- some test
+
+## v1.0.1
+- release lib
+
+## v1.0.0
+- v1.0.0
+
+## v0.0.1
+- fixed alias

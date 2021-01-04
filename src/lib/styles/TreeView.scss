@@ -1,0 +1,32 @@
+.treeview {
+	list-style-type: none;
+	padding-left: 0;
+	margin-bottom: 0;
+
+    .tree-node {
+		display: flex;
+		align-items: center;
+
+        min-height: 48px;
+
+        .btn-toggle {
+            padding: 0;
+            min-width: 0;
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            line-height: 40px;
+            border: none;
+            background: transparent;
+            outline: none;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.done {
+	text-decoration:line-through
+}

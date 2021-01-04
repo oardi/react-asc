@@ -1,0 +1,11 @@
+.dropdown {
+	.dropdown-menu {
+		z-index: 1111;
+
+		.dropdown-item {
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+}

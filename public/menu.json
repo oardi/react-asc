@@ -1,0 +1,94 @@
+[
+	{
+		"id": "home",
+		"label": "Home",
+		"path": ""
+	},
+	{
+		"id": "gettingstarted",
+		"label": "Getting started",
+		"path": "getting-started"
+	},
+	{
+		"id": "showcase",
+		"label": "Showcase",
+		"path": "showcase",
+		"items": [
+			{
+				"id": "appbar",
+				"label": "AppBar",
+				"path": "appbar"
+			},
+			{
+				"id": "button",
+				"label": "Button",
+				"path": "button"
+			},
+			{
+				"id": "card",
+				"label": "Card",
+				"path": "card"
+			},
+			{
+				"id": "chart",
+				"label": "Chart",
+				"path": "chart"
+			},
+			{
+				"id": "checkbox",
+				"label": "Checkbox",
+				"path": "checkbox"
+			},
+			{
+				"id": "dropdown",
+				"label": "DropDown",
+				"path": "dropdown"
+			},
+			{
+				"id": "form",
+				"label": "Form",
+				"path": "form"
+			},
+			{
+				"id": "iconbutton",
+				"label": "IconButton",
+				"path": "iconbutton"
+			},
+			{
+				"id": "list",
+				"label": "List",
+				"path": "list"
+			},
+			{
+				"id": "modal",
+				"label": "Modal",
+				"path": "modal"
+			},
+			{
+				"id": "svgicon",
+				"label": "SvgIcon",
+				"path": "svgicon"
+			},
+			{
+				"id": "snackbar",
+				"label": "Snackbar",
+				"path": "snackbar"
+			},
+			{
+				"id": "treeview",
+				"label": "TreeView",
+				"path": "treeview"
+			}
+		]
+	},
+	{
+		"id": "changelog",
+		"label": "Changelog",
+		"path": "changelog"
+	},
+	{
+		"id": "about",
+		"label": "About",
+		"path": "about"
+	}
+]
