@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { RouteComponentProps, useHistory, withRouter } from 'react-router-dom';
 import { SidebarItemModel } from './sidebar.models';
 
-interface ISidebarProps extends RouteComponentProps {
+interface ISidebarProps {
 	title: string;
 	items: Array<SidebarItemModel>;
 	currentUrl: string;
 	onItemClicked: (path: string) => void;
 }
 
-const SidebarBase = ({ title, items, currentUrl, onItemClicked }: ISidebarProps) => {
+export const Sidebar = ({ title, items, currentUrl, onItemClicked }: ISidebarProps) => {
 
 	const [menuItems, setMenuItems] = useState<Array<SidebarItemModel>>([]);
 
@@ -81,6 +80,3 @@ const SidebarBase = ({ title, items, currentUrl, onItemClicked }: ISidebarProps)
 		</nav>
 	);
 }
-
-
-export const Sidebar = withRouter(SidebarBase);
