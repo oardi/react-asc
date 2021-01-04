@@ -5,7 +5,7 @@ interface ICardTextProps {
 }
 
 export const CardText = ({children}: ICardTextProps) => (
-	<p className="card-text">
+	<div className="card-text">
 		{children}
-	</p>
+	</div>
 );

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { AppContext } from '../AppContext';
 import { Sidebar } from '../lib';
 
@@ -15,6 +16,7 @@ interface MenuItem {
 export const AppSidebar = ({ currentRoute }: IAppSidebarProps) => {
 
 	const { loggerService, fileLoaderService } = useContext(AppContext);
+	const history = useHistory();
 	const [items, setItems] = useState([]);
 
 	useEffect(() => { init() }, []);
@@ -27,7 +29,7 @@ export const AppSidebar = ({ currentRoute }: IAppSidebarProps) => {
 	}
 
 	const onItemClicked = (path: string) => {
-		// route(path, true);
+		history.push(path);
 	}
 
 	return (

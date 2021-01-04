@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { RouteComponentProps, useHistory, withRouter } from 'react-router-dom';
 import { SidebarItemModel } from './sidebar.models';
 
-interface ISidebarProps {
+interface ISidebarProps extends RouteComponentProps {
 	title: string;
 	items: Array<SidebarItemModel>;
 	currentUrl: string;
 	onItemClicked: (path: string) => void;
 }
 
-export const Sidebar = ({ title, items, currentUrl, onItemClicked }: ISidebarProps) => {
+const SidebarBase = ({ title, items, currentUrl, onItemClicked }: ISidebarProps) => {
 
 	const [menuItems, setMenuItems] = useState<Array<SidebarItemModel>>([]);
 
@@ -58,21 +59,28 @@ export const Sidebar = ({ title, items, currentUrl, onItemClicked }: ISidebarPro
 				</a>
 
 				{menuItems.map(item =>
-					<li id={item.id} className={"nav-item level-0 " + (item.isActive ? "active" : "")}>
+					<li key={item.id} className={"nav-item level-0 " + (item.isActive ? "active" : "")}>
 						<a className="nav-link" onClick={() => navigate(`/${item.path}`)}>
 							{item.label}
 						</a>
 
-						{item.items && item.items.map(subItem => (
-							<li className={"nav-item level-1 " + (subItem.isActive ? "active" : "")}>
-								<a className="nav-link" onClick={() => navigate(`/${item.path}/${subItem.path}`)}>
-									{subItem.label}
-								</a>
-							</li>
-						))}
+						{item.items &&
+							<ul>
+								{item.items.map(subItem => (
+									<li key={subItem.id} className={"nav-item level-1 " + (subItem.isActive ? "active" : "")}>
+										<a className="nav-link" onClick={() => navigate(`/${item.path}/${subItem.path}`)}>
+											{subItem.label}
+										</a>
+									</li>
+								))}
+							</ul>
+						}
 					</li>
 				)}
 			</ul>
 		</nav>
 	);
 }
+
+
+export const Sidebar = withRouter(SidebarBase);

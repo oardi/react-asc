@@ -67,9 +67,9 @@ export const GlobalModal = ({
 			}>
 
 			{description &&
-				<p>
+				<div>
 					{description}
-				</p>
+				</div>
 			}
 
 			{

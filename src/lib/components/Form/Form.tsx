@@ -26,9 +26,11 @@ const CLASSNAME = 'Form';
 export class Form extends Component<IFormProps, IFormState> {
 	constructor(props: IFormProps) {
 		super(props);
+		this.state = { controls: undefined, isValid: false, isChanged: false, isSubmitted: false };
 	}
 
 	componentWillReceiveProps(nextProps: IFormProps) {
+		console.warn('componentWillReceiveProps', this.state);
 		if (!this.state.controls && nextProps.controls) {
 			this.setState({ controls: nextProps.controls });
 		}
