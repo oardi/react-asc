@@ -77,7 +77,6 @@ export class Form extends Component<IFormProps, IFormState> {
 	}
 
 	private handleInputChange(e: Event) {
-		// console.warn(CLASSNAME, e);
 		let { name, value, checked, type, files } = (e.target as HTMLInputElement);
 
 		// TODO! - read value from formElements

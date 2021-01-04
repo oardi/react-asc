@@ -1,7 +1,7 @@
-## Install Preact Craft via Github
+## Install React Craft via Github
 
 ```js
-npm install git+https://github.com/oardi/preact-craft.git
+npm install git+https://github.com/oardi/react-craft.git
 ```
 
 
@@ -16,14 +16,14 @@ npm install bootstrap@4.5
 
 ```scss
 @import "~bootstrap/scss/bootstrap";
-@import "preact-craft/lib/preact-craft.scss";
+@import "react-craft/lib/react-craft.scss";
 ```
 
 
 ## Start using the library
 
 ```js
-import { Button } from 'preact-craft';
+import { Button } from 'react-craft';
 
 const MyApp = () => {
 	return (

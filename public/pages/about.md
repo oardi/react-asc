@@ -10,13 +10,13 @@ Ardian Shala
 
 ## Credits and Thanks
 
-This Preact library aims to deliver reusable Twitter Bootstrap components.
+This React library aims to deliver reusable Twitter Bootstrap components.
 
-Thank you Preact Team for providing such a awesome library :)
+Thank you React Team for providing such a awesome library :)
 
 
 ## Dependencies
-- Preact
+- React
 - Twitter Bootstrap
 - axios
 
