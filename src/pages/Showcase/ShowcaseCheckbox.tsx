@@ -28,6 +28,6 @@ export const ShowcaseCheckboxBase = ({ settingValues, setSettingsControls }: ISh
 }
 
 export const ShowcaseCheckbox = withOptions<ICheckboxProps>(ShowcaseCheckboxBase, {
-	checked: false,
+	checked: true,
 	label: 'my checkbox'
 });

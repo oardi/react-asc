@@ -10,12 +10,17 @@ export interface ICheckboxProps extends HtmlBaseProps {
 	onChange?: (val: React.FocusEvent<HTMLInputElement>) => void;
 }
 
+const CLASSNAME = 'Checkbox';
 export const Checkbox = (props: ICheckboxProps) => {
 
 	const [isChecked, setIsChecked] = useState<boolean>(false);
 	const checkboxElement = useRef<HTMLInputElement>();
 
-	useEffect(() => { setIsChecked(props.checked) }, [props.checked]);
+	useEffect(() => {
+		if(props.checked === true || props.checked === false){
+			setIsChecked(props.checked)
+		}
+	}, [props.checked]);
 
 	const icons = {
 		default: squareRegularSvg,

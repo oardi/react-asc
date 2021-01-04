@@ -125,6 +125,7 @@ export const FormInput = ({
 				type === 'checkboxgroup' &&
 				options && options.map(option =>
 					<Checkbox
+						key={option.id}
 						label={option.label}
 						id={option.id}
 						name={name}

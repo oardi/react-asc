@@ -30,7 +30,6 @@ export class Form extends Component<IFormProps, IFormState> {
 	}
 
 	componentWillReceiveProps(nextProps: IFormProps) {
-		console.warn('componentWillReceiveProps', this.state);
 		if (!this.state.controls && nextProps.controls) {
 			this.setState({ controls: nextProps.controls });
 		}
@@ -78,12 +77,14 @@ export class Form extends Component<IFormProps, IFormState> {
 	}
 
 	private handleInputChange(e: Event) {
+		// console.warn(CLASSNAME, e);
 		let { name, value, checked, type, files } = (e.target as HTMLInputElement);
 
 		// TODO! - read value from formElements
 		const formControl = this.myForm.current[name];
 
 		if (type === 'checkbox' && (formControl as RadioNodeList).length > 0) {
+			console.warn('checkbox group - TODO');
 			const formControls = formControl as RadioNodeList;
 			const formControlsAsArray = Array.from(formControls);
 			const values = formControlsAsArray.map((control) => (control as HTMLInputElement).checked ? (control as HTMLInputElement).value : '').filter(v => v);
@@ -92,7 +93,7 @@ export class Form extends Component<IFormProps, IFormState> {
 
 		const field = this.getControl(name);
 		// redundant mit handleOnBlur
-		field.value = type === 'checkbox' && (value === 'on' || value === 'off') ? checked : value;
+		field.value = type === 'checkbox' ? checked : value; // && (value === 'on' || value === 'off')
 		field.isDirty = true;
 		field.errors = this.validateField(field.value, field.validators);
 		field.isValid = field.errors.length === 0;
