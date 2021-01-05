@@ -1,7 +1,6 @@
 export * from './AppBar';
 export * from './Button';
 export * from './Card';
-export * from './Chart';
 export * from './Checkbox';
 export * from './DropDown';
 export * from './Form';

@@ -1,6 +1,6 @@
 {
 	"name": "react-craft",
-	"version": "0.0.1",
+	"version": "1.15.0",
 	"description": "handcrafted react components",
 	"scripts": {
 		"start": "webpack serve --mode=development",
@@ -15,7 +15,6 @@
 	"author": "Ardian Shala",
 	"license": "MIT",
 	"dependencies": {
-		"@types/d3": "^6.2.0",
 		"@types/react": "16.9.56",
 		"@types/react-dom": "16.9.9",
 		"@types/react-router-dom": "5.1.6",
@@ -29,6 +28,7 @@
 	},
 	"devDependencies": {
 		"@rollup/plugin-json": "^4.1.0",
+		"@types/webpack": "^4.41.25",
 		"@types/webpack-env": "^1.15.3",
 		"clean-webpack-plugin": "3.0.0",
 		"copy-webpack-plugin": "^7.0.0",

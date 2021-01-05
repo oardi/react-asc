@@ -14,6 +14,9 @@
 - showcase - sourcecode for all comp
 
 
+## v1.15.0
+- removed chart
+
 ## v1.14.1
 - modalSerivce - show only one dialog
 

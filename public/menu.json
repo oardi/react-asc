@@ -30,11 +30,6 @@
 				"path": "card"
 			},
 			{
-				"id": "chart",
-				"label": "Chart",
-				"path": "chart"
-			},
-			{
 				"id": "checkbox",
 				"label": "Checkbox",
 				"path": "checkbox"

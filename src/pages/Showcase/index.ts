@@ -2,7 +2,6 @@ export * from './ShowcasePage';
 export * from './ShowcaseAppBar';
 export * from './ShowcaseButton';
 export * from './ShowcaseCard';
-export * from './ShowcaseChart';
 export * from './ShowcaseCheckbox';
 export * from './ShowcaseDropDown';
 export * from './ShowcaseForm';

@@ -21,7 +21,8 @@ module.exports = (env, argv) => {
 
 		devServer: {
 			open: true,
-			hot: true
+			hot: true,
+			port: 9000
 		},
 
 		resolve: { extensions: ['.ts', '.tsx', '.js', '.jsx'] },
