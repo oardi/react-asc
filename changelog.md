@@ -4,15 +4,19 @@
 ## TODO 
 
 - form - add generic interface for controly keys -> IControls<T>
-- tooltip - add component
-- radio - add component (formControl)
-- select - add component (formControl)
 - form - add match validator (i.e. password) + error message
 - form - password autocomplete
 - form - prepend, append inputGroup
+- form - enter -> submit
+- tooltip - add component
+- radio - add component (formControl)
+- select - add component (formControl)
 - modal - cancel should not throw unhandled error
 - showcase - sourcecode for all comp
 
+
+## v1.15.1
+- added key to dropDown menuItems
 
 ## v1.15.0
 - removed chart

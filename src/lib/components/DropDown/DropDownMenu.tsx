@@ -39,7 +39,8 @@ export const DropDownMenu = ({ items, children, className, menuPosition = 'left'
 					onClick: (e: Event) => {
 						item.props.onClick && item.props.onClick(e);
 						handleClickItem()
-					}
+					},
+					key: item.key
 				}))
 				: null}
 
