@@ -4,19 +4,7 @@ import { withOptions } from './components';
 
 const ShowcaseChartBase = () => {
 	return (
-		<LineChart data={
-			{
-				datasets: [{
-					label: 'Dataset 1',
-					data: [10, 20, 30]
-				}],
-				labels: [
-					'Red',
-					'Yellow',
-					'Blue'
-				]
-			}
-		} />
+		<LineChart />
 	);
 }
 

@@ -8,7 +8,7 @@ import svg from 'rollup-plugin-svg-import';
 
 export default {
 	input: "src/lib/index.ts",
-	external: ['react', 'react-dom', 'chart.js'],
+	external: ['react', 'react-dom', 'd3'],
 	output: [
 		{
 			file: pkg.main,
