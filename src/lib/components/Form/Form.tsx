@@ -46,7 +46,7 @@ export class Form extends Component<IFormProps, IFormState> {
 				[f]: this.getControl(f).value
 			}), {});
 
-			if (this.state.isValid) {
+			if (this.state.isValid && this.state.isSubmitted) {
 				this.props.onSubmit && this.props.onSubmit(values);
 			}
 			this.props.onChange && this.props.onChange(values);
