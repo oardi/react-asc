@@ -29,10 +29,14 @@ export class Form extends Component<IFormProps, IFormState> {
 		this.state = { controls: undefined, isValid: false, isChanged: false, isSubmitted: false };
 	}
 
-	componentWillReceiveProps(nextProps: IFormProps) {
-		if (!this.state.controls && nextProps.controls) {
-			this.setState({ controls: nextProps.controls });
+	static getDerivedStateFromProps(nextProps: IFormProps, state: IFormState) {
+		if (!state.controls && nextProps.controls) {
+			console.warn('CALL IT');
+			console.warn(state.controls);
+			console.warn(nextProps.controls);
+			return ({ controls: nextProps.controls });
 		}
+		return null;
 	}
 
 	myForm = createRef<HTMLFormElement>();

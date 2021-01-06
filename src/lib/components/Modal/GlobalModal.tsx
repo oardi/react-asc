@@ -28,8 +28,8 @@ export const GlobalModal = ({
 	isDismissable = false
 }: IModalProps) => {
 
-	// workaround for componentWillReceiveUpdates
-	const [myControls, setMyControls] = useState<IControls>({});
+	// workaround for getDerivedStateFromProps
+	const [myControls, setMyControls] = useState<IControls>(null);
 	useEffect(() => {
 		setMyControls({ ...formControls });
 	}, []);

@@ -3,6 +3,8 @@
 
 ## TODO 
 
+- form - select - add "choose" only if needed with config?
+- form - handle date and time
 - form - add generic interface for controly keys -> IControls<T>
 - form - add match validator (i.e. password) + error message
 - form - password autocomplete
@@ -14,6 +16,9 @@
 - modal - cancel should not throw unhandled error
 - showcase - sourcecode for all comp
 
+
+## v1.15.2
+- form - use getDerivedStateFromProps instead of componentWillReceiveProps
 
 ## v1.15.1
 - added key to dropDown menuItems

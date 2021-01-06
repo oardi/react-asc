@@ -22,7 +22,7 @@ export const ShowcaseFormBase = ({ settingValues, setSettingsControls }: IShowca
 		}),
 		firstName: new FormControl('', ['required'], 'text', { label: 'Firstname', autoFocus: true, placeholder: 'Firstname' }),
 		lastName: new FormControl('', [], 'text', { label: 'Lastname' }),
-		birthdate: new FormControl('', [], 'date', { label: 'Birthdate' }),
+		birthdate: new FormControl('2017-06-01', [], 'date', { label: 'Birthdate' }),
 		email: new FormControl('', ['email', 'required'], 'text', { label: 'E-Mail', hint: 'We will never share your email with anyone else' }),
 		optionsRadio: new FormControl('', [], 'radio', {
 			label: 'Options',
