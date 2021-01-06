@@ -17,6 +17,9 @@
 - showcase - sourcecode for all comp
 
 
+## v1.15.3
+- form - add destroy to reset state
+
 ## v1.15.2
 - form - use getDerivedStateFromProps instead of componentWillReceiveProps
 

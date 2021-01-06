@@ -9,10 +9,17 @@ export const ShowcaseFormBase = ({ settingValues, setSettingsControls }: IShowca
 	const [values, setValues] = useState({});
 	const myForm = useRef<Form>();
 
+	// const myDynamicForm = useRef<Form>();
+	// const [myDynamiccontrols, setMyDynamiccontrols] = useState<IControls>(null);
+
 	useEffect(() => {
 		setSettingsControls({
 			validateOnBlur: new FormControl(settingValues.validateOnBlur, [], 'checkbox', { label: 'validateOnBlur' }),
 		});
+
+		// setMyDynamiccontrols({
+		// 	myTest: new FormControl('', [], 'text', { label: 'myTest' }),
+		// });
 	}, []);
 
 	const controls: IControls = {
@@ -68,6 +75,15 @@ export const ShowcaseFormBase = ({ settingValues, setSettingsControls }: IShowca
 		setValues(values);
 	}
 
+	// const handleChangeDynamicControls = () => {
+	// 	loggerService.warn(CLASSNAME, 'handleChangeDynamicControls');
+	// 	// setMyDynamiccontrols(null);
+	// 	myDynamicForm.current.destroy();
+	// 	setMyDynamiccontrols({
+	// 		anotherControl: new FormControl('some default value', [], 'text', { label: 'another control' }),
+	// 	});
+	// }
+
 	return (
 		<Fragment>
 
@@ -90,7 +106,20 @@ export const ShowcaseFormBase = ({ settingValues, setSettingsControls }: IShowca
 
 			{/* <pre>
 				{JSON.stringify(values, null, 4)}
-			</pre> */}
+			</pre>
+
+			{/* <Form
+				ref={myDynamicForm}
+				controls={myDynamiccontrols}
+				onSubmit={onFormSubmit}
+			/>
+
+			<Button onClick={handleChangeDynamicControls}>
+				change dynamic controls
+			</Button>
+			<Button className="ml-2" onClick={() => myDynamicForm.current.handleFormSubmit()}>
+				submit
+			</Button> */}
 
 		</Fragment>
 	);

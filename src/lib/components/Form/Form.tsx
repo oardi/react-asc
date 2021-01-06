@@ -29,13 +29,17 @@ export class Form extends Component<IFormProps, IFormState> {
 		this.state = { controls: undefined, isValid: false, isChanged: false, isSubmitted: false };
 	}
 
+	destroy() {
+		console.warn('detroy');
+		this.setState({ controls: undefined, isValid: false, isChanged: false, isSubmitted: false });
+	}
+
 	static getDerivedStateFromProps(nextProps: IFormProps, state: IFormState) {
+
 		if (!state.controls && nextProps.controls) {
-			console.warn('CALL IT');
-			console.warn(state.controls);
-			console.warn(nextProps.controls);
 			return ({ controls: nextProps.controls });
 		}
+
 		return null;
 	}
 
