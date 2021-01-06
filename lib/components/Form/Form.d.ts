@@ -15,7 +15,10 @@ export interface IFormState {
 }
 export declare class Form extends Component<IFormProps, IFormState> {
     constructor(props: IFormProps);
-    componentWillReceiveProps(nextProps: IFormProps): void;
+    destroy(): void;
+    static getDerivedStateFromProps(nextProps: IFormProps, state: IFormState): {
+        controls: IControls;
+    };
     myForm: React.RefObject<HTMLFormElement>;
     handleChange(): void;
     private validateField;
