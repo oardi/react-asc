@@ -5,5 +5,6 @@ export interface ICheckboxProps extends HtmlBaseProps {
     label?: string;
     value?: string;
     onChange?: (val: React.FocusEvent<HTMLInputElement>) => void;
+    onKeyDown?: (event: any) => void;
 }
 export declare const Checkbox: (props: ICheckboxProps) => JSX.Element;

@@ -16,8 +16,9 @@ export interface IFormInputProps {
 	options?: Array<IFormInputOptions>;
 	textareaOptions?: IFormTextAreaOptions;
 	label?: string; // checkbox, radio - move?
-	onChange: (event) => void;
-	onBlur: (event) => void;
+	onChange?: (event) => void;
+	onBlur?: (event) => void;
+	onKeyDown?: (event) => void;
 }
 
 export const FormInput = ({
@@ -34,7 +35,8 @@ export const FormInput = ({
 	disabled = false,
 	readonly = false,
 	onChange,
-	onBlur
+	onBlur,
+	onKeyDown
 }: IFormInputProps) => {
 
 	return (
@@ -69,6 +71,7 @@ export const FormInput = ({
 					placeholder={placeholder}
 					readOnly={readonly}
 					disabled={disabled}
+					onKeyDown={onKeyDown}
 				/>
 
 				// autoComplete="new-password"
@@ -86,6 +89,7 @@ export const FormInput = ({
 					placeholder={placeholder}
 					rows={textareaOptions && textareaOptions.rows ? textareaOptions.rows : null}
 					style={textareaOptions && textareaOptions.resize !== false ? null : { resize: 'none' }}
+					onKeyDown={onKeyDown}
 				/>
 			}
 
@@ -98,6 +102,7 @@ export const FormInput = ({
 					value={value}
 					autoFocus={autoFocus}
 					onChange={onChange}
+					onKeyDown={onKeyDown}
 				>
 					<option value="">choose</option>
 					{/* TODO - add choose only if needed with config? */}
@@ -118,6 +123,7 @@ export const FormInput = ({
 					className={className + (!isValid ? ' is-invalid' : '')}
 					onChange={onChange}
 					checked={value}
+					onKeyDown={onKeyDown}
 				/>
 			}
 
@@ -132,6 +138,7 @@ export const FormInput = ({
 						value={option.value}
 						checked={value && value.some(v => v === option.value)}
 						onChange={onChange}
+						onKeyDown={onKeyDown}
 					/>
 				)
 			}
@@ -149,6 +156,7 @@ export const FormInput = ({
 								onChange={onChange}
 								value={option.value}
 								checked={value === option.value}
+								onKeyDown={onKeyDown}
 							/>
 							<label className="form-check-label" htmlFor={option.id}>
 								{option.label}

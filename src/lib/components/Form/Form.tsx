@@ -13,6 +13,7 @@ export interface IFormProps {
 	validateOnBlur?: boolean;
 	onSubmit?: (values: IFormValues) => void;
 	onChange?: (values: IFormValues) => void;
+	submitOnEnter?: boolean;
 }
 
 export interface IFormState {
@@ -20,13 +21,14 @@ export interface IFormState {
 	isValid: boolean;
 	isSubmitted: boolean;
 	isChanged: boolean;
+	submitOnEnter?: boolean;
 }
 
 const CLASSNAME = 'Form';
 export class Form extends Component<IFormProps, IFormState> {
 	constructor(props: IFormProps) {
 		super(props);
-		this.state = { controls: undefined, isValid: false, isChanged: false, isSubmitted: false };
+		this.state = { controls: undefined, isValid: false, isChanged: false, isSubmitted: false, submitOnEnter: props.submitOnEnter !== undefined ? props.submitOnEnter : true };
 	}
 
 	destroy() {
@@ -50,13 +52,13 @@ export class Form extends Component<IFormProps, IFormState> {
 			const keys = Object.keys(this.state.controls);
 			const values = keys.reduce((obj, f) => {
 				const control = this.getControl(f);
+				const newValue = (control.type === 'date' || control.type === 'datetime-local' && isValidDate(control.value)) ? new Date(control.value).toISOString() : control.value;
+
 				return ({
 					...obj,
-					[f]: control.type === 'date' || control.type === 'datetime-local' ? new Date(control.value).toISOString() : control.value
+					[f]: newValue
 				})
-			},
-				{}
-			);
+			}, {});
 
 			if (this.state.isValid && this.state.isSubmitted) {
 				this.props.onSubmit && this.props.onSubmit(values);
@@ -186,6 +188,12 @@ export class Form extends Component<IFormProps, IFormState> {
 		});
 	}
 
+	handleOnKeyDown(e: KeyboardEvent) {
+		if (e.key === 'Enter') {
+			this.state.submitOnEnter && this.handleFormSubmit();
+		}
+	}
+
 	render() {
 		return (
 			<form ref={this.myForm}>
@@ -215,6 +223,7 @@ export class Form extends Component<IFormProps, IFormState> {
 								readonly={this.getControl(fieldKey).config.readonly}
 								onChange={(e) => this.handleInputChange(e)}
 								onBlur={(e) => this.handleOnBlur(e)}
+								onKeyDown={(e) => this.handleOnKeyDown(e)}
 							/>
 
 							{
@@ -236,4 +245,9 @@ export class Form extends Component<IFormProps, IFormState> {
 			</form>
 		)
 	}
+}
+
+
+function isValidDate(dateObject) {
+	return new Date(dateObject).toString() !== 'Invalid Date';
 }

@@ -6,12 +6,14 @@ export interface IFormProps {
     validateOnBlur?: boolean;
     onSubmit?: (values: IFormValues) => void;
     onChange?: (values: IFormValues) => void;
+    submitOnEnter?: boolean;
 }
 export interface IFormState {
     controls: IControls;
     isValid: boolean;
     isSubmitted: boolean;
     isChanged: boolean;
+    submitOnEnter?: boolean;
 }
 export declare class Form extends Component<IFormProps, IFormState> {
     constructor(props: IFormProps);
@@ -30,5 +32,6 @@ export declare class Form extends Component<IFormProps, IFormState> {
     private renderLabel;
     handleFormSubmit(): void;
     handleFormReset(): void;
+    handleOnKeyDown(e: KeyboardEvent): void;
     render(): JSX.Element;
 }
