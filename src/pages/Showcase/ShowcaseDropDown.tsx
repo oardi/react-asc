@@ -21,16 +21,17 @@ const ShowcaseDropDownBase = () => {
 					</Button>
 				}
 				menu={
-					<DropDownMenu>
+					<DropDownMenu items={[
 						<DropDownItem onClick={() => handleClick('1')}>
 							Action
-						</DropDownItem>
+						</DropDownItem>,
 						<DropDownItem onClick={() => handleClick('2')}>
 							Another Action
-						</DropDownItem>
+						</DropDownItem>,
 						<DropDownItem onClick={() => handleClick('3')}>
 							Something
 						</DropDownItem>
+					]}>
 					</DropDownMenu>
 				}
 			/>

@@ -3,6 +3,7 @@
 
 ## TODO 
 
+- form - input debounce
 - form - select - add "choose" only if needed with config?
 - form - handle date and time
 - form - add generic interface for controly keys -> IControls<T>
@@ -16,6 +17,10 @@
 - modal - cancel should not throw unhandled error
 - showcase - sourcecode for all comp
 
+
+## v1.17.0
+- dropdown - added optional key to menuItems
+- hook - added debounce
 
 ## v1.16.2
 - form - fixed invalid date

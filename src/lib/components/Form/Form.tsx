@@ -22,6 +22,8 @@ export interface IFormState {
 	isSubmitted: boolean;
 	isChanged: boolean;
 	submitOnEnter?: boolean;
+
+	// values -> set onChange etc?
 }
 
 const CLASSNAME = 'Form';

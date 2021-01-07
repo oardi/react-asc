@@ -35,12 +35,12 @@ export const DropDownMenu = ({ items, children, className, menuPosition = 'left'
 		<div className={getCssClasses()}>
 
 			{items && !children ?
-				items.map(item => cloneElement(item, {
+				items.map((item, index) => cloneElement(item, {
 					onClick: (e: Event) => {
 						item.props.onClick && item.props.onClick(e);
 						handleClickItem()
 					},
-					key: item.key
+					key: item.key ? item.key : index
 				}))
 				: null}
 
