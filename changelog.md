@@ -17,6 +17,10 @@
 - showcase - sourcecode for all comp
 
 
+## v1.16.0
+- form - added datetime-local
+- added dayjs to showcase
+
 ## v1.15.3
 - form - add destroy to reset state
 

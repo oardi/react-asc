@@ -11,6 +11,8 @@ export type IControlType =
 	'color' |
 	'time' |
 	'file' |
-	'date';
+	'date' |
+	'datetime-local'
+	;
 
 export type IFormValidator = 'required' | 'email'

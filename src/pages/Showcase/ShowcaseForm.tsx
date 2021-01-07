@@ -2,6 +2,7 @@ import React, { Fragment, useContext, useEffect, useRef, useState } from 'react'
 import { AppContext } from '../../AppContext';
 import { FormControl, Form, IControls, Button, VARIANT, COLOR, IFormProps } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
+import dayjs from 'dayjs';
 
 const CLASSNAME = 'ShowcaseForm';
 export const ShowcaseFormBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IFormProps>) => {
@@ -9,17 +10,10 @@ export const ShowcaseFormBase = ({ settingValues, setSettingsControls }: IShowca
 	const [values, setValues] = useState({});
 	const myForm = useRef<Form>();
 
-	// const myDynamicForm = useRef<Form>();
-	// const [myDynamiccontrols, setMyDynamiccontrols] = useState<IControls>(null);
-
 	useEffect(() => {
 		setSettingsControls({
 			validateOnBlur: new FormControl(settingValues.validateOnBlur, [], 'checkbox', { label: 'validateOnBlur' }),
 		});
-
-		// setMyDynamiccontrols({
-		// 	myTest: new FormControl('', [], 'text', { label: 'myTest' }),
-		// });
 	}, []);
 
 	const controls: IControls = {
@@ -31,6 +25,7 @@ export const ShowcaseFormBase = ({ settingValues, setSettingsControls }: IShowca
 		lastName: new FormControl('', [], 'text', { label: 'Lastname' }),
 		birthdate: new FormControl('2017-06-01', [], 'date', { label: 'Birthdate' }),
 		email: new FormControl('', ['email', 'required'], 'text', { label: 'E-Mail', hint: 'We will never share your email with anyone else' }),
+		dateTime: new FormControl(dayjs('2021-01-07T08:27:00Z').format('YYYY-MM-DDThh:mm'), [], 'datetime-local', { label: 'DateTime' }),
 		optionsRadio: new FormControl('', [], 'radio', {
 			label: 'Options',
 			options: [
@@ -75,15 +70,6 @@ export const ShowcaseFormBase = ({ settingValues, setSettingsControls }: IShowca
 		setValues(values);
 	}
 
-	// const handleChangeDynamicControls = () => {
-	// 	loggerService.warn(CLASSNAME, 'handleChangeDynamicControls');
-	// 	// setMyDynamiccontrols(null);
-	// 	myDynamicForm.current.destroy();
-	// 	setMyDynamiccontrols({
-	// 		anotherControl: new FormControl('some default value', [], 'text', { label: 'another control' }),
-	// 	});
-	// }
-
 	return (
 		<Fragment>
 
@@ -95,6 +81,10 @@ export const ShowcaseFormBase = ({ settingValues, setSettingsControls }: IShowca
 				onChange={onFormChange}
 			/>
 
+			<pre>
+				{JSON.stringify(values, null, 2)}
+			</pre>
+
 			<div className="d-flex">
 				<Button className="ml-auto" onClick={handleClickReset} variant={VARIANT.outline} color={COLOR.secondary}>
 					reset
@@ -103,23 +93,6 @@ export const ShowcaseFormBase = ({ settingValues, setSettingsControls }: IShowca
 					submit
 				</Button>
 			</div>
-
-			{/* <pre>
-				{JSON.stringify(values, null, 4)}
-			</pre>
-
-			{/* <Form
-				ref={myDynamicForm}
-				controls={myDynamiccontrols}
-				onSubmit={onFormSubmit}
-			/>
-
-			<Button onClick={handleChangeDynamicControls}>
-				change dynamic controls
-			</Button>
-			<Button className="ml-2" onClick={() => myDynamicForm.current.handleFormSubmit()}>
-				submit
-			</Button> */}
 
 		</Fragment>
 	);

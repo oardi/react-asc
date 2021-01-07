@@ -48,6 +48,7 @@ export const FormInput = ({
 				(
 					type === 'text' ||
 					type === 'date' ||
+					type === 'datetime-local' ||
 					type === 'email' ||
 					type === 'number' ||
 					type === 'password' ||
