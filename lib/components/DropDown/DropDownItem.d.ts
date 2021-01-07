@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 export interface IDropDownItemProps {
+    key?: string;
     children?: ReactNode;
     onClick?: (e: React.MouseEvent) => void;
 }
