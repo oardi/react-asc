@@ -17,6 +17,9 @@
 - showcase - sourcecode for all comp
 
 
+## v1.16.1
+- form - date change return value to Iso
+
 ## v1.16.0
 - form - added datetime-local
 - added dayjs to showcase

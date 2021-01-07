@@ -30,7 +30,6 @@ export class Form extends Component<IFormProps, IFormState> {
 	}
 
 	destroy() {
-		console.warn('detroy');
 		this.setState({ controls: undefined, isValid: false, isChanged: false, isSubmitted: false });
 	}
 
@@ -46,13 +45,18 @@ export class Form extends Component<IFormProps, IFormState> {
 	myForm = createRef<HTMLFormElement>();
 
 	handleChange() {
-		// get value by myForm?
+		// get value by myForm instead of getControl?
 		if (this.state.isChanged || this.state.isSubmitted) {
 			const keys = Object.keys(this.state.controls);
-			const values = keys.reduce((obj, f) => ({
-				...obj,
-				[f]: this.getControl(f).value
-			}), {});
+			const values = keys.reduce((obj, f) => {
+				const control = this.getControl(f);
+				return ({
+					...obj,
+					[f]: control.type === 'date' || control.type === 'datetime-local' ? new Date(control.value).toISOString() : control.value
+				})
+			},
+				{}
+			);
 
 			if (this.state.isValid && this.state.isSubmitted) {
 				this.props.onSubmit && this.props.onSubmit(values);
@@ -91,7 +95,6 @@ export class Form extends Component<IFormProps, IFormState> {
 		const formControl = this.myForm.current[name];
 
 		if (type === 'checkbox' && (formControl as RadioNodeList).length > 0) {
-			console.warn('checkbox group - TODO');
 			const formControls = formControl as RadioNodeList;
 			const formControlsAsArray = Array.from(formControls);
 			const values = formControlsAsArray.map((control) => (control as HTMLInputElement).checked ? (control as HTMLInputElement).value : '').filter(v => v);
