@@ -3,6 +3,7 @@ import { AppContext } from '../../AppContext';
 import { FormControl, Checkbox, ICheckboxProps } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
+const CLASSNAME = 'ShowcaseCheckboxBase';
 export const ShowcaseCheckboxBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ICheckboxProps>) => {
 
 	const { loggerService } = useContext(AppContext);
@@ -14,8 +15,8 @@ export const ShowcaseCheckboxBase = ({ settingValues, setSettingsControls }: ISh
 		});
 	}, []);
 
-	const handleChange = (val: FocusEvent<HTMLInputElement>) => {
-		loggerService.debug('handleCheck', val);
+	const handleChange = (event: FocusEvent<HTMLInputElement>) => {
+		loggerService.debug(CLASSNAME, 'handleCheck', event.target.checked);
 	}
 
 	return (

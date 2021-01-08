@@ -1,4 +1,4 @@
-export type IControlType =
+export type IFormControlType =
 	'text' |
 	'textarea' |
 	'email' |
@@ -15,4 +15,4 @@ export type IControlType =
 	'datetime-local'
 	;
 
-export type IFormValidator = 'required' | 'email'
+export type IFormValidatorType = 'required' | 'email'

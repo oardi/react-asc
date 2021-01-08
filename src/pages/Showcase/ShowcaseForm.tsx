@@ -17,31 +17,30 @@ export const ShowcaseFormBase = ({ settingValues, setSettingsControls }: IShowca
 	}, []);
 
 	const controls: IControls = {
-		gender: new FormControl('', [], 'select', {
-			label: 'Gender',
-			options: [{ label: 'female', value: 'female' }, { label: 'male', value: 'male' }]
+		select: new FormControl('', [], 'select', {
+			label: 'Select',
+			options: [{ label: 'Option 1', value: 'option1' }, { label: 'Option 2', value: 'option2' }]
 		}),
-		firstName: new FormControl('', ['required'], 'text', { label: 'Firstname', autoFocus: true, placeholder: 'Firstname' }),
-		lastName: new FormControl('', [], 'text', { label: 'Lastname' }),
-		birthdate: new FormControl('2017-06-01', [], 'date', { label: 'Birthdate' }),
+		text: new FormControl('', ['required'], 'text', { label: 'Text', autoFocus: true, placeholder: 'Firstname' }),
 		email: new FormControl('', ['email', 'required'], 'text', { label: 'E-Mail', hint: 'We will never share your email with anyone else' }),
-		dateTime: new FormControl(dayjs('2021-01-07T08:27:00Z').format('YYYY-MM-DDThh:mm'), [], 'datetime-local', { label: 'DateTime' }),
-		optionsRadio: new FormControl('', [], 'radio', {
-			label: 'Options',
+		date: new FormControl('2017-06-01', [], 'date', { label: 'Date' }),
+		dateTimeLocal: new FormControl(dayjs('2021-01-07T08:27:00Z').format('YYYY-MM-DDThh:mm'), [], 'datetime-local', { label: 'DateTimeLocal' }),
+		radio: new FormControl('', [], 'radio', {
+			label: 'Radio',
 			options: [
 				{ id: 'radioOption1', label: 'Option 1', value: 'option1' },
 				{ id: 'radioOption2', label: 'Option 2', value: 'option2' }
 			]
 		}),
-		notes: new FormControl('', [], 'textarea', { label: 'Notes', placeholder: 'some notes', textareaOptions: { rows: 3, resize: false } }),
-		yearsOfExperience: new FormControl('', [], 'number', { label: 'Years of Experience' }),
+		textarea: new FormControl('', [], 'textarea', { label: 'Textarea', placeholder: 'some notes', textareaOptions: { rows: 3, resize: false } }),
+		number: new FormControl('', [], 'number', { label: 'Number' }),
 		password: new FormControl('', ['required'], 'password', { label: 'Password' }),
-		color: new FormControl('#FFFFFF', [], 'color', { label: 'Favourite color' }),
+		color: new FormControl('#FFFFFF', [], 'color', { label: 'Color' }),
 		time: new FormControl('', [], 'time', { label: 'Time' }),
 		file: new FormControl('', [], 'file', { label: 'File' }),
-		agb: new FormControl('', [], 'checkbox', { label: 'AGB' }),
-		optionsCheck: new FormControl(['option2'], [], 'checkboxgroup', {
-			label: 'Options',
+		checkbox: new FormControl('', [], 'checkbox', { label: 'Checkbox' }),
+		checkBoxGroup: new FormControl(['option2'], [], 'checkboxgroup', {
+			label: 'CheckBoxGroup',
 			options: [
 				{ id: 'checkboxOption1', label: 'Option 1', value: 'option1' },
 				{ id: 'checkboxOption2', label: 'Option 2', value: 'option2' },
@@ -66,7 +65,7 @@ export const ShowcaseFormBase = ({ settingValues, setSettingsControls }: IShowca
 	}
 
 	const onFormChange = (values) => {
-		loggerService.debug(CLASSNAME, 'onFormChange', values);
+		loggerService.debug(CLASSNAME, 'onFormChange', JSON.stringify(values, null, 2));
 		setValues(values);
 	}
 

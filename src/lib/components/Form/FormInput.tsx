@@ -1,16 +1,16 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Checkbox } from '../Checkbox';
 import { IFormInputOptions, IFormTextAreaOptions } from './form.interfaces';
-import { IControlType } from './form.types';
+import { IFormControlType } from './form.types';
 
 export interface IFormInputProps {
 	value: any;
 	name: string;
-	type: IControlType;
+	type: IFormControlType;
 	placeholder?: string;
 	className?: string;
-	disabled?: boolean; // TODO
-	readonly?: boolean; // TODO
+	disabled?: boolean;
+	readonly?: boolean;
 	isValid?: boolean;
 	autoFocus?: boolean;
 	options?: Array<IFormInputOptions>;
@@ -40,7 +40,7 @@ export const FormInput = ({
 }: IFormInputProps) => {
 
 	return (
-		<Fragment>
+		<>
 			{/*
 				'multiselect' |
 				'autocomplete' |
@@ -145,7 +145,7 @@ export const FormInput = ({
 
 			{
 				type === 'radio' &&
-				<Fragment>
+				<>
 					{options.map((option) =>
 						<div className="form-check" key={option.id}>
 							<input
@@ -163,9 +163,9 @@ export const FormInput = ({
 							</label>
 						</div>
 					)}
-				</Fragment>
+				</>
 			}
 
-		</Fragment>
+		</>
 	);
 };

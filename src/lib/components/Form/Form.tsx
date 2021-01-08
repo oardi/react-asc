@@ -33,16 +33,10 @@ export class Form extends Component<IFormProps, IFormState> {
 		this.state = { controls: undefined, isValid: false, isChanged: false, isSubmitted: false, submitOnEnter: props.submitOnEnter !== undefined ? props.submitOnEnter : true };
 	}
 
-	destroy() {
-		this.setState({ controls: undefined, isValid: false, isChanged: false, isSubmitted: false });
-	}
-
 	static getDerivedStateFromProps(nextProps: IFormProps, state: IFormState) {
-
 		if (!state.controls && nextProps.controls) {
 			return ({ controls: nextProps.controls });
 		}
-
 		return null;
 	}
 
@@ -98,7 +92,9 @@ export class Form extends Component<IFormProps, IFormState> {
 		// TODO! - read value from formElements
 		const formControl = this.myForm.current[name];
 
+		console.warn('type', type, (formControl as RadioNodeList).length);
 		if (type === 'checkbox' && (formControl as RadioNodeList).length > 0) {
+			console.warn('is checkbox group');
 			const formControls = formControl as RadioNodeList;
 			const formControlsAsArray = Array.from(formControls);
 			const values = formControlsAsArray.map((control) => (control as HTMLInputElement).checked ? (control as HTMLInputElement).value : '').filter(v => v);
@@ -107,7 +103,8 @@ export class Form extends Component<IFormProps, IFormState> {
 
 		const field = this.getControl(name);
 		// redundant mit handleOnBlur
-		field.value = type === 'checkbox' ? checked : value; // && (value === 'on' || value === 'off')
+		// field.value = type === 'checkbox' ? checked : value;
+		field.value = type === 'checkbox' && (value === 'on' || value === 'off') ? checked : value;
 		field.isDirty = true;
 		field.errors = this.validateField(field.value, field.validators);
 		field.isValid = field.errors.length === 0;
@@ -194,6 +191,10 @@ export class Form extends Component<IFormProps, IFormState> {
 		if (e.key === 'Enter') {
 			this.state.submitOnEnter && this.handleFormSubmit();
 		}
+	}
+
+	destroy() {
+		this.setState({ controls: undefined, isValid: false, isChanged: false, isSubmitted: false });
 	}
 
 	render() {

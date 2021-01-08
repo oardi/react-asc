@@ -17,7 +17,6 @@ export interface IFormState {
 }
 export declare class Form extends Component<IFormProps, IFormState> {
     constructor(props: IFormProps);
-    destroy(): void;
     static getDerivedStateFromProps(nextProps: IFormProps, state: IFormState): {
         controls: IControls;
     };
@@ -33,5 +32,6 @@ export declare class Form extends Component<IFormProps, IFormState> {
     handleFormSubmit(): void;
     handleFormReset(): void;
     handleOnKeyDown(e: KeyboardEvent): void;
+    destroy(): void;
     render(): JSX.Element;
 }

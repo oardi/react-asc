@@ -23,3 +23,22 @@ export interface IFormInputOptions {
 	value: string;
 	label: string;
 }
+
+export interface IFormControlConfig {
+	label: string;
+	placeholder?: string;
+	formControlClassName?: string;
+	formGroupClassName?: string;
+	labelClassName?: string;
+	labelPosition?: string;
+	autoFocus?: boolean;
+	hint?: string;
+	disabled?: boolean;
+	readonly?: boolean;
+
+	options?: Array<IFormInputOptions>;
+	// fileOptions
+	// fileOptions { accept, size }
+
+	textareaOptions?: IFormTextAreaOptions;
+}

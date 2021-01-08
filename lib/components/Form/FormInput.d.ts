@@ -1,10 +1,10 @@
 /// <reference types="react" />
 import { IFormInputOptions, IFormTextAreaOptions } from './form.interfaces';
-import { IControlType } from './form.types';
+import { IFormControlType } from './form.types';
 export interface IFormInputProps {
     value: any;
     name: string;
-    type: IControlType;
+    type: IFormControlType;
     placeholder?: string;
     className?: string;
     disabled?: boolean;

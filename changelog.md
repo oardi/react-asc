@@ -3,6 +3,7 @@
 
 ## TODO 
 
+- form - getControl - setControl from outside for disable?
 - form - input debounce
 - form - select - add "choose" only if needed with config?
 - form - handle date and time

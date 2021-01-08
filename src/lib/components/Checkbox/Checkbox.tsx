@@ -4,6 +4,9 @@ import { HtmlBaseProps } from '../component.interfaces';
 import { IconButton } from '../IconButton';
 
 export interface ICheckboxProps extends HtmlBaseProps {
+	id?: string;
+	name?: string;
+	className?: string;
 	checked?: boolean;
 	label?: string;
 	value?: string;
@@ -12,16 +15,16 @@ export interface ICheckboxProps extends HtmlBaseProps {
 }
 
 const CLASSNAME = 'Checkbox';
-export const Checkbox = (props: ICheckboxProps) => {
+export const Checkbox = ({ id, checked, className, label, name, value, onChange, onKeyDown }: ICheckboxProps) => {
 
 	const [isChecked, setIsChecked] = useState<boolean>(false);
 	const checkboxElement = useRef<HTMLInputElement>();
 
 	useEffect(() => {
-		if(props.checked === true || props.checked === false){
-			setIsChecked(props.checked)
+		if (checked === true || checked === false) {
+			setIsChecked(checked)
 		}
-	}, [props.checked]);
+	}, [checked]);
 
 	const icons = {
 		default: squareRegularSvg,
@@ -31,7 +34,7 @@ export const Checkbox = (props: ICheckboxProps) => {
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push('checkbox');
-		cssClasses.push(props.className);
+		cssClasses.push(className);
 		return cssClasses.join(' ');
 	};
 
@@ -45,7 +48,7 @@ export const Checkbox = (props: ICheckboxProps) => {
 	};
 
 	const handleChange = (e: React.FocusEvent<HTMLInputElement>) => {
-		props.onChange && props.onChange(e);
+		onChange && onChange(e);
 	}
 
 	return (
@@ -53,18 +56,20 @@ export const Checkbox = (props: ICheckboxProps) => {
 
 			<IconButton className={getCssClasses()} onClick={handleClick} icon={getIcon()} />
 
-			<label onClick={handleClick}>{props.label}</label>
+			<label onClick={handleClick}>
+				{label}
+			</label>
 
 			<input
 				type="checkbox"
 				ref={checkboxElement}
-				id={props.id}
-				name={props.name}
+				id={id}
+				name={name}
 				onChange={handleChange}
 				checked={isChecked}
 				hidden={true}
-				value={props.value}
-				onKeyDown={props.onKeyDown}
+				value={value}
+				onKeyDown={onKeyDown}
 			/>
 		</div>
 	);
