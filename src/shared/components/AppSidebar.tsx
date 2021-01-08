@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { AppContext } from '../AppContext';
-import { Sidebar } from '../lib';
+import { AppContext } from '../../AppContext';
+import { Sidebar } from '../../lib';
 
 interface IAppSidebarProps {
 	currentRoute: string;

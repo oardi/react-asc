@@ -62,6 +62,10 @@ module.exports = (env, argv) => {
 					]
 				},
 				{
+					test: /\.(md)$/,
+					loader: 'raw-loader'
+				},
+				{
 					test: /\.(woff|woff2|eot|ttf|otf)$/,
 					loader: 'file-loader',
 					options: {

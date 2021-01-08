@@ -15,14 +15,22 @@ export interface ICheckboxProps extends HtmlBaseProps {
 }
 
 const CLASSNAME = 'Checkbox';
-export const Checkbox = ({ id, checked, className, label, name, value, onChange, onKeyDown }: ICheckboxProps) => {
+export const Checkbox = ({ id, checked, className, label, name, value = "off", onChange, onKeyDown }: ICheckboxProps) => {
 
+	// TODO
+	// add own value
+	// set from outer
+	// update on change
+	// emit to outer
+	// can be: true/false, custom
+
+	// const [_value, setValue] = useState<any>(value !== undefined ? value : false);
 	const [isChecked, setIsChecked] = useState<boolean>(false);
 	const checkboxElement = useRef<HTMLInputElement>();
 
 	useEffect(() => {
 		if (checked === true || checked === false) {
-			setIsChecked(checked)
+			setIsChecked(checked);
 		}
 	}, [checked]);
 

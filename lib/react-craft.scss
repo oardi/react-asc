@@ -71,6 +71,7 @@ $theme-colors: (
 	border-radius: 100%;
 	padding: 0px;
 	display: flex;
+	flex-shrink: 0;
 	justify-content: center;
 	align-items: center;
 

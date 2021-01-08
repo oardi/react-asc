@@ -1,25 +1,19 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { AppContext } from '../AppContext';
+import React, { useEffect, useState } from 'react';
 import { Layout } from './Layout';
 import * as marked from 'marked'
+import changelogMd from '../../changelog.md';
 
 export const ChangelogPage = () => {
 
-	const [markup, setMarkup] = useState<string>(undefined);
-	const { loggerService, fileLoaderService } = useContext(AppContext);
+	const [changelog, setChangelog] = useState<string>();
 
-	useEffect(() => { init() }, []);
-
-	const init = async () => {
-		try {
-			const data = await fileLoaderService.get<string>('./public/changelog.md', { responseType: 'arraybuffer' });
-			setMarkup(marked(data.data));
-		} catch (err) { loggerService.error(err); }
-	}
+	useEffect(() => {
+		setChangelog(marked(changelogMd));
+	}, []);
 
 	return (
 		<Layout title="Changelog">
-			<div dangerouslySetInnerHTML={{ __html: markup }}></div>
+			<div dangerouslySetInnerHTML={{ __html: changelog }}></div>
 		</Layout>
 	);
 }

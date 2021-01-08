@@ -1,23 +1,5 @@
-
-# Changelog
-
-## TODO 
-
-- form - getControl - setControl from outside for disable?
-- form - input debounce
-- form - select - add "choose" only if needed with config?
-- form - handle date and time
-- form - add generic interface for controly keys -> IControls<T>
-- form - add match validator (i.e. password) + error message
-- form - password autocomplete
-- form - prepend, append inputGroup
-
-- tooltip - add component
-- radio - add component (formControl)
-- select - add component (formControl)
-- modal - cancel should not throw unhandled error
-- showcase - sourcecode for all comp
-
+## v1.18.0
+- showcase - added raw-loader, show changelog, refactor
 
 ## v1.17.0
 - dropdown - added optional key to menuItems

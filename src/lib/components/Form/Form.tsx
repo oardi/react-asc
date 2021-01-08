@@ -90,12 +90,11 @@ export class Form extends Component<IFormProps, IFormState> {
 		let { name, value, checked, type, files } = (e.target as HTMLInputElement);
 
 		// TODO! - read value from formElements
-		const formControl = this.myForm.current[name];
+		const htmlInputElement = this.myForm.current[name];
 
-		console.warn('type', type, (formControl as RadioNodeList).length);
-		if (type === 'checkbox' && (formControl as RadioNodeList).length > 0) {
-			console.warn('is checkbox group');
-			const formControls = formControl as RadioNodeList;
+		// TODO - type checkboxgroup with component?
+		if (type === 'checkbox' && (htmlInputElement as RadioNodeList).length > 0) {
+			const formControls = htmlInputElement as RadioNodeList;
 			const formControlsAsArray = Array.from(formControls);
 			const values = formControlsAsArray.map((control) => (control as HTMLInputElement).checked ? (control as HTMLInputElement).value : '').filter(v => v);
 			(value as any) = values;
@@ -103,7 +102,6 @@ export class Form extends Component<IFormProps, IFormState> {
 
 		const field = this.getControl(name);
 		// redundant mit handleOnBlur
-		// field.value = type === 'checkbox' ? checked : value;
 		field.value = type === 'checkbox' && (value === 'on' || value === 'off') ? checked : value;
 		field.isDirty = true;
 		field.errors = this.validateField(field.value, field.validators);

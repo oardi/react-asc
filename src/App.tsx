@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './style.scss';
 import * as Pages from './pages';
-import { LoggerService, SnackbarService } from './lib';
-import { AppSidebar } from './components';
+import { LoggerService, ModalService, SnackbarService } from './lib';
+import { AppSidebar } from './shared/components';
 import { AppContext, IAppContext } from './AppContext';
 import { FileLoaderService } from './shared';
 
@@ -13,13 +13,11 @@ export const App = () => {
 	const appContext: IAppContext = {
 		loggerService: loggerService,
 		fileLoaderService: new FileLoaderService(loggerService),
-		snackbarService: new SnackbarService()
+		snackbarService: new SnackbarService(),
+		modalService: new ModalService()
 	}
 
 	const [currentRoute, setCurrentRoute] = useState<string>('');
-	// const onRouteChange = (e: RouterOnChangeArgs) => {
-	// 	setCurrentRoute(e.url);
-	// };
 
 	return (
 		<AppContext.Provider value={appContext}>
