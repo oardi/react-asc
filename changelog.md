@@ -1,3 +1,6 @@
+## v1.22.1
+- showcase - style fixes
+
 ## v1.22.0
 - add sideBar to drawer
 - drawer - disable scroll when is open

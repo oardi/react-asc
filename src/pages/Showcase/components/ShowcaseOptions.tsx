@@ -11,7 +11,7 @@ interface IShowcaseOptionsProps {
 export const ShowcaseOptions = ({ controls, onFormChange }: IShowcaseOptionsProps) => {
 
 	return (
-		<div className="w-50 m-2">
+		<div className="col mt-2 mt-sm-0">
 
 			<ShowcaseSettings
 				controls={controls}

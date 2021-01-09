@@ -22,9 +22,9 @@ export const withOptions = <T,>(WrappedComponent, defaultSettingValues?: T) => {
 
 		// props passed to WrappedComponent
 		return (
-			<div className="mt-2 d-flex">
+			<div className="row  pt-2 pb-2">
 
-				<div className="w-50 m-2">
+				<div className="col">
 					<ShowcaseExample>
 						<WrappedComponent
 							{...props}
@@ -34,7 +34,7 @@ export const withOptions = <T,>(WrappedComponent, defaultSettingValues?: T) => {
 					</ShowcaseExample>
 
 					{settingValues &&
-						<Card className="mt-3">
+						<Card className="mt-2">
 							<CardBody>
 								<CardTitle>Setted Props</CardTitle>
 								<pre>
