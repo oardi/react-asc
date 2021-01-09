@@ -1,3 +1,7 @@
+## v1.21.0
+- drawer - added styles, added props
+- showcaseDrawer
+
 ## v1.20.0
 - added appInfo
 - backdrop - added component and added to dropdown and modal

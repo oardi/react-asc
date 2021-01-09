@@ -21,37 +21,16 @@ export const Modal = ({
 	isDismissable = false
 }: IModalProps) => {
 
-	let clickListener: EventListener;
-
-	const removeClickListener = () => {
-		if (clickListener) {
-			document.removeEventListener('click', clickListener);
-			clickListener = () => { };
-		}
-	};
-
-	const initClickBackdropListener = () => {
-		clickListener = (e: Event) => {
-			const modalDialog = document.querySelector('.modal-dialog');
-			const clickedOutside = modalDialog && !modalDialog.contains(e.target as Node);
-			if (clickedOutside) {
-				removeClickListener();
-				if (onBackdropClick) {
-					onBackdropClick();
-				}
-			}
-		};
-		document.addEventListener('click', clickListener);
-	};
-
 	useEffect(() => {
 		document.body.classList.add('modal-open');
-		initClickBackdropListener();
 		return () => {
 			document.body.classList.remove('modal-open');
-			removeClickListener();
 		};
 	}, []);
+
+	const handleClickBackdrop = () => {
+		onBackdropClick && onBackdropClick();
+	}
 
 	return (
 		<>
@@ -73,7 +52,7 @@ export const Modal = ({
 					</div>
 				</div>
 			</div>
-			<Backdrop />
+			<Backdrop onClick={handleClickBackdrop} />
 		</>
 	);
 };

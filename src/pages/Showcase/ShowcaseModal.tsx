@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { AppContext } from '../../AppContext';
 import { Button, FormControl, IControls, Modal, ModalService } from '../../lib';
 import { withOptions } from './components';
@@ -28,7 +28,7 @@ const ShowcaseModalBase = () => {
 	}
 
 	return (
-		<Fragment>
+		<>
 			<Button onClick={() => handleClickShowModal()}>
 				show modal
 			</Button>
@@ -47,7 +47,7 @@ const ShowcaseModalBase = () => {
 					some modal
 				</Modal>
 			}
-		</Fragment>
+		</>
 	);
 }
 

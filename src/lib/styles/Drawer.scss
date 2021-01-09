@@ -1,0 +1,9 @@
+.drawer {
+	height: 100%;
+	z-index: 1101;
+	bottom: 0;
+	position: fixed;
+	background: white;
+
+	min-width: 320px; // TODO - responsive
+}
