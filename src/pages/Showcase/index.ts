@@ -9,7 +9,7 @@ export * from './ShowcaseIconButton';
 export * from './ShowcaseList';
 export * from './ShowcaseModal';
 export * from './ShowcaseSnackbar';
-export * from './ShowcaseTreeview';
+export * from './ShowcaseTreeView';
 export * from './ShowcaseSvgIcon';
 
 export * from './assets';
