@@ -1,3 +1,6 @@
+## v1.22.2
+- fixed backdrop transparent
+
 ## v1.22.1
 - showcase - style fixes
 

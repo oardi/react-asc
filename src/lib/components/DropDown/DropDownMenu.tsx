@@ -45,7 +45,7 @@ export const DropDownMenu = ({ items, children, className, menuPosition = 'left'
 
 			{children && !items ? children : null}
 
-			<Backdrop onClick={handleClickItem} />
+			<Backdrop isTransparent onClick={handleClickItem} />
 		</div>
 	)
 }

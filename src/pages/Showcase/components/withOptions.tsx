@@ -24,7 +24,7 @@ export const withOptions = <T,>(WrappedComponent, defaultSettingValues?: T) => {
 		return (
 			<div className="row pt-2 pb-2">
 
-				<div className="col-12 col-md-6">
+				<div className="col-12 col-sm-6">
 					<ShowcaseExample>
 						<WrappedComponent
 							{...props}
@@ -45,7 +45,7 @@ export const withOptions = <T,>(WrappedComponent, defaultSettingValues?: T) => {
 					}
 				</div>
 
-				<div className="col-12 col-md-6 mt-2 mt-sm-0">
+				<div className="col-12 col-sm-6 mt-2 mt-sm-0">
 					<ShowcaseOptions
 						controls={settingsControls}
 						onFormChange={onFormChange}
