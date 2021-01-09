@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { AppContext } from '../../AppContext';
 import { Sidebar } from '../../lib';
 
 interface IAppSidebarProps {
-	currentRoute: string;
+	onItemClicked?: () => void;
 }
 
 interface MenuItem {
@@ -13,10 +13,11 @@ interface MenuItem {
 	icon?: string;
 }
 
-export const AppSidebar = ({ currentRoute }: IAppSidebarProps) => {
+export const AppSidebar = ({ onItemClicked }: IAppSidebarProps) => {
 
 	const { loggerService, fileLoaderService } = useContext(AppContext);
 	const history = useHistory();
+	const location = useLocation();
 	const [items, setItems] = useState([]);
 
 	useEffect(() => { init() }, []);
@@ -28,15 +29,16 @@ export const AppSidebar = ({ currentRoute }: IAppSidebarProps) => {
 		} catch (err) { loggerService.error(err); }
 	}
 
-	const onItemClicked = (path: string) => {
+	const handleItemClicked = (path: string) => {
+		onItemClicked && onItemClicked();
 		history.push(path);
 	}
 
 	return (
 		<Sidebar
 			items={items}
-			currentUrl={currentRoute}
-			onItemClicked={onItemClicked}
+			currentUrl={location.pathname}
+			onItemClicked={handleItemClicked}
 		/>
 	);
 }

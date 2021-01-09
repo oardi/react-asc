@@ -2,24 +2,25 @@ import React, { useEffect, useState } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import './style.scss';
 import * as Pages from './pages';
-import { AppBar, LoggerService, ModalService, SnackbarService } from './lib';
+import { AppBar, COLOR, Drawer, IconButton, LoggerService, ModalService, SnackbarService } from './lib';
 import { AppSidebar } from './shared/components';
 import { AppContext, IAppContext } from './AppContext';
 import { FileLoaderService } from './shared';
 import packageJson from '../package.json';
 import { AppInfo } from './shared/components/AppInfo';
+import { barsSolidSvg } from './pages';
 
 export const App = () => {
 
 	const [appInfo, setAppInfo] = useState<{ name: string, version: string }>(null);
-	const [currentRoute, setCurrentRoute] = useState<string>('');
+	const [showMenu, setShowMenu] = useState<boolean>(false);
 	const loggerService = new LoggerService();
 	const history = useHistory();
 	const appContext: IAppContext = {
 		loggerService: loggerService,
 		fileLoaderService: new FileLoaderService(loggerService),
 		snackbarService: new SnackbarService(),
-		modalService: new ModalService()
+		modalService: new ModalService(),
 	}
 
 	useEffect(() => { setAppInfo({ name: packageJson.name, version: packageJson.version }) }, []);
@@ -27,6 +28,7 @@ export const App = () => {
 	return (
 		<AppContext.Provider value={appContext}>
 			<AppBar>
+				<IconButton className="mr-2" color={COLOR.light} icon={barsSolidSvg} onClick={() => setShowMenu(!showMenu)} />
 				{appInfo && (
 					<div className="navbar-brand w-100" onClick={() => history.push('/')}>
 						{appInfo.name} (v.{appInfo.version})
@@ -35,11 +37,17 @@ export const App = () => {
 				<AppInfo />
 			</AppBar>
 
-			<div className="d-flex h-100">
+			<div className="main">
 
-				<AppSidebar currentRoute={currentRoute} />
+				{showMenu &&
+					<Drawer
+						onClickBackdrop={() => setShowMenu(false)}
+					>
+						<AppSidebar onItemClicked={() => setShowMenu(false)} />
+					</Drawer>
+				}
 
-				<div className="container-fluid" style={{ overflowY: 'auto' }}>
+				<div className="container">
 					<Switch>
 						<Route exact path="/" component={Pages.HomePage} />
 						<Route exact path="/about" component={Pages.AboutPage} />
@@ -63,6 +71,6 @@ export const App = () => {
 					</Switch>
 				</div>
 			</div>
-		</AppContext.Provider>
+		</AppContext.Provider >
 	);
 }

@@ -5,6 +5,7 @@ export interface IIconButtonProps {
 	icon?: string;
 	color?: COLOR;
 	disabled?: boolean;
+	isActive?: boolean;
 	onClick?: (e: MouseEvent) => void;
 	variant?: VARIANT;
 	className?: string;
@@ -14,6 +15,7 @@ export const IconButton = ({
 	icon,
 	color = COLOR.primary,
 	disabled = false,
+	isActive = false,
 	onClick,
 	variant = VARIANT.normal,
 	className
@@ -34,10 +36,9 @@ export const IconButton = ({
 			cssClasses.push(`btn-link`);
 			cssClasses.push(`btn-link-${color}`);
 		}
-		// if (isFloating) {
-		// 	cssClasses.push(`floating`);
-		// 	cssClasses.push(`${position}`);
-		// }
+		if (isActive) {
+			cssClasses.push('active');
+		}
 
 		cssClasses.push(className);
 		return cssClasses.join(' ');

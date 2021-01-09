@@ -5,5 +5,7 @@
 	position: fixed;
 	background: white;
 
-	min-width: 320px; // TODO - responsive
+	min-width: 280px; // TODO - responsive
+
+	overflow-y: auto;
 }

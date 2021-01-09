@@ -9,7 +9,7 @@ const ShowcaseIconButtonBase = ({ settingValues, setSettingsControls }: IShowcas
 			className: new FormControl(settingValues.className, [], 'text', { label: 'className', placeholder: 'css class' }),
 			color: new FormControl(settingValues.color, [], 'select', { label: 'color', options: Object.keys(COLOR).map(c => ({ label: c, value: c })) }),
 			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' }),
-			// isActive: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'isActive' }),
+			isActive: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'isActive' }),
 			variant: new FormControl(settingValues.variant, [], 'select', { label: 'variant', options: Object.keys(VARIANT).map(c => ({ label: c, value: c })) }),
 		});
 	}, []);
@@ -19,6 +19,7 @@ const ShowcaseIconButtonBase = ({ settingValues, setSettingsControls }: IShowcas
 			<IconButton
 				className={settingValues.className}
 				color={settingValues.color}
+				isActive={settingValues.isActive}
 				disabled={settingValues.disabled}
 				icon={homeSolidSvg}
 				variant={settingValues.variant}

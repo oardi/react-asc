@@ -1,5 +1,4 @@
 .sidebar {
-	width: 16rem !important;
 
 	&.navbar {
 		padding: 0;
@@ -19,24 +18,5 @@
 		text-transform: uppercase;
 		letter-spacing: 0.05rem;
 		z-index: 1;
-	}
-
-	// .navbar-dark .sidebar-brand {
-	// 	color: #fff;
-	// }
-
-	// .navbar-dark .nav-item .nav-link:hover {
-	// 	color: #fff;
-	// }
-
-	.nav-item {
-		&:hover {
-			// background-color: rgba(245, 248, 251, 0.5);
-			cursor: pointer;
-		}
-
-		&.level-1 {
-			padding-left: 15px;
-		}
 	}
 }

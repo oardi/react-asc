@@ -3,6 +3,7 @@ import React, { MouseEvent, ReactNode } from 'react';
 interface IListItemProps {
 	children?: ReactNode;
 	active?: boolean;
+	className?: string;
 	isHoverable?: boolean;
 	isDisabled?: boolean;
 	onClick?: (e: MouseEvent) => void;
@@ -11,6 +12,7 @@ interface IListItemProps {
 export const ListItem = ({
 	children,
 	active = false,
+	className,
 	isHoverable = true,
 	isDisabled = false,
 	onClick
@@ -27,6 +29,9 @@ export const ListItem = ({
 		}
 		if (isDisabled) {
 			cssClasses.push(`disabled`);
+		}
+		if (className) {
+			cssClasses.push(className);
 		}
 		return cssClasses.join(' ');
 	}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { IControls } from '../../../lib';
-import { ShowcaseApiOptions } from './ShowcaseApiOptions';
+// import { ShowcaseApiOptions } from './ShowcaseApiOptions';
 import { ShowcaseSettings } from './ShowcaseSettings';
 
 interface IShowcaseOptionsProps {
@@ -18,7 +18,7 @@ export const ShowcaseOptions = ({ controls, onFormChange }: IShowcaseOptionsProp
 				onFormChange={onFormChange}
 			/>
 
-			<ShowcaseApiOptions />
+			{/* <ShowcaseApiOptions /> */}
 		</div>
 	);
 }

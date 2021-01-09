@@ -1,3 +1,8 @@
+## v1.22.0
+- add sideBar to drawer
+- drawer - disable scroll when is open
+- list - refactored
+
 ## v1.21.0
 - drawer - added styles, added props
 - showcaseDrawer

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { List, ListItem } from '../List';
 import { SidebarItemModel } from './sidebar.models';
 
 interface ISidebarProps {
@@ -42,43 +43,48 @@ export const Sidebar = ({ title, items, currentUrl, onItemClicked }: ISidebarPro
 		return path === currentUrl || ("/" + path) === currentUrl;
 	}
 
-	const navigate = (path: string) => {
+	const navigate = (e: React.MouseEvent, path: string) => {
+		e.stopPropagation();
 		onItemClicked(path);
 	}
 
 	return (
 		<nav className="sidebar navbar navbar-expand-lg align-items-start">
-			<ul className="navbar-nav navbar-dark accordion d-flex flex-column">
-				{title && (
-					<a className="sidebar-brand">
-						<div className="sidebar-brand-icon rotate-n-15">
-						</div>
-						<div className="sidebar-brand-text mx-3">
-							{title}
-						</div>
-					</a>
-				)}
+			{/* {title && (
+				<a className="sidebar-brand">
+					<div className="sidebar-brand-icon rotate-n-15">
+					</div>
+					<div className="sidebar-brand-text mx-3">
+						{title}
+					</div>
+				</a>
+			)} */}
 
+			<List>
 				{menuItems.map(item =>
-					<li key={item.id} className={"nav-item level-0 " + (item.isActive ? "active" : "")}>
-						<a className="nav-link" onClick={() => navigate(`/${item.path}`)}>
+					<ListItem
+						key={item.id}
+						onClick={(e) => navigate(e, `/${item.path}`)}
+					>
+						<div className="d-flex flex-column w-100">
 							{item.label}
-						</a>
 
-						{item.items &&
-							<ul>
-								{item.items.map(subItem => (
-									<li key={subItem.id} className={"nav-item level-1 " + (subItem.isActive ? "active" : "")}>
-										<a className="nav-link" onClick={() => navigate(`/${item.path}/${subItem.path}`)}>
+							{item.items &&
+								<List>
+									{item.items.map(subItem => (
+										<ListItem
+											key={subItem.id}
+											onClick={(e) => navigate(e, `/${item.path}/${subItem.path}`)}
+										>
 											{subItem.label}
-										</a>
-									</li>
-								))}
-							</ul>
-						}
-					</li>
+										</ListItem>
+									))}
+								</List>
+							}
+						</div>
+					</ListItem>
 				)}
-			</ul>
+			</List>
 		</nav>
 	);
 }

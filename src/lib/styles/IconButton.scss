@@ -30,25 +30,16 @@
 
 @each $color, $value in $theme-colors {
 	.btn-icon-#{$color} {
-		color: $value;
-		// background: #d6e0e6;
+		color: $value !important;
 
 		.isSVG {
 			background-color: $value;
 		}
 
-		&:hover {
+		&:hover,
+		&.active {
 			text-decoration: none;
 			background-color: rgba($value, 0.1);
-		}
-
-		&:active {
-			text-decoration: none;
-			color: $value;
-
-			.isSVG {
-				background-color: $value;
-			}
 		}
 	}
 

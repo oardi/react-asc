@@ -43,7 +43,9 @@
 	position: fixed;
 	background: white;
 
-	min-width: 320px; // TODO - responsive
+	min-width: 280px; // TODO - responsive
+
+	overflow-y: auto;
 }
 
 .dropdown {
@@ -109,25 +111,16 @@ $theme-colors: (
 
 @each $color, $value in $theme-colors {
 	.btn-icon-#{$color} {
-		color: $value;
-		// background: #d6e0e6;
+		color: $value !important;
 
 		.isSVG {
 			background-color: $value;
 		}
 
-		&:hover {
+		&:hover,
+		&.active {
 			text-decoration: none;
 			background-color: rgba($value, 0.1);
-		}
-
-		&:active {
-			text-decoration: none;
-			color: $value;
-
-			.isSVG {
-				background-color: $value;
-			}
 		}
 	}
 
@@ -137,6 +130,7 @@ $theme-colors: (
 }
 
 .list {
+	width: 100%;
 	.list-group-item {
 		border-radius: 0;
 
@@ -187,7 +181,6 @@ $theme-colors: (
 }
 
 .sidebar {
-	width: 16rem !important;
 
 	&.navbar {
 		padding: 0;
@@ -207,25 +200,6 @@ $theme-colors: (
 		text-transform: uppercase;
 		letter-spacing: 0.05rem;
 		z-index: 1;
-	}
-
-	// .navbar-dark .sidebar-brand {
-	// 	color: #fff;
-	// }
-
-	// .navbar-dark .nav-item .nav-link:hover {
-	// 	color: #fff;
-	// }
-
-	.nav-item {
-		&:hover {
-			// background-color: rgba(245, 248, 251, 0.5);
-			cursor: pointer;
-		}
-
-		&.level-1 {
-			padding-left: 15px;
-		}
 	}
 }
 
