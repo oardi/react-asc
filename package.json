@@ -1,6 +1,6 @@
 {
 	"name": "react-craft",
-	"version": "1.19.0",
+	"version": "1.20.0",
 	"description": "handcrafted react components",
 	"scripts": {
 		"start": "webpack serve --mode=development",

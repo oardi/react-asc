@@ -34,7 +34,6 @@ export const AppSidebar = ({ currentRoute }: IAppSidebarProps) => {
 
 	return (
 		<Sidebar
-			title="React Craft"
 			items={items}
 			currentUrl={currentRoute}
 			onItemClicked={onItemClicked}

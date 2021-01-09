@@ -1,5 +1,4 @@
 .sidebar {
-	background: var(--primary);
 	width: 16rem !important;
 
 	&.navbar {
@@ -22,13 +21,13 @@
 		z-index: 1;
 	}
 
-	.navbar-dark .sidebar-brand {
-		color: #fff;
-	}
+	// .navbar-dark .sidebar-brand {
+	// 	color: #fff;
+	// }
 
-	.navbar-dark .nav-item .nav-link:hover {
-		color: #fff;
-	}
+	// .navbar-dark .nav-item .nav-link:hover {
+	// 	color: #fff;
+	// }
 
 	.nav-item {
 		&:hover {

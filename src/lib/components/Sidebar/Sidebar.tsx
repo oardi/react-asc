@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { SidebarItemModel } from './sidebar.models';
 
 interface ISidebarProps {
-	title: string;
+	title?: string;
 	items: Array<SidebarItemModel>;
 	currentUrl: string;
 	onItemClicked: (path: string) => void;
@@ -47,15 +47,17 @@ export const Sidebar = ({ title, items, currentUrl, onItemClicked }: ISidebarPro
 	}
 
 	return (
-		<nav className="sidebar navbar navbar-expand-lg navbar-dark bg-primary align-items-start">
+		<nav className="sidebar navbar navbar-expand-lg align-items-start">
 			<ul className="navbar-nav navbar-dark accordion d-flex flex-column">
-				<a className="sidebar-brand">
-					<div className="sidebar-brand-icon rotate-n-15">
-					</div>
-					<div className="sidebar-brand-text mx-3">
-						{title}
-					</div>
-				</a>
+				{title && (
+					<a className="sidebar-brand">
+						<div className="sidebar-brand-icon rotate-n-15">
+						</div>
+						<div className="sidebar-brand-text mx-3">
+							{title}
+						</div>
+					</a>
+				)}
 
 				{menuItems.map(item =>
 					<li key={item.id} className={"nav-item level-0 " + (item.isActive ? "active" : "")}>

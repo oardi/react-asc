@@ -1,7 +1,7 @@
 import React, { Fragment, ReactElement, ReactNode, useEffect } from 'react';
 import { ModalHeader } from './ModalHeader';
 import { ModalBody } from './ModalBody';
-import { ModalBackdrop } from './ModalBackdrop';
+import { Backdrop } from '../Backdrop';
 
 interface IModalProps {
 	children?: ReactNode;
@@ -54,7 +54,7 @@ export const Modal = ({
 	}, []);
 
 	return (
-		<Fragment>
+		<>
 			<div className="modal show" style={{ display: 'block' }}>
 				<div className="modal-dialog modal-dialog-centered" role="document">
 					<div className="modal-content">
@@ -73,7 +73,7 @@ export const Modal = ({
 					</div>
 				</div>
 			</div>
-			<ModalBackdrop />
-		</Fragment>
+			<Backdrop />
+		</>
 	);
 };

@@ -3,6 +3,7 @@ export * from './ShowcaseAppBar';
 export * from './ShowcaseButton';
 export * from './ShowcaseCard';
 export * from './ShowcaseCheckbox';
+export * from './ShowcaseDrawer';
 export * from './ShowcaseDropDown';
 export * from './ShowcaseForm';
 export * from './ShowcaseIconButton';

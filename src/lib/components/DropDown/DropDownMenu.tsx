@@ -1,7 +1,6 @@
 import React, { cloneElement, ReactElement, ReactNode, useContext } from 'react';
-import { DropDownBackdrop } from './DropDownBackdrop';
+import { Backdrop } from '../Backdrop';
 import { DropDownContext } from './DropdownContext';
-import { IDropDownItemProps } from './DropDownItem';
 
 interface IDropDownMenuProps {
 	children?: ReactNode;
@@ -46,7 +45,7 @@ export const DropDownMenu = ({ items, children, className, menuPosition = 'left'
 
 			{children && !items ? children : null}
 
-			<DropDownBackdrop onClick={handleClickItem} />
+			<Backdrop onClick={handleClickItem} />
 		</div>
 	)
 }

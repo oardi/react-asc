@@ -1,7 +1,7 @@
 /// <reference types="react" />
 import { SidebarItemModel } from './sidebar.models';
 interface ISidebarProps {
-    title: string;
+    title?: string;
     items: Array<SidebarItemModel>;
     currentUrl: string;
     onItemClicked: (path: string) => void;

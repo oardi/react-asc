@@ -35,6 +35,11 @@
 				"path": "checkbox"
 			},
 			{
+				"id": "drawer",
+				"label": "Drawer",
+				"path": "drawer"
+			},
+			{
 				"id": "dropdown",
 				"label": "DropDown",
 				"path": "dropdown"
@@ -75,11 +80,6 @@
 				"path": "treeview"
 			}
 		]
-	},
-	{
-		"id": "changelog",
-		"label": "Changelog",
-		"path": "changelog"
 	},
 	{
 		"id": "about",

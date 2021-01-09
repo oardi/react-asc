@@ -1,3 +1,9 @@
+## v1.20.0
+- added appInfo
+- backdrop - added component and added to dropdown and modal
+- changed layout
+- init drawer
+
 ## v1.19.0
 - dropdown - added divider
 

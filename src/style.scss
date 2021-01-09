@@ -1,5 +1,6 @@
 $enable-shadows: true;
 @import "./lib/styles/colors.scss";
+$grid-gutter-width: 20px;
 @import "~bootstrap/scss/bootstrap";
 @import "./lib/styles/style.scss";
 
@@ -11,6 +12,7 @@ body,
 
 #app {
 	display: flex;
+	flex-direction: column;
 }
 
 .overflow-x-hidden {
@@ -19,11 +21,4 @@ body,
 
 .overflow-y {
 	overflow-y: scroll;
-}
-
-.home {
-	.card {
-		flex: 1 1 0px;
-		margin: 5px;
-	}
 }

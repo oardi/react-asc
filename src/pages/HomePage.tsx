@@ -14,27 +14,33 @@ export const HomePage = () => {
 				<Button className="ml-2">Github</Button>
 			</div>
 
-			<div className="d-flex mt-2">
-				<Card>
-					<CardBody>
-						<CardTitle>Twitter Bootstrap 4.5</CardTitle>
-						<CardText>TODO</CardText>
-					</CardBody>
-				</Card>
+			<div className="row mt-2">
+				<div className="col">
+					<Card>
+						<CardBody>
+							<CardTitle>Twitter Bootstrap 4.5</CardTitle>
+							<CardText>TODO</CardText>
+						</CardBody>
+					</Card>
+				</div>
 
-				<Card>
-					<CardBody>
-						<CardTitle>Well documentated</CardTitle>
-						<CardText>TODO</CardText>
-					</CardBody>
-				</Card>
+				<div className="col">
+					<Card>
+						<CardBody>
+							<CardTitle>Well documentated</CardTitle>
+							<CardText>TODO</CardText>
+						</CardBody>
+					</Card>
+				</div>
 
-				<Card>
-					<CardBody>
-						<CardTitle>Compatible</CardTitle>
-						<CardText>TODO</CardText>
-					</CardBody>
-				</Card>
+				<div className="col">
+					<Card>
+						<CardBody>
+							<CardTitle>Compatible</CardTitle>
+							<CardText>TODO</CardText>
+						</CardBody>
+					</Card>
+				</div>
 			</div>
 
 		</Layout>

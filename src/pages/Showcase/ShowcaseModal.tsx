@@ -43,7 +43,7 @@ const ShowcaseModalBase = () => {
 
 			{
 				isVisible &&
-				<Modal onBackdropClick={() => handleClickShowModal()}>
+				<Modal>
 					some modal
 				</Modal>
 			}
