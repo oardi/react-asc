@@ -41,6 +41,8 @@
 		z-index: 1111;
 
 		.dropdown-item {
+			display: flex;
+
 			&:hover {
 				cursor: pointer;
 			}

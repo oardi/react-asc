@@ -1,3 +1,6 @@
+## v1.19.0
+- dropdown - added divider
+
 ## v1.18.0
 - showcase - added raw-loader, show changelog, refactor
 
