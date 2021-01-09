@@ -1,3 +1,6 @@
+## v1.22.3
+- drawer - fixed cssClass
+
 ## v1.22.2
 - fixed backdrop transparent
 

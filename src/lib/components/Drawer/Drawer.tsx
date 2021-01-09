@@ -12,9 +12,9 @@ export interface IDrawerProps {
 export const Drawer = ({ children, position = 'left', onClickBackdrop }: IDrawerProps) => {
 
 	useEffect(() => {
-		document.body.classList.add('modal-open');
+		document.body.classList.add('drawer-open');
 		return () => {
-			document.body.classList.remove('modal-open');
+			document.body.classList.remove('drawer-open');
 		};
 	}, []);
 
