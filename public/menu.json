@@ -75,6 +75,11 @@
 				"path": "snackbar"
 			},
 			{
+				"id": "tabset",
+				"label": "Tabset",
+				"path": "tabset"
+			},
+			{
 				"id": "treeview",
 				"label": "TreeView",
 				"path": "treeview"

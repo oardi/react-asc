@@ -1,3 +1,7 @@
+## v1.23.0
+- tabset - added component
+- tab - added component
+
 ## v1.22.6
 - refactored structure
 

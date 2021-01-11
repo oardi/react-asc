@@ -1,10 +1,9 @@
 /// <reference types="react" />
-import { SidebarItemModel } from './sidebar.models';
+import { ISidebarItem } from './sidebar.interfaces';
 interface ISidebarProps {
-    title?: string;
-    items: Array<SidebarItemModel>;
+    items: Array<ISidebarItem>;
     currentUrl: string;
     onItemClicked: (path: string) => void;
 }
-export declare const Sidebar: ({ title, items, currentUrl, onItemClicked }: ISidebarProps) => JSX.Element;
+export declare const Sidebar: ({ items, currentUrl, onItemClicked }: ISidebarProps) => JSX.Element;
 export {};

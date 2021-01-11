@@ -38,6 +38,9 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 - password autocomplete
 - prepend, append inputGroup
 
+### tabset
+- selectedEventKey - init + onchange
+
 ### tooltip 
 - add component
 

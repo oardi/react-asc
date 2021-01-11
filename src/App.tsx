@@ -83,6 +83,7 @@ export const App = () => {
 						<Route exact path="/showcase/modal" component={Pages.ShowcaseModal} />
 						<Route exact path="/showcase/snackbar" component={Pages.ShowcaseSnackbar} />
 						<Route exact path="/showcase/svgicon" component={Pages.ShowcaseSvgIcon} />
+						<Route exact path="/showcase/tabset" component={Pages.ShowcaseTabset} />
 						<Route exact path="/showcase/treeview" component={Pages.ShowcaseTreeView} />
 
 						<Route render={() => <div>404 - Missing!</div>} />

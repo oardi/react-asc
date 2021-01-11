@@ -1,0 +1,13 @@
+.tabset {
+	.nav-item {
+		&:hover {
+			.nav-link {
+				cursor: pointer;
+
+				&:hover.disabled {
+					cursor: not-allowed;
+				}
+			}
+		}
+	}
+}
