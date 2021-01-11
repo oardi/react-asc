@@ -1,3 +1,6 @@
+## v1.26.0
+- table - added component & showcase
+
 ## v1.25.0
 - refactored showcaseRoutes
 - refactored menu

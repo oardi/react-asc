@@ -10,6 +10,7 @@ export * from './ShowcaseIconButton';
 export * from './ShowcaseList';
 export * from './ShowcaseModal';
 export * from './ShowcaseSnackbar';
+export * from './ShowcaseTable';
 export * from './ShowcaseTabset';
 export * from './ShowcaseTreeView';
 export * from './ShowcaseSvgIcon';

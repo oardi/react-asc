@@ -13,6 +13,7 @@ export * from './Modal';
 export * from './Sidebar';
 export * from './SvgIcon';
 export * from './Snackbar';
+export * from './Table';
 export * from './Tabset';
 export * from './TreeView';
 export * from './component.enums';
