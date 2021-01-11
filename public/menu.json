@@ -25,6 +25,11 @@
 				"path": "button"
 			},
 			{
+				"id": "breadcrumb",
+				"label": "Breadcrumb",
+				"path": "breadcrumb"
+			},
+			{
 				"id": "card",
 				"label": "Card",
 				"path": "card"

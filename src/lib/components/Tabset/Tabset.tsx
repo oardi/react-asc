@@ -3,12 +3,20 @@ import { ITabProps } from './Tab';
 
 export interface ITabsetProps {
 	children?: React.ReactElement<ITabProps> | Array<React.ReactElement<ITabProps>>;
+	className?: string;
 	// selectedEventKey // TODO init + onchange
 }
 
-export const Tabset = ({ children }: ITabsetProps) => {
+export const Tabset = ({ children, className }: ITabsetProps) => {
 
 	const [selectedTabKey, setSelectedTabKey] = useState<string>(null);
+
+	const getCssClasses = () => {
+		const cssClasses: Array<string> = [];
+		cssClasses.push("nav nav-tabs tabset");
+		cssClasses.push(className);
+		return cssClasses.join(' ');
+	};
 
 	useEffect(() => {
 		if (children) {
@@ -28,7 +36,7 @@ export const Tabset = ({ children }: ITabsetProps) => {
 
 	return (
 		<div>
-			<ul className="nav nav-tabs tabset">
+			<ul className={getCssClasses()}>
 
 				{(children as Array<React.ReactElement<ITabProps>>).map((child) => (
 

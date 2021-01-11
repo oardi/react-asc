@@ -18,6 +18,7 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 - Sidebar
 - Snackbar
 - SvgIcon
+- Tabset
 - TreeView
 
 ## TODO
@@ -29,6 +30,7 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 - add component
 
 ### form 
+- novalidate to form-input to disable default behaviour
 - getControl - setControl from outside for disable?
 - input debounce
 - select - add "choose" only if needed with config?
@@ -56,6 +58,11 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 ### showcase 
 - sourcecode for all comp
 
+### select - single, multi, search, optionsGroup, icons
+### autocomplete
+### datepicker
+### timepicker
+### switch
 
 
 ## Credit 

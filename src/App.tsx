@@ -73,6 +73,7 @@ export const App = () => {
 						<Route exact path="/showcase" component={Pages.ShowcasePage} />
 						<Route exact path="/showcase/appbar" component={Pages.ShowcaseAppBar} />
 						<Route exact path="/showcase/button" component={Pages.ShowcaseButton} />
+						<Route exact path="/showcase/breadcrumb" component={Pages.ShowcaseBreadcrumb} />
 						<Route exact path="/showcase/card" component={Pages.ShowcaseCard} />
 						<Route exact path="/showcase/checkbox" component={Pages.ShowcaseCheckbox} />
 						<Route exact path="/showcase/drawer" component={Pages.ShowcaseDrawer} />

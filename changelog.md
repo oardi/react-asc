@@ -1,3 +1,6 @@
+## v1.24.0
+- breadcrumb - added component
+
 ## v1.23.0
 - tabset - added component
 - tab - added component

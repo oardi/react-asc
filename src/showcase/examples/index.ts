@@ -1,6 +1,7 @@
 export * from './ShowcasePage';
 export * from './ShowcaseAppBar';
 export * from './ShowcaseButton';
+export * from './ShowcaseBreadcrumb';
 export * from './ShowcaseCard';
 export * from './ShowcaseCheckbox';
 export * from './ShowcaseDrawer';
