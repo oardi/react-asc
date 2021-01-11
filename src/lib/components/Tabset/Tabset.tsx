@@ -35,7 +35,7 @@ export const Tabset = ({ children, className }: ITabsetProps) => {
 	}
 
 	return (
-		<div>
+		<>
 			<ul className={getCssClasses()}>
 
 				{(children as Array<React.ReactElement<ITabProps>>).map((child) => (
@@ -63,6 +63,6 @@ export const Tabset = ({ children, className }: ITabsetProps) => {
 				))}
 
 			</div>
-		</div>
+		</>
 	)
 }

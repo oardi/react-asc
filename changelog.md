@@ -1,3 +1,6 @@
+## v1.26.1
+- tabset - use Fragment as container
+
 ## v1.26.0
 - table - added component & showcase
 

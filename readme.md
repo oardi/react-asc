@@ -6,6 +6,7 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 ## Included
 
 - AppBar
+- Breadcrumb
 - Button
 - Card
 - Checkbox
@@ -18,6 +19,7 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 - Sidebar
 - Snackbar
 - SvgIcon
+- Table
 - Tabset
 - TreeView
 
@@ -42,6 +44,7 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 
 ### tabset
 - selectedEventKey - init + onchange
+- use models
 
 ### tooltip 
 - add component
