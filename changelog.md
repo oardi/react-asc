@@ -1,3 +1,6 @@
+## v1.22.4
+- markdown - added component
+
 ## v1.22.3
 - drawer - fixed cssClass
 
