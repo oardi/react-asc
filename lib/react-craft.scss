@@ -33,6 +33,10 @@
 	label {
 		margin-bottom: 0;
 		margin-left: 5px;
+
+		&:hover {
+			cursor: pointer;
+		}
 	}
 }
 
@@ -271,9 +275,11 @@ $theme-colors: (
 .tabset {
 	.nav-item {
 		&:hover {
+			cursor: pointer;
+		}
+		&:hover.disabled {
+			cursor: not-allowed;
 			.nav-link {
-				cursor: pointer;
-
 				&:hover.disabled {
 					cursor: not-allowed;
 				}

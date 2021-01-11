@@ -1,3 +1,9 @@
+## v1.25.0
+- refactored showcaseRoutes
+- refactored menu
+- fixed map of breadcrumb items
+- tabset style fixes
+
 ## v1.24.0
 - breadcrumb - added component
 

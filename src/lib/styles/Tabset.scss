@@ -1,9 +1,11 @@
 .tabset {
 	.nav-item {
 		&:hover {
+			cursor: pointer;
+		}
+		&:hover.disabled {
+			cursor: not-allowed;
 			.nav-link {
-				cursor: pointer;
-
 				&:hover.disabled {
 					cursor: not-allowed;
 				}

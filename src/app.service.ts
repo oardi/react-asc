@@ -1,4 +1,4 @@
-import { ISidebarItem } from './lib';
+import { IMenuItem } from './app.interfaces';
 import { FileLoaderService } from './shared';
 
 export class ShowcaseService {
@@ -6,6 +6,6 @@ export class ShowcaseService {
 	}
 
 	loadMenu() {
-		return this.fileLoaderService.get<Array<ISidebarItem>>('./public/menu.json');
+		return this.fileLoaderService.get<Array<IMenuItem>>('./public/menu.json');
 	}
 }

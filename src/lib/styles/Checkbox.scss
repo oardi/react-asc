@@ -5,5 +5,9 @@
 	label {
 		margin-bottom: 0;
 		margin-left: 5px;
+
+		&:hover {
+			cursor: pointer;
+		}
 	}
 }

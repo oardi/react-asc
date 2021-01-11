@@ -23,8 +23,8 @@ export const Breadcrumb = ({ className, items, onItemClick }: IBreadcrumbProps) 
 	return (
 		<nav>
 			<ol className={getCssClasses()}>
-				{items && items.map(item => (
-					<li className={"breadcrumb-item" + (item.isActive ? ' active' : '')} onClick={() => handleClickItem(item)}>
+				{items && items.map((item, index) => (
+					<li key={index} className={"breadcrumb-item" + (item.isActive ? ' active' : '')} onClick={() => handleClickItem(item)}>
 						{item.isActive ?
 							item.label :
 							<a>{item.label}</a>

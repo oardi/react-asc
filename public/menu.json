@@ -1,99 +1,63 @@
 [
 	{
-		"id": "home",
-		"label": "Home",
+		"id": "Home",
 		"path": ""
 	},
 	{
 		"id": "gettingstarted",
-		"label": "Getting started",
-		"path": "getting-started"
+		"label": "Getting started"
 	},
 	{
-		"id": "showcase",
-		"label": "Showcase",
-		"path": "showcase",
+		"id": "Showcase",
 		"items": [
 			{
-				"id": "appbar",
-				"label": "AppBar",
-				"path": "appbar"
+				"id": "AppBar"
 			},
 			{
-				"id": "button",
-				"label": "Button",
-				"path": "button"
+				"id": "Button"
 			},
 			{
-				"id": "breadcrumb",
-				"label": "Breadcrumb",
-				"path": "breadcrumb"
+				"id": "Breadcrumb"
 			},
 			{
-				"id": "card",
-				"label": "Card",
-				"path": "card"
+				"id": "Card"
 			},
 			{
-				"id": "checkbox",
-				"label": "Checkbox",
-				"path": "checkbox"
+				"id": "Checkbox"
 			},
 			{
-				"id": "drawer",
-				"label": "Drawer",
-				"path": "drawer"
+				"id": "Drawer"
 			},
 			{
-				"id": "dropdown",
-				"label": "DropDown",
-				"path": "dropdown"
+				"id": "DropDown"
 			},
 			{
-				"id": "form",
-				"label": "Form",
-				"path": "form"
+				"id": "Form"
 			},
 			{
-				"id": "iconbutton",
-				"label": "IconButton",
-				"path": "iconbutton"
+				"id": "IconButton"
 			},
 			{
-				"id": "list",
-				"label": "List",
-				"path": "list"
+				"id": "List"
 			},
 			{
-				"id": "modal",
-				"label": "Modal",
-				"path": "modal"
+				"id": "Modal"
 			},
 			{
-				"id": "svgicon",
-				"label": "SvgIcon",
-				"path": "svgicon"
+				"id": "SvgIcon"
 			},
 			{
-				"id": "snackbar",
-				"label": "Snackbar",
-				"path": "snackbar"
+				"id": "Snackbar"
 			},
 			{
-				"id": "tabset",
-				"label": "Tabset",
-				"path": "tabset"
+				"id": "Tabset"
 			},
 			{
-				"id": "treeview",
-				"label": "TreeView",
-				"path": "treeview"
+				"id": "TreeView"
 			}
 		]
 	},
 	{
-		"id": "about",
-		"label": "About",
-		"path": "about"
+		"id": "About"
 	}
 ]

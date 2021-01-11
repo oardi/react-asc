@@ -17,6 +17,7 @@ export const App = () => {
 	const [appInfo, setAppInfo] = useState<IAppInfo>(null);
 	const [showMenu, setShowMenu] = useState<boolean>(false);
 	const [menuItems, setMenuItems] = useState<Array<ISidebarItem>>(null);
+	const [showcaseRoutes, setShowcaseRoutes] = useState<Array<{ path: string, componentKey: string }>>(null);
 	const loggerService = new LoggerService();
 	const history = useHistory();
 	const fileLoaderService = new FileLoaderService(loggerService);
@@ -35,8 +36,22 @@ export const App = () => {
 	const init = async () => {
 		setAppInfo({ name: packageJson.name, version: packageJson.version });
 		try {
-			const menuResult = appService.loadMenu();
-			setMenuItems((await menuResult).data);
+			const menuResult = await appService.loadMenu();
+
+			// TODO - models
+			setMenuItems(menuResult.data.map(dto => (
+				{
+					id: dto.id,
+					label: dto.label ? dto.label : dto.id,
+					path: dto.path ? dto.path : dto.id,
+					items: dto.items && dto.items.map(item => ({ id: item.id, label: item.label ? item.label : item.id, path: item.id }))
+				}
+			)));
+
+			// TODO - models
+			setShowcaseRoutes(menuResult.data.find(dto => dto.id === 'Showcase').items.map(dto => (
+				{ path: dto.path ? dto.path : '/showcase/' + dto.id, componentKey: 'Showcase' + dto.id }
+			)));
 		} catch (err) { loggerService.error('init', err) }
 	}
 	return (
@@ -70,22 +85,14 @@ export const App = () => {
 						<Route exact path="/" component={Pages.HomePage} />
 						<Route exact path="/about" component={Pages.AboutPage} />
 						<Route exact path="/getting-started" component={Pages.GettingStartedPage} />
-						<Route exact path="/showcase" component={Pages.ShowcasePage} />
-						<Route exact path="/showcase/appbar" component={Pages.ShowcaseAppBar} />
-						<Route exact path="/showcase/button" component={Pages.ShowcaseButton} />
-						<Route exact path="/showcase/breadcrumb" component={Pages.ShowcaseBreadcrumb} />
-						<Route exact path="/showcase/card" component={Pages.ShowcaseCard} />
-						<Route exact path="/showcase/checkbox" component={Pages.ShowcaseCheckbox} />
-						<Route exact path="/showcase/drawer" component={Pages.ShowcaseDrawer} />
-						<Route exact path="/showcase/dropdown" component={Pages.ShowcaseDropDown} />
-						<Route exact path="/showcase/form" component={Pages.ShowcaseForm} />
-						<Route exact path="/showcase/iconbutton" component={Pages.ShowcaseIconButton} />
-						<Route exact path="/showcase/list" component={Pages.ShowcaseList} />
-						<Route exact path="/showcase/modal" component={Pages.ShowcaseModal} />
-						<Route exact path="/showcase/snackbar" component={Pages.ShowcaseSnackbar} />
-						<Route exact path="/showcase/svgicon" component={Pages.ShowcaseSvgIcon} />
-						<Route exact path="/showcase/tabset" component={Pages.ShowcaseTabset} />
-						<Route exact path="/showcase/treeview" component={Pages.ShowcaseTreeView} />
+
+						{showcaseRoutes &&
+							<Route exact path={showcaseRoutes.map(showcaseRoutes => showcaseRoutes.path)}>
+								{showcaseRoutes.map(showcaseRoute =>
+									<Route key={showcaseRoute.componentKey} exact path={showcaseRoute.path} component={Pages[showcaseRoute.componentKey]} />
+								)}
+							</Route>
+						}
 
 						<Route render={() => <div>404 - Missing!</div>} />
 					</Switch>

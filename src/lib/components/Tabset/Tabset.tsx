@@ -40,7 +40,7 @@ export const Tabset = ({ children, className }: ITabsetProps) => {
 
 				{(children as Array<React.ReactElement<ITabProps>>).map((child) => (
 
-					<li key={child.props.eventKey} className="nav-item" role="presentation">
+					<li key={child.props.eventKey} className={"nav-item" + (child.props.disabled ? ' disabled' : '')} role="presentation">
 						<a
 							className={"nav-link" + (child.props.eventKey === selectedTabKey ? ' active' : '') + (child.props.disabled ? ' disabled' : '')}
 							onClick={() => handleClickTab(child)}>

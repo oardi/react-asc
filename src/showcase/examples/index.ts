@@ -1,4 +1,3 @@
-export * from './ShowcasePage';
 export * from './ShowcaseAppBar';
 export * from './ShowcaseButton';
 export * from './ShowcaseBreadcrumb';
