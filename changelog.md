@@ -1,3 +1,6 @@
+## v1.22.6
+- refactored structure
+
 ## v1.22.5
 - refactored menuItems
 

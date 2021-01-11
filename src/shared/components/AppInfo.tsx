@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AppContext } from '../../AppContext';
 import { COLOR, IconButton } from '../../lib';
-import { infoSolidSvg } from '../../pages';
+import { infoSolidSvg } from '../../showcase';
 import changelogMd from '../../../changelog.md';
 import * as marked from 'marked'
 

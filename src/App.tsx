@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import './style.scss';
-import * as Pages from './pages';
+import * as Pages from './showcase';
 import { AppBar, COLOR, Drawer, IconButton, ISidebarItem, LoggerService, ModalService, SnackbarService } from './lib';
 import { AppSidebar } from './shared/components';
 import { AppContext, IAppContext } from './AppContext';
 import { FileLoaderService } from './shared';
 import packageJson from '../package.json';
 import { AppInfo } from './shared/components/AppInfo';
-import { barsSolidSvg } from './pages';
+import { barsSolidSvg } from './showcase';
 import { IAppInfo } from './app.interfaces';
 import { ShowcaseService } from './app.service';
 

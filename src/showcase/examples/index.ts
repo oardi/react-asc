@@ -13,4 +13,4 @@ export * from './ShowcaseSnackbar';
 export * from './ShowcaseTreeView';
 export * from './ShowcaseSvgIcon';
 
-export * from './assets';
+export * from '../../showcase/assets';
