@@ -2,29 +2,43 @@ import React, { useEffect, useState } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import './style.scss';
 import * as Pages from './pages';
-import { AppBar, COLOR, Drawer, IconButton, LoggerService, ModalService, SnackbarService } from './lib';
+import { AppBar, COLOR, Drawer, IconButton, ISidebarItem, LoggerService, ModalService, SnackbarService } from './lib';
 import { AppSidebar } from './shared/components';
 import { AppContext, IAppContext } from './AppContext';
 import { FileLoaderService } from './shared';
 import packageJson from '../package.json';
 import { AppInfo } from './shared/components/AppInfo';
 import { barsSolidSvg } from './pages';
+import { IAppInfo } from './app.interfaces';
+import { ShowcaseService } from './app.service';
 
 export const App = () => {
 
-	const [appInfo, setAppInfo] = useState<{ name: string, version: string }>(null);
+	const [appInfo, setAppInfo] = useState<IAppInfo>(null);
 	const [showMenu, setShowMenu] = useState<boolean>(false);
+	const [menuItems, setMenuItems] = useState<Array<ISidebarItem>>(null);
 	const loggerService = new LoggerService();
 	const history = useHistory();
+	const fileLoaderService = new FileLoaderService(loggerService);
 	const appContext: IAppContext = {
 		loggerService: loggerService,
-		fileLoaderService: new FileLoaderService(loggerService),
+		fileLoaderService: fileLoaderService,
 		snackbarService: new SnackbarService(),
 		modalService: new ModalService(),
 	}
+	const appService = new ShowcaseService(fileLoaderService);
 
-	useEffect(() => { setAppInfo({ name: packageJson.name, version: packageJson.version }) }, []);
+	useEffect(() => {
+		init();
+	}, []);
 
+	const init = async () => {
+		setAppInfo({ name: packageJson.name, version: packageJson.version });
+		try {
+			const menuResult = appService.loadMenu();
+			setMenuItems((await menuResult).data);
+		} catch (err) { loggerService.error('init', err) }
+	}
 	return (
 		<AppContext.Provider value={appContext}>
 			<AppBar>
@@ -43,7 +57,11 @@ export const App = () => {
 					<Drawer
 						onClickBackdrop={() => setShowMenu(false)}
 					>
-						<AppSidebar onItemClicked={() => setShowMenu(false)} />
+						{/* TODO */}
+						<AppSidebar
+							menuItems={menuItems}
+							onItemClicked={() => setShowMenu(false)}
+						/>
 					</Drawer>
 				}
 

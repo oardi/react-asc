@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { List, ListItem } from '../List';
+import { ISidebarItem } from './sidebar.interfaces';
 import { SidebarItemModel } from './sidebar.models';
 
 interface ISidebarProps {
-	title?: string;
-	items: Array<SidebarItemModel>;
+	items: Array<ISidebarItem>;
 	currentUrl: string;
 	onItemClicked: (path: string) => void;
 }
 
-export const Sidebar = ({ title, items, currentUrl, onItemClicked }: ISidebarProps) => {
+export const Sidebar = ({ items, currentUrl, onItemClicked }: ISidebarProps) => {
 
 	const [menuItems, setMenuItems] = useState<Array<SidebarItemModel>>([]);
 
@@ -50,15 +50,6 @@ export const Sidebar = ({ title, items, currentUrl, onItemClicked }: ISidebarPro
 
 	return (
 		<nav className="sidebar navbar navbar-expand-lg align-items-start">
-			{/* {title && (
-				<a className="sidebar-brand">
-					<div className="sidebar-brand-icon rotate-n-15">
-					</div>
-					<div className="sidebar-brand-text mx-3">
-						{title}
-					</div>
-				</a>
-			)} */}
 
 			<List>
 				{menuItems.map(item =>

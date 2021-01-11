@@ -1,3 +1,6 @@
+## v1.22.5
+- refactored menuItems
+
 ## v1.22.4
 - markdown - added component
 
