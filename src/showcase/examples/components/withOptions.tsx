@@ -33,7 +33,7 @@ export const withOptions = <T,>(WrappedComponent, defaultSettingValues?: T) => {
 						/>
 					</ShowcaseExample>
 
-					{settingValues &&
+					{settingValues && Object.keys(settingValues).length > 0 &&
 						<Card className="mt-2">
 							<CardBody>
 								<CardTitle>Setted Props</CardTitle>
@@ -45,12 +45,14 @@ export const withOptions = <T,>(WrappedComponent, defaultSettingValues?: T) => {
 					}
 				</div>
 
-				<div className="col-12 col-sm-6 mt-2 mt-sm-0">
-					<ShowcaseOptions
-						controls={settingsControls}
-						onFormChange={onFormChange}
-					/>
-				</div>
+				{settingsControls && Object.keys(settingsControls).length > 0 &&
+					<div className="col-12 col-sm-6 mt-2 mt-sm-0">
+						<ShowcaseOptions
+							controls={settingsControls}
+							onFormChange={onFormChange}
+						/>
+					</div>
+				}
 
 			</div>
 		);
