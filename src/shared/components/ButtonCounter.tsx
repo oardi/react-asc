@@ -2,20 +2,21 @@ import React, { Component } from 'react';
 
 interface IProps {
 	name: string;
-	onClicked: (e: number) => void;
+	onClicked?: (e: number) => void;
 }
 interface IState {
 	count: number;
 }
 
 export class ButtonCounter extends Component<IProps, IState> {
-	componentDidMount() {
-		this.setState({ count: 0 });
+	constructor(props) {
+		super(props);
+		this.state = { count: 0 }
 	}
 
 	handleClick() {
 		this.setState({ count: this.state.count + 1 });
-		this.props.onClicked(this.state.count);
+		this.props.onClicked && this.props.onClicked(this.state.count);
 	}
 
 	render() {
