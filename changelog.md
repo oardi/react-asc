@@ -1,3 +1,7 @@
+## v1.26.2
+- added appContainer
+- fixed routes
+
 ## v1.26.1
 - tabset - use Fragment as container
 

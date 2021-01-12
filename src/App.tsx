@@ -1,32 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
+import { hot } from "react-hot-loader";
 import './style.scss';
 import * as Pages from './showcase';
-import { AppBar, COLOR, Drawer, IconButton, ISidebarItem, LoggerService, ModalService, SnackbarService } from './lib';
+import { AppBar, COLOR, Drawer, IconButton, ISidebarItem } from './lib';
 import { AppSidebar } from './shared/components';
-import { AppContext, IAppContext } from './AppContext';
-import { FileLoaderService } from './shared';
-import packageJson from '../package.json';
+import { useAppContext } from './AppContext';
 import { AppInfo } from './shared/components/AppInfo';
 import { barsSolidSvg } from './showcase';
-import { IAppInfo } from './app.interfaces';
 import { ShowcaseService } from './app.service';
 
-export const App = () => {
+const CLASSNAME = 'App';
+const App = () => {
 
-	const [appInfo, setAppInfo] = useState<IAppInfo>(null);
 	const [showMenu, setShowMenu] = useState<boolean>(false);
 	const [menuItems, setMenuItems] = useState<Array<ISidebarItem>>(null);
 	const [showcaseRoutes, setShowcaseRoutes] = useState<Array<{ path: string, componentKey: string }>>(null);
-	const loggerService = new LoggerService();
+
+	const { loggerService, fileLoaderService, appInfo } = useAppContext();
+
 	const history = useHistory();
-	const fileLoaderService = new FileLoaderService(loggerService);
-	const appContext: IAppContext = {
-		loggerService: loggerService,
-		fileLoaderService: fileLoaderService,
-		snackbarService: new SnackbarService(),
-		modalService: new ModalService(),
-	}
 	const appService = new ShowcaseService(fileLoaderService);
 
 	useEffect(() => {
@@ -34,7 +27,6 @@ export const App = () => {
 	}, []);
 
 	const init = async () => {
-		setAppInfo({ name: packageJson.name, version: packageJson.version });
 		try {
 			const menuResult = await appService.loadMenu();
 
@@ -43,7 +35,7 @@ export const App = () => {
 				{
 					id: dto.id,
 					label: dto.label ? dto.label : dto.id,
-					path: dto.path ? dto.path : dto.id,
+					path: dto.path !== undefined ? dto.path : dto.id,
 					items: dto.items && dto.items.map(item => ({ id: item.id, label: item.label ? item.label : item.id, path: item.id }))
 				}
 			)));
@@ -55,7 +47,7 @@ export const App = () => {
 		} catch (err) { loggerService.error('init', err) }
 	}
 	return (
-		<AppContext.Provider value={appContext}>
+		<>
 			<AppBar>
 				<IconButton className="mr-2" color={COLOR.light} icon={barsSolidSvg} onClick={() => setShowMenu(!showMenu)} />
 				{appInfo && (
@@ -84,7 +76,7 @@ export const App = () => {
 					<Switch>
 						<Route exact path="/" component={Pages.HomePage} />
 						<Route exact path="/about" component={Pages.AboutPage} />
-						<Route exact path="/getting-started" component={Pages.GettingStartedPage} />
+						<Route exact path="/gettingstarted" component={Pages.GettingStartedPage} />
 
 						{showcaseRoutes &&
 							<Route exact path={showcaseRoutes.map(showcaseRoutes => showcaseRoutes.path)}>
@@ -98,6 +90,8 @@ export const App = () => {
 					</Switch>
 				</div>
 			</div>
-		</AppContext.Provider >
+		</>
 	);
 }
+
+export default hot(module)(App);

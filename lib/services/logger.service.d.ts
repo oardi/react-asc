@@ -1,4 +1,5 @@
 export declare class LoggerService {
+    constructor();
     logType: {
         log: string;
         info: string;

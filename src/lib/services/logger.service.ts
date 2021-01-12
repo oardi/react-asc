@@ -1,5 +1,9 @@
 export class LoggerService {
 
+	constructor(){
+		console.warn('INIT LOGGER');
+	}
+
 	logType = { log: 'log', info: 'info', warn: 'warn', debug: 'debug', error: 'error' };
 
 	log(...args: Array<any>) {
