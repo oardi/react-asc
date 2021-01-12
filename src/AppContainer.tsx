@@ -4,20 +4,18 @@ import { AppContext } from './AppContext';
 import App from './App';
 
 import packageJson from '../package.json';
-import { FileLoaderService } from './shared/services/fileLoader.service';
-import { LoggerService, ModalService, SnackbarService } from './lib';
+import { loggerService, snackbarService, modalService } from './lib';
 import { IAppInfo } from './app.interfaces';
+import { fileLoaderService } from './shared';
 
 const CLASSNAME = 'AppContainer';
 export const AppContainer = () => {
 
-	useEffect(() => { setAppInfo({ name: packageJson.name, version: packageJson.version }); }, []);
+	useEffect(() => {
+		setAppInfo({ name: packageJson.name, version: packageJson.version });
+	}, []);
 
 	const [appInfo, setAppInfo] = useState<IAppInfo>(null);
-	const loggerService = new LoggerService();
-	const fileLoaderService = new FileLoaderService(loggerService);
-	const snackbarService = new SnackbarService();
-	const modalService = new ModalService();
 	const appContext = ({
 		fileLoaderService,
 		loggerService,

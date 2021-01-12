@@ -1,12 +1,10 @@
-import React, { Fragment, useContext, useEffect, useRef, useState } from 'react';
-import { AppContext } from '../../AppContext';
-import { FormControl, Form, IControls, Button, VARIANT, COLOR, IFormProps } from '../../lib';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
+import { FormControl, Form, IControls, Button, VARIANT, COLOR, IFormProps, loggerService } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 import dayjs from 'dayjs';
 
 const CLASSNAME = 'ShowcaseForm';
 export const ShowcaseFormBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IFormProps>) => {
-	const { loggerService } = useContext(AppContext);
 	const [values, setValues] = useState({});
 	const myForm = useRef<Form>();
 

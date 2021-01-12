@@ -3,12 +3,12 @@ import { Route, Switch, useHistory } from 'react-router-dom';
 import { hot } from "react-hot-loader";
 import './style.scss';
 import * as Pages from './showcase';
-import { AppBar, COLOR, Drawer, IconButton, ISidebarItem } from './lib';
+import { AppBar, COLOR, Drawer, IconButton, ISidebarItem, loggerService } from './lib';
 import { AppSidebar } from './shared/components';
 import { useAppContext } from './AppContext';
 import { AppInfo } from './shared/components/AppInfo';
 import { barsSolidSvg } from './showcase';
-import { ShowcaseService } from './app.service';
+import { showcaseService } from './app.service';
 
 const CLASSNAME = 'App';
 const App = () => {
@@ -17,10 +17,9 @@ const App = () => {
 	const [menuItems, setMenuItems] = useState<Array<ISidebarItem>>(null);
 	const [showcaseRoutes, setShowcaseRoutes] = useState<Array<{ path: string, componentKey: string }>>(null);
 
-	const { loggerService, fileLoaderService, appInfo } = useAppContext();
+	const { appInfo } = useAppContext();
 
 	const history = useHistory();
-	const appService = new ShowcaseService(fileLoaderService);
 
 	useEffect(() => {
 		init();
@@ -28,7 +27,7 @@ const App = () => {
 
 	const init = async () => {
 		try {
-			const menuResult = await appService.loadMenu();
+			const menuResult = await showcaseService.loadMenu();
 
 			// TODO - models
 			setMenuItems(menuResult.data.map(dto => (

@@ -1,11 +1,10 @@
 import { IMenuItem } from './app.interfaces';
-import { FileLoaderService } from './shared';
+import { fileLoaderService } from './shared';
 
-export class ShowcaseService {
-	constructor(private fileLoaderService: FileLoaderService) {
-	}
-
+class ShowcaseService {
 	loadMenu() {
-		return this.fileLoaderService.get<Array<IMenuItem>>('./public/menu.json');
+		return fileLoaderService.get<Array<IMenuItem>>('./public/menu.json');
 	}
 }
+
+export const showcaseService = new ShowcaseService();

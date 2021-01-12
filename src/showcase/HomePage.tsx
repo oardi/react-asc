@@ -3,6 +3,7 @@ import { Layout } from './Layout';
 import { Button, Card, CardBody, CardText, CardTitle } from '../lib';
 
 export const HomePage = () => {
+
 	return (
 		<Layout title="React-Craft" className="home">
 

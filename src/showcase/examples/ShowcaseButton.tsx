@@ -1,12 +1,9 @@
-import React, { Fragment, useContext, useEffect } from 'react';
-import { AppContext } from '../../AppContext';
-import { Button, COLOR, FormControl, IButtonProps, VARIANT } from '../../lib';
+import React, { Fragment, useEffect } from 'react';
+import { Button, COLOR, FormControl, IButtonProps, snackbarService, VARIANT } from '../../lib';
 import { withOptions } from './components';
 import { IShowcaseBaseProps } from './components';
 
 const ShowcaseButtonBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IButtonProps>) => {
-
-	const { snackbarService } = useContext(AppContext);
 
 	useEffect(() => {
 		setSettingsControls({

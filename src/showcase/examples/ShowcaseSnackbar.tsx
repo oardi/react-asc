@@ -1,12 +1,8 @@
-import React, { useContext } from 'react';
-import { AppContext } from '../../AppContext';
-import { Button, SnackbarService } from '../../lib';
+import React from 'react';
+import { Button, loggerService, snackbarService } from '../../lib';
 import { withOptions } from './components';
 
 const ShowcaseSnackbarBase = () => {
-
-	const snackbarService = new SnackbarService();
-	const { loggerService } = useContext(AppContext);
 
 	const handleClick = () => {
 		snackbarService.show('jojo').then(() => loggerService.debug('onOk clicked'));

@@ -1,3 +1,6 @@
+## v1.30.0
+- refactored services to export constants
+
 ## v1.26.2
 - added appContainer
 - fixed routes

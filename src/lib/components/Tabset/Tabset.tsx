@@ -28,7 +28,6 @@ export const Tabset = ({ children, className }: ITabsetProps) => {
 	}, [children]);
 
 	const handleClickTab = (tab: React.ReactElement<ITabProps>) => {
-		console.warn('handleClickTab');
 		if (!tab.props.disabled) {
 			setSelectedTabKey(tab.props.eventKey.toString());
 		}

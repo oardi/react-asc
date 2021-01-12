@@ -1,13 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { AppContext } from '../../AppContext';
-import { Button, Drawer, FormControl, IDrawerProps } from '../../lib';
+import React, { useEffect, useState } from 'react';
+import { Button, Drawer, FormControl, IDrawerProps, loggerService } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const CLASSNAME = 'ShowcaseDrawerBase';
 const ShowcaseDrawerBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IDrawerProps>) => {
 
 	const [isVisible, setIsVisible] = useState(false);
-	const { loggerService } = useContext(AppContext);
 
 	useEffect(() => {
 		setSettingsControls({

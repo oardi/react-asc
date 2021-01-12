@@ -1,10 +1,15 @@
-export class LoggerService {
+export interface ILoggerService {
+	log(...args: Array<any>);
+	info(...args: Array<any>);
+	warn(...args: Array<any>);
+	debug(...args: Array<any>);
+	error(...args: Array<any>);
+}
 
-	constructor(){
-		console.warn('INIT LOGGER');
-	}
+export enum LogType { log = 'log', info = 'info', warn = 'warn', debug = 'debug', error = 'error' }
 
-	logType = { log: 'log', info: 'info', warn: 'warn', debug: 'debug', error: 'error' };
+class LoggerService implements ILoggerService {
+	logType = LogType;
 
 	log(...args: Array<any>) {
 		this._doLog(this.logType.log, args);
@@ -46,3 +51,5 @@ export class LoggerService {
 		}
 	}
 }
+
+export const loggerService = new LoggerService();

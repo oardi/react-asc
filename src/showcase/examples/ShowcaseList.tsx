@@ -1,11 +1,8 @@
-import React, { Fragment, useContext } from 'react';
-import { AppContext } from '../../AppContext';
-import { List, ListItem, ListItemAvatar, homeSolidSvg, ListItemAction, IconButton, DropDown, DropDownItem, DropDownMenu, ListItemText } from '../../lib';
+import React, { Fragment } from 'react';
+import { List, ListItem, ListItemAvatar, homeSolidSvg, ListItemAction, IconButton, DropDown, DropDownItem, DropDownMenu, ListItemText, loggerService } from '../../lib';
 import { withOptions } from './components';
 
 export const ShowcaseListBase = () => {
-
-	const { loggerService } = useContext(AppContext);
 
 	const handleClickItem = () => {
 		loggerService.debug('handleClick item');

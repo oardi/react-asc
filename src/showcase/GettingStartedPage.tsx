@@ -1,12 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { AppContext } from '../AppContext';
-import { Markdown } from '../shared';
+import React, { useEffect, useState } from 'react';
+import { loggerService } from '../lib';
+import { fileLoaderService, Markdown } from '../shared';
 import { Layout } from './Layout';
 
 export const GettingStartedPage = () => {
 
 	const [markdownText, setMarkdownText] = useState<string>(undefined);
-	const { loggerService, fileLoaderService } = useContext(AppContext);
 
 	useEffect(() => { init() }, []);
 

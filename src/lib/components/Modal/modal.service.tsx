@@ -4,6 +4,10 @@ import { IControls, IFormValues } from '../Form';
 import { ReactElement } from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 
+export interface IModalService {
+	show(title: string, description: string | ReactElement, options?: IModalOptions): Promise<void | IFormValues>;
+}
+
 export interface IModalOptions {
 	formControls?: IControls
 	showOkButton?: boolean;
@@ -11,7 +15,7 @@ export interface IModalOptions {
 	isDismissable?: boolean;
 }
 
-export class ModalService {
+class ModalService implements IModalService {
 	private container: HTMLElement;
 
 	show(title: string, description: string | ReactElement, options?: IModalOptions): Promise<void | IFormValues> {
@@ -57,3 +61,5 @@ export class ModalService {
 	}
 
 }
+
+export const modalService = new ModalService();

@@ -1,14 +1,10 @@
-import React, { useContext, useState } from 'react';
-import { AppContext } from '../../AppContext';
-import { Button, FormControl, IControls, Modal, ModalService } from '../../lib';
+import React, {  useState } from 'react';
+import { Button, FormControl, IControls, loggerService, Modal, modalService } from '../../lib';
 import { withOptions } from './components';
 
 const ShowcaseModalBase = () => {
 
-	const modalService = new ModalService();
-
 	const [isVisible, setIsVisible] = useState(false);
-	const { loggerService } = useContext(AppContext);
 
 	const handleClickShowModal = () => {
 		setIsVisible(!isVisible);

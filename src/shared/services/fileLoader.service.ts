@@ -1,18 +1,18 @@
 import axios, { AxiosResponse } from 'axios';
-import { LoggerService } from '../../lib';
+import { loggerService } from '../../lib';
 
 const CLASSNAME = 'HttpService';
 
-export class FileLoaderService {
+export interface IFileLoaderService {
+	get<T>(segmentUrl: string, params?: any): Promise<AxiosResponse<T>>;
+}
 
-	constructor(
-		private loggerService: LoggerService,
-	) {
-	}
-
+class FileLoaderService implements IFileLoaderService {
 	get<T>(segmentUrl: string, params?: any): Promise<AxiosResponse<T>> {
-		this.loggerService.debug(CLASSNAME, 'get');
+		loggerService.debug(CLASSNAME, 'get');
 		return axios.get(segmentUrl, { params: params });
 	}
 
 }
+
+export const fileLoaderService = new FileLoaderService();

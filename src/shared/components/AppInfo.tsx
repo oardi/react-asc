@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { AppContext } from '../../AppContext';
-import { COLOR, IconButton } from '../../lib';
+import React, { useEffect, useState } from 'react';
+import { COLOR, IconButton, modalService } from '../../lib';
 import { infoSolidSvg } from '../../showcase';
 import changelogMd from '../../../changelog.md';
 import * as marked from 'marked'
@@ -8,7 +7,6 @@ import * as marked from 'marked'
 export const AppInfo = () => {
 
 	const [changelog, setChangelog] = useState<string>();
-	const { modalService } = useContext(AppContext);
 
 	useEffect(() => {
 		setChangelog(marked(changelogMd));

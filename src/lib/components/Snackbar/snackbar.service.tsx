@@ -2,7 +2,11 @@ import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { Snackbar } from './Snackbar';
 
-export class SnackbarService {
+export interface ISnackbarService {
+	show(message: string, timeout?: number): Promise<void>;
+}
+
+class SnackbarService implements ISnackbarService {
 	private container: HTMLElement;
 
 	show(message: string, timeout: number = 3000): Promise<void> {
@@ -41,3 +45,5 @@ export class SnackbarService {
 		}
 	}
 }
+
+export const snackbarService = new SnackbarService();

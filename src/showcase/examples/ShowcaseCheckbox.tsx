@@ -1,12 +1,9 @@
-import React, { useContext, useEffect, FocusEvent } from 'react';
-import { AppContext } from '../../AppContext';
-import { FormControl, Checkbox, ICheckboxProps } from '../../lib';
+import React, { useEffect, FocusEvent } from 'react';
+import { FormControl, Checkbox, ICheckboxProps, loggerService } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const CLASSNAME = 'ShowcaseCheckboxBase';
 export const ShowcaseCheckboxBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ICheckboxProps>) => {
-
-	const { loggerService } = useContext(AppContext);
 
 	useEffect(() => {
 		setSettingsControls({
