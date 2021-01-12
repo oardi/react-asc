@@ -1,3 +1,6 @@
+## v1.30.1
+- formInput -> checkbox - remove cssClass form-control
+
 ## v1.30.0
 - refactored services to export constants
 
