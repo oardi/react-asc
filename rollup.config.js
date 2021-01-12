@@ -35,7 +35,7 @@ export default {
 		commonjs(),
 		json(),
 		svg({
-			stringify: false
+			stringify: true
 		})
 	]
 };
