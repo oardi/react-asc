@@ -18,6 +18,7 @@ export const Tabset = ({ children, className }: ITabsetProps) => {
 		return cssClasses.join(' ');
 	};
 
+	// TODO - init tabs by children
 	useEffect(() => {
 		if (children) {
 			const activeChild = (children as Array<React.ReactElement<ITabProps>>).find(child => child.props.isActive && !child.props.disabled);
@@ -33,7 +34,9 @@ export const Tabset = ({ children, className }: ITabsetProps) => {
 		}
 	}
 
+	// todo - iterate tabs init by children
 	return (
+		children &&
 		<>
 			<ul className={getCssClasses()}>
 

@@ -13,7 +13,7 @@ export const AppBreadcrumb = () => {
 	useEffect(() => {
 		const currentPath = location.pathname.replace(' ', '');
 		const splittedPath = currentPath.split('/').filter(p => p !== 'Showcase' && p); // TODO - showcase
-		const breadcrumbItems = splittedPath.map(sP => ({ label: sP, path: sP, isActive: false }));
+		const breadcrumbItems = splittedPath.map(sP => ({ label: sP, path: '/' + sP, isActive: false }));
 		breadcrumbItems.unshift({ label: 'Home', path: '/', isActive: false });
 		breadcrumbItems[breadcrumbItems.length - 1].isActive = true;
 		setItems(breadcrumbItems);

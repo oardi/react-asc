@@ -1,3 +1,6 @@
+## v1.32.2
+- style fixes
+
 ## v1.32.1
 - appBreadcrumb - added component
 

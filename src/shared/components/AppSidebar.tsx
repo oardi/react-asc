@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { ISidebarItem, Sidebar } from '../../lib';
+import { AppBar, ISidebarItem, Sidebar } from '../../lib';
 
 interface IAppSidebarProps {
 	menuItems: Array<ISidebarItem>;
@@ -18,10 +18,21 @@ export const AppSidebar = ({ menuItems, onItemClicked }: IAppSidebarProps) => {
 	}
 
 	return (
-		<Sidebar
-			items={menuItems}
-			currentUrl={location.pathname}
-			onItemClicked={handleItemClicked}
-		/>
+		<>
+			<div className="d-flex flex-column h-100">
+				<AppBar>
+					<div className="navbar-brand w-100">
+						Menu
+				</div>
+				</AppBar>
+				<div style={{ overflowY: 'auto' }}>
+					<Sidebar
+						items={menuItems}
+						currentUrl={location.pathname}
+						onItemClicked={handleItemClicked}
+					/>
+				</div>
+			</div>
+		</>
 	);
 }
