@@ -1,3 +1,6 @@
+## v1.32.1
+- appBreadcrumb - added component
+
 ## v1.32.0
 - breadcrumb - added component
 - showcase - added breadcrumb

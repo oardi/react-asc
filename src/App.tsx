@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Switch, useHistory, useLocation } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import { hot } from "react-hot-loader";
 import './style.scss';
 import * as Pages from './showcase';
-import { AppBar, Breadcrumb, COLOR, Drawer, IBreadcrumbItem, IconButton, ISidebarItem, loggerService } from './lib';
-import { AppSidebar, AppInfo } from './shared';
+import { AppBar, COLOR, Drawer, IconButton, ISidebarItem, loggerService } from './lib';
+import { AppSidebar, AppInfo, AppBreadcrumb } from './shared';
 import { useAppContext } from './AppContext';
 import { showcaseService } from './app.service';
 import { MenuModel, RouteModel, barsSolidSvg } from './showcase';
@@ -14,24 +14,12 @@ const App = () => {
 
 	const { appInfo } = useAppContext();
 	const history = useHistory();
-	const location = useLocation();
 
 	const [showMenu, setShowMenu] = useState<boolean>(false);
 	const [menuItems, setMenuItems] = useState<Array<ISidebarItem>>(null);
 	const [showcaseRoutes, setShowcaseRoutes] = useState<Array<RouteModel>>(null);
-	const [breadcrumbItems, setBreadcrumbItems] = useState<Array<IBreadcrumbItem>>(null);
 
 	useEffect(() => { init() }, []);
-
-	// extract in AppBreadcrumb
-	useEffect(() => {
-		const currentPath = location.pathname.replace(' ', '');
-		const splittedPath = currentPath.split('/').filter(p => p);
-		const breadcrumbItems = splittedPath.map(sP => ({ label: sP, path: sP, isActive: false }));
-		breadcrumbItems.unshift({ label: 'Home', path: '/', isActive: false });
-		breadcrumbItems[breadcrumbItems.length - 1].isActive = true;
-		setBreadcrumbItems(breadcrumbItems);
-	}, [location]);
 
 	const init = async () => {
 		try {
@@ -39,13 +27,6 @@ const App = () => {
 			setMenuItems(menuResult.data.map(dto => new MenuModel(dto)));
 			setShowcaseRoutes(menuResult.data.map(dto => new RouteModel(dto)));
 		} catch (err) { loggerService.error('init', err) }
-	}
-
-	const handleClickBreadcrumbItem = (item: IBreadcrumbItem) => {
-		loggerService.debug(CLASSNAME, 'handleClickBreadcrumbItem');
-		console.warn(location.pathname, item);
-		if (location.pathname !== item.path)
-			history.push(item.path);
 	}
 
 	return (
@@ -61,8 +42,6 @@ const App = () => {
 			</AppBar>
 
 			<div className="main">
-
-
 				{showMenu &&
 					<Drawer onClickBackdrop={() => setShowMenu(false)}>
 						<AppSidebar menuItems={menuItems} onItemClicked={() => setShowMenu(false)} />
@@ -70,7 +49,7 @@ const App = () => {
 				}
 
 				<div className="container">
-					<Breadcrumb className="mt-3" items={breadcrumbItems} onItemClick={handleClickBreadcrumbItem} />
+					<AppBreadcrumb />
 
 					<Switch>
 						{showcaseRoutes &&
