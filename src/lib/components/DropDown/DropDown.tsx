@@ -1,9 +1,10 @@
 import React, { cloneElement, ReactElement, useState } from 'react';
 import { DropDownContext, IDropDownContext } from './DropdownContext';
+import { IDropDownMenuProps } from './DropDownMenu';
 
 interface IDropDownProps {
 	toggle?: ReactElement;
-	menu?: ReactElement; // DropDownMenu
+	menu?: ReactElement<IDropDownMenuProps>;
 	onToggleClick?: (e: Event) => void;
 }
 

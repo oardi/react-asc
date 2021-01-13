@@ -1,3 +1,6 @@
+## v1.32.3
+- dropDown - add type header for dropDownItem
+
 ## v1.32.2
 - style fixes
 

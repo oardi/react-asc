@@ -1,5 +1,5 @@
 import { ReactElement, ReactNode } from 'react';
-interface IDropDownMenuProps {
+export interface IDropDownMenuProps {
     children?: ReactNode;
     className?: string;
     items?: Array<ReactElement>;

@@ -2,7 +2,7 @@ import React, { cloneElement, ReactElement, ReactNode, useContext } from 'react'
 import { Backdrop } from '../Backdrop';
 import { DropDownContext } from './DropdownContext';
 
-interface IDropDownMenuProps {
+export interface IDropDownMenuProps {
 	children?: ReactNode;
 	className?: string;
 	items?: Array<ReactElement>;

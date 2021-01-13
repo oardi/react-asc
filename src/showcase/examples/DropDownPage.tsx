@@ -19,6 +19,10 @@ const DropDownPageBase = () => {
 				}
 				menu={
 					<DropDownMenu items={[
+						<DropDownItem type="header">
+							This is a header
+						</DropDownItem>,
+						<DropDownDivider />,
 						<DropDownItem onClick={() => handleClick('1')}>
 							<SvgIcon svg={homeSolidSvg} />
 							<span className="ml-2">
@@ -28,7 +32,6 @@ const DropDownPageBase = () => {
 						<DropDownItem onClick={() => handleClick('2')}>
 							Another Action
 						</DropDownItem>,
-						<DropDownDivider />,
 						<DropDownItem onClick={() => handleClick('3')}>
 							Something
 						</DropDownItem>
