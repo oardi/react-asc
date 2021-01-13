@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react';
-import { Button, DropDown, DropDownDivider, DropDownItem, DropDownMenu, homeSolidSvg, loggerService, SvgIcon } from '../../lib';
+import { Button, DropDown, DropDownDivider, DropDownItem, DropDownMenu, loggerService, snackbarService } from '../../lib';
 import { withOptions } from './components';
 
 const DropDownPageBase = () => {
 
 	const handleClick = (text: string) => {
 		loggerService.debug('handleClick', text);
+		snackbarService.show(`you clicked action ${text}`);
 	}
 
 	return (
@@ -24,16 +25,13 @@ const DropDownPageBase = () => {
 						</DropDownItem>,
 						<DropDownDivider />,
 						<DropDownItem onClick={() => handleClick('1')}>
-							<SvgIcon svg={homeSolidSvg} />
-							<span className="ml-2">
-								Action
-							</span>
+							Action 1
 						</DropDownItem>,
 						<DropDownItem onClick={() => handleClick('2')}>
-							Another Action
+							Action 2
 						</DropDownItem>,
 						<DropDownItem onClick={() => handleClick('3')}>
-							Something
+							Action 3
 						</DropDownItem>
 					]}>
 					</DropDownMenu>

@@ -14,6 +14,16 @@ export const ListPageBase = () => {
 
 	return (
 		<Fragment>
+
+			<h3>simple list</h3>
+			<List>
+				<ListItem><ListItemText>lorem ipsum</ListItemText></ListItem>
+				<ListItem><ListItemText>lorem ipsum</ListItemText></ListItem>
+				<ListItem><ListItemText>lorem ipsum</ListItemText></ListItem>
+				<ListItem><ListItemText>lorem ipsum</ListItemText></ListItem>
+			</List>
+
+			<h3 className="mt-3">extended</h3>
 			<List>
 				<ListItem onClick={handleClickItem}>
 					<ListItemAvatar avatar={homeSolidSvg} />

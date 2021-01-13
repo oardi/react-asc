@@ -4,10 +4,11 @@ import { ITabProps } from './Tab';
 export interface ITabsetProps {
 	children?: React.ReactElement<ITabProps> | Array<React.ReactElement<ITabProps>>;
 	className?: string;
+	onTabSelect?: (eventKey: string) => void;
 	// selectedEventKey // TODO init + onchange
 }
 
-export const Tabset = ({ children, className }: ITabsetProps) => {
+export const Tabset = ({ children, className, onTabSelect }: ITabsetProps) => {
 
 	const [selectedTabKey, setSelectedTabKey] = useState<string>(null);
 
@@ -31,6 +32,7 @@ export const Tabset = ({ children, className }: ITabsetProps) => {
 	const handleClickTab = (tab: React.ReactElement<ITabProps>) => {
 		if (!tab.props.disabled) {
 			setSelectedTabKey(tab.props.eventKey.toString());
+			onTabSelect && onTabSelect(tab.props.eventKey.toString());
 		}
 	}
 

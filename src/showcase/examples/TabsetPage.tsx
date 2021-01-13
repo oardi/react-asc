@@ -1,11 +1,16 @@
 import React from 'react';
-import { Tab, Tabset } from '../../lib';
+import { snackbarService, Tab, Tabset } from '../../lib';
 import { withOptions } from './components';
 
 const TabsetPageBase = () => {
+
+	const handleSelected = (eventKey: string) => {
+		snackbarService.show(`You selected: ${eventKey}`);
+	}
+
 	return (
 		<div>
-			<Tabset>
+			<Tabset onTabSelect={handleSelected}>
 				<Tab eventKey="tab1" title="tab 1" isActive={true}>
 					1st CONTENT
 				</Tab>

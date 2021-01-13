@@ -6,9 +6,11 @@ const BreadcrumbPageBase = () => {
 	return (
 		<div>
 			<Breadcrumb
+				className="mb-0"
 				items={[
-					{ label: 'Showcase', path: '/showcase' },
-					{ label: 'Breadcrumb', path: '/breadcrumb', isActive: true }
+					{ label: 'Home', path: '/' },
+					{ label: 'Library', path: '/' },
+					{ label: 'Data', path: '/', isActive: true }
 				]}
 			/>
 		</div>

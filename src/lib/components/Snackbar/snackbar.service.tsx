@@ -8,6 +8,7 @@ export interface ISnackbarService {
 
 class SnackbarService implements ISnackbarService {
 	private container: HTMLElement;
+	private handler;
 
 	show(message: string, timeout: number = 3000): Promise<void> {
 
@@ -20,7 +21,7 @@ class SnackbarService implements ISnackbarService {
 			document.body.appendChild(this.container);
 
 			if (timeout > 0) {
-				setTimeout(() => {
+				this.handler = setTimeout(() => {
 					this.hide();
 				}, timeout);
 			}
@@ -47,6 +48,7 @@ class SnackbarService implements ISnackbarService {
 			unmountComponentAtNode(this.container);
 			document.body.removeChild(this.container);
 			this.container = null;
+			clearTimeout(this.handler);
 		}
 	}
 }

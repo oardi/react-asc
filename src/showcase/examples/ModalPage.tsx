@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, COLOR, FormControl, IControls, loggerService, Modal, MODALBUTTONTYPE, modalService, VARIANT } from '../../lib';
+import { Button, COLOR, FormControl, IControls, loggerService, Modal, ModalBody, MODALBUTTONTYPE, modalService, VARIANT } from '../../lib';
 import { withOptions } from './components';
 
 const ModalPageBase = () => {
@@ -18,7 +18,7 @@ const ModalPageBase = () => {
 				{ label: 'ok', type: MODALBUTTONTYPE.OK },
 			]
 		})
-			.then(() => loggerService.debug('ok clicked')).catch(()=>{});
+			.then(() => loggerService.debug('ok clicked')).catch(() => { });
 	}
 
 	const customHandler = () => {
@@ -49,8 +49,11 @@ const ModalPageBase = () => {
 
 			{
 				isVisible &&
-				<Modal>
-					some modal
+				<Modal
+					header="Modal Header"
+					isDismissable={true}
+				>
+					some modal content
 				</Modal>
 			}
 		</>

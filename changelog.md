@@ -1,3 +1,7 @@
+## v1.32.4
+- snackbarService - fixed timeout hanlder
+- tabSet - added onTabSelect
+
 ## v1.32.3
 - dropDown - add type header for dropDownItem
 

@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import { IconButton, IIconButtonProps, homeSolidSvg, FormControl, COLOR, VARIANT } from '../../lib';
+import { IconButton, IIconButtonProps, homeSolidSvg, FormControl, COLOR, VARIANT, snackbarService } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IIconButtonProps>) => {
@@ -14,6 +14,10 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 		});
 	}, []);
 
+	const handleClick = () => {
+		snackbarService.show('IconButton clicked');
+	}
+
 	return (
 		<Fragment>
 			<IconButton
@@ -23,6 +27,7 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 				disabled={settingValues.disabled}
 				icon={homeSolidSvg}
 				variant={settingValues.variant}
+				onClick={handleClick}
 			/>
 		</Fragment>
 	);
