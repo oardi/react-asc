@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TreeView } from '../../lib';
 import { withOptions } from './components';
 
-const ShowcaseTreeViewBase = () => {
+const TreeViewPageBase = () => {
 	const [selectedIds, setSelectedIds] = useState([]);
 
 	const handleSelect = (ids) => {
@@ -42,4 +42,4 @@ const ShowcaseTreeViewBase = () => {
 	);
 }
 
-export const ShowcaseTreeView = withOptions(ShowcaseTreeViewBase);
+export const TreeViewPage = withOptions(TreeViewPageBase);

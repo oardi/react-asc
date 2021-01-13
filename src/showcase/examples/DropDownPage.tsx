@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Button, DropDown, DropDownDivider, DropDownItem, DropDownMenu, homeSolidSvg, loggerService, SvgIcon } from '../../lib';
 import { withOptions } from './components';
 
-const ShowcaseDropDownBase = () => {
+const DropDownPageBase = () => {
 
 	const handleClick = (text: string) => {
 		loggerService.debug('handleClick', text);
@@ -41,4 +41,4 @@ const ShowcaseDropDownBase = () => {
 	);
 }
 
-export const ShowcaseDropDown = withOptions(ShowcaseDropDownBase);
+export const DropDownPage = withOptions(DropDownPageBase);

@@ -3,7 +3,7 @@ import { FormControl, Checkbox, ICheckboxProps, loggerService } from '../../lib'
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const CLASSNAME = 'ShowcaseCheckboxBase';
-export const ShowcaseCheckboxBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ICheckboxProps>) => {
+export const CheckboxPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ICheckboxProps>) => {
 
 	useEffect(() => {
 		setSettingsControls({
@@ -25,7 +25,7 @@ export const ShowcaseCheckboxBase = ({ settingValues, setSettingsControls }: ISh
 	);
 }
 
-export const ShowcaseCheckbox = withOptions<ICheckboxProps>(ShowcaseCheckboxBase, {
+export const CheckboxPage = withOptions<ICheckboxProps>(CheckboxPageBase, {
 	checked: true,
 	label: 'my checkbox'
 });

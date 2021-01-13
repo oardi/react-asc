@@ -1,3 +1,9 @@
+## v1.31.2
+- showcase - renamed showcase pages
+
+## v1.31.2
+- showcase - dynamic routes
+
 ## v1.31.1
 - showcase - added menuModels
 

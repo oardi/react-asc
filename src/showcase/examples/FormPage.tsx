@@ -4,7 +4,7 @@ import { IShowcaseBaseProps, withOptions } from './components';
 import dayjs from 'dayjs';
 
 const CLASSNAME = 'ShowcaseForm';
-export const ShowcaseFormBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IFormProps>) => {
+export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IFormProps>) => {
 	const [values, setValues] = useState({});
 	const myForm = useRef<Form>();
 
@@ -95,7 +95,7 @@ export const ShowcaseFormBase = ({ settingValues, setSettingsControls }: IShowca
 	);
 }
 
-export const ShowcaseForm = withOptions<IFormProps>(ShowcaseFormBase, {
+export const FormPage = withOptions<IFormProps>(FormPageBase, {
 	controls: {},
 	validateOnBlur: false
 });

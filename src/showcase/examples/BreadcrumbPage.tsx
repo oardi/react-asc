@@ -2,7 +2,7 @@ import React from 'react';
 import { Breadcrumb } from '../../lib';
 import { withOptions } from './components';
 
-const ShowcaseBreadcrumbBase = () => {
+const BreadcrumbPageBase = () => {
 	return (
 		<div>
 			<Breadcrumb
@@ -15,4 +15,4 @@ const ShowcaseBreadcrumbBase = () => {
 	);
 }
 
-export const ShowcaseBreadcrumb = withOptions(ShowcaseBreadcrumbBase);
+export const BreadcrumbPage = withOptions(BreadcrumbPageBase);

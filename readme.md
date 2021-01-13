@@ -43,7 +43,7 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 - prepend, append inputGroup
 
 ### tabset
-- selectedEventKey - init + onchange
+- set selectedEventKey - init + onchange
 - use models
 
 ### tooltip 

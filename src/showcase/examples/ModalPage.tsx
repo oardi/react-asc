@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, COLOR, FormControl, IControls, loggerService, Modal, MODALBUTTONTYPE, modalService, VARIANT } from '../../lib';
 import { withOptions } from './components';
 
-const ShowcaseModalBase = () => {
+const ModalPageBase = () => {
 
 	const [isVisible, setIsVisible] = useState(false);
 
@@ -57,4 +57,4 @@ const ShowcaseModalBase = () => {
 	);
 }
 
-export const ShowcaseModal = withOptions(ShowcaseModalBase);
+export const ModalPage = withOptions(ModalPageBase);

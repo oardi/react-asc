@@ -3,7 +3,7 @@ import { Button, Drawer, FormControl, IDrawerProps, loggerService } from '../../
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const CLASSNAME = 'ShowcaseDrawerBase';
-const ShowcaseDrawerBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IDrawerProps>) => {
+const DrawerPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IDrawerProps>) => {
 
 	const [isVisible, setIsVisible] = useState(false);
 
@@ -36,6 +36,6 @@ const ShowcaseDrawerBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 	);
 }
 
-export const ShowcaseDrawer = withOptions<IDrawerProps>(ShowcaseDrawerBase, {
+export const DrawerPage = withOptions<IDrawerProps>(DrawerPageBase, {
 	position: 'left'
 });

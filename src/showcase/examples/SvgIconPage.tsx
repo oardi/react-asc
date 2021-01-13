@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const ShowcaseSvgIcon = () => {
+export const SvgIconPage = () => {
 	return (
 		<div>
 			TODO

@@ -2,7 +2,7 @@ import React from 'react';
 import { Tab, Tabset } from '../../lib';
 import { withOptions } from './components';
 
-const ShowcaseTabsetBase = () => {
+const TabsetPageBase = () => {
 	return (
 		<div>
 			<Tabset>
@@ -20,4 +20,4 @@ const ShowcaseTabsetBase = () => {
 	);
 }
 
-export const ShowcaseTabset = withOptions(ShowcaseTabsetBase);
+export const TabsetPage = withOptions(TabsetPageBase);

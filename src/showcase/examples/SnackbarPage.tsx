@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, loggerService, snackbarService } from '../../lib';
 import { withOptions } from './components';
 
-const ShowcaseSnackbarBase = () => {
+const SnackbarPageBase = () => {
 
 	const handleClick = () => {
 		snackbarService.show('jojo').then(() => loggerService.debug('onOk clicked'));
@@ -17,4 +17,4 @@ const ShowcaseSnackbarBase = () => {
 	);
 }
 
-export const ShowcaseSnackbar = withOptions(ShowcaseSnackbarBase);
+export const SnackbarPage = withOptions(SnackbarPageBase);

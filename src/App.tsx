@@ -4,37 +4,27 @@ import { hot } from "react-hot-loader";
 import './style.scss';
 import * as Pages from './showcase';
 import { AppBar, COLOR, Drawer, IconButton, ISidebarItem, loggerService } from './lib';
-import { AppSidebar } from './shared/components';
+import { AppSidebar, AppInfo } from './shared';
 import { useAppContext } from './AppContext';
-import { AppInfo } from './shared/components/AppInfo';
-import { barsSolidSvg } from './showcase';
 import { showcaseService } from './app.service';
-import { MenuModel } from './showcase/showcase.models';
+import { MenuModel, RouteModel, barsSolidSvg } from './showcase';
 
 const CLASSNAME = 'App';
 const App = () => {
 
+	const { appInfo } = useAppContext();
+	const history = useHistory();
 	const [showMenu, setShowMenu] = useState<boolean>(false);
 	const [menuItems, setMenuItems] = useState<Array<ISidebarItem>>(null);
-	const [showcaseRoutes, setShowcaseRoutes] = useState<Array<{ path: string, componentKey: string }>>(null);
+	const [showcaseRoutes, setShowcaseRoutes] = useState<Array<RouteModel>>(null);
 
-	const { appInfo } = useAppContext();
-
-	const history = useHistory();
-
-	useEffect(() => {
-		init();
-	}, []);
+	useEffect(() => { init() }, []);
 
 	const init = async () => {
 		try {
 			const menuResult = await showcaseService.loadMenu();
 			setMenuItems(menuResult.data.map(dto => new MenuModel(dto)));
-
-			// TODO - models
-			setShowcaseRoutes(menuResult.data.find(dto => dto.id === 'Showcase').items.map(dto => (
-				{ path: dto.path ? dto.path : '/showcase/' + dto.id, componentKey: 'Showcase' + dto.id }
-			)));
+			setShowcaseRoutes(menuResult.data.map(dto => new RouteModel(dto)));
 		} catch (err) { loggerService.error('init', err) }
 	}
 	return (
@@ -58,20 +48,27 @@ const App = () => {
 				}
 
 				<div className="container">
+
 					<Switch>
-						<Route exact path="/" component={Pages.HomePage} />
-						<Route exact path="/about" component={Pages.AboutPage} />
-						<Route exact path="/gettingstarted" component={Pages.GettingStartedPage} />
-
 						{showcaseRoutes &&
-							<Route exact path={showcaseRoutes.map(showcaseRoutes => showcaseRoutes.path)}>
-								{showcaseRoutes.map(showcaseRoute =>
-									<Route key={showcaseRoute.componentKey} exact path={showcaseRoute.path} component={Pages[showcaseRoute.componentKey]} />
-								)}
-							</Route>
-						}
+							showcaseRoutes.map(showcaseRoute => (
+								<Route
+									exact
+									path={!showcaseRoute.routes ? showcaseRoute.path : showcaseRoute.routes.map(r => r.path)}
+									component={Pages[showcaseRoute.componentKey]}
+									key={showcaseRoute.componentKey}>
 
-						<Route render={() => <div>404 - Missing!</div>} />
+									{ showcaseRoute.routes &&
+										showcaseRoute.routes.map(route => (
+											<Route exact path={route.path} component={Pages[route.componentKey]} key={route.componentKey} />
+										))
+									}
+
+								</Route>
+							))}
+
+						{showcaseRoutes && <Route render={() => <div>404 - Missing!</div>} />}
+
 					</Switch>
 				</div>
 			</div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { AppBar, COLOR, homeSolidSvg, IconButton } from '../../lib';
 import { withOptions } from './components';
 
-const ShowcaseAppBarBase = () => {
+const AppBarBase = () => {
 	return (
 		<div>
 			<AppBar>
@@ -13,4 +13,4 @@ const ShowcaseAppBarBase = () => {
 	);
 }
 
-export const ShowcaseAppBar = withOptions(ShowcaseAppBarBase);
+export const AppBarPage = withOptions(AppBarBase);

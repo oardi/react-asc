@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { FormControl, ITableProps, Table } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const ShowcaseTableBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITableProps>) => {
+const TablePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITableProps>) => {
 
 	useEffect(() => {
 		setSettingsControls({
@@ -53,4 +53,11 @@ const ShowcaseTableBase = ({ settingValues, setSettingsControls }: IShowcaseBase
 	);
 }
 
-export const ShowcaseTable = withOptions<ITableProps>(ShowcaseTableBase, { hover: false, bordered: false, striped: false, responsive: false });
+export const TablePage = withOptions<ITableProps>(TablePageBase,
+	{
+		hover: false,
+		bordered: false,
+		striped: false,
+		responsive: false
+	}
+);

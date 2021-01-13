@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Card, CardBody, CardSubtitle, CardText, CardTitle } from '../../lib';
 import { withOptions } from './components';
 
-const ShowcaseCardBase = () => {
+const CardPageBase = () => {
 	return (
 		<Fragment>
 			<Card>
@@ -18,4 +18,4 @@ const ShowcaseCardBase = () => {
 	);
 }
 
-export const ShowcaseCard = withOptions(ShowcaseCardBase);
+export const CardPage = withOptions(CardPageBase);

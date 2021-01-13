@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { List, ListItem, ListItemAvatar, homeSolidSvg, ListItemAction, IconButton, DropDown, DropDownItem, DropDownMenu, ListItemText, loggerService } from '../../lib';
 import { withOptions } from './components';
 
-export const ShowcaseListBase = () => {
+export const ListPageBase = () => {
 
 	const handleClickItem = () => {
 		loggerService.debug('handleClick item');
@@ -44,4 +44,4 @@ export const ShowcaseListBase = () => {
 	);
 }
 
-export const ShowcaseList = withOptions(ShowcaseListBase);
+export const ListPage = withOptions(ListPageBase);
