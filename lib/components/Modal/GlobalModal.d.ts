@@ -1,6 +1,7 @@
 import { ReactElement } from 'react';
 import { IControls, IFormValues } from '../Form';
 import { MODALTYPE } from './modal.enum';
+import { IModalButton } from './modal.interfaces';
 interface IModalProps {
     title?: string;
     description?: string | ReactElement;
@@ -8,9 +9,8 @@ interface IModalProps {
     modalType?: MODALTYPE;
     onOk?: (values?: IFormValues) => void;
     onCancel?: () => void;
-    showOkButton?: boolean;
-    showCancelButton?: boolean;
     isDismissable?: boolean;
+    buttons?: Array<IModalButton>;
 }
-export declare const GlobalModal: ({ title, description, formControls, onOk, onCancel, showOkButton, showCancelButton, isDismissable }: IModalProps) => JSX.Element;
+export declare const GlobalModal: ({ title, description, formControls, onOk, onCancel, isDismissable, buttons }: IModalProps) => JSX.Element;
 export {};

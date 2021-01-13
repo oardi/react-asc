@@ -3,6 +3,7 @@ import { GlobalModal } from './GlobalModal';
 import { IControls, IFormValues } from '../Form';
 import { ReactElement } from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
+import { IModalButton } from './modal.interfaces';
 
 export interface IModalService {
 	show(title: string, description: string | ReactElement, options?: IModalOptions): Promise<void | IFormValues>;
@@ -10,16 +11,16 @@ export interface IModalService {
 
 export interface IModalOptions {
 	formControls?: IControls
-	showOkButton?: boolean;
-	showCancelButton?: boolean;
+	// showOkButton?: boolean;
+	// showCancelButton?: boolean;
 	isDismissable?: boolean;
+	buttons?: Array<IModalButton>;
 }
 
 class ModalService implements IModalService {
 	private container: HTMLElement;
 
 	show(title: string, description: string | ReactElement, options?: IModalOptions): Promise<void | IFormValues> {
-
 		if (!this.container) {
 			this.container = document.createElement('div');
 			document.body.appendChild(this.container);
@@ -42,9 +43,8 @@ class ModalService implements IModalService {
 						formControls={options && options.formControls}
 						onCancel={handleCancel}
 						onOk={handleOk}
-						showCancelButton={options && options.showCancelButton}
-						showOkButton={options && options.showOkButton}
 						isDismissable={options && options.isDismissable}
+						buttons={options && options.buttons}
 					/>,
 					this.container
 				);

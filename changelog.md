@@ -1,3 +1,9 @@
+## v1.31.0
+- modalService - add custom buttons
+- modalService - remove showOk/showCancel 
+- modal - add MODALBUTTONTYPE
+- snackbarService - allow only one instance
+
 ## v1.30.1
 - formInput -> checkbox - remove cssClass form-control
 

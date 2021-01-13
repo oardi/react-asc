@@ -1,5 +1,5 @@
-import React, {  useState } from 'react';
-import { Button, FormControl, IControls, loggerService, Modal, modalService } from '../../lib';
+import React, { useState } from 'react';
+import { Button, COLOR, FormControl, IControls, loggerService, Modal, MODALBUTTONTYPE, modalService, VARIANT } from '../../lib';
 import { withOptions } from './components';
 
 const ShowcaseModalBase = () => {
@@ -11,8 +11,18 @@ const ShowcaseModalBase = () => {
 	}
 
 	const handleClickTriggerModalService = () => {
-		modalService.show('hello modal', 'some content')
-			.then(() => loggerService.debug('ok clicked'));
+		modalService.show('Hello Modal', 'Modal with custom buttons - using custom buttons make sure to attach Modalbuttontype for ok and cancel', {
+			buttons: [
+				{ label: 'delete', color: COLOR.accent, handler: customHandler },
+				{ label: 'cancel', type: MODALBUTTONTYPE.CANCEL, color: COLOR.secondary, variant: VARIANT.text },
+				{ label: 'ok', type: MODALBUTTONTYPE.OK },
+			]
+		})
+			.then(() => loggerService.debug('ok clicked')).catch(()=>{});
+	}
+
+	const customHandler = () => {
+		console.warn('custom handler');
 	}
 
 	const handleClickTriggerModalFormService = () => {

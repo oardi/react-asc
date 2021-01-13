@@ -1,4 +1,4 @@
-import React, { Fragment, ReactElement, ReactNode, useEffect } from 'react';
+import React, { ReactElement, ReactNode, useEffect } from 'react';
 import { ModalHeader } from './ModalHeader';
 import { ModalBody } from './ModalBody';
 import { Backdrop } from '../Backdrop';

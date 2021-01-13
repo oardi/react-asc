@@ -11,17 +11,20 @@ class SnackbarService implements ISnackbarService {
 
 	show(message: string, timeout: number = 3000): Promise<void> {
 
-		this.container = document.createElement('div');
-		this.container.classList.add('snackbar-container');
-		document.body.appendChild(this.container);
-
-		if (timeout > 0) {
-			setTimeout(() => {
-				this.hide();
-			}, timeout);
-		}
-
 		return new Promise((resolve, reject) => {
+			if (this.container) {
+				this.hide();
+			}
+			this.container = document.createElement('div');
+			this.container.classList.add('snackbar-container');
+			document.body.appendChild(this.container);
+
+			if (timeout > 0) {
+				setTimeout(() => {
+					this.hide();
+				}, timeout);
+			}
+
 			const handleOk = () => {
 				resolve();
 				this.hide();
@@ -34,7 +37,9 @@ class SnackbarService implements ISnackbarService {
 				/>,
 				this.container
 			);
+
 		})
+
 	}
 
 	private hide() {

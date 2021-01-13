@@ -1,2 +1,4 @@
-export enum MODALRESULT { OK = 'OK', CANCEL = 'CANCEL', DELETE = 'DELETE' }
+// export enum MODALRESULT { OK = 'OK', CANCEL = 'CANCEL', DELETE = 'DELETE' }
 export enum MODALTYPE { BASIC = 'BASIC', FORM = 'FORM' }
+
+export enum MODALBUTTONTYPE { OK = 'OK', CANCEL = 'CANCEL', RESET = 'RESET', DEFAULT = 'DEFAULT' }

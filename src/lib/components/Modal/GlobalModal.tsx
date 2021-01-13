@@ -3,7 +3,8 @@ import { Button } from '../Button';
 import { COLOR, VARIANT } from '../component.enums';
 import { Form, IControls, IFormValues } from '../Form';
 import { Modal } from './Modal';
-import { MODALTYPE } from './modal.enum';
+import { MODALBUTTONTYPE, MODALTYPE } from './modal.enum';
+import { IModalButton } from './modal.interfaces';
 
 interface IModalProps {
 	title?: string;
@@ -12,9 +13,8 @@ interface IModalProps {
 	modalType?: MODALTYPE;
 	onOk?: (values?: IFormValues) => void;
 	onCancel?: () => void;
-	showOkButton?: boolean;
-	showCancelButton?: boolean;
 	isDismissable?: boolean;
+	buttons?: Array<IModalButton>;
 }
 
 export const GlobalModal = ({
@@ -23,9 +23,11 @@ export const GlobalModal = ({
 	formControls,
 	onOk,
 	onCancel,
-	showOkButton = true,
-	showCancelButton = true,
-	isDismissable = false
+	isDismissable = false,
+	buttons = [
+		{ label: 'cancel', type: MODALBUTTONTYPE.CANCEL, color: COLOR.secondary, variant: VARIANT.text },
+		{ label: 'ok', type: MODALBUTTONTYPE.OK },
+	]
 }: IModalProps) => {
 
 	// workaround for getDerivedStateFromProps
@@ -54,23 +56,44 @@ export const GlobalModal = ({
 		onOk(values);
 	}
 
+	// TODO
+	const handleClickBackdrop = () => {
+		console.warn('backdrop click');
+	}
+
+	const handleClickButton = (button: IModalButton) => {
+		switch (button.type) {
+			case MODALBUTTONTYPE.OK:
+				handleOk();
+				break;
+			case MODALBUTTONTYPE.CANCEL:
+				handleCancel();
+				break;
+			default:
+				handleCancel();
+				break;
+		}
+
+		button.handler && button.handler();
+	}
+
 	return (
 		<Modal
 			header={title}
 			onHeaderCloseClick={onCancel}
 			isDismissable={isDismissable}
+			onBackdropClick={handleClickBackdrop}
 			footer={
 				<Fragment>
-					{showCancelButton && <Button color={COLOR.secondary} variant={VARIANT.text} onClick={handleCancel}>cancel</Button>}
-					{showOkButton && <Button onClick={handleOk}>ok</Button>}
+					{buttons.map((button, index) => (
+						<Button key={index} onClick={() => handleClickButton(button)} variant={button.variant} color={button.color}>
+							{button.label}
+						</Button>
+					))}
 				</Fragment>
 			}>
 
-			{description &&
-				<div>
-					{description}
-				</div>
-			}
+			{description && <div>{description}</div>}
 
 			{
 				modalType === MODALTYPE.FORM &&
