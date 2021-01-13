@@ -1,11 +1,12 @@
 import React, { cloneElement, ReactElement, ReactNode, useContext } from 'react';
 import { Backdrop } from '../Backdrop';
 import { DropDownContext } from './DropdownContext';
+import { IDropDownItemProps } from './DropDownItem';
 
 export interface IDropDownMenuProps {
 	children?: ReactNode;
 	className?: string;
-	items?: Array<ReactElement>;
+	items?: Array<ReactElement<IDropDownItemProps>>;
 	menuPosition?: MenuPosition;
 }
 
@@ -35,11 +36,11 @@ export const DropDownMenu = ({ items, children, className, menuPosition = 'left'
 
 			{items && !children ?
 				items.map((item, index) => cloneElement(item, {
-					onClick: (e: Event) => {
+					onClick: (e: React.MouseEvent) => {
 						item.props.onClick && item.props.onClick(e);
-						handleClickItem()
+						item.props.type !== 'header' && handleClickItem()
 					},
-					key: item.key ? item.key : index
+					key: item.key ? item.key.toString() : index.toString()
 				}))
 				: null}
 

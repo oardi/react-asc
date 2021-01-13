@@ -1,3 +1,6 @@
+## v1.32.5
+- dropDown - disable hide if type === header
+
 ## v1.32.4
 - snackbarService - fixed timeout hanlder
 - tabSet - added onTabSelect

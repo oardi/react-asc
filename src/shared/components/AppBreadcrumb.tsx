@@ -13,10 +13,10 @@ export const AppBreadcrumb = () => {
 	useEffect(() => {
 		const currentPath = location.pathname.replace(' ', '');
 		const splittedPath = currentPath.split('/').filter(p => p !== 'Showcase' && p); // TODO - showcase
-		const breadcrumbItems = splittedPath.map(sP => ({ label: sP, path: '/' + sP, isActive: false }));
-		breadcrumbItems.unshift({ label: 'Home', path: '/', isActive: false });
-		breadcrumbItems[breadcrumbItems.length - 1].isActive = true;
-		setItems(breadcrumbItems);
+		const newItems = splittedPath.map(sP => ({ label: sP, path: '/' + sP, isActive: false }));
+		newItems.unshift({ label: 'Home', path: '/', isActive: false });
+		newItems[newItems.length - 1].isActive = true;
+		setItems(newItems.length <= 1 ? null : newItems);
 	}, [location]);
 
 	const handleClickBreadcrumbItem = (item: IBreadcrumbItem) => {
@@ -27,10 +27,14 @@ export const AppBreadcrumb = () => {
 	}
 
 	return (
-		<Breadcrumb
-			className="mt-3"
-			items={items}
-			onItemClick={handleClickBreadcrumbItem}
-		/>
+		<>
+			{items &&
+				<Breadcrumb
+					className="mt-3"
+					items={items}
+					onItemClick={handleClickBreadcrumbItem}
+				/>
+			}
+		</>
 	);
 }
