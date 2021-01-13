@@ -15,9 +15,9 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 - Form (v1)
 - IconButton
 - List
-- Modal
+- Modal + ModalService
 - Sidebar
-- Snackbar
+- Snackbar + SnackbarService
 - SvgIcon
 - Table
 - Tabset

@@ -1,3 +1,6 @@
+## v1.31.1
+- showcase - added menuModels
+
 ## v1.31.0
 - modalService - add custom buttons
 - modalService - remove showOk/showCancel 

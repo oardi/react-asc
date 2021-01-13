@@ -9,6 +9,7 @@ import { useAppContext } from './AppContext';
 import { AppInfo } from './shared/components/AppInfo';
 import { barsSolidSvg } from './showcase';
 import { showcaseService } from './app.service';
+import { MenuModel } from './showcase/showcase.models';
 
 const CLASSNAME = 'App';
 const App = () => {
@@ -28,16 +29,7 @@ const App = () => {
 	const init = async () => {
 		try {
 			const menuResult = await showcaseService.loadMenu();
-
-			// TODO - models
-			setMenuItems(menuResult.data.map(dto => (
-				{
-					id: dto.id,
-					label: dto.label ? dto.label : dto.id,
-					path: dto.path !== undefined ? dto.path : dto.id,
-					items: dto.items && dto.items.map(item => ({ id: item.id, label: item.label ? item.label : item.id, path: item.id }))
-				}
-			)));
+			setMenuItems(menuResult.data.map(dto => new MenuModel(dto)));
 
 			// TODO - models
 			setShowcaseRoutes(menuResult.data.find(dto => dto.id === 'Showcase').items.map(dto => (
@@ -60,14 +52,8 @@ const App = () => {
 			<div className="main">
 
 				{showMenu &&
-					<Drawer
-						onClickBackdrop={() => setShowMenu(false)}
-					>
-						{/* TODO */}
-						<AppSidebar
-							menuItems={menuItems}
-							onItemClicked={() => setShowMenu(false)}
-						/>
+					<Drawer onClickBackdrop={() => setShowMenu(false)}>
+						<AppSidebar menuItems={menuItems} onItemClicked={() => setShowMenu(false)} />
 					</Drawer>
 				}
 
