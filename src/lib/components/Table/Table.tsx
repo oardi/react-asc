@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import { ConditionalWrapper } from '../ConditionalWrapper';
 
 export interface ITableProps {
 	children?: ReactElement | Array<ReactElement>;
@@ -32,7 +33,3 @@ export const Table = ({ children, className, bordered, striped, hover, responsiv
 		</ConditionalWrapper>
 	);
 }
-
-// extract
-const ConditionalWrapper = ({ condition, wrapper, children }) =>
-	condition ? wrapper(children) : children;

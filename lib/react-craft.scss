@@ -18,6 +18,21 @@
 	}
 }
 
+.breadcrumb {
+	.breadcrumb-item {
+		a:not([href]):not([class]) {
+			color: var(--primary);
+		}
+
+		&:hover {
+			cursor: pointer;
+		}
+		&.active:hover {
+			cursor: unset;
+		}
+	}
+}
+
 .chartjs {
 	& {
 		canvas {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { ConditionalWrapper } from '../ConditionalWrapper';
 import { IBreadcrumbItem } from './breadcrumb.interfaces';
 
 export interface IBreadcrumbProps {
@@ -25,16 +26,13 @@ export const Breadcrumb = ({ className, items, onItemClick }: IBreadcrumbProps) 
 			<ol className={getCssClasses()}>
 				{items && items.map((item, index) => (
 					<li key={index} className={"breadcrumb-item" + (item.isActive ? ' active' : '')} onClick={() => handleClickItem(item)}>
-						{item.isActive ?
-							item.label :
-							<a>{item.label}</a>
-						}
+						<ConditionalWrapper
+							condition={!item.isActive}
+							wrapper={label => <a>{label}</a>}>
+							{item.label}
+						</ConditionalWrapper>
 					</li>
 				))}
-
-				{/* <li className="breadcrumb-item active">
-					Library
-					</li> */}
 			</ol>
 		</nav>
 	);

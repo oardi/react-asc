@@ -1,4 +1,9 @@
-## v1.31.2
+## v1.32.0
+- breadcrumb - added component
+- showcase - added breadcrumb
+- style fixes
+
+## v1.31.3
 - showcase - renamed showcase pages
 
 ## v1.31.2
