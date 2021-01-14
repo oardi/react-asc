@@ -11,9 +11,10 @@ export interface ITabsetProps {
 }
 
 export const Tabset = ({ children, className, onTabSelect, selectedEventKey }: ITabsetProps) => {
+
+	const [_selectedEventKey, setSelectedEventKey] = useState(selectedEventKey);
 	const [navs, setNavs] = useState<Array<TabNavModel>>(null);
 	const [tabs, setTabs] = useState<Array<TabModel>>(null);
-	const [selectedTabKey, setSelectedTabKey] = useState<string>(null);
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -36,17 +37,17 @@ export const Tabset = ({ children, className, onTabSelect, selectedEventKey }: I
 
 	useEffect(() => {
 		if (tabs && tabs.length > 0) {
-			const activeTab = tabs.find(tab => tab.props.eventKey === selectedEventKey);
+			const activeTab = tabs.find(tab => tab.props.eventKey === _selectedEventKey);
 			if (activeTab) {
-				setSelectedTabKey(activeTab.props.eventKey);
+				setSelectedEventKey(activeTab.props.eventKey);
 			} else {
-				setSelectedTabKey(tabs[0].props.eventKey);
+				setSelectedEventKey(tabs[0].props.eventKey);
 			}
 		}
 	}, [tabs]);
 
 	const handleClickTab = (eventKey: string) => {
-		setSelectedTabKey(eventKey);
+		setSelectedEventKey(eventKey);
 		onTabSelect && onTabSelect(eventKey);
 	}
 
@@ -54,31 +55,26 @@ export const Tabset = ({ children, className, onTabSelect, selectedEventKey }: I
 		navs && tabs &&
 		<>
 			<ul className={getCssClasses()}>
-
 				{navs.map(nav => (
 					<TabNav
 						key={nav.eventKey}
 						eventKey={nav.eventKey}
-						isActive={nav.eventKey === selectedTabKey}
+						isActive={nav.eventKey === _selectedEventKey}
 						disabled={nav.disabled}
 						onClick={(eventKey) => handleClickTab(eventKey)}
 					>
 						{nav.title}
 					</TabNav>
 				))}
-
 			</ul>
 
-
 			<div className="tab-content">
-
 				{tabs.map((tab) => (
 					cloneElement(tab, {
-						isActive: tab.props.eventKey === selectedTabKey,
+						isActive: tab.props.eventKey === _selectedEventKey,
 						key: tab.props.eventKey
 					})
 				))}
-
 			</div>
 		</>
 	)

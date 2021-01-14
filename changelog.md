@@ -1,3 +1,6 @@
+## v1.33.1
+- tabset - fixed rerender
+
 ## v1.33.0
 - tabset - created models
 - tabNav - created component

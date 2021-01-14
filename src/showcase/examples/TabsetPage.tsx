@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, loggerService, snackbarService, Tab, Tabset } from '../../lib';
+import { loggerService, snackbarService, Tab, Tabset } from '../../lib';
 import { withOptions } from './components';
 
 const CLASSNAME = 'TabsetPage';
