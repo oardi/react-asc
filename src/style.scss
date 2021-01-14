@@ -1,6 +1,9 @@
 $enable-shadows: true;
-@import "./lib/styles/colors.scss";
-$grid-gutter-width: 20px;
+$theme-colors: (
+	"primary": #3f51b5,
+	"accent": #ff4081,
+	"light": #ffffff,
+);
 @import "~bootstrap/scss/bootstrap";
 @import "./lib/styles/style.scss";
 

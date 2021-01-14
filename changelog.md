@@ -1,3 +1,6 @@
+## v1.34.1
+- fixed color map
+
 ## v1.34.0
 - list added model for items
 - list isHoverable and clone children

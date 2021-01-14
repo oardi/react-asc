@@ -30,7 +30,7 @@
 
 @each $color, $value in $theme-colors {
 	.btn-icon-#{$color} {
-		color: $value !important;
+		color: map-get($theme-colors, $color) !important;
 
 		.isSVG {
 			background-color: $value;
