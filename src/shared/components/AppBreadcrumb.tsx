@@ -21,7 +21,6 @@ export const AppBreadcrumb = () => {
 
 	const handleClickBreadcrumbItem = (item: IBreadcrumbItem) => {
 		loggerService.debug(CLASSNAME, 'handleClickBreadcrumbItem');
-		console.warn(location.pathname, item);
 		if (location.pathname !== item.path)
 			history.push(item.path);
 	}

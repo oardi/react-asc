@@ -1,3 +1,7 @@
+## v1.34.0
+- list added model for items
+- list isHoverable and clone children
+
 ## v1.33.1
 - tabset - fixed rerender
 

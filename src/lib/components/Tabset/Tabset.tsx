@@ -1,10 +1,10 @@
-import React, { cloneElement, useEffect, useState } from 'react';
+import React, { cloneElement, ReactElement, useEffect, useState } from 'react';
 import { ITabProps } from './Tab';
 import { TabModel, TabNavModel } from './tab.models';
 import { TabNav } from './TabNav';
 
 export interface ITabsetProps {
-	children?: React.ReactElement<ITabProps> | Array<React.ReactElement<ITabProps>>;
+	children?: ReactElement<ITabProps> | Array<ReactElement<ITabProps>>;
 	className?: string;
 	onTabSelect?: (eventKey: string) => void;
 	selectedEventKey?: string;

@@ -9,6 +9,6 @@ export declare class TabNavModel {
 export declare class TabModel {
     constructor(dto: ReactElement<ITabProps>);
     key: any;
-    props: any;
+    props: ITabProps;
     type: any;
 }

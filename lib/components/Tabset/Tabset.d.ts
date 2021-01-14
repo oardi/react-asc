@@ -1,7 +1,7 @@
-import React from 'react';
+import { ReactElement } from 'react';
 import { ITabProps } from './Tab';
 export interface ITabsetProps {
-    children?: React.ReactElement<ITabProps> | Array<React.ReactElement<ITabProps>>;
+    children?: ReactElement<ITabProps> | Array<ReactElement<ITabProps>>;
     className?: string;
     onTabSelect?: (eventKey: string) => void;
     selectedEventKey?: string;

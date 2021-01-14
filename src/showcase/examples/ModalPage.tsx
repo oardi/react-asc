@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, COLOR, FormControl, IControls, loggerService, Modal, ModalBody, MODALBUTTONTYPE, modalService, VARIANT } from '../../lib';
+import { Button, COLOR, FormControl, IControls, loggerService, Modal, ModalBody, MODALBUTTONTYPE, modalService, snackbarService, VARIANT } from '../../lib';
 import { withOptions } from './components';
 
 const ModalPageBase = () => {
@@ -22,7 +22,7 @@ const ModalPageBase = () => {
 	}
 
 	const customHandler = () => {
-		console.warn('custom handler');
+		snackbarService.show('custom handler triggered');
 	}
 
 	const handleClickTriggerModalFormService = () => {

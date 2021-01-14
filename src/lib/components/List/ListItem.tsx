@@ -1,6 +1,6 @@
 import React, { MouseEvent, ReactNode } from 'react';
 
-interface IListItemProps {
+export interface IListItemProps {
 	children?: ReactNode;
 	active?: boolean;
 	className?: string;
@@ -25,7 +25,7 @@ export const ListItem = ({
 			cssClasses.push(`active`);
 		}
 		if (isHoverable) {
-			cssClasses.push(`list-group-item-actions`);
+			cssClasses.push(`list-group-item-action`);
 		}
 		if (isDisabled) {
 			cssClasses.push(`disabled`);
