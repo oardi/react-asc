@@ -1,15 +1,18 @@
 import React, { cloneElement, useEffect, useState } from 'react';
 import { ITabProps } from './Tab';
+import { TabModel, TabNavModel } from './tab.models';
+import { TabNav } from './TabNav';
 
 export interface ITabsetProps {
 	children?: React.ReactElement<ITabProps> | Array<React.ReactElement<ITabProps>>;
 	className?: string;
 	onTabSelect?: (eventKey: string) => void;
-	// selectedEventKey // TODO init + onchange
+	selectedEventKey?: string;
 }
 
-export const Tabset = ({ children, className, onTabSelect }: ITabsetProps) => {
-
+export const Tabset = ({ children, className, onTabSelect, selectedEventKey }: ITabsetProps) => {
+	const [navs, setNavs] = useState<Array<TabNavModel>>(null);
+	const [tabs, setTabs] = useState<Array<TabModel>>(null);
 	const [selectedTabKey, setSelectedTabKey] = useState<string>(null);
 
 	const getCssClasses = () => {
@@ -19,39 +22,49 @@ export const Tabset = ({ children, className, onTabSelect }: ITabsetProps) => {
 		return cssClasses.join(' ');
 	};
 
-	// TODO - init tabs by children
 	useEffect(() => {
 		if (children) {
-			const activeChild = (children as Array<React.ReactElement<ITabProps>>).find(child => child.props.isActive && !child.props.disabled);
-			if (activeChild) {
-				setSelectedTabKey(activeChild.props.eventKey);
+			if (Array.isArray(children)) {
+				setTabs(children.map(child => new TabModel(child)));
+				setNavs(children.map(child => new TabNavModel(child)));
+			} else {
+				setTabs([new TabModel(children)]);
+				setNavs([new TabNavModel(children)]);
 			}
 		}
 	}, [children]);
 
-	const handleClickTab = (tab: React.ReactElement<ITabProps>) => {
-		if (!tab.props.disabled) {
-			setSelectedTabKey(tab.props.eventKey.toString());
-			onTabSelect && onTabSelect(tab.props.eventKey.toString());
+	useEffect(() => {
+		if (tabs && tabs.length > 0) {
+			const activeTab = tabs.find(tab => tab.props.eventKey === selectedEventKey);
+			if (activeTab) {
+				setSelectedTabKey(activeTab.props.eventKey);
+			} else {
+				setSelectedTabKey(tabs[0].props.eventKey);
+			}
 		}
+	}, [tabs]);
+
+	const handleClickTab = (eventKey: string) => {
+		setSelectedTabKey(eventKey);
+		onTabSelect && onTabSelect(eventKey);
 	}
 
-	// todo - iterate tabs init by children
 	return (
-		children &&
+		navs && tabs &&
 		<>
 			<ul className={getCssClasses()}>
 
-				{(children as Array<React.ReactElement<ITabProps>>).map((child) => (
-
-					<li key={child.props.eventKey} className={"nav-item" + (child.props.disabled ? ' disabled' : '')} role="presentation">
-						<a
-							className={"nav-link" + (child.props.eventKey === selectedTabKey ? ' active' : '') + (child.props.disabled ? ' disabled' : '')}
-							onClick={() => handleClickTab(child)}>
-							{child.props.title}
-						</a>
-					</li>
-
+				{navs.map(nav => (
+					<TabNav
+						key={nav.eventKey}
+						eventKey={nav.eventKey}
+						isActive={nav.eventKey === selectedTabKey}
+						disabled={nav.disabled}
+						onClick={(eventKey) => handleClickTab(eventKey)}
+					>
+						{nav.title}
+					</TabNav>
 				))}
 
 			</ul>
@@ -59,10 +72,10 @@ export const Tabset = ({ children, className, onTabSelect }: ITabsetProps) => {
 
 			<div className="tab-content">
 
-				{(children as Array<React.ReactElement<ITabProps>>).map((child) => (
-					cloneElement(child, {
-						isActive: child.props.eventKey === selectedTabKey,
-						key: child.props.eventKey
+				{tabs.map((tab) => (
+					cloneElement(tab, {
+						isActive: tab.props.eventKey === selectedTabKey,
+						key: tab.props.eventKey
 					})
 				))}
 

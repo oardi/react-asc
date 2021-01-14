@@ -1,3 +1,7 @@
+## v1.33.0
+- tabset - created models
+- tabNav - created component
+
 ## v1.32.6
 - form - fixed date convert
 

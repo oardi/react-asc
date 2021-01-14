@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import { hot } from "react-hot-loader";
 import './style.scss';
-import * as Pages from './showcase';
+import * as Pages from './showcase'; // LazyLoading?
 import { AppBar, COLOR, Drawer, IconButton, ISidebarItem, loggerService } from './lib';
 import { AppSidebar, AppInfo, AppBreadcrumb } from './shared';
 import { useAppContext } from './AppContext';
