@@ -22,10 +22,8 @@ export interface IFormState {
 	isSubmitted: boolean;
 	isChanged: boolean;
 	submitOnEnter?: boolean;
-
 	// values -> set onChange etc?
 }
-
 
 // values, isSubmitting, handleChange, handleBlur, handleSubmit
 
@@ -51,7 +49,8 @@ export class Form extends Component<IFormProps, IFormState> {
 			const keys = Object.keys(this.state.controls);
 			const values = keys.reduce((obj, f) => {
 				const control = this.getControl(f);
-				const newValue = (control.type === 'date' || control.type === 'datetime-local' && isValidDate(control.value)) ? new Date(control.value).toISOString() : control.value;
+				// TODO - refactor
+				const newValue = ((control.type === 'date' || control.type === 'datetime-local') && control.value && isValidDate(control.value)) ? new Date(control.value).toISOString() : control.value;
 
 				return ({
 					...obj,

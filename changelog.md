@@ -1,3 +1,6 @@
+## v1.32.6
+- form - fixed date convert
+
 ## v1.32.5
 - dropDown - disable hide if type === header
 
