@@ -1,3 +1,6 @@
+## v1.34.6
+- expansionPanel - added component
+
 ## v1.34.5
 - snackbarService - merge Options
 

@@ -85,6 +85,24 @@
 	}
 }
 
+.expansion-panel {
+	border-radius: 4px;
+	background-color: var(--light);
+
+	.expansion-panel-header {
+		padding: 12px 16px;
+		min-height: 48px;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	.expansion-panel-content {
+		padding: 8px 16px 16px;
+	}
+}
+
 .input-group-append {
 	.btn {
 		min-width: auto;

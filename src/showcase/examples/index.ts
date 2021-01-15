@@ -5,6 +5,7 @@ export * from './CardPage';
 export * from './CheckboxPage';
 export * from './DrawerPage';
 export * from './DropDownPage';
+export * from './ExpansionPanelPage';
 export * from './FormPage';
 export * from './IconButtonPage';
 export * from './ListPage';

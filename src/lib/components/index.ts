@@ -7,6 +7,7 @@ export * from './ConditionalWrapper';
 export * from './Checkbox';
 export * from './Drawer';
 export * from './DropDown';
+export * from './ExpansionPanel';
 export * from './Form';
 export * from './IconButton';
 export * from './List';
