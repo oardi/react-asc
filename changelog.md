@@ -1,3 +1,7 @@
+## v1.34.3
+- appBar - added shadow prop
+- tooltip - WIP
+
 ## v1.34.2
 - modalService - added autoFocus to button
 

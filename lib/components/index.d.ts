@@ -16,5 +16,6 @@ export * from './SvgIcon';
 export * from './Snackbar';
 export * from './Table';
 export * from './Tabset';
+export * from './Tooltip';
 export * from './TreeView';
 export * from './component.enums';

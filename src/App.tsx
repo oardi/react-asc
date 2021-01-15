@@ -31,7 +31,7 @@ const App = () => {
 
 	return (
 		<>
-			<AppBar>
+			<AppBar shadow>
 				<IconButton className="mr-2" color={COLOR.light} icon={barsSolidSvg} onClick={() => setShowMenu(!showMenu)} />
 				{appInfo && (
 					<div className="navbar-brand w-100" onClick={() => history.push('/')}>
