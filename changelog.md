@@ -1,3 +1,6 @@
+## v1.34.5
+- snackbarService - merge Options
+
 ## v1.34.4
 - appBatTitle - added component
 - snackbarService added options

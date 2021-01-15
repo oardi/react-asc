@@ -17,7 +17,9 @@ class SnackbarService implements ISnackbarService {
 	private container: HTMLElement;
 	private handler;
 
-	show(message: string, options: ISnackbarOptions = { timeout: 3000, actionText: 'ok', color: COLOR.dark }): Promise<void> {
+	show(message: string, options?: ISnackbarOptions): Promise<void> {
+		const defaultOptions: ISnackbarOptions = { timeout: 3000, actionText: 'ok', color: COLOR.dark };
+		const mergedOptions = Object.assign(defaultOptions, options);
 
 		return new Promise((resolve, reject) => {
 			if (this.container) {
@@ -27,10 +29,10 @@ class SnackbarService implements ISnackbarService {
 			this.container.classList.add('snackbar-container');
 			document.body.appendChild(this.container);
 
-			if (options.timeout > 0) {
+			if (mergedOptions.timeout > 0) {
 				this.handler = setTimeout(() => {
 					this.hide();
-				}, options.timeout);
+				}, mergedOptions.timeout);
 			}
 
 			const handleOk = () => {
@@ -41,15 +43,13 @@ class SnackbarService implements ISnackbarService {
 			render(
 				<Snackbar
 					message={message}
-					color={options.color}
-					actionText={options.actionText}
+					color={mergedOptions.color}
+					actionText={mergedOptions.actionText}
 					onOk={handleOk}
 				/>,
 				this.container
 			);
-
 		})
-
 	}
 
 	private hide() {
