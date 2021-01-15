@@ -1,11 +1,30 @@
-import React from 'react';
-import { Button, loggerService, snackbarService } from '../../lib';
-import { withOptions } from './components';
+import React, { useEffect } from 'react';
+import { Button, COLOR, FormControl, ISnackbarProps, loggerService, snackbarService } from '../../lib';
+import { IShowcaseBaseProps, withOptions } from './components';
 
-const SnackbarPageBase = () => {
+interface ISnackbarServiceProps extends ISnackbarProps {
+	timeout: number;
+}
+
+const SnackbarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ISnackbarServiceProps>) => {
+
+	useEffect(() => {
+		setSettingsControls({
+			message: new FormControl(settingValues.message, [], 'text', { label: 'Message' }),
+			actionText: new FormControl(settingValues.actionText, [], 'text', { label: 'Actiontext' }),
+			timeout: new FormControl(settingValues.timeout, [], 'number', { label: 'timeout' }),
+			color: new FormControl(settingValues.color, [], 'select', { label: 'color', options: Object.keys(COLOR).map(c => ({ label: c, value: c })) }),
+		});
+	}, []);
 
 	const handleClick = () => {
-		snackbarService.show('jojo').then(() => loggerService.debug('onOk clicked'));
+		snackbarService
+			.show(settingValues.message, {
+				actionText: settingValues.actionText,
+				timeout: settingValues.timeout,
+				color: settingValues.color
+			})
+			.then(() => loggerService.debug('onOk clicked'));
 	};
 
 	return (
@@ -17,4 +36,10 @@ const SnackbarPageBase = () => {
 	);
 }
 
-export const SnackbarPage = withOptions(SnackbarPageBase);
+export const SnackbarPage = withOptions<ISnackbarServiceProps>(SnackbarPageBase, {
+	message: 'snackbar message',
+	actionText: 'ok',
+	color: COLOR.dark,
+	timeout: 3000
+});
+

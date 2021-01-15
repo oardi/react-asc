@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { AppBar, ISidebarItem, Sidebar } from '../../lib';
+import { AppBar, AppBarTitle, ISidebarItem, Sidebar } from '../../lib';
 
 interface IAppSidebarProps {
 	menuItems: Array<ISidebarItem>;
@@ -21,9 +21,7 @@ export const AppSidebar = ({ menuItems, onItemClicked }: IAppSidebarProps) => {
 		<>
 			<div className="d-flex flex-column h-100">
 				<AppBar>
-					<div className="navbar-brand w-100">
-						Menu
-				</div>
+					<AppBarTitle>Menu</AppBarTitle>
 				</AppBar>
 				<div style={{ overflowY: 'auto' }}>
 					<Sidebar

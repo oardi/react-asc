@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Button, DropDown, DropDownDivider, DropDownItem, DropDownMenu, loggerService, snackbarService } from '../../lib';
 import { withOptions } from './components';
 
@@ -10,7 +10,7 @@ const DropDownPageBase = () => {
 	}
 
 	return (
-		<Fragment>
+		<>
 
 			<DropDown
 				toggle={
@@ -38,7 +38,7 @@ const DropDownPageBase = () => {
 				}
 			/>
 
-		</Fragment>
+		</>
 	);
 }
 

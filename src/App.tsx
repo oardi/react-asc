@@ -3,7 +3,7 @@ import { Route, Switch, useHistory } from 'react-router-dom';
 import { hot } from "react-hot-loader";
 import './style.scss';
 import * as Pages from './showcase'; // LazyLoading?
-import { AppBar, COLOR, Drawer, IconButton, ISidebarItem, loggerService } from './lib';
+import { AppBar, AppBarTitle, COLOR, Drawer, IconButton, ISidebarItem, loggerService } from './lib';
 import { AppSidebar, AppInfo, AppBreadcrumb } from './shared';
 import { useAppContext } from './AppContext';
 import { showcaseService } from './app.service';
@@ -34,9 +34,9 @@ const App = () => {
 			<AppBar shadow>
 				<IconButton className="mr-2" color={COLOR.light} icon={barsSolidSvg} onClick={() => setShowMenu(!showMenu)} />
 				{appInfo && (
-					<div className="navbar-brand w-100" onClick={() => history.push('/')}>
+					<AppBarTitle onClick={() => history.push('/')}>
 						{appInfo.name} (v.{appInfo.version})
-					</div>
+					</AppBarTitle>
 				)}
 				<AppInfo />
 			</AppBar>

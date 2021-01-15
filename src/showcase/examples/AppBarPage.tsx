@@ -1,16 +1,30 @@
-import React from 'react';
-import { AppBar, COLOR, homeSolidSvg, IconButton } from '../../lib';
-import { withOptions } from './components';
+import React, { useEffect } from 'react';
+import { AppBar, AppBarTitle, COLOR, FormControl, homeSolidSvg, IAppBarProps, IconButton } from '../../lib';
+import { IShowcaseBaseProps, withOptions } from './components';
 
-const AppBarBase = () => {
+const AppBarBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IAppBarProps>) => {
+
+	useEffect(() => {
+		setSettingsControls({
+			color: new FormControl(settingValues.color, [], 'select', { label: 'color', options: Object.keys(COLOR).map(c => ({ label: c, value: c })) }),
+			shadow: new FormControl(settingValues.shadow, [], 'checkbox', { label: 'Shadow' }),
+		});
+	}, []);
+
 	return (
-		<div>
-			<AppBar>
-				<div className="navbar-brand w-100">Navbar</div>
+		<>
+			<AppBar
+				color={settingValues.color}
+				shadow={settingValues.shadow}
+			>
+				<AppBarTitle>Navbar</AppBarTitle>
 				<IconButton color={COLOR.light} icon={homeSolidSvg} />
 			</AppBar>
-		</div>
+		</>
 	);
 }
 
-export const AppBarPage = withOptions(AppBarBase);
+export const AppBarPage = withOptions<IAppBarProps>(AppBarBase, {
+	shadow: false,
+	color: COLOR.primary
+});

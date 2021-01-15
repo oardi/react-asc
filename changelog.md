@@ -1,3 +1,7 @@
+## v1.34.4
+- appBatTitle - added component
+- snackbarService added options
+
 ## v1.34.3
 - appBar - added shadow prop
 - tooltip - WIP

@@ -3,18 +3,20 @@
 	justify-content: center;
 	position: absolute;
 	width: 100%;
-	bottom: 0px;
+	bottom: 24px;
 	z-index: 1001;
 
 	.snackbar {
 		display: flex;
 		align-items: center;
-		min-width: 320px;
-		padding: 14px 16px;
+		min-width: 288px;
+		padding: 6px 16px;
 		transform-origin: center;
+		border-radius: 0.25rem; // TODO - get form BS
 
 		.text {
 			width: 100%;
+			padding: 8px 0;
 		}
 
 		.action {

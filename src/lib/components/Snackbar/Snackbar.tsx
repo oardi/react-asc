@@ -11,7 +11,6 @@ export interface ISnackbarProps {
 export const Snackbar = ({ message, color = COLOR.accent, actionText = 'ok', onOk }: ISnackbarProps) => {
 
 	const getCssClasses = () => {
-
 		const cssClasses: Array<string> = [];
 		cssClasses.push(`snackbar shadow-lg`);
 		cssClasses.push(`bg-${color}`);
@@ -29,7 +28,7 @@ export const Snackbar = ({ message, color = COLOR.accent, actionText = 'ok', onO
 				{message}
 			</div>
 
-			<div className="action" onClick={handleClickAction}>
+			<div className="action text-accent" onClick={handleClickAction}>
 				<span>{actionText}</span>
 			</div>
 		</div>

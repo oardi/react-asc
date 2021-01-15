@@ -1,16 +1,23 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
+import { COLOR } from '../component.enums';
 import { Snackbar } from './Snackbar';
 
 export interface ISnackbarService {
-	show(message: string, timeout?: number): Promise<void>;
+	show(message: string, options?: ISnackbarOptions): Promise<void>;
+}
+
+export interface ISnackbarOptions {
+	actionText?: string;
+	timeout?: number;
+	color?: COLOR;
 }
 
 class SnackbarService implements ISnackbarService {
 	private container: HTMLElement;
 	private handler;
 
-	show(message: string, timeout: number = 3000): Promise<void> {
+	show(message: string, options: ISnackbarOptions = { timeout: 3000, actionText: 'ok', color: COLOR.dark }): Promise<void> {
 
 		return new Promise((resolve, reject) => {
 			if (this.container) {
@@ -20,10 +27,10 @@ class SnackbarService implements ISnackbarService {
 			this.container.classList.add('snackbar-container');
 			document.body.appendChild(this.container);
 
-			if (timeout > 0) {
+			if (options.timeout > 0) {
 				this.handler = setTimeout(() => {
 					this.hide();
-				}, timeout);
+				}, options.timeout);
 			}
 
 			const handleOk = () => {
@@ -34,6 +41,8 @@ class SnackbarService implements ISnackbarService {
 			render(
 				<Snackbar
 					message={message}
+					color={options.color}
+					actionText={options.actionText}
 					onOk={handleOk}
 				/>,
 				this.container
