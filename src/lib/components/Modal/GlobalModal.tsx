@@ -25,7 +25,7 @@ export const GlobalModal = ({
 	onCancel,
 	isDismissable = false,
 	buttons = [
-		{ label: 'cancel', type: MODALBUTTONTYPE.CANCEL, color: COLOR.secondary, variant: VARIANT.text },
+		{ label: 'cancel', type: MODALBUTTONTYPE.CANCEL, color: COLOR.secondary, variant: VARIANT.text, focus: true },
 		{ label: 'ok', type: MODALBUTTONTYPE.OK },
 	]
 }: IModalProps) => {
@@ -86,7 +86,12 @@ export const GlobalModal = ({
 			footer={
 				<Fragment>
 					{buttons.map((button, index) => (
-						<Button key={index} onClick={() => handleClickButton(button)} variant={button.variant} color={button.color}>
+						<Button
+							key={index}
+							variant={button.variant}
+							color={button.color}
+							autofocus={button.autoFocus}
+							onClick={() => handleClickButton(button)}>
 							{button.label}
 						</Button>
 					))}

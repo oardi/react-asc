@@ -15,7 +15,7 @@ const ModalPageBase = () => {
 			buttons: [
 				{ label: 'delete', color: COLOR.accent, handler: customHandler },
 				{ label: 'cancel', type: MODALBUTTONTYPE.CANCEL, color: COLOR.secondary, variant: VARIANT.text },
-				{ label: 'ok', type: MODALBUTTONTYPE.OK },
+				{ label: 'ok', type: MODALBUTTONTYPE.OK, autoFocus: true },
 			]
 		})
 			.then(() => loggerService.debug('ok clicked')).catch(() => { });
@@ -30,7 +30,7 @@ const ModalPageBase = () => {
 			firstName: new FormControl('', ['required'], 'text', { label: 'Firstname', autoFocus: true, placeholder: 'Firstname' })
 		};
 		modalService.show('Form', null, { formControls: controls })
-			.then(res => loggerService.debug(res));
+			.then(res => loggerService.debug(res)).catch(() => { });
 	}
 
 	return (
@@ -52,6 +52,7 @@ const ModalPageBase = () => {
 				<Modal
 					header="Modal Header"
 					isDismissable={true}
+					onHeaderCloseClick={() => setIsVisible(!isVisible)}
 				>
 					some modal content
 				</Modal>

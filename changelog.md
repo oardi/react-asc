@@ -1,3 +1,6 @@
+## v1.34.2
+- modalService - added autoFocus to button
+
 ## v1.34.1
 - fixed color map
 

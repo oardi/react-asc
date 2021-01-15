@@ -12,6 +12,7 @@ export interface IButtonProps {
 	isRounded?: boolean;
 	onClick?: (e: MouseEvent) => void;
 	variant?: VARIANT;
+	autofocus?: boolean;
 }
 
 export const Button = ({
@@ -23,7 +24,8 @@ export const Button = ({
 	isRounded = false,
 	onClick,
 	variant = VARIANT.normal,
-	className
+	className,
+	autofocus: autoFocus
 }: IButtonProps) => {
 
 	const getCssClasses = () => {
@@ -64,6 +66,7 @@ export const Button = ({
 			className={getCssClasses()}
 			disabled={disabled}
 			onClick={(e) => handleClick(e)}
+			autoFocus={autoFocus}
 		>
 			{children}
 		</button>

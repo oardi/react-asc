@@ -6,6 +6,7 @@ export interface IModalButton {
 	variant?: VARIANT;
 	color?: COLOR;
 	handler?: () => void;
-	autofocus?: boolean;
+	autoFocus?: boolean;
 	type?: MODALBUTTONTYPE;
+	focus?: boolean;
 }

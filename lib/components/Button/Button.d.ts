@@ -10,5 +10,6 @@ export interface IButtonProps {
     isRounded?: boolean;
     onClick?: (e: MouseEvent) => void;
     variant?: VARIANT;
+    autofocus?: boolean;
 }
-export declare const Button: ({ children, block, color, disabled, isActive, isRounded, onClick, variant, className }: IButtonProps) => JSX.Element;
+export declare const Button: ({ children, block, color, disabled, isActive, isRounded, onClick, variant, className, autofocus: autoFocus }: IButtonProps) => JSX.Element;
