@@ -2,13 +2,15 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 
 interface IBackdropProps {
+	target?: HTMLElement;
 	onClick?: () => void;
 	isTransparent?: boolean;
 }
 
-export const Backdrop = ({ isTransparent = false, onClick }: IBackdropProps) => {
+export const Backdrop = ({ target = document.body, isTransparent = false, onClick }: IBackdropProps) => {
 
-	const handleClick = () => {
+	const handleClick = (e: React.MouseEvent) => {
+		e.stopPropagation();
 		onClick && onClick();
 	}
 
@@ -23,9 +25,8 @@ export const Backdrop = ({ isTransparent = false, onClick }: IBackdropProps) => 
 
 	return (
 		createPortal(
-			<div
-				className={getCssClasses()}
-				onClick={handleClick} />,
-			document.body)
+			<div className={getCssClasses()} onClick={handleClick} />,
+			target
+		)
 	)
 }

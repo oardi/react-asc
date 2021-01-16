@@ -26,7 +26,7 @@ export const ExpansionPanel = ({ header, children, isExpanded, onChange }: IExpa
 	};
 
 	const handleClickHeader = (event: React.MouseEvent) => {
-		setIsExpanded(!!isExpanded ? isExpanded : !_isExpanded);
+		setIsExpanded(!_isExpanded)
 		onChange && onChange(event, !_isExpanded);
 	}
 

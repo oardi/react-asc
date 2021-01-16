@@ -1,4 +1,4 @@
-import React, { cloneElement, ReactElement, ReactNode, useContext } from 'react';
+import React, { cloneElement, ReactElement, ReactNode, useContext, useRef } from 'react';
 import { Backdrop } from '../Backdrop';
 import { DropDownContext } from './DropdownContext';
 import { IDropDownItemProps } from './DropDownItem';
@@ -46,7 +46,6 @@ export const DropDownMenu = ({ items, children, className, menuPosition = 'left'
 
 			{children && !items ? children : null}
 
-			<Backdrop isTransparent onClick={handleClickItem} />
 		</div>
 	)
 }

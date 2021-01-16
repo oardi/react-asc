@@ -1,3 +1,7 @@
+## v1.35.1
+- backdrop - added optional target
+- expansionPanel - fixed toggle of simple example
+
 ## v1.35.0
 - expansionPanel v1
 

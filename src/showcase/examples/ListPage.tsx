@@ -1,15 +1,17 @@
 import React, { Fragment } from 'react';
-import { List, ListItem, ListItemAvatar, homeSolidSvg, ListItemAction, IconButton, DropDown, DropDownItem, DropDownMenu, ListItemText, loggerService } from '../../lib';
+import {
+	List, ListItem, ListItemAvatar, homeSolidSvg, ListItemAction, IconButton, DropDown, DropDownItem, DropDownMenu, ListItemText, snackbarService
+} from '../../lib';
 import { withOptions } from './components';
 
 export const ListPageBase = () => {
 
 	const handleClickItem = () => {
-		loggerService.debug('handleClick item');
+		snackbarService.show('Item clicked');
 	}
 
 	const handleClickDropDownItem = () => {
-		loggerService.warn('handleClick dropDownItem in showcase');
+		snackbarService.show('DropdownItem clicked');
 	}
 
 	return (

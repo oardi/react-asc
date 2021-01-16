@@ -12,6 +12,7 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 - Checkbox
 - Drawer
 - DropDown
+- ExpansionPanel
 - Form (v1)
 - IconButton
 - List
@@ -25,11 +26,11 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 
 ## TODO
 
+### ListItemAvatar
+- change to children? or SVG + Text + cssClass
+
 ### checkbox
 - checkboxGroup as Component and type?
-
-### breadcrumb
-- add component
 
 ### form 
 - novalidate to form-input to disable default behaviour

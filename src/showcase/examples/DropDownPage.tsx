@@ -13,11 +13,7 @@ const DropDownPageBase = () => {
 		<>
 
 			<DropDown
-				toggle={
-					<Button>
-						Dropdown button
-					</Button>
-				}
+				toggle={<Button>Dropdown button</Button>}
 				menu={
 					<DropDownMenu items={[
 						<DropDownItem type="header">
