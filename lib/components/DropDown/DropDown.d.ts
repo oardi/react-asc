@@ -1,9 +1,9 @@
 import { ReactElement } from 'react';
-import { IDropDownMenuProps } from './DropDownMenu';
+import { IDropDownItemProps } from './DropDownItem';
 interface IDropDownProps {
     toggle?: ReactElement;
-    menu?: ReactElement<IDropDownMenuProps>;
+    children?: ReactElement<IDropDownItemProps> | Array<ReactElement<IDropDownItemProps>>;
     onToggleClick?: (e: Event) => void;
 }
-export declare const DropDown: ({ toggle, menu, onToggleClick }: IDropDownProps) => JSX.Element;
+export declare const DropDown: ({ toggle, children, onToggleClick }: IDropDownProps) => JSX.Element;
 export {};

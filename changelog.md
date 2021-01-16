@@ -1,3 +1,6 @@
+## v1.36.0
+- dropdown - refactored menu and items
+
 ## v1.35.1
 - backdrop - added optional target
 - expansionPanel - fixed toggle of simple example

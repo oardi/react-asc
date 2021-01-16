@@ -1,20 +1,18 @@
-import React, { cloneElement, ReactElement, ReactNode, useContext, useRef } from 'react';
-import { Backdrop } from '../Backdrop';
+import React, { ReactElement, ReactNode, useContext, useEffect } from 'react';
 import { DropDownContext } from './DropdownContext';
 import { IDropDownItemProps } from './DropDownItem';
 
 export interface IDropDownMenuProps {
-	children?: ReactNode;
+	children?: ReactElement<IDropDownItemProps> | Array<ReactElement<IDropDownItemProps>>;
 	className?: string;
-	items?: Array<ReactElement<IDropDownItemProps>>;
 	menuPosition?: MenuPosition;
 }
 
 type MenuPosition = 'right' | 'left';
 
-export const DropDownMenu = ({ items, children, className, menuPosition = 'left' }: IDropDownMenuProps) => {
+export const DropDownMenu = ({ children, className, menuPosition = 'left' }: IDropDownMenuProps) => {
 
-	const { setIsShow } = useContext(DropDownContext);
+	const { setIsShow } = useContext(DropDownContext)
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -27,24 +25,22 @@ export const DropDownMenu = ({ items, children, className, menuPosition = 'left'
 	}
 
 	const handleClickItem = () => {
-		// TODO - trigger hide only if prop -> hide menu onItemClick === true?
 		setIsShow(false);
 	}
 
 	return (
 		<div className={getCssClasses()}>
 
-			{items && !children ?
-				items.map((item, index) => cloneElement(item, {
-					onClick: (e: React.MouseEvent) => {
-						item.props.onClick && item.props.onClick(e);
-						item.props.type !== 'header' && handleClickItem()
-					},
-					key: item.key ? item.key.toString() : index.toString()
-				}))
-				: null}
+			{children &&
 
-			{children && !items ? children : null}
+				React.Children.map(children, child => (
+					React.cloneElement(child, {
+						onClick: (e: React.MouseEvent) => {
+							child.props.onClick && child.props.onClick(e);
+							child.props.type !== 'header' && handleClickItem()
+						}
+					})
+				))}
 
 		</div>
 	)

@@ -33,22 +33,14 @@ export const ListPageBase = () => {
 					<ListItemText>lorem ipsum</ListItemText>
 
 					<ListItemAction>
-						<DropDown
-							toggle={<IconButton icon={homeSolidSvg} />}
-							menu={
-								<DropDownMenu
-									items={[
-										<DropDownItem onClick={handleClickDropDownItem}>
-											test 1
-										</DropDownItem>,
-										<DropDownItem onClick={handleClickDropDownItem}>
-											test 2
-										</DropDownItem>
-									]}
-									menuPosition="right"
-								/>
-							}
-						/>
+						<DropDown toggle={<IconButton icon={homeSolidSvg} />}>
+							<DropDownItem onClick={handleClickDropDownItem}>
+								test 1
+							</DropDownItem>
+							<DropDownItem onClick={handleClickDropDownItem}>
+								test 2
+							</DropDownItem>
+						</DropDown>
 					</ListItemAction>
 				</ListItem>
 			</List>

@@ -1,11 +1,10 @@
-import { ReactElement, ReactNode } from 'react';
+import { ReactElement } from 'react';
 import { IDropDownItemProps } from './DropDownItem';
 export interface IDropDownMenuProps {
-    children?: ReactNode;
+    children?: ReactElement<IDropDownItemProps> | Array<ReactElement<IDropDownItemProps>>;
     className?: string;
-    items?: Array<ReactElement<IDropDownItemProps>>;
     menuPosition?: MenuPosition;
 }
 declare type MenuPosition = 'right' | 'left';
-export declare const DropDownMenu: ({ items, children, className, menuPosition }: IDropDownMenuProps) => JSX.Element;
+export declare const DropDownMenu: ({ children, className, menuPosition }: IDropDownMenuProps) => JSX.Element;
 export {};

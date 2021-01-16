@@ -1,15 +1,16 @@
-import React, { cloneElement, ReactElement, useRef, useState } from 'react';
+import React, { cloneElement, ReactElement, ReactNode, useRef, useState } from 'react';
 import { Backdrop } from '../Backdrop';
 import { DropDownContext, IDropDownContext } from './DropdownContext';
-import { IDropDownMenuProps } from './DropDownMenu';
+import { IDropDownItemProps } from './DropDownItem';
+import { DropDownMenu } from './DropDownMenu';
 
 interface IDropDownProps {
 	toggle?: ReactElement;
-	menu?: ReactElement<IDropDownMenuProps>;
+	children?: ReactElement<IDropDownItemProps> | Array<ReactElement<IDropDownItemProps>>;
 	onToggleClick?: (e: Event) => void;
 }
 
-export const DropDown = ({ toggle, menu, onToggleClick }: IDropDownProps) => {
+export const DropDown = ({ toggle, children, onToggleClick }: IDropDownProps) => {
 
 	const [isShow, setIsShow] = useState(false);
 	const dropDownMenuConainter = useRef<HTMLDivElement>();
@@ -32,7 +33,9 @@ export const DropDown = ({ toggle, menu, onToggleClick }: IDropDownProps) => {
 
 				{isShow &&
 					<>
-						{menu}
+						<DropDownMenu>
+							{children}
+						</DropDownMenu>
 						<Backdrop target={dropDownMenuConainter.current} isTransparent onClick={() => setIsShow(false)} />
 					</>
 				}
