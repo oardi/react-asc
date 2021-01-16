@@ -1,3 +1,6 @@
+## v1.36.1
+- dropdown - fixed menuPosition
+
 ## v1.36.0
 - dropdown - refactored menu and items
 

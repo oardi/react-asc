@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import {
-	List, ListItem, ListItemAvatar, homeSolidSvg, ListItemAction, IconButton, DropDown, DropDownItem, DropDownMenu, ListItemText, snackbarService
+	List, ListItem, ListItemAvatar, homeSolidSvg, ListItemAction, IconButton, DropDown, DropDownItem, ListItemText, snackbarService
 } from '../../lib';
 import { withOptions } from './components';
 
@@ -33,7 +33,7 @@ export const ListPageBase = () => {
 					<ListItemText>lorem ipsum</ListItemText>
 
 					<ListItemAction>
-						<DropDown toggle={<IconButton icon={homeSolidSvg} />}>
+						<DropDown menuPosition="right" toggle={<IconButton icon={homeSolidSvg} />}>
 							<DropDownItem onClick={handleClickDropDownItem}>
 								test 1
 							</DropDownItem>

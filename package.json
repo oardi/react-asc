@@ -1,6 +1,6 @@
 {
 	"name": "react-craft",
-	"version": "1.36.0",
+	"version": "1.36.1",
 	"description": "handcrafted react components",
 	"scripts": {
 		"start": "webpack serve --mode=development",
@@ -20,7 +20,6 @@
 		"@types/react-router-dom": "5.1.6",
 		"axios": "0.21.1",
 		"bootstrap": "4.5.3",
-		"d3": "^6.3.1",
 		"dayjs": "^1.10.2",
 		"marked": "^1.2.7",
 		"react": "17.0.1",

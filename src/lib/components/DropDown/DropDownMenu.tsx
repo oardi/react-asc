@@ -1,4 +1,5 @@
-import React, { ReactElement, ReactNode, useContext, useEffect } from 'react';
+import React, { ReactElement, useContext } from 'react';
+import { MenuPosition } from './dropDown.types';
 import { DropDownContext } from './DropdownContext';
 import { IDropDownItemProps } from './DropDownItem';
 
@@ -7,8 +8,6 @@ export interface IDropDownMenuProps {
 	className?: string;
 	menuPosition?: MenuPosition;
 }
-
-type MenuPosition = 'right' | 'left';
 
 export const DropDownMenu = ({ children, className, menuPosition = 'left' }: IDropDownMenuProps) => {
 
