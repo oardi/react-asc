@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 export interface IExpansionPanelHeaderProps {
-    onClick?: () => void;
+    onClick?: (event: React.MouseEvent) => void;
     children?: ReactNode;
     isExpanded: boolean;
 }

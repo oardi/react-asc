@@ -3,7 +3,7 @@ import { chevronDownSolidSvg, chevronUpSolidSvg } from '../../assets/icons';
 import { SvgIcon } from '../SvgIcon';
 
 export interface IExpansionPanelHeaderProps {
-	onClick?: () => void;
+	onClick?: (event: React.MouseEvent) => void;
 	children?: ReactNode;
 	isExpanded: boolean;
 }
@@ -12,7 +12,7 @@ export const ExpansionPanelHeader = ({ children, isExpanded, onClick }: IExpansi
 
 	const handleClick = (e: React.MouseEvent) => {
 		e.stopPropagation();
-		onClick && onClick();
+		onClick && onClick(e);
 	}
 
 	return (

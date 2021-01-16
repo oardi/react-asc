@@ -1,3 +1,6 @@
+## v1.35.0
+- expansionPanel v1
+
 ## v1.34.6
 - expansionPanel - added component
 

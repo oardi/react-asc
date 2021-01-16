@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import { ExpansionPanelContent } from './ExpansionPanelContent';
 import { ExpansionPanelHeader } from './ExpansionPanelHeader';
 
@@ -6,20 +6,32 @@ export interface IExpansionPanelProps {
 	header: ReactNode;
 	children: ReactNode;
 	isExpanded?: boolean;
-	// shadow
+	onChange?: (event: React.MouseEvent, isExpanded: boolean) => void;
 }
 
-export const ExpansionPanel = ({ header, children, isExpanded }: IExpansionPanelProps) => {
-	const [_isExpanded, setIsExpanded] = useState<boolean>(isExpanded);
+export const ExpansionPanel = ({ header, children, isExpanded, onChange }: IExpansionPanelProps) => {
+	const [_isExpanded, setIsExpanded] = useState<boolean>(false);
 
+	useEffect(() => {
+		setIsExpanded(isExpanded);
+	}, [isExpanded]);
 
-	const handleClickHeader = () => {
-		console.warn('handleClickHeader');
-		setIsExpanded(!_isExpanded);
+	const getCssClasses = () => {
+		const cssClasses: Array<string> = [];
+		cssClasses.push(`expansion-panel`);
+		if (_isExpanded) {
+			cssClasses.push(`is-expanded`);
+		}
+		return cssClasses.join(' ');
+	};
+
+	const handleClickHeader = (event: React.MouseEvent) => {
+		setIsExpanded(!!isExpanded ? isExpanded : !_isExpanded);
+		onChange && onChange(event, !_isExpanded);
 	}
 
 	return (
-		<div className="expansion-panel">
+		<div className={getCssClasses()}>
 			<ExpansionPanelHeader isExpanded={_isExpanded} onClick={handleClickHeader}>
 				{header}
 			</ExpansionPanelHeader>
