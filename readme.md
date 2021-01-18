@@ -43,12 +43,9 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 - password autocomplete
 - prepend, append inputGroup
 
-### tabset
-- set selectedEventKey - init + onchange
-- use models
-
 ### tooltip 
 - add component
+- popperjs?
 
 ### radio 
 - add component (formControl)
@@ -57,7 +54,7 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 - add component (formControl)
 
 ### modal 
-- cancel should not throw unhandled error
+- cancel should not throw unhandled error -> ModalResult.cancel?
 
 ### showcase 
 - sourcecode for all comp
@@ -69,7 +66,7 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 ### switch
 
 ### Theme
-
+- Context?
 
 ## Credit 
 
