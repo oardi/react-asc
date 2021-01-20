@@ -1,8 +1,12 @@
 import React from 'react';
 import { Layout } from './Layout';
-import { Button, Card, CardBody, CardText, CardTitle } from '../lib';
+import { Button, Card, CardBody, CardText, CardTitle, snackbarService } from '../lib';
 
 export const HomePage = () => {
+
+	const handleClick = () => {
+		snackbarService.show('TODO');
+	};
 
 	return (
 		<Layout title="React-Craft" className="home">
@@ -10,8 +14,12 @@ export const HomePage = () => {
 			<h2>Build apps with React and React Craft</h2>
 
 			<div className="d-flex justify-content-center">
-				<Button>Getting started</Button>
-				<Button className="ml-2">Github</Button>
+				<Button onClick={handleClick}>
+					Getting started
+				</Button>
+				<Button className="ml-2" onClick={handleClick}>
+					Github
+				</Button>
 			</div>
 
 			<div className="row mt-2">
