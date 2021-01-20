@@ -1,12 +1,19 @@
 import React from 'react';
 import { Layout } from './Layout';
 import { Button, Card, CardBody, CardText, CardTitle, snackbarService } from '../lib';
+import { useHistory } from 'react-router-dom';
 
 export const HomePage = () => {
 
-	const handleClick = () => {
-		snackbarService.show('TODO');
+	const history = useHistory();
+
+	const handleClickGetStarted = () => {
+		history.push('/gettingstarted');
 	};
+
+	const handleClickGithub = ()=>{
+		window.open('https://github.com/oardi/react-craft');
+	}
 
 	return (
 		<Layout title="React-Craft" className="home">
@@ -14,10 +21,10 @@ export const HomePage = () => {
 			<h2>Build apps with React and React Craft</h2>
 
 			<div className="d-flex justify-content-center">
-				<Button onClick={handleClick}>
+				<Button onClick={handleClickGetStarted}>
 					Getting started
 				</Button>
-				<Button className="ml-2" onClick={handleClick}>
+				<Button className="ml-2" onClick={handleClickGithub}>
 					Github
 				</Button>
 			</div>

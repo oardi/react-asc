@@ -1,3 +1,6 @@
+## v1.36.2
+- showcase home - added links
+
 ## v1.36.1
 - dropdown - fixed menuPosition
 
