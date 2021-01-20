@@ -8,7 +8,7 @@ export interface ISnackbarProps {
 	onOk?: () => void;
 }
 
-export const Snackbar = ({ message, color = COLOR.accent, actionText = 'ok', onOk }: ISnackbarProps) => {
+export const Snackbar = ({ message, color = COLOR.dark, actionText = 'ok', onOk }: ISnackbarProps) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

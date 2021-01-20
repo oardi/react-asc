@@ -18,7 +18,7 @@ export const Breadcrumb = ({ className, items, onItemClick }: IBreadcrumbProps) 
 	};
 
 	const handleClickItem = (item: IBreadcrumbItem) => {
-		onItemClick && onItemClick(item);
+		!item.isActive && onItemClick && onItemClick(item);
 	}
 
 	return (
