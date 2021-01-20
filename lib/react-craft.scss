@@ -1,7 +1,7 @@
 .btn {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	// display: flex;
+	// align-items: center;
+	// justify-content: center;
 
 	min-width: 64px;
 	font-size: 0.875rem;
@@ -103,6 +103,13 @@
 
 	&.is-expanded {
 		margin: 16px 0;
+
+		&:first-child {
+			margin-top: 0;
+		}
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	.expansion-panel-header {
@@ -348,6 +355,46 @@ $theme-colors: map-merge(
 				}
 			}
 		}
+	}
+}
+
+#tooltip {
+	background-color: #333;
+	color: white;
+	padding: 5px 10px;
+	border-radius: 4px;
+	font-size: 13px;
+	position: absolute;
+	left: -1000000px;
+
+	#arrow,
+	#arrow::before {
+		position: absolute;
+		width: 8px;
+		height: 8px;
+		z-index: -1;
+	}
+
+	#arrow::before {
+		content: "";
+		transform: rotate(45deg);
+		background: #333;
+	}
+
+	&[data-popper-placement^="top"] > #arrow {
+		bottom: -4px;
+	}
+
+	&[data-popper-placement^="bottom"] > #arrow {
+		top: -4px;
+	}
+
+	&[data-popper-placement^="left"] > #arrow {
+		right: -4px;
+	}
+
+	&[data-popper-placement^="right"] > #arrow {
+		left: -4px;
 	}
 }
 

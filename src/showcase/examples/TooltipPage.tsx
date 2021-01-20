@@ -1,15 +1,36 @@
-import React from 'react';
-import { Button, Tooltip } from '../../lib';
-import { withOptions } from './components';
+import React, { Fragment, useEffect } from 'react';
+import { Button, FormControl, ITooltipProps, Tooltip } from '../../lib';
+import { IShowcaseBaseProps, withOptions } from './components';
 
-export const TooltipPageBase = () => {
+export const TooltipPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITooltipProps>) => {
+
+	useEffect(() => {
+		setSettingsControls({
+			text: new FormControl('some tooltip text', [], 'text', { label: 'Text' }),
+			placement: new FormControl('top', [], 'select', {
+				label: 'Placement', options: [
+					{ label: 'left', value: 'left' },
+					{ label: 'right', value: 'right' },
+					{ label: 'top', value: 'top' },
+					{ label: 'bottom', value: 'bottom' }
+				]
+			}),
+		});
+	}, []);
+
 	return (
-		<div>
-			<h2>WIP</h2>
-			<Button>show tooltip</Button>
-			<Tooltip>some tooltip</Tooltip>
-		</div>
+		<Fragment>
+			<Tooltip
+				text={settingValues.text}
+				placement={settingValues.placement}
+			>
+				<Button>show tooltip</Button>
+			</Tooltip>
+		</Fragment>
 	);
 }
 
-export const TooltipPage = withOptions(TooltipPageBase);
+export const TooltipPage = withOptions<ITooltipProps>(TooltipPageBase, {
+	text: 'some tooltip text',
+	placement: 'top'
+});

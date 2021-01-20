@@ -8,7 +8,7 @@ import svg from 'rollup-plugin-svg-import';
 
 export default {
 	input: "src/lib/index.ts",
-	external: ['react', 'react-dom'],
+	external: ['react', 'react-dom', '@popperjs/core'],
 	output: [
 		{
 			file: pkg.main,

@@ -59,6 +59,9 @@
 				"id": "Tabset"
 			},
 			{
+				"id": "Tooltip"
+			},
+			{
 				"id": "TreeView"
 			}
 		]

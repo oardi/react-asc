@@ -68,21 +68,23 @@ export class Form extends Component<IFormProps, IFormState> {
 
 	private validateField(fieldValue, fieldValidators: Array<string>): Array<IFormInputError> {
 		const errors: Array<IFormInputError> = [];
-		for (const validator of fieldValidators) {
-			switch (validator) {
-				case 'required':
-					if (IsEmptyValidator(fieldValue)) {
-						errors.push({ validator, message: 'This field is required' });
-					}
-					break;
+		if (fieldValidators) {
+			for (const validator of fieldValidators) {
+				switch (validator) {
+					case 'required':
+						if (IsEmptyValidator(fieldValue)) {
+							errors.push({ validator, message: 'This field is required' });
+						}
+						break;
 
-				case 'email':
-					if (EmailValidator(fieldValue)) {
-						errors.push({ validator, message: 'Email format is wrong' });
-					}
-					break;
-				default:
-					break;
+					case 'email':
+						if (EmailValidator(fieldValue)) {
+							errors.push({ validator, message: 'Email format is wrong' });
+						}
+						break;
+					default:
+						break;
+				}
 			}
 		}
 		return errors;

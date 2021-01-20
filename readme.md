@@ -22,6 +22,7 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 - SvgIcon
 - Table
 - Tabset
+- Tooltip (v1 with popper)
 - TreeView
 
 ## TODO

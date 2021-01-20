@@ -1,31 +1,62 @@
-import React, { ReactNode } from 'react';
+import React, { cloneElement, Fragment, ReactElement, useEffect, useRef, useState } from 'react';
+import { createPopper } from '@popperjs/core';
 
 export interface ITooltipProps {
-	children?: ReactNode;
+	placement?: 'top' | 'bottom' | 'right' | 'left',
+	text?: string;
+	children?: ReactElement;
 }
 
-export const Tooltip = ({ children }: ITooltipProps) => {
-	// bs-tooltip-left
-	// bs-tooltip-top
-	// bs-tooltip-bottom
-	// bs-tooltip-right
+export const Tooltip = ({ children, text, placement = 'left' }: ITooltipProps) => {
+
+	const [show, setShow] = useState<boolean>(false);
+	const refChild = useRef();
+	const refTooltip = useRef();
+
+	useEffect(() => {
+		if (show === true) {
+			createPopper(refChild.current, refTooltip.current, {
+				placement: placement,
+				modifiers: [
+					{
+						name: 'offset',
+						options: {
+							offset: [0, 8],
+						},
+					},
+				],
+			});
+		}
+	}, [show]);
+
+	// const handleClick = () => {
+	// 	console.warn('handleClick');
+	// }
+
+	const handleMouseOver = () => {
+		setShow(true);
+	}
+
+	const handleMouseLeave = () => {
+		setShow(false);
+	}
+
 	return (
-		<div className="tooltip fade bs-tooltip-top show"
-			style={{
-				position: 'absolute',
-				top: '0px',
-				left: '0px',
-				willChange: 'transform'
-			}}>
-			<div className="arrow" style={{ left: '45px' }}></div>
-			<div className="tooltip-inner">
-				{children}
+		<Fragment>
+			<div ref={refChild} style={{ display: 'inline' }}>
+				{cloneElement(children, {
+					// onClick: handleClick,
+					onMouseOver: handleMouseOver,
+					onMouseLeave: handleMouseLeave,
+				})}
 			</div>
-		</div >
+
+			{show &&
+				<div ref={refTooltip} id="tooltip">
+					{text}
+					<div id="arrow" data-popper-arrow></div>
+				</div >
+			}
+		</Fragment>
 	);
 }
-
-		// <div className="tooltip bs-tooltip-left show fade">
-		// 	<div className="arrow" style={{ left: '45px' }}>
-		// 	</div>
-		// </div>

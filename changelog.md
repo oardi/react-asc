@@ -1,3 +1,6 @@
+## v1.37.0
+- tooltip - added component
+
 ## v1.36.2
 - showcase home - added links
 

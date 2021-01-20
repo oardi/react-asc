@@ -13,6 +13,9 @@ export interface IButtonProps {
 	onClick?: (e: MouseEvent) => void;
 	variant?: VARIANT;
 	autofocus?: boolean;
+
+	onMouseOver?: (e: MouseEvent) => void;
+	onMouseLeave?: (e: MouseEvent) => void;
 }
 
 export const Button = ({
@@ -25,7 +28,9 @@ export const Button = ({
 	onClick,
 	variant = VARIANT.normal,
 	className,
-	autofocus: autoFocus
+	autofocus: autoFocus,
+	onMouseOver,
+	onMouseLeave
 }: IButtonProps) => {
 
 	const getCssClasses = () => {
@@ -56,17 +61,16 @@ export const Button = ({
 		return cssClasses.join(' ');
 	};
 
-	const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-		onClick ? onClick(e) : undefined;
-	};
-
 	return (
 		<button
 			type="button"
 			className={getCssClasses()}
 			disabled={disabled}
-			onClick={(e) => handleClick(e)}
 			autoFocus={autoFocus}
+
+			onClick={onClick}
+			onMouseOver={onMouseOver}
+			onMouseLeave={onMouseLeave}
 		>
 			{children}
 		</button>

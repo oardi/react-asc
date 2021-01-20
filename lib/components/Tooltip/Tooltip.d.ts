@@ -1,5 +1,7 @@
-import { ReactNode } from 'react';
+import { ReactElement } from 'react';
 export interface ITooltipProps {
-    children?: ReactNode;
+    placement?: 'top' | 'bottom' | 'right' | 'left';
+    text?: string;
+    children?: ReactElement;
 }
-export declare const Tooltip: ({ children }: ITooltipProps) => JSX.Element;
+export declare const Tooltip: ({ children, text, placement }: ITooltipProps) => JSX.Element;
