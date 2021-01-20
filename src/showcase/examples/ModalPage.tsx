@@ -35,28 +35,30 @@ const ModalPageBase = () => {
 
 	return (
 		<>
-			<Button onClick={() => handleClickShowModal()}>
-				show modal
-			</Button>
+			<div className="d-flex justify-content-between">
+				<Button onClick={() => handleClickShowModal()}>
+					show modal
+				</Button>
 
-			<Button onClick={() => handleClickTriggerModalService()}>
-				trigger modal service
-			</Button>
+				<Button onClick={() => handleClickTriggerModalService()}>
+					trigger modal service
+				</Button>
 
-			<Button onClick={() => handleClickTriggerModalFormService()}>
-				trigger modal service with form
-			</Button>
+				<Button onClick={() => handleClickTriggerModalFormService()}>
+					trigger modal service with form
+				</Button>
 
-			{
-				isVisible &&
-				<Modal
-					header="Modal Header"
-					isDismissable={true}
-					onHeaderCloseClick={() => setIsVisible(!isVisible)}
-				>
-					some modal content
+				{
+					isVisible &&
+					<Modal
+						header="Modal Header"
+						isDismissable={true}
+						onHeaderCloseClick={() => setIsVisible(!isVisible)}
+					>
+						some modal content
 				</Modal>
-			}
+				}
+			</div>
 		</>
 	);
 }

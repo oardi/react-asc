@@ -43,7 +43,7 @@ export const Tooltip = ({ children, text, placement = 'left' }: ITooltipProps) =
 
 	return (
 		<Fragment>
-			<div ref={refChild} style={{ display: 'inline' }}>
+			<div ref={refChild} id="tooltip-container">
 				{cloneElement(children, {
 					// onClick: handleClick,
 					onMouseOver: handleMouseOver,

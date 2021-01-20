@@ -1,5 +1,5 @@
-/// <reference types="react" />
-export interface ISvgIconProp {
+import React from 'react';
+export interface ISvgIconProp extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
     svg: string;
 }
-export declare const SvgIcon: ({ svg }: ISvgIconProp) => JSX.Element;
+export declare const SvgIcon: (props: ISvgIconProp) => JSX.Element;

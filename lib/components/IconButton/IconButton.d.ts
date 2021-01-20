@@ -1,12 +1,9 @@
-import { MouseEvent } from 'react';
+import React from 'react';
 import { COLOR, VARIANT } from '../component.enums';
-export interface IIconButtonProps {
+export interface IIconButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
     icon?: string;
     color?: COLOR;
-    disabled?: boolean;
     isActive?: boolean;
-    onClick?: (e: MouseEvent) => void;
     variant?: VARIANT;
-    className?: string;
 }
-export declare const IconButton: ({ icon, color, disabled, isActive, onClick, variant, className }: IIconButtonProps) => JSX.Element;
+export declare const IconButton: (props: IIconButtonProps) => JSX.Element;

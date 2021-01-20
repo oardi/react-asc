@@ -1,37 +1,19 @@
-import React, { ReactNode, MouseEvent } from 'react';
+import React, { MouseEvent } from 'react';
 
 import { COLOR, VARIANT } from '../component.enums';
 
-export interface IButtonProps {
+export interface IButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
 	block?: boolean;
-	children?: ReactNode;
-	className?: string;
 	color?: COLOR;
-	disabled?: boolean;
 	isActive?: boolean;
 	isRounded?: boolean;
 	onClick?: (e: MouseEvent) => void;
 	variant?: VARIANT;
-	autofocus?: boolean;
-
-	onMouseOver?: (e: MouseEvent) => void;
-	onMouseLeave?: (e: MouseEvent) => void;
 }
 
-export const Button = ({
-	children,
-	block = false,
-	color = COLOR.primary,
-	disabled = false,
-	isActive = false,
-	isRounded = false,
-	onClick,
-	variant = VARIANT.normal,
-	className,
-	autofocus: autoFocus,
-	onMouseOver,
-	onMouseLeave
-}: IButtonProps) => {
+export const Button = (props: IButtonProps) => {
+
+	const { children, variant = VARIANT.normal, color = COLOR.primary, block, isRounded, isActive, className, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -65,12 +47,7 @@ export const Button = ({
 		<button
 			type="button"
 			className={getCssClasses()}
-			disabled={disabled}
-			autoFocus={autoFocus}
-
-			onClick={onClick}
-			onMouseOver={onMouseOver}
-			onMouseLeave={onMouseLeave}
+			{...rest}
 		>
 			{children}
 		</button>

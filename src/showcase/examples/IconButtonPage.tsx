@@ -6,7 +6,6 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 
 	useEffect(() => {
 		setSettingsControls({
-			className: new FormControl(settingValues.className, [], 'text', { label: 'className', placeholder: 'css class' }),
 			color: new FormControl(settingValues.color, [], 'select', { label: 'color', options: Object.keys(COLOR).map(c => ({ label: c, value: c })) }),
 			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' }),
 			isActive: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'isActive' }),
@@ -21,7 +20,6 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 	return (
 		<Fragment>
 			<IconButton
-				className={settingValues.className}
 				color={settingValues.color}
 				isActive={settingValues.isActive}
 				disabled={settingValues.disabled}

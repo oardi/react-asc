@@ -3,6 +3,7 @@ import { checkSquareRegularSvg, squareRegularSvg } from '../../assets/icons';
 import { HtmlBaseProps } from '../component.interfaces';
 import { IconButton } from '../IconButton';
 
+// TODO refactor htmlBasaeProps
 export interface ICheckboxProps extends HtmlBaseProps {
 	id?: string;
 	name?: string;
@@ -15,7 +16,9 @@ export interface ICheckboxProps extends HtmlBaseProps {
 }
 
 const CLASSNAME = 'Checkbox';
-export const Checkbox = ({ id, checked, className, label, name, value = "off", onChange, onKeyDown }: ICheckboxProps) => {
+export const Checkbox = (props: ICheckboxProps) => {
+
+	const { id, checked, className, label, name, value = "off", ...rest } = props;
 
 	// TODO
 	// add own value
@@ -24,7 +27,6 @@ export const Checkbox = ({ id, checked, className, label, name, value = "off", o
 	// emit to outer
 	// can be: true/false, custom
 
-	// const [_value, setValue] = useState<any>(value !== undefined ? value : false);
 	const [isChecked, setIsChecked] = useState<boolean>(false);
 	const checkboxElement = useRef<HTMLInputElement>();
 
@@ -55,10 +57,6 @@ export const Checkbox = ({ id, checked, className, label, name, value = "off", o
 		checkboxElement.current.click();
 	};
 
-	const handleChange = (e: React.FocusEvent<HTMLInputElement>) => {
-		onChange && onChange(e);
-	}
-
 	return (
 		<div className="checkbox-container">
 
@@ -73,11 +71,10 @@ export const Checkbox = ({ id, checked, className, label, name, value = "off", o
 				ref={checkboxElement}
 				id={id}
 				name={name}
-				onChange={handleChange}
 				checked={isChecked}
 				hidden={true}
 				value={value}
-				onKeyDown={onKeyDown}
+				{...rest}
 			/>
 		</div>
 	);

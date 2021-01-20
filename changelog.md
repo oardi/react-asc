@@ -1,3 +1,6 @@
+## v1.38.0
+- added HTML default props to appBar, button, iconButton, svgIcon
+
 ## v1.37.0
 - tooltip - added component
 

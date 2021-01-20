@@ -1,25 +1,16 @@
-import React, { MouseEvent } from 'react';
+import React from 'react';
 import { COLOR, VARIANT } from '../component.enums';
 
-export interface IIconButtonProps {
+export interface IIconButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
 	icon?: string;
 	color?: COLOR;
-	disabled?: boolean;
 	isActive?: boolean;
-	onClick?: (e: MouseEvent) => void;
 	variant?: VARIANT;
-	className?: string;
 }
 
-export const IconButton = ({
-	icon,
-	color = COLOR.primary,
-	disabled = false,
-	isActive = false,
-	onClick,
-	variant = VARIANT.normal,
-	className
-}: IIconButtonProps) => {
+export const IconButton = (props: IIconButtonProps) => {
+
+	const { children, icon, variant = VARIANT.normal, color = COLOR.primary, isActive, className, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -44,16 +35,11 @@ export const IconButton = ({
 		return cssClasses.join(' ');
 	};
 
-	const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-		onClick ? onClick(e) : undefined;
-	};
-
 	return (
 		<button
 			type="button"
 			className={getCssClasses()}
-			disabled={disabled}
-			onClick={(e) => handleClick(e)}
+			{...rest}
 		>
 			<span
 				className="svg-icon"

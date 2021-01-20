@@ -90,7 +90,7 @@ export const GlobalModal = ({
 							key={index}
 							variant={button.variant}
 							color={button.color}
-							autofocus={button.autoFocus}
+							autoFocus={button.autoFocus}
 							onClick={() => handleClickButton(button)}>
 							{button.label}
 						</Button>

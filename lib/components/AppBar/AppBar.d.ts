@@ -5,4 +5,4 @@ export interface IAppBarProps {
     color?: COLOR;
     shadow?: boolean | 'sm' | 'md' | 'lg';
 }
-export declare const AppBar: ({ children, color, shadow }: IAppBarProps) => JSX.Element;
+export declare const AppBar: (props: IAppBarProps) => JSX.Element;

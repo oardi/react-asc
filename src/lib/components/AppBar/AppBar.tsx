@@ -7,11 +7,9 @@ export interface IAppBarProps {
 	shadow?: boolean | 'sm' | 'md' | 'lg';
 }
 
-export const AppBar = ({
-	children,
-	color = COLOR.primary,
-	shadow = false
-}: IAppBarProps) => {
+export const AppBar = (props: IAppBarProps) => {
+
+	const { children, color = COLOR.primary, shadow = false, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -23,7 +21,7 @@ export const AppBar = ({
 	};
 
 	return (
-		<nav className={getCssClasses()}>
+		<nav className={getCssClasses()} {...rest}>
 			{children}
 		</nav>
 	);
