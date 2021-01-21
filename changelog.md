@@ -1,3 +1,6 @@
+## v1.38.2
+- tabset - added prop fill
+
 ## v1.38.1
 - breadcrumb - fixed click on active item
 

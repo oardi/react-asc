@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import { AppBar, AppBarTitle, COLOR, FormControl, homeSolidSvg, IAppBarProps, IconButton } from '../../lib';
+import { AppBar, AppBarTitle, COLOR, FormControl, homeSolidSvg, IAppBarProps, IconButton, Tab, Tabset } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
+import { Markdown } from '../../shared';
 
 const AppBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IAppBarProps>) => {
 
@@ -11,15 +12,26 @@ const AppBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 		});
 	}, []);
 
+	const UsageMarkdown = "```\n <AppBar /> ```";
+
 	return (
 		<>
-			<AppBar
-				color={settingValues.color}
-				shadow={settingValues.shadow}
-			>
-				<AppBarTitle>Navbar</AppBarTitle>
-				<IconButton color={COLOR.light} icon={homeSolidSvg} />
-			</AppBar>
+			<Tabset>
+				<Tab eventKey="tab1" title="Preview">
+					<AppBar
+						color={settingValues.color}
+						shadow={settingValues.shadow}
+					>
+						<AppBarTitle>Navbar</AppBarTitle>
+						<IconButton color={COLOR.light} icon={homeSolidSvg} />
+					</AppBar>
+				</Tab>
+				<Tab eventKey="tab2" title="Usage">
+					<Markdown text={UsageMarkdown} />
+				</Tab>
+			</Tabset>
+
+
 		</>
 	);
 }

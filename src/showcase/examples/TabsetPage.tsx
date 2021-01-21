@@ -1,9 +1,16 @@
-import React from 'react';
-import { loggerService, snackbarService, Tab, Tabset } from '../../lib';
-import { withOptions } from './components';
+import React, { useEffect } from 'react';
+import { FormControl, ITabsetProps, loggerService, snackbarService, Tab, Tabset } from '../../lib';
+import { IShowcaseBaseProps, withOptions } from './components';
 
 const CLASSNAME = 'TabsetPage';
-const TabsetPageBase = () => {
+const TabsetPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITabsetProps>) => {
+
+	useEffect(() => {
+		setSettingsControls({
+			fill: new FormControl(settingValues.fill, [], 'checkbox', { label: 'fill' }),
+		});
+	}, []);
+
 
 	const handleSelected = (eventKey: string) => {
 		loggerService.debug(CLASSNAME, 'handleSelected', eventKey);
@@ -12,7 +19,11 @@ const TabsetPageBase = () => {
 
 	return (
 		<div>
-			<Tabset selectedEventKey="tab2" onTabSelect={handleSelected}>
+			<Tabset
+				fill={settingValues.fill}
+				selectedEventKey="tab2"
+				onTabSelect={handleSelected}
+			>
 				<Tab eventKey="tab1" title="tab 1">
 					1st CONTENT
 				</Tab>
@@ -30,4 +41,6 @@ const TabsetPageBase = () => {
 	);
 }
 
-export const TabsetPage = withOptions(TabsetPageBase);
+export const TabsetPage = withOptions<ITabsetProps>(TabsetPageBase, {
+	fill: false
+});

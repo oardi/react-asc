@@ -6,11 +6,12 @@ import { TabNav } from './TabNav';
 export interface ITabsetProps {
 	children?: ReactElement<ITabProps> | Array<ReactElement<ITabProps>>;
 	className?: string;
+	fill?: boolean;
 	onTabSelect?: (eventKey: string) => void;
 	selectedEventKey?: string;
 }
 
-export const Tabset = ({ children, className, onTabSelect, selectedEventKey }: ITabsetProps) => {
+export const Tabset = ({ children, className, fill, onTabSelect, selectedEventKey }: ITabsetProps) => {
 
 	const [_selectedEventKey, setSelectedEventKey] = useState(selectedEventKey);
 	const [navs, setNavs] = useState<Array<TabNavModel>>(null);
@@ -20,6 +21,7 @@ export const Tabset = ({ children, className, onTabSelect, selectedEventKey }: I
 		const cssClasses: Array<string> = [];
 		cssClasses.push("nav nav-tabs tabset");
 		cssClasses.push(className);
+		if (fill) cssClasses.push('nav-fill');
 		return cssClasses.join(' ');
 	};
 
