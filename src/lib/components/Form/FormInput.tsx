@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Checkbox } from '../Checkbox';
 import { IFormInputOptions, IFormTextAreaOptions } from './form.interfaces';
 import { IFormControlType } from './form.types';
@@ -40,7 +40,7 @@ export const FormInput = ({
 }: IFormInputProps) => {
 
 	return (
-		<>
+		<Fragment>
 			{/*
 				'multiselect' |
 				'autocomplete' |
@@ -145,7 +145,7 @@ export const FormInput = ({
 
 			{
 				type === 'radio' &&
-				<>
+				<Fragment>
 					{options.map((option) =>
 						<div className="form-check" key={option.id}>
 							<input
@@ -163,9 +163,9 @@ export const FormInput = ({
 							</label>
 						</div>
 					)}
-				</>
+				</Fragment>
 			}
 
-		</>
+		</Fragment>
 	);
 };

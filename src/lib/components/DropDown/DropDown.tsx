@@ -1,4 +1,4 @@
-import React, { cloneElement, ReactElement, useRef, useState } from 'react';
+import React, { cloneElement, Fragment, ReactElement, useRef, useState } from 'react';
 import { Backdrop } from '../Backdrop';
 import { MenuPosition } from './dropDown.types';
 import { DropDownContext, IDropDownContext } from './DropdownContext';
@@ -34,12 +34,12 @@ export const DropDown = ({ toggle, children, menuPosition, onToggleClick }: IDro
 				{cloneElement(toggle, { onClick: handleClickToggle })}
 
 				{isShow &&
-					<>
+					<Fragment>
 						<DropDownMenu menuPosition={menuPosition}>
 							{children}
 						</DropDownMenu>
 						<Backdrop target={dropDownMenuConainter.current} isTransparent onClick={() => setIsShow(false)} />
-					</>
+					</Fragment>
 				}
 			</div>
 		</DropDownContext.Provider>

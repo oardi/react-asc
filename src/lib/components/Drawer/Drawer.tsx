@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { Fragment, ReactNode, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Backdrop } from '../Backdrop';
 
@@ -32,12 +32,12 @@ export const Drawer = ({ children, position = 'left', onClickBackdrop }: IDrawer
 	}
 
 	return createPortal(
-		<>
+		<Fragment>
 			<div className="drawer" style={getStyles()}>
 				{children}
 			</div>
 			<Backdrop onClick={handleClickBackdrop} />
-		</>,
+		</Fragment>,
 		document.body
 	);
 }

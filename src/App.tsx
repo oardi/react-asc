@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import { hot } from "react-hot-loader";
 import './style.scss';
@@ -30,7 +30,7 @@ const App = () => {
 	}
 
 	return (
-		<>
+		<Fragment>
 			<AppBar shadow>
 				<IconButton className="mr-2" color={COLOR.light} icon={barsSolidSvg} onClick={() => setShowMenu(!showMenu)} />
 				{appInfo && (
@@ -74,7 +74,7 @@ const App = () => {
 					</Switch>
 				</div>
 			</div>
-		</>
+		</Fragment>
 	);
 }
 

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Button, COLOR, FormControl, IControls, loggerService, Modal, ModalBody, MODALBUTTONTYPE, modalService, snackbarService, VARIANT } from '../../lib';
+import React, { Fragment, useState } from 'react';
+import { Button, COLOR, FormControl, IControls, loggerService, Modal, MODALBUTTONTYPE, modalService, snackbarService, VARIANT } from '../../lib';
 import { withOptions } from './components';
 
 const ModalPageBase = () => {
@@ -34,7 +34,7 @@ const ModalPageBase = () => {
 	}
 
 	return (
-		<>
+		<Fragment>
 			<div className="d-flex justify-content-between">
 				<Button onClick={() => handleClickShowModal()}>
 					show modal
@@ -59,7 +59,7 @@ const ModalPageBase = () => {
 				</Modal>
 				}
 			</div>
-		</>
+		</Fragment>
 	);
 }
 

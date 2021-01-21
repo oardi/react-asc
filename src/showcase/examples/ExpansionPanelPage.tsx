@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { ExpansionPanel, IExpansionPanelProps } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
@@ -11,7 +11,7 @@ const ExpansionPanelPageBase = ({ settingValues, setSettingsControls }: IShowcas
 	};
 
 	return (
-		<>
+		<Fragment>
 			<h3>Simple ExpansionPanel</h3>
 			<div>
 				<ExpansionPanel header={'header 1'}>
@@ -46,7 +46,7 @@ const ExpansionPanelPageBase = ({ settingValues, setSettingsControls }: IShowcas
 					Some Content 3
 				</ExpansionPanel>
 			</div>
-		</>
+		</Fragment>
 	);
 }
 

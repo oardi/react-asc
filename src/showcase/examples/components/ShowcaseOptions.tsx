@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { IControls } from '../../../lib';
-// import { ShowcaseApiOptions } from './ShowcaseApiOptions';
 import { ShowcaseSettings } from './ShowcaseSettings';
 
 interface IShowcaseOptionsProps {
@@ -10,13 +9,13 @@ interface IShowcaseOptionsProps {
 
 export const ShowcaseOptions = ({ controls, onFormChange }: IShowcaseOptionsProps) => {
 	return (
-		<>
+		<Fragment>
 			<ShowcaseSettings
 				controls={controls}
 				onFormChange={onFormChange}
 			/>
 
 			{/* <ShowcaseApiOptions /> */}
-		</>
+		</Fragment>
 	);
 }

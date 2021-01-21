@@ -1,5 +1,5 @@
-import React from 'react';
-import { Button, DropDown, DropDownDivider, DropDownItem, DropDownMenu, loggerService, snackbarService } from '../../lib';
+import React, { Fragment } from 'react';
+import { Button, DropDown, DropDownDivider, DropDownItem, loggerService, snackbarService } from '../../lib';
 import { withOptions } from './components';
 
 const DropDownPageBase = () => {
@@ -10,7 +10,7 @@ const DropDownPageBase = () => {
 	}
 
 	return (
-		<>
+		<Fragment>
 			<DropDown toggle={<Button>Dropdown button</Button>}>
 				<DropDownItem type="header">
 					This is a header
@@ -26,7 +26,7 @@ const DropDownPageBase = () => {
 					Action 3
 				</DropDownItem>
 			</DropDown>
-		</>
+		</Fragment>
 	);
 }
 

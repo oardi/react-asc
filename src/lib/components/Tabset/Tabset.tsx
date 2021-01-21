@@ -1,4 +1,4 @@
-import React, { cloneElement, ReactElement, useEffect, useState } from 'react';
+import React, { cloneElement, Fragment, ReactElement, useEffect, useState } from 'react';
 import { ITabProps } from './Tab';
 import { TabModel, TabNavModel } from './tab.models';
 import { TabNav } from './TabNav';
@@ -55,7 +55,7 @@ export const Tabset = ({ children, className, fill, onTabSelect, selectedEventKe
 
 	return (
 		navs && tabs &&
-		<>
+		<Fragment>
 			<ul className={getCssClasses()}>
 				{navs.map(nav => (
 					<TabNav
@@ -78,6 +78,6 @@ export const Tabset = ({ children, className, fill, onTabSelect, selectedEventKe
 					})
 				))}
 			</div>
-		</>
+		</Fragment>
 	)
 }

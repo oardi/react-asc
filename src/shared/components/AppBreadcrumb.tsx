@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Breadcrumb, IBreadcrumbItem, loggerService } from '../../lib';
 
@@ -26,7 +26,7 @@ export const AppBreadcrumb = () => {
 	}
 
 	return (
-		<>
+		<Fragment>
 			{items &&
 				<Breadcrumb
 					className="mt-3"
@@ -34,6 +34,6 @@ export const AppBreadcrumb = () => {
 					onItemClick={handleClickBreadcrumbItem}
 				/>
 			}
-		</>
+		</Fragment>
 	);
 }

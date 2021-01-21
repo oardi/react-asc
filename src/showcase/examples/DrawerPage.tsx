@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Button, Drawer, FormControl, IDrawerProps, loggerService } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
@@ -19,7 +19,7 @@ const DrawerPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 	}
 
 	return (
-		<>
+		<Fragment>
 			<Button onClick={() => handleClick()}>
 				show drawer
 			</Button>
@@ -32,7 +32,7 @@ const DrawerPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 					some drawer content
 				</Drawer>
 			}
-		</>
+		</Fragment>
 	);
 }
 

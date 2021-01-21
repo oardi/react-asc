@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { AppBar, AppBarTitle, COLOR, FormControl, homeSolidSvg, IAppBarProps, IconButton, Tab, Tabset } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 import { Markdown } from '../../shared';
@@ -15,7 +15,7 @@ const AppBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 	const UsageMarkdown = "```\n <AppBar /> ```";
 
 	return (
-		<>
+		<Fragment>
 			<Tabset>
 				<Tab eventKey="tab1" title="Preview">
 					<AppBar
@@ -30,9 +30,7 @@ const AppBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 					<Markdown text={UsageMarkdown} />
 				</Tab>
 			</Tabset>
-
-
-		</>
+		</Fragment>
 	);
 }
 
