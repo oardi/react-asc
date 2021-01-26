@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { COLOR } from '../component.enums';
+// import './AppBar.scss';
 
 export interface IAppBarProps {
 	children?: ReactNode;
