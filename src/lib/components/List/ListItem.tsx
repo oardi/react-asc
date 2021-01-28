@@ -20,7 +20,7 @@ export const ListItem = ({
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push('list-group-item d-flex align-items-center');
+		cssClasses.push('list-group-item d-flex justify-content-start');
 		if (active) {
 			cssClasses.push(`active`);
 		}

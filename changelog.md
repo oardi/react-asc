@@ -1,3 +1,6 @@
+## v1.38.3
+- listItem - style fixes
+
 ## v1.38.2
 - tabset - added prop fill
 
