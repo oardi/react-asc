@@ -33,5 +33,5 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 
 export const IconButtonPage = withOptions<IIconButtonProps>(IconButtonPageBase, {
 	color: COLOR.primary,
-	variant: VARIANT.normal
+	variant: VARIANT.contained
 });

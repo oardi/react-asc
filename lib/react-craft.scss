@@ -1,3 +1,16 @@
+$theme-colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+	(
+		"primary": #3f51b5,
+		"secondary": rgb(223, 225, 230),
+		"accent": #ff4081,
+		"light": #ffffff,
+	),
+	$theme-colors
+);
+
+
 .btn {
 	min-width: 64px;
 	font-size: 0.875rem;
@@ -11,6 +24,23 @@
 	.svg-icon {
 		margin-left: -4px;
 		margin-right: 8px;
+	}
+}
+
+@each $color, $value in $theme-colors {
+	.btn-link-#{$color} {
+		color: $value !important;
+
+		&:hover {
+			text-decoration: none;
+			background: rgba($value, 0.05);
+		}
+
+		// &.active {
+		// 	// background-color: var(--active);
+		// 	// color: white;
+		// 	box-shadow: none !important;
+		// }
 	}
 }
 
@@ -132,13 +162,6 @@
 		}
 	}
 }
-
-// $theme-colors: (
-// 	"primary": #3f51b5,
-// 	"secondary": rgb(223, 225, 230),
-// 	"accent": #ff4081,
-// 	"light": #ffffff
-// );
 
 $theme-colors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default

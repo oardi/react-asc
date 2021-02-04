@@ -10,7 +10,7 @@ export interface IIconButtonProps extends React.DetailedHTMLProps<React.ButtonHT
 
 export const IconButton = (props: IIconButtonProps) => {
 
-	const { children, icon, variant = VARIANT.normal, color = COLOR.primary, isActive, className, ...rest } = props;
+	const { children, icon, variant = VARIANT.text, color = COLOR.primary, isActive, className, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

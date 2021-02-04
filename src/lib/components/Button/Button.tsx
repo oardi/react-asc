@@ -13,7 +13,7 @@ export interface IButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAt
 
 export const Button = (props: IButtonProps) => {
 
-	const { children, variant = VARIANT.normal, color = COLOR.primary, block, isRounded, isActive, className, ...rest } = props;
+	const { children, variant = VARIANT.text, color = COLOR.primary, block, isRounded, isActive, className, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

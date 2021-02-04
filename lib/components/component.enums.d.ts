@@ -7,7 +7,7 @@ export declare enum COLOR {
     dark = "dark"
 }
 export declare enum VARIANT {
-    normal = "normal",
+    contained = "contained",
     outline = "outline",
     text = "text"
 }

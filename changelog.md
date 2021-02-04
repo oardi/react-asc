@@ -1,3 +1,7 @@
+## v1.39.0
+- variant - change naming from normal to contained
+- btn-link - changed hover
+
 ## v1.38.3
 - listItem - style fixes
 

@@ -7,7 +7,7 @@ export enum COLOR {
 	dark = 'dark'
 }
 
-export enum VARIANT { normal = 'normal', outline = 'outline', text = 'text' }
+export enum VARIANT { contained = 'contained', outline = 'outline', text = 'text' }
 
 export enum SIZE { sm = 'sm', md = 'md', lg = 'lg' }
 

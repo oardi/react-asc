@@ -41,5 +41,5 @@ const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 
 export const ButtonPage = withOptions<IButtonProps>(ButtonPageBase, {
 	color: COLOR.primary,
-	variant: VARIANT.normal
+	variant: VARIANT.contained
 });
