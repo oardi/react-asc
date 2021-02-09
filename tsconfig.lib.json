@@ -2,7 +2,7 @@
 	"compileOnSave": false,
 	"compilerOptions": {
 		"allowSyntheticDefaultImports": true,
-		"target": "es5",
+		"target": "es2017",
 		"module": "ESNext",
 		"moduleResolution": "node",
 		"sourceMap": true,

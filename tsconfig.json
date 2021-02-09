@@ -11,7 +11,7 @@
 		"module": "esnext",
 		"moduleResolution": "node",
 		"sourceMap": true,
-		"target": "es5",
+		"target": "es2017",
 		"resolveJsonModule": true,
 		"esModuleInterop": true
 	},

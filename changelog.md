@@ -1,3 +1,6 @@
+## v1.40.0
+- changed target to es2017
+
 ## v1.39.0
 - variant - change naming from normal to contained
 - btn-link - changed hover
