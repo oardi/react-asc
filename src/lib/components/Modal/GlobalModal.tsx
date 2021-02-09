@@ -26,7 +26,7 @@ export const GlobalModal = ({
 	isDismissable = false,
 	buttons = [
 		{ label: 'cancel', type: MODALBUTTONTYPE.CANCEL, color: COLOR.secondary, variant: VARIANT.text, focus: true },
-		{ label: 'ok', type: MODALBUTTONTYPE.OK },
+		{ label: 'ok', type: MODALBUTTONTYPE.OK, variant: VARIANT.contained },
 	]
 }: IModalProps) => {
 
