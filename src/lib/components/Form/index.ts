@@ -1,4 +1,3 @@
-export * from './FormOld';
 export * from './Form';
 export * from './FormError';
 export * from './FormGroup';

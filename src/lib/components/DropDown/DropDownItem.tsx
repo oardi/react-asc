@@ -8,7 +8,9 @@ export interface IDropDownItemProps {
 	type?: 'item' | 'header'
 }
 
-export const DropDownItem = ({ children, onClick, type = 'item' }: IDropDownItemProps) => {
+export const DropDownItem = (props: IDropDownItemProps) => {
+
+	const { children, onClick, type = 'item' } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -18,7 +20,7 @@ export const DropDownItem = ({ children, onClick, type = 'item' }: IDropDownItem
 		if (type === 'item') {
 			cssClasses.push('dropdown-item');
 		}
-		return cssClasses.join(' ');
+		return cssClasses.filter(css => css).join(' ');
 	}
 
 	const handleClick = (e: React.MouseEvent) => {
@@ -33,7 +35,7 @@ export const DropDownItem = ({ children, onClick, type = 'item' }: IDropDownItem
 				(type === 'item' ? (
 					<a className={getCssClasses()} onClick={handleClick}>{children}</a>
 				) :
-				<div className={getCssClasses()} onClick={handleClick}>{children}</div>)
+					<div className={getCssClasses()} onClick={handleClick}>{children}</div>)
 			)}
 		>
 			{children}

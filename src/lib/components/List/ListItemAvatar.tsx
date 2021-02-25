@@ -4,10 +4,8 @@ interface IListItemAvatarProps {
 	avatar: string;
 }
 
-export const ListItemAvatar = ({ avatar }: IListItemAvatarProps) => {
-	return (
-		<div className="avatar">
-			<div className="svg-icon" dangerouslySetInnerHTML={{ __html: avatar }} />
-		</div>
-	)
-}
+export const ListItemAvatar = ({ avatar }: IListItemAvatarProps) => (
+	<div className="avatar">
+		<div className="svg-icon" dangerouslySetInnerHTML={{ __html: avatar }} />
+	</div>
+)

@@ -13,7 +13,7 @@ export interface IButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAt
 
 export const Button = (props: IButtonProps) => {
 
-	const { children, variant = VARIANT.text, color = COLOR.primary, block, isRounded, isActive, className, ...rest } = props;
+	const { children, variant = VARIANT.contained, color = COLOR.primary, block, isRounded, isActive, className, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -37,10 +37,8 @@ export const Button = (props: IButtonProps) => {
 		if (isActive) {
 			cssClasses.push('active');
 		}
-		if (className) {
-			cssClasses.push(className);
-		}
-		return cssClasses.join(' ');
+		cssClasses.push(className);
+		return cssClasses.filter(css => css).join(' ');
 	};
 
 	return (

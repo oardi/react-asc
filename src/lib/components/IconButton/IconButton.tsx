@@ -32,7 +32,7 @@ export const IconButton = (props: IIconButtonProps) => {
 		}
 
 		cssClasses.push(className);
-		return cssClasses.join(' ');
+		return cssClasses.filter(css => css).join(' ');
 	};
 
 	return (

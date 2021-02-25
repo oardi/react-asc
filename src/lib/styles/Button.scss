@@ -3,6 +3,7 @@
 .btn {
 	min-width: 64px;
 	font-size: 0.875rem;
+	box-shadow: var(--shadow);
 
 	&:disabled {
 		&:hover {
@@ -19,16 +20,11 @@
 @each $color, $value in $theme-colors {
 	.btn-link-#{$color} {
 		color: $value !important;
+		box-shadow: none;
 
 		&:hover {
 			text-decoration: none;
 			background: rgba($value, 0.05);
 		}
-
-		// &.active {
-		// 	// background-color: var(--active);
-		// 	// color: white;
-		// 	box-shadow: none !important;
-		// }
 	}
 }

@@ -8,14 +8,16 @@ export interface ISnackbarProps {
 	onOk?: () => void;
 }
 
-export const Snackbar = ({ message, color = COLOR.dark, actionText = 'ok', onOk }: ISnackbarProps) => {
+export const Snackbar = (props: ISnackbarProps) => {
+
+	const { message, color = COLOR.dark, actionText = 'ok', onOk } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(`snackbar shadow-lg`);
 		cssClasses.push(`bg-${color}`);
 		cssClasses.push(`text-white`);
-		return cssClasses.join(' ');
+		return cssClasses.filter(css => css).join(' ');
 	}
 
 	const handleClickAction = () => {

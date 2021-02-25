@@ -9,7 +9,9 @@ export interface IDropDownMenuProps {
 	menuPosition?: MenuPosition;
 }
 
-export const DropDownMenu = ({ children, className, menuPosition = 'left' }: IDropDownMenuProps) => {
+export const DropDownMenu = (props: IDropDownMenuProps) => {
+
+	const { children, className, menuPosition = 'left' } = props;
 
 	const { setIsShow } = useContext(DropDownContext)
 
@@ -20,7 +22,7 @@ export const DropDownMenu = ({ children, className, menuPosition = 'left' }: IDr
 			cssClasses.push(`dropdown-menu-right`);
 		}
 		cssClasses.push(className);
-		return cssClasses.join(' ');
+		return cssClasses.filter(css => css).join(' ');
 	}
 
 	const handleClickItem = () => {

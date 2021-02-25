@@ -7,7 +7,9 @@ export interface ITooltipProps {
 	children?: ReactElement;
 }
 
-export const Tooltip = ({ children, text, placement = 'left' }: ITooltipProps) => {
+export const Tooltip = (props: ITooltipProps) => {
+
+	const { children, text, placement = 'left' } = props;
 
 	const [show, setShow] = useState<boolean>(false);
 	const refChild = useRef();

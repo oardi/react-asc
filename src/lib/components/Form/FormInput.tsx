@@ -21,23 +21,25 @@ export interface IFormInputProps {
 	onKeyDown?: (event) => void;
 }
 
-export const FormInput = ({
-	value,
-	name,
-	type,
-	placeholder,
-	className = 'form-control',
-	isValid,
-	options = [],
-	textareaOptions,
-	autoFocus,
-	label,
-	disabled = false,
-	readonly = false,
-	onChange,
-	onBlur,
-	onKeyDown
-}: IFormInputProps) => {
+export const FormInput = (props: IFormInputProps) => {
+
+	const {
+		value,
+		name,
+		type,
+		placeholder,
+		className = 'form-control',
+		isValid,
+		options = [],
+		textareaOptions,
+		autoFocus,
+		label,
+		disabled = false,
+		readonly = false,
+		onChange,
+		onBlur,
+		onKeyDown
+	} = props;
 
 	return (
 		<Fragment>
@@ -108,7 +110,7 @@ export const FormInput = ({
 					{/* TODO - add choose only if needed with config? */}
 					{options.map((option) =>
 						<option key={option.value} value={option.value}>
-							{option.label}
+							{option.label ? option.label : option.value}
 						</option>
 					)}
 				</select>

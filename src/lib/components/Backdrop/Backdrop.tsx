@@ -7,7 +7,9 @@ interface IBackdropProps {
 	isTransparent?: boolean;
 }
 
-export const Backdrop = ({ target = document.body, isTransparent = false, onClick }: IBackdropProps) => {
+export const Backdrop = (props: IBackdropProps) => {
+
+	const { target = document.body, isTransparent = false, onClick } = props;
 
 	const handleClick = (e: React.MouseEvent) => {
 		e.stopPropagation();
@@ -20,7 +22,7 @@ export const Backdrop = ({ target = document.body, isTransparent = false, onClic
 		if (isTransparent) {
 			cssClasses.push(`bg-transparent`);
 		}
-		return cssClasses.join(' ');
+		return cssClasses.filter(css => css).join(' ');
 	}
 
 	return (

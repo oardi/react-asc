@@ -8,13 +8,15 @@ export interface IBreadcrumbProps {
 	onItemClick?: (item: IBreadcrumbItem) => void;
 }
 
-export const Breadcrumb = ({ className, items, onItemClick }: IBreadcrumbProps) => {
+export const Breadcrumb = (props: IBreadcrumbProps) => {
+
+	const { className, items, onItemClick } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push("breadcrumb");
 		cssClasses.push(className);
-		return cssClasses.join(' ');
+		return cssClasses.filter(css => css).join(' ');
 	};
 
 	const handleClickItem = (item: IBreadcrumbItem) => {

@@ -9,7 +9,9 @@ interface ISidebarProps {
 	onItemClicked: (path: string) => void;
 }
 
-export const Sidebar = ({ items, currentUrl, onItemClicked }: ISidebarProps) => {
+export const Sidebar = (props: ISidebarProps) => {
+
+	const { items, currentUrl, onItemClicked } = props;
 
 	const [menuItems, setMenuItems] = useState<Array<SidebarItemModel>>([]);
 

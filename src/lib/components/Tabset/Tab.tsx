@@ -9,7 +9,9 @@ export interface ITabProps {
 	className?: string;
 }
 
-export const Tab = ({ children, className, isActive }: ITabProps) => {
+export const Tab = (props: ITabProps) => {
+
+	const { children, className, isActive } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -20,7 +22,7 @@ export const Tab = ({ children, className, isActive }: ITabProps) => {
 		if (className) {
 			cssClasses.push(className);
 		}
-		return cssClasses.join(' ');
+		return cssClasses.filter(css => css).join(' ');
 	};
 
 	return (

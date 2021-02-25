@@ -45,7 +45,7 @@ export const Checkbox = (props: ICheckboxProps) => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push('checkbox');
 		cssClasses.push(className);
-		return cssClasses.join(' ');
+		return cssClasses.filter(css => css).join(' ');
 	};
 
 	const getIcon = () => {

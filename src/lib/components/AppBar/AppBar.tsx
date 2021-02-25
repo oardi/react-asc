@@ -1,11 +1,10 @@
 import React, { ReactNode } from 'react';
-import { COLOR } from '../component.enums';
-// import './AppBar.scss';
+import { COLOR, SIZE } from '../component.enums';
 
 export interface IAppBarProps {
 	children?: ReactNode;
-	color?: COLOR;
-	shadow?: boolean | 'sm' | 'md' | 'lg';
+	color?: COLOR.primary | COLOR.light;
+	shadow?: boolean | SIZE.sm | SIZE.md | SIZE.lg;
 }
 
 export const AppBar = (props: IAppBarProps) => {
@@ -18,7 +17,7 @@ export const AppBar = (props: IAppBarProps) => {
 		cssClasses.push(`bg-${color}`);
 		cssClasses.push('navbar-dark');
 		shadow && cssClasses.push('shadow');
-		return cssClasses.join(' ');
+		return cssClasses.filter(css => css).join(' ');
 	};
 
 	return (

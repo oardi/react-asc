@@ -4,17 +4,9 @@ import { chevronDownSolidSvg, chevronRightSolidSvg } from '../../assets/icons';
 import { Checkbox } from '../Checkbox';
 import { IconButton } from '../IconButton';
 
-export const TreeNode = ({
-	id,
-	name,
-	level,
-	parentId,
-	hasChildren,
-	isExpanded,
-	isSelected,
-	onClick,
-	onClickSelect
-}) => {
+export const TreeNode = (props) => {
+
+	const { id, name, level, parentId, hasChildren, isExpanded, isSelected, onClick, onClickSelect } = props;
 
 	return (
 		<li

@@ -4,8 +4,6 @@ interface IListItemTextProps {
 	children?: ReactNode;
 }
 
-export const ListItemText = ({ children }: IListItemTextProps) => {
-	return (
-		<div className="list-item-text">{children}</div>
-	)
-}
+export const ListItemText = ({ children }: IListItemTextProps) => (
+	<div className="list-item-text">{children}</div>
+)

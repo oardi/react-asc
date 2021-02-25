@@ -4,8 +4,8 @@ interface ICardTextProps {
 	children?: ReactNode;
 }
 
-export const CardText = ({children}: ICardTextProps) => (
+export const CardText = (props: ICardTextProps) => (
 	<div className="card-text">
-		{children}
+		{props.children}
 	</div>
 );

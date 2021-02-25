@@ -6,7 +6,9 @@ export interface ITreeViewProps {
 	onSelect: (selectedItems: Array<any>) => void;
 }
 
-export const TreeView = ({ data, onSelect }) => {
+export const TreeView = (props: ITreeViewProps) => {
+
+	const { data, onSelect } = props;
 
 	const [flattenData, setFlattenData] = useState([]);
 	const [expandedItems, setExpandedItems] = useState([]);

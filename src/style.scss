@@ -4,6 +4,13 @@ $theme-colors: (
 	"accent": #ff4081,
 	"light": #ffffff,
 );
+$box-shadow-sm: false;
+$box-shadow: false;
+$box-shadow-lg: false;
+$input-btn-focus-box-shadow: false;
+$btn-focus-box-shadow: false;
+$btn-active-box-shadow: false;
+$btn-box-shadow: false;
 @import "~bootstrap/scss/bootstrap";
 @import "./lib/styles/style.scss";
 

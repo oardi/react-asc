@@ -6,7 +6,9 @@ interface IModalHeaderProps {
 	isDismissable?: boolean;
 }
 
-export const ModalHeader = ({ children, isDismissable = false, onClose }: IModalHeaderProps) => {
+export const ModalHeader = (props: IModalHeaderProps) => {
+
+	const { children, isDismissable = false, onClose } = props;
 
 	const handleClick = () => {
 		onClose && onClose();

@@ -9,14 +9,9 @@ export interface IListItemProps {
 	onClick?: (e: MouseEvent) => void;
 }
 
-export const ListItem = ({
-	children,
-	active = false,
-	className,
-	isHoverable = true,
-	isDisabled = false,
-	onClick
-}: IListItemProps) => {
+export const ListItem = (props: IListItemProps) => {
+
+	const { children, active = false, className, isHoverable = true, isDisabled = false, onClick } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -33,7 +28,7 @@ export const ListItem = ({
 		if (className) {
 			cssClasses.push(className);
 		}
-		return cssClasses.join(' ');
+		return cssClasses.filter(css => css).join(' ');
 	}
 
 	const handleClick = (e: MouseEvent<HTMLLIElement>) => {

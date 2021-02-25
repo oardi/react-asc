@@ -12,7 +12,9 @@ interface IDropDownProps {
 	onToggleClick?: (e: Event) => void;
 }
 
-export const DropDown = ({ toggle, children, menuPosition, onToggleClick }: IDropDownProps) => {
+export const DropDown = (props: IDropDownProps) => {
+
+	const { toggle, children, menuPosition, onToggleClick } = props;
 
 	const [isShow, setIsShow] = useState(false);
 	const dropDownMenuConainter = useRef<HTMLDivElement>();

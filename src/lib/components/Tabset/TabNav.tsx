@@ -8,7 +8,10 @@ export interface ITabNavProps {
 	onClick?: (eventKey: string) => void;
 }
 
-export const TabNav = ({ eventKey, disabled, children, isActive, onClick }: ITabNavProps) => {
+export const TabNav = (props: ITabNavProps) => {
+
+	const { eventKey, disabled, children, isActive, onClick } = props;
+
 	return (
 		<li key={eventKey} className={"nav-item" + (disabled ? ' disabled' : '')}>
 			<a

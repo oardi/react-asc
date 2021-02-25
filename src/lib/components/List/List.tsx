@@ -8,7 +8,9 @@ interface IListProps {
 	isHoverable?: boolean;
 }
 
-export const List = ({ children, isFlush = false, isHoverable = true }: IListProps) => {
+export const List = (props: IListProps) => {
+
+	const { children, isFlush = false, isHoverable = true } = props;
 
 	const [listItems, setListItems] = useState<Array<ListItemModel>>(null);
 
@@ -28,7 +30,7 @@ export const List = ({ children, isFlush = false, isHoverable = true }: IListPro
 		if (isFlush) {
 			cssClasses.push(`list-group-flush`);
 		}
-		return cssClasses.join(' ');
+		return cssClasses.filter(css => css).join(' ');
 	}
 
 	return (

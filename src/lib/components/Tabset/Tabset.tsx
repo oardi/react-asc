@@ -11,7 +11,9 @@ export interface ITabsetProps {
 	selectedEventKey?: string;
 }
 
-export const Tabset = ({ children, className, fill, onTabSelect, selectedEventKey }: ITabsetProps) => {
+export const Tabset = (props: ITabsetProps) => {
+
+	const { children, className, fill, onTabSelect, selectedEventKey } = props;
 
 	const [_selectedEventKey, setSelectedEventKey] = useState(selectedEventKey);
 	const [navs, setNavs] = useState<Array<TabNavModel>>(null);
@@ -22,7 +24,7 @@ export const Tabset = ({ children, className, fill, onTabSelect, selectedEventKe
 		cssClasses.push("nav nav-tabs tabset");
 		cssClasses.push(className);
 		if (fill) cssClasses.push('nav-fill');
-		return cssClasses.join(' ');
+		return cssClasses.filter(css => css).join(' ');
 	};
 
 	useEffect(() => {

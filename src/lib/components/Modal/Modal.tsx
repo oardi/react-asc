@@ -12,14 +12,9 @@ interface IModalProps {
 	isDismissable?: boolean;
 }
 
-export const Modal = ({
-	children,
-	header,
-	footer,
-	onHeaderCloseClick,
-	onBackdropClick,
-	isDismissable = false
-}: IModalProps) => {
+export const Modal = (props: IModalProps) => {
+
+	const { children, header, footer, onHeaderCloseClick, onBackdropClick, isDismissable = false } = props;
 
 	useEffect(() => {
 		document.body.classList.add('modal-open');

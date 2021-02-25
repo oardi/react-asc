@@ -7,7 +7,7 @@ const AppBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 
 	useEffect(() => {
 		setSettingsControls({
-			color: new FormControl(settingValues.color, [], 'select', { label: 'color', options: Object.keys(COLOR).map(c => ({ label: c, value: c })) }),
+			color: new FormControl(settingValues.color, [], 'select', { label: 'color', options: [{ value: COLOR.primary }, { value: COLOR.light }] }),
 			shadow: new FormControl(settingValues.shadow, [], 'checkbox', { label: 'Shadow' }),
 		});
 	}, []);

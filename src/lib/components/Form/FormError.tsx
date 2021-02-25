@@ -6,7 +6,10 @@ interface IFormErrorProps {
 	errors?: Array<IFormInputError>;
 }
 
-export const FormError = ({ className = 'invalid-feedback', errors = [] }: IFormErrorProps) => {
+export const FormError = (props: IFormErrorProps) => {
+
+	const { className = 'invalid-feedback', errors = [] } = props;
+
 	return (
 		<Fragment>
 			{

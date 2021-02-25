@@ -10,7 +10,9 @@ export interface ITableProps {
 	responsive?: boolean;
 }
 
-export const Table = ({ children, className, bordered, striped, hover, responsive }: ITableProps) => {
+export const Table = (props: ITableProps) => {
+
+	const { children, className, bordered, striped, hover, responsive } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -19,7 +21,7 @@ export const Table = ({ children, className, bordered, striped, hover, responsiv
 		bordered && cssClasses.push('table-bordered');
 		striped && cssClasses.push('table-striped');
 		hover && cssClasses.push('table-hover');
-		return cssClasses.join(' ');
+		return cssClasses.filter(css => css).join(' ');
 	};
 
 	return (
