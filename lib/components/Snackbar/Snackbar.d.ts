@@ -6,4 +6,4 @@ export interface ISnackbarProps {
     actionText?: string;
     onOk?: () => void;
 }
-export declare const Snackbar: ({ message, color, actionText, onOk }: ISnackbarProps) => JSX.Element;
+export declare const Snackbar: (props: ISnackbarProps) => JSX.Element;

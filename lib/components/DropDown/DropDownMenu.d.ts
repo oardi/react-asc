@@ -6,4 +6,4 @@ export interface IDropDownMenuProps {
     className?: string;
     menuPosition?: MenuPosition;
 }
-export declare const DropDownMenu: ({ children, className, menuPosition }: IDropDownMenuProps) => JSX.Element;
+export declare const DropDownMenu: (props: IDropDownMenuProps) => JSX.Element;

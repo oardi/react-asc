@@ -4,5 +4,5 @@ interface IFormErrorProps {
     className?: string;
     errors?: Array<IFormInputError>;
 }
-export declare const FormError: ({ className, errors }: IFormErrorProps) => JSX.Element;
+export declare const FormError: (props: IFormErrorProps) => JSX.Element;
 export {};

@@ -14,6 +14,7 @@ $theme-colors: map-merge(
 .btn {
 	min-width: 64px;
 	font-size: 0.875rem;
+	box-shadow: var(--shadow);
 
 	&:disabled {
 		&:hover {
@@ -30,17 +31,12 @@ $theme-colors: map-merge(
 @each $color, $value in $theme-colors {
 	.btn-link-#{$color} {
 		color: $value !important;
+		box-shadow: none;
 
 		&:hover {
 			text-decoration: none;
 			background: rgba($value, 0.05);
 		}
-
-		// &.active {
-		// 	// background-color: var(--active);
-		// 	// color: white;
-		// 	box-shadow: none !important;
-		// }
 	}
 }
 
@@ -454,3 +450,32 @@ $theme-colors: map-merge(
 	text-decoration:line-through
 }
 
+
+// TODO
+:root {
+	--primary-light: #6573c3;
+	--primary: #3f51b5;
+	--primary-dark: #2c387e;
+	--primary-contrast-text: #fff;
+
+	--secondary-light: #e5e7eb;
+	--secondary: #dfe1e6;
+	--secondary-dark: #9c9da1;
+	--secondary-contrast-text: #212529;
+
+	--light: #f8f9fa;
+	--dark: #343a40;
+	--white: #fff;
+
+	--bodyBg: #f8f9fa;
+	--bodyColor: #212529;
+
+	--borderRadius: 0.25rem;
+	--shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+
+	--buttonMinWidth: 62px;
+	--buttonPadding: 11px 15px;
+
+	--fontFamily: "Segoe UI", "Roboto", "Helvetica Neue", "Arial";
+	--fontSize: 16px;
+}

@@ -7,4 +7,4 @@ export interface ITableProps {
     hover?: boolean;
     responsive?: boolean;
 }
-export declare const Table: ({ children, className, bordered, striped, hover, responsive }: ITableProps) => JSX.Element;
+export declare const Table: (props: ITableProps) => JSX.Element;

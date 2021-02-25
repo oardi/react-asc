@@ -5,4 +5,4 @@ export interface IExpansionPanelProps {
     isExpanded?: boolean;
     onChange?: (event: React.MouseEvent, isExpanded: boolean) => void;
 }
-export declare const ExpansionPanel: ({ header, children, isExpanded, onChange }: IExpansionPanelProps) => JSX.Element;
+export declare const ExpansionPanel: (props: IExpansionPanelProps) => JSX.Element;

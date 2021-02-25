@@ -4,4 +4,4 @@ export interface IExpansionPanelHeaderProps {
     children?: ReactNode;
     isExpanded: boolean;
 }
-export declare const ExpansionPanelHeader: ({ children, isExpanded, onClick }: IExpansionPanelHeaderProps) => JSX.Element;
+export declare const ExpansionPanelHeader: (props: IExpansionPanelHeaderProps) => JSX.Element;

@@ -7,5 +7,5 @@ interface IModalProps {
     onBackdropClick?: Function;
     isDismissable?: boolean;
 }
-export declare const Modal: ({ children, header, footer, onHeaderCloseClick, onBackdropClick, isDismissable }: IModalProps) => JSX.Element;
+export declare const Modal: (props: IModalProps) => JSX.Element;
 export {};

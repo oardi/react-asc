@@ -16,7 +16,7 @@ export interface IFormInputError {
 export interface IFormInputOptions {
     id?: string;
     value: string;
-    label: string;
+    label?: string;
 }
 export interface IFormControlConfig {
     label: string;

@@ -6,4 +6,4 @@ export interface ITabNavProps {
     isActive?: boolean;
     onClick?: (eventKey: string) => void;
 }
-export declare const TabNav: ({ eventKey, disabled, children, isActive, onClick }: ITabNavProps) => JSX.Element;
+export declare const TabNav: (props: ITabNavProps) => JSX.Element;

@@ -5,5 +5,5 @@ interface ISidebarProps {
     currentUrl: string;
     onItemClicked: (path: string) => void;
 }
-export declare const Sidebar: ({ items, currentUrl, onItemClicked }: ISidebarProps) => JSX.Element;
+export declare const Sidebar: (props: ISidebarProps) => JSX.Element;
 export {};

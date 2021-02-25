@@ -18,4 +18,4 @@ export interface IFormInputProps {
     onBlur?: (event: any) => void;
     onKeyDown?: (event: any) => void;
 }
-export declare const FormInput: ({ value, name, type, placeholder, className, isValid, options, textareaOptions, autoFocus, label, disabled, readonly, onChange, onBlur, onKeyDown }: IFormInputProps) => JSX.Element;
+export declare const FormInput: (props: IFormInputProps) => JSX.Element;

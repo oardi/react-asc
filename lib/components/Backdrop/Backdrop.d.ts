@@ -4,5 +4,5 @@ interface IBackdropProps {
     onClick?: () => void;
     isTransparent?: boolean;
 }
-export declare const Backdrop: ({ target, isTransparent, onClick }: IBackdropProps) => React.ReactPortal;
+export declare const Backdrop: (props: IBackdropProps) => React.ReactPortal;
 export {};

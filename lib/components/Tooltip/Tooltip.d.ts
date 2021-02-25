@@ -4,4 +4,4 @@ export interface ITooltipProps {
     text?: string;
     children?: ReactElement;
 }
-export declare const Tooltip: ({ children, text, placement }: ITooltipProps) => JSX.Element;
+export declare const Tooltip: (props: ITooltipProps) => JSX.Element;

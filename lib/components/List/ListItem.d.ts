@@ -7,4 +7,4 @@ export interface IListItemProps {
     isDisabled?: boolean;
     onClick?: (e: MouseEvent) => void;
 }
-export declare const ListItem: ({ children, active, className, isHoverable, isDisabled, onClick }: IListItemProps) => JSX.Element;
+export declare const ListItem: (props: IListItemProps) => JSX.Element;

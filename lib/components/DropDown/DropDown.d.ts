@@ -7,5 +7,5 @@ interface IDropDownProps {
     menuPosition?: MenuPosition;
     onToggleClick?: (e: Event) => void;
 }
-export declare const DropDown: ({ toggle, children, menuPosition, onToggleClick }: IDropDownProps) => JSX.Element;
+export declare const DropDown: (props: IDropDownProps) => JSX.Element;
 export {};

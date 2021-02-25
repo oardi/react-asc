@@ -5,5 +5,5 @@ interface IListProps {
     isFlush?: boolean;
     isHoverable?: boolean;
 }
-export declare const List: ({ children, isFlush, isHoverable }: IListProps) => JSX.Element;
+export declare const List: (props: IListProps) => JSX.Element;
 export {};

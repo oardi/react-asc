@@ -4,4 +4,4 @@ export interface IDrawerProps {
     position?: 'left' | 'right';
     onClickBackdrop?: () => void;
 }
-export declare const Drawer: ({ children, position, onClickBackdrop }: IDrawerProps) => React.ReactPortal;
+export declare const Drawer: (props: IDrawerProps) => React.ReactPortal;

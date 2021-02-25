@@ -3,5 +3,5 @@ interface IFormGroupProps {
     children?: ReactNode;
     className?: string;
 }
-export declare const FormGroup: ({ children, className }: IFormGroupProps) => JSX.Element;
+export declare const FormGroup: (props: IFormGroupProps) => JSX.Element;
 export {};

@@ -5,4 +5,4 @@ export interface IDropDownItemProps {
     onClick?: (e: React.MouseEvent) => void;
     type?: 'item' | 'header';
 }
-export declare const DropDownItem: ({ children, onClick, type }: IDropDownItemProps) => JSX.Element;
+export declare const DropDownItem: (props: IDropDownItemProps) => JSX.Element;

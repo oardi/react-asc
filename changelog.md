@@ -1,3 +1,8 @@
+## v1.40.1
+- cleanup props
+- button styles
+- appbar color only primary or light
+
 ## v1.40.0
 - changed target to es2017
 

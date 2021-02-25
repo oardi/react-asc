@@ -5,4 +5,4 @@ export interface IBreadcrumbProps {
     className?: string;
     onItemClick?: (item: IBreadcrumbItem) => void;
 }
-export declare const Breadcrumb: ({ className, items, onItemClick }: IBreadcrumbProps) => JSX.Element;
+export declare const Breadcrumb: (props: IBreadcrumbProps) => JSX.Element;

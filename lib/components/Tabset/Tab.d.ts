@@ -7,4 +7,4 @@ export interface ITabProps {
     disabled?: boolean;
     className?: string;
 }
-export declare const Tab: ({ children, className, isActive }: ITabProps) => JSX.Element;
+export declare const Tab: (props: ITabProps) => JSX.Element;

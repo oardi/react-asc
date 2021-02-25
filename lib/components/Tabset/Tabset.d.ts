@@ -7,4 +7,4 @@ export interface ITabsetProps {
     onTabSelect?: (eventKey: string) => void;
     selectedEventKey?: string;
 }
-export declare const Tabset: ({ children, className, fill, onTabSelect, selectedEventKey }: ITabsetProps) => JSX.Element;
+export declare const Tabset: (props: ITabsetProps) => JSX.Element;
