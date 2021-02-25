@@ -1,3 +1,6 @@
+## v1.40.2
+- upgraded packages
+
 ## v1.40.1
 - cleanup props
 - button styles
