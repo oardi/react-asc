@@ -1,3 +1,7 @@
+## v1.41.0
+- added highlight component v1
+- upgraded packages
+
 ## v1.40.2
 - upgraded packages
 

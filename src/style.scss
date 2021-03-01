@@ -12,6 +12,7 @@ $btn-focus-box-shadow: false;
 $btn-active-box-shadow: false;
 $btn-box-shadow: false;
 @import "~bootstrap/scss/bootstrap";
+@import "~prismjs/themes/prism.css";
 @import "./lib/styles/style.scss";
 
 html,

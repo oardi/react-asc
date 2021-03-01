@@ -1,18 +1,26 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { AppBar, AppBarTitle, COLOR, FormControl, homeSolidSvg, IAppBarProps, IconButton, Tab, Tabset } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
-import { Markdown } from '../../shared';
+import { fileLoaderService, Markdown } from '../../shared';
 
 const AppBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IAppBarProps>) => {
 
+	const [markdown, setMarkdown] = useState('');
+
 	useEffect(() => {
+		init();
+
 		setSettingsControls({
 			color: new FormControl(settingValues.color, [], 'select', { label: 'color', options: [{ value: COLOR.primary }, { value: COLOR.light }] }),
 			shadow: new FormControl(settingValues.shadow, [], 'checkbox', { label: 'Shadow' }),
 		});
 	}, []);
 
-	const UsageMarkdown = "```\n <AppBar /> ```";
+	const init = async () => {
+		const response = await fileLoaderService.get<string>('./public/showcase/appbar.md');
+		console.warn(response);
+		setMarkdown(response.data);
+	}
 
 	return (
 		<Fragment>
@@ -27,7 +35,7 @@ const AppBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 					</AppBar>
 				</Tab>
 				<Tab eventKey="tab2" title="Usage">
-					<Markdown text={UsageMarkdown} />
+					<Markdown text={markdown} />
 				</Tab>
 			</Tabset>
 		</Fragment>

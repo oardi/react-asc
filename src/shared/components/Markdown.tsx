@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import * as marked from 'marked'
+import * as marked from 'marked';
 
 export interface IMarkdownProps {
 	text: string;
