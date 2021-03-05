@@ -1,3 +1,6 @@
+## v1.42.0
+- cardTitle - added dynamic "as" prop
+
 ## v1.41.0
 - added highlight component v1
 - upgraded packages
