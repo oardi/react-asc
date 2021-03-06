@@ -4,7 +4,8 @@ import external from "rollup-plugin-peer-deps-external";
 import resolve from "rollup-plugin-node-resolve";
 import json from '@rollup/plugin-json';
 import pkg from "./package.json";
-import svg from 'rollup-plugin-svg-import';
+import url from '@rollup/plugin-url';
+const svgr = require('@svgr/rollup').default
 
 export default {
 	input: "src/lib/index.ts",
@@ -34,8 +35,6 @@ export default {
 		}),
 		commonjs(),
 		json(),
-		svg({
-			stringify: true
-		})
+		url(), svgr()
 	]
 };
