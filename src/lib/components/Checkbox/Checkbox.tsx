@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { checkSquareRegularSvg, squareRegularSvg } from '../../assets/icons';
+import { CheckSquareRegularSvg, SquareRegularSvg } from '../../assets/icons';
 import { HtmlBaseProps } from '../component.interfaces';
 import { IconButton } from '../IconButton';
 
@@ -37,8 +37,8 @@ export const Checkbox = (props: ICheckboxProps) => {
 	}, [checked]);
 
 	const icons = {
-		default: squareRegularSvg,
-		selected: checkSquareRegularSvg
+		default: <SquareRegularSvg />,
+		selected: <CheckSquareRegularSvg />
 	};
 
 	const getCssClasses = () => {

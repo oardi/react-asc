@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { AppBar, AppBarTitle, COLOR, FormControl, homeSolidSvg, IAppBarProps, IconButton, Tab, Tabset } from '../../lib';
+import { AppBar, AppBarTitle, COLOR, FormControl, HomeSolidSvg, IAppBarProps, IconButton, Tab, Tabset } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 import { fileLoaderService, Markdown } from '../../shared';
 
@@ -31,7 +31,7 @@ const AppBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 						shadow={settingValues.shadow}
 					>
 						<AppBarTitle>Navbar</AppBarTitle>
-						<IconButton color={COLOR.light} icon={homeSolidSvg} />
+						<IconButton color={COLOR.light} icon={<HomeSolidSvg />} />
 					</AppBar>
 				</Tab>
 				<Tab eventKey="tab2" title="Usage">

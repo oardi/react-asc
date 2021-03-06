@@ -1,12 +1,13 @@
 import React from 'react';
 
 export interface ISvgIconProp extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-	svg: string;
+	// svg: string;
+	children: React.ReactNode;
 }
 
 export const SvgIcon = (props: ISvgIconProp) => {
 
-	const { svg, className, ...rest } = props;
+	const { children, className, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -18,9 +19,9 @@ export const SvgIcon = (props: ISvgIconProp) => {
 	return (
 		<div
 			className={getCssClasses()}
-			dangerouslySetInnerHTML={{ __html: svg }}
 			{...rest}
 		>
+			{children}
 		</div>
 	);
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { COLOR, IconButton, modalService } from '../../lib';
-import { infoSolidSvg } from '../../showcase';
+import { InfoSolidSvg } from '../../showcase';
 import changelogMd from '../../../changelog.md';
 import * as marked from 'marked'
 
@@ -16,10 +16,10 @@ export const AppInfo = () => {
 		modalService.show('Changelog', <div dangerouslySetInnerHTML={{ __html: changelog }}></div>, { isDismissable: true });
 	};
 
-	return(
+	return (
 		<IconButton
 			color={COLOR.light}
-			icon={infoSolidSvg}
+			icon={<InfoSolidSvg />}
 			onClick={handleClick}
 		/>
 	);

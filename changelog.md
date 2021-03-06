@@ -1,3 +1,6 @@
+## v1.43.0
+- import SVGs as ReactComponent
+
 ## v1.42.0
 - cardTitle - added dynamic "as" prop
 

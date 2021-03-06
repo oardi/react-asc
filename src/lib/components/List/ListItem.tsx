@@ -15,7 +15,7 @@ export const ListItem = (props: IListItemProps) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push('list-group-item d-flex justify-content-start');
+		cssClasses.push('list-group-item d-flex justify-content-start align-items-center');
 		if (active) {
 			cssClasses.push(`active`);
 		}

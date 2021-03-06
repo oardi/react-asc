@@ -2,7 +2,7 @@ import React from 'react';
 import { COLOR, VARIANT } from '../component.enums';
 
 export interface IIconButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
-	icon?: string;
+	icon?: React.SVGProps<SVGSVGElement>;
 	color?: COLOR;
 	isActive?: boolean;
 	variant?: VARIANT;
@@ -42,9 +42,9 @@ export const IconButton = (props: IIconButtonProps) => {
 			{...rest}
 		>
 			<span
-				className="svg-icon"
-				dangerouslySetInnerHTML={{ __html: icon }}>
+				className="svg-icon">
+				{icon}
 			</span>
-		</button>
+		</button >
 	);
 };

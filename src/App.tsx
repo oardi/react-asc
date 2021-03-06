@@ -7,7 +7,7 @@ import { AppBar, AppBarTitle, COLOR, Drawer, IconButton, ISidebarItem, loggerSer
 import { AppSidebar, AppInfo, AppBreadcrumb } from './shared';
 import { useAppContext } from './AppContext';
 import { showcaseService } from './app.service';
-import { MenuModel, RouteModel, barsSolidSvg } from './showcase';
+import { MenuModel, RouteModel, BarsSolidSvg } from './showcase';
 
 const CLASSNAME = 'App';
 const App = () => {
@@ -32,7 +32,7 @@ const App = () => {
 	return (
 		<Fragment>
 			<AppBar shadow>
-				<IconButton className="mr-2" color={COLOR.light} icon={barsSolidSvg} onClick={() => setShowMenu(!showMenu)} />
+				<IconButton className="mr-2" color={COLOR.light} icon={<BarsSolidSvg />} onClick={() => setShowMenu(!showMenu)} />
 				{appInfo && (
 					<AppBarTitle onClick={() => history.push('/')}>
 						{appInfo.name} (v.{appInfo.version})

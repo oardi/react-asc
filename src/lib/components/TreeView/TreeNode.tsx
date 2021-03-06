@@ -1,6 +1,6 @@
 import React from "react";
 
-import { chevronDownSolidSvg, chevronRightSolidSvg } from '../../assets/icons';
+import { ChevronDownSolidSvg, ChevronRightSolidSvg } from '../../assets/icons';
 import { Checkbox } from '../Checkbox';
 import { IconButton } from '../IconButton';
 
@@ -15,7 +15,7 @@ export const TreeNode = (props) => {
 		>
 
 			{hasChildren ?
-				<IconButton className="btn-toggle" onClick={() => onClick(id)} icon={!isExpanded ? chevronRightSolidSvg : chevronDownSolidSvg} />
+				<IconButton className="btn-toggle" onClick={() => onClick(id)} icon={!isExpanded ? <ChevronRightSolidSvg /> : <ChevronDownSolidSvg />} />
 				:
 				<button className="btn-toggle"></button>
 			}
