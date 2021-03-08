@@ -24,18 +24,22 @@ export const Breadcrumb = (props: IBreadcrumbProps) => {
 	}
 
 	return (
-		<nav>
-			<ol className={getCssClasses()}>
-				{items && items.map((item, index) => (
-					<li key={index} className={"breadcrumb-item" + (item.isActive ? ' active' : '')} onClick={() => handleClickItem(item)}>
-						<ConditionalWrapper
-							condition={!item.isActive}
-							wrapper={label => <a>{label}</a>}>
-							{item.label}
-						</ConditionalWrapper>
-					</li>
-				))}
-			</ol>
-		</nav>
+		<>
+			{items &&
+				<nav>
+					<ol className={getCssClasses()}>
+						{items.map((item, index) => (
+							<li key={index} className={"breadcrumb-item" + (item.isActive ? ' active' : '')} onClick={() => handleClickItem(item)}>
+								<ConditionalWrapper
+									condition={!item.isActive}
+									wrapper={label => <a>{label}</a>}>
+									{item.label}
+								</ConditionalWrapper>
+							</li>
+						))}
+					</ol>
+				</nav>
+			}
+		</>
 	);
 }

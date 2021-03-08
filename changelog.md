@@ -1,3 +1,6 @@
+## v1.43.1
+- breadcrumb - dont render on empty items
+
 ## v1.43.0
 - import SVGs as ReactComponent
 
