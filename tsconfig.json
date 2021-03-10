@@ -1,19 +1,21 @@
 {
 	"compileOnSave": false,
 	"compilerOptions": {
-		"allowSyntheticDefaultImports": true,
-		"jsx": "react",
+		"target": "es2017",
 		"lib": [
 			"dom",
 			"dom.iterable",
 			"esnext"
 		],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"jsx": "react-jsx",
 		"module": "esnext",
 		"moduleResolution": "node",
 		"sourceMap": true,
-		"target": "es2017",
 		"resolveJsonModule": true,
-		"esModuleInterop": true
 	},
 	"include": [
 		"src/**/*"

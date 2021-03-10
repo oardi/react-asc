@@ -25,7 +25,7 @@ export const Breadcrumb = (props: IBreadcrumbProps) => {
 
 	return (
 		<>
-			{items &&
+			{items && items.length > 0 &&
 				<nav>
 					<ol className={getCssClasses()}>
 						{items.map((item, index) => (

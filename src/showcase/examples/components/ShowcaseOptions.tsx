@@ -4,7 +4,7 @@ import { ShowcaseSettings } from './ShowcaseSettings';
 
 interface IShowcaseOptionsProps {
 	controls: IControls;
-	onFormChange: (val) => void;
+	onFormChange: (val: any) => void;
 }
 
 export const ShowcaseOptions = ({ controls, onFormChange }: IShowcaseOptionsProps) => {
