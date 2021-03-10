@@ -15,7 +15,6 @@ export interface ICheckboxProps extends HtmlBaseProps {
 	onKeyDown?: (event: React.KeyboardEvent) => void;
 }
 
-// const CLASSNAME = 'Checkbox';
 export const Checkbox = (props: ICheckboxProps) => {
 
 	const { id, checked, className = '', label, name, value = "off", ...rest } = props;

@@ -33,6 +33,7 @@ export const DropDownItem = (props: IDropDownItemProps) => {
 			condition={true}
 			wrapper={children => (
 				(type === 'item' ? (
+					// eslint-disable-next-line jsx-a11y/anchor-is-valid
 					<a className={getCssClasses()} onClick={handleClick}>{children}</a>
 				) :
 					<div className={getCssClasses()} onClick={handleClick}>{children}</div>)

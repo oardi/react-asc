@@ -32,6 +32,7 @@ export const Breadcrumb = (props: IBreadcrumbProps) => {
 							<li key={index} className={"breadcrumb-item" + (item.isActive ? ' active' : '')} onClick={() => handleClickItem(item)}>
 								<ConditionalWrapper
 									condition={!item.isActive}
+									// eslint-disable-next-line jsx-a11y/anchor-is-valid
 									wrapper={label => <a>{label}</a>}>
 									{item.label}
 								</ConditionalWrapper>

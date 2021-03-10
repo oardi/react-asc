@@ -1,3 +1,6 @@
+## v2.0.1
+- fixed linting errors
+
 ## v2.0.0
 - refactored whole app to use create-react-app with ts, pwa support
 - fixed a lot of linting errors

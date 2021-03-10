@@ -63,7 +63,8 @@
 		"build:lib": "rimraf lib && rollup -c && npm run scss-bundle-styles",
 		"scss-bundle-styles": "scss-bundle -c scss-bundle.config.json",
 		"test": "react-scripts test",
-		"eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"lint": "eslint --ext tsx src"
 	},
 	"eslintConfig": {
 		"extends": [

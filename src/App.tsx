@@ -8,7 +8,6 @@ import { useAppContext } from './AppContext';
 import { showcaseService } from './app.service';
 import { MenuModel, RouteModel, BarsSolidIcon } from './showcase';
 
-const CLASSNAME = 'App';
 const App = () => {
 
 	const { appInfo } = useAppContext();

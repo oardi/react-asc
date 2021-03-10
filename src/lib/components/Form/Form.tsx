@@ -27,7 +27,6 @@ export interface IFormState {
 
 // values, isSubmitting, handleChange, handleBlur, handleSubmit
 
-// const CLASSNAME = 'Form';
 export class Form extends Component<IFormProps, IFormState> {
 	constructor(props: IFormProps) {
 		super(props);

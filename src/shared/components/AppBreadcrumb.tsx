@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Breadcrumb, IBreadcrumbItem, loggerService } from '../../lib';
 
-const CLASSNAME = '';
+const CLASSNAME = 'AppBreadcrumb';
 export const AppBreadcrumb = () => {
 
 	const location = useLocation();
