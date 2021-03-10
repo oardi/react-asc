@@ -7,7 +7,7 @@ export interface ISvgIconProp extends React.DetailedHTMLProps<React.ButtonHTMLAt
 
 export const SvgIcon = (props: ISvgIconProp) => {
 
-	const { children, className, ...rest } = props;
+	const { children, className = '', ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

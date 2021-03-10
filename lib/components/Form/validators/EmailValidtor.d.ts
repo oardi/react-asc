@@ -1,1 +1,1 @@
-export declare const EmailValidator: (value: any) => boolean;
+export declare const EmailValidator: (value: string) => boolean;

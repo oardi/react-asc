@@ -10,13 +10,13 @@ export interface IShowcaseBaseProps<T> {
 
 // with template inheritance
 // TODO -> any to type
-export const withOptions = <T,>(WrappedComponent, defaultSettingValues?: T) => {
+export const withOptions = <T,>(WrappedComponent: any, defaultSettingValues?: T) => {
 
-	const HOC = (props) => {
+	const HOC = (props: any) => {
 		const [settingValues, setSettingValues] = useState(defaultSettingValues ? defaultSettingValues : {});
-		const [settingsControls, setSettingsControls] = useState(null);
+		const [settingsControls, setSettingsControls] = useState<any>(null);
 
-		const onFormChange = (val) => {
+		const onFormChange = (val: any) => {
 			setSettingValues(val);
 		}
 

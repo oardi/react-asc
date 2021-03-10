@@ -5,7 +5,7 @@ import { Layout } from './Layout';
 
 export const GettingStartedPage = () => {
 
-	const [markdownText, setMarkdownText] = useState<string>(undefined);
+	const [markdownText, setMarkdownText] = useState<string>('');
 
 	useEffect(() => { init() }, []);
 

@@ -5,9 +5,8 @@ import resolve from "rollup-plugin-node-resolve";
 import json from '@rollup/plugin-json';
 import pkg from "./package.json";
 import url from '@rollup/plugin-url';
-const svgr = require('@svgr/rollup').default
 
-export default {
+const rollupConfig = {
 	input: "src/lib/index.ts",
 	external: ['react', 'react-dom', '@popperjs/core'],
 	output: [
@@ -35,6 +34,8 @@ export default {
 		}),
 		commonjs(),
 		json(),
-		url(), svgr()
+		url()
 	]
 };
+
+export default rollupConfig;

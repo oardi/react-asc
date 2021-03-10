@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout } from './Layout';
-import { Button, Card, CardBody, CardText, CardTitle, snackbarService } from '../lib';
+import { Button, Card, CardBody, CardText, CardTitle } from '../lib';
 import { useHistory } from 'react-router-dom';
 
 export const HomePage = () => {
@@ -11,7 +11,7 @@ export const HomePage = () => {
 		history.push('/gettingstarted');
 	};
 
-	const handleClickGithub = ()=>{
+	const handleClickGithub = () => {
 		window.open('https://github.com/oardi/react-craft');
 	}
 

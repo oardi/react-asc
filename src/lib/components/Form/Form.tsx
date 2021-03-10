@@ -17,7 +17,7 @@ export interface IFormProps {
 }
 
 export interface IFormState {
-	controls: IControls;
+	controls: IControls | undefined;
 	isValid: boolean;
 	isSubmitted: boolean;
 	isChanged: boolean;
@@ -27,7 +27,7 @@ export interface IFormState {
 
 // values, isSubmitting, handleChange, handleBlur, handleSubmit
 
-const CLASSNAME = 'Form';
+// const CLASSNAME = 'Form';
 export class Form extends Component<IFormProps, IFormState> {
 	constructor(props: IFormProps) {
 		super(props);
@@ -46,7 +46,7 @@ export class Form extends Component<IFormProps, IFormState> {
 	handleChange() {
 		// get value by myForm instead of getControl?
 		if (this.state.isChanged || this.state.isSubmitted) {
-			const keys = Object.keys(this.state.controls);
+			const keys = Object.keys((this.state.controls as IControls));
 			const values = keys.reduce((obj, f) => {
 				const control = this.getControl(f);
 				// TODO - refactor
@@ -66,7 +66,7 @@ export class Form extends Component<IFormProps, IFormState> {
 		}
 	}
 
-	private validateField(fieldValue, fieldValidators: Array<string>): Array<IFormInputError> {
+	private validateField(fieldValue: any, fieldValidators: Array<string>): Array<IFormInputError> {
 		const errors: Array<IFormInputError> = [];
 		if (fieldValidators) {
 			for (const validator of fieldValidators) {
@@ -91,10 +91,10 @@ export class Form extends Component<IFormProps, IFormState> {
 	}
 
 	private handleInputChange(e: Event) {
-		let { name, value, checked, type, files } = (e.target as HTMLInputElement);
+		let { name, value, checked, type } = (e.target as HTMLInputElement);
 
 		// TODO! - read value from formElements
-		const htmlInputElement = this.myForm.current[name];
+		const htmlInputElement = (this.myForm?.current as any)[name];
 
 		// TODO - type checkboxgroup with component?
 		if (type === 'checkbox' && (htmlInputElement as RadioNodeList).length > 0) {
@@ -125,8 +125,10 @@ export class Form extends Component<IFormProps, IFormState> {
 			field.isValid = field.errors.length === 0;
 
 			const controls = this.state.controls;
-			controls[name] = field;
-			this.setState({ controls: controls, isChanged: true }, () => this.handleChange());
+			if (controls) {
+				controls[name] = field;
+				this.setState({ controls: controls, isChanged: true }, () => this.handleChange());
+			}
 		}
 	};
 
@@ -145,7 +147,7 @@ export class Form extends Component<IFormProps, IFormState> {
 	}
 
 	getControl(name: string): FormControl {
-		return this.state.controls[name];
+		return (this.state.controls as IControls)[name];
 	}
 
 	private renderLabel(fieldKey: string, label: string, labelClassName: string = '') {
@@ -155,7 +157,7 @@ export class Form extends Component<IFormProps, IFormState> {
 
 	// trigger via ref
 	handleFormSubmit() {
-		for (const fieldKey of Object.keys(this.state.controls)) {
+		for (const fieldKey of Object.keys((this.state.controls as IControls))) {
 			const field = this.getControl(fieldKey);
 
 			// redundant mit handleBlur
@@ -167,13 +169,13 @@ export class Form extends Component<IFormProps, IFormState> {
 		this.setState({
 			controls: { ...this.state.controls },
 			isSubmitted: true,
-			isValid: Object.keys(this.state.controls).map(f => this.getControl(f).isValid).every(valid => valid === true)
+			isValid: Object.keys((this.state.controls as IControls)).map(f => this.getControl(f).isValid).every(valid => valid === true)
 		}, () => this.handleChange());
 	}
 
 	// trigger via ref
 	handleFormReset() {
-		for (const fieldKey of Object.keys(this.state.controls)) {
+		for (const fieldKey of Object.keys((this.state.controls as IControls))) {
 			const field = this.getControl(fieldKey);
 			field.value = '';
 			field.isDirty = false;
@@ -196,7 +198,7 @@ export class Form extends Component<IFormProps, IFormState> {
 	}
 
 	destroy() {
-		this.setState({ controls: undefined, isValid: false, isChanged: false, isSubmitted: false });
+		this.setState({ controls: {}, isValid: false, isChanged: false, isSubmitted: false });
 	}
 
 	render() {
@@ -237,7 +239,7 @@ export class Form extends Component<IFormProps, IFormState> {
 							}
 
 							{this.getControl(fieldKey).config.hint &&
-								<FormHint hint={this.getControl(fieldKey).config.hint} />
+								<FormHint hint={this.getControl(fieldKey).config.hint as string} />
 							}
 
 							{this.getControl(fieldKey).errors &&
@@ -253,6 +255,6 @@ export class Form extends Component<IFormProps, IFormState> {
 }
 
 
-function isValidDate(dateObject) {
+function isValidDate(dateObject: Date) {
 	return new Date(dateObject).toString() !== 'Invalid Date';
 }

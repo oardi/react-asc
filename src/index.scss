@@ -17,7 +17,7 @@ $btn-box-shadow: false;
 
 html,
 body,
-#app {
+#root {
 	height: 100%;
 }
 
@@ -25,7 +25,7 @@ body {
 	background: #f5f6fa;
 }
 
-#app {
+#root {
 	display: flex;
 	flex-direction: column;
 }

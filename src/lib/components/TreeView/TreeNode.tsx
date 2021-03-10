@@ -1,10 +1,11 @@
 import React from "react";
 
-import { ChevronDownSolidSvg, ChevronRightSolidSvg } from '../../assets/icons';
+import { ChevronDownSolidIcon, ChevronRightSolidIcon } from '../../assets/icons';
 import { Checkbox } from '../Checkbox';
 import { IconButton } from '../IconButton';
 
-export const TreeNode = (props) => {
+// TODO props
+export const TreeNode = (props: any) => {
 
 	const { id, name, level, parentId, hasChildren, isExpanded, isSelected, onClick, onClickSelect } = props;
 
@@ -15,7 +16,7 @@ export const TreeNode = (props) => {
 		>
 
 			{hasChildren ?
-				<IconButton className="btn-toggle" onClick={() => onClick(id)} icon={!isExpanded ? <ChevronRightSolidSvg /> : <ChevronDownSolidSvg />} />
+				<IconButton className="btn-toggle" onClick={() => onClick(id)} icon={!isExpanded ? <ChevronRightSolidIcon /> : <ChevronDownSolidIcon />} />
 				:
 				<button className="btn-toggle"></button>
 			}

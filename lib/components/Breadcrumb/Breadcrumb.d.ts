@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { IBreadcrumbItem } from './breadcrumb.interfaces';
 export interface IBreadcrumbProps {
     items: Array<IBreadcrumbItem>;

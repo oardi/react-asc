@@ -3,10 +3,10 @@ import { IListItemProps } from './ListItem';
 
 export class ListItemModel {
 	constructor(dto: ReactElement<IListItemProps>) {
-		return {...dto}
+		return { ...dto }
 	}
 
 	key: any;
-	props: IListItemProps;
+	props: IListItemProps | undefined;
 	type: any;
 }

@@ -6,5 +6,8 @@ export interface IAppContext {
 	setAppInfo: Dispatch<IAppInfo>;
 }
 
-export const AppContext = createContext<IAppContext>(null);
+export const AppContext = createContext<IAppContext>({
+	appInfo: {},
+	setAppInfo: () => { }
+});
 export const useAppContext = () => useContext(AppContext);

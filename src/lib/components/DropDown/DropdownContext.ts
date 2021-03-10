@@ -5,4 +5,7 @@ export interface IDropDownContext {
 	setIsShow: Dispatch<boolean>;
 }
 
-export const DropDownContext = createContext<IDropDownContext>(null);
+export const DropDownContext = createContext<IDropDownContext>({
+	isShow: false,
+	setIsShow: () => { }
+});

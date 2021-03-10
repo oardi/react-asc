@@ -3,7 +3,7 @@ import { Card, CardBody, CardText, CardTitle, Form, IControls } from '../../../l
 
 interface IShowcaseSettingsProps {
 	controls: IControls;
-	onFormChange: (val) => void;
+	onFormChange: (val: any) => void;
 }
 
 export const ShowcaseSettings = ({ controls, onFormChange }: IShowcaseSettingsProps) => {

@@ -4,7 +4,7 @@ import { createPopper } from '@popperjs/core';
 export interface ITooltipProps {
 	placement?: 'top' | 'bottom' | 'right' | 'left',
 	text?: string;
-	children?: ReactElement;
+	children: ReactElement;
 }
 
 export const Tooltip = (props: ITooltipProps) => {
@@ -12,12 +12,12 @@ export const Tooltip = (props: ITooltipProps) => {
 	const { children, text, placement = 'left' } = props;
 
 	const [show, setShow] = useState<boolean>(false);
-	const refChild = useRef();
-	const refTooltip = useRef();
+	const refChild = useRef(null);
+	const refTooltip = useRef(null);
 
 	useEffect(() => {
-		if (show === true) {
-			createPopper(refChild.current, refTooltip.current, {
+		if (show === true && refChild && refChild.current) {
+			createPopper((refChild.current as any), (refTooltip.current as any), {
 				placement: placement,
 				modifiers: [
 					{
@@ -30,10 +30,6 @@ export const Tooltip = (props: ITooltipProps) => {
 			});
 		}
 	}, [show]);
-
-	// const handleClick = () => {
-	// 	console.warn('handleClick');
-	// }
 
 	const handleMouseOver = () => {
 		setShow(true);

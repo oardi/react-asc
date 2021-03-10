@@ -18,14 +18,14 @@ export interface IModalOptions {
 }
 
 class ModalService implements IModalService {
-	private container: HTMLElement;
+	private container: any;
 
 	show(title: string, description: string | ReactElement, options?: IModalOptions): Promise<void | IFormValues> {
-		if (!this.container) {
-			this.container = document.createElement('div');
-			document.body.appendChild(this.container);
+		return new Promise((resolve, reject) => {
+			if (!this.container) {
+				this.container = document.createElement('div');
+				document.body.appendChild(this.container);
 
-			return new Promise((resolve, reject) => {
 				const handleOk = (values?: IFormValues) => {
 					resolve(values);
 					this.hide();
@@ -48,8 +48,8 @@ class ModalService implements IModalService {
 					/>,
 					this.container
 				);
-			})
-		}
+			}
+		})
 	}
 
 	private hide() {

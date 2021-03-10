@@ -3,9 +3,9 @@ import { TreeView } from '../../lib';
 import { withOptions } from './components';
 
 const TreeViewPageBase = () => {
-	const [selectedIds, setSelectedIds] = useState([]);
+	const [selectedIds, setSelectedIds] = useState<Array<number>>([]);
 
-	const handleSelect = (ids) => {
+	const handleSelect = (ids: Array<number>) => {
 		setSelectedIds(ids);
 	}
 

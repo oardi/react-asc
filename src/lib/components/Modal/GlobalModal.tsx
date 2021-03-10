@@ -31,29 +31,29 @@ export const GlobalModal = ({
 }: IModalProps) => {
 
 	// workaround for getDerivedStateFromProps
-	const [myControls, setMyControls] = useState<IControls>(null);
+	const [myControls, setMyControls] = useState<IControls|null>(null);
 	useEffect(() => {
 		setMyControls({ ...formControls });
 	}, []);
 	// end
 
 	const modalType = formControls ? MODALTYPE.FORM : MODALTYPE.BASIC;
-	const myForm = useRef<Form>();
+	const myForm = useRef<Form>(null);
 
 	const handleOk = () => {
 		if (modalType === MODALTYPE.FORM) {
-			myForm.current.handleFormSubmit();
+			myForm?.current?.handleFormSubmit();
 		} else {
-			onOk();
+			onOk && onOk();
 		}
 	}
 
 	const handleCancel = () => {
-		onCancel();
+		onCancel && onCancel();
 	}
 
 	const onSubmit = (values: IFormValues) => {
-		onOk(values);
+		onOk && onOk(values);
 	}
 
 	// TODO
@@ -105,7 +105,7 @@ export const GlobalModal = ({
 				<Fragment>
 					<Form
 						ref={myForm}
-						controls={myControls}
+						controls={(myControls as IControls)}
 						validateOnBlur
 						onSubmit={onSubmit}
 					/>

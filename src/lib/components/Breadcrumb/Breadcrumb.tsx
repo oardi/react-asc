@@ -10,7 +10,7 @@ export interface IBreadcrumbProps {
 
 export const Breadcrumb = (props: IBreadcrumbProps) => {
 
-	const { className, items, onItemClick } = props;
+	const { className = '', items, onItemClick } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

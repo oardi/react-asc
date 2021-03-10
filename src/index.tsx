@@ -1,19 +1,19 @@
-import React, { Suspense } from "react";
-import { render } from "react-dom";
-import { HashRouter as Router } from "react-router-dom";
-
+import React, { Suspense } from 'react';
+import ReactDOM from 'react-dom';
+import './index.scss';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import reportWebVitals from './reportWebVitals';
 import { AppContainer } from './AppContainer';
-import "./style.scss";
 
-render(
+ReactDOM.render(
 	<Suspense fallback={<div>Loading...</div>}>
-		<Router>
+		<React.StrictMode>
 			<AppContainer />
-		</Router>
+		</React.StrictMode>
 	</Suspense>,
-	document.getElementById("app"),
+	document.getElementById('root')
 );
 
-if (module.hot) {
-	module.hot.accept();
-}
+serviceWorkerRegistration.register();
+
+reportWebVitals();

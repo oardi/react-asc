@@ -1,3 +1,10 @@
+## v2.0.0
+- refactored whole app to use create-react-app with ts, pwa support
+- fixed a lot of linting errors
+- added strict mode
+- converted svg files to react components
+- use yarn
+
 ## v1.43.1
 - breadcrumb - dont render on empty items
 

@@ -6,7 +6,7 @@ const ExpansionPanelPageBase = ({ settingValues, setSettingsControls }: IShowcas
 
 	const [expanded, setExpanded] = React.useState<string | false>(false);
 
-	const handleChange = (panelKey: string) => (event: React.MouseEvent, isExpanded) => {
+	const handleChange = (panelKey: string) => (event: React.MouseEvent, isExpanded: boolean) => {
 		setExpanded(isExpanded ? panelKey : false);
 	};
 

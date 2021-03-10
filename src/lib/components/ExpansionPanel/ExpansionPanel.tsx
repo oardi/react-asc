@@ -11,7 +11,7 @@ export interface IExpansionPanelProps {
 
 export const ExpansionPanel = (props: IExpansionPanelProps) => {
 
-	const { header, children, isExpanded, onChange } = props;
+	const { header, children, isExpanded = false, onChange } = props;
 
 	const [_isExpanded, setIsExpanded] = useState<boolean>(false);
 

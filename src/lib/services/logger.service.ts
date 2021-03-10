@@ -1,9 +1,9 @@
 export interface ILoggerService {
-	log(...args: Array<any>);
-	info(...args: Array<any>);
-	warn(...args: Array<any>);
-	debug(...args: Array<any>);
-	error(...args: Array<any>);
+	log(...args: Array<any>): void;
+	info(...args: Array<any>): void;
+	warn(...args: Array<any>): void;
+	debug(...args: Array<any>): void;
+	error(...args: Array<any>): void;
 }
 
 export enum LogType { log = 'log', info = 'info', warn = 'warn', debug = 'debug', error = 'error' }
@@ -31,7 +31,7 @@ class LoggerService implements ILoggerService {
 		this._doLog(this.logType.error, args);
 	}
 
-	_doLog(logType, args) {
+	_doLog(logType: LogType, args: any) {
 		switch (logType) {
 			case this.logType.log:
 				console.log.apply(console, args);

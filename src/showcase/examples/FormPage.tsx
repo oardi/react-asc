@@ -6,7 +6,7 @@ import dayjs from 'dayjs';
 const CLASSNAME = 'ShowcaseForm';
 export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IFormProps>) => {
 	const [values, setValues] = useState({});
-	const myForm = useRef<Form>();
+	const myForm = useRef<Form>(null);
 
 	useEffect(() => {
 		setSettingsControls({
@@ -47,22 +47,22 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 		}),
 	};
 
-	const onFormSubmit = (values) => {
+	const onFormSubmit = (values: any) => {
 		loggerService.debug(CLASSNAME, 'onFormSubmit', JSON.stringify(values, null, 2));
 		setValues(values);
 	};
 
 	const handleClickSubmit = () => {
 		loggerService.debug(CLASSNAME, 'handleClickSubmit');
-		myForm.current.handleFormSubmit();
+		myForm?.current?.handleFormSubmit();
 	}
 
 	const handleClickReset = () => {
 		loggerService.debug(CLASSNAME, 'handleClickReset');
-		myForm.current.handleFormReset();
+		myForm?.current?.handleFormReset();
 	}
 
-	const onFormChange = (values) => {
+	const onFormChange = (values: any) => {
 		loggerService.debug(CLASSNAME, 'onFormChange', JSON.stringify(values, null, 2));
 		setValues(values);
 	}

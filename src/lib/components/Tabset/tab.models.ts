@@ -19,6 +19,6 @@ export class TabModel {
 	}
 
 	key: any;
-	props: ITabProps;
+	props: ITabProps | undefined;
 	type: any;
 }

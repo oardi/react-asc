@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { ChevronDownSolidSvg, ChevronUpSolidSvg } from '../../assets/icons';
+import { ChevronDownSolidIcon, ChevronUpSolidIcon } from '../../assets/icons';
 import { SvgIcon } from '../SvgIcon';
 
 export interface IExpansionPanelHeaderProps {
@@ -26,7 +26,7 @@ export const ExpansionPanelHeader = (props: IExpansionPanelHeaderProps) => {
 
 			<span className="ml-auto text-muted">
 				<SvgIcon>
-					{isExpanded ? <ChevronUpSolidSvg /> : <ChevronDownSolidSvg />}
+					{isExpanded ? <ChevronUpSolidIcon /> : <ChevronDownSolidIcon />}
 				</SvgIcon>
 
 			</span>

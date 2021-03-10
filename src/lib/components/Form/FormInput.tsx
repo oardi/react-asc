@@ -16,9 +16,9 @@ export interface IFormInputProps {
 	options?: Array<IFormInputOptions>;
 	textareaOptions?: IFormTextAreaOptions;
 	label?: string; // checkbox, radio - move?
-	onChange?: (event) => void;
-	onBlur?: (event) => void;
-	onKeyDown?: (event) => void;
+	onChange?: (event: any) => void;
+	onBlur?: (event: any) => void;
+	onKeyDown?: (event: any) => void;
 }
 
 export const FormInput = (props: IFormInputProps) => {
@@ -89,8 +89,8 @@ export const FormInput = (props: IFormInputProps) => {
 					autoFocus={autoFocus}
 					onChange={onChange}
 					placeholder={placeholder}
-					rows={textareaOptions && textareaOptions.rows ? textareaOptions.rows : null}
-					style={textareaOptions && textareaOptions.resize !== false ? null : { resize: 'none' }}
+					rows={textareaOptions && textareaOptions.rows ? textareaOptions.rows : 0}
+					style={textareaOptions && textareaOptions.resize !== false ? undefined : { resize: 'none' }}
 					onKeyDown={onKeyDown}
 				/>
 			}
@@ -138,7 +138,7 @@ export const FormInput = (props: IFormInputProps) => {
 						id={option.id}
 						name={name}
 						value={option.value}
-						checked={value && value.some(v => v === option.value)}
+						checked={value && value.some((v: string) => v === option.value)}
 						onChange={onChange}
 						onKeyDown={onKeyDown}
 					/>

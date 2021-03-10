@@ -7,7 +7,7 @@ export const AppBreadcrumb = () => {
 
 	const location = useLocation();
 	const history = useHistory();
-	const [items, setItems] = useState<Array<IBreadcrumbItem>>(null);
+	const [items, setItems] = useState<Array<IBreadcrumbItem>>([]);
 
 	// extract in AppBreadcrumb
 	useEffect(() => {
@@ -16,13 +16,13 @@ export const AppBreadcrumb = () => {
 		const newItems = splittedPath.map(sP => ({ label: sP, path: '/' + sP, isActive: false }));
 		newItems.unshift({ label: 'Home', path: '/', isActive: false });
 		newItems[newItems.length - 1].isActive = true;
-		setItems(newItems.length <= 1 ? null : newItems);
+		setItems(newItems.length <= 1 ? [] : newItems);
 	}, [location]);
 
 	const handleClickBreadcrumbItem = (item: IBreadcrumbItem) => {
 		loggerService.debug(CLASSNAME, 'handleClickBreadcrumbItem');
 		if (location.pathname !== item.path)
-			history.push(item.path);
+			history.push(item.path as string);
 	}
 
 	return (

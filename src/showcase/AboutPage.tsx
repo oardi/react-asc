@@ -5,7 +5,7 @@ import { loggerService } from '../lib';
 
 export const AboutPage = () => {
 
-	const [markdownText, setMarkdownText] = useState<string>(undefined);
+	const [markdownText, setMarkdownText] = useState<string>('');
 
 	useEffect(() => { init() }, []);
 

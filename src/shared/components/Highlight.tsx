@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import * as marked from 'marked';
+import marked from 'marked';
 import Prism from 'prismjs';
 
 export interface IHighlighProps {
@@ -7,7 +7,7 @@ export interface IHighlighProps {
 }
 
 export const Highlight = ({ text }: IHighlighProps) => {
-	const [textHighlighted, setTextHighlighted] = useState<string>(undefined);
+	const [textHighlighted, setTextHighlighted] = useState<string>('');
 
 	useEffect(() => {
 		if (text) {
@@ -16,7 +16,7 @@ export const Highlight = ({ text }: IHighlighProps) => {
 			const markedText = marked(text);
 			console.warn(markedText);
 
-			const highlightedText = Prism.highlight(markedText, Prism.languages.html);
+			const highlightedText = Prism.highlight(markedText, Prism.languages.html, 'js');
 			console.warn(highlightedText);
 
 			setTextHighlighted(highlightedText);

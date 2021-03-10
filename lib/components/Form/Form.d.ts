@@ -9,7 +9,7 @@ export interface IFormProps {
     submitOnEnter?: boolean;
 }
 export interface IFormState {
-    controls: IControls;
+    controls: IControls | undefined;
     isValid: boolean;
     isSubmitted: boolean;
     isChanged: boolean;

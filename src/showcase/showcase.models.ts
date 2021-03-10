@@ -7,7 +7,7 @@ export class MenuModel implements ISidebarItem {
 		this.id = dto.id;
 		this.label = dto.label ? dto.label : dto.id;
 		this.path = dto.path !== undefined ? dto.path : dto.id;
-		this.items = dto.items ? dto.items.map(i => new MenuModel(i)) : undefined;
+		this.items = dto.items ? dto.items.map(i => new MenuModel(i)) : [];
 	}
 
 	id: string;

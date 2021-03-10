@@ -12,7 +12,7 @@ export const List = (props: IListProps) => {
 
 	const { children, isFlush = false, isHoverable = true } = props;
 
-	const [listItems, setListItems] = useState<Array<ListItemModel>>(null);
+	const [listItems, setListItems] = useState<Array<ListItemModel>>([]);
 
 	useEffect(() => {
 		if (children) {

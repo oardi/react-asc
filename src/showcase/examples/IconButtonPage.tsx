@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import { IconButton, IIconButtonProps, HomeSolidSvg, FormControl, COLOR, VARIANT, snackbarService } from '../../lib';
+import { IconButton, IIconButtonProps, HomeSolidIcon, FormControl, COLOR, VARIANT, snackbarService } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IIconButtonProps>) => {
@@ -23,7 +23,7 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 				color={settingValues.color}
 				isActive={settingValues.isActive}
 				disabled={settingValues.disabled}
-				icon={<HomeSolidSvg />}
+				icon={<HomeSolidIcon />}
 				variant={settingValues.variant}
 				onClick={handleClick}
 			/>

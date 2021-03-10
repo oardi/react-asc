@@ -8,7 +8,7 @@ interface ICardTitleProps {
 
 export const CardTitle = (props: ICardTitleProps) => {
 
-	const { children, className, as: As = 'div', ...rest } = props;
+	const { children, className = '', as: As = 'div', ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

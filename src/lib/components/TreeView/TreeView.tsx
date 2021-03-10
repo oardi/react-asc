@@ -10,13 +10,13 @@ export const TreeView = (props: ITreeViewProps) => {
 
 	const { data, onSelect } = props;
 
-	const [flattenData, setFlattenData] = useState([]);
-	const [expandedItems, setExpandedItems] = useState([]);
-	const [selectedItemIds, setSelectedItemIds] = useState([]);
+	const [flattenData, setFlattenData] = useState<Array<any>>([]);
+	const [expandedItems, setExpandedItems] = useState<Array<any>>([]);
+	const [selectedItemIds, setSelectedItemIds] = useState<Array<number>>([]);
 
-	const flattenDeep = (arr1, parentId = 0, level = 0) => {
+	const flattenDeep = (arr1: any, parentId = 0, level = 0) => {
 		let result = [];
-		result = arr1.reduce((acc, val) => {
+		result = arr1.reduce((acc: any, val: any) => {
 			return (Array.isArray(val.children) ?
 				acc.concat([
 					{ id: val.id, name: val.name, level: level, hasChildren: true, parentId: parentId },
@@ -31,7 +31,7 @@ export const TreeView = (props: ITreeViewProps) => {
 		setFlattenData(flattenDeep(data));
 	}, [data]);
 
-	const handleNodeClick = (item) => {
+	const handleNodeClick = (item: any) => {
 		if (item.hasChildren) {
 			let newExpandedItems = [...expandedItems];
 
@@ -45,7 +45,7 @@ export const TreeView = (props: ITreeViewProps) => {
 		}
 	};
 
-	const collapseRecursive = (item, expandedItems) => {
+	const collapseRecursive = (item: any, expandedItems: Array<any>) => {
 		let expandedItemIds = expandedItems.map(i => i.id);
 
 		if (expandedItemIds.indexOf(item.id) >= 0) {
@@ -62,15 +62,15 @@ export const TreeView = (props: ITreeViewProps) => {
 		return expandedItems;
 	};
 
-	const isExpanded = (id) => {
+	const isExpanded = (id: number) => {
 		return expandedItems.map(i => i.id).indexOf(id) >= 0;
 	};
 
-	const isItemVisible = (item) => {
+	const isItemVisible = (item: any) => {
 		return item.parentId === 0 || (expandedItems.map(i => i.id).indexOf(item.parentId) >= 0);
 	};
 
-	const handleNodeClickSelect = (item) => {
+	const handleNodeClickSelect = (item: any) => {
 		let newSelectedItems = [...selectedItemIds];
 		if (isSelected(item.id)) {
 			newSelectedItems = newSelectedItems.filter(id => id !== item.id);
@@ -83,7 +83,7 @@ export const TreeView = (props: ITreeViewProps) => {
 		onSelect && onSelect(newSelectedItems);
 	};
 
-	const isSelected = (id) => {
+	const isSelected = (id: number) => {
 		return selectedItemIds.indexOf(id) >= 0;
 	};
 

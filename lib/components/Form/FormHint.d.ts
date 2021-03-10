@@ -1,4 +1,3 @@
-/// <reference types="react" />
 interface IFormHintProps {
     hint: string;
     className?: string;

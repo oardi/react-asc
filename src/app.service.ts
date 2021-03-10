@@ -3,7 +3,7 @@ import { fileLoaderService } from './shared';
 
 class ShowcaseService {
 	loadMenu() {
-		return fileLoaderService.get<Array<IMenuItem>>('./public/menu.json');
+		return fileLoaderService.get<Array<IMenuItem>>('./menu.json');
 	}
 }
 

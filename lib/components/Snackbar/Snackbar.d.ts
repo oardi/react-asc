@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { COLOR } from '../component.enums';
 export interface ISnackbarProps {
     message: string;

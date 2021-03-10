@@ -1,13 +1,12 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
-import { hot } from "react-hot-loader";
-import './style.scss';
+import './index.scss';
 import * as Pages from './showcase'; // LazyLoading?
 import { AppBar, AppBarTitle, COLOR, Drawer, IconButton, ISidebarItem, loggerService } from './lib';
 import { AppSidebar, AppInfo, AppBreadcrumb } from './shared';
 import { useAppContext } from './AppContext';
 import { showcaseService } from './app.service';
-import { MenuModel, RouteModel, BarsSolidSvg } from './showcase';
+import { MenuModel, RouteModel, BarsSolidIcon } from './showcase';
 
 const CLASSNAME = 'App';
 const App = () => {
@@ -16,8 +15,8 @@ const App = () => {
 	const history = useHistory();
 
 	const [showMenu, setShowMenu] = useState<boolean>(false);
-	const [menuItems, setMenuItems] = useState<Array<ISidebarItem>>(null);
-	const [showcaseRoutes, setShowcaseRoutes] = useState<Array<RouteModel>>(null);
+	const [menuItems, setMenuItems] = useState<Array<ISidebarItem>>([]);
+	const [showcaseRoutes, setShowcaseRoutes] = useState<Array<RouteModel>>([]);
 
 	useEffect(() => { init() }, []);
 
@@ -32,7 +31,7 @@ const App = () => {
 	return (
 		<Fragment>
 			<AppBar shadow>
-				<IconButton className="mr-2" color={COLOR.light} icon={<BarsSolidSvg />} onClick={() => setShowMenu(!showMenu)} />
+				<IconButton className="mr-2" color={COLOR.light} icon={<BarsSolidIcon />} onClick={() => setShowMenu(!showMenu)} />
 				{appInfo && (
 					<AppBarTitle onClick={() => history.push('/')}>
 						{appInfo.name} (v.{appInfo.version})
@@ -57,12 +56,12 @@ const App = () => {
 								<Route
 									exact
 									path={!showcaseRoute.routes ? showcaseRoute.path : showcaseRoute.routes.map(r => r.path)}
-									component={Pages[showcaseRoute.componentKey]}
+									component={(Pages as any)[showcaseRoute.componentKey]}
 									key={showcaseRoute.componentKey}>
 
 									{ showcaseRoute.routes &&
 										showcaseRoute.routes.map(route => (
-											<Route exact path={route.path} component={Pages[route.componentKey]} key={route.componentKey} />
+											<Route exact path={route.path} component={(Pages as any)[route.componentKey]} key={route.componentKey} />
 										))
 									}
 
@@ -78,4 +77,4 @@ const App = () => {
 	);
 }
 
-export default hot(module)(App);
+export default App;

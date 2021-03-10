@@ -1,7 +1,7 @@
-import { ReactComponent as InfoSolidSvg } from './info-solid.svg';
-import { ReactComponent as BarsSolidSvg } from './bars-solid.svg';
+import { InfoSolidIcon } from './InfoSolidIcon';
+import { BarsSolidIcon } from './BarsSolidIcon';
 
 export {
-	InfoSolidSvg,
-	BarsSolidSvg
+	InfoSolidIcon,
+	BarsSolidIcon
 };

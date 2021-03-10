@@ -17,7 +17,7 @@ export const DropDown = (props: IDropDownProps) => {
 	const { toggle, children, menuPosition, onToggleClick } = props;
 
 	const [isShow, setIsShow] = useState(false);
-	const dropDownMenuConainter = useRef<HTMLDivElement>();
+	const dropDownMenuConainter = useRef<HTMLDivElement>(null);
 
 	const dropDownContext: IDropDownContext = {
 		isShow: isShow,
@@ -33,14 +33,15 @@ export const DropDown = (props: IDropDownProps) => {
 	return (
 		<DropDownContext.Provider value={dropDownContext}>
 			<div ref={dropDownMenuConainter} className="dropdown">
-				{cloneElement(toggle, { onClick: handleClickToggle })}
+
+				{toggle && cloneElement(toggle, { onClick: handleClickToggle })}
 
 				{isShow &&
 					<Fragment>
 						<DropDownMenu menuPosition={menuPosition}>
 							{children}
 						</DropDownMenu>
-						<Backdrop target={dropDownMenuConainter.current} isTransparent onClick={() => setIsShow(false)} />
+						<Backdrop target={dropDownMenuConainter.current as HTMLElement} isTransparent onClick={() => setIsShow(false)} />
 					</Fragment>
 				}
 			</div>

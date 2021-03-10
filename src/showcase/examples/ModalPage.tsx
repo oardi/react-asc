@@ -29,7 +29,7 @@ const ModalPageBase = () => {
 		const controls: IControls = {
 			firstName: new FormControl('', ['required'], 'text', { label: 'Firstname', autoFocus: true, placeholder: 'Firstname' })
 		};
-		modalService.show('Form', null, { formControls: controls })
+		modalService.show('Form', '', { formControls: controls })
 			.then(res => loggerService.debug(res)).catch(() => { });
 	}
 

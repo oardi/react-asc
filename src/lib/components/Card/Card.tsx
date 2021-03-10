@@ -7,7 +7,7 @@ interface ICardProps {
 
 export const Card = (props: ICardProps) => {
 
-	const { children, className, ...rest } = props;
+	const { children, className = '', ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

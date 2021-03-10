@@ -1,6 +1,6 @@
 export interface IAppInfo {
-	name: string;
-	version: string;
+	name?: string;
+	version?: string;
 }
 
 export interface IMenuItem {

@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { COLOR, IconButton, modalService } from '../../lib';
-import { InfoSolidSvg } from '../../showcase';
-import changelogMd from '../../../changelog.md';
-import * as marked from 'marked'
+import { InfoSolidIcon } from '../../showcase';
+// import changelogMd from '../../../changelog.md';
+// import * as marked from 'marked'
 
 export const AppInfo = () => {
 
-	const [changelog, setChangelog] = useState<string>();
+	const [changelog, setChangelog] = useState<string>('');
 
 	useEffect(() => {
-		setChangelog(marked(changelogMd));
+		// setChangelog(marked(changelogMd));
+		setChangelog('');
 	}, []);
 
 	const handleClick = () => {
@@ -19,7 +20,7 @@ export const AppInfo = () => {
 	return (
 		<IconButton
 			color={COLOR.light}
-			icon={<InfoSolidSvg />}
+			icon={<InfoSolidIcon />}
 			onClick={handleClick}
 		/>
 	);

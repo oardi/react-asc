@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import {
-	List, ListItem, ListItemAvatar, HomeSolidSvg, ListItemAction, IconButton, DropDown, DropDownItem, ListItemText, snackbarService
+	List, ListItem, ListItemAvatar, HomeSolidIcon, ListItemAction, IconButton, DropDown, DropDownItem, ListItemText, snackbarService
 } from '../../lib';
 import { withOptions } from './components';
 
@@ -28,12 +28,12 @@ export const ListPageBase = () => {
 			<h3 className="mt-3">extended</h3>
 			<List>
 				<ListItem onClick={handleClickItem}>
-					<ListItemAvatar avatar={<HomeSolidSvg />} />
+					<ListItemAvatar avatar={<HomeSolidIcon />} />
 
 					<ListItemText>lorem ipsum</ListItemText>
 
 					<ListItemAction>
-						<DropDown menuPosition="right" toggle={<IconButton icon={<HomeSolidSvg />} />}>
+						<DropDown menuPosition="right" toggle={<IconButton icon={<HomeSolidIcon />} />}>
 							<DropDownItem onClick={handleClickDropDownItem}>
 								test 1
 							</DropDownItem>

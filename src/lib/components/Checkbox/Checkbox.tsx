@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { CheckSquareRegularSvg, SquareRegularSvg } from '../../assets/icons';
+import { CheckSquareRegularIcon, SquareRegularIcon } from '../../assets/icons';
 import { HtmlBaseProps } from '../component.interfaces';
 import { IconButton } from '../IconButton';
 
@@ -12,13 +12,13 @@ export interface ICheckboxProps extends HtmlBaseProps {
 	label?: string;
 	value?: string;
 	onChange?: (val: React.FocusEvent<HTMLInputElement>) => void;
-	onKeyDown?: (event) => void;
+	onKeyDown?: (event: React.KeyboardEvent) => void;
 }
 
-const CLASSNAME = 'Checkbox';
+// const CLASSNAME = 'Checkbox';
 export const Checkbox = (props: ICheckboxProps) => {
 
-	const { id, checked, className, label, name, value = "off", ...rest } = props;
+	const { id, checked, className = '', label, name, value = "off", ...rest } = props;
 
 	// TODO
 	// add own value
@@ -28,7 +28,7 @@ export const Checkbox = (props: ICheckboxProps) => {
 	// can be: true/false, custom
 
 	const [isChecked, setIsChecked] = useState<boolean>(false);
-	const checkboxElement = useRef<HTMLInputElement>();
+	const checkboxElement = useRef<HTMLInputElement>(null);
 
 	useEffect(() => {
 		if (checked === true || checked === false) {
@@ -37,8 +37,8 @@ export const Checkbox = (props: ICheckboxProps) => {
 	}, [checked]);
 
 	const icons = {
-		default: <SquareRegularSvg />,
-		selected: <CheckSquareRegularSvg />
+		default: <SquareRegularIcon />,
+		selected: <CheckSquareRegularIcon />
 	};
 
 	const getCssClasses = () => {
@@ -54,7 +54,7 @@ export const Checkbox = (props: ICheckboxProps) => {
 
 	const handleClick = () => {
 		setIsChecked(!isChecked);
-		checkboxElement.current.click();
+		checkboxElement?.current?.click();
 	};
 
 	return (

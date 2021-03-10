@@ -8,14 +8,13 @@ import { loggerService, snackbarService, modalService } from './lib';
 import { IAppInfo } from './app.interfaces';
 import { fileLoaderService } from './shared';
 
-const CLASSNAME = 'AppContainer';
 export const AppContainer = () => {
 
 	useEffect(() => {
 		setAppInfo({ name: packageJson.name, version: packageJson.version });
 	}, []);
 
-	const [appInfo, setAppInfo] = useState<IAppInfo>(null);
+	const [appInfo, setAppInfo] = useState<IAppInfo>({});
 	const appContext = ({
 		fileLoaderService,
 		loggerService,

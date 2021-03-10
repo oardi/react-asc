@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import * as marked from 'marked';
+import marked from 'marked';
 
 export interface IMarkdownProps {
 	text: string;
 }
 
 export const Markdown = ({ text }: IMarkdownProps) => {
-	const [marddown, setMarddown] = useState<string>(undefined);
+	const [marddown, setMarddown] = useState<string>('');
 
 	useEffect(() => {
 		if (text) {
