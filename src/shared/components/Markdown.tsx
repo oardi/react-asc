@@ -1,20 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import marked from 'marked';
+import React from 'react';
+import snarkdown from 'snarkdown';
 
 export interface IMarkdownProps {
 	text: string;
 }
 
 export const Markdown = ({ text }: IMarkdownProps) => {
-	const [marddown, setMarddown] = useState<string>('');
+	// needed?
+	// const [marddown, setMarddown] = useState<string>('');
 
-	useEffect(() => {
-		if (text) {
-			setMarddown(marked(text));
-		}
-	}, [text]);
+	// useEffect(() => {
+	// 	if (text) {
+	// 		setMarddown(marked(text));
+	// 	}
+	// }, [text]);
 
 	return (
-		<div dangerouslySetInnerHTML={{ __html: marddown }}></div>
+		<div dangerouslySetInnerHTML={{ __html: snarkdown(text) }}></div>
 	);
 }

@@ -15,13 +15,11 @@ export const TabNav = (props: ITabNavProps) => {
 
 	return (
 		<li key={eventKey} className={"nav-item" + (disabled ? ' disabled' : '')}>
-			(
 			<a
 				className={"nav-link" + (isActive ? ' active' : '') + (disabled ? ' disabled' : '')}
 				onClick={() => !disabled && onClick && onClick(eventKey)}>
 				{children}
 			</a>
-			)
 		</li>
 	);
 }

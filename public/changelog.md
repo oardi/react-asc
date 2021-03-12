@@ -1,3 +1,9 @@
+## v2.0.2
+- installed snarkdown
+- removed marked
+- simplified icon exports
+- show changelog and about.md
+
 ## v2.0.1
 - fixed linting errors
 

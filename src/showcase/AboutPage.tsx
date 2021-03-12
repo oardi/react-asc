@@ -11,7 +11,7 @@ export const AboutPage = () => {
 
 	const init = async () => {
 		try {
-			const data = await fileLoaderService.get<string>('./public/pages/about.md', { responseType: 'arraybuffer' });
+			const data = await fileLoaderService.get<string>('./pages/about.md', { responseType: 'arraybuffer' });
 			setMarkdownText(data.data);
 		} catch (err) { loggerService.error(err); }
 	}

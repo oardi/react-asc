@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { COLOR, IconButton, modalService } from '../../lib';
+import { COLOR, IconButton, loggerService, modalService } from '../../lib';
 import { InfoSolidIcon } from '../../showcase';
-// import changelogMd from '../../../changelog.md';
-// import * as marked from 'marked'
+import { fileLoaderService } from '../services';
+import { Markdown } from './Markdown';
 
 export const AppInfo = () => {
 
-	const [changelog, setChangelog] = useState<string>('');
+	const [markdownText, setMarkdownText] = useState<string>('');
 
-	useEffect(() => {
-		// setChangelog(marked(changelogMd));
-		setChangelog('');
-	}, []);
+	useEffect(() => { init(); }, []);
+
+	const init = async () => {
+		const data = await fileLoaderService.get<string>('./changelog.md', { responseType: 'arraybuffer' });
+		setMarkdownText(data.data);
+	}
 
 	const handleClick = () => {
-		modalService.show('Changelog', <div dangerouslySetInnerHTML={{ __html: changelog }}></div>, { isDismissable: true });
+		try {
+			modalService.show('Changelog', <Markdown text={markdownText} />, { isDismissable: true });
+		} catch (err) { loggerService.error(err); }
 	};
 
 	return (

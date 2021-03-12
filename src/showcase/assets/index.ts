@@ -1,1 +1,2 @@
-export * from './icons';
+export * from './InfoSolidIcon';
+export * from './BarsSolidIcon';

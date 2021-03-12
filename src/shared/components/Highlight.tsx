@@ -11,14 +11,8 @@ export const Highlight = ({ text }: IHighlighProps) => {
 
 	useEffect(() => {
 		if (text) {
-
-			console.warn(text);
 			const markedText = marked(text);
-			console.warn(markedText);
-
 			const highlightedText = Prism.highlight(markedText, Prism.languages.html, 'js');
-			console.warn(highlightedText);
-
 			setTextHighlighted(highlightedText);
 		}
 	}, [text]);

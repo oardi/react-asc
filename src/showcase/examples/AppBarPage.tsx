@@ -18,7 +18,6 @@ const AppBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 
 	const init = async () => {
 		const response = await fileLoaderService.get<string>('./showcase/appbar.md');
-		console.warn(response);
 		setMarkdown(response.data);
 	}
 
