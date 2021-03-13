@@ -9,6 +9,7 @@ export * from './Drawer';
 export * from './DropDown';
 export * from './ExpansionPanel';
 export * from './Form';
+export * from './Grid';
 export * from './IconButton';
 export * from './List';
 export * from './Modal';
