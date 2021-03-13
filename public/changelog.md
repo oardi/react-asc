@@ -1,3 +1,6 @@
+## v2.2.0
+- listItemText uses primary, secondary prop for displaying text
+
 ## v2.1.1
 - showcase use Row and Column
 

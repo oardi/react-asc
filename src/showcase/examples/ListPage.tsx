@@ -17,12 +17,20 @@ export const ListPageBase = () => {
 	return (
 		<Fragment>
 
-			<h3>simple list</h3>
+			<h3>Single Line</h3>
 			<List>
-				<ListItem><ListItemText>lorem ipsum</ListItemText></ListItem>
-				<ListItem><ListItemText>lorem ipsum</ListItemText></ListItem>
-				<ListItem><ListItemText>lorem ipsum</ListItemText></ListItem>
-				<ListItem><ListItemText>lorem ipsum</ListItemText></ListItem>
+				<ListItem><ListItemText primary="lorem ipsum" /></ListItem>
+				<ListItem><ListItemText primary="lorem ipsum" /></ListItem>
+				<ListItem><ListItemText primary="lorem ipsum" /></ListItem>
+				<ListItem><ListItemText primary="lorem ipsum" /></ListItem>
+			</List>
+
+			<h3>Two lines</h3>
+			<List>
+				<ListItem><ListItemText primary="1st lorem ipsum" secondary="2nd lorem ipsum" /></ListItem>
+				<ListItem><ListItemText primary="1st lorem ipsum" secondary="2nd lorem ipsum" /></ListItem>
+				<ListItem><ListItemText primary="1st lorem ipsum" secondary="2nd lorem ipsum" /></ListItem>
+				<ListItem><ListItemText primary="1st lorem ipsum" secondary="2nd lorem ipsum" /></ListItem>
 			</List>
 
 			<h3 className="mt-3">extended</h3>
@@ -30,7 +38,7 @@ export const ListPageBase = () => {
 				<ListItem onClick={handleClickItem}>
 					<ListItemAvatar avatar={<HomeSolidIcon />} />
 
-					<ListItemText>lorem ipsum</ListItemText>
+					<ListItemText primary="lorem ipsum" />
 
 					<ListItemAction>
 						<DropDown menuPosition="right" toggle={<IconButton icon={<HomeSolidIcon />} />}>
