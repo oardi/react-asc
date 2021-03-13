@@ -1,5 +1,5 @@
 import React, { Dispatch, useState } from "react";
-import { Card, CardBody, CardTitle, IControls } from '../../../lib';
+import { Card, CardBody, CardTitle, Column, IControls, Row } from '../../../lib';
 import { ShowcaseExample } from './ShowcaseExample';
 import { ShowcaseOptions } from './ShowcaseOptions';
 
@@ -22,9 +22,9 @@ export const withOptions = <T,>(WrappedComponent: any, defaultSettingValues?: T)
 
 		// props passed to WrappedComponent
 		return (
-			<div className="row">
+			<Row>
 
-				<div className="col-12 col-sm-6">
+				<Column sm={6}>
 					<ShowcaseExample>
 						<WrappedComponent
 							{...props}
@@ -43,18 +43,18 @@ export const withOptions = <T,>(WrappedComponent: any, defaultSettingValues?: T)
 							</CardBody>
 						</Card>
 					}
-				</div>
+				</Column>
 
 				{settingsControls && Object.keys(settingsControls).length > 0 &&
-					<div className="col-12 col-sm-6 mt-3 mt-sm-0">
+					<Column sm={6} className="mt-3 mt-sm-0">
 						<ShowcaseOptions
 							controls={settingsControls}
 							onFormChange={onFormChange}
 						/>
-					</div>
+					</Column>
 				}
 
-			</div>
+			</Row>
 		);
 	};
 

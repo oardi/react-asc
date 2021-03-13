@@ -4,11 +4,11 @@ interface IColProps {
 	children?: ReactNode;
 	className?: string;
 
-	xs?: string; // 1/5 oder 2/3
-	sm?: string;
-	md?: string;
-	lg?: string;
-	xl?: string;
+	xs?: number;
+	sm?: number;
+	md?: number;
+	lg?: number;
+	xl?: number;
 }
 
 export const Column = (props: IColProps) => {
@@ -28,11 +28,11 @@ export const Column = (props: IColProps) => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(className);
 		!xs && !sm && !md && !lg && !xl && cssClasses.push('col');
-		xs && cssClasses.push(`col-${xs}`);
-		sm && cssClasses.push(`col-sm-${sm}`);
-		md && cssClasses.push(`col-md-${md}`);
-		lg && cssClasses.push(`col-lg-${lg}`);
-		xl && cssClasses.push(`col-xl-${xl}`);
+		if (xs) cssClasses.push(`col-${xs.toString()}`);
+		if (sm) cssClasses.push(`col-sm-${sm.toString()}`);
+		if (md) cssClasses.push(`col-md-${md.toString()}`);
+		if (lg) cssClasses.push(`col-lg-${lg.toString()}`);
+		if (xl) cssClasses.push(`col-xl-${xl.toString()}`);
 		return cssClasses.filter(css => css).join(' ');
 	};
 

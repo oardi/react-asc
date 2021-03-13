@@ -1,3 +1,6 @@
+## v2.1.1
+- showcase use Row and Column
+
 ## v2.1.0
 - added component row
 - added component column 

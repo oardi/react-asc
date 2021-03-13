@@ -8,7 +8,7 @@ export const ShowcaseApiOptions = () => {
 				<CardTitle>API Options (TODO)</CardTitle>
 				<CardText>
 					{/* <div className="table-responsive">
-						<table class="table">
+						<table className="table">
 							<thead>
 								<tr>
 									<th>Name</th>

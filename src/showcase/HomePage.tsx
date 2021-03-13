@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout } from './Layout';
-import { Button, Card, CardBody, CardText, CardTitle } from '../lib';
+import { Button, Card, CardBody, CardText, CardTitle, Column, Row } from '../lib';
 import { useHistory } from 'react-router-dom';
 
 export const HomePage = () => {
@@ -29,34 +29,34 @@ export const HomePage = () => {
 				</Button>
 			</div>
 
-			<div className="row mt-2">
-				<div className="col-12 col-md-4">
+			<Row className="mt-2">
+				<Column md={4}>
 					<Card>
 						<CardBody>
 							<CardTitle>Twitter Bootstrap 4.5</CardTitle>
 							<CardText>TODO</CardText>
 						</CardBody>
 					</Card>
-				</div>
+				</Column>
 
-				<div className="col-12 col-md-4 mt-3 mt-md-0">
+				<Column md={4} className="mt-3 mt-md-0">
 					<Card>
 						<CardBody>
 							<CardTitle>Well documentated</CardTitle>
 							<CardText>TODO</CardText>
 						</CardBody>
 					</Card>
-				</div>
+				</Column>
 
-				<div className="col-12 col-md-4 mt-3 mt-md-0">
+				<Column md={4} className="mt-3 mt-md-0">
 					<Card>
 						<CardBody>
 							<CardTitle>Compatible</CardTitle>
 							<CardText>TODO</CardText>
 						</CardBody>
 					</Card>
-				</div>
-			</div>
+				</Column>
+			</Row>
 
 		</Layout>
 	);

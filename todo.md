@@ -1,10 +1,11 @@
 ## List
+- check ListItem
+- Header / SubHeader
+- Avatar
+- Action
 
-### Header / SubHeader?
-
-### ListItemAvatar
-- change to children? or SVG + Text + cssClass
-
+### radio 
+- add component (formControl)
 
 ### checkbox
 - checkboxGroup as Component and type?
@@ -33,8 +34,7 @@
 
 ## TODO Components
 
-### radio 
-- add component (formControl)
+
 
 ### select 
 - add component (formControl)
