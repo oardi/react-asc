@@ -1,3 +1,7 @@
+## v2.1.0
+- added component row
+- added component column 
+
 ## v2.0.2
 - installed snarkdown
 - removed marked

@@ -18,7 +18,6 @@ export const GettingStartedPage = () => {
 
 	return (
 		<Layout title="Getting started">
-			{/* <Highlight text={markdownText} /> */}
 			<Markdown text={markdownText} />
 		</Layout>
 	);

@@ -38,6 +38,9 @@
 				"id": "Form"
 			},
 			{
+				"id": "Grid"
+			},
+			{
 				"id": "IconButton"
 			},
 			{
