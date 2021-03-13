@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 interface IListItemTextProps {
-    children?: ReactNode;
+    primary: ReactNode;
+    secondary?: ReactNode;
 }
-export declare const ListItemText: ({ children }: IListItemTextProps) => JSX.Element;
+export declare const ListItemText: ({ primary, secondary }: IListItemTextProps) => JSX.Element;
 export {};
