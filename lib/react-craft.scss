@@ -140,6 +140,7 @@ $theme-colors: map-merge(
 
 		&:hover {
 			cursor: pointer;
+			background-color: var(--highlight);
 		}
 	}
 
@@ -226,7 +227,9 @@ $theme-colors: map-merge(
 		border-radius: 0;
 
 		&:hover {
-			cursor: pointer;
+			&.list-group-item-action {
+				cursor: pointer;
+			}
 		}
 
 		.avatar {
@@ -365,8 +368,8 @@ $theme-colors: map-merge(
 	display: flex;
 
 	svg {
-		width: 24px;
-		height: 24px;
+		width: 20px;
+		height: 20px;
 	}
 }
 
@@ -491,4 +494,6 @@ $theme-colors: map-merge(
 
 	--fontFamily: "Segoe UI", "Roboto", "Helvetica Neue", "Arial";
 	--fontSize: 16px;
+
+	--highlight: rgba(204, 216, 224, 0.2); // ???
 }
