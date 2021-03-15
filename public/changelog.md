@@ -1,3 +1,7 @@
+## v2.3.0
+- added listItemIcon component
+- refactored listItemAvatar
+
 ## v2.2.0
 - listItemText uses primary, secondary prop for displaying text
 

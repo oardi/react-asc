@@ -20,7 +20,8 @@ export const ExpansionPanelHeader = (props: IExpansionPanelHeaderProps) => {
 	return (
 		<div
 			className="expansion-panel-header d-flex align-items-center"
-			onClick={handleClick}>
+			onClick={handleClick}
+		>
 
 			{children}
 
@@ -28,7 +29,6 @@ export const ExpansionPanelHeader = (props: IExpansionPanelHeaderProps) => {
 				<SvgIcon>
 					{isExpanded ? <ChevronUpSolidIcon /> : <ChevronDownSolidIcon />}
 				</SvgIcon>
-
 			</span>
 		</div>
 	);
