@@ -11,7 +11,7 @@ export interface IListItemProps {
 
 export const ListItem = (props: IListItemProps) => {
 
-	const { children, active = false, className, isHoverable = true, isDisabled = false, onClick } = props;
+	const { children, active = false, className, isHoverable = false, isDisabled = false, onClick } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

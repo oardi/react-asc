@@ -1,3 +1,8 @@
+## v2.3.1
+- added highlight color
+- list - set isHoverable default to false
+- expansionPanel header - added highlight on hover
+
 ## v2.3.0
 - added listItemIcon component
 - refactored listItemAvatar
