@@ -230,7 +230,20 @@ $theme-colors: map-merge(
 		}
 
 		.avatar {
-			margin-right: 5px;
+			margin-right: 16px;
+
+			svg {
+				width: 40px;
+				height: 40px;
+			}
+		}
+
+		.icon {
+			margin-right: 32px;
+			svg {
+				width: 24px;
+				height: 24px;
+			}
 		}
 
 		.list-item-action {
@@ -352,8 +365,8 @@ $theme-colors: map-merge(
 	display: flex;
 
 	svg {
-		width: 20px;
-		height: 20px;
+		width: 24px;
+		height: 24px;
 	}
 }
 
