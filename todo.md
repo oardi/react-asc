@@ -1,9 +1,3 @@
-## List
-- check ListItem
-- Header / SubHeader
-- Avatar
-- Action
-
 ### radio 
 - add component (formControl)
 

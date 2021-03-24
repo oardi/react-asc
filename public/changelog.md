@@ -1,3 +1,6 @@
+## v2.4.0
+- appbar - added scss modules
+
 ## v2.3.1
 - added highlight color
 - list - set isHoverable default to false
