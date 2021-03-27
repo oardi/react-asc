@@ -1,0 +1,32 @@
+.breadcrumb {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0.75rem 1rem;
+	margin-bottom: 1rem;
+	list-style: none;
+	border-radius: 0.25rem;
+
+	.breadcrumbItem {
+		& + .breadcrumbItem {
+			padding-left: 0.5rem;
+		}
+
+		& + .breadcrumbItem::before {
+			float: left;
+			padding-right: 0.5rem;
+			color: #6c757d;
+			content: "/";
+		}
+
+		a:not([href]):not([class]) {
+			color: var(--primary);
+		}
+
+		&:hover {
+			cursor: pointer;
+		}
+		&.active:hover {
+			cursor: unset;
+		}
+	}
+}

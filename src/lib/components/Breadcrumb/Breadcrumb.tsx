@@ -1,6 +1,7 @@
 import React from 'react';
 import { ConditionalWrapper } from '../ConditionalWrapper';
 import { IBreadcrumbItem } from './breadcrumb.interfaces';
+import styles from './Breadcrumb.module.scss';
 
 export interface IBreadcrumbProps {
 	items: Array<IBreadcrumbItem>;
@@ -14,7 +15,7 @@ export const Breadcrumb = (props: IBreadcrumbProps) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push("breadcrumb");
+		cssClasses.push(styles.breadcrumb);
 		cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
@@ -29,7 +30,7 @@ export const Breadcrumb = (props: IBreadcrumbProps) => {
 				<nav>
 					<ol className={getCssClasses()}>
 						{items.map((item, index) => (
-							<li key={index} className={"breadcrumb-item" + (item.isActive ? ' active' : '')} onClick={() => handleClickItem(item)}>
+							<li key={index} className={styles.breadcrumbItem + (item.isActive ? ' active' : '')} onClick={() => handleClickItem(item)}>
 								<ConditionalWrapper
 									condition={!item.isActive}
 									// eslint-disable-next-line jsx-a11y/anchor-is-valid

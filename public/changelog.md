@@ -1,5 +1,6 @@
 ## v2.5.1
 - checkbox - style fix
+- breadcrumb - moved scss to scss module
 
 ## v2.5.0
 - chip - added component
