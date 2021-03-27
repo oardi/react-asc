@@ -1,5 +1,6 @@
 import React, { cloneElement, Fragment, ReactElement, useEffect, useRef, useState } from 'react';
 import { createPopper } from '@popperjs/core';
+import styles from './Tooltip.module.scss';
 
 export interface ITooltipProps {
 	placement?: 'top' | 'bottom' | 'right' | 'left',
@@ -9,7 +10,7 @@ export interface ITooltipProps {
 
 export const Tooltip = (props: ITooltipProps) => {
 
-	const { children, text, placement = 'left' } = props;
+	const { children, text, placement = 'bottom' } = props;
 
 	const [show, setShow] = useState<boolean>(false);
 	const refChild = useRef(null);
@@ -22,11 +23,9 @@ export const Tooltip = (props: ITooltipProps) => {
 				modifiers: [
 					{
 						name: 'offset',
-						options: {
-							offset: [0, 8],
-						},
+						options: { offset: [0, 8] }
 					},
-				],
+				]
 			});
 		}
 	}, [show]);
@@ -41,16 +40,15 @@ export const Tooltip = (props: ITooltipProps) => {
 
 	return (
 		<Fragment>
-			<div ref={refChild} id="tooltip-container">
+			<div className={styles.tooltipContainer} ref={refChild} id="tooltip-container">
 				{cloneElement(children, {
-					// onClick: handleClick,
 					onMouseOver: handleMouseOver,
 					onMouseLeave: handleMouseLeave,
 				})}
 			</div>
 
 			{show &&
-				<div ref={refTooltip} id="tooltip">
+				<div className={styles.tooltip} ref={refTooltip} id="tooltip">
 					{text}
 					<div id="arrow" data-popper-arrow></div>
 				</div >

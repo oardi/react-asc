@@ -1,3 +1,6 @@
+## v2.6.1
+- tooltip - moved scss to scss module
+
 ## v2.6.0
 - textarea - added component
 
