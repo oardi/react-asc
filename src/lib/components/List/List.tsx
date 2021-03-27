@@ -1,6 +1,7 @@
 import React, { cloneElement, ReactElement, useEffect, useState } from 'react';
 import { ListItemModel } from './list.models';
 import { IListItemProps } from './ListItem';
+import styles from './List.module.scss';
 
 export interface IListProps {
 	children?: ReactElement<IListItemProps> | Array<ReactElement<IListItemProps>>;
@@ -26,10 +27,10 @@ export const List = (props: IListProps) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push('list list-group');
 		if (isFlush) {
-			cssClasses.push(`list-group-flush`);
+			cssClasses.push(styles.flush);
 		}
+		cssClasses.push(styles.list);
 		return cssClasses.filter(css => css).join(' ');
 	}
 
