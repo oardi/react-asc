@@ -2,7 +2,6 @@ export declare enum COLOR {
     primary = "primary",
     accent = "accent",
     secondary = "secondary",
-    danger = "danger",
     light = "light",
     dark = "dark"
 }

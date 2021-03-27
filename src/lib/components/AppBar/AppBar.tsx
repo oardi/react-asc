@@ -16,7 +16,7 @@ export const AppBar = (props: IAppBarProps) => {
 		const result = [];
 		result.push(styles[color]);
 		result.push(styles.appbar);
-		if (shadow) result.push(styles['shadow']);
+		shadow && result.push(styles['shadow']);
 		return result.filter(r => r).join(' ');
 	};
 

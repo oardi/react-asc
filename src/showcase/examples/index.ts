@@ -2,6 +2,7 @@ export * from './AppBarPage';
 export * from './ButtonPage';
 export * from './BreadcrumbPage';
 export * from './CardPage';
+export * from './ChipPage';
 export * from './CheckboxPage';
 export * from './DrawerPage';
 export * from './DropDownPage';

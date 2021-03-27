@@ -377,32 +377,14 @@ $theme-colors: map-merge(
 	padding-left: 0;
 	margin-bottom: 0;
 
-    .tree-node {
+	.tree-node {
 		display: flex;
 		align-items: center;
-
-        min-height: 48px;
-
-        .btn-toggle {
-            padding: 0;
-            min-width: 0;
-            width: 40px;
-            height: 40px;
-            flex-shrink: 0;
-            line-height: 40px;
-            border: none;
-            background: transparent;
-            outline: none;
-
-            &:hover {
-                cursor: pointer;
-            }
-        }
-    }
+	}
 }
 
 .done {
-	text-decoration:line-through
+	text-decoration: line-through;
 }
 
 
@@ -417,6 +399,11 @@ $theme-colors: map-merge(
 	--secondary: #dfe1e6;
 	--secondary-dark: #9c9da1;
 	--secondary-contrast-text: #212529;
+
+	--accent-light: #fd96b8;
+	--accent: #ff4081;
+	--accent-dark: #fd2c72;
+	--accent-contrast-text: #fff;
 
 	--light: #f8f9fa;
 	--dark: #343a40;

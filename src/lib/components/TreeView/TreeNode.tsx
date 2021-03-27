@@ -12,13 +12,11 @@ export const TreeNode = (props: any) => {
 	return (
 		<li
 			className="tree-node"
-			style={{ paddingLeft: `${40 * level}px` }}
+			style={{ paddingLeft: `${(48 * level) + (hasChildren ? 0 : 1)*48}px` }}
 		>
 
-			{hasChildren ?
-				<IconButton className="btn-toggle" onClick={() => onClick(id)} icon={!isExpanded ? <ChevronRightSolidIcon /> : <ChevronDownSolidIcon />} />
-				:
-				<button className="btn-toggle"></button>
+			{hasChildren &&
+				<IconButton onClick={() => onClick(id)} icon={!isExpanded ? <ChevronRightSolidIcon /> : <ChevronDownSolidIcon />} />
 			}
 
 			<Checkbox checked={isSelected} onChange={() => onClickSelect(id)} />

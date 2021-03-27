@@ -11,6 +11,7 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 - Button
 - Card
 - Checkbox
+- Chip
 - ConditionalWrapper
 - Drawer
 - DropDown

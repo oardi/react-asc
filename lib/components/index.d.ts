@@ -5,6 +5,7 @@ export * from './Breadcrumb';
 export * from './Card';
 export * from './ConditionalWrapper';
 export * from './Checkbox';
+export * from './Chip';
 export * from './Drawer';
 export * from './DropDown';
 export * from './ExpansionPanel';

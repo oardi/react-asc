@@ -26,6 +26,9 @@
 				"id": "Checkbox"
 			},
 			{
+				"id": "Chip"
+			},
+			{
 				"id": "Drawer"
 			},
 			{

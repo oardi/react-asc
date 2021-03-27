@@ -1,3 +1,6 @@
+## v2.5.0
+- chip - added component
+
 ## v2.4.4
 - checkbox - fixed disabled and readonly
 
