@@ -1,3 +1,6 @@
+## v2.4.4
+- checkbox - fixed disabled and readonly
+
 ## v2.4.3
 - iconButton - add scss modules
 

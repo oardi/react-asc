@@ -3,6 +3,8 @@ export interface HtmlBaseProps {
 	id?: string;
 	name?: string;
 	autoFocus?: boolean;
+	readOnly?: boolean;
+	disabled?: boolean;
 }
 
 export interface HtmlInputProps extends HtmlBaseProps {

@@ -8,6 +8,8 @@ export const CheckboxPageBase = ({ settingValues, setSettingsControls }: IShowca
 	useEffect(() => {
 		setSettingsControls({
 			checked: new FormControl(settingValues.checked, [], 'checkbox', { label: 'checked' }),
+			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' }),
+			readOnly: new FormControl(settingValues.readOnly, [], 'checkbox', { label: 'readOnly' }),
 			label: new FormControl(settingValues.label, [], 'text', { label: 'label' })
 		});
 	}, []);
@@ -19,6 +21,8 @@ export const CheckboxPageBase = ({ settingValues, setSettingsControls }: IShowca
 	return (
 		<Checkbox
 			checked={settingValues.checked}
+			disabled={settingValues.disabled}
+			readOnly={settingValues.readOnly}
 			label={settingValues.label}
 			onChange={handleChange}
 		/>
@@ -27,5 +31,7 @@ export const CheckboxPageBase = ({ settingValues, setSettingsControls }: IShowca
 
 export const CheckboxPage = withOptions<ICheckboxProps>(CheckboxPageBase, {
 	checked: true,
-	label: 'my checkbox'
+	label: 'my checkbox',
+	readOnly: false,
+	disabled: false
 });

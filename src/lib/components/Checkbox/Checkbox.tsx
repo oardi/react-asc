@@ -17,7 +17,7 @@ export interface ICheckboxProps extends HtmlBaseProps {
 
 export const Checkbox = (props: ICheckboxProps) => {
 
-	const { id, checked, className = '', label, name, value = "off", ...rest } = props;
+	const { id, checked, className = '', label, name, value = "off", disabled, readOnly, ...rest } = props;
 
 	// TODO
 	// add own value
@@ -59,7 +59,12 @@ export const Checkbox = (props: ICheckboxProps) => {
 	return (
 		<div className="checkbox-container">
 
-			<IconButton className={getCssClasses()} onClick={handleClick} icon={getIcon()} />
+			<IconButton
+				className={getCssClasses()}
+				onClick={handleClick}
+				icon={getIcon()}
+				disabled={disabled || readOnly}
+			/>
 
 			<label onClick={handleClick}>
 				{label}
@@ -71,10 +76,11 @@ export const Checkbox = (props: ICheckboxProps) => {
 				id={id}
 				name={name}
 				checked={isChecked}
+				disabled={disabled}
+				readOnly={readOnly}
 				hidden={true}
 				value={value}
 				{...rest}
-				readOnly
 			/>
 		</div>
 	);
