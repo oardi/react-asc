@@ -3,6 +3,7 @@
 - breadcrumb - moved scss to scss module
 - drawer - moved scss to scss module
 - sidebar - removed unneeded scss
+- appbartitle - style fix
 
 ## v2.5.0
 - chip - added component
