@@ -4,6 +4,7 @@ export interface IIconButtonProps extends React.DetailedHTMLProps<React.ButtonHT
     icon?: React.SVGProps<SVGSVGElement>;
     color?: COLOR;
     isActive?: boolean;
+    disabled?: boolean;
     variant?: VARIANT;
 }
 export declare const IconButton: (props: IIconButtonProps) => JSX.Element;
