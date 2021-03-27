@@ -51,7 +51,7 @@ export const Sidebar = (props: ISidebarProps) => {
 	}
 
 	return (
-		<nav className="sidebar navbar navbar-expand-lg align-items-start">
+		<nav className="sidebar">
 
 			<List>
 				{menuItems.map(item =>

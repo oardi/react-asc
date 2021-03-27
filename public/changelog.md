@@ -1,6 +1,8 @@
 ## v2.5.1
 - checkbox - style fix
 - breadcrumb - moved scss to scss module
+- drawer - moved scss to scss module
+- sidebar - removed unneeded scss
 
 ## v2.5.0
 - chip - added component
