@@ -2,8 +2,8 @@ export declare class SidebarItemModel {
     id: string;
     label: string;
     path: string;
-    icon?: string;
-    isActive?: boolean;
-    items?: Array<SidebarItemModel>;
-    constructor(id: string, label: string, path: string, icon?: string, isActive?: boolean, items?: Array<SidebarItemModel>);
+    icon?: string | undefined;
+    isActive?: boolean | undefined;
+    items?: SidebarItemModel[] | undefined;
+    constructor(id: string, label: string, path: string, icon?: string | undefined, isActive?: boolean | undefined, items?: SidebarItemModel[] | undefined);
 }

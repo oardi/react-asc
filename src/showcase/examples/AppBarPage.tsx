@@ -30,7 +30,7 @@ const AppBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 						shadow={settingValues.shadow}
 					>
 						<AppBarTitle>Navbar</AppBarTitle>
-						<IconButton color={COLOR.light} icon={<HomeSolidIcon />} />
+						<IconButton className="ml-auto" color={COLOR.light} icon={<HomeSolidIcon />} />
 					</AppBar>
 				</Tab>
 				<Tab eventKey="tab2" title="Usage">

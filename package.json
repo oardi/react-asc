@@ -1,6 +1,6 @@
 {
 	"name": "react-craft",
-	"version": "2.2.1",
+	"version": "2.4.0",
 	"description": "handcrafted react components",
 	"private": true,
 	"main": "lib/index.js",
@@ -28,6 +28,7 @@
 		"dayjs": "^1.10.4",
 		"marked": "^2.0.1",
 		"node-sass": "^5.0.0",
+		"postcss": "^8.2.8",
 		"prismjs": "^1.23.0",
 		"react": "^17.0.1",
 		"react-dom": "^17.0.1",
@@ -38,6 +39,7 @@
 		"rollup-plugin-commonjs": "^10.1.0",
 		"rollup-plugin-node-resolve": "^5.2.0",
 		"rollup-plugin-peer-deps-external": "^2.2.4",
+		"rollup-plugin-postcss": "^4.0.0",
 		"rollup-plugin-scss": "^2.6.1",
 		"rollup-plugin-svg-import": "^1.5.1",
 		"rollup-plugin-typescript2": "^0.30.0",

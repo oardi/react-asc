@@ -19,7 +19,7 @@ export declare class Form extends Component<IFormProps, IFormState> {
     constructor(props: IFormProps);
     static getDerivedStateFromProps(nextProps: IFormProps, state: IFormState): {
         controls: IControls;
-    };
+    } | null;
     myForm: React.RefObject<HTMLFormElement>;
     handleChange(): void;
     private validateField;
