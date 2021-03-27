@@ -1,37 +1,30 @@
 import React from 'react';
 import { COLOR, VARIANT } from '../component.enums';
+import styles from './IconButton.module.scss';
 
 export interface IIconButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
 	icon?: React.SVGProps<SVGSVGElement>;
 	color?: COLOR;
 	isActive?: boolean;
+	disabled?: boolean;
 	variant?: VARIANT;
 }
 
 export const IconButton = (props: IIconButtonProps) => {
 
-	const { children, icon, variant = VARIANT.text, color = COLOR.primary, isActive, className = '', ...rest } = props;
+	const { children, icon, variant = VARIANT.text, color = COLOR.primary, isActive, disabled, className = '', ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push(`btn`);
-		cssClasses.push(`btn-icon`);
+		cssClasses.push(styles[color]);
+		cssClasses.push(styles[variant]);
+		cssClasses.push(styles.iconButton);
 
-		if (variant !== 'outline' && variant !== 'text') {
-			cssClasses.push(`btn-icon-${color}`);
-		}
-		if (variant === 'outline') {
-			cssClasses.push(`btn-outline-${color}`);
-		}
-		if (variant === 'text') {
-			cssClasses.push(`btn-link`);
-			cssClasses.push(`btn-link-${color}`);
-		}
-		if (isActive) {
-			cssClasses.push('active');
-		}
+		isActive && cssClasses.push(styles.active);
+		disabled && cssClasses.push(styles.disabled);
 
 		cssClasses.push(className);
+
 		return cssClasses.filter(css => css).join(' ');
 	};
 
@@ -39,6 +32,7 @@ export const IconButton = (props: IIconButtonProps) => {
 		<button
 			type="button"
 			className={getCssClasses()}
+			disabled={disabled}
 			{...rest}
 		>
 			<span

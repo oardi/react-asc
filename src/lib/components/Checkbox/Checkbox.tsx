@@ -74,6 +74,7 @@ export const Checkbox = (props: ICheckboxProps) => {
 				hidden={true}
 				value={value}
 				{...rest}
+				readOnly
 			/>
 		</div>
 	);

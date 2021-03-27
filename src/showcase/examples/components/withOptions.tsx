@@ -46,7 +46,7 @@ export const withOptions = <T,>(WrappedComponent: any, defaultSettingValues?: T)
 				</Column>
 
 				{settingsControls && Object.keys(settingsControls).length > 0 &&
-					<Column md={6} className="mt-3 mt-sm-0">
+					<Column md={6} className="mt-3 mt-md-0">
 						<ShowcaseOptions
 							controls={settingsControls}
 							onFormChange={onFormChange}

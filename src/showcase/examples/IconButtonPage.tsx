@@ -9,7 +9,7 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 			color: new FormControl(settingValues.color, [], 'select', { label: 'color', options: Object.keys(COLOR).map(c => ({ label: c, value: c })) }),
 			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' }),
 			isActive: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'isActive' }),
-			variant: new FormControl(settingValues.variant, [], 'select', { label: 'variant', options: Object.keys(VARIANT).map(c => ({ label: c, value: c })) }),
+			// variant: new FormControl(settingValues.variant, [], 'select', { label: 'variant', options: Object.keys(VARIANT).map(c => ({ label: c, value: c })) }),
 		});
 	}, []);
 
@@ -33,5 +33,5 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 
 export const IconButtonPage = withOptions<IIconButtonProps>(IconButtonPageBase, {
 	color: COLOR.primary,
-	variant: VARIANT.contained
+	variant: VARIANT.text
 });

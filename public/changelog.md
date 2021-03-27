@@ -1,3 +1,6 @@
+## v2.4.3
+- iconButton - add scss modules
+
 ## v2.4.2
 - card - add scss modules
 

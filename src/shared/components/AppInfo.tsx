@@ -23,8 +23,8 @@ export const AppInfo = () => {
 
 	return (
 		<IconButton
-			className="ml-auto"
 			color={COLOR.light}
+			className="ml-auto"
 			icon={<InfoSolidIcon />}
 			onClick={handleClick}
 		/>
