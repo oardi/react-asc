@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Checkbox } from '../Checkbox';
+import { Textarea } from '../Textarea';
 import { IFormInputOptions, IFormTextAreaOptions } from './form.interfaces';
 import { IFormControlType } from './form.types';
 
@@ -75,13 +76,11 @@ export const FormInput = (props: IFormInputProps) => {
 					disabled={disabled}
 					onKeyDown={onKeyDown}
 				/>
-
-				// autoComplete="new-password"
 			}
 
 			{
 				type === 'textarea' &&
-				<textarea
+				<Textarea
 					id={name}
 					name={name}
 					className={className + (!isValid ? ' is-invalid' : '')}

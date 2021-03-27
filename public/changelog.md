@@ -1,3 +1,6 @@
+## v2.6.0
+- textarea - added component
+
 ## v2.5.1
 - checkbox - style fix
 - breadcrumb - moved scss to scss module
