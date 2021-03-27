@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import styles from './CardTitle.module.scss';
 
 interface ICardTitleProps {
 	children?: ReactNode;
@@ -12,8 +13,8 @@ export const CardTitle = (props: ICardTitleProps) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
+		cssClasses.push(styles.cardTitle);
 		cssClasses.push(className);
-		cssClasses.push('card-title');
 		return cssClasses.filter(css => css).join(' ');
 	};
 

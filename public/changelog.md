@@ -1,3 +1,6 @@
+## v2.4.2
+- card - add scss modules
+
 ## v2.4.1
 - lib build fix
 

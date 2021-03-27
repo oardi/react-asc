@@ -10,7 +10,7 @@ export interface IAppBarProps {
 
 export const AppBar = (props: IAppBarProps) => {
 
-	const { children, color = COLOR.primary, shadow = false, ...rest } = props;
+	const { children, color = COLOR.primary, shadow = true, ...rest } = props;
 
 	const getCssClasses = () => {
 		const result = [];

@@ -10,7 +10,7 @@ const CardPageBase = () => {
 					<CardTitle>Title</CardTitle>
 					<CardSubtitle>SubTitle</CardSubtitle>
 					<CardText>
-						some card
+						some card text
 					</CardText>
 				</CardBody>
 			</Card>
