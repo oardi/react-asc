@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { CheckSquareRegularIcon, SquareRegularIcon } from '../../assets/icons';
 import { HtmlBaseProps } from '../component.interfaces';
 import { IconButton } from '../IconButton';
+import styles from './Checkbox.module.scss';
 
 // TODO refactor htmlBasaeProps
 export interface ICheckboxProps extends HtmlBaseProps {
@@ -57,7 +58,7 @@ export const Checkbox = (props: ICheckboxProps) => {
 	};
 
 	return (
-		<div className="checkbox-container">
+		<div className={styles.checkboxContainer}>
 
 			<IconButton
 				className={getCssClasses()}

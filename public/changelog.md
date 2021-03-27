@@ -1,3 +1,6 @@
+## v2.5.1
+- checkbox - style fix
+
 ## v2.5.0
 - chip - added component
 
