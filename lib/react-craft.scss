@@ -40,14 +40,6 @@ $theme-colors: map-merge(
 	}
 }
 
-.chartjs {
-	& {
-		canvas {
-			width: 100%;
-		}
-	}
-}
-
 .dropdown {
 	.dropdown-menu {
 		z-index: 1111;
