@@ -1,5 +1,4 @@
-import React, { cloneElement, ReactElement, useEffect, useState } from 'react';
-import { ListItemModel } from './list.models';
+import React, { ReactElement } from 'react';
 import { IListItemProps } from './ListItem';
 import styles from './List.module.scss';
 
@@ -7,24 +6,12 @@ export interface IListProps {
 	children?: ReactElement<IListItemProps> | Array<ReactElement<IListItemProps>>;
 	className?: string;
 	isFlush?: boolean;
-	isHoverable?: boolean;
+	// isHoverable?: boolean;
 }
 
 export const List = (props: IListProps) => {
 
-	const { children, className = '', isFlush = false, isHoverable = false } = props;
-
-	// const [listItems, setListItems] = useState<Array<ListItemModel>>([]);
-
-	// useEffect(() => {
-	// 	if (children) {
-	// 		if (Array.isArray(children)) {
-	// 			setListItems(children.map(child => new ListItemModel(child)));
-	// 		} else {
-	// 			setListItems([new ListItemModel(children)]);
-	// 		}
-	// 	}
-	// }, [children]);
+	const { children, className = '', isFlush = false } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -39,12 +26,6 @@ export const List = (props: IListProps) => {
 	return (
 		<ul className={getCssClasses()}>
 			{children}
-			{/* {listItems && listItems.map((listItem, index) => (
-				cloneElement(listItem, {
-					isHoverable: isHoverable,
-					key: listItem.key ? listItem.key : index
-				})
-			))} */}
 		</ul>
 	);
 }

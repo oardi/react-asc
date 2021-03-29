@@ -29,10 +29,6 @@
 ## TODO Components
 
 
-
-### select 
-- add component (formControl)
-
 ### select 
 - add component (formControl)
 - single
@@ -40,6 +36,9 @@
 - search
 - optionsGroup
 - icons
+
+### file
+- add component
 
 ### autocomplete
 - add component (formControl)
