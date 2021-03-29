@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import { Button, DropDown, DropDownDivider, DropDownItem, loggerService, snackbarService } from '../../lib';
+import { Button, DropDown, DropDownDivider, DropDownItem, snackbarService } from '../../lib';
+import { loggerService } from '../../shared';
 import { withOptions } from './components';
 
 const DropDownPageBase = () => {

@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
-import { Button, COLOR, FormControl, IControls, loggerService, Modal, MODALBUTTONTYPE, modalService, snackbarService, VARIANT } from '../../lib';
+import { Button, COLOR, FormControl, IControls, Modal, MODALBUTTONTYPE, modalService, snackbarService, VARIANT } from '../../lib';
+import { loggerService } from '../../shared';
 import { withOptions } from './components';
 
 const ModalPageBase = () => {

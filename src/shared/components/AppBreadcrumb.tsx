@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { Breadcrumb, IBreadcrumbItem, loggerService } from '../../lib';
+import { Breadcrumb, IBreadcrumbItem } from '../../lib';
+import { loggerService } from '../services';
 
 const CLASSNAME = 'AppBreadcrumb';
 export const AppBreadcrumb = () => {

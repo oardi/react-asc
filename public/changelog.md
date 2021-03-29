@@ -1,3 +1,6 @@
+## v2.7.0
+- loggerService - removed from lib, moved to shared
+
 ## v2.6.2
 - list - moved scss to scss module
 

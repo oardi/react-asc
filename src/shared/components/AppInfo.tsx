@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { COLOR, IconButton, loggerService, modalService } from '../../lib';
+import { COLOR, IconButton, modalService } from '../../lib';
 import { InfoSolidIcon } from '../../showcase';
-import { fileLoaderService } from '../services';
+import { fileLoaderService, loggerService } from '../services';
 import { Markdown } from './Markdown';
 
 export const AppInfo = () => {

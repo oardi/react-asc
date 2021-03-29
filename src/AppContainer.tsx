@@ -4,7 +4,7 @@ import { AppContext } from './AppContext';
 import App from './App';
 
 import packageJson from '../package.json';
-import { loggerService, snackbarService, modalService } from './lib';
+import { snackbarService, modalService } from './lib';
 import { IAppInfo } from './app.interfaces';
 import { fileLoaderService } from './shared';
 
@@ -17,7 +17,6 @@ export const AppContainer = () => {
 	const [appInfo, setAppInfo] = useState<IAppInfo>({});
 	const appContext = ({
 		fileLoaderService,
-		loggerService,
 		snackbarService,
 		modalService,
 		appInfo,

@@ -1,7 +1,8 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react';
-import { FormControl, Form, IControls, Button, VARIANT, COLOR, IFormProps, loggerService } from '../../lib';
+import { FormControl, Form, IControls, Button, VARIANT, COLOR, IFormProps } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 import dayjs from 'dayjs';
+import { loggerService } from '../../shared';
 
 const CLASSNAME = 'ShowcaseForm';
 export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IFormProps>) => {

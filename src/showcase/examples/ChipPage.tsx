@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { Chip, COLOR, FormControl, IChipProps, loggerService, snackbarService } from '../../lib';
+import { Chip, COLOR, FormControl, IChipProps, snackbarService } from '../../lib';
+import { loggerService } from '../../shared';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 

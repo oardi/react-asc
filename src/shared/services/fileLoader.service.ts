@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { loggerService } from '../../lib';
+import { loggerService } from './logger.service';
 
 const CLASSNAME = 'HttpService';
 

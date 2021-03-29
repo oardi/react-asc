@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Layout } from './Layout';
-import { fileLoaderService, Markdown } from '../shared';
-import { loggerService } from '../lib';
+import { fileLoaderService, loggerService, Markdown } from '../shared';
 
 export const AboutPage = () => {
 

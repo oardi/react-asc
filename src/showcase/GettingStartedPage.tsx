@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { loggerService } from '../lib';
-import { fileLoaderService, Markdown } from '../shared';
+import { fileLoaderService, loggerService, Markdown } from '../shared';
 import { Layout } from './Layout';
 
 export const GettingStartedPage = () => {

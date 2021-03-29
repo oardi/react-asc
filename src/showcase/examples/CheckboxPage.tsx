@@ -1,5 +1,6 @@
 import React, { useEffect, FocusEvent } from 'react';
-import { FormControl, Checkbox, ICheckboxProps, loggerService } from '../../lib';
+import { FormControl, Checkbox, ICheckboxProps } from '../../lib';
+import { loggerService } from '../../shared';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const CLASSNAME = 'ShowcaseCheckboxBase';

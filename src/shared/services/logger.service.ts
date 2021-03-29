@@ -25,6 +25,7 @@ class LoggerService implements ILoggerService {
 
 	debug(...args: Array<any>) {
 		this._doLog(this.logType.debug, args);
+
 	}
 
 	error(...args: Array<any>) {

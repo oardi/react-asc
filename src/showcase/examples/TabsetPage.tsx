@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { FormControl, ITabsetProps, loggerService, snackbarService, Tab, Tabset } from '../../lib';
+import { FormControl, ITabsetProps, snackbarService, Tab, Tabset } from '../../lib';
+import { loggerService } from '../../shared';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const CLASSNAME = 'TabsetPage';
