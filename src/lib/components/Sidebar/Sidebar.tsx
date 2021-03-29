@@ -51,19 +51,22 @@ export const Sidebar = (props: ISidebarProps) => {
 		onItemClicked(path);
 	}
 
-	const handleClickItem = (item: SidebarItemModel) => {
-		console.warn('handleClickItem');
-		const newMenuItems = menuItems.map((menuItem) => {
-			if (item.id === menuItem.id) {
-				const updatedItem = {
-					...menuItem,
-					isCollapsed: !menuItem.isCollapsed,
-				};
-				return updatedItem;
-			}
-			return menuItem;
-		});
-		setMenuItems(newMenuItems);
+	const handleClickItem = (item: SidebarItemModel, e: any) => {
+		if (item.items && item.items.length > 0) {
+			const newMenuItems = menuItems.map((menuItem) => {
+				if (item.id === menuItem.id) {
+					const updatedItem = {
+						...menuItem,
+						isCollapsed: !menuItem.isCollapsed,
+					};
+					return updatedItem;
+				}
+				return menuItem;
+			});
+			setMenuItems(newMenuItems);
+		} else {
+			navigate(e, `/${item.path}`);
+		}
 	}
 
 	return (
@@ -73,12 +76,12 @@ export const Sidebar = (props: ISidebarProps) => {
 				{menuItems.map(item => (
 					<React.Fragment key={item.id}>
 						<ListItem
-							onClick={(e) => !item.items && navigate(e, `/${item.path}`)}
+							onClick={(e) => handleClickItem(item, e)}
 						>
 							<ListItemText primary={item.label} />
 
 							{item.items && item.items.length > 0 &&
-								<ListItemAction onClick={() => handleClickItem(item)}>
+								<ListItemAction>
 									{item.isCollapsed ? <ChevronDownSolidIcon /> : <ChevronUpSolidIcon />}
 								</ListItemAction>
 							}
