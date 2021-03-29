@@ -7,4 +7,6 @@ export class SidebarItemModel {
 		public isActive?: boolean,
 		public items?: Array<SidebarItemModel>) {
 	}
+
+	isCollapsed: boolean = true;
 }

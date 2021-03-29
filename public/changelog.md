@@ -1,3 +1,9 @@
+## v2.7.1
+- formCheck - style fix
+- list - changed rendering
+- listItemAction - added onClick
+- sideBar - style fixes
+
 ## v2.7.0
 - loggerService - removed from lib, moved to shared
 

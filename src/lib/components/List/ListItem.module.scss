@@ -3,7 +3,6 @@
 	align-items: center;
 	position: relative;
 	padding: 0.75rem 1.25rem;
-	background-color: #fff;
 
 	width: 100%;
 	color: #495057;
@@ -16,7 +15,7 @@
 		z-index: 1;
 		color: #495057;
 		text-decoration: none;
-		background-color: #f8f9fa;
+		background-color: rgba(0, 0, 0, 0.04);
 	}
 
 	&+.listItem {

@@ -3,8 +3,9 @@ import styles from './ListItemAction.module.scss';
 
 interface IListItemActionProps {
 	children?: ReactNode;
+	onClick?: (e: MouseEvent) => void;
 }
 
-export const ListItemAction = ({ children }: IListItemActionProps) => (
-	<div className={styles.listItemAction}>{children}</div>
+export const ListItemAction = ({ children, onClick }: IListItemActionProps) => (
+	<div className={styles.listItemAction} onClick={e => onClick && onClick(e as any)}>{children}</div>
 )

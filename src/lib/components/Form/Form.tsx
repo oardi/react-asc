@@ -200,13 +200,22 @@ export class Form extends Component<IFormProps, IFormState> {
 		this.setState({ controls: {}, isValid: false, isChanged: false, isSubmitted: false });
 	}
 
+	getFormGroupCssClass(fieldKey: string) {
+		let result = this.getControl(fieldKey).config.formGroupClassName;
+		const type = this.getControl(fieldKey).type;
+		if (type === 'checkbox') {
+			result = 'form-check';
+		}
+		return result;
+	}
+
 	render() {
 		return (
 			<form ref={this.myForm}>
 
 				{this.state && this.state.controls && Object.keys(this.state.controls).map((fieldKey) => {
 					return (
-						<FormGroup key={fieldKey} className={this.getControl(fieldKey).config.formGroupClassName}>
+						<FormGroup key={fieldKey} className={this.getFormGroupCssClass(fieldKey)}>
 
 							{
 								this.getControl(fieldKey).config.labelPosition !== 'behind' && this.getControl(fieldKey).type !== 'checkbox' &&

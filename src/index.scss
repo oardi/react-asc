@@ -45,3 +45,13 @@ body {
 .overflow-y {
 	overflow-y: scroll;
 }
+
+.list-level-1 {
+	.list-item-level-1 {
+		padding-left: 40px;
+	}
+}
+
+.form-check {
+	padding-left: 0;
+}

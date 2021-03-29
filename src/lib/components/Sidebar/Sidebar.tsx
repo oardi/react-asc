@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { List, ListItem } from '../List';
+import { List, ListItem, ListItemAction, ListItemText } from '../List';
 import { ISidebarItem } from './sidebar.interfaces';
 import { SidebarItemModel } from './sidebar.models';
+import { IconButton } from '../IconButton';
+import { ChevronUpSolidIcon, ChevronDownSolidIcon } from '../../assets/icons';
 
 interface ISidebarProps {
 	items: Array<ISidebarItem>;
@@ -50,33 +52,54 @@ export const Sidebar = (props: ISidebarProps) => {
 		onItemClicked(path);
 	}
 
+	const handleClickItem = (item: SidebarItemModel) => {
+		console.warn('handleClickItem');
+		const newMenuItems = menuItems.map((menuItem) => {
+			if (item.id === menuItem.id) {
+				const updatedItem = {
+					...menuItem,
+					isCollapsed: !menuItem.isCollapsed,
+				};
+				return updatedItem;
+			}
+			return menuItem;
+		});
+		setMenuItems(newMenuItems);
+	}
+
 	return (
 		<nav className="sidebar">
 
-			<List>
-				{menuItems.map(item =>
-					<ListItem
-						key={item.id}
-						onClick={(e) => navigate(e, `/${item.path}`)}
-					>
-						<div className="d-flex flex-column w-100">
-							{item.label}
+			<List isHoverable>
+				{menuItems.map(item => (
+					<React.Fragment key={item.id}>
+						<ListItem
+							onClick={(e) => !item.items && navigate(e, `/${item.path}`)}
+						>
+							<ListItemText primary={item.label} />
 
-							{item.items &&
-								<List>
-									{item.items.map(subItem => (
-										<ListItem
-											key={subItem.id}
-											onClick={(e) => navigate(e, `/${item.path}/${subItem.path}`)}
-										>
-											{subItem.label}
-										</ListItem>
-									))}
-								</List>
+							{item.items && item.items.length > 0 &&
+								<ListItemAction onClick={() => handleClickItem(item)}>
+									{item.isCollapsed ? <ChevronDownSolidIcon /> : <ChevronUpSolidIcon />}
+								</ListItemAction>
 							}
-						</div>
-					</ListItem>
-				)}
+						</ListItem>
+
+						{!item.isCollapsed && item.items && item.items.length > 0 && (
+							<List className="list-level-1" key={`${item.id}-sub`}>
+								{item.items.map(subItem => (
+									<ListItem
+										className="list-item-level-1"
+										key={subItem.id}
+										onClick={(e) => navigate(e, `/${item.path}/${subItem.path}`)}
+									>
+										{subItem.label}
+									</ListItem>
+								))}
+							</List>
+						)}
+					</React.Fragment>
+				))}
 			</List>
 		</nav>
 	);
