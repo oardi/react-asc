@@ -33,5 +33,6 @@ export declare class Form extends Component<IFormProps, IFormState> {
     handleFormReset(): void;
     handleOnKeyDown(e: KeyboardEvent): void;
     destroy(): void;
+    getFormGroupCssClass(fieldKey: string): string | undefined;
     render(): JSX.Element;
 }
