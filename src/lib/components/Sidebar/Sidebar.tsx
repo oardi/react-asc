@@ -70,7 +70,7 @@ export const Sidebar = (props: ISidebarProps) => {
 	return (
 		<nav className="sidebar">
 
-			<List isHoverable>
+			<List>
 				{menuItems.map(item => (
 					<React.Fragment key={item.id}>
 						<ListItem

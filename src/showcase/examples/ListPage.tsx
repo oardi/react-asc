@@ -7,7 +7,7 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 
 	useEffect(() => {
 		setSettingsControls({
-			isHoverable: new FormControl(settingValues.isHoverable, [], 'checkbox', { label: 'isHoverable' }),
+			// isHoverable: new FormControl(settingValues.isHoverable, [], 'checkbox', { label: 'isHoverable' }),
 			isFlush: new FormControl(settingValues.isFlush, [], 'checkbox', { label: 'isFlush' })
 		});
 	}, []);
@@ -25,7 +25,7 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 		<Fragment>
 
 			<h3>Single Line</h3>
-			<List isFlush={settingValues.isFlush} isHoverable={settingValues.isHoverable}>
+			<List isFlush={settingValues.isFlush}>
 				<ListItem onClick={handleClickItem}><ListItemText primary="lorem ipsum" /></ListItem>
 				<ListItem onClick={handleClickItem}><ListItemText primary="lorem ipsum" /></ListItem>
 				<ListItem onClick={handleClickItem}><ListItemText primary="lorem ipsum" /></ListItem>
@@ -33,7 +33,7 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 			</List>
 
 			<h3 className="mt-3">Two lines</h3>
-			<List isFlush={settingValues.isFlush} isHoverable={settingValues.isHoverable}>
+			<List isFlush={settingValues.isFlush}>
 				<ListItem onClick={handleClickItem}><ListItemText primary="1st lorem ipsum" secondary="2nd lorem ipsum" /></ListItem>
 				<ListItem onClick={handleClickItem}><ListItemText primary="1st lorem ipsum" secondary="2nd lorem ipsum" /></ListItem>
 				<ListItem onClick={handleClickItem}><ListItemText primary="1st lorem ipsum" secondary="2nd lorem ipsum" /></ListItem>
@@ -41,7 +41,7 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 			</List>
 
 			<h3 className="mt-3">Avatar</h3>
-			<List isFlush={settingValues.isFlush} isHoverable={settingValues.isHoverable}>
+			<List isFlush={settingValues.isFlush}>
 				<ListItem onClick={handleClickItem}>
 					<ListItemAvatar avatar={<UserCircleSolidIcon />} />
 					<ListItemText primary="lorem ipsum" />
@@ -49,7 +49,7 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 			</List>
 
 			<h3 className="mt-3">Icon</h3>
-			<List isFlush={settingValues.isFlush} isHoverable={settingValues.isHoverable}>
+			<List isFlush={settingValues.isFlush}>
 				<ListItem onClick={handleClickItem}>
 					<ListItemIcon icon={<HomeSolidIcon />} />
 					<ListItemText primary="lorem ipsum" />
@@ -57,7 +57,7 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 			</List>
 
 			<h3 className="mt-3">Action Item</h3>
-			<List isFlush={settingValues.isFlush} isHoverable={settingValues.isHoverable}>
+			<List isFlush={settingValues.isFlush}>
 				<ListItem onClick={handleClickItem}>
 					<ListItemText primary="lorem ipsum" />
 					<ListItemAction>
@@ -71,6 +71,5 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 }
 
 export const ListPage = withOptions<IListProps>(ListPageBase, {
-	isHoverable: false,
 	isFlush: false
 });
