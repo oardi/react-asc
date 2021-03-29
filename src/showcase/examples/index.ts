@@ -8,6 +8,7 @@ export * from './DrawerPage';
 export * from './DropDownPage';
 export * from './ExpansionPanelPage';
 export * from './FormPage';
+export * from './FileInputPage';
 export * from './GridPage';
 export * from './IconButtonPage';
 export * from './ListPage';

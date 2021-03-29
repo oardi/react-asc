@@ -1,3 +1,6 @@
+## v2.8.0
+- fileInput - added component
+
 ## v2.7.1
 - formCheck - style fix
 - list - changed rendering

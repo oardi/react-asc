@@ -9,6 +9,7 @@ export * from './Chip';
 export * from './Drawer';
 export * from './DropDown';
 export * from './ExpansionPanel';
+export * from './FileInput';
 export * from './Form';
 export * from './Grid';
 export * from './IconButton';

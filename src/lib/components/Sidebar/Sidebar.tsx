@@ -78,7 +78,13 @@ export const Sidebar = (props: ISidebarProps) => {
 						<ListItem
 							onClick={(e) => handleClickItem(item, e)}
 						>
-							<ListItemText primary={item.label} />
+							<ListItemText primary={
+								<>
+									{item.label}
+									{item.items && item.items.length > 0 && (<small className="ml-2">({item.items.length})</small>)}
+								</>
+							}
+							/>
 
 							{item.items && item.items.length > 0 &&
 								<ListItemAction>
