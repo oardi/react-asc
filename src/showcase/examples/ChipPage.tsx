@@ -14,7 +14,7 @@ export const ChipPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 		});
 	}, []);
 
-	const handleClick = (event: MouseEvent) => {
+	const handleClick = () => {
 		loggerService.debug(CLASSNAME, 'handleClick');
 		snackbarService.show('chip clicked');
 	}

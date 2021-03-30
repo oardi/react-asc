@@ -1,3 +1,7 @@
+## v2.8.1
+- chip - style fixes
+- fileInput - display files
+
 ## v2.8.0
 - fileInput - added component
 

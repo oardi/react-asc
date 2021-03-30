@@ -12,12 +12,17 @@ const FileInputPageBase = ({ settingValues, setSettingsControls }: IShowcaseBase
 		});
 	}, []);
 
+	const handleOnChange = (e: any) => {
+		console.warn('handleOnChange', e);
+	}
+
 	return (
 		<Fragment>
 			<FileInput
 				accept={settingValues.accept}
 				multiple={settingValues.multiple}
 				disabled={settingValues.disabled}
+				onChange={handleOnChange}
 			/>
 		</Fragment>
 	);

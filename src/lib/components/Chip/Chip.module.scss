@@ -1,5 +1,7 @@
 .chip {
-	display: inline-block;
+	display: flex;
+	align-items: center;
+
 	padding: 0.5rem;
 	text-align: center;
 	white-space: nowrap;
@@ -9,6 +11,18 @@
 	font-weight: 700;
 	border-radius: 10rem;
 	line-height: 1;
+
+	svg {
+		width: 18px;
+		height: 18px;
+	}
+
+	.deleteIcon {
+		margin-left: 5px;
+		&:hover {
+			cursor: pointer;
+		}
+	}
 
 	&.primary {
 		background: var(--primary);
