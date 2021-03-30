@@ -1,10 +1,12 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 import { COLOR } from '../component.enums';
 export interface IChipProps {
     color?: COLOR;
     children?: ReactNode;
     className?: string;
     shadow?: boolean;
-    onClick?: (e: MouseEvent) => void;
+    onClick?: (e: React.MouseEvent<Element>) => void;
+    onDelete?: (e: React.MouseEvent<Element>) => void;
+    deleteIcon?: any;
 }
 export declare const Chip: (props: IChipProps) => JSX.Element;

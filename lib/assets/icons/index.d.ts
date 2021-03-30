@@ -5,3 +5,4 @@ export * from './ChevronRightSolidIcon';
 export * from './ChevronUpSolidIcon';
 export * from './HomeSolidIcon';
 export * from './SquareRegularIcon';
+export * from './TimesSolidIcon';
