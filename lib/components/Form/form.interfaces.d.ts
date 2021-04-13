@@ -9,6 +9,9 @@ export interface IFormTextAreaOptions {
     rows: number;
     resize: boolean;
 }
+export interface IFormSelectOptions {
+    multiple?: boolean;
+}
 export interface IFormInputError {
     validator: string;
     message: string;
@@ -31,4 +34,5 @@ export interface IFormControlConfig {
     readonly?: boolean;
     options?: Array<IFormInputOptions>;
     textareaOptions?: IFormTextAreaOptions;
+    selectOptions?: IFormSelectOptions;
 }

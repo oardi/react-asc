@@ -1,4 +1,4 @@
-import { IFormInputOptions, IFormTextAreaOptions } from './form.interfaces';
+import { IFormInputOptions, IFormTextAreaOptions, IFormSelectOptions } from './form.interfaces';
 import { IFormControlType } from './form.types';
 export interface IFormInputProps {
     value: any;
@@ -12,6 +12,7 @@ export interface IFormInputProps {
     autoFocus?: boolean;
     options?: Array<IFormInputOptions>;
     textareaOptions?: IFormTextAreaOptions;
+    selectOptions?: IFormSelectOptions;
     label?: string;
     onChange?: (event: any) => void;
     onBlur?: (event: any) => void;
