@@ -1,3 +1,6 @@
+## v2.9.0
+- form - select added multiple
+
 ## v2.8.1
 - chip - style fixes
 - fileInput - display files

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Checkbox } from '../Checkbox';
 import { Textarea } from '../Textarea';
-import { IFormInputOptions, IFormTextAreaOptions } from './form.interfaces';
+import { IFormInputOptions, IFormTextAreaOptions, IFormSelectOptions } from './form.interfaces';
 import { IFormControlType } from './form.types';
 
 export interface IFormInputProps {
@@ -16,6 +16,7 @@ export interface IFormInputProps {
 	autoFocus?: boolean;
 	options?: Array<IFormInputOptions>;
 	textareaOptions?: IFormTextAreaOptions;
+	selectOptions?: IFormSelectOptions;
 	label?: string; // checkbox, radio - move?
 	onChange?: (event: any) => void;
 	onBlur?: (event: any) => void;
@@ -33,6 +34,7 @@ export const FormInput = (props: IFormInputProps) => {
 		isValid,
 		options = [],
 		textareaOptions,
+		selectOptions,
 		autoFocus,
 		label,
 		disabled = false,
@@ -88,8 +90,8 @@ export const FormInput = (props: IFormInputProps) => {
 					autoFocus={autoFocus}
 					onChange={onChange}
 					placeholder={placeholder}
-					rows={textareaOptions && textareaOptions.rows ? textareaOptions.rows : 0}
-					style={textareaOptions && textareaOptions.resize !== false ? undefined : { resize: 'none' }}
+					rows={textareaOptions?.rows}
+					style={textareaOptions?.resize !== false ? undefined : { resize: 'none' }}
 					onKeyDown={onKeyDown}
 				/>
 			}
@@ -102,6 +104,7 @@ export const FormInput = (props: IFormInputProps) => {
 					className={className + (!isValid ? ' is-invalid' : '')}
 					value={value}
 					autoFocus={autoFocus}
+					multiple={selectOptions?.multiple}
 					onChange={onChange}
 					onKeyDown={onKeyDown}
 				>

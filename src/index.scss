@@ -55,3 +55,9 @@ body {
 .form-check {
 	padding-left: 0;
 }
+
+.form-group {
+	> .form-check {
+		padding-left: 1.25rem;
+	}
+}

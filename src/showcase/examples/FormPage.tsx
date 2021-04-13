@@ -16,10 +16,6 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	}, []);
 
 	const controls: IControls = {
-		select: new FormControl('', [], 'select', {
-			label: 'Select',
-			options: [{ label: 'Option 1', value: 'option1' }, { label: 'Option 2', value: 'option2' }]
-		}),
 		text: new FormControl('', ['required'], 'text', { label: 'Text', autoFocus: true, placeholder: 'Firstname' }),
 		email: new FormControl('', ['email', 'required'], 'text', { label: 'E-Mail', hint: 'We will never share your email with anyone else' }),
 		date: new FormControl('2017-06-01', [], 'date', { label: 'Date' }),
@@ -46,6 +42,16 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 				{ id: 'checkboxOption3', label: 'Option 3', value: 'option3' },
 			]
 		}),
+		select: new FormControl('', [], 'select', {
+			label: 'Select',
+			options: [{ label: 'Option 1', value: 'option1' }, { label: 'Option 2', value: 'option2' }]
+		}),
+		selectMultiple: new FormControl([], [], 'select', {
+			label: 'Select',
+			options: [{ label: 'Option 1', value: 'option1' }, { label: 'Option 2', value: 'option2' }],
+			selectOptions: { multiple: true }
+		}),
+
 	};
 
 	const onFormSubmit = (values: any) => {

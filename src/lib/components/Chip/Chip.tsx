@@ -28,7 +28,6 @@ export const Chip = (props: IChipProps) => {
 	}
 
 	const handleClickOnDelete = (e: React.MouseEvent<Element>) => {
-		console.warn('handle on delete');
 		e.stopPropagation();
 		onDelete && onDelete(e);
 	}

@@ -96,16 +96,27 @@ export class Form extends Component<IFormProps, IFormState> {
 		const htmlInputElement = (this.myForm?.current as any)[name];
 
 		// TODO - type checkboxgroup with component?
-		if (type === 'checkbox' && (htmlInputElement as RadioNodeList).length > 0) {
-			const formControls = htmlInputElement as RadioNodeList;
-			const formControlsAsArray = Array.from(formControls);
-			const values = formControlsAsArray.map((control) => (control as HTMLInputElement).checked ? (control as HTMLInputElement).value : '').filter(v => v);
+		if (type === 'checkbox') {
+			if ((htmlInputElement as RadioNodeList).length > 0) {
+				const formControls = htmlInputElement as RadioNodeList;
+				const formControlsAsArray = Array.from(formControls);
+				const values = formControlsAsArray.map((control) => (control as HTMLInputElement).checked ? (control as HTMLInputElement).value : '').filter(v => v);
+				(value as any) = values;
+			} else {
+				(value as any) = checked;
+			}
+		}
+
+		if (type === 'select-multiple') {
+			const { selectedOptions } = (e.target as HTMLSelectElement);
+			const values = selectedOptions && Array.from(selectedOptions, (option) => (option as any).value);
 			(value as any) = values;
 		}
 
 		const field = this.getControl(name);
+		field.value = value;
+
 		// redundant mit handleOnBlur
-		field.value = type === 'checkbox' && (value === 'on' || value === 'off') ? checked : value;
 		field.isDirty = true;
 		field.errors = this.validateField(field.value, field.validators);
 		field.isValid = field.errors.length === 0;
@@ -232,6 +243,7 @@ export class Form extends Component<IFormProps, IFormState> {
 								options={this.getControl(fieldKey).config.options}
 								placeholder={this.getControl(fieldKey).config.placeholder}
 								textareaOptions={this.getControl(fieldKey).config.textareaOptions}
+								selectOptions={this.getControl(fieldKey).config.selectOptions}
 								type={this.getControl(fieldKey).type}
 								value={this.getControl(fieldKey).value}
 								disabled={this.getControl(fieldKey).config.disabled}

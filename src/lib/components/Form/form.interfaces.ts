@@ -13,6 +13,10 @@ export interface IFormTextAreaOptions {
 	resize: boolean;
 }
 
+export interface IFormSelectOptions {
+	multiple?: boolean;
+}
+
 export interface IFormInputError {
 	validator: string;
 	message: string;
@@ -38,7 +42,7 @@ export interface IFormControlConfig {
 
 	options?: Array<IFormInputOptions>;
 	// fileOptions
-	// fileOptions { accept, size }
 
 	textareaOptions?: IFormTextAreaOptions;
+	selectOptions?: IFormSelectOptions;
 }
