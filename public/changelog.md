@@ -1,3 +1,6 @@
+## v2.10.0
+- form - add FileInput
+
 ## v2.9.0
 - form - select added multiple
 

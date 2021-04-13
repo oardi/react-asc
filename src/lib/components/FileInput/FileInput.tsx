@@ -3,9 +3,6 @@ import { Button } from '../Button';
 import { Chip } from '../Chip';
 
 export interface IFileInputProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
-	name?: string;
-	value?: string;
-	// onChange?: (val: FileList) => void;
 }
 
 export const FileInput = (props: IFileInputProps) => {

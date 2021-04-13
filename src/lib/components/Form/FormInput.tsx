@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Checkbox } from '../Checkbox';
+import { FileInput } from '../FileInput';
 import { Textarea } from '../Textarea';
 import { IFormInputOptions, IFormTextAreaOptions, IFormSelectOptions } from './form.interfaces';
 import { IFormControlType } from './form.types';
@@ -60,8 +61,7 @@ export const FormInput = (props: IFormInputProps) => {
 					type === 'number' ||
 					type === 'password' ||
 					type === 'color' ||
-					type === 'time' ||
-					type === 'file'
+					type === 'time'
 				)
 				&&
 				<input
@@ -77,6 +77,19 @@ export const FormInput = (props: IFormInputProps) => {
 					readOnly={readonly}
 					disabled={disabled}
 					onKeyDown={onKeyDown}
+				/>
+			}
+
+			{ type === 'file' &&
+				<FileInput
+					id={name}
+					name={name}
+					className={className + (!isValid ? ' is-invalid' : '')}
+					value={value}
+					autoFocus={autoFocus}
+					readOnly={readonly}
+					disabled={disabled}
+					onChange={onChange}
 				/>
 			}
 
