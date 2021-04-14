@@ -213,10 +213,6 @@ export class Form extends Component<IFormProps, IFormState> {
 
 	getFormGroupCssClass(fieldKey: string) {
 		let result = this.getControl(fieldKey).config.formGroupClassName;
-		const type = this.getControl(fieldKey).type;
-		if (type === 'checkbox') {
-			result = 'form-check';
-		}
 		return result;
 	}
 

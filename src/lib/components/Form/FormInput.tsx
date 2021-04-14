@@ -121,8 +121,6 @@ export const FormInput = (props: IFormInputProps) => {
 					onChange={onChange}
 					onKeyDown={onKeyDown}
 				>
-					<option value="">choose</option>
-					{/* TODO - add choose only if needed with config? */}
 					{options.map((option) =>
 						<option key={option.value} value={option.value}>
 							{option.label ? option.label : option.value}

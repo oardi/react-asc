@@ -1,3 +1,6 @@
+## v2.10.1
+- form - style fix
+
 ## v2.10.0
 - form - add FileInput
 
