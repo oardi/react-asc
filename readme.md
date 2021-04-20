@@ -16,6 +16,7 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 - Drawer
 - DropDown
 - ExpansionPanel
+- FileInput
 - Form (v1)
 - Grid
 - IconButton
@@ -26,6 +27,7 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 - SvgIcon
 - Table (v1)
 - Tabset
+- Textarea
 - Tooltip
 - TreeView (v1)
 

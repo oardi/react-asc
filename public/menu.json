@@ -56,10 +56,13 @@
 				"id": "Modal"
 			},
 			{
-				"id": "SvgIcon"
+				"id": "Snackbar"
 			},
 			{
-				"id": "Snackbar"
+				"id": "Select"
+			},
+			{
+				"id": "SvgIcon"
 			},
 			{
 				"id": "Table"

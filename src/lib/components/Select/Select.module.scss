@@ -1,0 +1,19 @@
+.selectContainer {
+	position: relative;
+}
+
+.select {
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.selectMenu {
+	background-color: var(--light);
+	position: absolute;
+	box-shadow: var(--shadow);
+	border-radius: var(--borderRadius);
+	width: 100%;
+	top: 2px;
+	z-index: 1050;
+}
