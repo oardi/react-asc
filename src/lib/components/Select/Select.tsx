@@ -1,7 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { KeyboardEventHandler, useEffect, useRef, useState } from 'react';
 import { Backdrop } from '../Backdrop';
 import { List, ListItem, ListItemText } from '../List';
 import styles from './Select.module.scss';
+
+// TODO
+// get value as mutiple?
+// navigate by keys
 
 export interface ISelectOption {
 	value: string;
@@ -17,7 +21,8 @@ export interface ISelectProps {
 	multiple?: boolean;
 	disabled?: boolean;
 
-	onChange?: (val: Event) => void;
+	getValueAsObject?: boolean;
+	onChange?: (val: string | ISelectOption) => void;
 }
 
 export const Select = (props: ISelectProps) => {
@@ -27,10 +32,9 @@ export const Select = (props: ISelectProps) => {
 	const [isShow, setIsShow] = useState<boolean>(false);
 	const selectConainter = useRef<HTMLDivElement>(null);
 
-	const { id, name, className, options, value } = props;
+	const { id, className, options, value, getValueAsObject, onChange } = props;
 
 	useEffect(() => {
-		console.warn('value changed', value);
 		writeValue(value);
 	}, [value]);
 
@@ -48,20 +52,30 @@ export const Select = (props: ISelectProps) => {
 		return result.filter(r => r).join(' ');
 	}
 
-	const handleOnChange = (e: any) => {
-		console.warn(e);
-		writeValue(e.target.value);
+	const handleOnClick = (option: ISelectOption) => {
+		if (option.value !== model) {
+			writeValue(option.value);
+
+			// if single
+			if (onChange) {
+				if (getValueAsObject) {
+					onChange(option);
+				} else {
+					onChange(option.value);
+				}
+			}
+
+			// if multiple
+			// TODO
+		}
+		hide();
 	}
 
-	const handleOnClick = (option: ISelectOption) => {
-		console.warn('option', option);
 
-		// if single
-		writeValue(option.value);
-		hide();
-
-		// if multiple
-		// TODO
+	const handleOnKeyDown = (e: KeyboardEventHandler<HTMLDivElement>) => {
+		if ((e as any).key === 'Enter') {
+			console.warn('EEENTER');
+		}
 	}
 
 	const show = () => {
@@ -75,20 +89,17 @@ export const Select = (props: ISelectProps) => {
 	return (
 		<>
 			<div ref={selectConainter} className={styles.selectContainer}>
-				<div
-					id={id}
-					className={getCssClass()}
-					onFocus={show}
-					tabIndex={0}
-				>
+
+				<div id={id} className={getCssClass()} onFocus={show} tabIndex={0} onKeyDown={e => handleOnKeyDown(e as any)}>
 					{viewModel}
 				</div>
+
 				{isShow &&
 					<>
 						<div className={styles.selectMenu}>
 							<List>
 								{options && options.map((option) =>
-									<ListItem key={option.value} onClick={() => handleOnClick(option)}>
+									<ListItem key={option.value} onClick={() => handleOnClick(option)} active={option.value === model}>
 										<ListItemText primary={option.label ? option.label : option.value} />
 									</ListItem>
 								)}
@@ -97,20 +108,8 @@ export const Select = (props: ISelectProps) => {
 						<Backdrop target={selectConainter.current as HTMLElement} isTransparent onClick={() => hide()} />
 					</>
 				}
-			</div>
 
-			{/* <select
-				id={id}
-				name={name}
-				className={getCssClass()}
-				onChange={handleOnChange}
-			>
-				{options && options.map((option) =>
-					<option key={option.value} value={option.value}>
-						{option.label ? option.label : option.value}
-					</option>
-				)}
-			</select> */}
+			</div>
 		</>
 	);
 }

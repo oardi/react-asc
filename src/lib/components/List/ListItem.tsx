@@ -17,7 +17,7 @@ export const ListItem = (props: IListItemProps) => {
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		if (active) {
-			cssClasses.push(`active`);
+			cssClasses.push(styles['active']);
 		}
 		if (isHoverable) {
 			cssClasses.push(`list-group-item-action`);

@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import { FormControl, IAppBarProps, ISelectProps, Select, snackbarService } from '../../lib';
+import { FormControl, IAppBarProps, ISelectOption, ISelectProps, Select, snackbarService } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ISelectProps>) => {
@@ -8,21 +8,21 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 		setSettingsControls({
 			multiple: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'multiple' }),
 			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' }),
+			getValueAsObject: new FormControl(settingValues.getValueAsObject, [], 'checkbox', { label: 'getValueAsObject' }),
 		});
 	}, []);
 
-	const handleOnChange = (e: Event) => {
-		let { type, target } = e;
+	const handleOnChange = (e: string | ISelectOption) => {
+		console.warn(e);
 
-		console.warn(type);
+		// if (settingValues.multiple) {
+		// 	const { selectedOptions } = (e.target as HTMLSelectElement);
+		// 	const values = selectedOptions && Array.from(selectedOptions, (option) => (option as any).value);
+		// 	snackbarService.show(`value change ${JSON.stringify(values)}`);
+		// } else {
+		// }
 
-		if (settingValues.multiple) {
-			const { selectedOptions } = (e.target as HTMLSelectElement);
-			const values = selectedOptions && Array.from(selectedOptions, (option) => (option as any).value);
-			snackbarService.show(`value change ${JSON.stringify(values)}`);
-		} else {
-			snackbarService.show(`value change ${JSON.stringify((target as any).value)}`);
-		}
+		snackbarService.show(`value change "${JSON.stringify(e)}"`);
 	}
 
 	return (
@@ -34,11 +34,13 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 				multiple={settingValues.multiple}
 				options={[
 					{ value: "1", label: 'first' },
-					{ value: "2", label: 'second' }
+					{ value: "2", label: 'second' },
+					{ value: "3", label: 'third' },
 				]}
 				onChange={handleOnChange}
 				disabled={settingValues.disabled}
-				value="1"
+				getValueAsObject={settingValues.getValueAsObject}
+				value="2"
 			/>
 		</Fragment>
 	);
