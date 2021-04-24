@@ -11,11 +11,12 @@ export interface IChipProps {
 	onClick?: (e: React.MouseEvent<Element>) => void;
 	onDelete?: (e: React.MouseEvent<Element>) => void;
 	deleteIcon?: any;
+	style?: any;
 }
 
 export const Chip = (props: IChipProps) => {
 
-	const { children, color = 'secondary', className, shadow, onClick, onDelete, deleteIcon = <TimesSolidIcon />, ...rest } = props;
+	const { children, color = 'secondary', className, shadow, onClick, onDelete, deleteIcon = <TimesSolidIcon />, style, ...rest } = props;
 
 	const getCssClass = () => {
 		const result = [];
@@ -33,7 +34,7 @@ export const Chip = (props: IChipProps) => {
 	}
 
 	return (
-		<div className={getCssClass()} {...rest}>
+		<div className={getCssClass()} {...rest} style={style}>
 			<div>
 				{children}
 			</div>

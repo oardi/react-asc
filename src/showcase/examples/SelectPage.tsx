@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import { FormControl, IAppBarProps, ISelectOption, ISelectProps, Select, snackbarService } from '../../lib';
+import { FormControl, IAppBarProps, ISelectProps, Select, snackbarService } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ISelectProps>) => {
@@ -7,21 +7,11 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 	useEffect(() => {
 		setSettingsControls({
 			multiple: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'multiple' }),
-			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' }),
-			getValueAsObject: new FormControl(settingValues.getValueAsObject, [], 'checkbox', { label: 'getValueAsObject' }),
+			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' })
 		});
 	}, []);
 
-	const handleOnChange = (e: string | ISelectOption) => {
-		console.warn(e);
-
-		// if (settingValues.multiple) {
-		// 	const { selectedOptions } = (e.target as HTMLSelectElement);
-		// 	const values = selectedOptions && Array.from(selectedOptions, (option) => (option as any).value);
-		// 	snackbarService.show(`value change ${JSON.stringify(values)}`);
-		// } else {
-		// }
-
+	const handleOnChange = (e: string | Array<string>) => {
 		snackbarService.show(`value change "${JSON.stringify(e)}"`);
 	}
 
@@ -39,7 +29,6 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 				]}
 				onChange={handleOnChange}
 				disabled={settingValues.disabled}
-				getValueAsObject={settingValues.getValueAsObject}
 				value="2"
 			/>
 		</Fragment>
