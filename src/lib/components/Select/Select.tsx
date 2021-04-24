@@ -1,11 +1,13 @@
 import React, { KeyboardEventHandler, useEffect, useRef, useState } from 'react';
 import { Backdrop } from '../Backdrop';
+import { Checkbox } from '../Checkbox';
 import { List, ListItem, ListItemText } from '../List';
 import styles from './Select.module.scss';
 
 // TODO
 // get value as mutiple?
 // navigate by keys
+// on key down enter
 
 export interface ISelectOption {
 	value: string;
@@ -27,12 +29,12 @@ export interface ISelectProps {
 
 export const Select = (props: ISelectProps) => {
 
-	const [model, setModel] = useState<string>('');
+	const [model, setModel] = useState<string | Array<string>>('');
 	const [viewModel, setViewModel] = useState<string>('');
 	const [isShow, setIsShow] = useState<boolean>(false);
 	const selectConainter = useRef<HTMLDivElement>(null);
 
-	const { id, className, options, value, getValueAsObject, onChange } = props;
+	const { id, className, options, value, multiple, getValueAsObject, onChange } = props;
 
 	useEffect(() => {
 		writeValue(value);
@@ -53,7 +55,7 @@ export const Select = (props: ISelectProps) => {
 	}
 
 	const handleOnClick = (option: ISelectOption) => {
-		if (option.value !== model) {
+		if (!multiple && option.value !== model) {
 			writeValue(option.value);
 
 			// if single
@@ -65,10 +67,12 @@ export const Select = (props: ISelectProps) => {
 				}
 			}
 
-			// if multiple
+			// if multiple 
 			// TODO
+			hide();
+		} else {
+			console.warn('should be multiple');
 		}
-		hide();
 	}
 
 
@@ -86,6 +90,10 @@ export const Select = (props: ISelectProps) => {
 		setIsShow(false);
 	}
 
+	const handleChange = () => {
+		console.warn('handleChange');
+	}
+
 	return (
 		<>
 			<div ref={selectConainter} className={styles.selectContainer}>
@@ -100,6 +108,10 @@ export const Select = (props: ISelectProps) => {
 							<List>
 								{options && options.map((option) =>
 									<ListItem key={option.value} onClick={() => handleOnClick(option)} active={option.value === model}>
+										<Checkbox
+											checked={option.value === model}
+											onChange={handleChange}
+										/>
 										<ListItemText primary={option.label ? option.label : option.value} />
 									</ListItem>
 								)}
