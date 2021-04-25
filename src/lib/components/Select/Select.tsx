@@ -58,9 +58,9 @@ export const Select = (props: ISelectProps) => {
 			}
 		} else {
 			const filteredOptions = options.filter(o => model.indexOf(o.value) >= 0);
-			setSelectedOptions(filteredOptions);
+			setSelectedOptions([...filteredOptions]);
 		}
-	}, [model]);
+	}, [model, multiple]);
 
 	const handleOnClick = (option: ISelectOption) => {
 		let newValue: string | Array<string> = multiple ? [] : '';
@@ -102,13 +102,18 @@ export const Select = (props: ISelectProps) => {
 		if (selectedOptions.length > 0) {
 			result = selectedOptions
 				.map(o =>
-					<Chip color={COLOR.primary} key={o.value} className="mr-2">
+					<Chip color={COLOR.primary} key={o.value} className="mr-2" onDelete={(e) => handleOnDelete((e as any), o)}>
 						{o.label}
 					</Chip>
 				);
-			// onDelete={(e) => handleOnDelete((e as any), o)}
 		}
 		return result;
+	}
+
+	const handleOnDelete = (event: Event, option: ISelectOption) => {
+		event.stopPropagation();
+		console.warn(option);
+		// writeValue(newValue)
 	}
 
 	// TODO
