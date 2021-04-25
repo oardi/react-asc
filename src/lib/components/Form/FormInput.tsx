@@ -150,7 +150,7 @@ export const FormInput = (props: IFormInputProps) => {
 					name={name}
 					label={label}
 					className={(!isValid ? ' is-invalid' : '')}
-					onChange={e => onChange && onChange(name, e.target.value, type)}
+					onChange={e => onChange && onChange(name, e.target.checked, type)}
 					checked={value}
 					onKeyDown={onKeyDown}
 				/>

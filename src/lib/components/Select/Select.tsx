@@ -1,13 +1,15 @@
 import React, { KeyboardEventHandler, useEffect, useRef, useState } from 'react';
 import { Backdrop } from '../Backdrop';
 import { Checkbox } from '../Checkbox';
+import { Chip } from '../Chip';
+import { COLOR } from '../component.enums';
 import { List, ListItem, ListItemText } from '../List';
 import styles from './Select.module.scss';
 
 // TODO
+// direkt mit array statt string|array<string>?
 // navigate by keys
 // on key down enter
-// viewModel
 
 export interface ISelectOption {
 	value: string;
@@ -42,67 +44,45 @@ export const Select = (props: ISelectProps) => {
 	}
 
 	useEffect(() => {
-		console.warn('value changed');
 		const newValue = !!value ? value : '';
 		writeValue(newValue);
 	}, [value]);
 
-	const writeValue = (val: string | Array<string>) => {
-		console.warn('writeValue', JSON.stringify(val));
-		setModel(val);
-	}
+	const writeValue = (val: string | Array<string>) => setModel(val);
 
 	useEffect(() => {
-		console.warn('model changed', model);
 		if (!multiple) {
 			const newOption = options.find(o => o.value === model);
 			if (newOption) {
 				setSelectedOptions([newOption]);
 			}
 		} else {
-			// TODO
-			// setSelectedOption
+			const filteredOptions = options.filter(o => model.indexOf(o.value) >= 0);
+			setSelectedOptions(filteredOptions);
 		}
 	}, [model]);
 
 	const handleOnClick = (option: ISelectOption) => {
-		console.warn('handleOnClick');
-
-		let newValue;
+		let newValue: string | Array<string> = multiple ? [] : '';
 
 		if (!multiple) {
-			if (newValue !== option.value) {
+			if (model !== option.value) {
 				newValue = option.value;
 				onChange && onChange(newValue);
 			}
 			hide();
 		} else {
-
-			newValue = [];
-
-			// TODO
-			// const selectedOption = selectedOptions.find(o => o.value === option.value);
-			// let newSelectedOptions = [];
-			// if (selectedOption) {
-			// 	newSelectedOptions = selectedOptions.filter(o => o.value !== option.value);
-			// } else {
-			// 	newSelectedOptions.push(option);
-			// }
-			// setSelectedOptions(newSelectedOptions);
-
-			// newValue = selectedOptions.map(o => o.value);
-
-			// onChange && onChange(newValue);
+			const selectedOption = selectedOptions.find(o => o.value === option.value);
+			if (selectedOption) {
+				newValue = selectedOptions.filter(o => o.value !== option.value).map(o => o.value);
+			} else {
+				newValue = (newValue as Array<string>).concat(selectedOptions.map(o => o.value));
+				(newValue as Array<string>).push(option.value);
+			}
+			onChange && onChange(newValue);
 		}
 
 		writeValue(newValue);
-	}
-
-	// TODO
-	const handleOnKeyDown = (e: KeyboardEventHandler<HTMLDivElement>) => {
-		if ((e as any).key === 'Enter') {
-			console.warn('EEENTER');
-		}
 	}
 
 	const show = () => setIsShow(true);
@@ -117,17 +97,37 @@ export const Select = (props: ISelectProps) => {
 		return result;
 	}
 
+	const renderMultipleViewModel = () => {
+		let result = null;
+		if (selectedOptions.length > 0) {
+			result = selectedOptions
+				.map(o =>
+					<Chip color={COLOR.primary} key={o.value} className="mr-2">
+						{o.label}
+					</Chip>
+				);
+			// onDelete={(e) => handleOnDelete((e as any), o)}
+		}
+		return result;
+	}
+
+	// TODO
+	const handleOnKeyDown = (e: KeyboardEventHandler<HTMLDivElement>) => {
+		if ((e as any).key === 'Enter') {
+			// console.warn('EEENTER');
+		}
+	}
+
 	return (
 		<>
 			<div ref={selectConainter} className={styles.selectContainer}>
 
 				<div id={id} className={getCssClass()} onClick={() => show()} tabIndex={0} onKeyDown={e => handleOnKeyDown(e as any)}>
-
 					{!multiple && renderSingleViewModel()}
 
-					{/* {!multiple && viewModel}
+					{multiple && renderMultipleViewModel()}
 
-					{multiple &&
+					{/* {multiple &&
 						selectedOptions
 							.map(o =>
 								<Chip color={COLOR.primary} key={o.value} className="mr-2" onDelete={(e) => handleOnDelete((e as any), o)}>
