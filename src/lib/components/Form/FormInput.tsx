@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Checkbox } from '../Checkbox';
 import { FileInput } from '../FileInput';
+import { Select } from '../Select';
 import { Textarea } from '../Textarea';
 import { IFormInputOptions, IFormTextAreaOptions, IFormSelectOptions } from './form.interfaces';
 import { IFormControlType } from './form.types';
@@ -19,7 +20,7 @@ export interface IFormInputProps {
 	textareaOptions?: IFormTextAreaOptions;
 	selectOptions?: IFormSelectOptions;
 	label?: string; // checkbox, radio - move?
-	onChange?: (event: any) => void;
+	onChange?: (name: string, value: any, type: string) => void;
 	onBlur?: (event: any) => void;
 	onKeyDown?: (event: any) => void;
 }
@@ -71,7 +72,7 @@ export const FormInput = (props: IFormInputProps) => {
 					className={className + (!isValid ? ' is-invalid' : '')}
 					value={value}
 					autoFocus={autoFocus}
-					onChange={onChange}
+					onChange={e => onChange && onChange(name, e.target.value, type)}
 					onBlur={onBlur}
 					placeholder={placeholder}
 					readOnly={readonly}
@@ -89,7 +90,7 @@ export const FormInput = (props: IFormInputProps) => {
 					autoFocus={autoFocus}
 					readOnly={readonly}
 					disabled={disabled}
-					onChange={onChange}
+					onChange={e => onChange && onChange(name, e.target.value, type)}
 				/>
 			}
 
@@ -101,7 +102,7 @@ export const FormInput = (props: IFormInputProps) => {
 					className={className + (!isValid ? ' is-invalid' : '')}
 					value={value}
 					autoFocus={autoFocus}
-					onChange={onChange}
+					onChange={e => onChange && onChange(name, e.target.value, type)}
 					placeholder={placeholder}
 					rows={textareaOptions?.rows}
 					style={textareaOptions?.resize !== false ? undefined : { resize: 'none' }}
@@ -109,7 +110,7 @@ export const FormInput = (props: IFormInputProps) => {
 				/>
 			}
 
-			{
+			{/* {
 				type === 'select' &&
 				<select
 					id={name}
@@ -127,6 +128,19 @@ export const FormInput = (props: IFormInputProps) => {
 						</option>
 					)}
 				</select>
+			}*/}
+
+			{
+				type === 'select' &&
+				<Select
+					id={name}
+					name={name}
+					className={className + (!isValid ? ' is-invalid' : '')}
+					value={value}
+					multiple={selectOptions?.multiple}
+					onChange={e => onChange && onChange(name, e, type)}
+					options={options}
+				/>
 			}
 
 			{
@@ -136,13 +150,13 @@ export const FormInput = (props: IFormInputProps) => {
 					name={name}
 					label={label}
 					className={(!isValid ? ' is-invalid' : '')}
-					onChange={onChange}
+					onChange={e => onChange && onChange(name, e.target.value, type)}
 					checked={value}
 					onKeyDown={onKeyDown}
 				/>
 			}
 
-			{
+			{/* {
 				type === 'checkboxgroup' &&
 				options && options.map(option =>
 					<Checkbox
@@ -152,11 +166,11 @@ export const FormInput = (props: IFormInputProps) => {
 						name={name}
 						value={option.value}
 						checked={value && value.some((v: string) => v === option.value)}
-						onChange={onChange}
+						onChange={e => onChange && onChange(name, e.target.checked, type)}
 						onKeyDown={onKeyDown}
 					/>
 				)
-			}
+			} */}
 
 			{
 				type === 'radio' &&
@@ -168,7 +182,7 @@ export const FormInput = (props: IFormInputProps) => {
 								name={name}
 								type="radio"
 								className="form-check-input"
-								onChange={onChange}
+								onChange={e => onChange && onChange(name, e.target.value, type)}
 								value={option.value}
 								checked={value === option.value}
 								onKeyDown={onKeyDown}

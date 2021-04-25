@@ -89,30 +89,7 @@ export class Form extends Component<IFormProps, IFormState> {
 		return errors;
 	}
 
-	private handleInputChange(e: Event) {
-		let { name, value, checked, type } = (e.target as HTMLInputElement);
-
-		// TODO! - read value from formElements
-		const htmlInputElement = (this.myForm?.current as any)[name];
-
-		// TODO - type checkboxgroup with component?
-		if (type === 'checkbox') {
-			if ((htmlInputElement as RadioNodeList).length > 0) {
-				const formControls = htmlInputElement as RadioNodeList;
-				const formControlsAsArray = Array.from(formControls);
-				const values = formControlsAsArray.map((control) => (control as HTMLInputElement).checked ? (control as HTMLInputElement).value : '').filter(v => v);
-				(value as any) = values;
-			} else {
-				(value as any) = checked;
-			}
-		}
-
-		if (type === 'select-multiple') {
-			const { selectedOptions } = (e.target as HTMLSelectElement);
-			const values = selectedOptions && Array.from(selectedOptions, (option) => (option as any).value);
-			(value as any) = values;
-		}
-
+	private handleInputChange(name: string, value: any, type: string) {
 		const field = this.getControl(name);
 		field.value = value;
 
@@ -244,7 +221,7 @@ export class Form extends Component<IFormProps, IFormState> {
 								value={this.getControl(fieldKey).value}
 								disabled={this.getControl(fieldKey).config.disabled}
 								readonly={this.getControl(fieldKey).config.readonly}
-								onChange={(e) => this.handleInputChange(e)}
+								onChange={(name, value, type) => this.handleInputChange(name, value, type)}
 								onBlur={(e) => this.handleOnBlur(e)}
 								onKeyDown={(e) => this.handleOnKeyDown(e)}
 							/>

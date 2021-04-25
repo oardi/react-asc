@@ -1,20 +1,17 @@
 import React, { KeyboardEventHandler, useEffect, useRef, useState } from 'react';
 import { Backdrop } from '../Backdrop';
 import { Checkbox } from '../Checkbox';
-import { Chip } from '../Chip';
-import { COLOR } from '../component.enums';
 import { List, ListItem, ListItemText } from '../List';
 import styles from './Select.module.scss';
 
 // TODO
-// get value as mutiple?
 // navigate by keys
 // on key down enter
+// viewModel
 
 export interface ISelectOption {
 	value: string;
 	label?: string;
-	isActive?: boolean;
 }
 
 export interface ISelectProps {
@@ -30,34 +27,12 @@ export interface ISelectProps {
 
 export const Select = (props: ISelectProps) => {
 
-	const [model, setModel] = useState<string | Array<string>>('');
-	const [optionList, setOptionList] = useState<Array<ISelectOption>>([]);
-	const [viewModel, setViewModel] = useState<string | Array<string>>('');
-	const [isShow, setIsShow] = useState<boolean>(false);
-	const selectConainter = useRef<HTMLDivElement>(null);
-
 	const { id, className, options, value, multiple, onChange } = props;
 
-	useEffect(() => {
-		if (!!value) writeValue(value);
-	}, [value]);
-
-	useEffect(() => {
-		const newOptions = options.map(o => { o.isActive = multiple ? (value as Array<string>).indexOf(o.value) >= 0 : o.value === value; return o });
-		setOptionList(newOptions);
-	}, [options]);
-
-	const writeValue = (val: string | Array<string>) => {
-		setModel(val);
-
-		if (!multiple) {
-			const option = options?.find(o => o.value === val);
-			if (option)
-				setViewModel(option.label as string);
-		} else {
-			setViewModel(val);
-		}
-	}
+	const [model, setModel] = useState<string | Array<string>>('');
+	const [isShow, setIsShow] = useState<boolean>(false);
+	const [selectedOptions, setSelectedOptions] = useState<Array<ISelectOption>>([]);
+	const selectConainter = useRef<HTMLDivElement>(null);
 
 	const getCssClass = () => {
 		const result = [];
@@ -66,87 +41,112 @@ export const Select = (props: ISelectProps) => {
 		return result.filter(r => r).join(' ');
 	}
 
-	const handleOnClick = (option: ISelectOption) => {
-		if (!multiple) {
+	useEffect(() => {
+		console.warn('value changed');
+		const newValue = !!value ? value : '';
+		writeValue(newValue);
+	}, [value]);
 
-			if (option.value !== model) {
-
-				const newOptions = options.map(o => { o.isActive = false; return o });
-				setOptionList(newOptions);
-
-				writeValue(option.value);
-
-				if (onChange) {
-					onChange(option.value);
-				}
-			}
-
-			hide();
-		} else {
-			const newOptions = options;
-			const updatedOption = newOptions.find(o => o.value === option.value);
-			if (updatedOption) updatedOption.isActive = !updatedOption.isActive;
-			setOptionList(newOptions);
-
-			const activeOptions = newOptions.filter(o => o.isActive);
-			writeValue(activeOptions.map(o => o.value));
-
-			if (onChange) {
-				onChange(activeOptions.map(o => o.value));
-			}
-		}
+	const writeValue = (val: string | Array<string>) => {
+		console.warn('writeValue', JSON.stringify(val));
+		setModel(val);
 	}
 
+	useEffect(() => {
+		console.warn('model changed', model);
+		if (!multiple) {
+			const newOption = options.find(o => o.value === model);
+			if (newOption) {
+				setSelectedOptions([newOption]);
+			}
+		} else {
+			// TODO
+			// setSelectedOption
+		}
+	}, [model]);
 
+	const handleOnClick = (option: ISelectOption) => {
+		console.warn('handleOnClick');
+
+		let newValue;
+
+		if (!multiple) {
+			if (newValue !== option.value) {
+				newValue = option.value;
+				onChange && onChange(newValue);
+			}
+			hide();
+		} else {
+
+			newValue = [];
+
+			// TODO
+			// const selectedOption = selectedOptions.find(o => o.value === option.value);
+			// let newSelectedOptions = [];
+			// if (selectedOption) {
+			// 	newSelectedOptions = selectedOptions.filter(o => o.value !== option.value);
+			// } else {
+			// 	newSelectedOptions.push(option);
+			// }
+			// setSelectedOptions(newSelectedOptions);
+
+			// newValue = selectedOptions.map(o => o.value);
+
+			// onChange && onChange(newValue);
+		}
+
+		writeValue(newValue);
+	}
+
+	// TODO
 	const handleOnKeyDown = (e: KeyboardEventHandler<HTMLDivElement>) => {
 		if ((e as any).key === 'Enter') {
 			console.warn('EEENTER');
 		}
 	}
 
-	const show = () => {
-		setIsShow(true);
-	}
+	const show = () => setIsShow(true);
+	const hide = () => setIsShow(false);
+	const isActive = (option: ISelectOption) => selectedOptions.indexOf(option) >= 0;
 
-	const hide = () => {
-		setIsShow(false);
+	const renderSingleViewModel = () => {
+		let result = null;
+		if (selectedOptions.length > 0) {
+			result = <span>{selectedOptions[0].label}</span>;
+		}
+		return result;
 	}
-
-	const handleOnDelete = (e: Event, option: ISelectOption) => {
-		console.warn('handleDELETE');
-		e.stopPropagation();
-		handleOnClick(option);
-	};
 
 	return (
 		<>
 			<div ref={selectConainter} className={styles.selectContainer}>
 
 				<div id={id} className={getCssClass()} onClick={() => show()} tabIndex={0} onKeyDown={e => handleOnKeyDown(e as any)}>
-					{!multiple && viewModel}
 
-					{/* refactor! */}
-					{multiple && optionList.length > 0 &&
-						optionList
-							.filter(o => o.isActive)
+					{!multiple && renderSingleViewModel()}
+
+					{/* {!multiple && viewModel}
+
+					{multiple &&
+						selectedOptions
 							.map(o =>
-								<Chip color={COLOR.primary} style={{ zIndex: 1111 }} key={o.value} className="mr-2" onDelete={(e) => handleOnDelete((e as any), o)}>
+								<Chip color={COLOR.primary} key={o.value} className="mr-2" onDelete={(e) => handleOnDelete((e as any), o)}>
 									{o.label}
 								</Chip>
 							)
-					}
+					} */}
 				</div>
 
 				{isShow &&
 					<>
 						<div className={styles.selectMenu}>
 							<List>
-								{optionList && optionList.map((option) =>
-									<ListItem key={option.value} onClick={() => handleOnClick(option)} active={option.isActive}>
+								{options && options.map((option) =>
+									<ListItem key={option.value} onClick={() => handleOnClick(option)} active={isActive(option)}>
 
 										{multiple &&
 											<Checkbox
-												checked={option.isActive}
+												checked={isActive(option)}
 												onChange={() => handleOnClick(option)}
 											/>
 										}

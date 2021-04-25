@@ -12,7 +12,7 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 	}, []);
 
 	const handleOnChange = (e: string | Array<string>) => {
-		snackbarService.show(`value change "${JSON.stringify(e)}"`);
+		snackbarService.show(`value changed: ${e}`);
 	}
 
 	return (
