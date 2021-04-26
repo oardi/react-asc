@@ -112,14 +112,12 @@ export const Select = (props: ISelectProps) => {
 
 	const handleOnDelete = (event: Event, option: ISelectOption) => {
 		event.stopPropagation();
-		console.warn(option);
-		// writeValue(newValue)
+		handleOnClick(option);
 	}
 
 	// TODO
 	const handleOnKeyDown = (e: KeyboardEventHandler<HTMLDivElement>) => {
 		if ((e as any).key === 'Enter') {
-			// console.warn('EEENTER');
 		}
 	}
 

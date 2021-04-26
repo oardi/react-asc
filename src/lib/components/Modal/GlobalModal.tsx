@@ -56,11 +56,6 @@ export const GlobalModal = ({
 		onOk && onOk(values);
 	}
 
-	// TODO
-	const handleClickBackdrop = () => {
-		console.warn('backdrop click');
-	}
-
 	const handleClickButton = (button: IModalButton) => {
 		switch (button.type) {
 			case MODALBUTTONTYPE.OK:
@@ -82,7 +77,6 @@ export const GlobalModal = ({
 			header={title}
 			onHeaderCloseClick={onCancel}
 			isDismissable={isDismissable}
-			onBackdropClick={handleClickBackdrop}
 			footer={
 				<Fragment>
 					{buttons.map((button, index) => (
