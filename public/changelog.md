@@ -1,6 +1,7 @@
-Unreleased
-- select - added component
 
+## v3.0.0
+- select - added component v1
+- breaking change form
 
 ## v2.10.1
 - form - style fix
