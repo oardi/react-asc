@@ -34,21 +34,21 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 		time: new FormControl('', [], 'time', { label: 'Time' }),
 		file: new FormControl('', [], 'file', { label: 'File' }),
 		checkbox: new FormControl('', [], 'checkbox', { label: 'Checkbox' }),
-		checkBoxGroup: new FormControl(['option2'], [], 'checkboxgroup', {
-			label: 'CheckBoxGroup',
-			options: [
-				{ id: 'checkboxOption1', label: 'Option 1', value: 'option1' },
-				{ id: 'checkboxOption2', label: 'Option 2', value: 'option2' },
-				{ id: 'checkboxOption3', label: 'Option 3', value: 'option3' },
-			]
-		}),
-		select: new FormControl('', [], 'select', {
+		// checkBoxGroup: new FormControl(['option2'], [], 'checkboxgroup', {
+		// 	label: 'CheckBoxGroup',
+		// 	options: [
+		// 		{ id: 'checkboxOption1', label: 'Option 1', value: 'option1' },
+		// 		{ id: 'checkboxOption2', label: 'Option 2', value: 'option2' },
+		// 		{ id: 'checkboxOption3', label: 'Option 3', value: 'option3' },
+		// 	]
+		// }),
+		select: new FormControl('option2', [], 'select', {
 			label: 'Select',
-			options: [{ label: 'Option 1', value: 'option1' }, { label: 'Option 2', value: 'option2' }]
+			options: [{ label: 'Option 1', value: 'option1' }, { label: 'Option 2', value: 'option2' }, { label: 'Option 3', value: 'option3' }]
 		}),
-		selectMultiple: new FormControl([], [], 'select', {
-			label: 'Select',
-			options: [{ label: 'Option 1', value: 'option1' }, { label: 'Option 2', value: 'option2' }],
+		selectMultiple: new FormControl(['option2'], [], 'select', {
+			label: 'Select multiple',
+			options: [{ label: 'Option 1', value: 'option1' }, { label: 'Option 2', value: 'option2' }, { label: 'Option 3', value: 'option3' }],
 			selectOptions: { multiple: true }
 		}),
 

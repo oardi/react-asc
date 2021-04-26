@@ -1,4 +1,8 @@
 
+## v3.0.1
+- select - added onKeyDown
+- showcase form - fixed
+
 ## v3.0.0
 - select - added component v1
 - breaking change form

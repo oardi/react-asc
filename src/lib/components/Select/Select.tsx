@@ -24,11 +24,12 @@ export interface ISelectProps {
 	multiple?: boolean;
 	disabled?: boolean;
 	onChange?: (val: string | Array<string>) => void;
+	onKeyDown?: (event: any) => void;
 }
 
 export const Select = (props: ISelectProps) => {
 
-	const { id, className, options, value, multiple, onChange } = props;
+	const { id, className, options, value, multiple, onChange, onKeyDown } = props;
 
 	const [model, setModel] = useState<string | Array<string>>('');
 	const [isShow, setIsShow] = useState<boolean>(false);
@@ -116,8 +117,7 @@ export const Select = (props: ISelectProps) => {
 
 	// TODO
 	const handleOnKeyDown = (e: KeyboardEventHandler<HTMLDivElement>) => {
-		if ((e as any).key === 'Enter') {
-		}
+		onKeyDown && onKeyDown(e);
 	}
 
 	return (
@@ -126,17 +126,7 @@ export const Select = (props: ISelectProps) => {
 
 				<div id={id} className={getCssClass()} onClick={() => show()} tabIndex={0} onKeyDown={e => handleOnKeyDown(e as any)}>
 					{!multiple && renderSingleViewModel()}
-
 					{multiple && renderMultipleViewModel()}
-
-					{/* {multiple &&
-						selectedOptions
-							.map(o =>
-								<Chip color={COLOR.primary} key={o.value} className="mr-2" onDelete={(e) => handleOnDelete((e as any), o)}>
-									{o.label}
-								</Chip>
-							)
-					} */}
 				</div>
 
 				{isShow &&

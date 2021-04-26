@@ -49,7 +49,6 @@ export const FormInput = (props: IFormInputProps) => {
 	return (
 		<Fragment>
 			{/*
-				'multiselect' |
 				'autocomplete' |
 				'toggle' */}
 
@@ -110,26 +109,6 @@ export const FormInput = (props: IFormInputProps) => {
 				/>
 			}
 
-			{/* {
-				type === 'select' &&
-				<select
-					id={name}
-					name={name}
-					className={className + (!isValid ? ' is-invalid' : '')}
-					value={value}
-					autoFocus={autoFocus}
-					multiple={selectOptions?.multiple}
-					onChange={onChange}
-					onKeyDown={onKeyDown}
-				>
-					{options.map((option) =>
-						<option key={option.value} value={option.value}>
-							{option.label ? option.label : option.value}
-						</option>
-					)}
-				</select>
-			}*/}
-
 			{
 				type === 'select' &&
 				<Select
@@ -139,6 +118,7 @@ export const FormInput = (props: IFormInputProps) => {
 					value={value}
 					multiple={selectOptions?.multiple}
 					onChange={e => onChange && onChange(name, e, type)}
+					onKeyDown={onKeyDown}
 					options={options}
 				/>
 			}
