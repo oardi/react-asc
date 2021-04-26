@@ -7,7 +7,6 @@ import { List, ListItem, ListItemText } from '../List';
 import styles from './Select.module.scss';
 
 // TODO
-// direkt mit array statt string|array<string>?
 // navigate by keys
 // on key down enter
 
