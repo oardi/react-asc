@@ -11,5 +11,6 @@ export interface ISelectProps {
     multiple?: boolean;
     disabled?: boolean;
     onChange?: (val: string | Array<string>) => void;
+    onKeyDown?: (event: any) => void;
 }
 export declare const Select: (props: ISelectProps) => JSX.Element;
