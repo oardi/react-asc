@@ -1,3 +1,7 @@
+Unreleased
+- select - added component
+
+
 ## v2.10.1
 - form - style fix
 

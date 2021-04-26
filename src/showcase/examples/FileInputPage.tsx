@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import { FileInput, FormControl, IFileInputProps } from '../../lib';
+import { FileInput, FormControl, IFileInputProps, snackbarService } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const FileInputPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IFileInputProps>) => {
@@ -13,7 +13,7 @@ const FileInputPageBase = ({ settingValues, setSettingsControls }: IShowcaseBase
 	}, []);
 
 	const handleOnChange = (e: any) => {
-		console.warn('handleOnChange', e);
+		snackbarService.show(`FileInput changed`);
 	}
 
 	return (

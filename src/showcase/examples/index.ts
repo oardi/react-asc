@@ -19,5 +19,6 @@ export * from './TabsetPage';
 export * from './TooltipPage';
 export * from './TreeViewPage';
 export * from './SvgIconPage';
+export * from './SelectPage';
 
 export * from '../../showcase/assets';
