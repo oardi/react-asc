@@ -8,5 +8,6 @@ export interface IChipProps {
     onClick?: (e: React.MouseEvent<Element>) => void;
     onDelete?: (e: React.MouseEvent<Element>) => void;
     deleteIcon?: any;
+    style?: any;
 }
 export declare const Chip: (props: IChipProps) => JSX.Element;

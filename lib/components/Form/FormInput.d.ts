@@ -14,7 +14,7 @@ export interface IFormInputProps {
     textareaOptions?: IFormTextAreaOptions;
     selectOptions?: IFormSelectOptions;
     label?: string;
-    onChange?: (event: any) => void;
+    onChange?: (name: string, value: any, type: string) => void;
     onBlur?: (event: any) => void;
     onKeyDown?: (event: any) => void;
 }

@@ -18,6 +18,7 @@ export * from './Modal';
 export * from './Sidebar';
 export * from './SvgIcon';
 export * from './Snackbar';
+export * from './Select';
 export * from './Table';
 export * from './Tabset';
 export * from './Textarea';
