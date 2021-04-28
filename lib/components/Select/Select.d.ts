@@ -1,3 +1,4 @@
+/// <reference types="react" />
 export interface ISelectOption {
     value: string;
     label?: string;

@@ -1,3 +1,4 @@
+/// <reference types="react" />
 export interface ITreeViewProps {
     data: Array<any>;
     onSelect: (selectedItems: Array<any>) => void;

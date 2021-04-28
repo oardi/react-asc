@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { IFormInputError } from './form.interfaces';
 interface IFormErrorProps {
     className?: string;

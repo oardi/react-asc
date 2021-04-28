@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { IFormInputOptions, IFormTextAreaOptions, IFormSelectOptions } from './form.interfaces';
 import { IFormControlType } from './form.types';
 export interface IFormInputProps {

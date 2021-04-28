@@ -1,4 +1,5 @@
-
+## v3.0.2
+- updated packages
 ## v3.0.1
 - select - added onKeyDown
 - showcase form - fixed
