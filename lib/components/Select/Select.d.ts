@@ -7,9 +7,10 @@ export interface ISelectProps {
     id?: string;
     name?: string;
     className?: string;
-    options: Array<ISelectOption>;
+    options?: Array<ISelectOption>;
     value?: string | Array<string>;
     multiple?: boolean;
+    multipleMaxCountItems?: number;
     disabled?: boolean;
     onChange?: (val: string | Array<string>) => void;
     onKeyDown?: (event: any) => void;
