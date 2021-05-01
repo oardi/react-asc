@@ -1,6 +1,6 @@
 {
 	"name": "react-craft",
-	"version": "3.0.2",
+	"version": "3.0.3",
 	"description": "handcrafted react components",
 	"private": true,
 	"main": "lib/index.js",

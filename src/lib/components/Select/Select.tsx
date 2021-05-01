@@ -19,9 +19,10 @@ export interface ISelectProps {
 	id?: string;
 	name?: string;
 	className?: string;
-	options: Array<ISelectOption>;
+	options?: Array<ISelectOption>;
 	value?: string | Array<string>;
 	multiple?: boolean;
+	multipleMaxCountItems?: number;
 	disabled?: boolean;
 	onChange?: (val: string | Array<string>) => void;
 	onKeyDown?: (event: any) => void;
@@ -29,7 +30,7 @@ export interface ISelectProps {
 
 export const Select = (props: ISelectProps) => {
 
-	const { id, className, options, value, multiple, onChange, onKeyDown } = props;
+	const { id, className, options = [], value, multiple, multipleMaxCountItems = 5, onChange, onKeyDown } = props;
 
 	const [model, setModel] = useState<string | Array<string>>('');
 	const [isShow, setIsShow] = useState<boolean>(false);
@@ -99,13 +100,15 @@ export const Select = (props: ISelectProps) => {
 
 	const renderMultipleViewModel = () => {
 		let result = null;
-		if (selectedOptions.length > 0) {
+		if (selectedOptions.length <= multipleMaxCountItems && selectedOptions.length > 0) {
 			result = selectedOptions
 				.map(o =>
 					<Chip color={COLOR.primary} key={o.value} className="mr-2" onDelete={(e) => handleOnDelete((e as any), o)}>
 						{o.label}
 					</Chip>
 				);
+		} else {
+			result = <span>{selectedOptions.length} Items selected</span>
 		}
 		return result;
 	}

@@ -1,3 +1,6 @@
+## v3.0.3
+- select - multipleMaxCountItems, style fix
+
 ## v3.0.2
 - updated packages
 ## v3.0.1

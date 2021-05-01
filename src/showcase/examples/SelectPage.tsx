@@ -7,7 +7,8 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 	useEffect(() => {
 		setSettingsControls({
 			multiple: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'multiple' }),
-			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' })
+			multipleMaxCountItems: new FormControl(settingValues.multipleMaxCountItems, [], 'number', { label: 'max count items show (multiple)' }),
+			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' }),
 		});
 	}, []);
 
@@ -22,6 +23,7 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 				name="myselect"
 				className="form-control"
 				multiple={settingValues.multiple}
+				multipleMaxCountItems={settingValues.multipleMaxCountItems}
 				options={[
 					{ value: "1", label: 'one' },
 					{ value: "2", label: 'two' },
@@ -33,6 +35,11 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 					{ value: "8", label: 'eight' },
 					{ value: "9", label: 'nine' },
 					{ value: "10", label: 'ten' },
+					{ value: "11", label: 'eleven' },
+					{ value: "12", label: 'twelve' },
+					{ value: "13", label: 'thirteen' },
+					{ value: "14", label: 'fourteen' },
+					{ value: "15", label: 'fifteen' },
 				]}
 				onChange={handleOnChange}
 				disabled={settingValues.disabled}
@@ -42,5 +49,6 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 	);
 }
 
-export const SelectPage = withOptions<IAppBarProps>(SelectPageBase, {
+export const SelectPage = withOptions<ISelectProps>(SelectPageBase, {
+	multipleMaxCountItems: 5
 });
