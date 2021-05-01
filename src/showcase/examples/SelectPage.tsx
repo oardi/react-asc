@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import { FormControl, IAppBarProps, ISelectProps, Select, snackbarService } from '../../lib';
+import { FormControl, ISelectProps, Select, snackbarService } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ISelectProps>) => {
