@@ -2,6 +2,7 @@ import React, { MouseEvent, ReactNode } from 'react';
 import styles from './ListItem.module.scss';
 
 export interface IListItemProps {
+	id?: string;
 	children?: ReactNode;
 	active?: boolean;
 	className?: string;
@@ -12,7 +13,7 @@ export interface IListItemProps {
 
 export const ListItem = (props: IListItemProps) => {
 
-	const { children, active = false, className, isHoverable = false, isDisabled = false, onClick } = props;
+	const { id, children, active = false, className, isHoverable = false, isDisabled = false, onClick } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -37,7 +38,7 @@ export const ListItem = (props: IListItemProps) => {
 	};
 
 	return (
-		<li onClick={handleClick} className={getCssClasses()}>
+		<li id={id} onClick={handleClick} className={getCssClasses()}>
 			{children}
 		</li>
 	);

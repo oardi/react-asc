@@ -8,7 +8,8 @@ import styles from './Select.module.scss';
 
 // TODO
 // navigate by keys
-// on key down enter
+// on key down
+// option als component auslagern?
 
 export interface ISelectOption {
 	value: string;
@@ -33,6 +34,7 @@ export const Select = (props: ISelectProps) => {
 	const { id, className, options = [], value, multiple, multipleMaxCountItems = 5, onChange, onKeyDown } = props;
 
 	const [model, setModel] = useState<string | Array<string>>('');
+	const [hoverIndex, setHoverIndex] = useState<number>(0);
 	const [isShow, setIsShow] = useState<boolean>(false);
 	const [selectedOptions, setSelectedOptions] = useState<Array<ISelectOption>>([]);
 	const selectConainter = useRef<HTMLDivElement>(null);
@@ -47,7 +49,19 @@ export const Select = (props: ISelectProps) => {
 	useEffect(() => {
 		const newValue = !!value ? value : '';
 		writeValue(newValue);
+		if (newValue) {
+			const option = options.find(o => o.value === newValue);
+			if (option) {
+				setHoverIndex(options.indexOf(option));
+			}
+		}
 	}, [value]);
+
+	useEffect(() => {
+		// check hover index
+		const htmlListItem = selectConainter.current?.querySelector(`#list-item-${hoverIndex}`);
+		htmlListItem?.scrollIntoView();
+	}, [hoverIndex]);
 
 	const writeValue = (val: string | Array<string>) => setModel(val);
 
@@ -88,7 +102,9 @@ export const Select = (props: ISelectProps) => {
 
 	const show = () => setIsShow(true);
 	const hide = () => setIsShow(false);
-	const isActive = (option: ISelectOption) => selectedOptions.indexOf(option) >= 0;
+	const isActive = (option: ISelectOption) => {
+		return selectedOptions.indexOf(option) >= 0 || hoverIndex === options.indexOf(option);
+	}
 
 	const renderSingleViewModel = () => {
 		let result = null;
@@ -120,7 +136,30 @@ export const Select = (props: ISelectProps) => {
 
 	// TODO
 	const handleOnKeyDown = (e: KeyboardEventHandler<HTMLDivElement>) => {
-		onKeyDown && onKeyDown(e);
+		if (isShow) {
+			onKeyDown && onKeyDown(e);
+
+			switch ((e as any).code) {
+				case 'Escape':
+					hide();
+					break;
+				case 'ArrowDown':
+					setHoverIndex(hoverIndex + 1);
+					break;
+				case 'ArrowUp':
+					// TODO
+					setHoverIndex(hoverIndex - 1);
+					break;
+				case 'Enter':
+					if (hoverIndex) {
+						const option = options[hoverIndex];
+						if (option) handleOnClick(option);
+					}
+					break;
+				default:
+					break;
+			}
+		}
 	}
 
 	return (
@@ -136,8 +175,8 @@ export const Select = (props: ISelectProps) => {
 					<>
 						<div className={styles.selectMenu}>
 							<List>
-								{options && options.map((option) =>
-									<ListItem key={option.value} onClick={() => handleOnClick(option)} active={isActive(option)}>
+								{options && options.map((option, index) =>
+									<ListItem id={`list-item-${index}`} key={option.value} onClick={() => handleOnClick(option)} active={isActive(option)}>
 
 										{multiple &&
 											<Checkbox
