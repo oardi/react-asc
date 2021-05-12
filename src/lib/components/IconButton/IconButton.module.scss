@@ -6,8 +6,6 @@
 	justify-content: center;
 	align-items: center;
 
-	width: 48px;
-	height: 48px;
 	min-width: auto;
 
 	box-shadow: none;
@@ -20,7 +18,8 @@
 	background-color: transparent;
 	font-size: 1rem;
 	line-height: 1.5;
-	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+		box-shadow 0.15s ease-in-out;
 
 	border: none;
 
@@ -29,30 +28,47 @@
 		cursor: pointer;
 	}
 
+	&.sm {
+	}
+
+	&.md {
+		width: 48px;
+		height: 48px;
+	}
+
+	&.lg {
+		width: 56px;
+		height: 56px;
+	}
+
 	&.text {
 		padding: 0;
 		background: transparent;
 		color: rgba(0, 0, 0, 0.54);
 
-		&:hover, &.active {
+		&:hover,
+		&.active {
 			text-decoration: underline;
 			background-color: rgba(0, 0, 0, 0.04);
 		}
 
 		&.primary {
-			&:hover, &.active {
+			&:hover,
+			&.active {
 				color: var(--primary);
 			}
 		}
 
 		&.secondary {
-			&:hover, &.active {
+			&:hover,
+			&.active {
 				color: var(--secondary);
 			}
 		}
 
 		&.accent {
-			&:hover, &.active {
+			&:hover,
+			&.active {
 				color: var(--accent);
 			}
 		}
@@ -75,7 +91,8 @@
 		// background: transparent;
 		// color: rgba(0, 0, 0, 0.54);
 
-		&:hover, &.active {
+		&:hover,
+		&.active {
 			text-decoration: underline;
 			background-color: rgba(0, 0, 0, 0.04);
 		}
@@ -83,7 +100,8 @@
 		&.primary {
 			background-color: var(--primary);
 			color: var(--white);
-			&:hover, &.active {
+			&:hover,
+			&.active {
 				background-color: var(--primary-dark);
 			}
 		}
@@ -91,7 +109,8 @@
 		&.secondary {
 			background-color: var(--secondary);
 			color: var(--white);
-			&:hover, &.active {
+			&:hover,
+			&.active {
 				background-color: var(--secondary-dark);
 			}
 		}
@@ -99,7 +118,8 @@
 		&.accent {
 			background-color: var(--accent);
 			color: var(--white);
-			&:hover, &.active {
+			&:hover,
+			&.active {
 				background-color: var(--accent-dark);
 			}
 		}
@@ -107,7 +127,8 @@
 		&.light {
 			background-color: var(--light);
 			color: var(--dark);
-			&:hover, &.active {
+			&:hover,
+			&.active {
 				background-color: var(--light-dark);
 			}
 		}

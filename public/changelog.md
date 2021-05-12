@@ -1,3 +1,7 @@
+## v4.0.1
+- iconButton - add size
+- floatingActionButton - add size
+
 ## v4.0.0
 - floatingActionButton - created barebone
 - iconButton - fixed styles for contained

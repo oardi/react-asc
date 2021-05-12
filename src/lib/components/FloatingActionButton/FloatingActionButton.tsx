@@ -1,11 +1,12 @@
 import React from 'react';
-import { COLOR, VARIANT } from '../component.enums';
+import { COLOR, SIZE, VARIANT } from '../component.enums';
 import { IconButton } from '../IconButton';
 import styles from './FloatingActionButton.module.scss';
 
 export interface IFloatingActionButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
 	icon?: React.SVGProps<SVGSVGElement>;
 	color?: COLOR;
+	size?: SIZE;
 	isActive?: boolean;
 	disabled?: boolean;
 	onClick?: (e: any) => void;
@@ -13,7 +14,7 @@ export interface IFloatingActionButtonProps extends React.DetailedHTMLProps<Reac
 
 export const FloatingActionButton = (props: IFloatingActionButtonProps) => {
 
-	const { className = '', icon, color = COLOR.primary, isActive, disabled, onClick } = props;
+	const { className = '', icon, color = COLOR.primary, size = SIZE.lg, isActive, disabled, onClick } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -31,6 +32,7 @@ export const FloatingActionButton = (props: IFloatingActionButtonProps) => {
 		<IconButton
 			className={getCssClasses()}
 			color={color}
+			size={size}
 			isActive={isActive}
 			disabled={disabled}
 			icon={icon}

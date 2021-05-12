@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import { IconButton, IIconButtonProps, HomeSolidIcon, FormControl, COLOR, VARIANT, snackbarService } from '../../lib';
+import { IconButton, IIconButtonProps, HomeSolidIcon, FormControl, COLOR, VARIANT, snackbarService, SIZE } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IIconButtonProps>) => {
@@ -10,6 +10,7 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' }),
 			isActive: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'isActive' }),
 			variant: new FormControl(settingValues.variant, [], 'select', { label: 'variant', options: Object.keys(VARIANT).map(c => ({ label: c, value: c })) }),
+			size: new FormControl(settingValues.size, [], 'select', { label: 'size', options: Object.keys(SIZE).map(c => ({ label: c, value: c })) }),
 		});
 	}, []);
 
@@ -25,6 +26,7 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 				disabled={settingValues.disabled}
 				icon={<HomeSolidIcon />}
 				variant={settingValues.variant}
+				size={settingValues.size}
 				onClick={handleClick}
 			/>
 		</Fragment>
@@ -33,5 +35,6 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 
 export const IconButtonPage = withOptions<IIconButtonProps>(IconButtonPageBase, {
 	color: COLOR.primary,
-	variant: VARIANT.text
+	variant: VARIANT.text,
+	size: SIZE.md,
 });

@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import { IIconButtonProps, HomeSolidIcon, FormControl, COLOR, snackbarService, FloatingActionButton } from '../../lib';
+import { IIconButtonProps, HomeSolidIcon, FormControl, COLOR, snackbarService, FloatingActionButton, SIZE } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const FloatingActionButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IIconButtonProps>) => {
@@ -9,6 +9,7 @@ const FloatingActionButtonPageBase = ({ settingValues, setSettingsControls }: IS
 			color: new FormControl(settingValues.color, [], 'select', { label: 'color', options: Object.keys(COLOR).map(c => ({ label: c, value: c })) }),
 			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' }),
 			isActive: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'isActive' }),
+			size: new FormControl(settingValues.size, [], 'select', { label: 'size', options: Object.keys(SIZE).map(c => ({ label: c, value: c })) }),
 		});
 	}, []);
 
@@ -20,6 +21,7 @@ const FloatingActionButtonPageBase = ({ settingValues, setSettingsControls }: IS
 		<Fragment>
 			<FloatingActionButton
 				color={settingValues.color}
+				size={settingValues.size}
 				isActive={settingValues.isActive}
 				disabled={settingValues.disabled}
 				icon={<HomeSolidIcon />}
@@ -30,5 +32,6 @@ const FloatingActionButtonPageBase = ({ settingValues, setSettingsControls }: IS
 }
 
 export const FloatingActionButtonPage = withOptions<IIconButtonProps>(FloatingActionButtonPageBase, {
-	color: COLOR.primary
+	color: COLOR.primary,
+	size: SIZE.lg
 });
