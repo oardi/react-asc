@@ -1,8 +1,9 @@
 import React from 'react';
-import { COLOR, VARIANT } from '../component.enums';
+import { COLOR, SIZE, VARIANT } from '../component.enums';
 export interface IIconButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
     icon?: React.SVGProps<SVGSVGElement>;
     color?: COLOR;
+    size?: SIZE;
     isActive?: boolean;
     disabled?: boolean;
     variant?: VARIANT;
