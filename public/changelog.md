@@ -1,3 +1,7 @@
+## v4.0.0
+- floatingActionButton - created barebone
+- iconButton - fixed styles for contained
+
 ## v3.0.3
 - select - multipleMaxCountItems, style fix
 

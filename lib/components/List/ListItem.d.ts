@@ -1,5 +1,6 @@
 import { MouseEvent, ReactNode } from 'react';
 export interface IListItemProps {
+    id?: string;
     children?: ReactNode;
     active?: boolean;
     className?: string;

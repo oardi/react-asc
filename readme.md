@@ -17,11 +17,13 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 - DropDown
 - ExpansionPanel
 - FileInput
+- FloatingActionButton
 - Form (v1)
 - Grid
 - IconButton
 - List
 - Modal + ModalService
+- Select
 - Sidebar
 - Snackbar + SnackbarService
 - SvgIcon

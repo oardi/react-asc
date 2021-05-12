@@ -41,6 +41,9 @@
 				"id": "FileInput"
 			},
 			{
+				"id": "FloatingActionButton"
+			},
+			{
 				"id": "Form"
 			},
 			{
