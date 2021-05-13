@@ -1,3 +1,7 @@
+## v5.0.0
+- loadingIndicator - added component
+- loadingIndicator - added service
+
 ## v4.0.1
 - iconButton - add size
 - floatingActionButton - add size

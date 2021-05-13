@@ -56,6 +56,9 @@
 				"id": "List"
 			},
 			{
+				"id": "LoadingIndicator"
+			},
+			{
 				"id": "Modal"
 			},
 			{

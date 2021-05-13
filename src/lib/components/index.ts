@@ -15,6 +15,7 @@ export * from './Form';
 export * from './Grid';
 export * from './IconButton';
 export * from './List';
+export * from './LoadingIndicator';
 export * from './Modal';
 export * from './Sidebar';
 export * from './SvgIcon';
