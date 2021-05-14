@@ -23,7 +23,6 @@ export const Modal = (props: IModalProps) => {
 		const result = [];
 		result.push('modal-dialog modal-dialog-centered');
 		result.push(styles.modal);
-		console.warn('fullScreen', fullScreen);
 		!!fullScreen && result.push(styles['fullscreen']);
 		result.push(className);
 		return result.filter(r => r).join(' ');

@@ -1,3 +1,6 @@
+## v5.1.1
+- cleanup
+
 ## v5.1.0
 - modal - added fullscreen
 
