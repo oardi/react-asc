@@ -1,3 +1,6 @@
+## v5.0.2
+- FAB - style fix
+
 ## v5.0.1
 - appbar - style fix
 
