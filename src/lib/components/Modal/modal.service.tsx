@@ -15,6 +15,7 @@ export interface IModalOptions {
 	// showCancelButton?: boolean;
 	isDismissable?: boolean;
 	buttons?: Array<IModalButton>;
+	fullScreen?: boolean;
 }
 
 class ModalService implements IModalService {
@@ -38,6 +39,7 @@ class ModalService implements IModalService {
 
 				render(
 					<GlobalModal
+						fullScreen={options && options.fullScreen}
 						title={title}
 						description={description}
 						formControls={options && options.formControls}

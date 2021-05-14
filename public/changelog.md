@@ -1,3 +1,6 @@
+## v5.1.0
+- modal - added fullscreen
+
 ## v5.0.3
 - listeItemAvatar - img style fix
 

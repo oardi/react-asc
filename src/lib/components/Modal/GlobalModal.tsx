@@ -15,6 +15,7 @@ interface IModalProps {
 	onCancel?: () => void;
 	isDismissable?: boolean;
 	buttons?: Array<IModalButton>;
+	fullScreen?: boolean;
 }
 
 export const GlobalModal = ({
@@ -25,13 +26,14 @@ export const GlobalModal = ({
 	onCancel,
 	isDismissable = false,
 	buttons = [
-		{ label: 'cancel', type: MODALBUTTONTYPE.CANCEL, color: COLOR.secondary, variant: VARIANT.text, focus: true },
-		{ label: 'ok', type: MODALBUTTONTYPE.OK, variant: VARIANT.contained },
-	]
+		{ label: 'Cancel', type: MODALBUTTONTYPE.CANCEL, color: COLOR.secondary, variant: VARIANT.text, focus: true },
+		{ label: 'Ok', type: MODALBUTTONTYPE.OK, variant: VARIANT.contained },
+	],
+	fullScreen = false
 }: IModalProps) => {
 
 	// workaround for getDerivedStateFromProps
-	const [myControls, setMyControls] = useState<IControls|null>(null);
+	const [myControls, setMyControls] = useState<IControls | null>(null);
 	useEffect(() => {
 		setMyControls({ ...formControls });
 	}, []);
@@ -74,6 +76,7 @@ export const GlobalModal = ({
 
 	return (
 		<Modal
+			fullScreen={fullScreen}
 			header={title}
 			onHeaderCloseClick={onCancel}
 			isDismissable={isDismissable}

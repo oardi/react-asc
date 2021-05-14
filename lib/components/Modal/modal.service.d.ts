@@ -8,6 +8,7 @@ export interface IModalOptions {
     formControls?: IControls;
     isDismissable?: boolean;
     buttons?: Array<IModalButton>;
+    fullScreen?: boolean;
 }
 declare class ModalService implements IModalService {
     private container;

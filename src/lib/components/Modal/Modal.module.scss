@@ -1,0 +1,14 @@
+.modal {
+	&.fullscreen {
+		width: 100% !important;
+		height: 100% !important;
+		margin: 0;
+		padding: 0;
+
+		.modalContent {
+			height: auto;
+			min-height: 100%;
+			border-radius: 0;
+		}
+	}
+}

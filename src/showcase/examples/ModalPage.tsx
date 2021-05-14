@@ -11,13 +11,14 @@ const ModalPageBase = () => {
 		setIsVisible(!isVisible);
 	}
 
-	const handleClickTriggerModalService = () => {
+	const handleClickTriggerModalService = (fullscreen?: boolean) => {
 		modalService.show('Hello Modal', 'Modal with custom buttons - using custom buttons make sure to attach Modalbuttontype for ok and cancel', {
 			buttons: [
 				{ label: 'delete', color: COLOR.accent, handler: customHandler },
 				{ label: 'cancel', type: MODALBUTTONTYPE.CANCEL, color: COLOR.secondary, variant: VARIANT.text },
 				{ label: 'ok', type: MODALBUTTONTYPE.OK, autoFocus: true },
-			]
+			],
+			fullScreen: fullscreen
 		})
 			.then(() => loggerService.debug('ok clicked')).catch(() => { });
 	}
@@ -42,7 +43,11 @@ const ModalPageBase = () => {
 				</Button>
 
 				<Button onClick={() => handleClickTriggerModalService()}>
-					trigger modal service
+					trigger modal with service
+				</Button>
+
+				<Button onClick={() => handleClickTriggerModalService(true)}>
+					trigger fullscreeen modal with service
 				</Button>
 
 				<Button onClick={() => handleClickTriggerModalFormService()}>

@@ -11,6 +11,7 @@ interface IModalProps {
     onCancel?: () => void;
     isDismissable?: boolean;
     buttons?: Array<IModalButton>;
+    fullScreen?: boolean;
 }
-export declare const GlobalModal: ({ title, description, formControls, onOk, onCancel, isDismissable, buttons }: IModalProps) => JSX.Element;
+export declare const GlobalModal: ({ title, description, formControls, onOk, onCancel, isDismissable, buttons, fullScreen }: IModalProps) => JSX.Element;
 export {};
