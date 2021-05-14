@@ -1,3 +1,6 @@
+## v5.0.1
+- appbar - style fix
+
 ## v5.0.0
 - loadingIndicator - added component
 - loadingIndicator - added service
