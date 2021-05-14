@@ -1,8 +1,12 @@
 .avatar {
 	margin-right: 16px;
 
-	svg {
-		width: 40px;
-		height: 40px;
+	svg, img {
+		width: 24px;
+		height: 24px;
+	}
+
+	img {
+		border-radius: 50%;
 	}
 }

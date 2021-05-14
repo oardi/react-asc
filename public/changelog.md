@@ -1,3 +1,6 @@
+## v5.0.3
+- listeItemAvatar - img style fix
+
 ## v5.0.2
 - FAB - style fix
 
