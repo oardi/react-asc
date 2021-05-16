@@ -6,13 +6,21 @@ import styles from './Drawer.module.scss';
 export interface IDrawerProps {
 	children?: ReactNode;
 	position?: 'left' | 'right';
+	className?: string;
 	// closeOnBackdropClick?: boolean;
 	onClickBackdrop?: () => void;
 }
 
 export const Drawer = (props: IDrawerProps) => {
 
-	const { children, position = 'left', onClickBackdrop } = props;
+	const { children, className = '', position = 'left', onClickBackdrop } = props;
+
+	const getCssClasses = () => {
+		const cssClasses: Array<string> = [];
+		cssClasses.push(styles.drawer);
+		cssClasses.push(className);
+		return cssClasses.filter(css => css).join(' ');
+	};
 
 	useEffect(() => {
 		document.body.classList.add(styles.drawerOpen);
@@ -36,7 +44,7 @@ export const Drawer = (props: IDrawerProps) => {
 
 	return createPortal(
 		<Fragment>
-			<div className={styles.drawer} style={getStyles()}>
+			<div className={getCssClasses()} style={getStyles()}>
 				{children}
 			</div>
 			<Backdrop onClick={handleClickBackdrop} />

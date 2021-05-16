@@ -1,6 +1,6 @@
 {
 	"name": "react-craft",
-	"version": "5.1.1",
+	"version": "5.1.2",
 	"description": "handcrafted react components",
 	"private": true,
 	"main": "lib/index.js",

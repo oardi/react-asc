@@ -10,5 +10,11 @@
 			min-height: 100%;
 			border-radius: 0;
 		}
+
+		@media (min-width: 320px) {
+			& {
+				max-width: 100%;
+			}
+		}
 	}
 }

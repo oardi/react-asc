@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 interface ICardBodyProps {
     children?: ReactNode;
+    className?: string;
 }
-export declare const CardBody: ({ children, ...rest }: ICardBodyProps) => JSX.Element;
+export declare const CardBody: ({ children, className, ...rest }: ICardBodyProps) => JSX.Element;
 export {};

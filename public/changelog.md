@@ -1,3 +1,6 @@
+## v5.1.2
+- style fixes
+
 ## v5.1.1
 - cleanup
 
