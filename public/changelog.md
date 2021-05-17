@@ -1,3 +1,6 @@
+## v6.0.0
+- added Typography component
+
 ## v5.1.2
 - style fixes
 

@@ -20,6 +20,7 @@ export * from './TablePage';
 export * from './TabsetPage';
 export * from './TooltipPage';
 export * from './TreeViewPage';
+export * from './TypographyPage';
 export * from './SvgIconPage';
 export * from './SelectPage';
 

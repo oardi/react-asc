@@ -26,4 +26,5 @@ export * from './Tabset';
 export * from './Textarea';
 export * from './Tooltip';
 export * from './TreeView';
+export * from './Typography';
 export * from './component.enums';
