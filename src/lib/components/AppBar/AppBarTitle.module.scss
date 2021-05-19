@@ -8,6 +8,10 @@
 	line-height: inherit;
 	white-space: nowrap;
 
+	&:hover {
+		cursor: pointer;
+	}
+
 	h1 {
 		margin-bottom: 0;
 		font-size: 20px;

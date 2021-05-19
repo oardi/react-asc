@@ -1,3 +1,6 @@
+## v6.0.1
+- appBar - style fix
+
 ## v6.0.0
 - added Typography component
 
