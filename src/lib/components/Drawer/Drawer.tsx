@@ -7,20 +7,14 @@ export interface IDrawerProps {
 	children?: ReactNode;
 	position?: 'left' | 'right';
 	className?: string;
-	// closeOnBackdropClick?: boolean;
 	onClickBackdrop?: () => void;
+	permanent?: boolean;
+	target?: HTMLElement;
 }
 
 export const Drawer = (props: IDrawerProps) => {
 
-	const { children, className = '', position = 'left', onClickBackdrop } = props;
-
-	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
-		cssClasses.push(styles.drawer);
-		cssClasses.push(className);
-		return cssClasses.filter(css => css).join(' ');
-	};
+	const { children, className = '', position = 'left', permanent = false, target = document.body, onClickBackdrop } = props;
 
 	useEffect(() => {
 		document.body.classList.add(styles.drawerOpen);
@@ -33,22 +27,46 @@ export const Drawer = (props: IDrawerProps) => {
 		onClickBackdrop && onClickBackdrop();
 	}
 
+	return createPortal(
+		<Fragment>
+			<DrawerContent className={className} position={position} permanent={permanent}>
+				{children}
+			</DrawerContent>
+			{!permanent && <Backdrop onClick={handleClickBackdrop} />}
+		</Fragment>,
+		target
+	);
+}
+
+interface IDrawerContentProps {
+	children?: ReactNode;
+	position?: 'left' | 'right';
+	className?: string;
+	permanent?: boolean;
+}
+
+const DrawerContent = (props: IDrawerContentProps) => {
+	const { children, className = '', position = 'left', permanent = false } = props;
+
+	const getCssClasses = () => {
+		const cssClasses: Array<string> = [];
+		cssClasses.push(styles.drawer);
+		cssClasses.push(className);
+		!!permanent && cssClasses.push(styles['permanent']);
+		position === 'left' ? cssClasses.push(styles['left']) : cssClasses.push(styles['right']);
+		return cssClasses.filter(css => css).join(' ');
+	};
+
 	const positionStyles = {
 		left: { left: '0px' },
 		right: { right: '0px' },
 	};
 
 	const getStyles = () => {
-		return positionStyles[position];
-	}
+		return !permanent ? positionStyles[position] : undefined;
+	};
 
-	return createPortal(
-		<Fragment>
-			<div className={getCssClasses()} style={getStyles()}>
-				{children}
-			</div>
-			<Backdrop onClick={handleClickBackdrop} />
-		</Fragment>,
-		document.body
-	);
+	return <div className={getCssClasses()} style={getStyles()}>
+		{children}
+	</div>
 }

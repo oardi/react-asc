@@ -11,6 +11,7 @@ const DrawerPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 	useEffect(() => {
 		setSettingsControls({
 			position: new FormControl(settingValues.position, [], 'select', { label: 'position', options: [{ label: 'left', value: 'left' }, { label: 'right', value: 'right' }] }),
+			permanent: new FormControl(settingValues.permanent, [], 'checkbox', { label: 'permanent' }),
 		});
 	}, []);
 
@@ -28,6 +29,7 @@ const DrawerPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 			{isVisible &&
 				<Drawer
 					position={settingValues.position}
+					permanent={settingValues.permanent}
 					onClickBackdrop={handleClick}
 				>
 					some drawer content
@@ -38,5 +40,6 @@ const DrawerPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 }
 
 export const DrawerPage = withOptions<IDrawerProps>(DrawerPageBase, {
-	position: 'left'
+	position: 'left',
+	permanent: false
 });

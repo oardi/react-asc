@@ -1,3 +1,6 @@
+## v6.1.0
+- drawer - added prop permanent
+
 ## v6.0.1
 - appBar - style fix
 

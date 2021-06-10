@@ -8,6 +8,18 @@
 	min-width: 280px; // TODO - responsive
 
 	overflow-y: auto;
+
+	&.permanent {
+		position: inherit;
+	}
+
+	&.left {
+		order: 0;
+	}
+
+	&.right {
+		order: 2;
+	}
 }
 
 .drawerOpen {

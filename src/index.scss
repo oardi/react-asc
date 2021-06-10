@@ -25,11 +25,14 @@ body,
 
 body {
 	background: #f5f6fa;
+	display: flex;
 }
 
 #root {
 	display: flex;
 	flex-direction: column;
+	width: 100%;
+	order: 1;
 }
 
 .main {
