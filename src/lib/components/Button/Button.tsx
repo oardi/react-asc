@@ -7,7 +7,7 @@ export interface IButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAt
 	color?: COLOR;
 	isActive?: boolean;
 	isRounded?: boolean;
-	onClick?: (e: MouseEvent) => void;
+	onClick?: (e: React.MouseEvent) => void;
 	variant?: VARIANT;
 }
 

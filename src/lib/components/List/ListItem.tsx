@@ -8,7 +8,7 @@ export interface IListItemProps {
 	className?: string;
 	isHoverable?: boolean;
 	isDisabled?: boolean;
-	onClick?: (e: MouseEvent) => void;
+	onClick?: (e: React.MouseEvent) => void;
 }
 
 export const ListItem = (props: IListItemProps) => {
@@ -33,7 +33,7 @@ export const ListItem = (props: IListItemProps) => {
 		return cssClasses.filter(css => css).join(' ');
 	}
 
-	const handleClick = (e: MouseEvent<HTMLLIElement>) => {
+	const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
 		onClick && onClick(e);
 	};
 

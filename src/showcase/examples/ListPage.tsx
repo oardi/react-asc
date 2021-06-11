@@ -16,7 +16,7 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 		snackbarService.show('item clicked');
 	}
 
-	const handleClickAction = (e: MouseEvent) => {
+	const handleClickAction = (e: React.MouseEvent) => {
 		e.stopPropagation();
 		snackbarService.show('action clicked');
 	}

@@ -1,3 +1,6 @@
+## v7.0.0
+- badge - added component
+
 ## v6.1.0
 - drawer - added prop permanent
 

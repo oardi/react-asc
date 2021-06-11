@@ -3,7 +3,7 @@ import styles from './ListItemAction.module.scss';
 
 interface IListItemActionProps {
 	children?: ReactNode;
-	onClick?: (e: MouseEvent) => void;
+	onClick?: (e: React.MouseEvent) => void;
 }
 
 export const ListItemAction = ({ children, onClick }: IListItemActionProps) => (

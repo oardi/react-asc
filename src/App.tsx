@@ -58,7 +58,7 @@ const App = () => {
 									component={(Pages as any)[showcaseRoute.componentKey]}
 									key={showcaseRoute.componentKey}>
 
-									{ showcaseRoute.routes &&
+									{showcaseRoute.routes &&
 										showcaseRoute.routes.map(route => (
 											<Route exact path={route.path} component={(Pages as any)[route.componentKey]} key={route.componentKey} />
 										))
