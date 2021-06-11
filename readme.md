@@ -7,6 +7,7 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 
 - AppBar
 - Backdrop
+- Badge
 - Breadcrumb
 - Button
 - Card

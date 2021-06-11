@@ -1,3 +1,6 @@
+## v7.0.2
+backdrop - added showcase page
+
 ## v7.0.1
 - select - added icon chevron down
 

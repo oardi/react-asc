@@ -27,7 +27,7 @@ export const Backdrop = (props: IBackdropProps) => {
 
 	return (
 		createPortal(
-			<div className={getCssClasses()} onClick={handleClick} />,
+			<div className={getCssClasses()} onClick={handleClick} style={{ height: '100%', width: '100%', position: 'absolute' }} />,
 			target
 		)
 	)

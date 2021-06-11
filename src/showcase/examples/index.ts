@@ -1,4 +1,5 @@
 export * from './AppBarPage';
+export * from './BackdropPage';
 export * from './BadgePage';
 export * from './ButtonPage';
 export * from './BreadcrumbPage';
