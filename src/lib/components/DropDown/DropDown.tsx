@@ -41,7 +41,7 @@ export const DropDown = (props: IDropDownProps) => {
 						<DropDownMenu menuPosition={menuPosition}>
 							{children}
 						</DropDownMenu>
-						<Backdrop target={dropDownMenuConainter.current as HTMLElement} isTransparent onClick={() => setIsShow(false)} />
+						<Backdrop isTransparent onClick={() => setIsShow(false)} />
 					</Fragment>
 				}
 			</div>

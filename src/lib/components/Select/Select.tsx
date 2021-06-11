@@ -194,7 +194,7 @@ export const Select = (props: ISelectProps) => {
 								)}
 							</List>
 						</div>
-						<Backdrop target={selectConainter.current as HTMLElement} isTransparent onClick={() => hide()} />
+						<Backdrop isTransparent onClick={() => hide()} />
 					</>
 				}
 

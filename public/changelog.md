@@ -1,3 +1,6 @@
+## v7.0.3
+- backdrop - positioning fix
+
 ## v7.0.2
 backdrop - added showcase page
 
