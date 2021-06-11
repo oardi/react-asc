@@ -1,5 +1,6 @@
 export * from './AppBar';
 export * from './Backdrop';
+export * from './Badge';
 export * from './Button';
 export * from './Breadcrumb';
 export * from './Card';

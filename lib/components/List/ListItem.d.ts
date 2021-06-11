@@ -1,4 +1,4 @@
-import { MouseEvent, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 export interface IListItemProps {
     id?: string;
     children?: ReactNode;
@@ -6,6 +6,6 @@ export interface IListItemProps {
     className?: string;
     isHoverable?: boolean;
     isDisabled?: boolean;
-    onClick?: (e: MouseEvent) => void;
+    onClick?: (e: React.MouseEvent) => void;
 }
 export declare const ListItem: (props: IListItemProps) => JSX.Element;
