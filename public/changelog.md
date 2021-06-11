@@ -1,3 +1,6 @@
+## v7.0.1
+- select - added icon chevron down
+
 ## v7.0.0
 - badge - added component
 

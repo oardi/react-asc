@@ -1,9 +1,11 @@
 import React, { KeyboardEventHandler, useEffect, useRef, useState } from 'react';
+import { ChevronDownSolidIcon } from '../../assets/icons';
 import { Backdrop } from '../Backdrop';
 import { Checkbox } from '../Checkbox';
 import { Chip } from '../Chip';
 import { COLOR } from '../component.enums';
 import { List, ListItem, ListItemText } from '../List';
+import { SvgIcon } from '../SvgIcon';
 import styles from './Select.module.scss';
 
 // TODO
@@ -169,6 +171,8 @@ export const Select = (props: ISelectProps) => {
 				<div id={id} className={getCssClass()} onClick={() => show()} tabIndex={0} onKeyDown={e => handleOnKeyDown(e as any)}>
 					{!multiple && renderSingleViewModel()}
 					{multiple && renderMultipleViewModel()}
+
+					<SvgIcon className="ml-auto"><ChevronDownSolidIcon /></SvgIcon>
 				</div>
 
 				{isShow &&
