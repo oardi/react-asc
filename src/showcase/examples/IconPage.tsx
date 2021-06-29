@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const SvgIconPage = () => {
+export const IconPage = () => {
 	return (
 		<div>TODO</div>
 	);

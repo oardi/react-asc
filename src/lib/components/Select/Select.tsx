@@ -5,7 +5,7 @@ import { Checkbox } from '../Checkbox';
 import { Chip } from '../Chip';
 import { COLOR } from '../component.enums';
 import { List, ListItem, ListItemText } from '../List';
-import { SvgIcon } from '../SvgIcon';
+import { Icon } from '../Icon';
 import styles from './Select.module.scss';
 
 // TODO
@@ -172,7 +172,7 @@ export const Select = (props: ISelectProps) => {
 					{!multiple && renderSingleViewModel()}
 					{multiple && renderMultipleViewModel()}
 
-					<SvgIcon className="ml-auto"><ChevronDownSolidIcon /></SvgIcon>
+					<Icon className="ml-auto"><ChevronDownSolidIcon /></Icon>
 				</div>
 
 				{isShow &&

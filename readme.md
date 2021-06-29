@@ -21,13 +21,13 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 - FloatingActionButton
 - Form (v1)
 - Grid
+- Icon
 - IconButton
 - List
 - Modal + ModalService
 - Select
 - Sidebar
 - Snackbar + SnackbarService
-- SvgIcon
 - Table (v1)
 - Tabset
 - Textarea

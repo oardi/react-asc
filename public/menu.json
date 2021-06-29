@@ -9,6 +9,8 @@
 	},
 	{
 		"id": "Showcase",
+		"isCollapsible": true,
+		"isCollapsed": true,
 		"items": [
 			{
 				"id": "AppBar"
@@ -74,7 +76,7 @@
 				"id": "Select"
 			},
 			{
-				"id": "SvgIcon"
+				"id": "Icon"
 			},
 			{
 				"id": "Table"

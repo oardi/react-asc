@@ -8,4 +8,5 @@ export interface IMenuItem {
 	label: string;
 	path?: string;
 	items?: Array<IMenuItem>;
+	isCollapsible?: boolean;
 }

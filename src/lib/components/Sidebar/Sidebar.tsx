@@ -3,6 +3,7 @@ import { List, ListItem, ListItemAction, ListItemText } from '../List';
 import { ISidebarItem } from './sidebar.interfaces';
 import { SidebarItemModel } from './sidebar.models';
 import { ChevronUpSolidIcon, ChevronDownSolidIcon } from '../../assets/icons';
+import { loggerService } from "../../../shared";
 
 interface ISidebarProps {
 	items: Array<ISidebarItem>;
@@ -20,7 +21,7 @@ export const Sidebar = (props: ISidebarProps) => {
 		if (items && items.length > 0) {
 			initMenuItems();
 		}
-	}, [items]);
+	}, []);
 
 	useEffect(() => { initMenuItems(); }, [currentUrl]);
 
@@ -37,7 +38,9 @@ export const Sidebar = (props: ISidebarProps) => {
 				subItem.path,
 				subItem.icon,
 				isMenuItemActive(`${item.path}/${subItem.path}`),
-			))
+			)),
+			item.isCollapsible,
+			item.isCollapsed
 		));
 		setMenuItems(newItems);
 	}
@@ -48,11 +51,12 @@ export const Sidebar = (props: ISidebarProps) => {
 
 	const navigate = (e: React.MouseEvent, path: string) => {
 		e.stopPropagation();
+		e.preventDefault();
 		onItemClicked(path);
 	}
 
-	const handleClickItem = (item: SidebarItemModel, e: any) => {
-		if (item.items && item.items.length > 0) {
+	const handleClickItem = (item: SidebarItemModel, e: React.MouseEvent<Element, MouseEvent>) => {
+		if (item.items && item.items.length > 0 && item.isCollapsible) {
 			const newMenuItems = menuItems.map((menuItem) => {
 				if (item.id === menuItem.id) {
 					const updatedItem = {
@@ -67,6 +71,10 @@ export const Sidebar = (props: ISidebarProps) => {
 		} else {
 			navigate(e, `/${item.path}`);
 		}
+	}
+
+	const handleClickSubItem = (itemPath: string, subItemPath: string, e: React.MouseEvent<Element, MouseEvent>) => {
+		navigate(e, `/${itemPath}/${subItemPath}`);
 	}
 
 	return (
@@ -99,7 +107,7 @@ export const Sidebar = (props: ISidebarProps) => {
 									<ListItem
 										className="list-item-level-1"
 										key={subItem.id}
-										onClick={(e) => navigate(e, `/${item.path}/${subItem.path}`)}
+										onClick={(e) => handleClickSubItem(item.path, subItem.path, e)}
 									>
 										{subItem.label}
 									</ListItem>

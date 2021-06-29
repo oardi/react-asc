@@ -1,5 +1,6 @@
 import React from 'react';
 import { COLOR, SIZE, VARIANT } from '../component.enums';
+import { Icon } from '../Icon';
 import styles from './IconButton.module.scss';
 
 export interface IIconButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
@@ -37,10 +38,7 @@ export const IconButton = (props: IIconButtonProps) => {
 			disabled={disabled}
 			{...rest}
 		>
-			<span
-				className="svg-icon">
-				{icon}
-			</span>
+			<Icon>{icon}</Icon>
 		</button >
 	);
 };

@@ -1,3 +1,10 @@
+## v7.1.0
+- breaking change - rename SvgIcon to Icon
+- added hook useWindowSize
+- added isMobile
+- added appState
+- set menu on permanent for greater than 1024
+
 ## v7.0.3
 - backdrop - positioning fix
 

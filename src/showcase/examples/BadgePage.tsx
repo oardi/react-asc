@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import { Badge, COLOR, FormControl, IBadgeProps, HomeSolidIcon, SvgIcon } from '../../lib';
+import { Badge, COLOR, FormControl, IBadgeProps, HomeSolidIcon, Icon } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const BadgePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IBadgeProps>) => {
@@ -20,9 +20,9 @@ const BadgePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 				color={settingValues.color}
 				content={settingValues.content}
 			>
-				<SvgIcon>
+				<Icon>
 					<HomeSolidIcon />
-				</SvgIcon>
+				</Icon>
 			</Badge>
 		</Fragment>
 	);

@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { ChevronDownSolidIcon, ChevronUpSolidIcon } from '../../assets/icons';
-import { SvgIcon } from '../SvgIcon';
+import { Icon } from '../Icon';
 
 export interface IExpansionPanelHeaderProps {
 	onClick?: (event: React.MouseEvent) => void;
@@ -26,9 +26,9 @@ export const ExpansionPanelHeader = (props: IExpansionPanelHeaderProps) => {
 			{children}
 
 			<span className="ml-auto text-muted">
-				<SvgIcon>
+				<Icon>
 					{isExpanded ? <ChevronUpSolidIcon /> : <ChevronDownSolidIcon />}
-				</SvgIcon>
+				</Icon>
 			</span>
 		</div>
 	);

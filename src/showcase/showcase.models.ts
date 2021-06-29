@@ -8,12 +8,14 @@ export class MenuModel implements ISidebarItem {
 		this.label = dto.label ? dto.label : dto.id;
 		this.path = dto.path !== undefined ? dto.path : dto.id;
 		this.items = dto.items ? dto.items.map(i => new MenuModel(i)) : [];
+		this.isCollapsible = dto.isCollapsible as boolean;
 	}
 
 	id: string;
 	label: string;
 	path: string;
 	items: Array<MenuModel>;
+	isCollapsible: boolean = false;
 }
 
 export class RouteModel {

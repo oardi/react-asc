@@ -225,17 +225,6 @@ $theme-colors: map-merge(
 	}
 }
 
-.svg-icon {
-	align-items: center;
-	justify-content: center;
-	display: flex;
-
-	svg {
-		width: 20px;
-		height: 20px;
-	}
-}
-
 .tabset {
 	.nav-item {
 		&:hover {
