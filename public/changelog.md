@@ -1,3 +1,6 @@
+## v7.1.1
+- export fix
+
 ## v7.1.0
 - breaking change - rename SvgIcon to Icon
 - added hook useWindowSize
