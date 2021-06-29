@@ -1,3 +1,6 @@
+## v7.1.2
+- export fix
+
 ## v7.1.1
 - export fix
 
