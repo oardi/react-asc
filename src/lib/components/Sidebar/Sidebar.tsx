@@ -3,7 +3,6 @@ import { List, ListItem, ListItemAction, ListItemText } from '../List';
 import { ISidebarItem } from './sidebar.interfaces';
 import { SidebarItemModel } from './sidebar.models';
 import { ChevronUpSolidIcon, ChevronDownSolidIcon } from '../../assets/icons';
-import { loggerService } from "../../../shared";
 
 interface ISidebarProps {
 	items: Array<ISidebarItem>;
