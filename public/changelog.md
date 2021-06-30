@@ -1,3 +1,6 @@
+## v7.1.3
+- fixed build
+
 ## v7.1.2
 - export fix
 
