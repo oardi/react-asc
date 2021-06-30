@@ -8,8 +8,7 @@ interface ILoadingIndicatorServiceProps extends ILoadingIndicatorProps {
 const LoadingIndicatorPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ILoadingIndicatorServiceProps>) => {
 
 	useEffect(() => {
-		setSettingsControls({
-		});
+		setSettingsControls({});
 	}, []);
 
 	const handleClick = () => {

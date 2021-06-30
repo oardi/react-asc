@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Layout } from './Layout';
-import { fileLoaderService, loggerService, Markdown } from '../shared';
+import { fileLoaderService, loggerService, Highlight } from '../shared';
 
 export const AboutPage = () => {
 
@@ -17,7 +17,7 @@ export const AboutPage = () => {
 
 	return (
 		<Layout title="About">
-			<Markdown text={markdownText} />
+			<Highlight text={markdownText} />
 		</Layout>
 	)
 }

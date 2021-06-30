@@ -1,3 +1,7 @@
+## v7.2.0
+- showcase - added highlight component
+- added markdown files for components
+
 ## v7.1.4
 - downgraded packages
 

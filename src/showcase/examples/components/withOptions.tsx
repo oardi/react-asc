@@ -1,5 +1,6 @@
-import React, { Dispatch, useState } from "react";
-import { Card, CardBody, CardTitle, Column, IControls, Row } from '../../../lib';
+import React, { Dispatch, useEffect, useState } from "react";
+import { Card, CardBody, CardTitle, Column, IControls, Row, Tab, Tabset } from '../../../lib';
+import { Highlight } from "../../../shared";
 import { ShowcaseExample } from './ShowcaseExample';
 import { ShowcaseOptions } from './ShowcaseOptions';
 
@@ -13,6 +14,8 @@ export interface IShowcaseBaseProps<T> {
 export const withOptions = <T,>(WrappedComponent: any, defaultSettingValues?: T) => {
 
 	const HOC = (props: any) => {
+
+		const [fileUrl, setFileUrl] = useState('');
 		const [settingValues, setSettingValues] = useState(defaultSettingValues ? defaultSettingValues : {});
 		const [settingsControls, setSettingsControls] = useState<any>(null);
 
@@ -20,17 +23,32 @@ export const withOptions = <T,>(WrappedComponent: any, defaultSettingValues?: T)
 			setSettingValues(val);
 		}
 
+		useEffect(() => {
+			const fileName = WrappedComponent.name.replace('PageBase','');
+			const newFileUrl = `./showcase/${fileName.toLowerCase()}.md`;
+			setFileUrl(newFileUrl);
+		}, []);
+
 		// props passed to WrappedComponent
 		return (
 			<Row>
 
 				<Column md={6}>
 					<ShowcaseExample>
-						<WrappedComponent
-							{...props}
-							settingValues={settingValues}
-							setSettingsControls={setSettingsControls}
-						/>
+
+						<Tabset>
+							<Tab eventKey="tab1" title="Preview">
+								<WrappedComponent
+									{...props}
+									settingValues={settingValues}
+									setSettingsControls={setSettingsControls}
+								/>
+							</Tab>
+							<Tab eventKey="tab2" title="Usage">
+								<Highlight url={fileUrl} />
+							</Tab>
+						</Tabset>
+
 					</ShowcaseExample>
 
 					{settingValues && Object.keys(settingValues).length > 0 &&

@@ -1,17 +1,8 @@
-Default
-
-```js
+// default AppBar 
 <AppBar />
-```
 
-## Color
-
-```js
+// setting color
 <AppBar color={COLOR.light} />
-```
 
-## Shadow
-
-```js
+// setting shadow
 <AppBar shadow={false} />
-```
