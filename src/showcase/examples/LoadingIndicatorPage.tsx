@@ -27,6 +27,5 @@ const LoadingIndicatorPageBase = ({ settingValues, setSettingsControls }: IShowc
 	);
 }
 
-export const LoadingIndicatorPage = withOptions<ILoadingIndicatorServiceProps>(LoadingIndicatorPageBase, {
-});
+export const LoadingIndicatorPage = withOptions(LoadingIndicatorPageBase, null, 'LoadingIndicatorPageBase');
 

@@ -32,4 +32,4 @@ export const FileInputPage = withOptions<IFileInputProps>(FileInputPageBase, {
 	accept: '*',
 	multiple: false,
 	disabled: false
-});
+}, 'FileInputPageBase');

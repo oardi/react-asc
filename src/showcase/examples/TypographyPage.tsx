@@ -20,5 +20,4 @@ const TypographyPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 	);
 }
 
-export const TypographyPage = withOptions<IFileInputProps>(TypographyPageBase, {
-});
+export const TypographyPage = withOptions(TypographyPageBase, null, 'TypographyPageBase');

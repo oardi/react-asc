@@ -59,5 +59,5 @@ export const TablePage = withOptions<ITableProps>(TablePageBase,
 		bordered: false,
 		striped: false,
 		responsive: false
-	}
+	}, 'TablePageBase'
 );

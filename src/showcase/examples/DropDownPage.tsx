@@ -31,4 +31,4 @@ const DropDownPageBase = () => {
 	);
 }
 
-export const DropDownPage = withOptions(DropDownPageBase);
+export const DropDownPage = withOptions(DropDownPageBase, null, 'DropDownPageBase');

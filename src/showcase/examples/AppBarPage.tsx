@@ -27,4 +27,4 @@ const AppBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 export const AppBarPage = withOptions<IAppBarProps>(AppBarPageBase, {
 	shadow: false,
 	color: COLOR.primary
-});
+}, 'AppBarPageBase');

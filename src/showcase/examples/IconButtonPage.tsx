@@ -37,4 +37,4 @@ export const IconButtonPage = withOptions<IIconButtonProps>(IconButtonPageBase, 
 	color: COLOR.primary,
 	variant: VARIANT.text,
 	size: SIZE.md,
-});
+}, 'IconButtonPageBase');

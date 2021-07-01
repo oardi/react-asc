@@ -72,4 +72,4 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 
 export const ListPage = withOptions<IListProps>(ListPageBase, {
 	isFlush: false
-});
+}, 'ListPageBase');

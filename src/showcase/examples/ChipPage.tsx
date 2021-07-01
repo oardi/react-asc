@@ -33,4 +33,4 @@ export const ChipPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 export const ChipPage = withOptions<IChipProps>(ChipPageBase, {
 	color: COLOR.primary,
 	shadow: false,
-});
+}, 'ChipPageBase');

@@ -29,5 +29,4 @@ const BackdropPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 	);
 }
 
-export const BackdropPage = withOptions<IBadgeProps>(BackdropPageBase, {
-});
+export const BackdropPage = withOptions<IBadgeProps>(BackdropPageBase, {}, 'BackdropPageBase');

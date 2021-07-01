@@ -51,4 +51,4 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 
 export const SelectPage = withOptions<ISelectProps>(SelectPageBase, {
 	multipleMaxCountItems: 5
-});
+}, 'SelectPageBase');

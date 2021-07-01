@@ -42,5 +42,5 @@ export const SnackbarPage = withOptions<ISnackbarServiceProps>(SnackbarPageBase,
 	actionText: 'ok',
 	color: COLOR.dark,
 	timeout: 3000
-});
+}, 'SnackbarPageBase');
 

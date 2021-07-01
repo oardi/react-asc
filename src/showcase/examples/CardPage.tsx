@@ -18,4 +18,4 @@ const CardPageBase = () => {
 	);
 }
 
-export const CardPage = withOptions(CardPageBase);
+export const CardPage = withOptions(CardPageBase, null, 'CardPageBase');

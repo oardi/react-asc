@@ -34,4 +34,4 @@ const FloatingActionButtonPageBase = ({ settingValues, setSettingsControls }: IS
 export const FloatingActionButtonPage = withOptions<IIconButtonProps>(FloatingActionButtonPageBase, {
 	color: COLOR.primary,
 	size: SIZE.lg
-});
+}, 'FloatingActionButtonPageBase');

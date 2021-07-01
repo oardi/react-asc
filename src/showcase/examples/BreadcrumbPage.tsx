@@ -17,4 +17,4 @@ const BreadcrumbPageBase = () => {
 	);
 }
 
-export const BreadcrumbPage = withOptions(BreadcrumbPageBase);
+export const BreadcrumbPage = withOptions(BreadcrumbPageBase, null, 'BreadcrumbPageBase');

@@ -2,6 +2,6 @@ import React from 'react';
 
 export const IconPage = () => {
 	return (
-		<div>TODO</div>
+		<div>coming soon</div>
 	);
 }

@@ -44,4 +44,4 @@ const TreeViewPageBase = () => {
 	);
 }
 
-export const TreeViewPage = withOptions(TreeViewPageBase);
+export const TreeViewPage = withOptions(TreeViewPageBase, null, 'TreeViewPageBase');

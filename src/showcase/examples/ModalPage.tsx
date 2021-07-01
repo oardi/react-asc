@@ -69,4 +69,4 @@ const ModalPageBase = () => {
 	);
 }
 
-export const ModalPage = withOptions(ModalPageBase);
+export const ModalPage = withOptions(ModalPageBase, null, 'ModalPageBase');

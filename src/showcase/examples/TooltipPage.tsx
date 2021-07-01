@@ -33,4 +33,4 @@ export const TooltipPageBase = ({ settingValues, setSettingsControls }: IShowcas
 export const TooltipPage = withOptions<{ text: string, placement: string }>(TooltipPageBase, {
 	text: 'some tooltip text',
 	placement: 'top'
-});
+}, 'TooltipPageBase');

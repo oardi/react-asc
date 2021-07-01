@@ -50,4 +50,4 @@ const ExpansionPanelPageBase = ({ settingValues, setSettingsControls }: IShowcas
 	);
 }
 
-export const ExpansionPanelPage = withOptions<IExpansionPanelProps>(ExpansionPanelPageBase);
+export const ExpansionPanelPage = withOptions(ExpansionPanelPageBase, null, 'ExpansionPanelPageBase');

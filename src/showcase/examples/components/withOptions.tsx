@@ -11,7 +11,7 @@ export interface IShowcaseBaseProps<T> {
 
 // with template inheritance
 // TODO -> any to type
-export const withOptions = <T,>(WrappedComponent: any, defaultSettingValues?: T) => {
+export const withOptions = <T,>(WrappedComponent: any, defaultSettingValues?: T, componentName?: string) => {
 
 	const HOC = (props: any) => {
 
@@ -24,8 +24,8 @@ export const withOptions = <T,>(WrappedComponent: any, defaultSettingValues?: T)
 		}
 
 		useEffect(() => {
-			const fileName = WrappedComponent.name.replace('PageBase','');
-			const newFileUrl = `./showcase/${fileName.toLowerCase()}.md`;
+			const fileName = componentName?.replace('PageBase','');
+			const newFileUrl = `./showcase/${fileName?.toLowerCase()}.md`;
 			setFileUrl(newFileUrl);
 		}, []);
 

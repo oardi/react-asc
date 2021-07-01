@@ -31,4 +31,4 @@ const BadgePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 export const BadgePage = withOptions<IBadgeProps>(BadgePageBase, {
 	content: '10',
 	color: COLOR.accent
-});
+}, 'BadgePageBase');

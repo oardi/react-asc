@@ -42,4 +42,4 @@ const DrawerPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 export const DrawerPage = withOptions<IDrawerProps>(DrawerPageBase, {
 	position: 'left',
 	permanent: false
-});
+}, 'DrawerPageBase');

@@ -35,4 +35,4 @@ export const CheckboxPage = withOptions<ICheckboxProps>(CheckboxPageBase, {
 	label: 'my checkbox',
 	readOnly: false,
 	disabled: false
-});
+}, 'CheckboxPageBase');

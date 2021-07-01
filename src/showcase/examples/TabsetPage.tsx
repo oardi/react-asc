@@ -44,4 +44,4 @@ const TabsetPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 
 export const TabsetPage = withOptions<ITabsetProps>(TabsetPageBase, {
 	fill: false
-});
+}, 'TabsetPageBase');

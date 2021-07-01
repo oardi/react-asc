@@ -29,4 +29,4 @@ const GridPageBase = () => {
 	);
 }
 
-export const GridPage = withOptions(GridPageBase);
+export const GridPage = withOptions(GridPageBase, null, 'GridPageBase');
