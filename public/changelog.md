@@ -1,3 +1,7 @@
+## v7.3.0
+- card-image - added component
+
+
 ## v7.2.0
 - showcase - added highlight component
 - added markdown files for components

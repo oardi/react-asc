@@ -5,6 +5,7 @@ interface ICardProps {
 	children?: ReactNode;
 	className?: string;
 	shadow?: boolean;
+	style?: any;
 }
 
 export const Card = (props: ICardProps) => {
