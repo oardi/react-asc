@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
 
 export interface ITabProps {
-	title: ReactNode;
-	eventKey: string;
+	label: ReactNode;
+	value: string;
 	isActive?: boolean;
 	children?: ReactNode;
 	disabled?: boolean;
@@ -15,7 +15,6 @@ export const Tab = (props: ITabProps) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push(`tab-pane fade`);
 		if (isActive) {
 			cssClasses.push(`show active`);
 		}

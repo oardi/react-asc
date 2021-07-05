@@ -23,7 +23,7 @@ export * from './Sidebar';
 export * from './Snackbar';
 export * from './Select';
 export * from './Table';
-export * from './Tabset';
+export * from './Tabs';
 export * from './Textarea';
 export * from './Tooltip';
 export * from './TreeView';

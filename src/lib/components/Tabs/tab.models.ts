@@ -3,8 +3,8 @@ import { ITabProps } from './Tab';
 
 export class TabNavModel {
 	constructor(dto: ReactElement<ITabProps>) {
-		this.eventKey = dto.props.eventKey;
-		this.title = dto.props.title;
+		this.eventKey = dto.props.value;
+		this.title = dto.props.label;
 		this.disabled = dto.props.disabled;
 	}
 

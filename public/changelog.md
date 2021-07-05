@@ -1,6 +1,16 @@
+## unreleased
+- breaking change tabs
+- renamed tabset to tabs
+- renamed props from eventKey to value and title to label
+- tabs standalone
+- tabs will use tabNav inside
+<tabs><tab /></tabs>
+- created component tabPanel
+- tabPanel if needed
+
+
 ## v7.3.0
 - card-image - added component
-
 
 ## v7.2.0
 - showcase - added highlight component

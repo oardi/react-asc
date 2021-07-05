@@ -1,5 +1,5 @@
 import React, { Dispatch, useEffect, useState } from "react";
-import { Card, CardBody, CardTitle, Column, IControls, Row, Tab, Tabset } from '../../../lib';
+import { Card, CardBody, CardTitle, Column, IControls, Row, Tab, TabPanel, Tabs } from '../../../lib';
 import { Highlight } from "../../../shared";
 import { ShowcaseExample } from './ShowcaseExample';
 import { ShowcaseOptions } from './ShowcaseOptions';
@@ -19,15 +19,21 @@ export const withOptions = <T,>(WrappedComponent: any, defaultSettingValues?: T,
 		const [settingValues, setSettingValues] = useState(defaultSettingValues ? defaultSettingValues : {});
 		const [settingsControls, setSettingsControls] = useState<any>(null);
 
+		const [value, setValue] = useState('tab1');
+
 		const onFormChange = (val: any) => {
 			setSettingValues(val);
 		}
 
 		useEffect(() => {
-			const fileName = componentName?.replace('PageBase','');
+			const fileName = componentName?.replace('PageBase', '');
 			const newFileUrl = `./showcase/${fileName?.toLowerCase()}.md`;
 			setFileUrl(newFileUrl);
 		}, []);
+
+		const handleChange = (event: any, newValue: string) => {
+			setValue(newValue);
+		}
 
 		// props passed to WrappedComponent
 		return (
@@ -35,20 +41,28 @@ export const withOptions = <T,>(WrappedComponent: any, defaultSettingValues?: T,
 
 				<Column md={6}>
 					<ShowcaseExample>
+						<>
 
-						<Tabset>
-							<Tab eventKey="tab1" title="Preview">
-								<WrappedComponent
-									{...props}
-									settingValues={settingValues}
-									setSettingsControls={setSettingsControls}
-								/>
-							</Tab>
-							<Tab eventKey="tab2" title="Usage">
-								<Highlight url={fileUrl} />
-							</Tab>
-						</Tabset>
+							<Tabs fill onChange={handleChange}>
+								<Tab value="tab1" label="Preview" />
+								<Tab value="tab2" label="Usage" />
+							</Tabs>
 
+							<div>
+								<TabPanel value={value} index="tab1">
+									<WrappedComponent
+										{...props}
+										settingValues={settingValues}
+										setSettingsControls={setSettingsControls}
+									/>
+								</TabPanel>
+
+								<TabPanel value={value} index="tab2">
+									<Highlight url={fileUrl} />
+								</TabPanel>
+							</div>
+
+						</>
 					</ShowcaseExample>
 
 					{settingValues && Object.keys(settingValues).length > 0 &&

@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
-import { FormControl, ITabsetProps, snackbarService, Tab, Tabset } from '../../lib';
+import React, { useEffect, useState } from 'react';
+import { FormControl, ITabsetProps, snackbarService, Tab, TabPanel, Tabs } from '../../lib';
 import { loggerService } from '../../shared';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const CLASSNAME = 'TabsetPage';
 const TabsetPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITabsetProps>) => {
+
+	const [value, setValue] = useState('one');
 
 	useEffect(() => {
 		setSettingsControls({
@@ -13,31 +15,35 @@ const TabsetPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 	}, []);
 
 
-	const handleSelected = (eventKey: string) => {
-		loggerService.debug(CLASSNAME, 'handleSelected', eventKey);
-		snackbarService.show(`You selected: ${eventKey}`);
+	const handleChange = (event: any, newValue: string) => {
+		loggerService.debug(CLASSNAME, 'handleSelected', value);
+		snackbarService.show(`You selected: ${value}`);
+
+		setValue(newValue);
 	}
 
 	return (
 		<div>
-			<Tabset
+			<Tabs
 				fill={settingValues.fill}
 				selectedEventKey="tab2"
-				onTabSelect={handleSelected}
+				onChange={handleChange}
 			>
-				<Tab eventKey="tab1" title="tab 1">
-					1st CONTENT
-				</Tab>
-				<Tab eventKey="tab2" title="tab 2">
-					2nd CONTENT
-				</Tab>
-				<Tab eventKey="tab3" title={<div className="text-success">tab 3 with css</div>}>
-					3rd CONTENT
-				</Tab>
-				<Tab eventKey="tab4" title="tab 4" disabled>
-					4th CONTENT
-				</Tab>
-			</Tabset>
+				<Tab value="tab1" label="tab 1" />
+				<Tab value="tab2" label="tab 2" />
+				<Tab value="tab3" label={<div className="text-success">tab 3 with css</div>} />
+				<Tab value="tab4" label="tab 4" disabled />
+			</Tabs>
+
+			<TabPanel value={value} index="one">
+				Item One
+			</TabPanel>
+			<TabPanel value={value} index="two">
+				Item Two
+			</TabPanel>
+			<TabPanel value={value} index="three">
+				Item Three
+			</TabPanel>
 		</div>
 	);
 }
