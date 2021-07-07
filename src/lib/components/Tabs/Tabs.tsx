@@ -1,9 +1,8 @@
-import React, { Fragment, ReactElement, useEffect, useState } from 'react';
-import { TabNav } from './TabNav';
+import React, { cloneElement, Fragment, PropsWithChildren, ReactElement, useEffect, useState } from 'react';
 import { ITabProps } from './Tab';
 import { TabNavModel } from './tab.models';
 
-export interface ITabsetProps {
+export interface ITabsProps {
 	children?: ReactElement<ITabProps> | Array<ReactElement<ITabProps>>;
 	className?: string;
 	fill?: boolean;
@@ -11,7 +10,7 @@ export interface ITabsetProps {
 	selectedEventKey?: string;
 }
 
-export const Tabs = (props: ITabsetProps) => {
+export const Tabs = (props: ITabsProps) => {
 
 	const { children, className = '', fill, onChange, selectedEventKey } = props;
 
@@ -43,19 +42,30 @@ export const Tabs = (props: ITabsetProps) => {
 	return (
 		navs &&
 		<Fragment>
-			<ul className={getCssClasses()}>
-				{navs.map(nav => (
-					<TabNav
-						key={nav.eventKey}
-						value={nav.eventKey}
-						isActive={nav.eventKey === _selectedEventKey}
-						disabled={nav.disabled}
-						onClick={handleClickTab}
-					>
-						{nav.title}
-					</TabNav>
-				))}
-			</ul>
+			<div className={getCssClasses()}>
+				{
+					children &&
+					Array.isArray(children) &&
+					children.map(child => {
+						const item = child as ReactElement<PropsWithChildren<ITabProps>>;
+
+						return cloneElement(item, {
+							isActive: item.props.value === _selectedEventKey,
+							onClick: handleClickTab,
+							key: item.props.value,
+						});
+					})
+				}
+
+				{
+					children &&
+					!Array.isArray(children) &&
+					cloneElement((children as any), {
+						isActive: (children.props as ITabProps).value === _selectedEventKey,
+						onClick: handleClickTab
+					})
+				}
+			</div>
 		</Fragment>
 	)
 }

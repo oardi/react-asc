@@ -1,20 +1,23 @@
 import React, { ReactNode } from 'react';
+import { Button } from '../Button';
+import styles from './Tab.module.scss';
 
 export interface ITabProps {
 	label: ReactNode;
 	value: string;
 	isActive?: boolean;
-	children?: ReactNode;
 	disabled?: boolean;
 	className?: string;
+	onClick?: (event: any, value: string) => void;
 }
 
 export const Tab = (props: ITabProps) => {
 
-	const { children, className, isActive } = props;
+	const { label, className, isActive, disabled, value, onClick } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
+		cssClasses.push(styles.tab);
 		if (isActive) {
 			cssClasses.push(`show active`);
 		}
@@ -25,8 +28,13 @@ export const Tab = (props: ITabProps) => {
 	};
 
 	return (
-		<div className={getCssClasses()}>
-			{children}
-		</div>
+		<Button
+			className={getCssClasses()}
+			onClick={(event) => onClick && onClick(event, value)}
+			isActive={isActive}
+			disabled={disabled}
+		>
+			{label}
+		</Button>
 	)
 }

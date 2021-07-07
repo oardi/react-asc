@@ -43,18 +43,20 @@ export const withOptions = <T,>(WrappedComponent: any, defaultSettingValues?: T,
 					<ShowcaseExample>
 						<>
 
-							<Tabs fill onChange={handleChange}>
+							<Tabs fill onChange={handleChange} selectedEventKey="tab1">
 								<Tab value="tab1" label="Preview" />
 								<Tab value="tab2" label="Usage" />
 							</Tabs>
 
 							<div>
 								<TabPanel value={value} index="tab1">
-									<WrappedComponent
-										{...props}
-										settingValues={settingValues}
-										setSettingsControls={setSettingsControls}
-									/>
+									<div className="p-3">
+										<WrappedComponent
+											{...props}
+											settingValues={settingValues}
+											setSettingsControls={setSettingsControls}
+										/>
+									</div>
 								</TabPanel>
 
 								<TabPanel value={value} index="tab2">

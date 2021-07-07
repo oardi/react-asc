@@ -19,7 +19,7 @@ const App = () => {
 	const [showMenu, setShowMenu] = useState<boolean>(false);
 	const [isMobile, setIsMobile] = useState<boolean>(false);
 	const [menuItems, setMenuItems] = useState<Array<ISidebarItem>>([]);
-	const [showcaseRoutes, setShowcaseRoutes] = useState<Array<RouteModel>>([]);
+	const [showcaseRoutes, setShowcaseRoutes] = useState<Array<RouteModel>>();
 
 	useEffect(() => { init() }, []);
 

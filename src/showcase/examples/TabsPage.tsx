@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { FormControl, ITabsetProps, snackbarService, Tab, TabPanel, Tabs } from '../../lib';
+import { FormControl, ITabsProps as ITabsProps, snackbarService, Tab, TabPanel, Tabs } from '../../lib';
 import { loggerService } from '../../shared';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const CLASSNAME = 'TabsetPage';
-const TabsetPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITabsetProps>) => {
+const CLASSNAME = 'TabsPage';
+const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITabsProps>) => {
 
-	const [value, setValue] = useState('one');
+	const [value, setValue] = useState('tab2');
 
 	useEffect(() => {
 		setSettingsControls({
@@ -16,8 +16,8 @@ const TabsetPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 
 
 	const handleChange = (event: any, newValue: string) => {
-		loggerService.debug(CLASSNAME, 'handleSelected', value);
-		snackbarService.show(`You selected: ${value}`);
+		loggerService.debug(CLASSNAME, 'handleSelected', newValue);
+		snackbarService.show(`You selected: ${newValue}`);
 
 		setValue(newValue);
 	}
@@ -35,19 +35,19 @@ const TabsetPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 				<Tab value="tab4" label="tab 4" disabled />
 			</Tabs>
 
-			<TabPanel value={value} index="one">
+			<TabPanel value={value} index="tab1">
 				Item One
 			</TabPanel>
-			<TabPanel value={value} index="two">
+			<TabPanel value={value} index="tab2">
 				Item Two
 			</TabPanel>
-			<TabPanel value={value} index="three">
+			<TabPanel value={value} index="tab3">
 				Item Three
 			</TabPanel>
 		</div>
 	);
 }
 
-export const TabsetPage = withOptions<ITabsetProps>(TabsetPageBase, {
+export const TabsPage = withOptions<ITabsProps>(TabsPageBase, {
 	fill: false
-}, 'TabsetPageBase');
+}, 'TabsPageBase');

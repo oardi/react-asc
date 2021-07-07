@@ -7,6 +7,8 @@
 <tabs><tab /></tabs>
 - created component tabPanel
 - tabPanel if needed
+- removed tabnav
+- added button inside tab as root
 
 
 ## v7.3.0
