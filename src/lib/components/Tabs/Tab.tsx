@@ -6,6 +6,7 @@ export interface ITabProps {
 	label: ReactNode;
 	value: string;
 	isActive?: boolean;
+	fixed?: boolean;
 	disabled?: boolean;
 	className?: string;
 	onClick?: (event: any, value: string) => void;
@@ -13,7 +14,7 @@ export interface ITabProps {
 
 export const Tab = (props: ITabProps) => {
 
-	const { label, className, isActive, disabled, value, onClick } = props;
+	const { label, className, isActive, fixed, disabled, value, onClick } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -33,6 +34,7 @@ export const Tab = (props: ITabProps) => {
 			onClick={(event) => onClick && onClick(event, value)}
 			isActive={isActive}
 			disabled={disabled}
+			block={fixed}
 		>
 			{label}
 		</Button>

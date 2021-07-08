@@ -43,7 +43,7 @@ export const withOptions = <T,>(WrappedComponent: any, defaultSettingValues?: T,
 					<ShowcaseExample>
 						<>
 
-							<Tabs fill onChange={handleChange} selectedEventKey="tab1">
+							<Tabs fixed onChange={handleChange} selectedEventKey="tab1">
 								<Tab value="tab1" label="Preview" />
 								<Tab value="tab2" label="Usage" />
 							</Tabs>

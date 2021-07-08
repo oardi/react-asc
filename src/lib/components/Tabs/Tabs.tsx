@@ -1,26 +1,29 @@
 import React, { cloneElement, Fragment, PropsWithChildren, ReactElement, useEffect, useState } from 'react';
+import { COLOR } from '../component.enums';
 import { ITabProps } from './Tab';
 import { TabNavModel } from './tab.models';
+import styles from './Tabs.module.scss';
 
 export interface ITabsProps {
+	color?: COLOR;
 	children?: ReactElement<ITabProps> | Array<ReactElement<ITabProps>>;
 	className?: string;
-	fill?: boolean;
+	fixed?: boolean;
 	onChange?: (event: any, newValue: string) => void;
 	selectedEventKey?: string;
 }
 
 export const Tabs = (props: ITabsProps) => {
 
-	const { children, className = '', fill, onChange, selectedEventKey } = props;
+	const { children, className = '', fixed, onChange, selectedEventKey } = props;
 
 	const [_selectedEventKey, setSelectedEventKey] = useState(selectedEventKey);
 	const [navs, setNavs] = useState<Array<TabNavModel>>([]);
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
+		cssClasses.push(styles.tabs);
 		cssClasses.push(className);
-		if (fill) cssClasses.push('nav-fill');
 		return cssClasses.filter(css => css).join(' ');
 	};
 
@@ -39,32 +42,22 @@ export const Tabs = (props: ITabsProps) => {
 		onChange && onChange(event, newValue);
 	}
 
+	const renderTabs = (child: ReactElement<PropsWithChildren<ITabProps>>) => {
+		return cloneElement(child, {
+			key: child.props.value,
+			isActive: child.props.value === _selectedEventKey,
+			fixed: fixed,
+			onClick: handleClickTab,
+		});
+	}
+
 	return (
 		navs &&
 		<Fragment>
 			<div className={getCssClasses()}>
-				{
-					children &&
-					Array.isArray(children) &&
-					children.map(child => {
-						const item = child as ReactElement<PropsWithChildren<ITabProps>>;
+				{children && Array.isArray(children) && children.map(child => renderTabs(child))}
 
-						return cloneElement(item, {
-							isActive: item.props.value === _selectedEventKey,
-							onClick: handleClickTab,
-							key: item.props.value,
-						});
-					})
-				}
-
-				{
-					children &&
-					!Array.isArray(children) &&
-					cloneElement((children as any), {
-						isActive: (children.props as ITabProps).value === _selectedEventKey,
-						onClick: handleClickTab
-					})
-				}
+				{children && !Array.isArray(children) && renderTabs(children)}
 			</div>
 		</Fragment>
 	)
