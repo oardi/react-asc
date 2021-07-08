@@ -1,11 +1,12 @@
-import React, { cloneElement, Fragment, PropsWithChildren, ReactElement, useEffect, useState } from 'react';
+import React, { cloneElement, Fragment, PropsWithChildren, ReactChild, ReactElement, useState } from 'react';
 import { COLOR } from '../component.enums';
 import { ITabProps } from './Tab';
-import { TabNavModel } from './tab.models';
+import { TabIndicator } from './TabIndicator';
 import styles from './Tabs.module.scss';
 
 export interface ITabsProps {
 	color?: COLOR;
+	indicatorColor?: COLOR;
 	children?: ReactElement<ITabProps> | Array<ReactElement<ITabProps>>;
 	className?: string;
 	fixed?: boolean;
@@ -15,10 +16,9 @@ export interface ITabsProps {
 
 export const Tabs = (props: ITabsProps) => {
 
-	const { children, className = '', fixed, onChange, selectedEventKey } = props;
-
+	const { children, className = '', fixed, indicatorColor, onChange, selectedEventKey } = props;
 	const [_selectedEventKey, setSelectedEventKey] = useState(selectedEventKey);
-	const [navs, setNavs] = useState<Array<TabNavModel>>([]);
+	const [selectedIndex, setSelectedIndex] = useState(0);
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -27,37 +27,34 @@ export const Tabs = (props: ITabsProps) => {
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	useEffect(() => {
-		if (children) {
-			if (Array.isArray(children)) {
-				setNavs(children.map(child => new TabNavModel(child)));
-			} else {
-				setNavs([new TabNavModel(children)]);
-			}
-		}
-	}, [children]);
-
-	const handleClickTab = (event: any, newValue: string) => {
+	const handleClickTab = (event: any, newValue: string, index: number) => {
 		setSelectedEventKey(newValue);
+		setSelectedIndex(index);
 		onChange && onChange(event, newValue);
 	}
 
-	const renderTabs = (child: ReactElement<PropsWithChildren<ITabProps>>) => {
-		return cloneElement(child, {
+	const renderTabs = (child: ReactChild, index: number) => { //<PropsWithChildren<ITabProps>>
+		return React.isValidElement(child) && cloneElement((child as ReactElement<PropsWithChildren<ITabProps>>), {
 			key: child.props.value,
 			isActive: child.props.value === _selectedEventKey,
 			fixed: fixed,
-			onClick: handleClickTab,
+			onClick: (event: any, newValue: string) => handleClickTab(event, newValue, index),
 		});
 	}
 
 	return (
-		navs &&
 		<Fragment>
 			<div className={getCssClasses()}>
-				{children && Array.isArray(children) && children.map(child => renderTabs(child))}
+				{children && React.Children.toArray(children).map((child, index) => renderTabs(child as ReactChild, index))}
 
-				{children && !Array.isArray(children) && renderTabs(children)}
+				{children &&
+					<TabIndicator
+						color={indicatorColor}
+						width={(100 / React.Children.toArray(children).length) + '%'}
+						index={selectedIndex}
+						amount={React.Children.toArray(children).length}
+					/>
+				}
 			</div>
 		</Fragment>
 	)

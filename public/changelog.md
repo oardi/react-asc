@@ -9,6 +9,7 @@
 - tabPanel if needed
 - removed tabnav
 - added button inside tab as root
+- created component tabIndicator
 
 
 ## v7.3.0
