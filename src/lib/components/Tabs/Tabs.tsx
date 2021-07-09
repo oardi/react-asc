@@ -1,4 +1,4 @@
-import React, { cloneElement, Fragment, PropsWithChildren, ReactChild, ReactElement, useState } from 'react';
+import React, { cloneElement, Fragment, PropsWithChildren, ReactChild, ReactElement, useEffect, useState } from 'react';
 import { COLOR } from '../component.enums';
 import { ITabProps } from './Tab';
 import { TabIndicator } from './TabIndicator';
@@ -10,14 +10,23 @@ export interface ITabsProps {
 	children?: ReactElement<ITabProps> | Array<ReactElement<ITabProps>>;
 	className?: string;
 	fixed?: boolean;
-	onChange?: (event: any, newValue: number) => void;
-	value?: number;
+	onChange?: (event: any, newValue: string) => void;
+	value?: string;
 }
 
 export const Tabs = (props: ITabsProps) => {
 
 	const { children, className = '', fixed, indicatorColor, onChange, value } = props;
-	const [selectedValue, setSelectedValue] = useState(value);
+	const [selectedValue, setSelectedValue] = useState<string | undefined>(value);
+	const [selectedIndex, setSelectedIndex] = useState<number>();
+
+	useEffect(() => {
+		React.Children.toArray(children).forEach((child, index) => {
+			if ((child as ReactElement<PropsWithChildren<ITabProps>>).props.value === value) {
+				setSelectedIndex(index);
+			}
+		})
+	}, [children, value]);
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -26,8 +35,9 @@ export const Tabs = (props: ITabsProps) => {
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleClickTab = (event: any, newValue: number, index: number) => {
+	const handleClickTab = (event: any, newValue: string, index: number) => {
 		setSelectedValue(newValue);
+		setSelectedIndex(index);
 		onChange && onChange(event, newValue);
 	}
 
@@ -36,7 +46,7 @@ export const Tabs = (props: ITabsProps) => {
 			key: child.props.value,
 			isActive: child.props.value === selectedValue,
 			fixed: fixed,
-			onClick: (event: any, newValue: number) => handleClickTab(event, newValue, index),
+			onClick: (event: any, newValue: string) => handleClickTab(event, newValue, index),
 		});
 	}
 
@@ -49,7 +59,7 @@ export const Tabs = (props: ITabsProps) => {
 					<TabIndicator
 						color={indicatorColor}
 						width={(100 / React.Children.toArray(children).length) + '%'}
-						index={value}
+						index={selectedIndex}
 						amount={React.Children.toArray(children).length}
 					/>
 				}

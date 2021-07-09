@@ -4,12 +4,12 @@ import styles from './Tab.module.scss';
 
 export interface ITabProps {
 	label: ReactNode;
-	value: number;
+	value: string;
 	isActive?: boolean;
 	fixed?: boolean;
 	disabled?: boolean;
 	className?: string;
-	onClick?: (event: any, value: number) => void;
+	onClick?: (event: any, value: string) => void;
 }
 
 export const Tab = (props: ITabProps) => {

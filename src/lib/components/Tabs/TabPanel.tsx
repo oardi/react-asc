@@ -1,8 +1,8 @@
 import React from 'react';
 
 export interface ITabPanelProps extends React.DetailedHTMLProps<React.HTMLProps<HTMLDivElement>, HTMLDivElement> {
-	value: number;
-	index: number;
+	value: string;
+	index: string;
 	className?: string;
 }
 
