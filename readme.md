@@ -29,7 +29,7 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 - Sidebar
 - Snackbar + SnackbarService
 - Table (v1)
-- Tabset
+- Tabs
 - Textarea
 - Tooltip
 - TreeView (v1)
