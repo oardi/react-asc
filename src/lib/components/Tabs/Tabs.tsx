@@ -10,15 +10,14 @@ export interface ITabsProps {
 	children?: ReactElement<ITabProps> | Array<ReactElement<ITabProps>>;
 	className?: string;
 	fixed?: boolean;
-	onChange?: (event: any, newValue: string) => void;
-	selectedEventKey?: string;
+	onChange?: (event: any, newValue: number) => void;
+	value?: number;
 }
 
 export const Tabs = (props: ITabsProps) => {
 
-	const { children, className = '', fixed, indicatorColor, onChange, selectedEventKey } = props;
-	const [_selectedEventKey, setSelectedEventKey] = useState(selectedEventKey);
-	const [selectedIndex, setSelectedIndex] = useState(0);
+	const { children, className = '', fixed, indicatorColor, onChange, value } = props;
+	const [selectedValue, setSelectedValue] = useState(value);
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -27,18 +26,17 @@ export const Tabs = (props: ITabsProps) => {
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleClickTab = (event: any, newValue: string, index: number) => {
-		setSelectedEventKey(newValue);
-		setSelectedIndex(index);
+	const handleClickTab = (event: any, newValue: number, index: number) => {
+		setSelectedValue(newValue);
 		onChange && onChange(event, newValue);
 	}
 
 	const renderTabs = (child: ReactChild, index: number) => { //<PropsWithChildren<ITabProps>>
 		return React.isValidElement(child) && cloneElement((child as ReactElement<PropsWithChildren<ITabProps>>), {
 			key: child.props.value,
-			isActive: child.props.value === _selectedEventKey,
+			isActive: child.props.value === selectedValue,
 			fixed: fixed,
-			onClick: (event: any, newValue: string) => handleClickTab(event, newValue, index),
+			onClick: (event: any, newValue: number) => handleClickTab(event, newValue, index),
 		});
 	}
 
@@ -51,7 +49,7 @@ export const Tabs = (props: ITabsProps) => {
 					<TabIndicator
 						color={indicatorColor}
 						width={(100 / React.Children.toArray(children).length) + '%'}
-						index={selectedIndex}
+						index={value}
 						amount={React.Children.toArray(children).length}
 					/>
 				}

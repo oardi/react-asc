@@ -1,8 +1,8 @@
 import React from 'react';
 
 export interface ITabPanelProps extends React.DetailedHTMLProps<React.HTMLProps<HTMLDivElement>, HTMLDivElement> {
-	value: any;
-	index: any;
+	value: number;
+	index: number;
 	className?: string;
 }
 
@@ -14,7 +14,7 @@ export const TabPanel = (props: ITabPanelProps) => {
 		<div
 			role="tabpanel"
 			hidden={value !== index}
-			id={`wrapped-tabpanel-${index}`}
+			id={`tabpanel-${index}`}
 			aria-labelledby={`wrapped-tab-${index}`}
 			{...rest}
 		>

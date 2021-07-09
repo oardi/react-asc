@@ -19,7 +19,7 @@ export const withOptions = <T,>(WrappedComponent: any, defaultSettingValues?: T,
 		const [settingValues, setSettingValues] = useState(defaultSettingValues ? defaultSettingValues : {});
 		const [settingsControls, setSettingsControls] = useState<any>(null);
 
-		const [value, setValue] = useState('tab1');
+		const [value, setValue] = useState(0);
 
 		const onFormChange = (val: any) => {
 			setSettingValues(val);
@@ -31,7 +31,7 @@ export const withOptions = <T,>(WrappedComponent: any, defaultSettingValues?: T,
 			setFileUrl(newFileUrl);
 		}, []);
 
-		const handleChange = (event: any, newValue: string) => {
+		const handleChange = (event: any, newValue: number) => {
 			setValue(newValue);
 		}
 
@@ -43,13 +43,13 @@ export const withOptions = <T,>(WrappedComponent: any, defaultSettingValues?: T,
 					<ShowcaseExample>
 						<>
 
-							<Tabs fixed onChange={handleChange} selectedEventKey="tab1">
-								<Tab value="tab1" label="Preview" />
-								<Tab value="tab2" label="Usage" />
+							<Tabs fixed onChange={handleChange} value={0}>
+								<Tab value={0} label="Preview" />
+								<Tab value={1} label="Usage" />
 							</Tabs>
 
 							<div>
-								<TabPanel value={value} index="tab1">
+								<TabPanel value={value} index={0}>
 									<div className="p-3">
 										<WrappedComponent
 											{...props}
@@ -59,7 +59,7 @@ export const withOptions = <T,>(WrappedComponent: any, defaultSettingValues?: T,
 									</div>
 								</TabPanel>
 
-								<TabPanel value={value} index="tab2">
+								<TabPanel value={value} index={1}>
 									<Highlight url={fileUrl} />
 								</TabPanel>
 							</div>
