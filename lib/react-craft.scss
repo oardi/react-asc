@@ -28,6 +28,10 @@ $theme-colors: map-merge(
 	}
 }
 
+.btn-block + .btn-block {
+	margin-top: 0;
+}
+
 @each $color, $value in $theme-colors {
 	.btn-link-#{$color} {
 		color: $value !important;
@@ -222,22 +226,6 @@ $theme-colors: map-merge(
 
 	100% {
 		opacity: 1;
-	}
-}
-
-.tabset {
-	.nav-item {
-		&:hover {
-			cursor: pointer;
-		}
-		&:hover.disabled {
-			cursor: not-allowed;
-			.nav-link {
-				&:hover.disabled {
-					cursor: not-allowed;
-				}
-			}
-		}
 	}
 }
 
