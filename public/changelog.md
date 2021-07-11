@@ -1,6 +1,9 @@
 ## unreleased
 
 
+## v8.1.1
+- match validator fix for not found
+
 ## v8.1.0
 - added validator isEqual
 - added formControl validator match with param

@@ -86,10 +86,14 @@ export class Form extends Component<IFormProps, IFormState> {
 						}
 						break;
 					case 'match':
-						if(validatorParam){
+						if (validatorParam) {
 							const matchControl = this.getControl(validatorParam)
-							if (!IsEqualValidator(fieldValue, matchControl.value)) {
-								errors.push({ validator: validatorName, message: 'Values do not match' });
+							if (matchControl) {
+								if (!IsEqualValidator(fieldValue, matchControl.value)) {
+									errors.push({ validator: validatorName, message: 'Values do not match' });
+								}
+							} else {
+								console.error(`Form: Field ${validatorParam} not found`);
 							}
 						}
 						break;
