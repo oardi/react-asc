@@ -30,18 +30,11 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 		textarea: new FormControl('', [], 'textarea', { label: 'Textarea', placeholder: 'some notes', textareaOptions: { rows: 3, resize: false } }),
 		number: new FormControl('', [], 'number', { label: 'Number' }),
 		password: new FormControl('', ['required'], 'password', { label: 'Password' }),
+		passwordMatch: new FormControl('', ['required', 'match:password'], 'password', { label: 'Password Match' }),
 		color: new FormControl('#FFFFFF', [], 'color', { label: 'Color' }),
 		time: new FormControl('', [], 'time', { label: 'Time' }),
 		file: new FormControl('', [], 'file', { label: 'File' }),
 		checkbox: new FormControl('', [], 'checkbox', { label: 'Checkbox' }),
-		// checkBoxGroup: new FormControl(['option2'], [], 'checkboxgroup', {
-		// 	label: 'CheckBoxGroup',
-		// 	options: [
-		// 		{ id: 'checkboxOption1', label: 'Option 1', value: 'option1' },
-		// 		{ id: 'checkboxOption2', label: 'Option 2', value: 'option2' },
-		// 		{ id: 'checkboxOption3', label: 'Option 3', value: 'option3' },
-		// 	]
-		// }),
 		select: new FormControl('option2', [], 'select', {
 			label: 'Select',
 			options: [{ label: 'Option 1', value: 'option1' }, { label: 'Option 2', value: 'option2' }, { label: 'Option 3', value: 'option3' }]

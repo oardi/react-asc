@@ -18,9 +18,6 @@
 ### modal 
 - cancel should not throw unhandled error -> ModalResult.cancel?
 
-### showcase 
-- sourcecode for all comp
-
 ### Theme
 - css vars
 - theme provider
@@ -29,16 +26,10 @@
 ## TODO Components
 
 
-### select 
-- add component (formControl)
-- single
-- multi
+### select
 - search
 - optionsGroup
 - icons
-
-### file
-- add component
 
 ### autocomplete
 - add component (formControl)

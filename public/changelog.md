@@ -1,6 +1,10 @@
 ## unreleased
 
 
+## v8.1.0
+- added validator isEqual
+- added formControl validator match with param
+
 ## v8.0.0
 - breaking change tabs
 - renamed tabset to tabs

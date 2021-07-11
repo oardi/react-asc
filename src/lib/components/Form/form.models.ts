@@ -1,10 +1,10 @@
 import { IFormControlConfig, IFormInputError } from './form.interfaces';
-import { IFormControlType, IFormValidatorType } from './form.types';
+import { IFormControlType } from './form.types';
 
 export class FormControl {
 	constructor(
 		public value: any,
-		public validators: Array<IFormValidatorType> = [],
+		public validators: Array<any> = [],
 		public type: IFormControlType,
 		public config: IFormControlConfig) {
 	}

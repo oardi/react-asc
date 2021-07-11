@@ -5,7 +5,7 @@ import { FormInput } from './FormInput';
 import { FormHint } from './FormHint';
 import { FormError } from './FormError';
 import { IControls, IFormInputError, IFormValues } from './form.interfaces';
-import { IsEmptyValidator, EmailValidator } from './validators';
+import { IsEmptyValidator, EmailValidator, IsEqualValidator } from './validators';
 import { FormControl } from './form.models';
 
 export interface IFormProps {
@@ -65,20 +65,32 @@ export class Form extends Component<IFormProps, IFormState> {
 		}
 	}
 
+	// extract to service?
 	private validateField(fieldValue: any, fieldValidators: Array<string>): Array<IFormInputError> {
 		const errors: Array<IFormInputError> = [];
 		if (fieldValidators) {
 			for (const validator of fieldValidators) {
-				switch (validator) {
+				const validatorSplitted = validator.split(':');
+				const validatorName: string = validatorSplitted[0];
+				const validatorParam: string | null = validatorSplitted.length > 1 ? validatorSplitted[1] : null;
+
+				switch (validatorName) {
 					case 'required':
 						if (IsEmptyValidator(fieldValue)) {
-							errors.push({ validator, message: 'This field is required' });
+							errors.push({ validator: validatorName, message: 'This field is required' });
 						}
 						break;
-
 					case 'email':
 						if (EmailValidator(fieldValue)) {
-							errors.push({ validator, message: 'Email format is wrong' });
+							errors.push({ validator: validatorName, message: 'Email format is wrong' });
+						}
+						break;
+					case 'match':
+						if(validatorParam){
+							const matchControl = this.getControl(validatorParam)
+							if (!IsEqualValidator(fieldValue, matchControl.value)) {
+								errors.push({ validator: validatorName, message: 'Values do not match' });
+							}
 						}
 						break;
 					default:

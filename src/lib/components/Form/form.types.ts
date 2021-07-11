@@ -15,4 +15,4 @@ export type IFormControlType =
 	'datetime-local'
 	;
 
-export type IFormValidatorType = 'required' | 'email'
+export type IFormValidatorType = 'required' | 'email' | 'match';
