@@ -33,7 +33,7 @@ export const FormInput = (props: IFormInputProps) => {
 		type,
 		placeholder,
 		className = 'form-control',
-		isValid,
+		isValid = true,
 		options = [],
 		textareaOptions,
 		selectOptions,

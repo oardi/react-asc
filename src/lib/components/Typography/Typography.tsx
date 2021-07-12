@@ -1,19 +1,30 @@
 import React, { ReactElement } from 'react';
 
 export interface IWrapperProps {
-	as: string;
+	as?: string;
 	children: ReactElement;
 	className?: string;
 }
 
-const Wrapper = ({ as, children, className, ...rest }: IWrapperProps) =>
-	as ? React.createElement(as, { ...rest, className: `${className} gutter-bottom` }, children) : <span>{children}</span>;
+const Wrapper = (props: IWrapperProps) => {
+	const { as = 'span', children, className, ...rest } = props;
+
+	const getCssClasses = () => {
+		const cssClasses: Array<string> = [];
+		cssClasses.push('gutter-bottom');
+		className && cssClasses.push(className);
+		return cssClasses.filter(css => css).join(' ');
+	};
+
+	return React.createElement(as, { ...rest, className: getCssClasses() }, children);
+}
 
 
 export interface ITypographyProps {
-	as: string;
-	children: any
+	as?: string;
+	children: any;
 	className?: string;
+	style?: any;
 }
 
 export const Typography = ({ children, as = 'span', ...rest }: ITypographyProps) => {

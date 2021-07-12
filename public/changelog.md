@@ -1,6 +1,9 @@
 ## unreleased
 
 
+## v8.1.2
+- typography - props fix
+
 ## v8.1.1
 - match validator fix for not found
 

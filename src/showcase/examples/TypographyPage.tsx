@@ -16,6 +16,8 @@ const TypographyPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 			<Typography as="h4">Heading1</Typography>
 			<Typography as="h5">Heading1</Typography>
 			<Typography as="h6">Heading1</Typography>
+
+			<Typography>some span text</Typography>
 		</Fragment>
 	);
 }
