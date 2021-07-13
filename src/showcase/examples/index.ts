@@ -25,5 +25,6 @@ export * from './TreeViewPage';
 export * from './TypographyPage';
 export * from './IconPage';
 export * from './SelectPage';
+export * from './SpeedDialPage';
 
 export * from '../../showcase/assets';

@@ -7,6 +7,7 @@ export interface IFloatingActionButtonProps extends React.DetailedHTMLProps<Reac
 	icon?: React.SVGProps<SVGSVGElement>;
 	color?: COLOR;
 	size?: SIZE;
+	fixed?: boolean;
 	isActive?: boolean;
 	disabled?: boolean;
 	onClick?: (e: any) => void;
@@ -14,11 +15,12 @@ export interface IFloatingActionButtonProps extends React.DetailedHTMLProps<Reac
 
 export const FloatingActionButton = (props: IFloatingActionButtonProps) => {
 
-	const { className = '', icon, color = COLOR.primary, size = SIZE.lg, isActive, disabled, onClick } = props;
+	const { className = '', icon, color = COLOR.primary, fixed, size = SIZE.lg, isActive, disabled, onClick } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.fab);
+		fixed && cssClasses.push(styles['fixed']);
 		cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};

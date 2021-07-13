@@ -21,6 +21,7 @@ export * from './LoadingIndicator';
 export * from './Modal';
 export * from './Sidebar';
 export * from './Snackbar';
+export * from './SpeedDial';
 export * from './Select';
 export * from './Table';
 export * from './Tabs';
