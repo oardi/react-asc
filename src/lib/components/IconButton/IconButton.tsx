@@ -10,11 +10,12 @@ export interface IIconButtonProps extends React.DetailedHTMLProps<React.ButtonHT
 	isActive?: boolean;
 	disabled?: boolean;
 	variant?: VARIANT;
+	shadow?: boolean;
 }
 
 export const IconButton = (props: IIconButtonProps) => {
 
-	const { children, icon, variant = VARIANT.text, color = COLOR.primary, size = SIZE.md, isActive, disabled, className = '', ...rest } = props;
+	const { children, icon, variant = VARIANT.text, color = COLOR.primary, size = SIZE.md, isActive, disabled, className = '', shadow, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -25,6 +26,7 @@ export const IconButton = (props: IIconButtonProps) => {
 
 		isActive && cssClasses.push(styles.active);
 		disabled && cssClasses.push(styles.disabled);
+		shadow && cssClasses.push(styles.shadow);
 
 		cssClasses.push(className);
 

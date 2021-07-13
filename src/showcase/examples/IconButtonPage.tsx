@@ -9,6 +9,7 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 			color: new FormControl(settingValues.color, [], 'select', { label: 'color', options: Object.keys(COLOR).map(c => ({ label: c, value: c })) }),
 			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' }),
 			isActive: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'isActive' }),
+			shadow: new FormControl(settingValues.size, [], 'checkbox', { label: 'shadow' }),
 			variant: new FormControl(settingValues.variant, [], 'select', { label: 'variant', options: Object.keys(VARIANT).map(c => ({ label: c, value: c })) }),
 			size: new FormControl(settingValues.size, [], 'select', { label: 'size', options: Object.keys(SIZE).map(c => ({ label: c, value: c })) }),
 		});
@@ -27,6 +28,7 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 				icon={<HomeSolidIcon />}
 				variant={settingValues.variant}
 				size={settingValues.size}
+				shadow={settingValues.shadow}
 				onClick={handleClick}
 			/>
 		</Fragment>

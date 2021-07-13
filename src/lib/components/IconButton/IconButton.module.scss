@@ -28,6 +28,10 @@
 		cursor: pointer;
 	}
 
+	&.shadow {
+		box-shadow: var(--shadow);
+	}
+
 	&.sm {
 	}
 
@@ -74,7 +78,11 @@
 		}
 
 		&.light {
-			color: var(--light);
+			// color: var(--light);
+			&:hover,
+			&.active {
+				// color: var(--light);
+			}
 		}
 
 		&.disabled {

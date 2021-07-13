@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PlusSolidIcon } from '../../assets/icons';
 import { FloatingActionButton } from '../FloatingActionButton';
+import { SpeedDialActions } from './SpeedDialActions';
 import styles from './SpeedDial.module.scss';
 
 export interface ISpeedDialProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -23,7 +24,6 @@ export const SpeedDial = (props: ISpeedDialProps) => {
 	};
 
 	const handleClick = () => {
-		console.warn('handleClick');
 		setIsOpen(!isOpen);
 	};
 
@@ -31,32 +31,18 @@ export const SpeedDial = (props: ISpeedDialProps) => {
 	// change icon on state change
 	return (
 		<div className={getCssClasses()} {...rest}>
-			<FloatingActionButton
-				icon={<PlusSolidIcon />}
-				onClick={handleClick}
-			/>
+			<div style={{ 'transform': isOpen ? 'rotate(45deg)' : undefined }}>
+				<FloatingActionButton
+					icon={<PlusSolidIcon />}
+					onClick={handleClick}
+				/>
+			</div>
 
 			{isOpen &&
 				<SpeedDialActions>
 					{children}
 				</SpeedDialActions>
 			}
-		</div>
-	);
-}
-
-
-interface ISpeedDialActionsProps {
-	children: any;
-}
-
-const SpeedDialActions = (props: ISpeedDialActionsProps) => {
-
-	const { children } = props;
-
-	return (
-		<div className="actions">
-			{children}
 		</div>
 	);
 }

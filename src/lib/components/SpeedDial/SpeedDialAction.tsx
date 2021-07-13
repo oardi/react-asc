@@ -1,4 +1,5 @@
 import React from 'react';
+import { COLOR } from '../component.enums';
 import { IconButton } from '../IconButton';
 
 export interface ISpeedDialActionProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -20,6 +21,8 @@ export const SpeedDialAction = (props: ISpeedDialActionProps) => {
 		<IconButton
 			className={getCssClasses()}
 			icon={icon}
+			color={COLOR.light}
+			shadow={true}
 		/>
 	);
 }
