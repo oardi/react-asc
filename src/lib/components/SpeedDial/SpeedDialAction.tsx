@@ -1,6 +1,7 @@
 import React from 'react';
 import { COLOR } from '../component.enums';
 import { IconButton } from '../IconButton';
+import styles from './SpeedDialAction.module.scss';
 
 export interface ISpeedDialActionProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	icon: React.SVGProps<SVGSVGElement>;
@@ -14,6 +15,7 @@ export const SpeedDialAction = (props: ISpeedDialActionProps) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
+		cssClasses.push(styles.speedDialAction);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
