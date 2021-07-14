@@ -48,7 +48,7 @@
 	&.text {
 		padding: 0;
 		background: transparent;
-		color: rgba(0, 0, 0, 0.54);
+		color: inherit;
 
 		&:hover,
 		&.active {
@@ -74,14 +74,6 @@
 			&:hover,
 			&.active {
 				color: var(--accent);
-			}
-		}
-
-		&.light {
-			// color: var(--light);
-			&:hover,
-			&.active {
-				// color: var(--light);
 			}
 		}
 
@@ -138,6 +130,15 @@
 			&:hover,
 			&.active {
 				background-color: var(--light-dark);
+			}
+		}
+
+		&.dark {
+			background-color: var(--dark);
+			color: var(--white);
+			&:hover,
+			&.active {
+				background-color: var(--dark-light);
 			}
 		}
 
