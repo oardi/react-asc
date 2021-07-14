@@ -1,6 +1,10 @@
 ## unreleased
 
 
+## v9.0.0
+- speeddial - created component
+- button style fixes
+
 ## v8.1.2
 - typography - props fix
 
