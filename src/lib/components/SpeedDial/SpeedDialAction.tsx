@@ -5,11 +5,12 @@ import { IconButton } from '../IconButton';
 export interface ISpeedDialActionProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	icon: React.SVGProps<SVGSVGElement>;
 	tooltipTitle?: string;
+	onClick?: (e: React.MouseEvent) => void;
 }
 
 export const SpeedDialAction = (props: ISpeedDialActionProps) => {
 
-	const { icon, className } = props;
+	const { icon, onClick, className } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -23,6 +24,7 @@ export const SpeedDialAction = (props: ISpeedDialActionProps) => {
 			icon={icon}
 			color={COLOR.light}
 			shadow={true}
+			onClick={onClick}
 		/>
 	);
 }

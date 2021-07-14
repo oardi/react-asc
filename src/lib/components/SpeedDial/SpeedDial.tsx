@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { PlusSolidIcon } from '../../assets/icons';
 import { FloatingActionButton } from '../FloatingActionButton';
 import { SpeedDialActions } from './SpeedDialActions';
@@ -7,14 +7,12 @@ import styles from './SpeedDial.module.scss';
 export interface ISpeedDialProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	onClose?: (e: React.MouseEvent) => void;
 	onOpen?: (e: React.MouseEvent) => void;
-	open?: (e: React.MouseEvent) => void;
+	open?: boolean;
 }
 
 export const SpeedDial = (props: ISpeedDialProps) => {
 
-	const { children, className, open, ...rest } = props;
-
-	const [isOpen, setIsOpen] = useState<boolean>(!!open);
+	const { children, className, open, onOpen, onClose, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -23,22 +21,21 @@ export const SpeedDial = (props: ISpeedDialProps) => {
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleClick = () => {
-		setIsOpen(!isOpen);
+	const handleClick = (e: any) => {
+		if (open) onClose && onClose(e)
+		else onOpen && onOpen(e)
 	};
 
-	// TODO
-	// change icon on state change
 	return (
 		<div className={getCssClasses()} {...rest}>
-			<div style={{ 'transform': isOpen ? 'rotate(45deg)' : undefined }}>
+			<div style={{ 'transform': open ? 'rotate(45deg)' : undefined }}>
 				<FloatingActionButton
 					icon={<PlusSolidIcon />}
 					onClick={handleClick}
 				/>
 			</div>
 
-			{isOpen &&
+			{open &&
 				<SpeedDialActions>
 					{children}
 				</SpeedDialActions>
