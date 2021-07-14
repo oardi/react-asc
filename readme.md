@@ -28,6 +28,7 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 - Select
 - Sidebar
 - Snackbar + SnackbarService
+- Speeddial
 - Table (v1)
 - Tabs
 - Textarea

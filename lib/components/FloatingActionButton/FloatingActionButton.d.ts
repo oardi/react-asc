@@ -4,6 +4,7 @@ export interface IFloatingActionButtonProps extends React.DetailedHTMLProps<Reac
     icon?: React.SVGProps<SVGSVGElement>;
     color?: COLOR;
     size?: SIZE;
+    fixed?: boolean;
     isActive?: boolean;
     disabled?: boolean;
     onClick?: (e: any) => void;

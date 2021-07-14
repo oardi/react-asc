@@ -7,5 +7,6 @@ export interface IIconButtonProps extends React.DetailedHTMLProps<React.ButtonHT
     isActive?: boolean;
     disabled?: boolean;
     variant?: VARIANT;
+    shadow?: boolean;
 }
 export declare const IconButton: (props: IIconButtonProps) => JSX.Element;
