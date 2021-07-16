@@ -11,7 +11,7 @@ export const CardBody = ({ children, className = '', ...rest }: ICardBodyProps) 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.cardBody);
-		cssClasses.push(className);
+		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
 

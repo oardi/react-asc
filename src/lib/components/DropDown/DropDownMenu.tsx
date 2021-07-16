@@ -21,7 +21,7 @@ export const DropDownMenu = (props: IDropDownMenuProps) => {
 		if (menuPosition === 'right') {
 			cssClasses.push(`dropdown-menu-right`);
 		}
-		cssClasses.push(className);
+		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	}
 

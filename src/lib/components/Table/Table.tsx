@@ -17,10 +17,10 @@ export const Table = (props: ITableProps) => {
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push('table');
-		cssClasses.push(className);
 		bordered && cssClasses.push('table-bordered');
 		striped && cssClasses.push('table-striped');
 		hover && cssClasses.push('table-hover');
+		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
 

@@ -25,6 +25,9 @@
 				"id": "Button"
 			},
 			{
+				"id": "ButtonGroup"
+			},
+			{
 				"id": "Breadcrumb"
 			},
 			{

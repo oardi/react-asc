@@ -2,6 +2,7 @@ export * from './AppBarPage';
 export * from './BackdropPage';
 export * from './BadgePage';
 export * from './ButtonPage';
+export * from './ButtonGroupPage';
 export * from './BreadcrumbPage';
 export * from './CardPage';
 export * from './ChipPage';

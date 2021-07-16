@@ -1,6 +1,10 @@
 ## unreleased
 
 
+## v10.0.0
+- buttonGroup - added component
+- cssClasses fix for a lot of components
+
 ## v9.0.0
 - speeddial - created component
 - button style fixes

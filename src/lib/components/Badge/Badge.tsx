@@ -15,7 +15,7 @@ export const Badge = (props: IBadgeProps) => {
 	const getCssClassesBadgeContainer = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.badgeContainer);
-		cssClasses.push(className);
+		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
 

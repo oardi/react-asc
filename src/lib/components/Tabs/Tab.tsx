@@ -22,9 +22,7 @@ export const Tab = (props: ITabProps) => {
 		if (isActive) {
 			cssClasses.push(`show active`);
 		}
-		if (className) {
-			cssClasses.push(className);
-		}
+		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
 

@@ -28,7 +28,7 @@ export const IconButton = (props: IIconButtonProps) => {
 		disabled && cssClasses.push(styles.disabled);
 		shadow && cssClasses.push(styles.shadow);
 
-		cssClasses.push(className);
+		className && cssClasses.push(className);
 
 		return cssClasses.filter(css => css).join(' ');
 	};

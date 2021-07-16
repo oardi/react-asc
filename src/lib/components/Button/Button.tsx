@@ -37,7 +37,7 @@ export const Button = (props: IButtonProps) => {
 		if (isActive) {
 			cssClasses.push('active');
 		}
-		cssClasses.push(className);
+		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
 

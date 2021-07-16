@@ -19,7 +19,7 @@ export const List = (props: IListProps) => {
 			cssClasses.push(styles.flush);
 		}
 		cssClasses.push(styles.list);
-		cssClasses.push(className);
+		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	}
 

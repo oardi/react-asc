@@ -14,7 +14,7 @@ export const CardTitle = (props: ICardTitleProps) => {
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.cardTitle);
-		cssClasses.push(className);
+		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
 

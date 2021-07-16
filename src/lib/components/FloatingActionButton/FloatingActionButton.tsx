@@ -21,7 +21,7 @@ export const FloatingActionButton = (props: IFloatingActionButtonProps) => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.fab);
 		fixed && cssClasses.push(styles['fixed']);
-		cssClasses.push(className);
+		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
 

@@ -51,7 +51,7 @@ const DrawerContent = (props: IDrawerContentProps) => {
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.drawer);
-		cssClasses.push(className);
+		className && cssClasses.push(className);
 		!!permanent && cssClasses.push(styles['permanent']);
 		position === 'left' ? cssClasses.push(styles['left']) : cssClasses.push(styles['right']);
 		return cssClasses.filter(css => css).join(' ');
