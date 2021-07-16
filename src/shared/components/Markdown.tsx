@@ -6,15 +6,6 @@ export interface IMarkdownProps {
 }
 
 export const Markdown = ({ text }: IMarkdownProps) => {
-	// needed?
-	// const [marddown, setMarddown] = useState<string>('');
-
-	// useEffect(() => {
-	// 	if (text) {
-	// 		setMarddown(marked(text));
-	// 	}
-	// }, [text]);
-
 	return (
 		<div dangerouslySetInnerHTML={{ __html: snarkdown(text) }}></div>
 	);
