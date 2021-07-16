@@ -7,6 +7,7 @@ export * from './BreadcrumbPage';
 export * from './CardPage';
 export * from './ChipPage';
 export * from './CheckboxPage';
+export * from './DateSelectPage';
 export * from './DrawerPage';
 export * from './DropDownPage';
 export * from './ExpansionPanelPage';
