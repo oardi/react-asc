@@ -1,12 +1,12 @@
 /// <reference types="react" />
-export interface IYearProps {
+export interface INumberSelectProps {
+    value?: number;
     from?: number;
     to?: number;
-    value?: number;
     className?: string;
     id?: string;
     name?: string;
     disabled?: boolean;
     onChange?: (val: number) => void;
 }
-export declare const YearSelect: (props: IYearProps) => JSX.Element;
+export declare const NumberSelect: (props: INumberSelectProps) => JSX.Element;
