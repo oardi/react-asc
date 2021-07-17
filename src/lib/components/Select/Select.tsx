@@ -57,13 +57,20 @@ export const Select = (props: ISelectProps) => {
 				setHoverIndex(options.indexOf(option));
 			}
 		}
-	}, [value]);
+	}, [value, options]);
 
 	useEffect(() => {
-		// check hover index
-		const htmlListItem = selectConainter.current?.querySelector(`#list-item-${hoverIndex}`);
-		htmlListItem?.scrollIntoView();
-	}, [hoverIndex]);
+		if (hoverIndex) {
+			scrollIntoView(hoverIndex);
+		}
+	}, [hoverIndex, isShow]);
+
+	const scrollIntoView = (index: number) => {
+		const htmlListItem = selectConainter.current?.querySelector(`#list-item-${index}`);
+		if (htmlListItem) {
+			htmlListItem?.scrollIntoView();
+		}
+	}
 
 	const writeValue = (val: string | Array<string>) => setModel(val);
 

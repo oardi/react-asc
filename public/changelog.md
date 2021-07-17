@@ -1,3 +1,6 @@
+## v13.0.1
+- select - fixed initial scrollIntoView
+
 ## v13.0.0
 - timeSelect - added component
 

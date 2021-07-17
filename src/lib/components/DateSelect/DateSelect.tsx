@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FormGroup } from "../Form";
+import { FormGroup, FormLabel } from "../Form";
 import { DaySelect } from "./DaySelect";
 import { MonthSelect } from "./MonthSelect";
 import { YearSelect } from "./YearSelect";
@@ -39,7 +39,8 @@ export const DateSelect = (props: IDateSelectProps) => {
 
 	return (
 		<div className={getCssClasses()}>
-			<FormGroup className="col-4">
+			<FormGroup className="col">
+				<FormLabel>Year</FormLabel>
 				<YearSelect
 					className="form-control"
 					value={currDate.getFullYear()}
@@ -49,7 +50,8 @@ export const DateSelect = (props: IDateSelectProps) => {
 					onChange={e => handleOnChange(e, DATEMODE.YEAR)}
 				/>
 			</FormGroup>
-			<FormGroup className="col-4">
+			<FormGroup className="col">
+				<FormLabel>Month</FormLabel>
 				<MonthSelect
 					className="form-control"
 					value={currDate.getMonth()}
@@ -57,7 +59,8 @@ export const DateSelect = (props: IDateSelectProps) => {
 					onChange={e => handleOnChange(e, DATEMODE.MONTH)}
 				/>
 			</FormGroup>
-			<FormGroup className="col-4">
+			<FormGroup className="col">
+				<FormLabel>Day</FormLabel>
 				<DaySelect
 					className="form-control"
 					day={currDate.getDate()}

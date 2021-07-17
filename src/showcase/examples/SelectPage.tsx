@@ -43,7 +43,7 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 				]}
 				onChange={handleOnChange}
 				disabled={settingValues.disabled}
-				value="2"
+				value="8"
 			/>
 		</Fragment>
 	);
