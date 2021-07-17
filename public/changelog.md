@@ -1,5 +1,5 @@
 ## v13.1.1
-- added PWA "new version" snackbar
+- show PWA "new version" notification
 
 ## v13.0.1
 - select - fixed initial scrollIntoView
