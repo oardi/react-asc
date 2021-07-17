@@ -4,7 +4,7 @@ import { DaySelect } from "./DaySelect";
 import { MonthSelect } from "./MonthSelect";
 import { YearSelect } from "./YearSelect";
 
-export enum DATEMODE { year, month, day };
+export enum DATEMODE { YEAR, MONTH, DAY };
 
 export interface IDateSelectProps {
 	value?: Date;
@@ -27,10 +27,10 @@ export const DateSelect = (props: IDateSelectProps) => {
 
 	const [currDate, setCurrDate] = useState<Date>(value);
 
-	const handleChange = (e: number, mode: DATEMODE) => {
-		const currYear = mode === DATEMODE.year ? e : currDate.getFullYear();
-		const currMonth = mode === DATEMODE.month ? e : currDate.getMonth();
-		const currday = mode === DATEMODE.day ? e : currDate.getDate();
+	const handleOnChange = (e: number, mode: DATEMODE) => {
+		const currYear = mode === DATEMODE.YEAR ? e : currDate.getFullYear();
+		const currMonth = mode === DATEMODE.MONTH ? e : currDate.getMonth();
+		const currday = mode === DATEMODE.DAY ? e : currDate.getDate();
 		const newDate = new Date(currYear, currMonth, currday);
 
 		setCurrDate(newDate);
@@ -46,7 +46,7 @@ export const DateSelect = (props: IDateSelectProps) => {
 					disabled={disabled}
 					from={yearConfig?.from}
 					to={yearConfig?.to}
-					onChange={e => handleChange(e, DATEMODE.year)}
+					onChange={e => handleOnChange(e, DATEMODE.YEAR)}
 				/>
 			</FormGroup>
 			<FormGroup className="col-4">
@@ -54,7 +54,7 @@ export const DateSelect = (props: IDateSelectProps) => {
 					className="form-control"
 					value={currDate.getMonth()}
 					disabled={disabled}
-					onChange={e => handleChange(e, DATEMODE.month)}
+					onChange={e => handleOnChange(e, DATEMODE.MONTH)}
 				/>
 			</FormGroup>
 			<FormGroup className="col-4">
@@ -64,7 +64,7 @@ export const DateSelect = (props: IDateSelectProps) => {
 					month={currDate.getMonth()}
 					year={currDate.getFullYear()}
 					disabled={disabled}
-					onChange={e => handleChange(e, DATEMODE.day)}
+					onChange={e => handleOnChange(e, DATEMODE.DAY)}
 				/>
 			</FormGroup>
 		</div>

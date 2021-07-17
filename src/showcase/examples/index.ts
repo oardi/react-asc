@@ -24,6 +24,7 @@ export * from './SnackbarPage';
 export * from './TablePage';
 export * from './TabsPage';
 export * from './TooltipPage';
+export * from './TimeSelectPage';
 export * from './TreeViewPage';
 export * from './TypographyPage';
 export * from './IconPage';
