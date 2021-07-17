@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { ISelectOption, Select } from "../Select";
 
-export interface IMonthProps {
+export interface INumberSelectProps {
 	value?: number;
+	from?: number;
+	to?: number;
 	className?: string;
 	id?: string;
 	name?: string;
@@ -10,20 +12,28 @@ export interface IMonthProps {
 	onChange?: (val: number) => void;
 }
 
-export const MonthSelect = (props: IMonthProps) => {
+export const NumberSelect = (props: INumberSelectProps) => {
 
-	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	const { className, value = 0, from = 0, to = 100, id, name, disabled = false, onChange } = props;
 
-	const { className, value = new Date().getMonth(), id, name, disabled, onChange } = props;
-	const [newValue, setNewValue] = useState<number>(value);
-	const [monthOptions, setMonthOptions] = useState<Array<ISelectOption>>();
+	const [newValue, setNewValue] = useState<number>(0);
+	const [numberOptions, setNumberOptions] = useState<Array<ISelectOption>>();
 
 	useEffect(() => {
-		setMonthOptions(months.map((m, index) => ({ value: index.toString(), label: m })));
-	}, []);
+		setNewValue(value);
+	}, [value]);
+
+	useEffect(() => {
+		const options: Array<ISelectOption> = [];
+		for (let i = from; i <= to; i++) {
+			options.push({ value: i.toString(), label: i.toString() });
+		}
+		setNumberOptions(options);
+	}, [from, to]);
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
+		cssClasses.push('form-control');
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	}
@@ -38,7 +48,7 @@ export const MonthSelect = (props: IMonthProps) => {
 			id={id}
 			name={name}
 			className={getCssClasses()}
-			options={monthOptions}
+			options={numberOptions}
 			onChange={(e) => handleOnChange(parseInt(e as string))}
 			disabled={disabled}
 			value={newValue.toString()}

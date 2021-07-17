@@ -6,6 +6,8 @@ export interface IYearProps {
 	to?: number;
 	value?: number;
 	className?: string;
+	id?: string;
+	name?: string;
 	disabled?: boolean;
 	onChange?: (val: number) => void;
 }
@@ -17,6 +19,8 @@ export const YearSelect = (props: IYearProps) => {
 		from = 1970,
 		to = new Date().getFullYear().toString(),
 		value = new Date().getFullYear().toString(),
+		id,
+		name,
 		disabled,
 		onChange
 	} = props;
@@ -44,8 +48,8 @@ export const YearSelect = (props: IYearProps) => {
 
 	return (
 		<Select
-			id="yearSelect"
-			name="yearSelect"
+			id={id}
+			name={name}
 			className={getCssClasses()}
 			options={years}
 			onChange={handleOnChange}

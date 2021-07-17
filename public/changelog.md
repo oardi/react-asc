@@ -1,3 +1,6 @@
+## unreleased
+- numberSelect - added component
+
 ## v11.0.0
 - dateSelect - added component
 

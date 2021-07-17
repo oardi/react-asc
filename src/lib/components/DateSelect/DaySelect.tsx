@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { ISelectOption, Select } from "../Select";
 
-export interface IDayProps {
+export interface IDaySelectProps {
 	day?: number;
 	month?: number;
 	year?: number;
-
 	className?: string;
+	id?: string;
+	name?: string;
 	disabled?: boolean;
 	onChange?: (val: number) => void;
 }
-export const DaySelect = (props: IDayProps) => {
+
+export const DaySelect = (props: IDaySelectProps) => {
 
 	const {
 		className,
@@ -18,6 +20,8 @@ export const DaySelect = (props: IDayProps) => {
 		month = new Date().getMonth(),
 		year = new Date().getFullYear(),
 		disabled,
+		id,
+		name,
 		onChange
 	} = props;
 
@@ -50,8 +54,8 @@ export const DaySelect = (props: IDayProps) => {
 
 	return (
 		<Select
-			id="daySelect"
-			name="daySelect"
+			id={id}
+			name={name}
 			className={getCssClasses()}
 			options={dayOptions}
 			onChange={(e) => handleOnChange(parseInt(e as string))}

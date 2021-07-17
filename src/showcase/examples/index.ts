@@ -19,6 +19,7 @@ export * from './IconButtonPage';
 export * from './ListPage';
 export * from './LoadingIndicatorPage';
 export * from './ModalPage';
+export * from './NumberSelectPage';
 export * from './SnackbarPage';
 export * from './TablePage';
 export * from './TabsPage';
