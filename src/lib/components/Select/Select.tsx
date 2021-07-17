@@ -36,7 +36,7 @@ export const Select = (props: ISelectProps) => {
 	const { id, className, options = [], value, multiple, multipleMaxCountItems = 5, onChange, onKeyDown } = props;
 
 	const [model, setModel] = useState<string | Array<string>>('');
-	const [hoverIndex, setHoverIndex] = useState<number>(0);
+	const [hoverIndex, setHoverIndex] = useState<number | null>(null);
 	const [isShow, setIsShow] = useState<boolean>(false);
 	const [selectedOptions, setSelectedOptions] = useState<Array<ISelectOption>>([]);
 	const selectConainter = useRef<HTMLDivElement>(null);
@@ -146,11 +146,15 @@ export const Select = (props: ISelectProps) => {
 					hide();
 					break;
 				case 'ArrowDown':
-					setHoverIndex(hoverIndex + 1);
+					if (hoverIndex) {
+						setHoverIndex(hoverIndex + 1);
+					}
 					break;
 				case 'ArrowUp':
 					// TODO
-					setHoverIndex(hoverIndex - 1);
+					if (hoverIndex) {
+						setHoverIndex(hoverIndex - 1);
+					}
 					break;
 				case 'Enter':
 					if (hoverIndex) {

@@ -1,123 +1,84 @@
-import { useEffect, useState } from "react";
-import { ISelectOption, Select } from "../Select";
+import React, { useState } from "react";
+import { FormGroup } from "../Form";
+import { DaySelect } from "./DaySelect";
+import { MonthSelect } from "./MonthSelect";
+import { YearSelect } from "./YearSelect";
 
-export interface IYearProps {
-	from?: number;
-	to?: number;
-	value?: string;
-	className?: string;
-	disabled?: boolean;
-	onChange?: (val: string | Array<string>) => void;
-}
-
-export const YearSelect = (props: IYearProps) => {
-
-	const {
-		className = '',
-		from = 1970,
-		to = new Date().getFullYear().toString(),
-		value = new Date().getFullYear().toString(),
-		disabled
-	} = props;
-	const [newValue, setNewValue] = useState<string>(value);
-	const [years, setYears] = useState<Array<ISelectOption>>();
-
-	useEffect(() => {
-		const newYears: Array<ISelectOption> = [];
-		for (let i = from; i <= to; i++) {
-			newYears.push({ value: i.toString(), label: i.toString() });
-		}
-		setYears(newYears.reverse());
-	}, [from, to]);
-
-	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
-		className && cssClasses.push(className);
-		return cssClasses.filter(css => css).join(' ');
-	}
-
-	const handleOnChange = (e: string | Array<string>) => {
-		setNewValue(e as string);
-	}
-
-	return (
-		<Select
-			id="yearSelect"
-			name="yearSelect"
-			className={getCssClasses()}
-			options={years}
-			onChange={handleOnChange}
-			disabled={disabled}
-			value={newValue}
-		/>
-	);
-}
-
-export interface IMonthProps {
-	value?: number;
-	className?: string;
-	disabled?: boolean;
-	onChange?: (val: string | Array<string>) => void;
-}
-
-export const MonthSelect = (props: IMonthProps) => {
-
-	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-	const { className, value = new Date().getMonth(), disabled } = props;
-
-	const [newValue, setNewValue] = useState<number>(value);
-	const [monthOptions, setMonthOptions] = useState<Array<ISelectOption>>();
-
-	useEffect(() => {
-		setMonthOptions(months.map((m, index) => ({ value: index.toString(), label: m })));
-	}, []);
-
-	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
-		className && cssClasses.push(className);
-		return cssClasses.filter(css => css).join(' ');
-	}
-
-	const handleOnChange = (e: number) => {
-		setNewValue(e);
-	}
-
-	return (
-		<Select
-			id="monthSelect"
-			name="monthSelect"
-			className={getCssClasses()}
-			options={monthOptions}
-			onChange={(e) => handleOnChange(parseInt(e as string))}
-			disabled={disabled}
-			value={newValue.toString()}
-		/>
-	);
-}
-
-export const DaySelect = () => {
-	// days by current month
-	// days
-	return (
-		<>
-		</>
-	);
-}
-
+export enum DATEMODE { year, month, day };
 
 export interface IDateSelectProps {
-
+	value?: Date;
+	className?: string;
+	disabled?: boolean;
+	yearConfig?: { from?: number, to?: number };
+	onChange?: (val: Date) => void;
 }
 
 export const DateSelect = (props: IDateSelectProps) => {
-	// default all three selects
-	// mode: year, month, day
+
+	const { className = '', value = new Date(), disabled, yearConfig, onChange } = props;
+
+	const getCssClasses = () => {
+		const cssClasses: Array<string> = [];
+		cssClasses.push('form-row');
+		className && cssClasses.push(className);
+		return cssClasses.filter(css => css).join(' ');
+	}
+
+	const [currDate, setCurrDate] = useState<Date>(value);
+
+	const handleChange = (e: number, mode: DATEMODE) => {
+		const currYear = mode === DATEMODE.year ? e : currDate.getFullYear();
+		const currMonth = mode === DATEMODE.month ? e : currDate.getMonth();
+		const currday = mode === DATEMODE.day ? e : currDate.getDate();
+		const newDate = new Date(currYear, currMonth, currday);
+
+		setCurrDate(newDate);
+		onChange && onChange(newDate);
+	};
 
 	return (
-		<>
-			<YearSelect />
-			<MonthSelect />
-			<DaySelect />
-		</>
+		<div className={getCssClasses()}>
+			<FormGroup className="col-4">
+				<YearSelect
+					className="form-control"
+					value={currDate.getFullYear()}
+					disabled={disabled}
+					from={yearConfig?.from}
+					to={yearConfig?.to}
+					onChange={e => handleChange(e, DATEMODE.year)}
+				/>
+			</FormGroup>
+			<FormGroup className="col-4">
+				<MonthSelect
+					className="form-control"
+					value={currDate.getMonth()}
+					disabled={disabled}
+					onChange={e => handleChange(e, DATEMODE.month)}
+				/>
+			</FormGroup>
+			<FormGroup className="col-4">
+				<DaySelect
+					className="form-control"
+					day={currDate.getDate()}
+					month={currDate.getMonth()}
+					year={currDate.getFullYear()}
+					disabled={disabled}
+					onChange={e => handleChange(e, DATEMODE.day)}
+				/>
+			</FormGroup>
+		</div>
 	);
 }
+
+/*
+* result = { year, month, day, dayOfWeek, weekNumber }
+*/
+
+	// const getWeekNumber = () => {
+	// 	var d = new Date(Date.UTC(this.getFullYear(), this.getMonth(), this.getDate()));
+	// 	var dayNum = d.getUTCDay() || 7;
+	// 	d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+	// 	var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+	// 	return Math.ceil((((d - yearStart) / 86400000) + 1) / 7)
+	// };
