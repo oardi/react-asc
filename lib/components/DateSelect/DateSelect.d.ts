@@ -1,8 +1,8 @@
 /// <reference types="react" />
 export declare enum DATEMODE {
-    year = 0,
-    month = 1,
-    day = 2
+    YEAR = 0,
+    MONTH = 1,
+    DAY = 2
 }
 export interface IDateSelectProps {
     value?: Date;

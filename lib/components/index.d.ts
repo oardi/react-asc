@@ -30,6 +30,7 @@ export * from './Table';
 export * from './Tabs';
 export * from './Textarea';
 export * from './Tooltip';
+export * from './TimeSelect';
 export * from './TreeView';
 export * from './Typography';
 export * from './component.enums';
