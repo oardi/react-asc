@@ -3,7 +3,7 @@ import { NumberSelect } from 'react-craft';
 
 const NumberSelectExample = () => {
 
-	const [value, setValue] = useState<number>(settingValues.from as number);
+	const [value, setValue] = useState<number>(10);
 
 	const handleOnChange = (e: number) => {
 		setValue(e);
