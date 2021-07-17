@@ -1,6 +1,3 @@
-## unreleased
-- numberSelect - added component
-
 ## v12.0.0
 - numberSelect - added component
 - cleanup dateSelect

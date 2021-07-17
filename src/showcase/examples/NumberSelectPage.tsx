@@ -8,8 +8,8 @@ const NumberSelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 
 	useEffect(() => {
 		setSettingsControls({
-			from: new FormControl(settingValues.from, [], 'number', { label: 'From' }),
-			to: new FormControl(settingValues.to, [], 'number', { label: 'To' }),
+			from: new FormControl(settingValues.from, [], 'number', { label: 'From', hint: 'start value' }),
+			to: new FormControl(settingValues.to, [], 'number', { label: 'To', hint: 'end value' }),
 		});
 	}, []);
 
