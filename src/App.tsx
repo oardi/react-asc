@@ -3,7 +3,7 @@ import { Route, Switch, useHistory } from 'react-router-dom';
 import './index.scss';
 import * as Pages from './showcase'; // LazyLoading?
 import { AppBar, AppBarTitle, COLOR, Drawer, IconButton, ISidebarItem, useWindowSize } from './lib';
-import { AppSidebar, AppInfo, AppBreadcrumb, loggerService } from './shared';
+import { AppSidebar, AppInfo, AppBreadcrumb, loggerService, ServiceWorkerWrapper } from './shared';
 import { useAppContext } from './AppContext';
 import { showcaseService } from './app.service';
 import { MenuModel, RouteModel, BarsSolidIcon } from './showcase';
@@ -97,6 +97,8 @@ const App = () => {
 					</Switch>
 				</div>
 			</div>
+
+			<ServiceWorkerWrapper />
 		</Fragment>
 	);
 }

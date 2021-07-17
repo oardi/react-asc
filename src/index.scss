@@ -22,11 +22,12 @@ body,
 }
 
 body {
-	background: #f5f6fa;
+	background: var(--primary);
 	display: flex;
 }
 
 #root {
+	background: var(--white);
 	display: flex;
 	flex-direction: column;
 	width: 100%;

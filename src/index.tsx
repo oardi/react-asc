@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { AppContainer } from './AppContainer';
 
@@ -13,7 +12,5 @@ ReactDOM.render(
 	</Suspense>,
 	document.getElementById('root')
 );
-
-serviceWorkerRegistration.register();
 
 reportWebVitals();
