@@ -1,5 +1,5 @@
-## unreleased
-
+## v11.0.0
+- dateSelect - added component
 
 ## v10.0.0
 - buttonGroup - added component
