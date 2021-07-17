@@ -14,6 +14,7 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 - Checkbox
 - Chip
 - ConditionalWrapper
+- DateSelect
 - Drawer
 - DropDown
 - ExpansionPanel
@@ -24,16 +25,19 @@ handcrafted components using Twitter Bootstrap, bundled with rollup.
 - Icon
 - IconButton
 - List
+- LoadingIndicator
 - Modal + ModalService
+- NumberSelect
 - Select
 - Sidebar
 - Snackbar + SnackbarService
-- Speeddial
+- SpeedDial
 - Table (v1)
 - Tabs
 - Textarea
 - Tooltip
 - TreeView (v1)
+- Typography
 
 
 ## Credit 
