@@ -1,3 +1,6 @@
+## v13.0.0
+- timeSelect - added component
+
 ## v12.0.0
 - numberSelect - added component
 - cleanup dateSelect
