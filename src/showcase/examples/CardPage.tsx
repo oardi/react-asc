@@ -16,7 +16,7 @@ const CardPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 
 	return (
 		<Fragment>
-			<div className="d-flex justify-content-center mt-3">
+			<div className="d-flex justify-content-center">
 				<Card style={{ width: '320px' }}>
 					{
 						settingValues.showImage &&

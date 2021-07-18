@@ -30,7 +30,6 @@ export const AppBreadcrumb = () => {
 		<Fragment>
 			{items &&
 				<Breadcrumb
-					className="mt-3"
 					items={items}
 					onItemClick={handleClickBreadcrumbItem}
 				/>

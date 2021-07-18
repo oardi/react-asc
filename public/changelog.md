@@ -1,3 +1,6 @@
+## 13.1.2
+- style fixes
+
 ## v13.1.1
 - show PWA "new version" notification
 

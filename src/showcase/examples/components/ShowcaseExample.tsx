@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Card, CardBody } from '../../../lib';
+import { Card } from '../../../lib';
 
 interface IShowcaseExampleProps {
 	children: ReactElement;
@@ -7,8 +7,6 @@ interface IShowcaseExampleProps {
 
 export const ShowcaseExample = ({ children }: IShowcaseExampleProps) => (
 	<Card>
-		<CardBody>
-			{children}
-		</CardBody>
+		{children}
 	</Card>
 );
