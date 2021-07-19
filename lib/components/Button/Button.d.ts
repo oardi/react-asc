@@ -7,5 +7,6 @@ export interface IButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAt
     isRounded?: boolean;
     onClick?: (e: React.MouseEvent) => void;
     variant?: VARIANT;
+    startIcon?: React.SVGProps<SVGSVGElement>;
 }
 export declare const Button: (props: IButtonProps) => JSX.Element;
