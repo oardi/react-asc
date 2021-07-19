@@ -1,3 +1,7 @@
+## 13.2.0
+- button - added startIcon
+- showcase style and text fixes
+
 ## 13.1.2
 - style fixes
 

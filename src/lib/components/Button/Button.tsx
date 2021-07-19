@@ -1,6 +1,8 @@
-import React, { MouseEvent } from 'react';
+import React from 'react';
 
 import { COLOR, VARIANT } from '../component.enums';
+import { Icon } from '../Icon';
+import styles from './Button.module.scss';
 
 export interface IButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
 	block?: boolean;
@@ -9,11 +11,12 @@ export interface IButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAt
 	isRounded?: boolean;
 	onClick?: (e: React.MouseEvent) => void;
 	variant?: VARIANT;
+	startIcon?: React.SVGProps<SVGSVGElement>;
 }
 
 export const Button = (props: IButtonProps) => {
 
-	const { children, variant = VARIANT.contained, color = COLOR.primary, block, isRounded, isActive, className = '', ...rest } = props;
+	const { children, variant = VARIANT.contained, color = COLOR.primary, block, isRounded, isActive, className = '', startIcon, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -47,7 +50,12 @@ export const Button = (props: IButtonProps) => {
 			className={getCssClasses()}
 			{...rest}
 		>
-			{children}
+			<span>
+				{startIcon && <Icon className={styles.startIcon}>
+						{startIcon}
+					</Icon>}
+				{children}
+			</span>
 		</button>
 	);
 };
