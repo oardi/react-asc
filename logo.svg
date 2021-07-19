@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(2.89888,0,0,2.75989,-177.586,-144.468)">
+        <ellipse cx="149.57" cy="145.103" rx="88.31" ry="92.757" style="fill:rgb(63,81,181);"/>
+    </g>
+    <g id="users-solid.svg" transform="matrix(0.663018,0,0,0.663018,256,256)">
+        <g id="pencil-ruler-solid.svg" transform="matrix(1.01126,0,0,1.01126,-0.000781879,1.24345e-14)">
+            <g id="users-solid.svg1" serif:id="users-solid.svg">
+                <g id="pencil-ruler-solid.svg1" serif:id="pencil-ruler-solid.svg" transform="matrix(1,0,0,1,-256,-256)">
+                    <clipPath id="_clip1">
+                        <rect x="0" y="0" width="512" height="512"/>
+                    </clipPath>
+                    <g clip-path="url(#_clip1)">
+                        <path d="M109.46,244.04L244.04,109.48L199.92,65.36L138.24,127.04C136.755,128.528 134.737,129.365 132.635,129.365C130.533,129.365 128.515,128.528 127.03,127.04L115.82,115.83C112.72,112.73 112.72,107.71 115.82,104.62L177.5,42.94L143.86,9.29C131.47,-3.1 111.39,-3.1 99,9.29L9.29,99C-3.09,111.39 -3.1,131.47 9.29,143.86L109.46,244.04ZM497.93,127.24C516.69,108.48 516.68,78.07 497.93,59.31L452.68,14.06C433.92,-4.7 403.5,-4.7 384.73,14.06L338.71,60.07L451.91,173.27L497.93,127.24ZM316.08,82.71L19.08,379.67L0.32,487.11C-2.21,501.6 10.41,514.22 24.91,511.67L132.36,492.83L429.28,195.9L316.08,82.71ZM502.71,368.14L469.07,334.5L407.39,396.18C404.29,399.28 399.27,399.28 396.18,396.18L384.97,384.97C381.88,381.87 381.88,376.85 384.97,373.76L446.65,312.08L402.51,267.94L267.93,402.5L368.14,502.7C380.53,515.09 400.61,515.09 413,502.7L502.71,413C515.1,400.61 515.1,380.53 502.71,368.14Z" style="fill:white;fill-rule:nonzero;"/>
+                    </g>
+                </g>
+                <g id="pencil-ruler-solid.svg2" serif:id="pencil-ruler-solid.svg">
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

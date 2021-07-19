@@ -1,3 +1,6 @@
+## 13.3.0
+- added logo and manifest colors
+
 ## 13.2.0
 - button - added startIcon
 - showcase style and text fixes
