@@ -1,6 +1,6 @@
 {
 	"name": "react-asc",
-	"version": "13.3.2",
+	"version": "13.3.3",
 	"description": "handcrafted react components",
 	"main": "lib/index.js",
 	"module": "lib/index.es.js",
@@ -63,13 +63,11 @@
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"build:lib": "rimraf lib && rollup -c && npm run scss-bundle-styles",
+		"postbuild:lib": "node copyfiles.js",
 		"scss-bundle-styles": "scss-bundle -c scss-bundle.config.json",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"lint": "eslint --ext tsx src",
-		"prepub": "node build:lib && rimraf lib && node copyfiles.js && cd lib",
-		"pub": "npm publish --access public",
-		"postpub": "cd lib & del package.json"
+		"lint": "eslint --ext tsx src"
 	},
 	"eslintConfig": {
 		"extends": [
