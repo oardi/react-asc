@@ -195,6 +195,7 @@ export class Form extends Component<IFormProps, IFormState> {
 	}
 
 	handleOnKeyDown(e: KeyboardEvent) {
+		e.preventDefault();
 		if (e.key === 'Enter') {
 			this.state.submitOnEnter && this.handleFormSubmit();
 		}
