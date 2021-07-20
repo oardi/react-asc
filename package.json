@@ -67,8 +67,8 @@
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
 		"lint": "eslint --ext tsx src",
-		"prepub": "copy package.json lib && copy readme.md lib",
-		"pub": "cd lib & npm publish --access public",
+		"prepub": "node build:lib && rimraf lib && node copyfiles.js && cd lib",
+		"pub": "npm publish --access public",
 		"postpub": "cd lib & del package.json"
 	},
 	"eslintConfig": {
