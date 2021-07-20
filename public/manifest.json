@@ -1,6 +1,6 @@
 {
-	"short_name": "React Craft",
-	"name": "React Craft Component Library",
+	"short_name": "react-asc",
+	"name": "React Component Library",
 	"icons": [
 		{
 			"src": "../manifest-icon-192.png",

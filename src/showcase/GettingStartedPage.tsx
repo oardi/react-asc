@@ -1,23 +1,40 @@
-import React, { useEffect, useState } from 'react';
-import { fileLoaderService, loggerService, Markdown } from '../shared';
+import React from 'react';
+import { Typography } from '../lib';
+import { Highlight } from '../shared';
 import { Layout } from './Layout';
 
 export const GettingStartedPage = () => {
 
-	const [markdownText, setMarkdownText] = useState<string>('');
-
-	useEffect(() => { init() }, []);
-
-	const init = async () => {
-		try {
-			const data = await fileLoaderService.get<string>('./pages/getting-started.md', { responseType: 'arraybuffer' });
-			setMarkdownText(data.data);
-		} catch (err) { loggerService.error(err); }
-	}
-
 	return (
-		<Layout title="Getting started">
-			<Markdown text={markdownText} />
+		<Layout title="Getting started" className="pb-4">
+			<Typography as="h3">
+				Install react-asc
+			</Typography>
+			<Highlight text={`npm install react-asc`} />
+
+			<Typography as="h3" className="mt-3">
+				Install Twitter Bootstrap 4.6
+			</Typography>
+			<Highlight text={`npm install bootstrap@4.6`} />
+
+			<Typography as="h3" className="mt-3">
+				Include needed scss files
+			</Typography>
+			<Highlight text={`
+				@import "~bootstrap/scss/bootstrap";
+				@import "react-asc/react-asc.scss";`} />
+
+			<Typography as="h3" className="mt-3">
+				Install Twitter Bootstrap 4.6
+			</Typography>
+			<Highlight text={`
+				import { Button } from 'react-asc';
+
+				const MyApp = () => {
+					return (
+						<Button>some button</Button>
+					)
+				}`} />
 		</Layout>
 	);
 }

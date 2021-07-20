@@ -1,4 +1,4 @@
-# React Craft
+# react-asc
 
 handcrafted components using Twitter Bootstrap, bundled with rollup.
 

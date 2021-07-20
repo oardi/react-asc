@@ -1,23 +1,48 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Layout } from './Layout';
-import { fileLoaderService, loggerService, Highlight } from '../shared';
+import { List, ListItem, Typography } from '../lib';
 
 export const AboutPage = () => {
 
-	const [markdownText, setMarkdownText] = useState<string>('');
-
-	useEffect(() => { init() }, []);
-
-	const init = async () => {
-		try {
-			const data = await fileLoaderService.get<string>('./pages/about.md', { responseType: 'arraybuffer' });
-			setMarkdownText(data.data);
-		} catch (err) { loggerService.error(err); }
-	}
-
 	return (
 		<Layout title="About">
-			<Highlight text={markdownText} />
+			<Typography as="h3">
+				Author
+			</Typography>
+			<Typography as="p">
+				Ardian Shala
+			</Typography>
+
+			<Typography as="h3">
+				Browser supported
+			</Typography>
+			<Typography as="p">
+				Chrome
+			</Typography>
+
+			<Typography as="h3">
+				Credits and Thanks
+			</Typography>
+			<Typography as="p">
+				This React library aims to deliver reusable Twitter Bootstrap components.
+				Thank you React Team for providing such a awesome library :)
+			</Typography>
+
+			<Typography as="h3">
+				Dependencies
+			</Typography>
+			<List>
+				<ListItem>React</ListItem>
+				<ListItem>Twitter Bootstrap</ListItem>
+				<ListItem>axios</ListItem>
+			</List>
+
+			<Typography as="h3">
+				License
+			</Typography>
+			<Typography as="p">
+				MIT
+			</Typography>
 		</Layout>
 	)
 }
