@@ -1,3 +1,6 @@
+## 13.3.2
+- form - onEnter fix
+
 ## 13.3.1
 - form - onEnter preventdefault
 

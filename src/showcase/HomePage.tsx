@@ -17,7 +17,7 @@ export const HomePage = () => {
 			<div>
 
 				<Typography as="h1" className="text-center">
-					react-craft
+					react-asc
 				</Typography>
 
 				<Typography as="h2" className="mt-4 text-center">
@@ -38,7 +38,7 @@ export const HomePage = () => {
 									Twitter Bootstrap 4.6
 								</CardTitle>
 								<CardText>
-									react-craft uses Twitter Bootstrap 4.6 at it´s core
+									react-asc uses Twitter Bootstrap 4.6 at it´s core
 								</CardText>
 							</CardBody>
 						</Card>
@@ -65,7 +65,7 @@ export const HomePage = () => {
 									Compatible
 								</CardTitle>
 								<CardText>
-									react-craft aims to deliver a collection of reusable unique ReactJs components to build modern web applications.
+									react-asc aims to deliver a collection of reusable unique ReactJs components to build modern web applications.
 								</CardText>
 							</CardBody>
 						</Card>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NumberSelect } from 'react-craft';
+import { NumberSelect } from 'react-asc';
 
 const NumberSelectExample = () => {
 

@@ -1,7 +1,7 @@
 ## Install React Craft via Github
 
 ```js
-npm install git+https://github.com/oardi/react-craft.git
+npm install git+https://github.com/oardi/react-asc.git
 ```
 
 
@@ -16,14 +16,14 @@ npm install bootstrap@4.5
 
 ```scss
 @import "~bootstrap/scss/bootstrap";
-@import "react-craft/lib/react-craft.scss";
+@import "react-asc/lib/react-asc.scss";
 ```
 
 
 ## Start using the library
 
 ```js
-import { Button } from 'react-craft';
+import { Button } from 'react-asc';
 
 const MyApp = () => {
 	return (

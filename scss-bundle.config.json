@@ -2,6 +2,6 @@
 	"bundlerOptions": {
 		"entryFile": "./src/lib/styles/style.scss",
 		"rootDir": "./src/lib/styles/",
-		"outFile": "./lib/react-craft.scss"
+		"outFile": "./lib/react-asc.scss"
 	}
 }
