@@ -51,7 +51,7 @@ export const HomePage = () => {
 									Well documentated
 								</CardTitle>
 								<CardText>
-									This documentation is build using the this library.
+									This documentation is build using this library.
 									Each available component is shown by example and usage.
 								</CardText>
 							</CardBody>

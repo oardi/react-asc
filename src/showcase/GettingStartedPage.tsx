@@ -35,6 +35,15 @@ export const GettingStartedPage = () => {
 						<Button>some button</Button>
 					)
 				}`} />
+
+
+			<Typography as="h3" className="mt-3">
+				Codesandbox example
+			</Typography>
+			<Typography as="p">
+				Click <a href="https://codesandbox.io/s/react-asc-example-8y9ob" target="blank">here</a> to see a simple example
+			</Typography>
+
 		</Layout>
 	);
 }
