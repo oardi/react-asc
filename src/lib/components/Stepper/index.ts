@@ -1,3 +1,3 @@
-export * from './Step';
-export * from './StepLabel';
 export * from './Stepper';
+export * from './StepperActions';
+export * from './Step';

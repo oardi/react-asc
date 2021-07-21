@@ -1,5 +1,6 @@
 import React, { cloneElement, PropsWithChildren, ReactChild, ReactElement, useEffect, useState } from 'react';
 import { IStepProps } from './Step';
+import { StepperActions } from './StepperActions';
 import styles from './Stepper.module.scss';
 
 export interface IStepperProps {
@@ -12,17 +13,22 @@ export interface IStepperProps {
 
 export const Stepper = (props: IStepperProps) => {
 
-	// selected
 	// prevSteps
 	// nextSteps
 
 	const { children } = props;
+	const [steps, setSteps] = useState<(ReactElement<IStepProps>)[]>();
 
-	const [_children, setChildren] = useState<(ReactElement<IStepProps>)[]>();
+	const [activeIndex, setActiveIndex] = React.useState(0);
+	const [skipped, setSkipped] = React.useState(new Set<number>());
 
 	useEffect(() => {
-		setChildren(React.Children.toArray(children) as (ReactElement<IStepProps>)[]);
+		setSteps(React.Children.toArray(children) as (ReactElement<IStepProps>)[]);
 	}, [children]);
+
+	const isStepSkipped = (step: number) => {
+		return skipped.has(step);
+	};
 
 	const handleClickStep = (event: any, newValue: string, index: number) => {
 		console.warn('handleClickStep', event, newValue, index);
@@ -31,7 +37,7 @@ export const Stepper = (props: IStepperProps) => {
 	const renderSteps = (child: ReactChild, index: number) => {
 		return React.isValidElement(child) &&
 			cloneElement((child as ReactElement<PropsWithChildren<IStepProps>>), {
-				index: index + 1,
+				index: index,
 				onClick: (event: any, val: string) => handleClickStep(event, val, index)
 			});
 	}
@@ -44,19 +50,76 @@ export const Stepper = (props: IStepperProps) => {
 		)
 	}
 
+	const isStepOptional = (index: number) => {
+		return steps && steps[index].props.isOptional;
+	};
+
+	const handleBack = () => {
+		setActiveIndex((prevActiveStep) => prevActiveStep - 1);
+	}
+
+	// TODO
+	const handleSkip = () => {
+		if (!isStepOptional(activeIndex)) {
+			// You probably want to guard against something like this,
+			// it should never occur unless someone's actively trying to break something.
+			throw new Error("You can't skip a step that isn't optional.");
+		}
+
+		setActiveIndex((prevActiveStep) => prevActiveStep + 1);
+		setSkipped((prevSkipped) => {
+			const newSkipped = new Set(prevSkipped.values());
+			newSkipped.add(activeIndex);
+			return newSkipped;
+		});
+	}
+
+	// TODO
+	const handleNext = () => {
+		let newSkipped = skipped;
+		if (isStepSkipped(activeIndex)) {
+			newSkipped = new Set(newSkipped.values());
+			newSkipped.delete(activeIndex);
+		}
+
+		setActiveIndex((prevActiveStep) => prevActiveStep + 1);
+		setSkipped(newSkipped);
+	}
+
+	const handleReset = () => {
+		setActiveIndex(0);
+	};
+
 	return (
-		<div className={styles.stepper}>
-			{
-				_children &&
-				_children.map(
-					(child, index) => (
-						<React.Fragment key={child.props.value}>
-							{renderSteps(child as ReactChild, index)}
-							{_children.length - 1 !== index && renderConnector(child)}
-						</React.Fragment>
-					)
-				)
+		<>
+			{steps &&
+				<>
+					<div className={styles.stepper}>
+						{
+							steps.map(
+								(child, index) => (
+									<React.Fragment key={child.props.value}>
+										{renderSteps(child as ReactChild, index)}
+										{steps.length - 1 !== index && renderConnector(child)}
+									</React.Fragment>
+								)
+							)
+						}
+					</div>
+
+					<StepperActions
+						isCompleted={activeIndex === steps.length}
+						isLastStep={activeIndex === steps.length - 1}
+						isStepOptional={isStepOptional(activeIndex)}
+						onBack={handleBack}
+						onSkip={handleSkip}
+						onNext={handleNext}
+						onReset={handleReset}
+					/>
+
+				</>
+
 			}
-		</div>
+		</>
 	);
 }

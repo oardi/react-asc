@@ -10,6 +10,7 @@ export interface IStepProps {
 	index?: number;
 	label?: ReactNode;
 	isActive?: boolean;
+	isOptional?: boolean;
 	value: string;
 	className?: string;
 	onClick?: (event: any, value: string) => void;
@@ -21,7 +22,7 @@ export const Step = (props: IStepProps) => {
 	const [hoverRef, isHovered] = useHover();
 
 	const handleClick = (e: any) => {
-		console.warn('handleClick step');
+		onClick && onClick(e, value);
 	}
 
 	const getCssClasses = () => {
@@ -49,7 +50,7 @@ export const Step = (props: IStepProps) => {
 
 				<div className={styles.stepValue + ' ' + (isActive ? (styles.stepValue['isActive' as any]) : undefined)}>
 					<Typography>
-						{index}
+						{(index as number) + 1}
 					</Typography>
 				</div>
 			</div>
