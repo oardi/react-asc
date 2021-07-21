@@ -25,7 +25,7 @@ export const GettingStartedPage = () => {
 				@import "react-asc/react-asc.scss";`} />
 
 			<Typography as="h3" className="mt-3">
-				Install Twitter Bootstrap 4.6
+				Start using it
 			</Typography>
 			<Highlight text={`
 				import { Button } from 'react-asc';
