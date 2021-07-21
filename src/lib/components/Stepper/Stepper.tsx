@@ -42,7 +42,7 @@ export const Stepper = (props: IStepperProps) => {
 	};
 
 	const handleClickStep = (event: any, newValue: string, index: number) => {
-		console.warn('handleClickStep', event, newValue, index);
+		setActiveIndex(index);
 	}
 
 	const renderSteps = (child: ReactChild, index: number) => {
@@ -50,6 +50,7 @@ export const Stepper = (props: IStepperProps) => {
 			cloneElement((child as ReactElement<PropsWithChildren<IStepProps>>), {
 				index: index,
 				isActive: activeIndex >= index,
+				isDisabled: isLinear && (activeIndex + 1 < index),
 				onClick: (event: any, val: string) => handleClickStep(event, val, index)
 			});
 	}
@@ -73,8 +74,6 @@ export const Stepper = (props: IStepperProps) => {
 	// TODO
 	const handleSkip = () => {
 		if (!isStepOptional(activeIndex)) {
-			// You probably want to guard against something like this,
-			// it should never occur unless someone's actively trying to break something.
 			throw new Error("You can't skip a step that isn't optional.");
 		}
 
@@ -126,6 +125,8 @@ export const Stepper = (props: IStepperProps) => {
 							)
 						}
 					</div>
+
+					{/* content? */}
 
 					<StepperActions
 						isFirstStep={activeIndex === 0}

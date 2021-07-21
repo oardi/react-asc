@@ -10,6 +10,7 @@ export interface IStepProps {
 	index?: number;
 	label?: ReactNode;
 	isActive?: boolean;
+	isDisabled?: boolean;
 	isOptional?: boolean;
 	value: string;
 	className?: string;
@@ -18,17 +19,20 @@ export interface IStepProps {
 
 export const Step = (props: IStepProps) => {
 
-	const { className, label, index, value, isActive, onClick } = props;
+	const { className, label, index, value, isActive, isOptional = false, isDisabled, onClick } = props;
 	const [hoverRef, isHovered] = useHover();
 
 	const handleClick = (e: any) => {
-		onClick && onClick(e, value);
+		if (!isDisabled) {
+			onClick && onClick(e, value);
+		}
 	}
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.stepWrapper);
 		label && cssClasses.push(styles['hasLabel']);
+		isDisabled && cssClasses.push(styles['disabled']);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	}
@@ -37,6 +41,7 @@ export const Step = (props: IStepProps) => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.step);
 		label && cssClasses.push(styles['hasLabel']);
+		isDisabled && cssClasses.push(styles['disabled']);
 		return cssClasses.filter(css => css).join(' ');
 	}
 
@@ -44,7 +49,7 @@ export const Step = (props: IStepProps) => {
 		<div ref={hoverRef as any} className={getCssClasses()} onClick={handleClick}>
 
 			<div className={getCssClassesStep()}>
-				<Icon className={styles.stepIconCircle} iconColor={isHovered || isActive ? COLOR.primary : COLOR.secondary}>
+				<Icon className={styles.stepIconCircle} iconColor={(isHovered || isActive) && !isDisabled ? COLOR.primary : COLOR.secondary}>
 					<CircleSolidIcon />
 				</Icon>
 

@@ -10,8 +10,8 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 		});
 	}, []);
 
-	const handleOnChange = (val: number) => {
-		snackbarService.show(`you selected step ${val}`);
+	const handleOnChange = (index: number) => {
+		snackbarService.show(`you selected step ${index + 1}`);
 	}
 	const handleOnFinish = () => {
 		snackbarService.show('you reached the end');
@@ -19,7 +19,7 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 
 	return (
 		<>
-			<Typography as="h2">Non-linear</Typography>
+			<Typography as="h2">linear</Typography>
 			<Typography as="h3">Badge only</Typography>
 			<Stepper
 				onChange={handleOnChange}
@@ -31,13 +31,40 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 				<Step value="4" />
 			</Stepper>
 
-			{/* <Typography as="h3">Badge + Label</Typography>
-			<Stepper onChange={handleOnChange} onFinish={handleOnFinish}>
+			<Typography as="h3">Badge + Label</Typography>
+			<Stepper
+				onChange={handleOnChange}
+				onFinish={handleOnFinish}>
 				<Step label="step 1" value="1" />
 				<Step label="step 2" value="2" />
 				<Step label="step 3" value="3" />
 				<Step label="step 4" value="4" />
-			</Stepper> */}
+			</Stepper>
+
+
+			<Typography as="h2">Non-linear</Typography>
+			<Typography as="h3">Badge only</Typography>
+			<Stepper
+				isLinear={false}
+				onChange={handleOnChange}
+				onFinish={handleOnFinish}
+			>
+				<Step value="1" />
+				<Step value="2" />
+				<Step value="3" />
+				<Step value="4" />
+			</Stepper>
+
+			<Typography as="h3">Badge + Label</Typography>
+			<Stepper
+				isLinear={false}
+				onChange={handleOnChange}
+				onFinish={handleOnFinish}>
+				<Step label="step 1" value="1" />
+				<Step label="step 2" value="2" />
+				<Step label="step 3" value="3" />
+				<Step label="step 4" value="4" />
+			</Stepper>
 		</>
 	);
 }

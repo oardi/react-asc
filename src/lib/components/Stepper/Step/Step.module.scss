@@ -4,7 +4,7 @@
 	padding-left: 8px;
 	padding-right: 8px;
 
-	&.hasLabel:hover {
+	&.hasLabel:not(.disabled):hover {
 		cursor: pointer;
 		background-color: rgba(0, 0, 0, 0.04);
 		border-radius: 0.25rem;
@@ -19,7 +19,7 @@
 	align-items: center;
 	justify-content: center;
 
-	&:not(.hasLabel):hover {
+	&:not(.hasLabel):not(.disabled):hover {
 		border-radius: 100%;
 		cursor: pointer;
 		background-color: rgba(0, 0, 0, 0.04);
