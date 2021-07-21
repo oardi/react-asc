@@ -21,7 +21,7 @@ export const HomePage = () => {
 				</Typography>
 
 				<Typography as="h2" className="mt-4 text-center">
-					Build apps with React and React Craft
+					Build apps with React and react-asc
 				</Typography>
 
 				<div className="text-center">

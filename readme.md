@@ -1,6 +1,10 @@
 # react-asc
 
-handcrafted components using Twitter Bootstrap, bundled with rollup.
+handcrafted components using Twitter Bootstrap, inspired by Material Design and bundled with rollup.
+
+# showcase
+
+react-asc showcase [link](https://react-asc.netlify.app)
 
 
 ## Included
