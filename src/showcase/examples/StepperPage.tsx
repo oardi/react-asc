@@ -17,12 +17,14 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 			<Stepper>
 				<Step value="1" />
 				<Step value="2" />
+				<Step value="3" />
 			</Stepper>
 
 			<Typography as="h3">Badge + Label</Typography>
 			<Stepper>
 				<Step label="step 1" value="1" />
 				<Step label="step 2" value="2" />
+				<Step label="step 3" value="3" />
 			</Stepper>
 		</>
 	);

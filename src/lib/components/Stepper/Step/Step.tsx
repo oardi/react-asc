@@ -44,7 +44,7 @@ export const Step = (props: IStepProps) => {
 		<div ref={hoverRef as any} className={getCssClasses()} onClick={handleClick}>
 
 			<div className={getCssClassesStep()}>
-				<Icon className={styles.stepIconCircle} iconColor={isHovered ? COLOR.primary : COLOR.secondary}>
+				<Icon className={styles.stepIconCircle} iconColor={isHovered || isActive ? COLOR.primary : COLOR.secondary}>
 					<CircleSolidIcon />
 				</Icon>
 

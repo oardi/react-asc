@@ -38,11 +38,12 @@ export const Stepper = (props: IStepperProps) => {
 		return React.isValidElement(child) &&
 			cloneElement((child as ReactElement<PropsWithChildren<IStepProps>>), {
 				index: index,
+				isActive: activeIndex === index,
 				onClick: (event: any, val: string) => handleClickStep(event, val, index)
 			});
 	}
 
-	const renderConnector = (child: ReactElement<PropsWithChildren<IStepProps>>) => {
+	const renderConnector = () => {
 		return (
 			<div className={styles.stepConnector}>
 				<div className={styles.stepConnectorLine + ' ' + styles.stepConnectorLineHorizontal}></div>
@@ -90,6 +91,10 @@ export const Stepper = (props: IStepperProps) => {
 		setActiveIndex(0);
 	};
 
+	const isLastStep = () => {
+		return steps && activeIndex === steps.length - 1;
+	}
+
 	return (
 		<>
 			{steps &&
@@ -100,7 +105,7 @@ export const Stepper = (props: IStepperProps) => {
 								(child, index) => (
 									<React.Fragment key={child.props.value}>
 										{renderSteps(child as ReactChild, index)}
-										{steps.length - 1 !== index && renderConnector(child)}
+										{index !== steps.length - 1 && renderConnector()}
 									</React.Fragment>
 								)
 							)
@@ -108,9 +113,8 @@ export const Stepper = (props: IStepperProps) => {
 					</div>
 
 					<StepperActions
-						isCompleted={activeIndex === steps.length}
-						isLastStep={activeIndex === steps.length - 1}
 						isStepOptional={isStepOptional(activeIndex)}
+						isCompleted={isLastStep()}
 						onBack={handleBack}
 						onSkip={handleSkip}
 						onNext={handleNext}

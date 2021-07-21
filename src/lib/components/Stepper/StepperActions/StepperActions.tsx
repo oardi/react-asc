@@ -6,7 +6,6 @@ import { Typography } from '../../Typography';
 export interface IStepperActionsProps {
 	isCompleted?: boolean;
 	isFirstStep?: boolean;
-	isLastStep?: boolean;
 	isStepOptional?: boolean;
 	onBack?: () => void;
 	onSkip?: () => void;
@@ -16,7 +15,7 @@ export interface IStepperActionsProps {
 
 export const StepperActions = (props: IStepperActionsProps) => {
 
-	const { isCompleted, isFirstStep, isLastStep, isStepOptional, onBack, onSkip, onNext, onReset } = props;
+	const { isCompleted, isFirstStep, isStepOptional, onBack, onSkip, onNext, onReset } = props;
 
 	return (
 		<div>
@@ -52,7 +51,7 @@ export const StepperActions = (props: IStepperActionsProps) => {
 				color={COLOR.primary}
 				onClick={() => onNext && onNext()}
 			>
-				{isLastStep ? 'Finish' : 'Next'}
+				{isCompleted ? 'Finish' : 'Next'}
 			</Button>
 		</div>
 	)
