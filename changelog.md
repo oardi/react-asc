@@ -1,3 +1,6 @@
+## 14.0.0
+- stepper component added
+
 ## 13.3.2
 - form - onEnter fix
 
