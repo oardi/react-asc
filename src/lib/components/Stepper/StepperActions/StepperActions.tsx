@@ -19,6 +19,10 @@ export const StepperActions = (props: IStepperActionsProps) => {
 
 	return (
 		<div>
+			<Button variant={VARIANT.outline} disabled={isFirstStep} onClick={() => onBack && onBack()}>
+				Back
+			</Button>
+
 			{isCompleted && (
 				<>
 					<div>
@@ -30,10 +34,6 @@ export const StepperActions = (props: IStepperActionsProps) => {
 							Reset
 						</Button>
 					</div>
-
-					<Button disabled={isFirstStep} onClick={() => onBack && onBack()}>
-						Back
-					</Button>
 				</>
 			)}
 
@@ -41,7 +41,7 @@ export const StepperActions = (props: IStepperActionsProps) => {
 				<Button
 					variant={VARIANT.contained}
 					color={COLOR.primary}
-					onClick={()=> onSkip && onSkip()}
+					onClick={() => onSkip && onSkip()}
 				>
 					Skip
 				</Button>

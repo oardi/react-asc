@@ -5,26 +5,37 @@ import styles from './Stepper.module.scss';
 
 export interface IStepperProps {
 	children?: ReactElement<IStepProps> | Array<ReactElement<IStepProps>>;
-	// activeStep
-	nonLinear?: boolean;
+	isLinear?: boolean;
+	onChange?: (val: number) => void;
+	onFinish?: () => void;
+
+	// TODOs
 	alternativeLabel?: boolean; // place underneath
-	value?: string;
+	value?: string; // active step?
+	isDisabled?: boolean;
+	isReadonly?: boolean;
 }
 
 export const Stepper = (props: IStepperProps) => {
-
-	// prevSteps
-	// nextSteps
-
-	const { children } = props;
+	const { children, isLinear = true, onChange, onFinish } = props;
+	const [isInit, setIsInit] = useState<boolean>(false);
 	const [steps, setSteps] = useState<(ReactElement<IStepProps>)[]>();
 
 	const [activeIndex, setActiveIndex] = React.useState(0);
 	const [skipped, setSkipped] = React.useState(new Set<number>());
 
 	useEffect(() => {
-		setSteps(React.Children.toArray(children) as (ReactElement<IStepProps>)[]);
+		if (!isInit && children) {
+			setSteps(React.Children.toArray(children) as (ReactElement<IStepProps>)[]);
+			setIsInit(true);
+		}
 	}, [children]);
+
+	useEffect(() => {
+		if (isInit) {
+			onChange && onChange(activeIndex);
+		}
+	}, [activeIndex]);
 
 	const isStepSkipped = (step: number) => {
 		return skipped.has(step);
@@ -38,7 +49,7 @@ export const Stepper = (props: IStepperProps) => {
 		return React.isValidElement(child) &&
 			cloneElement((child as ReactElement<PropsWithChildren<IStepProps>>), {
 				index: index,
-				isActive: activeIndex === index,
+				isActive: activeIndex >= index,
 				onClick: (event: any, val: string) => handleClickStep(event, val, index)
 			});
 	}
@@ -77,14 +88,18 @@ export const Stepper = (props: IStepperProps) => {
 
 	// TODO
 	const handleNext = () => {
-		let newSkipped = skipped;
-		if (isStepSkipped(activeIndex)) {
-			newSkipped = new Set(newSkipped.values());
-			newSkipped.delete(activeIndex);
-		}
+		if (!isLastStep()) {
+			let newSkipped = skipped;
+			if (isStepSkipped(activeIndex)) {
+				newSkipped = new Set(newSkipped.values());
+				newSkipped.delete(activeIndex);
+			}
 
-		setActiveIndex((prevActiveStep) => prevActiveStep + 1);
-		setSkipped(newSkipped);
+			setActiveIndex((prevActiveStep) => prevActiveStep + 1);
+			setSkipped(newSkipped);
+		} else {
+			onFinish && onFinish();
+		}
 	}
 
 	const handleReset = () => {
@@ -113,6 +128,7 @@ export const Stepper = (props: IStepperProps) => {
 					</div>
 
 					<StepperActions
+						isFirstStep={activeIndex === 0}
 						isStepOptional={isStepOptional(activeIndex)}
 						isCompleted={isLastStep()}
 						onBack={handleBack}

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { IStepperProps, Step, Stepper, Typography } from '../../lib';
+import { IStepperProps, snackbarService, Step, Stepper, Typography } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const CLASSNAME = 'StepperPageBase';
@@ -10,22 +10,34 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 		});
 	}, []);
 
+	const handleOnChange = (val: number) => {
+		snackbarService.show(`you selected step ${val}`);
+	}
+	const handleOnFinish = () => {
+		snackbarService.show('you reached the end');
+	}
+
 	return (
 		<>
 			<Typography as="h2">Non-linear</Typography>
 			<Typography as="h3">Badge only</Typography>
-			<Stepper>
+			<Stepper
+				onChange={handleOnChange}
+				onFinish={handleOnFinish}
+			>
 				<Step value="1" />
 				<Step value="2" />
 				<Step value="3" />
+				<Step value="4" />
 			</Stepper>
 
-			<Typography as="h3">Badge + Label</Typography>
-			<Stepper>
+			{/* <Typography as="h3">Badge + Label</Typography>
+			<Stepper onChange={handleOnChange} onFinish={handleOnFinish}>
 				<Step label="step 1" value="1" />
 				<Step label="step 2" value="2" />
 				<Step label="step 3" value="3" />
-			</Stepper>
+				<Step label="step 4" value="4" />
+			</Stepper> */}
 		</>
 	);
 }
