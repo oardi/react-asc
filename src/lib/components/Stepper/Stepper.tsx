@@ -6,14 +6,15 @@ import styles from './Stepper.module.scss';
 export interface IStepperProps {
 	children?: ReactElement<IStepProps> | Array<ReactElement<IStepProps>>;
 	isLinear?: boolean;
+	isDisabled?: boolean;
 	onChange?: (val: number) => void;
 	onFinish?: () => void;
 
 	// TODOs
 	alternativeLabel?: boolean; // place underneath
 	value?: string; // active step?
-	isDisabled?: boolean;
 	isReadonly?: boolean;
+	showProgressCheckIcon?: boolean; // statt index -> checked icon
 }
 
 export const Stepper = (props: IStepperProps) => {

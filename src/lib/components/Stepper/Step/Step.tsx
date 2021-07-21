@@ -9,7 +9,7 @@ import styles from './Step.module.scss';
 export interface IStepProps {
 	index?: number;
 	label?: ReactNode;
-	isActive?: boolean;
+	isActive?: boolean; // rename in isChecked?
 	isDisabled?: boolean;
 	isOptional?: boolean;
 	value: string;
@@ -19,7 +19,7 @@ export interface IStepProps {
 
 export const Step = (props: IStepProps) => {
 
-	const { className, label, index, value, isActive, isOptional = false, isDisabled, onClick } = props;
+	const { className, label, index, value, isActive, isDisabled, onClick } = props;
 	const [hoverRef, isHovered] = useHover();
 
 	const handleClick = (e: any) => {
