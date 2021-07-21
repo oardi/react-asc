@@ -11,12 +11,12 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 	}, []);
 
 	return (
-		<div>
+		<>
 			<Stepper>
-				<Step label="step 2" value="1" />
+				<Step label="step 1" value="1" />
 				<Step label="step 2" value="2" />
 			</Stepper>
-		</div>
+		</>
 	);
 }
 

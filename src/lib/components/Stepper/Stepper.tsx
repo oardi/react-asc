@@ -1,5 +1,6 @@
-import React, { cloneElement, PropsWithChildren, ReactChild, ReactElement } from 'react';
+import React, { cloneElement, PropsWithChildren, ReactChild, ReactElement, useEffect, useState } from 'react';
 import { IStepProps } from './Step';
+import styles from './Stepper.module.scss';
 
 export interface IStepperProps {
 	children?: ReactElement<IStepProps> | Array<ReactElement<IStepProps>>;
@@ -17,30 +18,44 @@ export const Stepper = (props: IStepperProps) => {
 
 	const { children } = props;
 
+	const [_children, setChildren] = useState<(ReactElement<IStepProps>)[]>();
+
+	useEffect(() => {
+		setChildren(React.Children.toArray(children) as (ReactElement<IStepProps>)[]);
+	}, [children]);
+
 	const handleClickStep = (event: any, newValue: string, index: number) => {
 		console.warn('handleClickStep', event, newValue, index);
-		// setSelectedValue(newValue);
-		// setSelectedIndex(index);
-		// onChange && onChange(event, newValue);
 	}
 
 	const renderSteps = (child: ReactChild, index: number) => {
-		return React.isValidElement(child) && cloneElement((child as ReactElement<PropsWithChildren<IStepProps>>), {
-			key: child.props.value,
-			index: index + 1,
-			onClick: (event: any, val: string) => handleClickStep(event, val, index)
-		});
+		return React.isValidElement(child) &&
+			cloneElement((child as ReactElement<PropsWithChildren<IStepProps>>), {
+				index: index + 1,
+				onClick: (event: any, val: string) => handleClickStep(event, val, index)
+			});
+	}
+
+	const renderConnector = (child: ReactElement<PropsWithChildren<IStepProps>>) => {
+		return (
+			<div className={styles.stepConnector}>
+				<div className={styles.stepConnectorLine + ' ' + styles.stepConnectorLineHorizontal}></div>
+			</div>
+		)
 	}
 
 	return (
-		<div className="stepper">
+		<div className={styles.stepper}>
 			{
-				children &&
-				React.Children
-					.toArray(children)
-					.map(
-						(child, index) => renderSteps(child as ReactChild, index)
+				_children &&
+				_children.map(
+					(child, index) => (
+						<React.Fragment key={child.props.value}>
+							{renderSteps(child as ReactChild, index)}
+							{_children.length - 1 !== index && renderConnector(child)}
+						</React.Fragment>
 					)
+				)
 			}
 		</div>
 	);

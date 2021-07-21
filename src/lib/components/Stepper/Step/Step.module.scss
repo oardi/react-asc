@@ -1,4 +1,8 @@
 .stepWrapper {
+	display: flex;
+	align-items: center;
+	padding-left: 8px;
+    padding-right: 8px;
 }
 
 .step {
@@ -8,6 +12,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
 }
 
 .stepIconCircle {
