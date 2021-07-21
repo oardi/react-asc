@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { CircleSolidIcon } from '../../../assets/icons';
+import { useHover } from '../../../hooks';
 import { COLOR } from '../../component.enums';
 import { Icon } from '../../Icon';
 import { Typography } from '../../Typography';
@@ -16,6 +17,7 @@ export interface IStepProps {
 export const Step = (props: IStepProps) => {
 
 	const { label, index, value, isActive, onClick } = props;
+	const [hoverRef, isHovered] = useHover();
 
 	const handleClick = (e: any) => {
 		console.warn('handleClick step');
@@ -24,8 +26,8 @@ export const Step = (props: IStepProps) => {
 	return (
 		<div className={styles.stepWrapper} onClick={handleClick}>
 
-			<div className={styles.step}>
-				<Icon className={styles.stepIconCircle} iconColor={COLOR.secondary}>
+			<div ref={hoverRef as any} className={styles.step}>
+				<Icon className={styles.stepIconCircle} iconColor={isHovered ? COLOR.primary : COLOR.secondary}>
 					<CircleSolidIcon />
 				</Icon>
 
