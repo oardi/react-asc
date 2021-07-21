@@ -8,25 +8,41 @@ import styles from './Step.module.scss';
 
 export interface IStepProps {
 	index?: number;
-	label: ReactNode;
+	label?: ReactNode;
 	isActive?: boolean;
 	value: string;
+	className?: string;
 	onClick?: (event: any, value: string) => void;
 }
 
 export const Step = (props: IStepProps) => {
 
-	const { label, index, value, isActive, onClick } = props;
+	const { className, label, index, value, isActive, onClick } = props;
 	const [hoverRef, isHovered] = useHover();
 
 	const handleClick = (e: any) => {
 		console.warn('handleClick step');
 	}
 
-	return (
-		<div className={styles.stepWrapper} onClick={handleClick}>
+	const getCssClasses = () => {
+		const cssClasses: Array<string> = [];
+		cssClasses.push(styles.stepWrapper);
+		label && cssClasses.push(styles['hasLabel']);
+		className && cssClasses.push(className);
+		return cssClasses.filter(css => css).join(' ');
+	}
 
-			<div ref={hoverRef as any} className={styles.step}>
+	const getCssClassesStep = () => {
+		const cssClasses: Array<string> = [];
+		cssClasses.push(styles.step);
+		label && cssClasses.push(styles['hasLabel']);
+		return cssClasses.filter(css => css).join(' ');
+	}
+
+	return (
+		<div ref={hoverRef as any} className={getCssClasses()} onClick={handleClick}>
+
+			<div className={getCssClassesStep()}>
 				<Icon className={styles.stepIconCircle} iconColor={isHovered ? COLOR.primary : COLOR.secondary}>
 					<CircleSolidIcon />
 				</Icon>
@@ -38,9 +54,11 @@ export const Step = (props: IStepProps) => {
 				</div>
 			</div>
 
-			<Typography>
-				{label}
-			</Typography>
+			{label &&
+				<Typography>
+					{label}
+				</Typography>
+			}
 		</div>
 	);
 }

@@ -3,6 +3,12 @@
 	align-items: center;
 	padding-left: 8px;
 	padding-right: 8px;
+
+	&.hasLabel:hover {
+		cursor: pointer;
+		background-color: rgba(0, 0, 0, 0.04);
+		border-radius: 0.25rem;
+	}
 }
 
 .step {
@@ -13,7 +19,7 @@
 	align-items: center;
 	justify-content: center;
 
-	&:hover {
+	&:not(.hasLabel):hover {
 		border-radius: 100%;
 		cursor: pointer;
 		background-color: rgba(0, 0, 0, 0.04);
