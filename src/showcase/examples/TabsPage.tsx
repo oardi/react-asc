@@ -3,7 +3,7 @@ import { FormControl, ITabsProps, snackbarService, Tab, TabPanel, Tabs } from '.
 import { loggerService } from '../../shared';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const CLASSNAME = 'TabsPage';
+const CLASSNAME = 'TabsPageBase';
 const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITabsProps>) => {
 
 	const [value, setValue] = useState<string>('tab2');
@@ -52,4 +52,4 @@ const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 
 export const TabsPage = withOptions<ITabsProps>(TabsPageBase, {
 	fixed: false
-}, 'TabsPageBase');
+}, CLASSNAME);

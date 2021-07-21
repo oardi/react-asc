@@ -30,5 +30,6 @@ export * from './TypographyPage';
 export * from './IconPage';
 export * from './SelectPage';
 export * from './SpeedDialPage';
+export * from './StepperPage';
 
 export * from '../../showcase/assets';

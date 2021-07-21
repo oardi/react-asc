@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { cloneElement, PropsWithChildren, ReactChild, ReactElement } from 'react';
 import { IStepProps } from './Step';
 
 export interface IStepperProps {
@@ -10,9 +10,30 @@ export interface IStepperProps {
 }
 
 export const Stepper = (props: IStepperProps) => {
+
+	// selected
+	// prevSteps
+	// nextSteps
+
+	const { children } = props;
+
+	const handleClickStep = (event: any, newValue: string, index: number) => {
+		console.warn('handleClickStep', event, newValue, index);
+		// setSelectedValue(newValue);
+		// setSelectedIndex(index);
+		// onChange && onChange(event, newValue);
+	}
+
+	const renderSteps = (child: ReactChild, index: number) => { //<PropsWithChildren<ITabProps>>
+		return React.isValidElement(child) && cloneElement((child as ReactElement<PropsWithChildren<IStepProps>>), {
+			key: child.props.value,
+			onClick: (event: any, val: string) => handleClickStep(event, val, index)
+		});
+	}
+
 	return (
-		<div>
-			coming soon
+		<div className="stepper">
+			{children && React.Children.toArray(children).map((child, index) => renderSteps(child as ReactChild, index))}
 		</div>
 	);
 }
