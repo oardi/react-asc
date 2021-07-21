@@ -1,10 +1,12 @@
 import React from 'react';
 import { COLOR, SIZE, VARIANT } from '../component.enums';
 import { Icon } from '../Icon';
+import { Typography } from '../Typography';
 import styles from './IconButton.module.scss';
 
 export interface IIconButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
 	icon?: React.SVGProps<SVGSVGElement>;
+	label?: string;
 	color?: COLOR;
 	size?: SIZE;
 	isActive?: boolean;
@@ -15,7 +17,7 @@ export interface IIconButtonProps extends React.DetailedHTMLProps<React.ButtonHT
 
 export const IconButton = (props: IIconButtonProps) => {
 
-	const { children, icon, variant = VARIANT.text, color = COLOR.primary, size = SIZE.md, isActive, disabled, className = '', shadow, ...rest } = props;
+	const { children, icon, label, variant = VARIANT.text, color = COLOR.primary, size = SIZE.md, isActive, disabled, className = '', shadow, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -40,7 +42,8 @@ export const IconButton = (props: IIconButtonProps) => {
 			disabled={disabled}
 			{...rest}
 		>
-			<Icon>{icon}</Icon>
+			{icon && <Icon>{icon}</Icon>}
+			{label && <Typography>{label}</Typography>}
 		</button >
 	);
 };

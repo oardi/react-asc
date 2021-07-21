@@ -24,16 +24,24 @@ export const Stepper = (props: IStepperProps) => {
 		// onChange && onChange(event, newValue);
 	}
 
-	const renderSteps = (child: ReactChild, index: number) => { //<PropsWithChildren<ITabProps>>
+	const renderSteps = (child: ReactChild, index: number) => {
 		return React.isValidElement(child) && cloneElement((child as ReactElement<PropsWithChildren<IStepProps>>), {
 			key: child.props.value,
+			index: index + 1,
 			onClick: (event: any, val: string) => handleClickStep(event, val, index)
 		});
 	}
 
 	return (
 		<div className="stepper">
-			{children && React.Children.toArray(children).map((child, index) => renderSteps(child as ReactChild, index))}
+			{
+				children &&
+				React.Children
+					.toArray(children)
+					.map(
+						(child, index) => renderSteps(child as ReactChild, index)
+					)
+			}
 		</div>
 	);
 }

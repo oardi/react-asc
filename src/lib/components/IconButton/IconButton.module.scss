@@ -24,15 +24,11 @@
 	border: none;
 
 	&:hover {
-		text-decoration: none;
 		cursor: pointer;
 	}
 
 	&.shadow {
 		box-shadow: var(--shadow);
-	}
-
-	&.sm {
 	}
 
 	&.md {
@@ -52,7 +48,7 @@
 
 		&:hover,
 		&.active {
-			text-decoration: underline;
+			// text-decoration: underline;
 			background-color: rgba(0, 0, 0, 0.04);
 		}
 
@@ -93,7 +89,7 @@
 
 		&:hover,
 		&.active {
-			text-decoration: underline;
+			// text-decoration: underline;
 			background-color: rgba(0, 0, 0, 0.04);
 		}
 

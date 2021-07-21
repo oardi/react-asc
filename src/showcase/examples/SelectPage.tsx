@@ -1,8 +1,10 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { FormControl, ISelectProps, Select, snackbarService } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ISelectProps>) => {
+
+	const [value, setValue] = useState<string>("8");
 
 	useEffect(() => {
 		setSettingsControls({
@@ -14,6 +16,7 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 
 	const handleOnChange = (e: string | Array<string>) => {
 		snackbarService.show(`value changed: ${e}`);
+		setValue(e as string);
 	}
 
 	return (
@@ -43,7 +46,7 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 				]}
 				onChange={handleOnChange}
 				disabled={settingValues.disabled}
-				value="8"
+				value={value}
 			/>
 		</Fragment>
 	);

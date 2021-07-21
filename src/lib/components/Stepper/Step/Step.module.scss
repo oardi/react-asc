@@ -1,0 +1,26 @@
+.stepWrapper {
+}
+
+.step {
+	width: 40px;
+	height: 40px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.stepIconCircle {
+	svg {
+		width: 24px;
+		height: 24px;
+	}
+}
+
+.stepValue {
+	position: absolute;
+	color: var(--secondary-contrast-text);
+	.isActive {
+		color: var(--primary-contrast-text);
+	}
+}
