@@ -26,6 +26,7 @@ export * from './Sidebar';
 export * from './Snackbar';
 export * from './SpeedDial';
 export * from './Select';
+export * from './Stepper';
 export * from './Table';
 export * from './Tabs';
 export * from './Textarea';

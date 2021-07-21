@@ -36,6 +36,7 @@ react-asc showcase [link](https://react-asc.netlify.app)
 - Sidebar
 - Snackbar + SnackbarService
 - SpeedDial
+- Stepper
 - Table (v1)
 - Tabs
 - Textarea
