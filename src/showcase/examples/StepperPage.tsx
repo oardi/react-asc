@@ -8,6 +8,7 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 	useEffect(() => {
 		setSettingsControls({
 			isLinear: new FormControl(settingValues.isLinear, [], 'checkbox', { label: 'isLinear' }),
+			showLabel: new FormControl(settingValues.showLabel, [], 'checkbox', { label: 'showLabel' }),
 		});
 	}, []);
 
@@ -24,61 +25,28 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 			<Typography as="h3">Badge only</Typography>
 			<Stepper
 				isLinear={settingValues.isLinear}
+				showLabel={settingValues.showLabel}
 				onChange={handleOnChange}
 				onFinish={handleOnFinish}
 			>
-				<Step value="1">
+				<Step value="1" label="Step 1">
 					Content 1
 				</Step>
-				<Step value="2">
+				<Step value="2" label="Step 2">
 					Content 2
 				</Step>
-				<Step value="3">
+				<Step value="3" label="Step 3">
 					Content 3
 				</Step>
-				<Step value="4">
+				<Step value="4" label="Step 4">
 					Content 4
 				</Step>
 			</Stepper>
-
-			{/* <Typography as="h3">Badge + Label</Typography>
-			<Stepper
-				onChange={handleOnChange}
-				onFinish={handleOnFinish}>
-				<Step label="step 1" value="1">Content 1</Step>
-				<Step label="step 2" value="2">Content 2</Step>
-				<Step label="step 3" value="3">Content 3</Step>
-				<Step label="step 4" value="4">Content 4</Step>
-			</Stepper>
-
-
-			<Typography as="h2">Non-linear</Typography>
-			<Typography as="h3">Badge only</Typography>
-			<Stepper
-				isLinear={false}
-				onChange={handleOnChange}
-				onFinish={handleOnFinish}
-			>
-				<Step value="1" />
-				<Step value="2" />
-				<Step value="3" />
-				<Step value="4" />
-			</Stepper>
-
-			<Typography as="h3">Badge + Label</Typography>
-			<Stepper
-				isLinear={false}
-				onChange={handleOnChange}
-				onFinish={handleOnFinish}>
-				<Step label="step 1" value="1" />
-				<Step label="step 2" value="2" />
-				<Step label="step 3" value="3" />
-				<Step label="step 4" value="4" />
-			</Stepper> */}
 		</>
 	);
 }
 
 export const StepperPage = withOptions<IStepperProps>(StepperPageBase, {
-	isLinear: false
+	isLinear: false,
+	showLabel: true,
 }, CLASSNAME);

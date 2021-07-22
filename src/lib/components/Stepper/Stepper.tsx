@@ -3,11 +3,14 @@ import { IStepProps } from './Step';
 import { StepperActions } from './StepperActions';
 import styles from './Stepper.module.scss';
 import { StepPanel } from './StepPanel/StepPanel';
+import { StepConnector } from './StepConnector/StepConnector';
 
 export interface IStepperProps {
 	children?: ReactElement<IStepProps> | Array<ReactElement<IStepProps>>;
 	isLinear?: boolean;
 	isDisabled?: boolean;
+	showLabel?: boolean;
+
 	onChange?: (val: number) => void;
 	onFinish?: () => void;
 
@@ -19,11 +22,10 @@ export interface IStepperProps {
 }
 
 export const Stepper = (props: IStepperProps) => {
-	const { children, isLinear = true, onChange, onFinish } = props;
+	const { children, isLinear = true, showLabel = true, onChange, onFinish } = props;
 	const [isInit, setIsInit] = useState<boolean>(false);
 
 	const [steps, setSteps] = useState<(ReactElement<IStepProps>)[]>();
-
 
 	const [activeIndex, setActiveIndex] = React.useState(0);
 	const [skipped, setSkipped] = React.useState(new Set<number>());
@@ -55,17 +57,12 @@ export const Stepper = (props: IStepperProps) => {
 				index: index,
 				isActive: activeIndex >= index,
 				isDisabled: isLinear && (activeIndex + 1 < index),
+				showLabel: showLabel,
 				onClick: (event: any, val: string) => handleClickStep(event, val, index)
 			});
 	}
 
-	const renderConnector = () => {
-		return (
-			<div className={styles.stepConnector}>
-				<div className={styles.stepConnectorLine + ' ' + styles.stepConnectorLineHorizontal}></div>
-			</div>
-		)
-	}
+
 
 	const isStepOptional = (index: number) => {
 		return steps && steps[index].props.isOptional;
@@ -123,7 +120,7 @@ export const Stepper = (props: IStepperProps) => {
 								(child, index) => (
 									<React.Fragment key={child.props.value}>
 										{renderSteps(child as ReactChild, index)}
-										{index !== steps.length - 1 && renderConnector()}
+										{index !== steps.length - 1 && <StepConnector />}
 									</React.Fragment>
 								)
 							)

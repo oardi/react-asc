@@ -10,6 +10,7 @@ export interface IStepProps {
 	children?: ReactNode;
 	index?: number;
 	label?: ReactNode;
+	showLabel?: boolean;
 	isActive?: boolean; // rename in isChecked?
 	isDisabled?: boolean;
 	isOptional?: boolean;
@@ -20,7 +21,7 @@ export interface IStepProps {
 
 export const Step = (props: IStepProps) => {
 
-	const { className, label, index, value, isActive, isDisabled, onClick } = props;
+	const { className, label, showLabel, index, value, isActive, isDisabled, onClick } = props;
 	const [hoverRef, isHovered] = useHover();
 
 	const handleClick = (e: any) => {
@@ -32,7 +33,7 @@ export const Step = (props: IStepProps) => {
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.stepWrapper);
-		label && cssClasses.push(styles['hasLabel']);
+		label && showLabel && cssClasses.push(styles['hasLabel']);
 		isDisabled && cssClasses.push(styles['disabled']);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
@@ -41,7 +42,7 @@ export const Step = (props: IStepProps) => {
 	const getCssClassesStep = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.step);
-		label && cssClasses.push(styles['hasLabel']);
+		label && showLabel && cssClasses.push(styles['hasLabel']);
 		isDisabled && cssClasses.push(styles['disabled']);
 		return cssClasses.filter(css => css).join(' ');
 	}
@@ -61,7 +62,7 @@ export const Step = (props: IStepProps) => {
 				</div>
 			</div>
 
-			{label &&
+			{label && showLabel &&
 				<Typography>
 					{label}
 				</Typography>
