@@ -1,3 +1,8 @@
+## 14.1.1
+stepper
+- added stepConnector component
+- added prop showLabel
+
 ## 14.1.0
 - stepper - show panel content
 
