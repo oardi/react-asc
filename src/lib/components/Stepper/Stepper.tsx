@@ -1,15 +1,16 @@
 import React, { cloneElement, Fragment, PropsWithChildren, ReactChild, ReactElement, useEffect, useState } from 'react';
 import { IStepProps } from './Step';
 import { StepperActions } from './StepperActions';
-import styles from './Stepper.module.scss';
 import { StepPanel } from './StepPanel/StepPanel';
 import { StepConnector } from './StepConnector/StepConnector';
+import styles from './Stepper.module.scss';
 
 export interface IStepperProps {
 	children?: ReactElement<IStepProps> | Array<ReactElement<IStepProps>>;
 	isLinear?: boolean;
 	isDisabled?: boolean;
 	showLabel?: boolean;
+	showProgressCheckIcon?: boolean;
 
 	onChange?: (val: number) => void;
 	onFinish?: () => void;
@@ -18,11 +19,10 @@ export interface IStepperProps {
 	alternativeLabel?: boolean; // place underneath
 	value?: string; // active step?
 	isReadonly?: boolean;
-	showProgressCheckIcon?: boolean; // statt index -> checked icon
 }
 
 export const Stepper = (props: IStepperProps) => {
-	const { children, isLinear = true, showLabel = true, onChange, onFinish } = props;
+	const { children, isLinear = true, showLabel = true, showProgressCheckIcon = false, onChange, onFinish } = props;
 	const [isInit, setIsInit] = useState<boolean>(false);
 
 	const [steps, setSteps] = useState<(ReactElement<IStepProps>)[]>();
@@ -58,6 +58,7 @@ export const Stepper = (props: IStepperProps) => {
 				isActive: activeIndex >= index,
 				isDisabled: isLinear && (activeIndex + 1 < index),
 				showLabel: showLabel,
+				showProgressCheckIcon: showProgressCheckIcon,
 				onClick: (event: any, val: string) => handleClickStep(event, val, index)
 			});
 	}
@@ -120,7 +121,7 @@ export const Stepper = (props: IStepperProps) => {
 								(child, index) => (
 									<React.Fragment key={child.props.value}>
 										{renderSteps(child as ReactChild, index)}
-										{index !== steps.length - 1 && <StepConnector />}
+										{index !== steps.length - 1 && <StepConnector isActive={activeIndex > index} />}
 									</React.Fragment>
 								)
 							)

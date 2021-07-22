@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { CircleSolidIcon } from '../../../assets/icons';
+import { CheckSolidIcon, CircleSolidIcon } from '../../../assets/icons';
 import { useHover } from '../../../hooks';
 import { COLOR } from '../../component.enums';
 import { Icon } from '../../Icon';
@@ -7,6 +7,7 @@ import { Typography } from '../../Typography';
 import styles from './Step.module.scss';
 
 export interface IStepProps {
+	value: string;
 	children?: ReactNode;
 	index?: number;
 	label?: ReactNode;
@@ -14,14 +15,14 @@ export interface IStepProps {
 	isActive?: boolean; // rename in isChecked?
 	isDisabled?: boolean;
 	isOptional?: boolean;
-	value: string;
 	className?: string;
+	showProgressCheckIcon?: boolean;
 	onClick?: (event: any, value: string) => void;
 }
 
 export const Step = (props: IStepProps) => {
 
-	const { className, label, showLabel, index, value, isActive, isDisabled, onClick } = props;
+	const { className, label, showLabel, index, value, isActive, isDisabled, showProgressCheckIcon, onClick } = props;
 	const [hoverRef, isHovered] = useHover();
 
 	const handleClick = (e: any) => {
@@ -55,10 +56,16 @@ export const Step = (props: IStepProps) => {
 					<CircleSolidIcon />
 				</Icon>
 
-				<div className={styles.stepValue + ' ' + (isActive ? (styles.stepValue['isActive' as any]) : undefined)}>
-					<Typography>
-						{(index as number) + 1}
-					</Typography>
+				<div className={styles.stepValue + ' ' + (isActive ? (styles.stepValue['isActive' as any]) : '')}>
+					{showProgressCheckIcon && isActive ?
+						<Icon>
+							<CheckSolidIcon />
+						</Icon>
+						:
+						<Typography>
+							{(index as number) + 1}
+						</Typography>
+					}
 				</div>
 			</div>
 

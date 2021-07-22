@@ -3,6 +3,7 @@
 	align-items: center;
 	padding-left: 8px;
 	padding-right: 8px;
+	transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 
 	&.hasLabel:not(.disabled):hover {
 		cursor: pointer;
@@ -18,11 +19,19 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 
 	&:not(.hasLabel):not(.disabled):hover {
 		border-radius: 100%;
 		cursor: pointer;
 		background-color: rgba(0, 0, 0, 0.04);
+	}
+
+	&.hasLabel {
+		svg {
+			width: 18px!important;
+			height: 18px!important;
+		}
 	}
 }
 

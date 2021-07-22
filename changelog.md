@@ -1,26 +1,42 @@
+## 14.2.0
+- button 
+	- added endIcon
+- stepper
+	- showProgressCheckIcon
+- icon 
+	- added chevronLeft
+
+style 
+- fixes
+
 ## 14.1.1
-stepper
-- added stepConnector component
-- added prop showLabel
+- stepper
+	- added stepConnector component
+	- added prop showLabel
 
 ## 14.1.0
-- stepper - show panel content
+- stepper 
+	- show panel content
 
 ## 14.0.0
 - stepper component added
 
 ## 13.3.2
-- form - onEnter fix
+- form 
+	- onEnter fix
 
 ## 13.3.1
-- form - onEnter preventdefault
+- form 
+	- onEnter preventdefault
 
 ## 13.3.0
 - added logo and manifest colors
 
 ## 13.2.0
-- button - added startIcon
-- showcase style and text fixes
+- button 
+	- added startIcon
+- showcase 
+	- style and text fixes
 
 ## 13.1.2
 - style fixes
@@ -42,15 +58,19 @@ stepper
 - dateSelect - added component
 
 ## v10.0.0
-- buttonGroup - added component
+- buttonGroup 
+	- added component
 - cssClasses fix for a lot of components
 
 ## v9.0.0
-- speeddial - created component
-- button style fixes
+- speeddial 
+	- created component
+- button 
+	- style fixes
 
 ## v8.1.2
-- typography - props fix
+- typography 
+	- props fix
 
 ## v8.1.1
 - match validator fix for not found
@@ -89,7 +109,8 @@ stepper
 - export fix
 
 ## v7.1.0
-- breaking change - rename SvgIcon to Icon
+- breaking change 
+	- rename SvgIcon to Icon
 - added hook useWindowSize
 - added isMobile
 - added appState

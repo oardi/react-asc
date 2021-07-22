@@ -10,3 +10,4 @@ export * from './SpinnerSolidIcon';
 export * from './PlusSolidIcon';
 export * from './CheckSolidIcon';
 export * from './CircleSolidIcon';
+export * from './ChevronLeftSolidIcon';

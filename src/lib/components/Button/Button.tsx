@@ -12,11 +12,12 @@ export interface IButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAt
 	onClick?: (e: React.MouseEvent) => void;
 	variant?: VARIANT;
 	startIcon?: React.SVGProps<SVGSVGElement>;
+	endIcon?: React.SVGProps<SVGSVGElement>;
 }
 
 export const Button = (props: IButtonProps) => {
 
-	const { children, variant = VARIANT.contained, color = COLOR.primary, block, isRounded, isActive, className = '', startIcon, ...rest } = props;
+	const { children, variant = VARIANT.contained, color = COLOR.primary, block, isRounded, isActive, className = '', startIcon, endIcon, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -50,11 +51,18 @@ export const Button = (props: IButtonProps) => {
 			className={getCssClasses()}
 			{...rest}
 		>
-			<span>
-				{startIcon && <Icon className={styles.startIcon}>
+			<span className="d-flex justify-content-center">
+				{startIcon &&
+					<Icon className={styles.startIcon}>
 						{startIcon}
-					</Icon>}
+					</Icon>
+				}
 				{children}
+				{endIcon &&
+					<Icon className={styles.endIcon}>
+						{endIcon}
+					</Icon>
+				}
 			</span>
 		</button>
 	);

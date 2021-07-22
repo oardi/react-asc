@@ -1,4 +1,5 @@
 import React from 'react';
+import { CheckSolidIcon, ChevronLeftSolidIcon, ChevronRightSolidIcon } from '../../../assets/icons';
 import { Button } from '../../Button';
 import { COLOR, VARIANT } from '../../component.enums';
 import styles from './StepperActions.module.scss';
@@ -31,6 +32,7 @@ export const StepperActions = (props: IStepperActionsProps) => {
 				className="mr-2"
 				variant={VARIANT.outline}
 				disabled={isFirstStep}
+				startIcon={!isFirstStep ? <ChevronLeftSolidIcon /> : undefined}
 				onClick={() => onBack && onBack()}
 			>
 				Back
@@ -60,9 +62,10 @@ export const StepperActions = (props: IStepperActionsProps) => {
 			<Button
 				variant={VARIANT.contained}
 				color={COLOR.primary}
+				endIcon={!isCompleted ? <ChevronRightSolidIcon /> : <CheckSolidIcon />}
 				onClick={() => onNext && onNext()}
 			>
-				{isCompleted ? 'Finish' : 'Next'}
+				{isCompleted ? 'Done' : 'Next'}
 			</Button>
 		</div>
 	)
