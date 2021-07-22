@@ -6,6 +6,7 @@
 	"module": "lib/index.es.js",
 	"jsnext:main": "lib/index.es.js",
 	"author": "Ardian Shala",
+	"homepage": "https://react-asc.netlify.app",
 	"license": "MIT",
 	"dependencies": {
 		"@popperjs/core": "2.9.2",
