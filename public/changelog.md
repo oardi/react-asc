@@ -1,6 +1,8 @@
-## unreleased 
-- stepper - added component
+## 14.1.0
+- stepper - show panel content
 
+## 14.0.0
+- stepper component added
 
 ## 13.3.2
 - form - onEnter fix

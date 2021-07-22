@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { IStepperProps, snackbarService, Step, Stepper, Typography } from '../../lib';
+import { FormControl, IStepperProps, snackbarService, Step, Stepper, Typography } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const CLASSNAME = 'StepperPageBase';
@@ -7,6 +7,7 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 
 	useEffect(() => {
 		setSettingsControls({
+			isLinear: new FormControl(settingValues.isLinear, [], 'checkbox', { label: 'isLinear' }),
 		});
 	}, []);
 
@@ -22,6 +23,7 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 			<Typography as="h2">linear</Typography>
 			<Typography as="h3">Badge only</Typography>
 			<Stepper
+				isLinear={settingValues.isLinear}
 				onChange={handleOnChange}
 				onFinish={handleOnFinish}
 			>
@@ -43,10 +45,10 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 			<Stepper
 				onChange={handleOnChange}
 				onFinish={handleOnFinish}>
-				<Step label="step 1" value="1" />
-				<Step label="step 2" value="2" />
-				<Step label="step 3" value="3" />
-				<Step label="step 4" value="4" />
+				<Step label="step 1" value="1">Content 1</Step>
+				<Step label="step 2" value="2">Content 2</Step>
+				<Step label="step 3" value="3">Content 3</Step>
+				<Step label="step 4" value="4">Content 4</Step>
 			</Stepper>
 
 
@@ -78,4 +80,5 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 }
 
 export const StepperPage = withOptions<IStepperProps>(StepperPageBase, {
+	isLinear: false
 }, CLASSNAME);
