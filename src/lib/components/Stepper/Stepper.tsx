@@ -1,7 +1,8 @@
-import React, { cloneElement, PropsWithChildren, ReactChild, ReactElement, useEffect, useState } from 'react';
+import React, { cloneElement, Fragment, PropsWithChildren, ReactChild, ReactElement, useEffect, useState } from 'react';
 import { IStepProps } from './Step';
 import { StepperActions } from './StepperActions';
 import styles from './Stepper.module.scss';
+import { StepPanel } from './StepPanel/StepPanel';
 
 export interface IStepperProps {
 	children?: ReactElement<IStepProps> | Array<ReactElement<IStepProps>>;
@@ -20,7 +21,9 @@ export interface IStepperProps {
 export const Stepper = (props: IStepperProps) => {
 	const { children, isLinear = true, onChange, onFinish } = props;
 	const [isInit, setIsInit] = useState<boolean>(false);
+
 	const [steps, setSteps] = useState<(ReactElement<IStepProps>)[]>();
+
 
 	const [activeIndex, setActiveIndex] = React.useState(0);
 	const [skipped, setSkipped] = React.useState(new Set<number>());
@@ -127,9 +130,20 @@ export const Stepper = (props: IStepperProps) => {
 						}
 					</div>
 
-					{/* content? */}
+					{
+						steps && steps.map((step, index) =>
+							<Fragment key={step.props.value}>
+								{index === activeIndex &&
+									<StepPanel>
+										{step.props.children}
+									</StepPanel>
+								}
+							</Fragment>
+						)
+					}
 
 					<StepperActions
+						className="mt-3"
 						isFirstStep={activeIndex === 0}
 						isStepOptional={isStepOptional(activeIndex)}
 						isCompleted={isLastStep()}

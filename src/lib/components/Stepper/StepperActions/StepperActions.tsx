@@ -1,9 +1,10 @@
 import React from 'react';
 import { Button } from '../../Button';
 import { COLOR, VARIANT } from '../../component.enums';
-import { Typography } from '../../Typography';
+import styles from './StepperActions.module.scss';
 
 export interface IStepperActionsProps {
+	className?: string;
 	isCompleted?: boolean;
 	isFirstStep?: boolean;
 	isStepOptional?: boolean;
@@ -15,30 +16,40 @@ export interface IStepperActionsProps {
 
 export const StepperActions = (props: IStepperActionsProps) => {
 
-	const { isCompleted, isFirstStep, isStepOptional, onBack, onSkip, onNext, onReset } = props;
+	const { className, isCompleted, isFirstStep, isStepOptional, onBack, onSkip, onNext, onReset } = props;
+
+	const getCssClasses = () => {
+		const cssClasses: Array<string> = [];
+		cssClasses.push(styles.stepperActions);
+		className && cssClasses.push(className);
+		return cssClasses.filter(css => css).join(' ');
+	};
 
 	return (
-		<div>
-			<Button variant={VARIANT.outline} disabled={isFirstStep} onClick={() => onBack && onBack()}>
+		<div className={getCssClasses()}>
+			<Button
+				className="mr-2"
+				variant={VARIANT.outline}
+				disabled={isFirstStep}
+				onClick={() => onBack && onBack()}
+			>
 				Back
 			</Button>
 
 			{isCompleted && (
-				<>
-					<div>
-						<Typography>
-							All steps completed - you&apos;re finished
-						</Typography>
-
-						<Button onClick={() => onReset && onReset()}>
-							Reset
-						</Button>
-					</div>
-				</>
+				<Button
+					className="mr-2"
+					color={COLOR.secondary}
+					variant={VARIANT.text}
+					onClick={() => onReset && onReset()}
+				>
+					Reset
+				</Button>
 			)}
 
 			{isStepOptional && (
 				<Button
+					className="mr-2"
 					variant={VARIANT.contained}
 					color={COLOR.primary}
 					onClick={() => onSkip && onSkip()}

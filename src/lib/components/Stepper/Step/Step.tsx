@@ -7,6 +7,7 @@ import { Typography } from '../../Typography';
 import styles from './Step.module.scss';
 
 export interface IStepProps {
+	children?: ReactNode;
 	index?: number;
 	label?: ReactNode;
 	isActive?: boolean; // rename in isChecked?

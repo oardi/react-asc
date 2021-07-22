@@ -1,3 +1,6 @@
+## 14.1.0
+- stepper - show panel content
+
 ## 14.0.0
 - stepper component added
 

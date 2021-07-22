@@ -25,13 +25,21 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 				onChange={handleOnChange}
 				onFinish={handleOnFinish}
 			>
-				<Step value="1" />
-				<Step value="2" />
-				<Step value="3" />
-				<Step value="4" />
+				<Step value="1">
+					Content 1
+				</Step>
+				<Step value="2">
+					Content 2
+				</Step>
+				<Step value="3">
+					Content 3
+				</Step>
+				<Step value="4">
+					Content 4
+				</Step>
 			</Stepper>
 
-			<Typography as="h3">Badge + Label</Typography>
+			{/* <Typography as="h3">Badge + Label</Typography>
 			<Stepper
 				onChange={handleOnChange}
 				onFinish={handleOnFinish}>
@@ -64,7 +72,7 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 				<Step label="step 2" value="2" />
 				<Step label="step 3" value="3" />
 				<Step label="step 4" value="4" />
-			</Stepper>
+			</Stepper> */}
 		</>
 	);
 }
