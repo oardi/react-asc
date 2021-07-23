@@ -56,6 +56,7 @@ export const Stepper = (props: IStepperProps) => {
 			cloneElement((child as ReactElement<PropsWithChildren<IStepProps>>), {
 				index: index,
 				isActive: activeIndex >= index,
+				isDone: activeIndex > index,
 				isDisabled: isLinear && (activeIndex + 1 < index),
 				showLabel: showLabel,
 				showProgressCheckIcon: showProgressCheckIcon,

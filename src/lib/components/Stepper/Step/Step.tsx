@@ -8,11 +8,12 @@ import styles from './Step.module.scss';
 
 export interface IStepProps {
 	value: string;
-	children?: ReactNode;
 	index?: number;
 	label?: ReactNode;
+	children?: ReactNode;
 	showLabel?: boolean;
 	isActive?: boolean; // rename in isChecked?
+	isDone?: boolean;
 	isDisabled?: boolean;
 	isOptional?: boolean;
 	className?: string;
@@ -22,7 +23,7 @@ export interface IStepProps {
 
 export const Step = (props: IStepProps) => {
 
-	const { className, label, showLabel, index, value, isActive, isDisabled, showProgressCheckIcon, onClick } = props;
+	const { className, label, showLabel, index, value, isActive, isDone, isDisabled, showProgressCheckIcon, onClick } = props;
 	const [hoverRef, isHovered] = useHover();
 
 	const handleClick = (e: any) => {
@@ -57,7 +58,7 @@ export const Step = (props: IStepProps) => {
 				</Icon>
 
 				<div className={styles.stepValue + ' ' + (isActive ? (styles.stepValue['isActive' as any]) : '')}>
-					{showProgressCheckIcon && isActive ?
+					{showProgressCheckIcon && isActive && isDone ?
 						<Icon>
 							<CheckSolidIcon />
 						</Icon>

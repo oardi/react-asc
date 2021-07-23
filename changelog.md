@@ -1,3 +1,7 @@
+## 14.2.1
+- stepper
+	- step - fixed isDone
+
 ## 14.2.0
 - button 
 	- added endIcon
