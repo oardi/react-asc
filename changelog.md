@@ -1,3 +1,6 @@
+## 14.2.3
+- button - endIcon style fix
+
 ## 14.2.2
 - stepper - fixed preselected value
 

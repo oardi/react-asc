@@ -1,9 +1,15 @@
 import React, { Fragment, useEffect } from 'react';
 import { Button, COLOR, FormControl, IButtonProps, snackbarService, VARIANT } from '../../lib';
+import { InfoSolidIcon } from '../assets';
 import { withOptions } from './components';
 import { IShowcaseBaseProps } from './components';
 
-const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IButtonProps>) => {
+interface IButtonExampleProps extends IButtonProps {
+	showStartIcon?: boolean;
+	showEndIcon?: boolean;
+}
+
+const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IButtonExampleProps>) => {
 
 	useEffect(() => {
 		setSettingsControls({
@@ -13,6 +19,8 @@ const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 			isActive: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'isActive' }),
 			isRounded: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'isRounded' }),
 			variant: new FormControl(settingValues.variant, [], 'select', { label: 'variant', options: Object.keys(VARIANT).map(c => ({ label: c, value: c })) }),
+			showStartIcon: new FormControl(settingValues.showStartIcon, [], 'checkbox', { label: 'showStartIcon' }),
+			showEndIcon: new FormControl(settingValues.showEndIcon, [], 'checkbox', { label: 'showEndIcon' }),
 		});
 	}, []);
 
@@ -31,6 +39,8 @@ const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 				isRounded={settingValues.isRounded}
 				variant={settingValues.variant}
 				onClick={handleClick}
+				startIcon={settingValues.showStartIcon ? <InfoSolidIcon /> : undefined}
+				endIcon={settingValues.showEndIcon ? <InfoSolidIcon /> : undefined}
 			>
 				some button text
 			</Button>
@@ -39,7 +49,7 @@ const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 	);
 }
 
-export const ButtonPage = withOptions<IButtonProps>(ButtonPageBase, {
+export const ButtonPage = withOptions<IButtonExampleProps>(ButtonPageBase, {
 	color: COLOR.primary,
 	variant: VARIANT.contained
 }, 'ButtonPageBase');
