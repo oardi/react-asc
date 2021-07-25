@@ -16,7 +16,7 @@ fs.copyFile('./readme.md', './lib/readme.md', (err) => {
 	console.log('copy readme complete!');
 });
 
-fs.copyFile('./changelog.md', './lib/changelog.md', (err) => {
+fs.copyFile('./changelog.md', './public/changelog.md', (err) => {
 	if (err) throw err;
 	console.log('copy changelog complete!');
 });
