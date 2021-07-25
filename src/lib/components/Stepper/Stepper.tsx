@@ -17,13 +17,12 @@ export interface IStepperProps {
 
 	// TODOs
 	alternativeLabel?: boolean; // place underneath
-	value?: string; // active step?
+	value?: number; // active step as string?
 	isReadonly?: boolean;
 }
 
 export const Stepper = (props: IStepperProps) => {
-	const { children, isLinear = true, showLabel = true, showProgressCheckIcon = false, onChange, onFinish } = props;
-	const [isInit, setIsInit] = useState<boolean>(false);
+	const { children, isLinear = true, showLabel = true, showProgressCheckIcon = false, value, onChange, onFinish } = props;
 
 	const [steps, setSteps] = useState<(ReactElement<IStepProps>)[]>();
 
@@ -31,24 +30,26 @@ export const Stepper = (props: IStepperProps) => {
 	const [skipped, setSkipped] = React.useState(new Set<number>());
 
 	useEffect(() => {
-		if (!isInit && children) {
+		if (children) {
 			setSteps(React.Children.toArray(children) as (ReactElement<IStepProps>)[]);
-			setIsInit(true);
 		}
 	}, [children]);
 
 	useEffect(() => {
-		if (isInit) {
-			onChange && onChange(activeIndex);
+		if (value !== undefined) {
+			setActiveIndex(value);
 		}
-	}, [activeIndex]);
+	}, [value]);
 
 	const isStepSkipped = (step: number) => {
 		return skipped.has(step);
 	};
 
 	const handleClickStep = (event: any, newValue: string, index: number) => {
-		setActiveIndex(index);
+		setActiveIndex(() => {
+			onChange && onChange(index);
+			return index;
+		});
 	}
 
 	const renderSteps = (child: ReactChild, index: number) => {

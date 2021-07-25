@@ -1,3 +1,6 @@
+## 14.2.2
+- stepper - fixed preselected value
+
 ## 14.2.1
 - stepper
 	- step - fixed isDone

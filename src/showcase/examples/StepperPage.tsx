@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FormControl, IStepperProps, snackbarService, Step, Stepper } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const CLASSNAME = 'StepperPageBase';
 const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IStepperProps>) => {
+
+	const [value, setValue] = useState<number>(0);
 
 	useEffect(() => {
 		setSettingsControls({
@@ -15,6 +17,7 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 
 	const handleOnChange = (index: number) => {
 		snackbarService.show(`you selected step ${index + 1}`);
+		setValue(index);
 	}
 	const handleOnFinish = () => {
 		snackbarService.show('you reached the end');
@@ -22,6 +25,7 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 
 	return (
 		<Stepper
+			value={value}
 			isLinear={settingValues.isLinear}
 			showLabel={settingValues.showLabel}
 			showProgressCheckIcon={settingValues.showProgressCheckIcon}
