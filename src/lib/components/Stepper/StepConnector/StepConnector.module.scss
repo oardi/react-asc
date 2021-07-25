@@ -1,5 +1,7 @@
 .stepConnector {
 	flex: 1 1 auto;
+	flex-shrink: 0;
+	min-width: 20px;
 }
 
 .stepConnectorLine {

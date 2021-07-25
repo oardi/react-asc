@@ -1,3 +1,6 @@
+## 14.2.4
+- stepper - fixed next and back
+
 ## 14.2.3
 - button - endIcon style fix
 

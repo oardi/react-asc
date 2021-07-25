@@ -3,4 +3,8 @@
 	align-items: center;
 	flex-direction: row;
 	margin-bottom: 10px;
+
+	&.isHorizontal {
+		overflow-x: auto;
+	}
 }

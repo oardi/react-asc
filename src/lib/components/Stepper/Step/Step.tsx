@@ -71,7 +71,7 @@ export const Step = (props: IStepProps) => {
 			</div>
 
 			{label && showLabel &&
-				<Typography>
+				<Typography className="flex-shrink-0">
 					{label}
 				</Typography>
 			}

@@ -11,6 +11,7 @@ export interface IStepperProps {
 	isDisabled?: boolean;
 	showLabel?: boolean;
 	showProgressCheckIcon?: boolean;
+	isHorizontal?: boolean;
 
 	onChange?: (val: number) => void;
 	onFinish?: () => void;
@@ -22,7 +23,7 @@ export interface IStepperProps {
 }
 
 export const Stepper = (props: IStepperProps) => {
-	const { children, isLinear = true, showLabel = true, showProgressCheckIcon = false, value, onChange, onFinish } = props;
+	const { children, isLinear = true, showLabel = true, showProgressCheckIcon = false, value, isHorizontal = true, onChange, onFinish } = props;
 
 	const [steps, setSteps] = useState<(ReactElement<IStepProps>)[]>();
 
@@ -72,7 +73,11 @@ export const Stepper = (props: IStepperProps) => {
 	};
 
 	const handleBack = () => {
-		setActiveIndex((prevActiveStep) => prevActiveStep - 1);
+		setActiveIndex((prevActiveStep) => {
+			const newIndex = prevActiveStep - 1;
+			onChange && onChange(newIndex);
+			return newIndex;
+		});
 	}
 
 	// TODO
@@ -98,7 +103,11 @@ export const Stepper = (props: IStepperProps) => {
 				newSkipped.delete(activeIndex);
 			}
 
-			setActiveIndex((prevActiveStep) => prevActiveStep + 1);
+			setActiveIndex((prevActiveStep) => {
+				const newIndex = prevActiveStep + 1;
+				onChange && onChange(newIndex);
+				return newIndex;
+			});
 			setSkipped(newSkipped);
 		} else {
 			onFinish && onFinish();
@@ -107,17 +116,25 @@ export const Stepper = (props: IStepperProps) => {
 
 	const handleReset = () => {
 		setActiveIndex(0);
+		onChange && onChange(0);
 	};
 
 	const isLastStep = () => {
 		return steps && activeIndex === steps.length - 1;
 	}
 
+	const getCssClasses = () => {
+		const cssClasses: Array<string> = [];
+		cssClasses.push(styles.stepper);
+		isHorizontal && cssClasses.push(styles['isHorizontal' as any]);
+		return cssClasses.filter(css => css).join(' ');
+	}
+
 	return (
 		<>
 			{steps &&
 				<>
-					<div className={styles.stepper}>
+					<div className={getCssClasses()}>
 						{
 							steps.map(
 								(child, index) => (
