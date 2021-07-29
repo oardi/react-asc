@@ -1,3 +1,6 @@
+### stepper
+- set selected with SET
+
 ### radio 
 - add component (formControl)
 
@@ -42,3 +45,6 @@
 
 ### switch
 - ?
+
+
+translations?

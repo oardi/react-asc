@@ -38,35 +38,38 @@ export const StepperActions = (props: IStepperActionsProps) => {
 				Back
 			</Button>
 
-			{isCompleted && (
-				<Button
-					className="mr-2"
-					color={COLOR.secondary}
-					variant={VARIANT.text}
-					onClick={() => onReset && onReset()}
-				>
-					Reset
-				</Button>
-			)}
+			<div className="ml-auto">
+				{isCompleted && (
+					<Button
+						className="mr-2"
+						color={COLOR.secondary}
+						variant={VARIANT.text}
+						onClick={() => onReset && onReset()}
+					>
+						Reset
+					</Button>
+				)}
 
-			{isStepOptional && (
+				{isStepOptional && (
+					<Button
+						className="mr-2"
+						variant={VARIANT.contained}
+						color={COLOR.primary}
+						onClick={() => onSkip && onSkip()}
+					>
+						Skip
+					</Button>
+				)}
 				<Button
-					className="mr-2"
 					variant={VARIANT.contained}
 					color={COLOR.primary}
-					onClick={() => onSkip && onSkip()}
+					startIcon={isCompleted ? <CheckSolidIcon /> : undefined}
+					endIcon={!isCompleted ? <ChevronRightSolidIcon /> : undefined}
+					onClick={() => onNext && onNext()}
 				>
-					Skip
+					{isCompleted ? 'Done' : 'Next'}
 				</Button>
-			)}
-			<Button
-				variant={VARIANT.contained}
-				color={COLOR.primary}
-				endIcon={!isCompleted ? <ChevronRightSolidIcon /> : <CheckSolidIcon />}
-				onClick={() => onNext && onNext()}
-			>
-				{isCompleted ? 'Done' : 'Next'}
-			</Button>
+			</div>
 		</div>
 	)
 }
