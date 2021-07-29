@@ -1,3 +1,6 @@
+## 14.2.5
+- style fixes
+
 ## 14.2.4
 - stepper - fixed next and back
 
