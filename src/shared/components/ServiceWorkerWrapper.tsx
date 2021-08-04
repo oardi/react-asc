@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Snackbar } from '../../lib';
+import React from 'react';
+import { Snackbar, useConstructor } from '../../lib';
 import * as serviceWorkerRegistration from '../../serviceWorkerRegistration';
 
 export const ServiceWorkerWrapper = () => {
@@ -11,9 +11,9 @@ export const ServiceWorkerWrapper = () => {
 		setWaitingWorker(registration.waiting);
 	};
 
-	useEffect(() => {
+	useConstructor(() => {
 		serviceWorkerRegistration.register({ onUpdate: onSWUpdate });
-	}, []);
+	});
 
 	const reloadPage = () => {
 		setShowReload(false);
