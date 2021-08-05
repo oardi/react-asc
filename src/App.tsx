@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import './index.scss';
 import * as Pages from './showcase'; // LazyLoading?
@@ -53,7 +53,7 @@ const App = () => {
 	}
 
 	return (
-		<Fragment>
+		<>
 			<AppBar shadow>
 				<IconButton color={COLOR.light} className="mr-2" icon={<BarsSolidIcon />} onClick={() => setShowMenu(!showMenu)} />
 				{appInfo && (
@@ -99,7 +99,7 @@ const App = () => {
 			</div>
 
 			<ServiceWorkerWrapper />
-		</Fragment>
+		</>
 	);
 }
 
