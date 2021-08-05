@@ -1,5 +1,6 @@
 import React from 'react';
-import { COLOR } from '../component.enums'
+import { COLOR } from '../component.enums';
+import styles from './Snackbar.module.scss';
 
 export interface ISnackbarProps {
 	message: string;
@@ -14,7 +15,8 @@ export const Snackbar = (props: ISnackbarProps) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push(`snackbar shadow-lg`);
+		cssClasses.push(styles.snackbar);
+		cssClasses.push(`shadow-lg`);
 		cssClasses.push(`bg-${color}`);
 		cssClasses.push(`text-white`);
 		return cssClasses.filter(css => css).join(' ');
@@ -26,11 +28,11 @@ export const Snackbar = (props: ISnackbarProps) => {
 
 	return (
 		<div className={getCssClasses()}>
-			<div className="text">
+			<div className={styles.text}>
 				{message}
 			</div>
 
-			<div className="action text-accent" onClick={handleClickAction}>
+			<div className={styles.action + " text-accent"} onClick={handleClickAction}>
 				<span>{actionText}</span>
 			</div>
 		</div>

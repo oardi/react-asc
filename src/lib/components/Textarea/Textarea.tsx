@@ -16,6 +16,9 @@ export const Textarea = (props: ITextareaProps) => {
 	}
 
 	return (
-		<textarea className={getCssClass()} {...rest} />
+		<textarea
+			className={getCssClass()}
+			{...rest}
+		/>
 	);
 }

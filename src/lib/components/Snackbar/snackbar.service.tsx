@@ -11,6 +11,7 @@ export interface ISnackbarOptions {
 	actionText?: string;
 	timeout?: number;
 	color?: COLOR;
+	target?: HTMLElement;
 }
 
 class SnackbarService implements ISnackbarService {
@@ -18,7 +19,7 @@ class SnackbarService implements ISnackbarService {
 	private handler: any;
 
 	show(message: string, options?: ISnackbarOptions): Promise<void> {
-		const defaultOptions: ISnackbarOptions = { timeout: 3000, actionText: 'ok', color: COLOR.dark };
+		const defaultOptions: ISnackbarOptions = { timeout: 3000, actionText: 'ok', color: COLOR.dark, target: document.body };
 		const mergedOptions = Object.assign(defaultOptions, options);
 
 		return new Promise((resolve, reject) => {
@@ -27,7 +28,7 @@ class SnackbarService implements ISnackbarService {
 			}
 			this.container = document.createElement('div');
 			this.container.classList.add('snackbar-container');
-			document.body.appendChild(this.container);
+			(mergedOptions.target as HTMLElement).appendChild(this.container);
 
 			if (mergedOptions.timeout && mergedOptions.timeout > 0) {
 				this.handler = setTimeout(() => {

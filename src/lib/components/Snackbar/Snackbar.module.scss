@@ -1,0 +1,47 @@
+.snackbar {
+	display: flex;
+	align-items: center;
+	min-width: 288px;
+	padding: 6px 16px;
+	transform-origin: center;
+	border-radius: 0.25rem; // TODO - get form BS
+	min-height: 52px;
+
+	animation: bounceIn 0.4s ease;
+	z-index: 1001;
+
+	position: fixed;
+	left: 50%;
+	bottom: 2%;
+}
+
+.text {
+	width: 100%;
+	padding: 8px 0;
+}
+
+.action {
+	margin-left: auto;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+@keyframes bounceIn {
+	0% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 0.9;
+	}
+
+	80% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}

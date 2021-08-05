@@ -105,7 +105,6 @@ export const FormInput = (props: IFormInputProps) => {
 					placeholder={placeholder}
 					rows={textareaOptions?.rows}
 					style={textareaOptions?.resize !== false ? undefined : { resize: 'none' }}
-					onKeyDown={onKeyDown}
 				/>
 			}
 
