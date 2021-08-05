@@ -1,3 +1,6 @@
+## 14.3.2
+- snackbar - style fix
+
 ## 14.3.1
 - textarea - prevent submit onEnter
 - fixed snackbar
