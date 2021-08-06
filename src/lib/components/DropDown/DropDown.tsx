@@ -5,7 +5,7 @@ import { DropDownContext, IDropDownContext } from './DropdownContext';
 import { IDropDownItemProps } from './DropDownItem';
 import { DropDownMenu } from './DropDownMenu';
 
-interface IDropDownProps {
+interface IDropDownProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	toggle?: ReactElement;
 	children?: ReactElement<IDropDownItemProps> | Array<ReactElement<IDropDownItemProps>>;
 	menuPosition?: MenuPosition;
@@ -14,10 +14,17 @@ interface IDropDownProps {
 
 export const DropDown = (props: IDropDownProps) => {
 
-	const { toggle, children, menuPosition, onToggleClick } = props;
+	const { toggle, children, className, menuPosition, onToggleClick, ...rest } = props;
 
 	const [isShow, setIsShow] = useState(false);
 	const dropDownMenuConainter = useRef<HTMLDivElement>(null);
+
+	const getCssClasses = () => {
+		const cssClasses: Array<string> = [];
+		cssClasses.push('dropdown');
+		className && cssClasses.push(className);
+		return cssClasses.filter(css => css).join(' ');
+	};
 
 	const dropDownContext: IDropDownContext = {
 		isShow: isShow,
@@ -32,7 +39,7 @@ export const DropDown = (props: IDropDownProps) => {
 
 	return (
 		<DropDownContext.Provider value={dropDownContext}>
-			<div ref={dropDownMenuConainter} className="dropdown">
+			<div ref={dropDownMenuConainter} className={getCssClasses()} {...rest}>
 
 				{toggle && cloneElement(toggle, { onClick: handleClickToggle })}
 

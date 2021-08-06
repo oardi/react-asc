@@ -1,3 +1,6 @@
+## 14.3.3
+- dropdown - propery fixes
+
 ## 14.3.2
 - snackbar - style fix
 
