@@ -42,8 +42,9 @@ const MyApp = () => {
 - AppBar
 - Backdrop
 - Badge
-- Breadcrumb
 - Button
+- ButtonGroup
+- Breadcrumb
 - Card
 - Checkbox
 - Chip
@@ -63,12 +64,12 @@ const MyApp = () => {
 - Modal + ModalService
 - NumberSelect
 - Select
-- Sidebar
 - Snackbar + SnackbarService
 - SpeedDial
 - Stepper
 - Table (v1)
 - Tabs
+- TimeSelect
 - Textarea
 - Tooltip
 - TreeView (v1)
