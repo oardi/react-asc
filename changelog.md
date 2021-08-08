@@ -1,3 +1,6 @@
+## 14.3.4
+- dropdown - placement by popperjs
+
 ## 14.3.3
 - dropdown - propery fixes
 

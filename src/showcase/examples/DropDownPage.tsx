@@ -1,9 +1,20 @@
-import React, { Fragment } from 'react';
-import { Button, DropDown, DropDownDivider, DropDownItem, snackbarService } from '../../lib';
+import React, { Fragment, useEffect } from 'react';
+import { Button, DropDown, DropDownDivider, DropDownItem, FormControl, IDropDownProps, snackbarService } from '../../lib';
 import { loggerService } from '../../shared';
-import { withOptions } from './components';
+import { IShowcaseBaseProps, withOptions } from './components';
 
-const DropDownPageBase = () => {
+const DropDownPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IDropDownProps>) => {
+
+	useEffect(() => {
+		setSettingsControls({
+			menuPosition: new FormControl('left', [], 'select', {
+				label: 'menuPosition', options: [
+					{ value: 'left', label: 'left' },
+					{ value: 'right', label: 'right' }
+				]
+			})
+		});
+	}, []);
 
 	const handleClick = (text: string) => {
 		loggerService.debug('handleClick', text);
@@ -12,7 +23,10 @@ const DropDownPageBase = () => {
 
 	return (
 		<Fragment>
-			<DropDown toggle={<Button>Dropdown button</Button>}>
+			<DropDown
+				toggle={<Button>Dropdown button</Button>}
+				menuPosition={settingValues.menuPosition}
+			>
 				<DropDownItem type="header">
 					This is a header
 				</DropDownItem>
@@ -31,4 +45,6 @@ const DropDownPageBase = () => {
 	);
 }
 
-export const DropDownPage = withOptions(DropDownPageBase, null, 'DropDownPageBase');
+export const DropDownPage = withOptions<IDropDownProps>(DropDownPageBase, {
+	menuPosition: 'left'
+}, 'DropDownPageBase');

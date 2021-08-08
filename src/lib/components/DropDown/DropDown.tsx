@@ -1,11 +1,10 @@
-import React, { cloneElement, Fragment, ReactElement, useRef, useState } from 'react';
-import { Backdrop } from '../Backdrop';
+import React, { cloneElement, ReactElement, useRef, useState } from 'react';
 import { MenuPosition } from './dropDown.types';
 import { DropDownContext, IDropDownContext } from './DropdownContext';
 import { IDropDownItemProps } from './DropDownItem';
 import { DropDownMenu } from './DropDownMenu';
 
-interface IDropDownProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+export interface IDropDownProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	toggle?: ReactElement;
 	children?: ReactElement<IDropDownItemProps> | Array<ReactElement<IDropDownItemProps>>;
 	menuPosition?: MenuPosition;
@@ -18,6 +17,7 @@ export const DropDown = (props: IDropDownProps) => {
 
 	const [isShow, setIsShow] = useState(false);
 	const dropDownMenuConainter = useRef<HTMLDivElement>(null);
+	const toggleContainerRef = useRef<HTMLDivElement>(null);
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -41,15 +41,14 @@ export const DropDown = (props: IDropDownProps) => {
 		<DropDownContext.Provider value={dropDownContext}>
 			<div ref={dropDownMenuConainter} className={getCssClasses()} {...rest}>
 
-				{toggle && cloneElement(toggle, { onClick: handleClickToggle })}
+				<div ref={toggleContainerRef}>
+					{toggle && cloneElement(toggle, { onClick: handleClickToggle })}
+				</div>
 
 				{isShow &&
-					<Fragment>
-						<DropDownMenu menuPosition={menuPosition}>
-							{children}
-						</DropDownMenu>
-						<Backdrop isTransparent onClick={() => setIsShow(false)} />
-					</Fragment>
+					<DropDownMenu parentRef={toggleContainerRef} menuPosition={menuPosition}>
+						{children}
+					</DropDownMenu>
 				}
 			</div>
 		</DropDownContext.Provider>

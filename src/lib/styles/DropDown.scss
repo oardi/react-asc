@@ -1,13 +1,16 @@
 .dropdown {
-	.dropdown-menu {
-		z-index: 1111;
+	display: flex;
+}
 
-		.dropdown-item {
-			display: flex;
+.dropdown-menu {
+	z-index: 1111;
+	margin: 0;
 
-			&:hover {
-				cursor: pointer;
-			}
+	.dropdown-item {
+		display: flex;
+
+		&:hover {
+			cursor: pointer;
 		}
 	}
 }
