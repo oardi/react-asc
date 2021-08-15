@@ -1,3 +1,7 @@
+## 15.0.0
+- link component added
+- status enum added
+
 ## 14.3.4
 - dropdown - placement by popperjs
 

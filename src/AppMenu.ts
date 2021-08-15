@@ -26,6 +26,7 @@ export const menuItems: Array<IMenuItem> = [
 			{ id: "Form" },
 			{ id: "Grid" },
 			{ id: "IconButton" },
+			{ id: "Link" },
 			{ id: "List" },
 			{ id: "LoadingIndicator" },
 			{ id: "Modal" },

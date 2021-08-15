@@ -16,6 +16,7 @@ export * from './FileInputPage';
 export * from './FloatingActionButtonPage';
 export * from './GridPage';
 export * from './IconButtonPage';
+export * from './LinkPage';
 export * from './ListPage';
 export * from './LoadingIndicatorPage';
 export * from './ModalPage';

@@ -18,6 +18,7 @@ export * from './Form';
 export * from './Grid';
 export * from './Icon';
 export * from './IconButton';
+export * from './Link';
 export * from './List';
 export * from './LoadingIndicator';
 export * from './Modal';

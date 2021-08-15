@@ -1,3 +1,44 @@
+### Remove Bootstrap
+
+### Tests
+- AppBar
+- Backdrop
+- Badge
+- Breadcrumb
+- Button
+- ButtonGroup
+- Card
+- Checkbox
+- Chip
+- ConditionalWrapper
+- DateSelect
+- Drawer
+- DropDown
+- ExpansionPanel
+- FileInput
+- FloatingActionButton
+- Form
+- Grid
+- Icon
+- IconButton
+- Link
+- List
+- LoadingIndicator
+- Modal
+- NumberSelect
+- Select
+- Sidebar
+- Snackbar
+- SpeedDial
+- Stepper
+- Table
+- Tabs
+- Textarea
+- TimeSelect
+- Tooltip
+- TreeView
+- Typography
+
 ### stepper
 - set selected with SET
 
