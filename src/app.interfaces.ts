@@ -5,8 +5,9 @@ export interface IAppInfo {
 
 export interface IMenuItem {
 	id: string;
-	label: string;
+	label?: string;
 	path?: string;
 	items?: Array<IMenuItem>;
 	isCollapsible?: boolean;
+	isCollapsed?: boolean;
 }

@@ -1,9 +1,8 @@
-import { IMenuItem } from './app.interfaces';
-import { fileLoaderService } from './shared';
+import { menuItems } from './AppMenu';
 
 class ShowcaseService {
 	loadMenu() {
-		return fileLoaderService.get<Array<IMenuItem>>('./menu.json');
+		return menuItems;
 	}
 }
 

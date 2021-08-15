@@ -35,9 +35,9 @@ const App = () => {
 
 	const init = async () => {
 		try {
-			const menuResult = await showcaseService.loadMenu();
-			setMenuItems(menuResult.data.map(dto => new MenuModel(dto)));
-			setShowcaseRoutes(menuResult.data.map(dto => new RouteModel(dto)));
+			const menuItems = await showcaseService.loadMenu();
+			setMenuItems(menuItems.map(item => new MenuModel(item)));
+			setShowcaseRoutes(menuItems.map(item => new RouteModel(item)));
 			setAppState(APPSTATE.ready);
 		} catch (err) { loggerService.error('init', err) }
 	}
