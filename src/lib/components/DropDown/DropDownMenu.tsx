@@ -5,6 +5,7 @@ import { MenuPosition } from './dropDown.types';
 import { DropDownContext } from './DropdownContext';
 import { IDropDownItemProps } from './DropDownItem';
 import { createPopper } from '@popperjs/core';
+import styles from './DropDownMenu.module.scss';
 
 export interface IDropDownMenuProps {
 	children?: ReactElement<IDropDownItemProps> | Array<ReactElement<IDropDownItemProps>>;
@@ -46,7 +47,8 @@ export const DropDownMenu = (props: IDropDownMenuProps) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push(`dropdown-menu show`);
+		cssClasses.push(styles.dropdownMenu);
+		// cssClasses.push(`dropdown-menu show`);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	}

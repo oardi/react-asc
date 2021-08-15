@@ -37,7 +37,7 @@ const ModalPageBase = () => {
 
 	return (
 		<Fragment>
-			<div className="d-flex justify-content-between">
+			<div className="d-flex flex-wrap">
 				<Button onClick={() => handleClickShowModal()}>
 					show modal
 				</Button>
@@ -62,7 +62,7 @@ const ModalPageBase = () => {
 						onHeaderCloseClick={() => setIsVisible(!isVisible)}
 					>
 						some modal content
-				</Modal>
+					</Modal>
 				}
 			</div>
 		</Fragment>

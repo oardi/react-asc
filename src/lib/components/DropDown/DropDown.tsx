@@ -3,6 +3,7 @@ import { MenuPosition } from './dropDown.types';
 import { DropDownContext, IDropDownContext } from './DropdownContext';
 import { IDropDownItemProps } from './DropDownItem';
 import { DropDownMenu } from './DropDownMenu';
+import styles from './DropDown.module.scss';
 
 export interface IDropDownProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	toggle?: ReactElement;
@@ -21,7 +22,7 @@ export const DropDown = (props: IDropDownProps) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push('dropdown');
+		cssClasses.push(styles.dropdown);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};

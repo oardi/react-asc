@@ -67,7 +67,7 @@ export const Checkbox = (props: ICheckboxProps) => {
 				disabled={disabled || readOnly}
 			/>
 
-			<label onClick={handleClick}>
+			<label onClick={handleClick} className={styles.checkboxLabel + ' ' + (disabled ? styles['disabled'] : undefined)}>
 				{label}
 			</label>
 

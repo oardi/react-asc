@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { ConditionalWrapper } from '../ConditionalWrapper';
-
+import styles from './DropDownItem.module.scss';
 export interface IDropDownItemProps {
 	key?: string;
 	children?: ReactNode;
@@ -14,6 +14,7 @@ export const DropDownItem = (props: IDropDownItemProps) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
+		cssClasses.push(styles.dropdownItem);
 		if (type === 'header') {
 			cssClasses.push('dropdown-header');
 		}

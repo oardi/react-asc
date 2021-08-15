@@ -12,3 +12,10 @@
 		}
 	}
 }
+
+.checkboxLabel {
+	&.disabled {
+		color: rgba(0, 0, 0, 0.26);
+		cursor: not-allowed;
+	}
+}

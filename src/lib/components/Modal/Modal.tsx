@@ -3,6 +3,7 @@ import { ModalHeader } from './ModalHeader';
 import { ModalBody } from './ModalBody';
 import { Backdrop } from '../Backdrop';
 import styles from './Modal.module.scss';
+import { ModalFooter } from './ModalFooter';
 
 interface IModalProps {
 	className?: string;
@@ -41,9 +42,9 @@ export const Modal = (props: IModalProps) => {
 
 	return (
 		<Fragment>
-			<div className="modal show" style={{ display: 'block' }}>
-				<div className={getCssClass()} role="document">
-					<div className={"modal-content " + (!!fullScreen && styles['modalContent'])}>
+			<div className={"modal show " + styles.modal} style={{ display: 'block' }}>
+				<div className={getCssClass()}>
+					<div className={'modal-content ' + (!!fullScreen ? styles['modalContent'] : undefined)}>
 						{
 							header &&
 							<ModalHeader isDismissable={isDismissable} onClose={() => onHeaderCloseClick && onHeaderCloseClick()}>
@@ -52,9 +53,9 @@ export const Modal = (props: IModalProps) => {
 						}
 						<ModalBody>{children}</ModalBody>
 						{footer &&
-							<div className="modal-footer">
+							<ModalFooter>
 								{footer}
-							</div>
+							</ModalFooter>
 						}
 					</div>
 				</div>

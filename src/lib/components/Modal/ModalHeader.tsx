@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-
+import styles from './ModalHeader.module.scss';
 interface IModalHeaderProps {
 	children?: ReactNode;
 	onClose?: Function;
@@ -15,7 +15,7 @@ export const ModalHeader = (props: IModalHeaderProps) => {
 	};
 
 	return (
-		<div className="modal-header">
+		<div className={"modal-header " + styles.modalHeader}>
 			<h5 className="modal-title">
 				{children}
 			</h5>
