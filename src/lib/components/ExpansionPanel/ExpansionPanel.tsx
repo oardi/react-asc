@@ -1,6 +1,7 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import { ExpansionPanelContent } from './ExpansionPanelContent';
 import { ExpansionPanelHeader } from './ExpansionPanelHeader';
+import styles from './ExpansionPanel.module.scss';
 
 export interface IExpansionPanelProps {
 	header: ReactNode;
@@ -21,9 +22,9 @@ export const ExpansionPanel = (props: IExpansionPanelProps) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push(`expansion-panel`);
+		cssClasses.push(styles.expansionPanel);
 		if (_isExpanded) {
-			cssClasses.push(`is-expanded`);
+			cssClasses.push(styles.isExpanded);
 		}
 		return cssClasses.filter(css => css).join(' ');
 	};

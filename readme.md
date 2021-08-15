@@ -59,6 +59,7 @@ const MyApp = () => {
 - Grid
 - Icon
 - IconButton
+- Link
 - List
 - LoadingIndicator
 - Modal + ModalService

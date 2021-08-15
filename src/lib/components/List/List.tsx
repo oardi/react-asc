@@ -11,7 +11,7 @@ export interface IListProps {
 
 export const List = (props: IListProps) => {
 
-	const { children, className = '', isFlush = false } = props;
+	const { children, className, isFlush } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

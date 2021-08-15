@@ -1,4 +1,4 @@
-import React, { MouseEvent, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import styles from './ListItem.module.scss';
 
 export interface IListItemProps {
@@ -13,7 +13,7 @@ export interface IListItemProps {
 
 export const ListItem = (props: IListItemProps) => {
 
-	const { id, children, active = false, className, isHoverable = false, isDisabled = false, onClick } = props;
+	const { id, children, active, className, isHoverable, isDisabled, onClick } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

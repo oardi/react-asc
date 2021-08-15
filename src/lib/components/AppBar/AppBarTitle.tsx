@@ -12,10 +12,10 @@ export const AppBarTitle = (props: IAppBarTitleProps) => {
 	const { children, className, onClick } = props;
 
 	const getCssClass = () => {
-		const result = [];
-		result.push(className);
-		result.push(styles.appbarTitle);
-		return result.filter(r => r).join(' ');
+		const cssClasses: Array<string> = [];
+		cssClasses.push(styles.appbarTitle);
+		className && cssClasses.push(className);
+		return cssClasses.filter(r => r).join(' ');
 	}
 
 	return (

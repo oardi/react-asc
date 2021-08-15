@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { ChevronDownSolidIcon, ChevronUpSolidIcon } from '../../assets/icons';
 import { Icon } from '../Icon';
+import styles from './ExpansionPanelHeader.module.scss';
 
 export interface IExpansionPanelHeaderProps {
 	onClick?: (event: React.MouseEvent) => void;
@@ -19,7 +20,7 @@ export const ExpansionPanelHeader = (props: IExpansionPanelHeaderProps) => {
 
 	return (
 		<div
-			className="expansion-panel-header d-flex align-items-center"
+			className={styles.expansionPanelHeader}
 			onClick={handleClick}
 		>
 

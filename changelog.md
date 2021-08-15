@@ -1,3 +1,6 @@
+## 15.0.1
+- style fixes
+
 ## 15.0.0
 - link component added
 - status enum added
