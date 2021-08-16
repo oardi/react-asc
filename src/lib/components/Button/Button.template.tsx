@@ -6,7 +6,7 @@ import { IButtonProps } from './Button';
 import styles from './Button.module.scss';
 
 export const ButtonTemplate = (props: IButtonProps) => {
-	const { children, variant = VARIANT.contained, color = COLOR.primary, block, isRounded, isActive, className = '', startIcon, endIcon, ...rest } = props;
+	const { children, variant = VARIANT.contained, color = COLOR.primary, block, isRounded, isActive, className, startIcon, endIcon, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

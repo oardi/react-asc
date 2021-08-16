@@ -18,7 +18,7 @@ export interface ICheckboxProps extends HtmlBaseProps {
 
 export const Checkbox = (props: ICheckboxProps) => {
 
-	const { id, checked, className = '', label, name, value = "off", disabled, readOnly, ...rest } = props;
+	const { id, checked, className, label, name, value = "off", disabled, readOnly, ...rest } = props;
 
 	// TODO
 	// add own value

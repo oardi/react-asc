@@ -15,7 +15,7 @@ export const Column = (props: IColProps) => {
 
 	const {
 		children,
-		className = '',
+		className,
 		xs,
 		sm,
 		md,

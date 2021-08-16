@@ -9,13 +9,13 @@ export interface IIconProp extends React.DetailedHTMLProps<React.ButtonHTMLAttri
 
 export const Icon = (props: IIconProp) => {
 
-	const { children, iconColor, className = '', ...rest } = props;
+	const { children, iconColor, className, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.icon);
-		className && cssClasses.push(className);
 		iconColor && cssClasses.push(`text-${iconColor}`);
+		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	}
 

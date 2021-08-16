@@ -42,10 +42,10 @@ export const Select = (props: ISelectProps) => {
 	const selectConainter = useRef<HTMLDivElement>(null);
 
 	const getCssClass = () => {
-		const result = [];
-		result.push(className);
-		result.push(styles.select);
-		return result.filter(r => r).join(' ');
+		const cssClasses: Array<string> = [];
+		className && cssClasses.push(className);
+		cssClasses.push(styles.select);
+		return cssClasses.filter(r => r).join(' ');
 	}
 
 	useEffect(() => {

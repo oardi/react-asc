@@ -11,15 +11,15 @@ export interface IAppBarProps {
 
 export const AppBar = (props: IAppBarProps) => {
 
-	const { children, className = '', color = COLOR.primary, shadow = true, ...rest } = props;
+	const { children, className, color = COLOR.primary, shadow = true, ...rest } = props;
 
 	const getCssClasses = () => {
-		const result = [];
-		result.push(styles[color]);
-		result.push(styles.appbar);
-		shadow && result.push(styles['shadow']);
-		result.push(className);
-		return result.filter(r => r).join(' ');
+		const cssClasses: Array<string> = [];
+		cssClasses.push(styles[color]);
+		cssClasses.push(styles.appbar);
+		shadow && cssClasses.push(styles['shadow']);
+		className && cssClasses.push(className);
+		return cssClasses.filter(r => r).join(' ');
 	};
 
 	return (

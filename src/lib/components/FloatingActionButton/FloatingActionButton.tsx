@@ -15,7 +15,7 @@ export interface IFloatingActionButtonProps extends React.DetailedHTMLProps<Reac
 
 export const FloatingActionButton = (props: IFloatingActionButtonProps) => {
 
-	const { className = '', icon, color = COLOR.primary, fixed, size = SIZE.lg, isActive, disabled, onClick } = props;
+	const { className, icon, color = COLOR.primary, fixed, size = SIZE.lg, isActive, disabled, onClick } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

@@ -18,15 +18,15 @@ interface IModalProps {
 
 export const Modal = (props: IModalProps) => {
 
-	const { className = '', fullScreen, children, header, footer, onHeaderCloseClick, onBackdropClick, isDismissable = false } = props;
+	const { className, fullScreen, children, header, footer, onHeaderCloseClick, onBackdropClick, isDismissable = false } = props;
 
 	const getCssClass = () => {
-		const result = [];
-		result.push('modal-dialog modal-dialog-centered');
-		result.push(styles.modal);
-		!!fullScreen && result.push(styles['fullscreen']);
-		result.push(className);
-		return result.filter(r => r).join(' ');
+		const cssClasses: Array<string> = [];
+		cssClasses.push('modal-dialog modal-dialog-centered');
+		cssClasses.push(styles.modal);
+		!!fullScreen && cssClasses.push(styles['fullscreen']);
+		className && cssClasses.push(className);
+		return cssClasses.filter(r => r).join(' ');
 	}
 
 	useEffect(() => {

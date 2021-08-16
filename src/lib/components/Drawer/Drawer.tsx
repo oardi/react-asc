@@ -14,7 +14,7 @@ export interface IDrawerProps {
 
 export const Drawer = (props: IDrawerProps) => {
 
-	const { children, className = '', position = 'left', permanent = false, target = document.body, onClickBackdrop } = props;
+	const { children, className, position = 'left', permanent = false, target = document.body, onClickBackdrop } = props;
 
 	useEffect(() => {
 		document.body.classList.add(styles.drawerOpen);
@@ -46,7 +46,7 @@ interface IDrawerContentProps {
 }
 
 const DrawerContent = (props: IDrawerContentProps) => {
-	const { children, className = '', position = 'left', permanent = false } = props;
+	const { children, className, position = 'left', permanent = false } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

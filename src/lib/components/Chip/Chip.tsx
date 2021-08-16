@@ -19,13 +19,13 @@ export const Chip = (props: IChipProps) => {
 	const { children, color = 'secondary', className, shadow, onClick, onDelete, deleteIcon = <TimesSolidIcon />, style, ...rest } = props;
 
 	const getCssClass = () => {
-		const result = [];
-		result.push(styles.chip);
-		result.push(styles[color]);
-		shadow && result.push(styles['shadow']);
-		onClick && result.push(styles['clickable']);
-		result.push(className);
-		return result.filter(r => r).join(' ');
+		const cssClasses: Array<string> = [];
+		cssClasses.push(styles.chip);
+		cssClasses.push(styles[color]);
+		shadow && cssClasses.push(styles['shadow']);
+		onClick && cssClasses.push(styles['clickable']);
+		className && cssClasses.push(className);
+		return cssClasses.filter(r => r).join(' ');
 	}
 
 	const handleClickOnDelete = (e: React.MouseEvent<Element>) => {

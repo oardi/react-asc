@@ -11,12 +11,12 @@ export interface IBreadcrumbProps {
 
 export const Breadcrumb = (props: IBreadcrumbProps) => {
 
-	const { className = '', items, onItemClick } = props;
+	const { className, items, onItemClick } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.breadcrumb);
-		cssClasses.push(className);
+		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
 

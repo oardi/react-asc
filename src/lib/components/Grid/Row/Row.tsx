@@ -7,7 +7,7 @@ interface IRowProps {
 
 export const Row = (props: IRowProps) => {
 
-	const { children, className = '', ...rest } = props;
+	const { children, className, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

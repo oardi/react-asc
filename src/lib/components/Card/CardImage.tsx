@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './CardImage.module.scss';
 
 interface ICardImageProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLImageElement>, HTMLImageElement> {
 	src?: string;
@@ -12,7 +13,7 @@ export const CardImage = (props: ICardImageProps) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push('card-img-top');
+		cssClasses.push(styles.cardImage);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};

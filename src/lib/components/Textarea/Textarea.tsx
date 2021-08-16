@@ -9,10 +9,10 @@ export const Textarea = (props: ITextareaProps) => {
 	const { className, ...rest } = props;
 
 	const getCssClass = () => {
-		const result = [];
-		result.push(className);
-		result.push(styles.textarea);
-		return result.filter(r => r).join(' ');
+		const cssClasses: Array<string> = [];
+		cssClasses.push(styles.textarea);
+		className && cssClasses.push(className);
+		return cssClasses.filter(r => r).join(' ');
 	}
 
 	return (

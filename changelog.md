@@ -1,3 +1,6 @@
+## 15.1.1
+- style fixes
+
 ## 15.1.0
 - card - added scss modules
 

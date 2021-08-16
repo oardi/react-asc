@@ -10,7 +10,7 @@ export interface IBadgeProps extends React.DetailedHTMLProps<React.HtmlHTMLAttri
 
 export const Badge = (props: IBadgeProps) => {
 
-	const { children, content, className = '', color = COLOR.primary, ...rest } = props;
+	const { children, content, className, color = COLOR.primary, ...rest } = props;
 
 	const getCssClassesBadgeContainer = () => {
 		const cssClasses: Array<string> = [];

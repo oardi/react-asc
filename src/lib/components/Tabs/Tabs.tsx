@@ -16,7 +16,7 @@ export interface ITabsProps {
 
 export const Tabs = (props: ITabsProps) => {
 
-	const { children, className = '', fixed, indicatorColor, onChange, value } = props;
+	const { children, className, fixed, indicatorColor, onChange, value } = props;
 	const [selectedValue, setSelectedValue] = useState<string | undefined>(value);
 	const [selectedIndex, setSelectedIndex] = useState<number>();
 

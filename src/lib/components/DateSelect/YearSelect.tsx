@@ -15,7 +15,7 @@ export interface IYearProps {
 export const YearSelect = (props: IYearProps) => {
 
 	const {
-		className = '',
+		className,
 		from = 1970,
 		to = new Date().getFullYear().toString(),
 		value = new Date().getFullYear().toString(),

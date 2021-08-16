@@ -16,7 +16,7 @@ export interface IDateSelectProps {
 
 export const DateSelect = (props: IDateSelectProps) => {
 
-	const { className = '', value = new Date(), disabled, yearConfig, onChange } = props;
+	const { className, value = new Date(), disabled, yearConfig, onChange } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

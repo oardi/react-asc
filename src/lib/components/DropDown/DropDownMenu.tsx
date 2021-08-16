@@ -16,7 +16,7 @@ export interface IDropDownMenuProps {
 
 export const DropDownMenu = (props: IDropDownMenuProps) => {
 
-	const { parentRef, children, className = '', menuPosition = 'left' } = props;
+	const { parentRef, children, className, menuPosition = 'left' } = props;
 	const dropDownMenuRef = useRef<HTMLDivElement>(null);
 	const { setIsShow } = useContext(DropDownContext);
 

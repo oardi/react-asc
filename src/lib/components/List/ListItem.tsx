@@ -27,9 +27,8 @@ export const ListItem = (props: IListItemProps) => {
 			cssClasses.push(`disabled`);
 		}
 
-		className && cssClasses.push(className);
-
 		cssClasses.push(styles.listItem);
+		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	}
 

@@ -12,7 +12,7 @@ export interface ITableProps {
 
 export const Table = (props: ITableProps) => {
 
-	const { children, className = '', bordered, striped, hover, responsive = false } = props;
+	const { children, className, bordered, striped, hover, responsive = false } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

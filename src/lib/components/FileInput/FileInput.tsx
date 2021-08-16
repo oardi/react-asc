@@ -7,15 +7,15 @@ export interface IFileInputProps extends React.DetailedHTMLProps<React.InputHTML
 
 export const FileInput = (props: IFileInputProps) => {
 
-	const { id, checked, className = '', name, multiple = false, accept, disabled, onChange, readOnly, value, ...rest } = props;
+	const { id, checked, className, name, multiple = false, accept, disabled, onChange, readOnly, value, ...rest } = props;
 	const inputFileElement = useRef<HTMLInputElement>(null);
 
 	const [fileList, setFileList] = useState<FileList>();
 
-	const getCssClass = () => {
-		const result = [];
-		result.push(className);
-		return result.filter(r => r).join(' ');
+	const getCssClasses = () => {
+		const cssClasses: Array<string> = [];
+		className && cssClasses.push(className);
+		return cssClasses.filter(r => r).join(' ');
 	}
 
 	const handleOnChange = (event: any) => {
@@ -41,7 +41,7 @@ export const FileInput = (props: IFileInputProps) => {
 			<input
 				type="file"
 				ref={inputFileElement}
-				className={getCssClass()}
+				className={getCssClasses()}
 				id={id}
 				name={name}
 				multiple={multiple}
