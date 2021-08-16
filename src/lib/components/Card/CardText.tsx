@@ -1,11 +1,23 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
+import styles from './CardText.module.scss';
 
-interface ICardTextProps {
-	children?: ReactNode;
+interface ICardTextProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 }
 
-export const CardText = (props: ICardTextProps) => (
-	<div className="card-text">
-		{props.children}
-	</div>
-);
+export const CardText = (props: ICardTextProps) => {
+
+	const { children, className, ...rest } = props;
+
+	const getCssClasses = () => {
+		const cssClasses: Array<string> = [];
+		cssClasses.push(styles.cardText);
+		className && cssClasses.push(className);
+		return cssClasses.filter(css => css).join(' ');
+	};
+
+	return (
+		<p className={getCssClasses()} {...rest}>
+			{props.children}
+		</p>
+	);
+}

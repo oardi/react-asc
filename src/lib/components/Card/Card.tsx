@@ -1,16 +1,14 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import styles from './Card.module.scss';
 
-interface ICardProps {
-	children?: ReactNode;
-	className?: string;
+interface ICardProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	shadow?: boolean;
 	style?: any;
 }
 
 export const Card = (props: ICardProps) => {
 
-	const { children, className = '', shadow = true, ...rest } = props;
+	const { children, className, shadow = true, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

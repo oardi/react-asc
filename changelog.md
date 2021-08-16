@@ -1,3 +1,6 @@
+## 15.1.0
+- card - added scss modules
+
 ## 15.0.2
 - checkbox - label disabled fix
 - dropdown - added scss modules

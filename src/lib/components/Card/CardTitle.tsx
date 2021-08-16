@@ -1,9 +1,7 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import styles from './CardTitle.module.scss';
 
-interface ICardTitleProps {
-	children?: ReactNode;
-	className?: string;
+interface ICardTitleProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	as?: any;
 }
 

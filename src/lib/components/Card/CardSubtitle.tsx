@@ -1,11 +1,23 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
+import styles from './CardSubtitle.module.scss';
 
-interface ICardSubtitleProps {
-	children?: ReactNode;
+interface ICardSubtitleProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 }
 
-export const CardSubtitle = ({ children }: ICardSubtitleProps) => (
-	<div className="text-muted mb-2">
-		{children}
-	</div>
-);
+export const CardSubtitle = (props: ICardSubtitleProps) => {
+
+	const { children, className, ...rest } = props;
+
+	const getCssClasses = () => {
+		const cssClasses: Array<string> = [];
+		cssClasses.push(styles.cardSubtitle);
+		className && cssClasses.push(className);
+		return cssClasses.filter(css => css).join(' ');
+	};
+
+	return (
+		<p className={getCssClasses()} {...rest}>
+			{children}
+		</p>
+	);
+}

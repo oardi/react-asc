@@ -1,16 +1,22 @@
 import React, { Fragment, useEffect } from 'react';
-import { Card, CardBody, CardImage, CardSubtitle, CardText, CardTitle, FormControl } from '../../lib';
+import { Card, CardBody, CardFooter, CardImage, CardSubtitle, CardText, CardTitle, FormControl, List, ListItem, ListItemText } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 interface ICardPageBaseProps {
 	showImage?: boolean;
+	showSubtitle?: boolean;
+	showList?: boolean;
+	showFooter?: boolean;
 }
 
 const CardPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ICardPageBaseProps>) => {
 
 	useEffect(() => {
 		setSettingsControls({
-			showImage: new FormControl(settingValues.showImage, [], 'checkbox', { label: 'showImage' }),
+			showImage: new FormControl(settingValues.showImage, [], 'checkbox', { label: 'show image' }),
+			showSubtitle: new FormControl(settingValues.showSubtitle, [], 'checkbox', { label: 'show subtitle' }),
+			showList: new FormControl(settingValues.showList, [], 'checkbox', { label: 'show list' }),
+			showFooter: new FormControl(settingValues.showFooter, [], 'checkbox', { label: 'show footer' }),
 		});
 	}, []);
 
@@ -24,11 +30,39 @@ const CardPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 					}
 					<CardBody>
 						<CardTitle>Title</CardTitle>
-						<CardSubtitle>SubTitle</CardSubtitle>
+						{
+							settingValues.showSubtitle &&
+							<CardSubtitle>SubTitle</CardSubtitle>
+						}
 						<CardText>
 							some card text
 						</CardText>
 					</CardBody>
+
+					{
+						settingValues.showList &&
+						<List>
+							<ListItem>
+								<ListItemText primary="lorem ipsum" />
+							</ListItem>
+							<ListItem>
+								<ListItemText primary="lorem ipsum" />
+							</ListItem>
+							<ListItem>
+								<ListItemText primary="lorem ipsum" />
+							</ListItem>
+							<ListItem>
+								<ListItemText primary="lorem ipsum" />
+							</ListItem>
+						</List>
+					}
+
+					{
+						settingValues.showFooter &&
+						<CardFooter>
+							some footer
+						</CardFooter>
+					}
 				</Card>
 			</div>
 		</Fragment>
@@ -36,5 +70,7 @@ const CardPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 }
 
 export const CardPage = withOptions<ICardPageBaseProps>(CardPageBase, {
-	showImage: false
+	showImage: false,
+	showSubtitle: false,
+	showFooter: false
 }, 'CardPageBase');

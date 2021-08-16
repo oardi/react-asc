@@ -1,5 +1,12 @@
+## 15.1.0
+- card - added scss modules
+
 ## 15.0.2
-- style fixes
+- checkbox - label disabled fix
+- dropdown - added scss modules
+- modal - footer style fix
+- deleted global DropDown.scss
+- deleted global Modal.scss
 
 ## 15.0.1
 - style fixes

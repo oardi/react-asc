@@ -1,12 +1,12 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import styles from './CardBody.module.scss';
 
-interface ICardBodyProps {
-	children?: ReactNode;
-	className?: string;
+interface ICardBodyProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 }
 
-export const CardBody = ({ children, className = '', ...rest }: ICardBodyProps) => {
+export const CardBody = (props: ICardBodyProps) => {
+
+	const { children, className, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

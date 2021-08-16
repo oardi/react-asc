@@ -1,12 +1,15 @@
 import React from 'react';
 
-interface ICardImageProps {
+interface ICardImageProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLImageElement>, HTMLImageElement> {
 	src?: string;
 	alt?: string;
 	className?: string;
 }
 
-export const CardImage = ({ src, alt, className = '', ...rest }: ICardImageProps) => {
+export const CardImage = (props: ICardImageProps) => {
+
+	const { src, alt, className, ...rest } = props;
+
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push('card-img-top');
@@ -17,8 +20,9 @@ export const CardImage = ({ src, alt, className = '', ...rest }: ICardImageProps
 	return (
 		<img
 			className={getCssClasses()}
-			{...rest} src={src}
+			src={src}
 			alt={alt}
+			{...rest}
 		/>
 	)
 };
