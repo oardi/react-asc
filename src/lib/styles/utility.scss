@@ -89,3 +89,9 @@
 .flex-wrap {
 	flex-wrap: wrap;
 }
+
+@media (min-width: 768px) {
+	.mt-md-0 {
+		margin-top: 0 !important;
+	}
+}

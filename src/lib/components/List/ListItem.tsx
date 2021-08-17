@@ -1,9 +1,11 @@
 import React, { ReactNode } from 'react';
+import { COLOR } from '../component.enums';
 import styles from './ListItem.module.scss';
 
 export interface IListItemProps {
 	id?: string;
 	children?: ReactNode;
+	color?: COLOR;
 	active?: boolean;
 	className?: string;
 	isHoverable?: boolean;
@@ -13,7 +15,7 @@ export interface IListItemProps {
 
 export const ListItem = (props: IListItemProps) => {
 
-	const { id, children, active, className, isHoverable, isDisabled, onClick } = props;
+	const { id, children, color, active, className, isHoverable, isDisabled, onClick } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -27,6 +29,7 @@ export const ListItem = (props: IListItemProps) => {
 			cssClasses.push(`disabled`);
 		}
 
+		color && cssClasses.push(styles[color]);
 		cssClasses.push(styles.listItem);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');

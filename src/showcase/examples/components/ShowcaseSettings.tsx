@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardBody, CardText, CardTitle, Form, IControls } from '../../../lib';
+import { Card, CardBody, CardTitle, Form, IControls } from '../../../lib';
 
 interface IShowcaseSettingsProps {
 	controls: IControls;
@@ -11,13 +11,11 @@ export const ShowcaseSettings = ({ controls, onFormChange }: IShowcaseSettingsPr
 		<Card>
 			<CardBody>
 				<CardTitle>Settings</CardTitle>
-				<CardText>
-					<Form
-						controls={controls}
-						validateOnBlur
-						onChange={onFormChange}
-					/>
-				</CardText>
+				<Form
+					controls={controls}
+					validateOnBlur
+					onChange={onFormChange}
+				/>
 			</CardBody>
 		</Card>
 	)

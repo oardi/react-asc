@@ -1,3 +1,6 @@
+## 15.2.3
+- listItem - added color
+
 ## 15.2.1
 - main entry test
 

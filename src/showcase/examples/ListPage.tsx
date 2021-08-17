@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import { List, IListProps, ListItem, ListItemAvatar, HomeSolidIcon, ListItemAction, IconButton, ListItemText, ListItemIcon, FormControl, snackbarService } from '../../lib';
+import { List, IListProps, ListItem, ListItemAvatar, HomeSolidIcon, ListItemAction, IconButton, ListItemText, ListItemIcon, FormControl, snackbarService, COLOR } from '../../lib';
 import { UserCircleSolidIcon } from '../assets';
 import { IShowcaseBaseProps, withOptions } from './components';
 
@@ -64,6 +64,15 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 						<IconButton onClick={e => handleClickAction(e as any)} icon={<HomeSolidIcon />} />
 					</ListItemAction>
 				</ListItem>
+			</List>
+
+			<h3 className="mt-3">Colors</h3>
+			<List isFlush={settingValues.isFlush}>
+				<ListItem color={COLOR.primary}>lorem ipsum</ListItem>
+				<ListItem color={COLOR.accent}>lorem ipsum</ListItem>
+				<ListItem color={COLOR.secondary}>lorem ipsum</ListItem>
+				<ListItem color={COLOR.light}>lorem ipsum</ListItem>
+				<ListItem color={COLOR.dark}>lorem ipsum</ListItem>
 			</List>
 
 		</Fragment>

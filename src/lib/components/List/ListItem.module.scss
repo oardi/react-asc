@@ -10,7 +10,8 @@
 
 	transition: background 0.5s ease;
 
-	&:hover, &.active {
+	&:hover,
+	&.active {
 		cursor: pointer;
 		z-index: 1;
 		text-decoration: none;
@@ -18,7 +19,33 @@
 		color: var(--primary);
 	}
 
-	&+.listItem {
+	& + .listItem {
 		border-top-width: 0;
 	}
+
+	&.primary {
+		color: var(--primary-contrast-text);
+		background-color: var(--primary);
+	}
+
+	&.accent {
+		color: var(--accent-contrast-text);
+		background-color: var(--accent);
+	}
+
+	&.secondary {
+		color: var(--secondary-contrast-text);
+		background-color: var(--secondary);
+	}
+
+	&.light {
+		color: var(--light-contrast-text);
+		background-color: var(--light);
+	}
+
+	&.dark {
+		color: var(--dark-contrast-text);
+		background-color: var(--dark);
+	}
+
 }
