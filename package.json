@@ -1,7 +1,10 @@
 {
 	"name": "react-asc",
 	"version": "15.2.1",
-	"description": "react-asc handcrafted react components",
+	"description": "handcrafted react components",
+	"main": "lib/index.js",
+	"module": "lib/index.es.js",
+	"jsnext:main": "lib/index.es.js",
 	"author": "Ardian Shala",
 	"homepage": "https://react-asc.netlify.app",
 	"license": "MIT",

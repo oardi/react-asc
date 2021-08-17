@@ -1,3 +1,6 @@
+## 15.2.1
+- main entry test
+
 ## 15.2.0
 - added commonjs modules support
 - added utilty.scss 
