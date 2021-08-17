@@ -25,6 +25,7 @@ export const menuItems: Array<IMenuItem> = [
 			{ id: "FloatingActionButton" },
 			{ id: "Form" },
 			{ id: "Grid" },
+			{ id: "Icon" },
 			{ id: "IconButton" },
 			{ id: "Link" },
 			{ id: "List" },
