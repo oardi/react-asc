@@ -36,7 +36,6 @@ export const menuItems: Array<IMenuItem> = [
 			{ id: "Snackbar" },
 			{ id: "SpeedDial" },
 			{ id: "Stepper" },
-			{ id: "Icon" },
 			{ id: "Table" },
 			{ id: "Tabs" },
 			{ id: "TimeSelect" },
