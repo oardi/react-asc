@@ -68,11 +68,11 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 
 			<h3 className="mt-3">Colors</h3>
 			<List isFlush={settingValues.isFlush}>
-				<ListItem color={COLOR.primary}>lorem ipsum</ListItem>
-				<ListItem color={COLOR.accent}>lorem ipsum</ListItem>
-				<ListItem color={COLOR.secondary}>lorem ipsum</ListItem>
-				<ListItem color={COLOR.light}>lorem ipsum</ListItem>
-				<ListItem color={COLOR.dark}>lorem ipsum</ListItem>
+				<ListItem color={COLOR.primary}>primary</ListItem>
+				<ListItem color={COLOR.accent}>accent</ListItem>
+				<ListItem color={COLOR.secondary}>secondary</ListItem>
+				<ListItem color={COLOR.light}>light</ListItem>
+				<ListItem color={COLOR.dark}>dark</ListItem>
 			</List>
 
 		</Fragment>
