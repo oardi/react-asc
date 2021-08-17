@@ -66,7 +66,9 @@ const DrawerContent = (props: IDrawerContentProps) => {
 		return !permanent ? positionStyles[position] : undefined;
 	};
 
-	return <div className={getCssClasses()} style={getStyles()}>
-		{children}
-	</div>
+	return (
+		<div className={getCssClasses()} style={getStyles()}>
+			{children}
+		</div>
+	);
 }

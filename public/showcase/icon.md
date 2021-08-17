@@ -1,1 +1,3 @@
-coming soon
+<Icon>
+	<HomeSolidIcon />
+</Icon>

@@ -24,7 +24,7 @@ export const AboutPage = () => {
 				Credits and Thanks
 			</Typography>
 			<Typography as="p">
-				This React library aims to deliver reusable Twitter Bootstrap components.
+				This React library aims to deliver reusable react components.
 				Thank you React Team for providing such a awesome library :)
 			</Typography>
 
@@ -34,7 +34,7 @@ export const AboutPage = () => {
 			<List>
 				<ListItem>React</ListItem>
 				<ListItem>Twitter Bootstrap</ListItem>
-				<ListItem>axios</ListItem>
+				<ListItem>PopperJs</ListItem>
 			</List>
 
 			<Typography as="h3">

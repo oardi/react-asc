@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { COLOR, FormControl, HomeSolidIcon, Icon, IIconProps } from '../../lib';
+import { IShowcaseBaseProps, withOptions } from './components';
 
-export const IconPage = () => {
+const IconPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IIconProps>) => {
+
+	useEffect(() => {
+		setSettingsControls({
+			iconColor: new FormControl(settingValues.iconColor, [], 'select', { label: 'color', options: Object.keys(COLOR).map(c => ({ label: c, value: c })) }),
+		});
+	}, []);
+
 	return (
-		<div>coming soon</div>
+		<div>
+			<Icon iconColor={settingValues.iconColor}>
+				<HomeSolidIcon />
+			</Icon>
+		</div>
 	);
 }
+
+export const IconPage = withOptions<IIconProps>(IconPageBase, {
+	iconColor: COLOR.primary
+}, 'IconPageBase');

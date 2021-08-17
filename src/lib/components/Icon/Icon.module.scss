@@ -7,4 +7,24 @@
 		width: 20px;
 		height: 20px;
 	}
+
+	&.primary {
+		color: var(--primary);
+	}
+
+	&.accent {
+		color: var(--accent);
+	}
+
+	&.secondary {
+		color: var(--secondary);
+	}
+
+	&.light {
+		color: var(--light);
+	}
+
+	&.dark {
+		color: var(--dark);
+	}
 }

@@ -1,3 +1,7 @@
+## 15.2.0
+- added commonjs modules support
+- added utilty.scss 
+
 ## 15.1.1
 - style fixes
 
