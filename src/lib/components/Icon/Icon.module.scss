@@ -3,9 +3,12 @@
 	justify-content: center;
 	display: flex;
 
+	width: 20px;
+	height: 20px;
+
 	svg {
-		width: 20px;
-		height: 20px;
+		width: inherit;
+		height: inherit;
 	}
 
 	&.primary {

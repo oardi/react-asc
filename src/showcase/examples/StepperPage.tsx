@@ -19,6 +19,7 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 		snackbarService.show(`you selected step ${index + 1}`);
 		setValue(index);
 	}
+
 	const handleOnFinish = () => {
 		snackbarService.show('you reached the end');
 	}

@@ -1,3 +1,6 @@
+## 15.2.4
+- icon - svg width & height inherit by wrapper
+
 ## 15.2.3
 - listItem - added color
 

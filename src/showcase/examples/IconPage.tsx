@@ -11,11 +11,11 @@ const IconPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 	}, []);
 
 	return (
-		<div>
+		<>
 			<Icon iconColor={settingValues.iconColor}>
 				<HomeSolidIcon />
 			</Icon>
-		</div>
+		</>
 	);
 }
 
