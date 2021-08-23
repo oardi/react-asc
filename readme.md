@@ -40,6 +40,7 @@ const MyApp = () => {
 ## Included
 
 - AppBar
+- AutoComplete (v1)
 - Backdrop
 - Badge
 - Button
@@ -73,7 +74,7 @@ const MyApp = () => {
 - TimeSelect
 - Textarea
 - Tooltip
-- TreeView (v1)
+- TreeView (beta)
 - Typography
 
 

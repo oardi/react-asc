@@ -1,3 +1,6 @@
+## 16.0.0
+- autoComplete - added component
+
 ## 15.2.4
 - icon - svg width & height inherit by wrapper
 
