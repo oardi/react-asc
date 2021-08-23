@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '../lib';
+import { Link, List, ListItem, Typography } from '../lib';
 import { Highlight } from '../shared';
 import { Layout } from './Layout';
 
@@ -38,11 +38,19 @@ export const GettingStartedPage = () => {
 
 
 			<Typography as="h3" className="mt-3">
-				Codesandbox example
+				Examples
 			</Typography>
-			<Typography as="p">
-				Click <a href="https://codesandbox.io/s/react-asc-example-8y9ob" target="blank">here</a> to see a simple example
-			</Typography>
+			<List>
+				<ListItem>
+					<Link url="https://codesandbox.io/s/react-asc-example-8y9ob" target="blank">Codesandbox</Link>
+				</ListItem>
+				<ListItem>
+					<Link url="https://stackblitz.com/edit/react-asc-example-ts" target="blank">Stackblitz Typescript</Link>
+				</ListItem>
+				<ListItem>
+					<Link url="https://stackblitz.com/edit/react-asc-example-js" target="blank">Stackblitz Javascript</Link>
+				</ListItem>
+			</List>
 
 		</Layout>
 	);
