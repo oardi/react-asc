@@ -33,7 +33,7 @@ const MyApp = () => {
 	return (
 		<Button>some button</Button>
 	)
-}`} />
+}
 ```
 
 
