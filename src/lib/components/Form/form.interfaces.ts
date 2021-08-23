@@ -17,6 +17,10 @@ export interface IFormSelectOptions {
 	multiple?: boolean;
 }
 
+export interface IFormAutoCompleteOptions {
+	openOnFocus?: boolean;
+}
+
 export interface IFormInputError {
 	validator: string;
 	message: string;
@@ -45,4 +49,5 @@ export interface IFormControlConfig {
 
 	textareaOptions?: IFormTextAreaOptions;
 	selectOptions?: IFormSelectOptions;
+	autoCompleteOptions?: IFormAutoCompleteOptions;
 }

@@ -1,3 +1,6 @@
+## 16.0.1
+- form - fixed autoCompleteOptions
+
 ## 16.0.0
 - autoComplete - added component
 

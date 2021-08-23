@@ -4,7 +4,7 @@ import { Checkbox } from '../Checkbox';
 import { FileInput } from '../FileInput';
 import { Select } from '../Select';
 import { Textarea } from '../Textarea';
-import { IFormInputOptions, IFormTextAreaOptions, IFormSelectOptions } from './form.interfaces';
+import { IFormInputOptions, IFormTextAreaOptions, IFormSelectOptions, IFormAutoCompleteOptions } from './form.interfaces';
 import { IFormControlType } from './form.types';
 
 export interface IFormInputProps {
@@ -20,6 +20,7 @@ export interface IFormInputProps {
 	options?: Array<IFormInputOptions>;
 	textareaOptions?: IFormTextAreaOptions;
 	selectOptions?: IFormSelectOptions;
+	autoCompleteOptions?: IFormAutoCompleteOptions;
 	label?: string; // checkbox, radio - move?
 	onChange?: (name: string, value: any, type: string) => void;
 	onBlur?: (event: any) => void;
@@ -38,6 +39,7 @@ export const FormInput = (props: IFormInputProps) => {
 		options = [],
 		textareaOptions,
 		selectOptions,
+		autoCompleteOptions,
 		autoFocus,
 		label,
 		disabled = false,
@@ -81,7 +83,7 @@ export const FormInput = (props: IFormInputProps) => {
 				/>
 			}
 
-			{ type === 'file' &&
+			{type === 'file' &&
 				<FileInput
 					id={name}
 					name={name}
@@ -130,6 +132,7 @@ export const FormInput = (props: IFormInputProps) => {
 					name={name}
 					className={className + (!isValid ? ' is-invalid' : '')}
 					value={value}
+					openOnFocus={autoCompleteOptions?.openOnFocus}
 					onChange={e => onChange && onChange(name, e, type)}
 					onKeyDown={onKeyDown}
 					options={options}

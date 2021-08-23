@@ -234,6 +234,7 @@ export class Form extends Component<IFormProps, IFormState> {
 								placeholder={this.getControl(fieldKey).config.placeholder}
 								textareaOptions={this.getControl(fieldKey).config.textareaOptions}
 								selectOptions={this.getControl(fieldKey).config.selectOptions}
+								autoCompleteOptions={this.getControl(fieldKey).config.autoCompleteOptions}
 								type={this.getControl(fieldKey).type}
 								value={this.getControl(fieldKey).value}
 								disabled={this.getControl(fieldKey).config.disabled}
