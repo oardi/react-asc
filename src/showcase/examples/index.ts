@@ -1,4 +1,5 @@
 export * from './AppBarPage';
+export * from './AutoCompletePage';
 export * from './BackdropPage';
 export * from './BadgePage';
 export * from './ButtonPage';

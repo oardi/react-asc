@@ -1,3 +1,6 @@
+### autocomplete
+- add component (formControl)
+
 ### Remove Bootstrap from Components
 - Backdrop
 - Button
@@ -100,9 +103,6 @@
 - search
 - optionsGroup
 - icons
-
-### autocomplete
-- add component (formControl)
 
 ### datepicker
 - add component (formControl)

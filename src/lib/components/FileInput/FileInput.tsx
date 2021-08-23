@@ -7,7 +7,19 @@ export interface IFileInputProps extends React.DetailedHTMLProps<React.InputHTML
 
 export const FileInput = (props: IFileInputProps) => {
 
-	const { id, checked, className, name, multiple = false, accept, disabled, onChange, readOnly, value, ...rest } = props;
+	const {
+		id,
+		checked,
+		className,
+		name,
+		multiple = false,
+		accept,
+		disabled,
+		onChange,
+		readOnly,
+		value,
+		...rest
+	} = props;
 	const inputFileElement = useRef<HTMLInputElement>(null);
 
 	const [fileList, setFileList] = useState<FileList>();

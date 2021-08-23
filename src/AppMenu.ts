@@ -9,6 +9,7 @@ export const menuItems: Array<IMenuItem> = [
 		isCollapsed: true,
 		items: [
 			{ id: "AppBar" },
+			{ id: "AutoComplete" },
 			{ id: "Backdrop" },
 			{ id: "Badge" },
 			{ id: "Button" },

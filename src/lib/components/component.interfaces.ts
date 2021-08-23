@@ -12,3 +12,8 @@ export interface HtmlInputProps extends HtmlBaseProps {
 	onChange?: (val: React.FocusEvent<HTMLInputElement>) => void;
 	placeholder?: string;
 }
+
+export interface ISelectOption {
+	value: string;
+	label?: string;
+}

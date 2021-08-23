@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { ISelectOption, Select } from "../Select";
+import { ISelectOption } from '../component.interfaces';
+import { Select } from "../Select";
 
 export interface IMinuteProps {
 	value?: number;

@@ -1,4 +1,5 @@
 export * from './AppBar';
+export * from './AutoComplete';
 export * from './Backdrop';
 export * from './Badge';
 export * from './Button';
@@ -36,3 +37,4 @@ export * from './TimeSelect';
 export * from './TreeView';
 export * from './Typography';
 export * from './component.enums';
+export * from './component.interfaces';

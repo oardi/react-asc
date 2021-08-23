@@ -6,17 +6,15 @@ import { Chip } from '../Chip';
 import { COLOR } from '../component.enums';
 import { List, ListItem, ListItemText } from '../List';
 import { Icon } from '../Icon';
+import { ISelectOption } from '../component.interfaces';
 import styles from './Select.module.scss';
 
 // TODO
 // navigate by keys
 // on key down
 // option als component auslagern?
+// custom template render items
 
-export interface ISelectOption {
-	value: string;
-	label?: string;
-}
 
 export interface ISelectProps {
 	id?: string;
@@ -143,7 +141,7 @@ export const Select = (props: ISelectProps) => {
 		handleOnClick(option);
 	}
 
-	// TODO
+	// TODO - extract with wrapper?
 	const handleOnKeyDown = (e: KeyboardEventHandler<HTMLDivElement>) => {
 		if (isShow) {
 			onKeyDown && onKeyDown(e);
