@@ -12,7 +12,8 @@ export type IFormControlType =
 	'time' |
 	'file' |
 	'date' |
-	'datetime-local'
+	'datetime-local' |
+	'autocomplete'
 	;
 
 export type IFormValidatorType = 'required' | 'email' | 'match';

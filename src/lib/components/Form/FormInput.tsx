@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { AutoComplete } from '../AutoComplete';
 import { Checkbox } from '../Checkbox';
 import { FileInput } from '../FileInput';
 import { Select } from '../Select';
@@ -116,6 +117,19 @@ export const FormInput = (props: IFormInputProps) => {
 					className={className + (!isValid ? ' is-invalid' : '')}
 					value={value}
 					multiple={selectOptions?.multiple}
+					onChange={e => onChange && onChange(name, e, type)}
+					onKeyDown={onKeyDown}
+					options={options}
+				/>
+			}
+
+			{
+				type === 'autocomplete' &&
+				<AutoComplete
+					id={name}
+					name={name}
+					className={className + (!isValid ? ' is-invalid' : '')}
+					value={value}
 					onChange={e => onChange && onChange(name, e, type)}
 					onKeyDown={onKeyDown}
 					options={options}

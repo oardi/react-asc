@@ -8,8 +8,7 @@ const AutoCompletePageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 
 	useEffect(() => {
 		setSettingsControls({
-			multiple: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'multiple' }),
-			multipleMaxCountItems: new FormControl(settingValues.multipleMaxCountItems, [], 'number', { label: 'max count items show (multiple)' }),
+			openOnFocus: new FormControl(settingValues.openOnFocus, [], 'checkbox', { label: 'openOnFocus' }),
 			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' }),
 		});
 	}, []);
@@ -25,8 +24,6 @@ const AutoCompletePageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 				id="myAutoComplete"
 				name="myAutoComplete"
 				className="form-control"
-				multiple={settingValues.multiple}
-				multipleMaxCountItems={settingValues.multipleMaxCountItems}
 				options={[
 					{ value: "1", label: 'one' },
 					{ value: "2", label: 'two' },
@@ -49,8 +46,9 @@ const AutoCompletePageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 					{ value: "19", label: 'nineteen' },
 					{ value: "20", label: 'twenty' },
 				]}
-				onChange={handleOnChange}
+				openOnFocus={settingValues.openOnFocus}
 				disabled={settingValues.disabled}
+				onChange={handleOnChange}
 				value={value}
 			/>
 		</Fragment>
@@ -58,5 +56,5 @@ const AutoCompletePageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 }
 
 export const AutoCompletePage = withOptions<IAutoCompleteProps>(AutoCompletePageBase, {
-	multipleMaxCountItems: 5
+	openOnFocus: true
 }, 'AutoCompletePageBase');
