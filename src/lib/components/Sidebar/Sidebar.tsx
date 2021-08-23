@@ -45,7 +45,14 @@ export const Sidebar = (props: ISidebarProps) => {
 	}
 
 	const isMenuItemActive = (path: string) => {
-		return path === currentUrl || ("/" + path) === currentUrl;
+		const lastSegment = currentUrl.substring(currentUrl.lastIndexOf('/'), currentUrl.length);
+		let result = false;
+		if (currentUrl === '/' && path === '') {
+			result = true;
+		} else if (path !== '') {
+			result = lastSegment ? lastSegment.includes(path) : false;
+		}
+		return result
 	}
 
 	const navigate = (e: React.MouseEvent, path: string) => {
@@ -83,6 +90,7 @@ export const Sidebar = (props: ISidebarProps) => {
 				{menuItems.map(item => (
 					<React.Fragment key={item.id}>
 						<ListItem
+							active={isMenuItemActive(item.path)}
 							onClick={(e) => handleClickItem(item, e)}
 						>
 							<ListItemText primary={
@@ -105,6 +113,7 @@ export const Sidebar = (props: ISidebarProps) => {
 								{item.items.map(subItem => (
 									<ListItem
 										className="list-item-level-1"
+										active={isMenuItemActive(subItem.path)}
 										key={subItem.id}
 										onClick={(e) => handleClickSubItem(item.path, subItem.path, e)}
 									>
