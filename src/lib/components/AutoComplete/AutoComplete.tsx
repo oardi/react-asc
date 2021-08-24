@@ -76,7 +76,7 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 		const optionsOrigin: Array<ISelectOption> = JSON.parse(JSON.stringify(options));
 		const searchText = e.target.value;
 		setModel(searchText);
-		const regex = new RegExp(searchText, 'gi');
+		const regex = new RegExp(searchText.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'), 'gi');
 		const optionsFiltered = optionsOrigin.filter(o => o.label?.match(regex));
 		setOptionsTemp(optionsFiltered);
 		show();
