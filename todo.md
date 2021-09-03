@@ -1,5 +1,9 @@
 ### autocomplete
-- add component (formControl)
+- readonly
+- disabled
+- start to filter on X chars?
+- highlight filter?
+- check in form
 
 ### Remove Bootstrap from Components
 - Backdrop
