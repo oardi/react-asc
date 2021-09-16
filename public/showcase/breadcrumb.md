@@ -1,8 +1,5 @@
-<Breadcrumb
-	className="mb-0"
-	items={[
-		{ label: 'Home', path: '/' },
-		{ label: 'Library', path: '/' },
-		{ label: 'Data', path: '/', isActive: true }
-	]}
-/>
+<Breadcrumb>
+	<BreadcrumbItem path="/home">Home</BreadcrumbItem>
+	<BreadcrumbItem path="/library">Library</BreadcrumbItem>
+	<BreadcrumbItem path="/" isActive>Data</BreadcrumbItem>
+</Breadcrumb>
