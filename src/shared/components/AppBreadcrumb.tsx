@@ -1,14 +1,20 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { Breadcrumb, IBreadcrumbItem } from '../../lib';
+import { Breadcrumb, BreadcrumbItem } from '../../lib';
 import { loggerService } from '../services';
+
+interface IAppBreadcrumb {
+	label: string;
+	path?: string;
+	isActive?: boolean;
+}
 
 const CLASSNAME = 'AppBreadcrumb';
 export const AppBreadcrumb = () => {
 
 	const location = useLocation();
 	const history = useHistory();
-	const [items, setItems] = useState<Array<IBreadcrumbItem>>([]);
+	const [items, setItems] = useState<Array<IAppBreadcrumb>>([]);
 
 	// extract in AppBreadcrumb
 	useEffect(() => {
@@ -20,7 +26,7 @@ export const AppBreadcrumb = () => {
 		setItems(newItems.length <= 1 ? [] : newItems);
 	}, [location]);
 
-	const handleClickBreadcrumbItem = (item: IBreadcrumbItem) => {
+	const handleClickBreadcrumbItem = (item: IAppBreadcrumb) => {
 		loggerService.debug(CLASSNAME, 'handleClickBreadcrumbItem');
 		if (location.pathname !== item.path)
 			history.push(item.path as string);
@@ -28,12 +34,15 @@ export const AppBreadcrumb = () => {
 
 	return (
 		<Fragment>
-			{items &&
-				<Breadcrumb
-					items={items}
-					onItemClick={handleClickBreadcrumbItem}
-				/>
-			}
+			<Breadcrumb>
+				{items &&
+					items.map((item, index) =>
+						<BreadcrumbItem key={index} isActive={item.isActive} path={item.path} onClick={() => handleClickBreadcrumbItem(item)}>
+							{item.label}
+						</BreadcrumbItem>
+					)
+				}
+			</Breadcrumb>
 		</Fragment>
 	);
 }

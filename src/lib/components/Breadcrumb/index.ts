@@ -1,2 +1,2 @@
 export * from './Breadcrumb';
-export * from './breadcrumb.interfaces';
+export * from './BreadcrumbItem';

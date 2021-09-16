@@ -1,18 +1,15 @@
 import React from 'react';
-import { Breadcrumb } from '../../lib';
+import { Breadcrumb, BreadcrumbItem } from '../../lib';
 import { withOptions } from './components';
 
 const BreadcrumbPageBase = () => {
 	return (
 		<div>
-			<Breadcrumb
-				className="mb-0"
-				items={[
-					{ label: 'Home', path: '/' },
-					{ label: 'Library', path: '/' },
-					{ label: 'Data', path: '/', isActive: true }
-				]}
-			/>
+			<Breadcrumb className="mb-0">
+				<BreadcrumbItem path="/">Home</BreadcrumbItem>
+				<BreadcrumbItem path="/">Library</BreadcrumbItem>
+				<BreadcrumbItem path="/" isActive>Data</BreadcrumbItem>
+			</Breadcrumb>
 		</div>
 	);
 }
