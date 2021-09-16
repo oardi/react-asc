@@ -1,3 +1,6 @@
+## 16.1.0
+- breadcrumb - changed prop items to own breadcrumbitem component
+
 ## 16.0.2
 - autocomplete - regexp escape special characters
 
