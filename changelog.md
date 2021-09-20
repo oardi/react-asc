@@ -1,3 +1,6 @@
+## 17.0.0
+- Breaking Change - renamed DropDown to Menu
+
 ## 16.1.0
 - breadcrumb - changed prop items to own breadcrumbitem component
 

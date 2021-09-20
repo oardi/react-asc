@@ -1,11 +1,11 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 
-interface IDropDownBackdropProps {
+interface IMenuBackdropProps {
 	onClick?: () => void;
 }
 
-export const DropDownBackdrop = ({ onClick }: IDropDownBackdropProps) => {
+export const MenuBackdrop = ({ onClick }: IMenuBackdropProps) => {
 
 	const handleClick = () => {
 		onClick && onClick();

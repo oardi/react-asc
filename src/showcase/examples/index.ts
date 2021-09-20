@@ -10,7 +10,7 @@ export * from './ChipPage';
 export * from './CheckboxPage';
 export * from './DateSelectPage';
 export * from './DrawerPage';
-export * from './DropDownPage';
+export * from './MenuPage';
 export * from './ExpansionPanelPage';
 export * from './FormPage';
 export * from './FileInputPage';

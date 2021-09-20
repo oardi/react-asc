@@ -1,20 +1,20 @@
 import React, { ReactNode } from 'react';
 import { ConditionalWrapper } from '../ConditionalWrapper';
-import styles from './DropDownItem.module.scss';
-export interface IDropDownItemProps {
+import styles from './MenuItem.module.scss';
+export interface IMenuItemProps {
 	key?: string;
 	children?: ReactNode;
 	onClick?: (e: React.MouseEvent) => void;
 	type?: 'item' | 'header'
 }
 
-export const DropDownItem = (props: IDropDownItemProps) => {
+export const MenuItem = (props: IMenuItemProps) => {
 
 	const { children, onClick, type = 'item' } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push(styles.dropdownItem);
+		cssClasses.push(styles.menuItem);
 		if (type === 'header') {
 			cssClasses.push('dropdown-header');
 		}

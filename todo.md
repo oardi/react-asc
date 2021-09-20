@@ -1,3 +1,9 @@
+### menu 
+- rename all dropdown to menu
+- remove bootstrap styling
+- use menuItems
+- reuse menuItems in autoComplete and Select
+
 ### autocomplete
 - readonly
 - disabled

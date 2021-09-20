@@ -20,7 +20,7 @@ export const menuItems: Array<IMenuItem> = [
 			{ id: "Chip" },
 			{ id: "DateSelect" },
 			{ id: "Drawer" },
-			{ id: "DropDown" },
+			{ id: "Menu" },
 			{ id: "ExpansionPanel" },
 			{ id: "FileInput" },
 			{ id: "FloatingActionButton" },

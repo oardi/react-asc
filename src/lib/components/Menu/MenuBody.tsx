@@ -1,28 +1,28 @@
 import React, { ReactElement, useContext, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Backdrop } from '../Backdrop';
-import { MenuPosition } from './dropDown.types';
-import { DropDownContext } from './DropdownContext';
-import { IDropDownItemProps } from './DropDownItem';
+import { MenuPosition } from './menu.types';
+import { MenuContext } from './MenuContext';
+import { IMenuItemProps } from './MenuItem';
 import { createPopper } from '@popperjs/core';
-import styles from './DropDownMenu.module.scss';
+import styles from './MenuBody.module.scss';
 
-export interface IDropDownMenuProps {
-	children?: ReactElement<IDropDownItemProps> | Array<ReactElement<IDropDownItemProps>>;
+export interface IMenuBodyProps {
+	children?: ReactElement<IMenuItemProps> | Array<ReactElement<IMenuItemProps>>;
 	className?: string;
 	menuPosition?: MenuPosition;
 	parentRef: React.RefObject<any>;
 }
 
-export const DropDownMenu = (props: IDropDownMenuProps) => {
+export const MenuBody = (props: IMenuBodyProps) => {
 
 	const { parentRef, children, className, menuPosition = 'left' } = props;
-	const dropDownMenuRef = useRef<HTMLDivElement>(null);
-	const { setIsShow } = useContext(DropDownContext);
+	const menuBodyRef = useRef<HTMLDivElement>(null);
+	const { setIsShow } = useContext(MenuContext);
 
 	useEffect(() => {
-		if (dropDownMenuRef) {
-			createPopper((parentRef.current as any), (dropDownMenuRef.current as any), {
+		if (menuBodyRef) {
+			createPopper((parentRef.current as any), (menuBodyRef.current as any), {
 				placement: `${menuPosition}-start`,
 				modifiers: [
 					{
@@ -43,12 +43,11 @@ export const DropDownMenu = (props: IDropDownMenuProps) => {
 				]
 			});
 		}
-	}, [dropDownMenuRef]);
+	}, [menuBodyRef]);
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push(styles.dropdownMenu);
-		// cssClasses.push(`dropdown-menu show`);
+		cssClasses.push(styles.menuBody);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	}
@@ -61,7 +60,7 @@ export const DropDownMenu = (props: IDropDownMenuProps) => {
 		createPortal(
 			<>
 				<div
-					ref={dropDownMenuRef}
+					ref={menuBodyRef}
 					className={getCssClasses()}
 				>
 

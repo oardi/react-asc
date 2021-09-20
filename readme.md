@@ -52,7 +52,6 @@ const MyApp = () => {
 - ConditionalWrapper
 - DateSelect
 - Drawer
-- DropDown
 - ExpansionPanel
 - FileInput
 - FloatingActionButton
@@ -64,6 +63,7 @@ const MyApp = () => {
 - List
 - LoadingIndicator
 - Modal + ModalService
+- Menu
 - NumberSelect
 - Select
 - Snackbar + SnackbarService

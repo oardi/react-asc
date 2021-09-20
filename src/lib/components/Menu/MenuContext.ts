@@ -1,11 +1,11 @@
 import { createContext, Dispatch } from 'react';
 
-export interface IDropDownContext {
+export interface IMenuContext {
 	isShow: boolean;
 	setIsShow: Dispatch<boolean>;
 }
 
-export const DropDownContext = createContext<IDropDownContext>({
+export const MenuContext = createContext<IMenuContext>({
 	isShow: false,
 	setIsShow: () => { }
 });

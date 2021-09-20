@@ -1,13 +1,13 @@
 import React, { Fragment, ReactNode } from 'react';
 
-interface IDropDownToggleProps {
+interface IMenuToggleProps {
 	children?: ReactNode;
 }
 
-export const DropDownToggle = ({ children }: IDropDownToggleProps) => {
+export const MenuToggle = ({ children }: IMenuToggleProps) => {
 	return (
 		<Fragment>
-			{ children }
+			{children}
 		</Fragment>
 	)
 }

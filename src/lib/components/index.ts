@@ -11,7 +11,7 @@ export * from './Checkbox';
 export * from './Chip';
 export * from './DateSelect';
 export * from './Drawer';
-export * from './DropDown';
+export * from './Menu';
 export * from './ExpansionPanel';
 export * from './FileInput';
 export * from './FloatingActionButton';
