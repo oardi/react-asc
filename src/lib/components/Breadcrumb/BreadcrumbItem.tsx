@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { ConditionalWrapper } from '..';
+import { ConditionalWrapper } from '../ConditionalWrapper';
 import styles from './BreadcrumbItem.module.scss';
 
 export interface IBreadcrumbItemProps {
