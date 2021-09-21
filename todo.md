@@ -1,3 +1,6 @@
+### select
+- multiselect bug
+
 ### menu 
 - rename all dropdown to menu
 - remove bootstrap styling

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FormControl, ITabsProps, snackbarService, Tab, TabPanel, Tabs } from '../../lib';
+import { ITabsProps, snackbarService, Tab, TabPanel, Tabs } from '../../lib';
 import { loggerService } from '../../shared';
 import { IShowcaseBaseProps, withOptions } from './components';
 
@@ -10,7 +10,7 @@ const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 
 	useEffect(() => {
 		setSettingsControls({
-			fill: new FormControl(settingValues.fixed, [], 'checkbox', { label: 'fill' }),
+			// fill: new FormControl(settingValues.fixed, [], 'checkbox', { label: 'fill' }),
 		});
 	}, []);
 

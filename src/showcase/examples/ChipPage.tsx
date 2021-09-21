@@ -10,6 +10,7 @@ export const ChipPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	useEffect(() => {
 		setSettingsControls({
 			color: new FormControl(settingValues.color, [], 'select', { label: 'color', options: Object.keys(COLOR).map(c => ({ label: c, value: c })) }),
+			isDeletable: new FormControl(settingValues.isDeletable, [], 'checkbox', { label: 'isDeletable' }),
 			shadow: new FormControl(settingValues.shadow, [], 'checkbox', { label: 'Shadow' }),
 		});
 	}, []);
@@ -22,6 +23,7 @@ export const ChipPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	return (
 		<Chip
 			color={settingValues.color}
+			isDeletable={settingValues.isDeletable}
 			shadow={settingValues.shadow}
 			onClick={handleClick}
 		>

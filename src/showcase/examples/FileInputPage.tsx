@@ -8,6 +8,7 @@ const FileInputPageBase = ({ settingValues, setSettingsControls }: IShowcaseBase
 		setSettingsControls({
 			accept: new FormControl(settingValues.accept, [], 'text', { label: 'accept' }),
 			multiple: new FormControl(settingValues.multiple, [], 'checkbox', { label: 'multiple' }),
+			deletable: new FormControl(settingValues.deletable, [], 'checkbox', { label: 'deletable' }),
 			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' }),
 		});
 	}, []);
@@ -21,9 +22,12 @@ const FileInputPageBase = ({ settingValues, setSettingsControls }: IShowcaseBase
 			<FileInput
 				accept={settingValues.accept}
 				multiple={settingValues.multiple}
+				deletable={settingValues.deletable}
 				disabled={settingValues.disabled}
 				onChange={handleOnChange}
-			/>
+			>
+				choose a file
+			</FileInput>
 		</Fragment>
 	);
 }

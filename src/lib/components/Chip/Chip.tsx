@@ -9,6 +9,7 @@ export interface IChipProps {
 	className?: string;
 	shadow?: boolean;
 	onClick?: (e: React.MouseEvent<Element>) => void;
+	isDeletable?: boolean;
 	onDelete?: (e: React.MouseEvent<Element>) => void;
 	deleteIcon?: any;
 	style?: any;
@@ -16,7 +17,7 @@ export interface IChipProps {
 
 export const Chip = (props: IChipProps) => {
 
-	const { children, color = 'secondary', className, shadow, onClick, onDelete, deleteIcon = <TimesSolidIcon />, style, ...rest } = props;
+	const { children, color = 'secondary', className, shadow, onClick, isDeletable, onDelete, deleteIcon = <TimesSolidIcon />, style, ...rest } = props;
 
 	const getCssClass = () => {
 		const cssClasses: Array<string> = [];
@@ -38,7 +39,7 @@ export const Chip = (props: IChipProps) => {
 			<div>
 				{children}
 			</div>
-			{onDelete && (
+			{isDeletable && (
 				<div className={styles.deleteIcon} onClick={e => handleClickOnDelete(e)}>
 					{deleteIcon}
 				</div>

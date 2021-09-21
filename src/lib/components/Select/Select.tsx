@@ -126,7 +126,13 @@ export const Select = (props: ISelectProps) => {
 		if (selectedOptions.length <= multipleMaxCountItems && selectedOptions.length > 0) {
 			result = selectedOptions
 				.map(o =>
-					<Chip color={COLOR.primary} key={o.value} className="mr-2" onDelete={(e) => handleOnDelete((e as any), o)}>
+					<Chip
+						key={o.value}
+						className="mr-2"
+						color={COLOR.primary}
+						isDeletable={true}
+						onDelete={(e) => handleOnDelete((e as any), o)}
+					>
 						{o.label}
 					</Chip>
 				);

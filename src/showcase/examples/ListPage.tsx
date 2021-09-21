@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import { List, IListProps, ListItem, ListItemAvatar, HomeSolidIcon, ListItemAction, IconButton, ListItemText, ListItemIcon, FormControl, snackbarService, COLOR } from '../../lib';
+import { List, IListProps, ListItem, ListItemAvatar, HomeSolidIcon, ListItemAction, IconButton, ListItemText, ListItemIcon, snackbarService, COLOR } from '../../lib';
 import { UserCircleSolidIcon } from '../assets';
 import { IShowcaseBaseProps, withOptions } from './components';
 
@@ -8,7 +8,7 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	useEffect(() => {
 		setSettingsControls({
 			// isHoverable: new FormControl(settingValues.isHoverable, [], 'checkbox', { label: 'isHoverable' }),
-			isFlush: new FormControl(settingValues.isFlush, [], 'checkbox', { label: 'isFlush' })
+			// isFlush: new FormControl(settingValues.isFlush, [], 'checkbox', { label: 'isFlush' })
 		});
 	}, []);
 

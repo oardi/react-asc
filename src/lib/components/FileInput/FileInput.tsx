@@ -3,6 +3,7 @@ import { Button } from '../Button';
 import { Chip } from '../Chip';
 
 export interface IFileInputProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+	deletable?: boolean;
 }
 
 export const FileInput = (props: IFileInputProps) => {
@@ -11,6 +12,7 @@ export const FileInput = (props: IFileInputProps) => {
 		id,
 		checked,
 		className,
+		children,
 		name,
 		multiple = false,
 		accept,
@@ -18,10 +20,12 @@ export const FileInput = (props: IFileInputProps) => {
 		onChange,
 		readOnly,
 		value,
+		deletable = false,
 		...rest
 	} = props;
 	const inputFileElement = useRef<HTMLInputElement>(null);
 
+	const [model, setModel] = useState<any>(value);
 	const [fileList, setFileList] = useState<FileList>();
 
 	const getCssClasses = () => {
@@ -36,19 +40,28 @@ export const FileInput = (props: IFileInputProps) => {
 		onChange && onChange(event);
 	}
 
+	const handleOnDelete = (file: File) => {
+		// TODO - setModel
+		alert('coming soon');
+	}
+
 	return (
-		<div className="d-flex align-items-center flex-wrap">
-			<Button disabled={disabled} onClick={() => inputFileElement.current?.click()}>
-				{multiple ? 'choose files' : 'choose a file'}
+		<div className="d-flex align-items-start">
+			<Button className="flex-wrap" disabled={disabled} onClick={() => inputFileElement.current?.click()}>
+				{children}
 			</Button>
 
-			{fileList && Array.from(fileList).map((file) =>
-				<div key={file.name} className="ml-2">
-					<Chip>
+			<div className="d-flex align-items-center flex-wrap ml-1">
+				{fileList && Array.from(fileList).map((file) =>
+					<Chip
+						key={file.name}
+						isDeletable={deletable}
+						onDelete={() => handleOnDelete(file)}
+					>
 						{file.name}
 					</Chip>
-				</div>
-			)}
+				)}
+			</div>
 
 			<input
 				type="file"
@@ -62,7 +75,7 @@ export const FileInput = (props: IFileInputProps) => {
 				readOnly={readOnly}
 				hidden={true}
 				onChange={handleOnChange}
-				value={value}
+				value={model}
 				{...rest}
 			/>
 		</div>
