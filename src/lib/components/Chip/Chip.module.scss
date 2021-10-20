@@ -39,6 +39,16 @@
 		color: var(--accent-contrast-text);
 	}
 
+	&.light {
+		color: var(--light-contrast-text);
+		background-color: var(--light);
+	}
+
+	&.dark {
+		color: var(--dark-contrast-text);
+		background-color: var(--dark);
+	}
+
 	&.clickable {
 		&:hover {
 			cursor: pointer;

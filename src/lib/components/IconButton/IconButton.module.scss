@@ -71,6 +71,18 @@
 			}
 		}
 
+		&.light {
+			&:hover,
+			&.active {
+				color: var(--light);
+			}
+		}
+
+		&.dark {
+			color: var(--dark-contrast-text);
+			background-color: var(--dark);
+		}
+
 		&.disabled {
 			color: rgba(0, 0, 0, 0.26);
 			background-color: transparent;
