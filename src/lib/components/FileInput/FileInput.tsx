@@ -25,6 +25,7 @@ export const FileInput = (props: IFileInputProps) => {
 	} = props;
 	const inputFileElement = useRef<HTMLInputElement>(null);
 
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [model, setModel] = useState<any>(value);
 	const [fileList, setFileList] = useState<FileList>();
 
