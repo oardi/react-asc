@@ -1,3 +1,7 @@
+## 17.0.4
+- added circleIcon
+- removed some TwitterBootstrap cssClasses
+
 ## 17.0.3
 - added missing colors to appBar, chip, iconButton
 

@@ -1,4 +1,6 @@
 import React, { ReactNode } from 'react';
+import { IconButton, VARIANT } from '..';
+import { TimesSolidIcon } from '../..';
 import styles from './ModalHeader.module.scss';
 interface IModalHeaderProps {
 	children?: ReactNode;
@@ -21,9 +23,11 @@ export const ModalHeader = (props: IModalHeaderProps) => {
 			</h5>
 			{
 				isDismissable &&
-				<button type="button" className="close" onClick={handleClick}>
-					<span aria-hidden="true">&times;</span>
-				</button>
+				<IconButton
+					icon={<TimesSolidIcon />}
+					variant={VARIANT.text}
+					onClick={handleClick}
+				/>
 			}
 		</div>
 	);

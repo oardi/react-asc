@@ -16,10 +16,7 @@ export const MenuItem = (props: IMenuItemProps) => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.menuItem);
 		if (type === 'header') {
-			cssClasses.push('dropdown-header');
-		}
-		if (type === 'item') {
-			cssClasses.push('dropdown-item');
+			cssClasses.push(styles.menuItemHeader);
 		}
 		return cssClasses.filter(css => css).join(' ');
 	}

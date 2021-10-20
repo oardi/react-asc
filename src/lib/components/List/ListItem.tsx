@@ -23,7 +23,7 @@ export const ListItem = (props: IListItemProps) => {
 			cssClasses.push(styles['active']);
 		}
 		if (isHoverable) {
-			cssClasses.push(`list-group-item-action`);
+			// cssClasses.push(`list-group-item-action`);
 		}
 		if (isDisabled) {
 			cssClasses.push(`disabled`);

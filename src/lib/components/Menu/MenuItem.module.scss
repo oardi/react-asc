@@ -1,6 +1,21 @@
 .menuItem {
 	display: flex;
 
+	width: 100%;
+    padding: 0.25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+
+	&.menuItemHeader {
+		margin-bottom: 0;
+		font-size: 0.875rem;
+	}
+
 	&:hover {
 		cursor: pointer;
 	}

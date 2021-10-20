@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { TimesSolidIcon } from '../../assets/icons';
+import { TimesCircleSolidIcon } from '../../assets/icons';
 import { COLOR } from '../component.enums';
 import styles from './Chip.module.scss';
 
@@ -17,7 +17,7 @@ export interface IChipProps {
 
 export const Chip = (props: IChipProps) => {
 
-	const { children, color = 'secondary', className, shadow, onClick, isDeletable, onDelete, deleteIcon = <TimesSolidIcon />, style, ...rest } = props;
+	const { children, color = 'secondary', className, shadow, onClick, isDeletable, onDelete, deleteIcon = <TimesCircleSolidIcon />, style, ...rest } = props;
 
 	const getCssClass = () => {
 		const cssClasses: Array<string> = [];

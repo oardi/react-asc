@@ -2,8 +2,6 @@
 - multiselect bug
 
 ### menu 
-- rename all dropdown to menu
-- remove bootstrap styling
 - use menuItems
 - reuse menuItems in autoComplete and Select
 
@@ -19,13 +17,9 @@
 - Button
 - ButtonGroup
 - DateSelect
-- DropDown
-- ExpansionPanel
 - Form
 - Grid
-- IconButton
 - Link
-- List
 - LoadingIndicator
 - Modal
 - NumberSelect
@@ -35,10 +29,6 @@
 - SpeedDial
 - Stepper
 - Table
-- Tabs
-- Textarea
-- TimeSelect
-- Tooltip
 - TreeView
 - Typography
 

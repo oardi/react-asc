@@ -5,6 +5,7 @@ export * from './ChevronRightSolidIcon';
 export * from './ChevronUpSolidIcon';
 export * from './HomeSolidIcon';
 export * from './SquareRegularIcon';
+export * from './TimesCircleSolidIcon';
 export * from './TimesSolidIcon';
 export * from './SpinnerSolidIcon';
 export * from './PlusSolidIcon';

@@ -31,20 +31,7 @@ export const HomePage = () => {
 				</div>
 
 				<Row className="mt-4">
-					<Column md={4}>
-						<Card>
-							<CardBody>
-								<CardTitle>
-									Twitter Bootstrap 4.6
-								</CardTitle>
-								<CardText>
-									react-asc uses Twitter Bootstrap 4.6 at it´s core
-								</CardText>
-							</CardBody>
-						</Card>
-					</Column>
-
-					<Column md={4} className="mt-3 mt-md-0">
+					<Column md={6} className="mt-3 mt-md-0">
 						<Card>
 							<CardBody>
 								<CardTitle>
@@ -58,7 +45,7 @@ export const HomePage = () => {
 						</Card>
 					</Column>
 
-					<Column md={4} className="mt-3 mt-md-0">
+					<Column md={6} className="mt-3 mt-md-0">
 						<Card>
 							<CardBody>
 								<CardTitle>
