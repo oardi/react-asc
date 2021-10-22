@@ -13,7 +13,7 @@ export const GettingStartedPage = () => {
 			<Highlight text={`npm install react-asc`} />
 
 			<Typography as="h3" className="mt-3">
-				Install Twitter Bootstrap 4.6
+				Install Twitter Bootstrap 5
 			</Typography>
 			<Highlight text={`npm install bootstrap@4.6`} />
 

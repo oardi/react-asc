@@ -7,7 +7,7 @@ interface IFormGroupProps {
 
 export const FormGroup = (props: IFormGroupProps) => {
 
-	const { children, className = 'form-group' } = props;
+	const { children, className = 'mb-1' } = props;
 
 	return (
 		<div className={className}>

@@ -49,3 +49,12 @@
 
 	--breakpointMd: 768px;
 }
+
+label.required {
+	&::after {
+		display: inline-block;
+		line-height: 0.8;
+		content: "*";
+		vertical-align: text-top;
+	}
+}

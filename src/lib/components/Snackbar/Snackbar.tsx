@@ -17,8 +17,7 @@ export const Snackbar = (props: ISnackbarProps) => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.snackbar);
 		cssClasses.push(`shadow-lg`);
-		cssClasses.push(`bg-${color}`);
-		cssClasses.push(`text-white`);
+		cssClasses.push(styles[color]);
 		return cssClasses.filter(css => css).join(' ');
 	}
 

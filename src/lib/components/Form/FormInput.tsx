@@ -93,7 +93,9 @@ export const FormInput = (props: IFormInputProps) => {
 					readOnly={readonly}
 					disabled={disabled}
 					onChange={e => onChange && onChange(name, e.target.value, type)}
-				/>
+				>
+					choose a file
+				</FileInput>
 			}
 
 			{

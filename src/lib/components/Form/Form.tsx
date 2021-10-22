@@ -153,7 +153,7 @@ export class Form extends Component<IFormProps, IFormState> {
 		return (this.state.controls as IControls)[name];
 	}
 
-	private renderLabel(fieldKey: string, label: string, labelClassName: string = '') {
+	private renderLabel(fieldKey: string, label: string, labelClassName: string = 'form-label') {
 		const cssClasses = [labelClassName, this.isRequired(fieldKey) ? 'required' : undefined];
 		return <FormLabel htmlFor={fieldKey} className={cssClasses.join(' ')}>{label}</FormLabel>;
 	};

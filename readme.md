@@ -1,8 +1,9 @@
 # react-asc
-handcrafted components using Twitter Bootstrap, inspired by Material Design and bundled with rollup.
+handcrafted components inspired by Material Design and bundled with rollup.
+
 
 ## showcase
-react-asc showcase [link](https://react-asc.netlify.app)
+react-asc interactive showcase [link](https://react-asc.netlify.app)
 
 
 ## usage
@@ -11,7 +12,8 @@ react-asc showcase [link](https://react-asc.netlify.app)
 `npm install react-asc`
 
 
-### install twitter bootstrap 4.6
+### install twitter bootstrap 5
+react-asc aims to get rid of bootstrap - but for now you need Bootstrap
 
 `npm install bootstrap@4.6`
 

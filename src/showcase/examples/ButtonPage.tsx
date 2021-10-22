@@ -13,7 +13,6 @@ const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 
 	useEffect(() => {
 		setSettingsControls({
-			block: new FormControl(settingValues.block, [], 'checkbox', { label: 'block' }),
 			color: new FormControl(settingValues.color, [], 'select', { label: 'color', options: Object.keys(COLOR).map(c => ({ label: c, value: c })) }),
 			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' }),
 			isActive: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'isActive' }),
@@ -32,7 +31,6 @@ const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 		<Fragment>
 
 			<Button
-				block={settingValues.block}
 				color={settingValues.color}
 				disabled={settingValues.disabled}
 				isActive={settingValues.isActive}

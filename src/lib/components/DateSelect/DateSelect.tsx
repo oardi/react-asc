@@ -20,7 +20,7 @@ export const DateSelect = (props: IDateSelectProps) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push('form-row');
+		cssClasses.push('row');
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	}

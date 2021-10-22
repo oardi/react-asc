@@ -18,7 +18,7 @@ export const ServiceWorkerWrapper = () => {
 	const reloadPage = () => {
 		setShowReload(false);
 		waitingWorker?.postMessage({ type: 'SKIP_WAITING' });
-		window.location.reload(true);
+		window.location.reload();
 	};
 
 	return (

@@ -1,7 +1,7 @@
 {
 	"short_name": "react-asc",
 	"name": "react-asc",
-	"description": "handcrafted react components written in Typescript using Twitter Bootstrap 4.6 inspired by Material Design",
+	"description": "handcrafted react components written in Typescript using Twitter Bootstrap 5 inspired by Material Design",
 	"icons": [
 		{
 			"src": "../manifest-icon-192.png",

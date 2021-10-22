@@ -1,9 +1,19 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+
 $enable-shadows: true;
 $theme-colors: (
 	"primary": #3f51b5,
+	"secondary": $secondary,
 	"accent": #ff4081,
 	"light": #ffffff,
+	"success": $success,
+	"info": $info,
+	"warning": $warning,
+	"danger": $danger,
+	"dark": $dark,
 );
+
 $box-shadow-sm: false;
 $box-shadow: false;
 $box-shadow-lg: false;
@@ -53,16 +63,6 @@ body {
 	}
 }
 
-.form-check {
-	padding-left: 0;
-}
-
-.form-group {
-	> .form-check {
-		padding-left: 1.25rem;
-	}
-}
-
 @media (min-width: 1200px) {
 	.container-xl,
 	.container-lg,
@@ -71,4 +71,8 @@ body {
 	.container {
 		max-width: 100%;
 	}
+}
+
+.modal-backdrop {
+	z-index: 1040;
 }
