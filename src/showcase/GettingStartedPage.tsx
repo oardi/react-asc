@@ -15,7 +15,7 @@ export const GettingStartedPage = () => {
 			<Typography as="h3" className="mt-3">
 				Install Twitter Bootstrap 5
 			</Typography>
-			<Highlight text={`npm install bootstrap@4.6`} />
+			<Highlight text={`npm install bootstrap`} />
 
 			<Typography as="h3" className="mt-3">
 				Include needed scss files
