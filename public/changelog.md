@@ -1,3 +1,6 @@
+## 18.0.0
+- upgraded to twitter bootstrap 5
+
 ## 17.0.4
 - added circleIcon
 - removed some TwitterBootstrap cssClasses
