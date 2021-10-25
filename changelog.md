@@ -1,3 +1,7 @@
+## 18.1.0
+- added custom button text cssClasses
+- added highlight colors
+
 ## 18.0.0
 - upgraded to twitter bootstrap 5
 

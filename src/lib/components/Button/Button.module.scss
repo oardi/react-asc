@@ -1,6 +1,61 @@
 .button {
 	text-transform: uppercase !important;
 	flex-shrink: 0;
+
+	min-width: 64px;
+	font-size: 0.875rem;
+	box-shadow: var(--shadow);
+
+	&:disabled {
+		&:hover {
+			cursor: not-allowed;
+		}
+	}
+}
+
+.btnText {
+	box-shadow: none;
+	text-decoration: none;
+	&.primary {
+		color: var(--primary) !important;
+
+		&:hover {
+			text-decoration: none;
+			background: var(--primary-highlight) !important;
+		}
+	}
+	&.secondary {
+		color: var(--secondary) !important;
+
+		&:hover {
+			text-decoration: none;
+			background: var(--secondary-highlight) !important;
+		}
+	}
+	&.accent {
+		color: var(--accent) !important;
+
+		&:hover {
+			text-decoration: none;
+			background: var(--accent-highlight) !important;
+		}
+	}
+	&.light {
+		color: var(--light-contrast-text) !important;
+
+		&:hover {
+			text-decoration: none;
+			background: var(--light-highlight) !important;
+		}
+	}
+	&.dark {
+		color: var(--dark) !important;
+
+		&:hover {
+			text-decoration: none;
+			background: var(--dark-highlight) !important;
+		}
+	}
 }
 
 .startIcon {

@@ -19,8 +19,8 @@ export const ButtonTemplate = (props: IButtonProps) => {
 			cssClasses.push(`btn-outline-${color}`);
 		}
 		if (variant === 'text') {
-			cssClasses.push(`btn-link`);
-			cssClasses.push(`btn-link-${color}`);
+			cssClasses.push(styles.btnText);
+			cssClasses.push(styles[color]);
 		}
 		if (isRounded && variant !== 'text') {
 			cssClasses.push(`rounded-pill`);

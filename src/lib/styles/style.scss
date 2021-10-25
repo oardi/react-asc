@@ -1,4 +1,3 @@
-@import "./Button.scss";
 @import "./Form.scss";
 @import "./TreeView.scss";
 @import "./utility.scss";
@@ -9,27 +8,32 @@
 	--primary: #3f51b5;
 	--primary-dark: #2c387e;
 	--primary-contrast-text: #fff;
+	--primary-highlight: #d6dbf7;
 
 	--secondary-light: #e5e7eb;
 	--secondary: #dfe1e6;
 	--secondary-dark: #9c9da1;
 	--secondary-contrast-text: #fff;
+	--secondary-highlight: rgb(232, 234, 250);
 
 	--accent-light: #fd96b8;
 	--accent: #ff4081;
 	--accent-dark: #fd2c72;
 	--accent-contrast-text: #fff;
+	--accent-highlight: #fca9c5;
 
 	// rename!?
 	--light-light: #ffffff;
 	--light: #f8f9fa;
 	--light-dark: #ebebeb;
 	--light-contrast-text: #212529;
+	--light-highlight: #f8f9fa;
 
 	--dark-light: #616468;
 	--dark: #343a40;
 	--dark-dark: #343a40;
 	--dark-contrast-text: #fff;
+	--dark-highlight: #5e6164;
 
 	--white: #fff;
 
