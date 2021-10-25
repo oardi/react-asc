@@ -45,12 +45,12 @@ export const Sidebar = (props: ISidebarProps) => {
 	}
 
 	const isMenuItemActive = (path: string) => {
-		const lastSegment = currentUrl.substring(currentUrl.lastIndexOf('/'), currentUrl.length);
+		const lastSegment = currentUrl.substring(currentUrl.lastIndexOf('/') + 1, currentUrl.length);
 		let result = false;
 		if (currentUrl === '/' && path === '') {
 			result = true;
 		} else if (path !== '') {
-			result = lastSegment ? lastSegment.includes(path) : false;
+			result = lastSegment ? lastSegment.toLowerCase() === path.toLowerCase() : false;
 		}
 		return result
 	}
