@@ -15,7 +15,7 @@ react-asc interactive showcase [link](https://react-asc.netlify.app)
 ### install twitter bootstrap 5
 react-asc aims to get rid of bootstrap - but for now you need Bootstrap
 
-`npm install bootstrap@4.6`
+`npm install bootstrap`
 
 
 ### Include needed scss files
