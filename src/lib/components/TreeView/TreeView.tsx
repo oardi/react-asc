@@ -19,10 +19,10 @@ export const TreeView = (props: ITreeViewProps) => {
 		result = arr1.reduce((acc: any, val: any) => {
 			return (Array.isArray(val.children) ?
 				acc.concat([
-					{ id: val.id, name: val.name, level: level, hasChildren: true, parentId: parentId },
+					{ id: val.id, label: val.label, level: level, hasChildren: true, parentId: parentId },
 					...flattenDeep(val.children, val.id, level + 1)
 				]) :
-				acc.concat([{ id: val.id, name: val.name, level: level, hasChildren: false, parentId: parentId }]))
+				acc.concat([{ id: val.id, label: val.label, level: level, hasChildren: false, parentId: parentId }]))
 		}, []);
 		return result;
 	};
@@ -96,7 +96,7 @@ export const TreeView = (props: ITreeViewProps) => {
 						<TreeNode
 							key={item.id}
 							id={item.id}
-							name={item.name}
+							label={item.label}
 							level={item.level}
 							parentId={item.parentId}
 							isExpanded={isExpanded(item.id)}

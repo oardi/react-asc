@@ -93,7 +93,6 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 
 	return (
 		<Fragment>
-
 			<Form
 				ref={myForm}
 				controls={controls}
@@ -114,7 +113,6 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 					submit
 				</Button>
 			</div>
-
 		</Fragment>
 	);
 }

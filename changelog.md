@@ -1,3 +1,7 @@
+## 18.3.0
+- added alert (beta)
+- treeView show only label
+
 ## 18.2.0
 - button contained themable via css var
 - button outline themable via css var

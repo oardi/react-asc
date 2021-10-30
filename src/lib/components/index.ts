@@ -1,3 +1,4 @@
+export * from './Alert';
 export * from './AppBar';
 export * from './AutoComplete';
 export * from './Backdrop';

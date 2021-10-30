@@ -8,6 +8,7 @@ export const menuItems: Array<IMenuItem> = [
 		isCollapsible: true,
 		isCollapsed: true,
 		items: [
+			{ id: "Alert", label: "Alert (beta)" },
 			{ id: "AppBar" },
 			{ id: "AutoComplete" },
 			{ id: "Backdrop" },
@@ -23,7 +24,7 @@ export const menuItems: Array<IMenuItem> = [
 			{ id: "ExpansionPanel" },
 			{ id: "FileInput" },
 			{ id: "FloatingActionButton" },
-			{ id: "Form" },
+			{ id: "Form", label: "Form (beta)" },
 			{ id: "Grid" },
 			{ id: "Icon" },
 			{ id: "IconButton" },
@@ -41,7 +42,7 @@ export const menuItems: Array<IMenuItem> = [
 			{ id: "Tabs" },
 			{ id: "TimeSelect" },
 			{ id: "Tooltip" },
-			{ id: "TreeView" },
+			{ id: "TreeView", label: "TreeView (beta)" },
 			{ id: "Typography" }
 		]
 	},

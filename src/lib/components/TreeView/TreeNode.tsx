@@ -4,15 +4,26 @@ import { ChevronDownSolidIcon, ChevronRightSolidIcon } from '../../assets/icons'
 import { Checkbox } from '../Checkbox';
 import { IconButton } from '../IconButton';
 
-// TODO props
-export const TreeNode = (props: any) => {
+export interface ITreeNodeProps {
+	id: string;
+	label: string;
+	level: number;
+	parentId: string;
+	hasChildren: boolean;
+	isExpanded: boolean;
+	isSelected: boolean;
+	onClick: (id: string) => void;
+	onClickSelect: (id: string) => void;
+}
 
-	const { id, name, level, parentId, hasChildren, isExpanded, isSelected, onClick, onClickSelect } = props;
+export const TreeNode = (props: ITreeNodeProps) => {
+
+	const { id, label, level, hasChildren, isExpanded, isSelected, onClick, onClickSelect } = props;
 
 	return (
 		<li
 			className="tree-node"
-			style={{ paddingLeft: `${(48 * level) + (hasChildren ? 0 : 1)*48}px` }}
+			style={{ paddingLeft: `${(48 * level) + (hasChildren ? 0 : 1) * 48}px` }}
 		>
 
 			{hasChildren &&
@@ -21,7 +32,7 @@ export const TreeNode = (props: any) => {
 
 			<Checkbox checked={isSelected} onChange={() => onClickSelect(id)} />
 
-			ID: {id}, {name}, LEVEL: {level}, PARENT: {parentId}
+			{label}
 		</li>
 	);
 }

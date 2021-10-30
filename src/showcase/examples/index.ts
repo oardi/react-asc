@@ -1,3 +1,4 @@
+export * from './AlertPage';
 export * from './AppBarPage';
 export * from './AutoCompletePage';
 export * from './BackdropPage';
