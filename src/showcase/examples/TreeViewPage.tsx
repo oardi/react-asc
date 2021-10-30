@@ -10,9 +10,7 @@ const TreeViewPageBase = () => {
 	}
 
 	return (
-		<div>
-			<h3>Alpha</h3>
-
+		<>
 			<TreeView
 				data={[
 					{ id: 1, label: 'A' },
@@ -40,7 +38,7 @@ const TreeViewPageBase = () => {
 			<pre>
 				<code>{JSON.stringify(selectedIds, null, 4)}</code>
 			</pre>
-		</div>
+		</>
 	);
 }
 
