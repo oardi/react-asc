@@ -12,11 +12,14 @@ export const ButtonTemplate = (props: IButtonProps) => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(`btn`);
 		cssClasses.push(styles.button);
+
 		if (variant !== 'outline' && variant !== 'text') {
-			cssClasses.push(`btn-${color}`);
+			cssClasses.push(styles.btnContained);
+			cssClasses.push(styles[color]);
 		}
 		if (variant === 'outline') {
-			cssClasses.push(`btn-outline-${color}`);
+			cssClasses.push(styles.btnOutline);
+			cssClasses.push(styles[color]);
 		}
 		if (variant === 'text') {
 			cssClasses.push(styles.btnText);

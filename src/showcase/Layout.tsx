@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { Typography } from '../lib';
 
 interface ILayoutProps {
 	children?: ReactNode;
@@ -8,6 +9,6 @@ interface ILayoutProps {
 
 export const Layout = ({ children, className, title }: ILayoutProps) =>
 	<div className={className}>
-		{title && <h1>{title}</h1>}
+		{title && <Typography as="h1">{title}</Typography>}
 		{children}
 	</div>

@@ -1,3 +1,7 @@
+## 18.2.0
+- button contained themable via css var
+- button outline themable via css var
+
 ## 18.1.0
 - added custom button text cssClasses
 - added highlight colors

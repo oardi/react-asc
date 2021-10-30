@@ -71,7 +71,7 @@ const App = () => {
 					</Drawer>
 				}
 
-				<div className="container">
+				<div className="container-fluid">
 					<AppBreadcrumb />
 
 					<Switch>
