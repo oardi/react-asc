@@ -1,20 +1,20 @@
 <TreeView
 	data={[
-		{ id: 1, name: 'A' },
+		{ id: 1, label: 'A' },
 		{
-			id: 2, name: 'B', children: [
+			id: 2, label: 'B', children: [
 				{
-					id: 3, name: 'B11', children: [
-						{ id: 4, name: 'B21' }
+					id: 3, label: 'B11', children: [
+						{ id: 4, label: 'B21' }
 					]
 				}
 			]
 		},
-		{ id: 5, name: 'C' },
+		{ id: 5, label: 'C' },
 		{
-			id: 6, name: 'D', children: [
-				{ id: 7, name: 'D11' },
-				{ id: 8, name: 'D12' }
+			id: 6, label: 'D', children: [
+				{ id: 7, label: 'D11' },
+				{ id: 8, label: 'D12' }
 			]
 		}
 	]}
