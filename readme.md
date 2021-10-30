@@ -41,8 +41,9 @@ const MyApp = () => {
 
 ## Included
 
+- Alert (beta)
 - AppBar
-- AutoComplete (v1)
+- AutoComplete (beta)
 - Backdrop
 - Badge
 - Button
@@ -57,7 +58,7 @@ const MyApp = () => {
 - ExpansionPanel
 - FileInput
 - FloatingActionButton
-- Form (v1)
+- Form (beta)
 - Grid
 - Icon
 - IconButton
@@ -70,8 +71,8 @@ const MyApp = () => {
 - Select
 - Snackbar + SnackbarService
 - SpeedDial
-- Stepper
-- Table (v1)
+- Stepper (beta)
+- Table (beta)
 - Tabs
 - TimeSelect
 - Textarea

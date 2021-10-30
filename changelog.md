@@ -1,3 +1,6 @@
+## 18.3.1
+- replaced bootstrap button scss with custom scss
+
 ## 18.3.0
 - added alert (beta)
 - treeView show only label
