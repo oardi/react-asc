@@ -43,7 +43,7 @@
 		"sass": "^1.42.0",
 		"scss-bundle": "3.1.2",
 		"snarkdown": "2.0.0",
-		"typescript": "^4.0.3",
+		"typescript": "^4.4.4",
 		"web-vitals": "^0.2.4",
 		"workbox-background-sync": "^5.1.3",
 		"workbox-broadcast-update": "^5.1.3",
