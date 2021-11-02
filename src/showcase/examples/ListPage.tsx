@@ -64,6 +64,12 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 						<IconButton onClick={e => handleClickAction(e as any)} icon={<HomeSolidIcon />} />
 					</ListItemAction>
 				</ListItem>
+				<ListItem onClick={handleClickItem}>
+					<ListItemAction>
+						<IconButton onClick={e => handleClickAction(e as any)} icon={<HomeSolidIcon />} />
+					</ListItemAction>
+					<ListItemText primary="lorem ipsum" />
+				</ListItem>
 			</List>
 
 			<h3 className="mt-3">Colors</h3>

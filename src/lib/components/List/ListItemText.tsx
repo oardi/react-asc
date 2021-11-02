@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import styles from './ListItemTextIcon.module.scss';
 
 interface IListItemTextProps {
 	primary: ReactNode;
@@ -9,7 +10,7 @@ export const ListItemText = ({ primary, secondary }: IListItemTextProps) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push('list-item-text');
+		cssClasses.push(styles.listItemText);
 		return cssClasses.filter(css => css).join(' ');
 	}
 

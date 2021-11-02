@@ -1,3 +1,6 @@
+## 18.3.2
+- listItemText and listItemAction style fixes
+
 ## 18.3.1
 - replaced bootstrap button scss with custom scss
 
