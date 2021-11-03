@@ -5,11 +5,12 @@ interface IBackdropProps {
 	target?: HTMLElement;
 	onClick?: () => void;
 	isTransparent?: boolean;
+	style?: any;
 }
 
 export const Backdrop = (props: IBackdropProps) => {
 
-	const { target = document.body, isTransparent = false, onClick } = props;
+	const { target = document.body, isTransparent = false, onClick, style } = props;
 
 	const handleClick = (e: React.MouseEvent) => {
 		e.stopPropagation();
@@ -25,9 +26,14 @@ export const Backdrop = (props: IBackdropProps) => {
 		return cssClasses.filter(css => css).join(' ');
 	}
 
+	const getStyles = () => {
+		const styles = Object.assign({ height: '100%', width: '100%', position: 'absolute' }, style);
+		return styles;
+	};
+
 	return (
 		createPortal(
-			<div className={getCssClasses()} onClick={handleClick} style={{ height: '100%', width: '100%', position: 'absolute' }} />,
+			<div className={getCssClasses()} onClick={handleClick} style={getStyles()} />,
 			target
 		)
 	)

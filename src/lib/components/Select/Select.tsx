@@ -1,6 +1,6 @@
 import React, { KeyboardEventHandler, useEffect, useRef, useState } from 'react';
 import { ChevronDownSolidIcon } from '../../assets/icons';
-import { Backdrop } from '../Backdrop';
+// import { Backdrop } from '../Backdrop';
 import { Checkbox } from '../Checkbox';
 import { Chip } from '../Chip';
 import { COLOR } from '../component.enums';
@@ -8,6 +8,8 @@ import { List, ListItem, ListItemText } from '../List';
 import { Icon } from '../Icon';
 import { ISelectOption } from '../component.interfaces';
 import styles from './Select.module.scss';
+import { Backdrop } from '..';
+import { createPortal } from 'react-dom';
 
 // TODO
 // navigate by keys
@@ -191,26 +193,30 @@ export const Select = (props: ISelectProps) => {
 				</div>
 
 				{isShow &&
-					<>
-						<div className={styles.selectMenu}>
-							<List>
-								{options && options.map((option, index) =>
-									<ListItem id={`list-item-${index}`} key={option.value} onClick={() => handleOnClick(option)} active={isActive(option)}>
 
-										{multiple &&
-											<Checkbox
-												checked={isActive(option)}
-												onChange={() => handleOnClick(option)}
-											/>
-										}
+					createPortal(
+						<>
+							<div className={styles.selectMenu} style={{ top: selectConainter.current?.getBoundingClientRect().y }}>
+								<List>
+									{options && options.map((option, index) =>
+										<ListItem id={`list-item-${index}`} key={option.value} onClick={() => handleOnClick(option)} active={isActive(option)}>
 
-										<ListItemText primary={option.label ? option.label : option.value} />
-									</ListItem>
-								)}
-							</List>
-						</div>
-						<Backdrop isTransparent onClick={() => hide()} />
-					</>
+											{multiple &&
+												<Checkbox
+													checked={isActive(option)}
+													onChange={() => handleOnClick(option)}
+												/>
+											}
+
+											<ListItemText primary={option.label ? option.label : option.value} />
+										</ListItem>
+									)}
+								</List>
+							</div>
+							<Backdrop style={{ zIndex: 1111 }} isTransparent onClick={() => hide()} />
+						</>, document.body)
+
+
 				}
 
 			</div>

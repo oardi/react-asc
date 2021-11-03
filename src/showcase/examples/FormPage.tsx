@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react';
-import { FormControl, Form, IControls, Button, VARIANT, COLOR, IFormProps } from '../../lib';
+import { FormControl, Form, IControls, Button, VARIANT, COLOR, IFormProps, modalService } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 import dayjs from 'dayjs';
 import { loggerService } from '../../shared';
@@ -91,6 +91,11 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 		setValues(values);
 	}
 
+	const handleOpenInModal = () => {
+		modalService.show('Form', '', { formControls: controls })
+			.then(res => loggerService.debug(res)).catch(() => { });
+	}
+
 	return (
 		<Fragment>
 			<Form
@@ -113,6 +118,8 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 					submit
 				</Button>
 			</div>
+
+			<Button onClick={handleOpenInModal}>open in modal</Button>
 		</Fragment>
 	);
 }
