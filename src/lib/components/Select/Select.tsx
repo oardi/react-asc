@@ -196,7 +196,7 @@ export const Select = (props: ISelectProps) => {
 
 					createPortal(
 						<>
-							<div className={styles.selectMenu} style={{ top: selectConainter.current?.getBoundingClientRect().y }}>
+							<div className={styles.selectMenu} style={{ left: selectConainter.current?.getBoundingClientRect().x, top: selectConainter.current?.getBoundingClientRect().y, width: selectConainter.current?.getBoundingClientRect().width }}>
 								<List>
 									{options && options.map((option, index) =>
 										<ListItem id={`list-item-${index}`} key={option.value} onClick={() => handleOnClick(option)} active={isActive(option)}>
