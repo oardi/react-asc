@@ -110,16 +110,19 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 				{JSON.stringify(values, null, 2)}
 			</pre>
 
-			<div className="d-flex">
-				<Button className="ml-auto" onClick={handleClickReset} variant={VARIANT.outline} color={COLOR.secondary}>
+			<div className="d-flex flex-wrap">
+				<Button onClick={handleClickReset} variant={VARIANT.outline} color={COLOR.secondary}>
 					reset
 				</Button>
 				<Button className="ml-2" onClick={handleClickSubmit}>
 					submit
 				</Button>
+
+				<Button className="ml-2" onClick={handleOpenInModal}>
+					open in modal
+				</Button>
 			</div>
 
-			<Button onClick={handleOpenInModal}>open in modal</Button>
 		</Fragment>
 	);
 }

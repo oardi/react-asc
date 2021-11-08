@@ -4,16 +4,15 @@
 	min-width: 288px;
 	padding: 6px 16px;
 	transform-origin: center;
-	border-radius: 0.25rem; // TODO - get form BS
 	min-height: 52px;
-
 	animation: bounceIn 0.4s ease;
 	z-index: 1001;
-
 	position: fixed;
 	left: 50%;
 	transform: translateX(-50%);
 	bottom: 2%;
+
+	border-radius: var(--borderRadius);
 
 	&.primary {
 		color: var(--primary-contrast-text);

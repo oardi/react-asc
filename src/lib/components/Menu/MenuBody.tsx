@@ -12,11 +12,12 @@ export interface IMenuBodyProps {
 	className?: string;
 	menuPosition?: MenuPosition;
 	parentRef: React.RefObject<any>;
+	shadow?: boolean;
 }
 
 export const MenuBody = (props: IMenuBodyProps) => {
 
-	const { parentRef, children, className, menuPosition = 'left' } = props;
+	const { parentRef, children, className, shadow = true, menuPosition = 'left' } = props;
 	const menuBodyRef = useRef<HTMLDivElement>(null);
 	const { setIsShow } = useContext(MenuContext);
 
@@ -48,6 +49,7 @@ export const MenuBody = (props: IMenuBodyProps) => {
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.menuBody);
+		shadow && cssClasses.push(styles.shadow);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	}

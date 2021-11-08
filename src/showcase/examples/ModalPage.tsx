@@ -38,20 +38,20 @@ const ModalPageBase = () => {
 	return (
 		<Fragment>
 			<div className="d-flex flex-wrap">
-				<Button onClick={() => handleClickShowModal()}>
+				<Button className="mr-2 mb-2" onClick={() => handleClickShowModal()}>
 					show modal
 				</Button>
 
-				<Button onClick={() => handleClickTriggerModalService()}>
-					trigger modal with service
+				<Button className="mr-2 mb-2" onClick={() => handleClickTriggerModalService()}>
+					modal with service
 				</Button>
 
-				<Button onClick={() => handleClickTriggerModalService(true)}>
-					trigger fullscreeen modal with service
+				<Button className="mr-2 mb-2" onClick={() => handleClickTriggerModalService(true)}>
+					fullscreeen via service
 				</Button>
 
-				<Button onClick={() => handleClickTriggerModalFormService()}>
-					trigger modal service with form
+				<Button className="mr-2" onClick={() => handleClickTriggerModalFormService()}>
+					modal with form via service
 				</Button>
 
 				{

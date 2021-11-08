@@ -55,7 +55,13 @@ const App = () => {
 	return (
 		<>
 			<AppBar shadow>
-				<IconButton color={COLOR.light} className="mr-2" icon={<BarsSolidIcon />} onClick={() => setShowMenu(!showMenu)} />
+				<IconButton
+					color={COLOR.light}
+					className="mr-2"
+					icon={<BarsSolidIcon />}
+					onClick={() => setShowMenu(!showMenu)}
+				/>
+
 				{appInfo && (
 					<AppBarTitle onClick={() => history.push('/')}>
 						{appInfo.name} (v.{appInfo.version})
