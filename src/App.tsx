@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Switch, useHistory } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './index.scss';
 import * as Pages from './showcase'; // LazyLoading?
 import { AppBar, AppBarTitle, COLOR, Drawer, IconButton, ISidebarItem, useWindowSize } from './lib';
@@ -12,7 +12,6 @@ import { APPSTATE } from './app.enums';
 const App = () => {
 
 	const { appInfo } = useAppContext();
-	const history = useHistory();
 	const windowSize = useWindowSize();
 
 	const [appState, setAppState] = useState(APPSTATE.init);
@@ -57,13 +56,12 @@ const App = () => {
 			<AppBar shadow>
 				<IconButton
 					color={COLOR.light}
-					className="mr-2"
 					icon={<BarsSolidIcon />}
 					onClick={() => setShowMenu(!showMenu)}
 				/>
 
 				{appInfo && (
-					<AppBarTitle onClick={() => history.push('/')}>
+					<AppBarTitle>
 						{appInfo.name} (v.{appInfo.version})
 					</AppBarTitle>
 				)}

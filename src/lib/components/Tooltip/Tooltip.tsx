@@ -18,6 +18,7 @@ export const Tooltip = (props: ITooltipProps) => {
 
 	useEffect(() => {
 		if (show === true && refChild && refChild.current) {
+			// TODO - extract to own component?
 			createPopper((refChild.current as any), (refTooltip.current as any), {
 				placement: placement,
 				modifiers: [

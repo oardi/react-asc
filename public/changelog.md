@@ -1,3 +1,9 @@
+## 18.3.6
+- appBarTitle style fixes for overflow
+
+## 18.3.5
+- style fixes
+
 ## 18.3.4
 - select menu width and position fix
 

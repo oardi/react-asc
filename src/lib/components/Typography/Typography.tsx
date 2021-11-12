@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import styles from './Typography.module.scss';
 
 export interface IWrapperProps {
 	as?: string;
@@ -11,7 +12,7 @@ const Wrapper = (props: IWrapperProps) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push('gutter-bottom');
+		cssClasses.push(styles.typography);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
