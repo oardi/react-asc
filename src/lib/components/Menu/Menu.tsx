@@ -1,22 +1,22 @@
-import React, { cloneElement, ReactElement, useRef, useState } from 'react';
+import React, {  ReactElement, useRef } from 'react';
 import { MenuPosition } from './menu.types';
-import { MenuContext, IMenuContext } from './MenuContext';
 import { IMenuItemProps } from './MenuItem';
 import { MenuBody } from './MenuBody';
 import styles from './Menu.module.scss';
 
 export interface IMenuProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	toggle?: ReactElement;
+	open?: boolean;
 	children?: ReactElement<IMenuItemProps> | Array<ReactElement<IMenuItemProps>>;
 	menuPosition?: MenuPosition;
 	onToggleClick?: (e: Event) => void;
+	onClickBackdrop?: () => void;
 }
 
 export const Menu = (props: IMenuProps) => {
 
-	const { toggle, children, className, menuPosition, onToggleClick, ...rest } = props;
+	const { toggle, children, className, open, menuPosition, onClickBackdrop, onToggleClick, ...rest } = props;
 
-	const [isShow, setIsShow] = useState(false);
 	const menuContainer = useRef<HTMLDivElement>(null);
 	const toggleContainerRef = useRef<HTMLDivElement>(null);
 
@@ -27,31 +27,26 @@ export const Menu = (props: IMenuProps) => {
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const menuContext: IMenuContext = {
-		isShow: isShow,
-		setIsShow: setIsShow
-	}
-
-	const handleClickToggle = (e: Event) => {
-		e.stopPropagation();
-		setIsShow(!isShow);
-		onToggleClick && onToggleClick(e);
+	const handleClickBackdrop = () => {
+		onClickBackdrop && onClickBackdrop();
 	}
 
 	return (
-		<MenuContext.Provider value={menuContext}>
-			<div ref={menuContainer} className={getCssClasses()} {...rest}>
+		<div ref={menuContainer} className={getCssClasses()} {...rest}>
 
-				<div ref={toggleContainerRef}>
-					{toggle && cloneElement(toggle, { onClick: handleClickToggle })}
-				</div>
-
-				{isShow &&
-					<MenuBody parentRef={toggleContainerRef} menuPosition={menuPosition}>
-						{children}
-					</MenuBody>
-				}
+			<div ref={toggleContainerRef}>
+				{toggle}
 			</div>
-		</MenuContext.Provider>
+
+			{open &&
+				<MenuBody
+					parentRef={toggleContainerRef}
+					menuPosition={menuPosition}
+					onClickBackdrop={handleClickBackdrop}
+					>
+					{children}
+				</MenuBody>
+			}
+		</div>
 	)
 }

@@ -1,9 +1,11 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Button, Menu, MenuDivider, MenuItem, FormControl, IMenuProps, snackbarService } from '../../lib';
 import { loggerService } from '../../shared';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const MenuPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IMenuProps>) => {
+
+	const [open, setOpen] = useState(false);
 
 	useEffect(() => {
 		setSettingsControls({
@@ -18,14 +20,18 @@ const MenuPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 
 	const handleClick = (text: string) => {
 		loggerService.debug('handleClick', text);
+		setOpen(false);
 		snackbarService.show(`you clicked action ${text}`);
 	}
 
 	return (
 		<Fragment>
+
 			<Menu
-				toggle={<Button>Menu Button</Button>}
+				toggle={<Button onClick={() => setOpen(true)}>Menu Button</Button>}
+				open={open}
 				menuPosition={settingValues.menuPosition}
+				onClickBackdrop={() => setOpen(false)}
 			>
 				<MenuItem type="header">
 					This is a header

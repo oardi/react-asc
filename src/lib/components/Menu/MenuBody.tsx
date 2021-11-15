@@ -1,8 +1,7 @@
-import React, { ReactElement, useContext, useEffect, useRef } from 'react';
+import React, { ReactElement, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Backdrop } from '../Backdrop';
 import { MenuPosition } from './menu.types';
-import { MenuContext } from './MenuContext';
 import { IMenuItemProps } from './MenuItem';
 import { createPopper } from '@popperjs/core';
 import styles from './MenuBody.module.scss';
@@ -13,13 +12,13 @@ export interface IMenuBodyProps {
 	menuPosition?: MenuPosition;
 	parentRef: React.RefObject<any>;
 	shadow?: boolean;
+	onClickBackdrop?: () => void;
 }
 
 export const MenuBody = (props: IMenuBodyProps) => {
 
-	const { parentRef, children, className, shadow = true, menuPosition = 'left' } = props;
+	const { parentRef, children, className, shadow = true, menuPosition = 'left', onClickBackdrop } = props;
 	const menuBodyRef = useRef<HTMLDivElement>(null);
-	const { setIsShow } = useContext(MenuContext);
 
 	useEffect(() => {
 		if (menuBodyRef) {
@@ -54,8 +53,8 @@ export const MenuBody = (props: IMenuBodyProps) => {
 		return cssClasses.filter(css => css).join(' ');
 	}
 
-	const handleClickItem = () => {
-		setIsShow(false);
+	const handleClickBackdrop = () => {
+		onClickBackdrop && onClickBackdrop();
 	}
 
 	return (
@@ -65,23 +64,12 @@ export const MenuBody = (props: IMenuBodyProps) => {
 					ref={menuBodyRef}
 					className={getCssClasses()}
 				>
-
-					{children &&
-
-						React.Children.map(children, child => (
-							React.cloneElement(child, {
-								onClick: (e: React.MouseEvent) => {
-									child.props.onClick && child.props.onClick(e);
-									child.props.type !== 'header' && handleClickItem()
-								}
-							})
-						))}
-
+					{children}
 				</div>
 
 				<Backdrop
 					isTransparent
-					onClick={() => setIsShow(false)}
+					onClick={handleClickBackdrop}
 				/>
 			</>,
 			document.body
