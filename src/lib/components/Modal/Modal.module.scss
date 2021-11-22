@@ -1,5 +1,5 @@
 .modal {
-	z-index: 1111!important;
+	z-index: 1111 !important;
 	border-radius: var(--borderRadius);
 
 	&.fullscreen {
@@ -20,9 +20,19 @@
 
 		@media (min-width: 320px) {
 			& {
-				max-width: 100%;
+				max-width: 100% !important;
 			}
 		}
+	}
+
+	.sm {
+		max-width: 300px;
+	}
+	.md {
+		max-width: 500px;
+	}
+	.lg {
+		max-width: 1140px;
 	}
 
 	@media (min-width: 576px) {

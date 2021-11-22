@@ -4,8 +4,9 @@ import { ModalBody } from './ModalBody';
 import { Backdrop } from '../Backdrop';
 import styles from './Modal.module.scss';
 import { ModalFooter } from './ModalFooter';
+import { SIZE } from '..';
 
-interface IModalProps {
+export interface IModalProps {
 	className?: string;
 	children?: ReactNode;
 	header?: string;
@@ -14,17 +15,19 @@ interface IModalProps {
 	onBackdropClick?: Function;
 	isDismissable?: boolean;
 	fullScreen?: boolean;
+	size?: SIZE;
 }
 
 export const Modal = (props: IModalProps) => {
 
-	const { className, fullScreen, children, header, footer, onHeaderCloseClick, onBackdropClick, isDismissable = false } = props;
+	const { className, size, fullScreen, children, header, footer, onHeaderCloseClick, onBackdropClick, isDismissable = false } = props;
 
 	const getCssClass = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push('modal-dialog modal-dialog-centered');
 		cssClasses.push(styles.modal);
 		!!fullScreen && cssClasses.push(styles['fullscreen']);
+		size && cssClasses.push(styles[size]);
 		className && cssClasses.push(className);
 		return cssClasses.filter(r => r).join(' ');
 	}

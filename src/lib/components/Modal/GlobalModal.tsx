@@ -1,4 +1,5 @@
 import React, { Fragment, ReactElement, useEffect, useRef, useState } from 'react';
+import { SIZE } from '..';
 import { Button } from '../Button';
 import { COLOR, VARIANT } from '../component.enums';
 import { Form, IControls, IFormValues } from '../Form';
@@ -16,6 +17,7 @@ interface IModalProps {
 	isDismissable?: boolean;
 	buttons?: Array<IModalButton>;
 	fullScreen?: boolean;
+	size?: SIZE;
 }
 
 export const GlobalModal = ({
@@ -29,6 +31,7 @@ export const GlobalModal = ({
 		{ label: 'Cancel', type: MODALBUTTONTYPE.CANCEL, color: COLOR.secondary, variant: VARIANT.text, focus: true },
 		{ label: 'Ok', type: MODALBUTTONTYPE.OK, variant: VARIANT.contained },
 	],
+	size = SIZE.md,
 	fullScreen = false
 }: IModalProps) => {
 
@@ -76,6 +79,7 @@ export const GlobalModal = ({
 
 	return (
 		<Modal
+			size={size}
 			fullScreen={fullScreen}
 			header={title}
 			onHeaderCloseClick={onCancel}

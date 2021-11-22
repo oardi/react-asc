@@ -1,3 +1,9 @@
+## 18.5.0
+- modal added size
+
+## 18.4.0
+cleanup
+
 ## 18.3.6
 - appBarTitle style fixes for overflow
 

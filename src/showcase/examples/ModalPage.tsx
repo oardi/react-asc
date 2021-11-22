@@ -1,9 +1,16 @@
-import React, { Fragment, useState } from 'react';
-import { Button, COLOR, FormControl, IControls, Modal, MODALBUTTONTYPE, modalService, snackbarService, VARIANT } from '../../lib';
+import React, { Fragment, useEffect, useState } from 'react';
+import { Button, COLOR, FormControl, IControls, IModalProps, Modal, MODALBUTTONTYPE, modalService, SIZE, snackbarService, VARIANT } from '../../lib';
 import { loggerService } from '../../shared';
-import { withOptions } from './components';
+import { IShowcaseBaseProps, withOptions } from './components';
 
-const ModalPageBase = () => {
+const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IModalProps>) => {
+
+	useEffect(() => {
+		setSettingsControls({
+			size: new FormControl(SIZE.md, [], 'select', { label: 'size', options: Object.keys(SIZE).map(c => ({ label: c, value: c })) }),
+		});
+	}, []);
+
 
 	const [isVisible, setIsVisible] = useState(false);
 
@@ -18,7 +25,8 @@ const ModalPageBase = () => {
 				{ label: 'cancel', type: MODALBUTTONTYPE.CANCEL, color: COLOR.secondary, variant: VARIANT.text },
 				{ label: 'ok', type: MODALBUTTONTYPE.OK, autoFocus: true },
 			],
-			fullScreen: fullscreen
+			fullScreen: fullscreen,
+			size: settingValues.size
 		})
 			.then(() => loggerService.debug('ok clicked')).catch(() => { });
 	}
@@ -107,7 +115,7 @@ const ModalPageBase = () => {
 				]
 			})
 		};
-		modalService.show('Form', '', { formControls: controls })
+		modalService.show('Form', '', { formControls: controls, size: settingValues.size })
 			.then(res => loggerService.debug(res)).catch(() => { });
 	}
 
@@ -134,6 +142,7 @@ const ModalPageBase = () => {
 					isVisible &&
 					<Modal
 						header="Modal Header"
+						size={settingValues.size}
 						isDismissable={true}
 						onHeaderCloseClick={() => setIsVisible(!isVisible)}
 					>
