@@ -1,18 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { TreeNode } from './TreeNode';
+import { ITreeNodeProps, TreeNode } from './TreeNode';
+
+export interface ITreeNode {
+	id: string;
+	label: string;
+	children?: Array<ITreeNode>;
+}
 
 export interface ITreeViewProps {
-	data: Array<any>; // TODO
-	onSelect: (selectedItems: Array<any>) => void;
+	data: Array<ITreeNode>;
+	onSelect?: (selectedItems: Array<any>) => void;
+	onExpand?: (id: string) => void;
+	onCollapse?: (id: string) => void;
 }
 
 export const TreeView = (props: ITreeViewProps) => {
 
-	const { data, onSelect } = props;
+	const { data, onSelect, onExpand, onCollapse } = props;
 
 	const [flattenData, setFlattenData] = useState<Array<any>>([]);
 	const [expandedItems, setExpandedItems] = useState<Array<any>>([]);
-	const [selectedItemIds, setSelectedItemIds] = useState<Array<number>>([]);
+	const [selectedItemIds, setSelectedItemIds] = useState<Array<string>>([]);
 
 	const flattenDeep = (arr1: any, parentId = 0, level = 0) => {
 		let result = [];
@@ -31,14 +39,17 @@ export const TreeView = (props: ITreeViewProps) => {
 		setFlattenData(flattenDeep(data));
 	}, [data]);
 
-	const handleNodeClick = (item: any) => {
+	const handleOnToggleExpand = (item: ITreeNodeProps) => {
+
 		if (item.hasChildren) {
 			let newExpandedItems = [...expandedItems];
 
 			if (isExpanded(item.id)) {
 				newExpandedItems = collapseRecursive(item, [...expandedItems]);
+				onCollapse && onCollapse(item.id);
 			} else {
 				newExpandedItems.push(item);
+				onExpand && onExpand(item.id);
 			}
 
 			setExpandedItems(newExpandedItems);
@@ -62,7 +73,7 @@ export const TreeView = (props: ITreeViewProps) => {
 		return expandedItems;
 	};
 
-	const isExpanded = (id: number) => {
+	const isExpanded = (id: string) => {
 		return expandedItems.map(i => i.id).indexOf(id) >= 0;
 	};
 
@@ -70,7 +81,7 @@ export const TreeView = (props: ITreeViewProps) => {
 		return item.parentId === 0 || (expandedItems.map(i => i.id).indexOf(item.parentId) >= 0);
 	};
 
-	const handleNodeClickSelect = (item: any) => {
+	const handleNodeClickSelect = (item: ITreeNodeProps) => {
 		let newSelectedItems = [...selectedItemIds];
 		if (isSelected(item.id)) {
 			newSelectedItems = newSelectedItems.filter(id => id !== item.id);
@@ -83,7 +94,7 @@ export const TreeView = (props: ITreeViewProps) => {
 		onSelect && onSelect(newSelectedItems);
 	};
 
-	const isSelected = (id: number) => {
+	const isSelected = (id: string) => {
 		return selectedItemIds.indexOf(id) >= 0;
 	};
 
@@ -102,7 +113,7 @@ export const TreeView = (props: ITreeViewProps) => {
 							isExpanded={isExpanded(item.id)}
 							isSelected={isSelected(item.id)}
 							hasChildren={item.hasChildren}
-							onClick={() => handleNodeClick(item)}
+							onToggleExpand={() => handleOnToggleExpand(item)}
 							onClickSelect={() => handleNodeClickSelect(item)}
 						/>
 				})

@@ -12,13 +12,13 @@ export interface ITreeNodeProps {
 	hasChildren: boolean;
 	isExpanded: boolean;
 	isSelected: boolean;
-	onClick: (id: string) => void;
+	onToggleExpand: (id: string) => void;
 	onClickSelect: (id: string) => void;
 }
 
 export const TreeNode = (props: ITreeNodeProps) => {
 
-	const { id, label, level, hasChildren, isExpanded, isSelected, onClick, onClickSelect } = props;
+	const { id, label, level, hasChildren, isExpanded, isSelected, onToggleExpand, onClickSelect } = props;
 
 	return (
 		<li
@@ -27,7 +27,7 @@ export const TreeNode = (props: ITreeNodeProps) => {
 		>
 
 			{hasChildren &&
-				<IconButton onClick={() => onClick(id)} icon={!isExpanded ? <ChevronRightSolidIcon /> : <ChevronDownSolidIcon />} />
+				<IconButton onClick={() => onToggleExpand(id)} icon={!isExpanded ? <ChevronRightSolidIcon /> : <ChevronDownSolidIcon />} />
 			}
 
 			<Checkbox checked={isSelected} onChange={() => onClickSelect(id)} />
