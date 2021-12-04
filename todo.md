@@ -14,8 +14,6 @@
 
 ### Remove Bootstrap from Components
 - Backdrop
-- Button
-- ButtonGroup
 - DateSelect
 - Form
 - Grid

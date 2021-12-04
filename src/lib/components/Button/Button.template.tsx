@@ -10,7 +10,6 @@ export const ButtonTemplate = (props: IButtonProps) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push(`btn`);
 		cssClasses.push(styles.button);
 
 		if (variant !== 'outline' && variant !== 'text') {

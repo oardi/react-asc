@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import { Button, ButtonGroup, IButtonGroupProps } from '../../lib';
+import { Button, ButtonGroup, IButtonGroupProps, snackbarService } from '../../lib';
 import { withOptions } from './components';
 import { IShowcaseBaseProps } from './components';
 
@@ -10,13 +10,17 @@ const ButtonGroupPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 		});
 	}, []);
 
+	const handleClick = () => {
+		snackbarService.show('Button clicked');
+	}
+
 	return (
 		<Fragment>
 
 			<ButtonGroup>
-				<Button>some button</Button>
-				<Button>some button</Button>
-				<Button>some button</Button>
+				<Button onClick={handleClick}>some button</Button>
+				<Button onClick={handleClick}>some button</Button>
+				<Button onClick={handleClick}>some button</Button>
 			</ButtonGroup>
 
 		</Fragment>

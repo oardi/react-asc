@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './ButtonGroup.module.scss';
 
 export interface IButtonGroupProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 }
@@ -9,7 +10,7 @@ export const ButtonGroup = (props: IButtonGroupProps) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push('btn-group');
+		cssClasses.push(styles.buttonGroup);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};

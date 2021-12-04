@@ -1,3 +1,7 @@
+## 18.6.1
+- buttonGroup removed bootstrap class
+- button removed bootstrap class
+
 ## 18.6.0
 - treeView added onExpand and onCollapse
 
