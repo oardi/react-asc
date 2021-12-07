@@ -13,6 +13,7 @@ export interface IAutoCompleteProps {
 	value?: string;
 	openOnFocus?: boolean;
 	disabled?: boolean;
+	placeholder?: string;
 	readOnly?: boolean;
 	debounce?: number;
 	onSelect?: (val: ISelectOption) => void;
@@ -37,6 +38,7 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 		disabled,
 		readOnly,
 		debounce = 0,
+		placeholder,
 		onChange,
 		onSelect,
 		value
@@ -111,6 +113,7 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 					disabled={disabled}
 					onChange={handleOnChange}
 					onFocus={handleOnFocus}
+					placeholder={placeholder}
 					value={model}
 				/>
 

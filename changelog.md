@@ -1,3 +1,6 @@
+## 18.7.1
+- autoComplete added placeholder
+
 ## 18.7.0
 - debounce hook added
 - autoComplete added debounce
