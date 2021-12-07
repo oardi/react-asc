@@ -116,3 +116,8 @@
 
 
 translations?
+
+
+
+Lazy loading für list etc?
+scroll für nachladen?

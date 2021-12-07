@@ -1,3 +1,9 @@
+## 18.7.0
+- debounce hook added
+- autoComplete added debounce
+- autoComplete changed onChange
+- autoComplete added onSelect
+
 ## 18.6.1
 - buttonGroup removed bootstrap class
 - button removed bootstrap class
