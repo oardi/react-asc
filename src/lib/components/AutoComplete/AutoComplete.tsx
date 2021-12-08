@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useDebounce } from '../..';
+import { IconButton } from '..';
+import { TimesSolidIcon, useDebounce } from '../..';
 import { Backdrop } from '../Backdrop';
 import { ISelectOption } from '../component.interfaces';
 import { List, ListItem, ListItemText } from '../List';
@@ -16,6 +17,7 @@ export interface IAutoCompleteProps {
 	placeholder?: string;
 	readOnly?: boolean;
 	debounce?: number;
+	showClearButton?: boolean;
 	onSelect?: (val: ISelectOption) => void;
 	onChange?: (val: string | undefined) => void;
 	onKeyDown?: (event: any) => void;
@@ -39,6 +41,7 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 		readOnly,
 		debounce = 0,
 		placeholder,
+		showClearButton,
 		onChange,
 		onSelect,
 		value
@@ -100,22 +103,36 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 		openOnFocus && show();
 	}
 
+	const handleClickReset = () => {
+		setModel('');
+		setSearchText('');
+	}
+
 	return (
 		<>
 			<div ref={selectConainter} className={styles.selectContainer}>
-				<input
-					type="text"
-					className={getCssClass()}
-					id={id}
-					name={name}
-					tabIndex={0}
-					readOnly={readOnly}
-					disabled={disabled}
-					onChange={handleOnChange}
-					onFocus={handleOnFocus}
-					placeholder={placeholder}
-					value={model}
-				/>
+				<div className="d-flex">
+
+					<input
+						type="text"
+						className={getCssClass()}
+						id={id}
+						name={name}
+						tabIndex={0}
+						readOnly={readOnly}
+						disabled={disabled}
+						onChange={handleOnChange}
+						onFocus={handleOnFocus}
+						placeholder={placeholder}
+						value={model}
+					/>
+
+					{showClearButton && (model?.length as number) > 0 &&
+						<IconButton
+							icon={<TimesSolidIcon />}
+							onClick={handleClickReset}
+						/>}
+				</div>
 
 				{isShow &&
 					<>

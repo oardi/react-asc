@@ -1,3 +1,6 @@
+## 18.7.2
+- autoComplete added showClearButton 
+
 ## 18.7.1
 - autoComplete added placeholder
 
