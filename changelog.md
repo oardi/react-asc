@@ -1,3 +1,6 @@
+## 18.7.3
+- added modal-open class
+
 ## 18.7.2
 - autoComplete added showClearButton 
 

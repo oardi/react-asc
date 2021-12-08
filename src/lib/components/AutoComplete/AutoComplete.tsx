@@ -75,6 +75,24 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 		[searchText]
 	);
 
+	useEffect(() => {
+		if(isShow === true){
+			document.body.classList.add('modal-open');
+			const main = document.querySelector('.main');
+			main?.classList.add('modal-open');
+		} else {
+			document.body.classList.remove('modal-open');
+			const main = document.querySelector('.main');
+			main?.classList.remove('modal-open');
+		}
+	}, [isShow]);
+
+	useEffect(() => {
+		return () => {
+			document.body.classList.remove('modal-open');
+		};
+	}, []);
+
 	const getCssClass = () => {
 		const cssClasses: Array<string> = [];
 		className && cssClasses.push(className);
