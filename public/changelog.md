@@ -1,3 +1,6 @@
+## 18.8.1
+- treeView style fix
+
 ## 18.8.0
 - BREAKING CHANGE treeView
 - treeItems are not accessible 
