@@ -4,20 +4,21 @@ import { Checkbox } from '../Checkbox';
 import { IconButton } from '../IconButton';
 import styles from './TreeItem.module.scss';
 
-export interface ITreeNodeProps {
+export interface ITreeItemProps {
 	nodeId: string;
 	label: string;
 	children?: any;
 	className?: string;
 	isExpanded?: boolean;
 	isSelected?: boolean;
+	isSelectable?: boolean;
 	onToggleExpand?: (id: string) => void;
 	onSelect?: (id: string, isSelected: boolean) => void;
 }
 
-export const TreeItem = (props: ITreeNodeProps) => {
+export const TreeItem = (props: ITreeItemProps) => {
 
-	const { nodeId, label, children, className, isExpanded, isSelected, onToggleExpand, onSelect } = props;
+	const { nodeId, label, children, className, isExpanded, isSelected, isSelectable, onToggleExpand, onSelect } = props;
 
 	const [_isExpanded, setIsExpanded] = useState<boolean>(false);
 	const [_isSelected, setIsSelected] = useState<boolean>(false);
@@ -60,7 +61,9 @@ export const TreeItem = (props: ITreeNodeProps) => {
 					<IconButton onClick={() => handleOnToggleExpand(nodeId)} icon={!_isExpanded ? <ChevronRightSolidIcon /> : <ChevronDownSolidIcon />} />
 				}
 
-				<Checkbox checked={_isSelected} onChange={() => handleOnSelect(nodeId)} />
+				{isSelectable &&
+					<Checkbox checked={_isSelected} onChange={() => handleOnSelect(nodeId)} />
+				}
 
 				{label}
 			</div>

@@ -1,3 +1,6 @@
+## 18.8.2
+- treeView isSelectable default false
+
 ## 18.8.1
 - treeView style fix
 
