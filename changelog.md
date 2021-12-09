@@ -1,3 +1,8 @@
+## 18.8.0
+- BREAKING CHANGE treeView
+- treeItems are not accessible 
+- treeView onSelectonSelect, onExpand, onCollapse removed
+
 ## 18.7.3
 - added modal-open class
 

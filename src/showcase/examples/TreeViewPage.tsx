@@ -1,49 +1,36 @@
 import React, { useState } from 'react';
-import { snackbarService, TreeView } from '../../lib';
+import { snackbarService, TreeItem, TreeView } from '../../lib';
 import { withOptions } from './components';
 
 const TreeViewPageBase = () => {
-	const [selectedIds, setSelectedIds] = useState<Array<number>>([]);
+	const [selectedIds, setSelectedIds] = useState<Array<string>>([]);
 
-	const handleSelect = (ids: Array<number>) => {
-		setSelectedIds(ids);
-		snackbarService.show('on select');
-	}
-
-	const handleOnExpand = (id: string) => {
-		snackbarService.show(`Id ${id} expanded`);
-	}
-
-	const handleOnCollapse = (id: string) => {
-		snackbarService.show(`Id ${id} collapsed`);
+	const handleOnSelect = (id: string, isSelected: boolean) => {
+		let oldIds: Array<string> = selectedIds;
+		if (isSelected) {
+			oldIds = oldIds.concat([id]);
+			setSelectedIds(oldIds);
+			isSelected && snackbarService.show(id);
+		} else {
+			oldIds = oldIds.filter(oldId => oldId !== id);
+			setSelectedIds(oldIds);
+		}
 	}
 
 	return (
 		<>
-			<TreeView
-				data={[
-					{ id: '1', label: 'A' },
-					{
-						id: '2', label: 'B', children: [
-							{
-								id: '3', label: 'B11', children: [
-									{ id: '4', label: 'B21' }
-								]
-							}
-						]
-					},
-					{ id: '5', label: 'C' },
-					{
-						id: '6', label: 'D', children: [
-							{ id: '7', label: 'D11' },
-							{ id: '8', label: 'D12' }
-						]
-					}
-				]}
-				onSelect={handleSelect}
-				onExpand={handleOnExpand}
-				onCollapse={handleOnCollapse}
-			/>
+			<TreeView>
+				<TreeItem nodeId="1" label="some text" onSelect={handleOnSelect}>
+					<TreeItem nodeId="11" label="some text" onSelect={handleOnSelect} />
+					<TreeItem nodeId="12" label="some text" onSelect={handleOnSelect} />
+					<TreeItem nodeId="13" label="some text" onSelect={handleOnSelect}>
+						<TreeItem nodeId="111" label="some text" onSelect={handleOnSelect} />
+						<TreeItem nodeId="112" label="some text" onSelect={handleOnSelect} />
+					</TreeItem>
+				</TreeItem>
+				<TreeItem nodeId="2" label="some text" onSelect={handleOnSelect} />
+				<TreeItem nodeId="3" label="some text" onSelect={handleOnSelect} />
+			</TreeView>
 
 			Selected Ids:
 			<pre>
