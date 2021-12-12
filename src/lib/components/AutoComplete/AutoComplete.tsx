@@ -90,6 +90,8 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 	useEffect(() => {
 		return () => {
 			document.body.classList.remove('modal-open');
+			const main = document.querySelector('.main');
+			main?.classList.remove('modal-open');
 		};
 	}, []);
 

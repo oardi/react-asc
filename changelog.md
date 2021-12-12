@@ -1,3 +1,6 @@
+## 18.8.3
+- autoComplete remove class modal-open on unmount
+
 ## 18.8.2
 - treeView isSelectable default false
 
