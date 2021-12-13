@@ -1,3 +1,6 @@
+## 18.8.4
+- changed IconButton defaults
+
 ## 18.8.3
 - autoComplete remove class modal-open on unmount
 

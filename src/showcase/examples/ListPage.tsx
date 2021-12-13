@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import { List, IListProps, ListItem, ListItemAvatar, HomeSolidIcon, ListItemAction, IconButton, ListItemText, ListItemIcon, snackbarService, COLOR } from '../../lib';
+import { List, IListProps, ListItem, ListItemAvatar, HomeSolidIcon, ListItemAction, IconButton, ListItemText, ListItemIcon, snackbarService, COLOR, VARIANT } from '../../lib';
 import { UserCircleSolidIcon } from '../assets';
 import { IShowcaseBaseProps, withOptions } from './components';
 
@@ -66,6 +66,18 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 					<ListItemText primary="lorem ipsum" />
 					<ListItemAction>
 						<IconButton onClick={e => handleClickAction(e as any)} icon={<HomeSolidIcon />} />
+					</ListItemAction>
+				</ListItem>
+				<ListItem onClick={handleClickItem}>
+					<ListItemText primary="lorem ipsum" />
+					<ListItemAction>
+						<IconButton color={COLOR.primary} onClick={e => handleClickAction(e as any)} icon={<HomeSolidIcon />} />
+					</ListItemAction>
+				</ListItem>
+				<ListItem onClick={handleClickItem}>
+					<ListItemText primary="lorem ipsum" />
+					<ListItemAction>
+						<IconButton color={COLOR.accent} variant={VARIANT.text} onClick={e => handleClickAction(e as any)} icon={<HomeSolidIcon />} />
 					</ListItemAction>
 				</ListItem>
 				<ListItem onClick={handleClickItem}>
