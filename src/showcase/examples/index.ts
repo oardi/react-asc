@@ -35,4 +35,9 @@ export * from './SelectPage';
 export * from './SpeedDialPage';
 export * from './StepperPage';
 
+export * from './HookUseConstructorPage';
+export * from './HookUseDebouncePage';
+export * from './HookUseHoverPage';
+export * from './HookUseWindowSizePage';
+
 export * from '../../showcase/assets';

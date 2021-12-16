@@ -4,7 +4,7 @@ export const menuItems: Array<IMenuItem> = [
 	{ id: "Home", path: "" },
 	{ id: "GettingStarted", label: "Getting started" },
 	{
-		id: "Showcase",
+		id: "Components",
 		isCollapsible: true,
 		isCollapsed: true,
 		items: [
@@ -44,6 +44,17 @@ export const menuItems: Array<IMenuItem> = [
 			{ id: "Tooltip" },
 			{ id: "TreeView", label: "TreeView (beta)" },
 			{ id: "Typography" }
+		]
+	},
+	{
+		id: "Hooks",
+		isCollapsible: true,
+		isCollapsed: true,
+		items: [
+			{ id: "HookUseConstructor" },
+			{ id: "HookUseDebounce" },
+			{ id: "HookUseHover" },
+			{ id: "HookUseWindowSize" },
 		]
 	},
 	{ id: "About" }

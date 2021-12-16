@@ -1,0 +1,3 @@
+useConstructor(() => {
+	// do something
+});

@@ -18,7 +18,7 @@ const App = () => {
 	const [showMenu, setShowMenu] = useState<boolean>(false);
 	const [isMobile, setIsMobile] = useState<boolean>(false);
 	const [menuItems, setMenuItems] = useState<Array<ISidebarItem>>([]);
-	const [showcaseRoutes, setShowcaseRoutes] = useState<Array<RouteModel>>();
+	const [appRoutes, setAppRoutes] = useState<Array<RouteModel>>();
 
 	useEffect(() => { init() }, []);
 
@@ -36,7 +36,7 @@ const App = () => {
 		try {
 			const menuItems = await showcaseService.loadMenu();
 			setMenuItems(menuItems.map(item => new MenuModel(item)));
-			setShowcaseRoutes(menuItems.map(item => new RouteModel(item)));
+			setAppRoutes(menuItems.map(item => new RouteModel(item)));
 			setAppState(APPSTATE.ready);
 		} catch (err) { loggerService.error('init', err) }
 	}
@@ -79,16 +79,16 @@ const App = () => {
 					<AppBreadcrumb />
 
 					<Switch>
-						{showcaseRoutes &&
-							showcaseRoutes.map(showcaseRoute => (
+						{appRoutes &&
+							appRoutes.map(appRoute => (
 								<Route
 									exact
-									path={!showcaseRoute.routes ? showcaseRoute.path : showcaseRoute.routes.map(r => r.path)}
-									component={(Pages as any)[showcaseRoute.componentKey]}
-									key={showcaseRoute.componentKey}>
+									path={!appRoute.routes ? appRoute.path : appRoute.routes.map(r => r.path)}
+									component={(Pages as any)[appRoute.componentKey]}
+									key={appRoute.componentKey}>
 
-									{showcaseRoute.routes &&
-										showcaseRoute.routes.map(route => (
+									{appRoute.routes &&
+										appRoute.routes.map(route => (
 											<Route exact path={route.path} component={(Pages as any)[route.componentKey]} key={route.componentKey} />
 										))
 									}
@@ -96,7 +96,7 @@ const App = () => {
 								</Route>
 							))}
 
-						{showcaseRoutes && <Route render={() => <div>404 - Missing!</div>} />}
+						{appRoutes && <Route render={() => <div>404 - Missing!</div>} />}
 
 					</Switch>
 				</div>
