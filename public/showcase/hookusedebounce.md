@@ -1,3 +1,5 @@
-useConstructor(() => {
-	// do something
-});
+useDebounce(
+	() => { onChange && onChange(searchText); },
+	debounce,
+	[searchText]
+);
