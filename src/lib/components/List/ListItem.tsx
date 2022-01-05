@@ -9,13 +9,13 @@ export interface IListItemProps {
 	active?: boolean;
 	className?: string;
 	isHoverable?: boolean;
-	isDisabled?: boolean;
+	disabled?: boolean;
 	onClick?: (e: React.MouseEvent) => void;
 }
 
 export const ListItem = (props: IListItemProps) => {
 
-	const { id, children, color, active, className, isHoverable, isDisabled, onClick } = props;
+	const { id, children, color, active, className, isHoverable, disabled, onClick } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -25,8 +25,8 @@ export const ListItem = (props: IListItemProps) => {
 		if (isHoverable) {
 			// cssClasses.push(`list-group-item-action`);
 		}
-		if (isDisabled) {
-			cssClasses.push(`disabled`);
+		if (disabled) {
+			cssClasses.push(styles['disabled']);
 		}
 
 		color && cssClasses.push(styles[color]);
@@ -36,7 +36,7 @@ export const ListItem = (props: IListItemProps) => {
 	}
 
 	const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
-		onClick && onClick(e);
+		!disabled && onClick && onClick(e);
 	};
 
 	return (

@@ -48,4 +48,11 @@
 		background-color: var(--dark);
 	}
 
+	&.disabled {
+		color: rgba(0, 0, 0, 0.26);
+		&:hover {
+			cursor: not-allowed;
+			background-color: inherit;
+		}
+	}
 }

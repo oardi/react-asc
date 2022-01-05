@@ -30,6 +30,7 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 				<ListItem onClick={handleClickItem}><ListItemText primary="lorem ipsum" /></ListItem>
 				<ListItem onClick={handleClickItem}><ListItemText primary="lorem ipsum" /></ListItem>
 				<ListItem onClick={handleClickItem}><ListItemText primary="lorem ipsum" /></ListItem>
+				<ListItem onClick={handleClickItem} disabled={true}><ListItemText primary="disabled" /></ListItem>
 			</List>
 
 			<h3 className="mt-3">Two lines</h3>

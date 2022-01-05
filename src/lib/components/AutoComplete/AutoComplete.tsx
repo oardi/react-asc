@@ -17,6 +17,7 @@ export interface IAutoCompleteProps {
 	placeholder?: string;
 	readOnly?: boolean;
 	debounce?: number;
+	showNoEntry?: boolean;
 	showClearButton?: boolean;
 	onSelect?: (val: ISelectOption) => void;
 	onChange?: (val: string | undefined) => void;
@@ -41,6 +42,7 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 		readOnly,
 		debounce = 0,
 		placeholder,
+		showNoEntry = true,
 		showClearButton,
 		onChange,
 		onSelect,
@@ -65,7 +67,11 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 			const optionsOrigin: Array<ISelectOption> = JSON.parse(JSON.stringify(options));
 			const regex = new RegExp((searchText as string).replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'), 'gi');
 			const optionsFiltered = optionsOrigin.filter(o => o.label?.match(regex));
-			setOptionsTemp(optionsFiltered);
+			if (optionsFiltered.length === 0 && showNoEntry) {
+				setOptionsTemp([{ value: '', label: '- no entry found -' }]);
+			} else {
+				setOptionsTemp(optionsFiltered);
+			}
 		}
 	}, [options]);
 
@@ -76,7 +82,7 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 	);
 
 	useEffect(() => {
-		if(isShow === true){
+		if (isShow === true) {
 			document.body.classList.add('modal-open');
 			const main = document.querySelector('.main');
 			main?.classList.add('modal-open');
@@ -163,6 +169,7 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 										id={`list-item-${index}`}
 										key={option.value}
 										onClick={() => handleOnClick(option)}
+										disabled={!option.value}
 									>
 										<ListItemText primary={option.label ? option.label : option.value} />
 									</ListItem>

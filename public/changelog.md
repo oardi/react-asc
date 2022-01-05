@@ -1,3 +1,7 @@
+## 18.8.5
+- list - fixed disable listItem
+- autocomplete - added option to show no entry found
+
 ## 18.8.4
 - changed IconButton defaults
 
