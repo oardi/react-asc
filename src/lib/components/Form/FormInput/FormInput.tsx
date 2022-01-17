@@ -1,11 +1,18 @@
 import React, { Fragment } from 'react';
-import { AutoComplete } from '../AutoComplete';
-import { Checkbox } from '../Checkbox';
-import { FileInput } from '../FileInput';
-import { Select } from '../Select';
-import { Textarea } from '../Textarea';
-import { IFormInputOptions, IFormTextAreaOptions, IFormSelectOptions, IFormAutoCompleteOptions } from './form.interfaces';
-import { IFormControlType } from './form.types';
+import { AutoComplete } from '../../AutoComplete';
+import { Checkbox } from '../../Checkbox';
+import { FileInput } from '../../FileInput';
+import { Select } from '../../Select';
+import { Textarea } from '../../Textarea';
+import { IFormInputOptions, IFormTextAreaOptions, IFormSelectOptions, IFormAutoCompleteOptions } from '../form.interfaces';
+import { IFormControlType } from '../form.types';
+import styles from './FormInput.module.scss';
+
+export interface IFormInputEvent {
+	value?: any;
+	type?: string;
+	name?: string;
+}
 
 export interface IFormInputProps {
 	value: any;
@@ -22,7 +29,8 @@ export interface IFormInputProps {
 	selectOptions?: IFormSelectOptions;
 	autoCompleteOptions?: IFormAutoCompleteOptions;
 	label?: string; // checkbox, radio - move?
-	onChange?: (name: string, value: any, type: string) => void;
+	onInput?: (e: IFormInputEvent) => void;
+	onChange?: (e: IFormInputEvent) => void;
 	onBlur?: (event: any) => void;
 	onKeyDown?: (event: any) => void;
 }
@@ -44,16 +52,31 @@ export const FormInput = (props: IFormInputProps) => {
 		label,
 		disabled = false,
 		readonly = false,
+		onInput,
 		onChange,
 		onBlur,
 		onKeyDown
 	} = props;
 
+	const getCssClasses = () => {
+		const cssClasses: Array<string> = [];
+		cssClasses.push(styles.formInput);
+		className && cssClasses.push(className);
+		!isValid && cssClasses.push('is-invalid');
+		return cssClasses.filter(css => css).join(' ');
+	};
+
+	const handleOnInput = (value: any, type: string, name: string) => {
+		onInput && onInput({ value, type, name })
+	};
+
+	const handleOnChange = (value: any, type: string, name: string) => {
+		onChange && onChange({ value, type, name })
+	};
+
 	return (
 		<Fragment>
-			{/*
-				'autocomplete' |
-				'toggle' */}
+			{/* 'toggle' */}
 
 			{
 				(
@@ -71,10 +94,11 @@ export const FormInput = (props: IFormInputProps) => {
 					id={name}
 					name={name}
 					type={type}
-					className={className + (!isValid ? ' is-invalid' : '')}
+					className={getCssClasses()}
 					value={value}
 					autoFocus={autoFocus}
-					onChange={e => onChange && onChange(name, e.target.value, type)}
+					onInput={e => handleOnInput((e.target as any).value, type, name as string)}
+					onChange={e => handleOnChange((e?.target as any).value, type, name as string)}
 					onBlur={onBlur}
 					placeholder={placeholder}
 					readOnly={readonly}
@@ -92,7 +116,7 @@ export const FormInput = (props: IFormInputProps) => {
 					autoFocus={autoFocus}
 					readOnly={readonly}
 					disabled={disabled}
-					onChange={e => onChange && onChange(name, e.target.value, type)}
+					onChange={e => handleOnChange(e.target.value, type, name)}
 				>
 					choose a file
 				</FileInput>
@@ -106,7 +130,8 @@ export const FormInput = (props: IFormInputProps) => {
 					className={className + (!isValid ? ' is-invalid' : '')}
 					value={value}
 					autoFocus={autoFocus}
-					onChange={e => onChange && onChange(name, e.target.value, type)}
+					onInput={e => handleOnInput((e.target as any).value, type, name as string)}
+					onChange={e => handleOnChange((e?.target as any).value, type, name as string)}
 					placeholder={placeholder}
 					rows={textareaOptions?.rows}
 					style={textareaOptions?.resize !== false ? undefined : { resize: 'none' }}
@@ -121,7 +146,7 @@ export const FormInput = (props: IFormInputProps) => {
 					className={className + (!isValid ? ' is-invalid' : '')}
 					value={value}
 					multiple={selectOptions?.multiple}
-					onChange={e => onChange && onChange(name, e, type)}
+					onChange={e => handleOnChange(e, type, name as string)}
 					onKeyDown={onKeyDown}
 					options={options}
 				/>
@@ -135,7 +160,7 @@ export const FormInput = (props: IFormInputProps) => {
 					className={className + (!isValid ? ' is-invalid' : '')}
 					value={value}
 					openOnFocus={autoCompleteOptions?.openOnFocus}
-					onChange={e => onChange && onChange(name, e, type)}
+					onChange={e => handleOnChange(e, type, name as string)}
 					onKeyDown={onKeyDown}
 					options={options}
 				/>
@@ -148,7 +173,7 @@ export const FormInput = (props: IFormInputProps) => {
 					name={name}
 					label={label}
 					className={(!isValid ? ' is-invalid' : '')}
-					onChange={e => onChange && onChange(name, e.target.checked, type)}
+					onChange={e => handleOnChange((e?.target as any).checked, type, name as string)}
 					checked={value}
 					onKeyDown={onKeyDown}
 				/>
@@ -180,7 +205,7 @@ export const FormInput = (props: IFormInputProps) => {
 								name={name}
 								type="radio"
 								className="form-check-input"
-								onChange={e => onChange && onChange(name, e.target.value, type)}
+								onChange={e => handleOnChange((e?.target as any).value, type, name as string)}
 								value={option.value}
 								checked={value === option.value}
 								onKeyDown={onKeyDown}

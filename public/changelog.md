@@ -1,3 +1,6 @@
+## 18.8.6
+- form - restructure components and events
+
 ## 18.8.5
 - list - fixed disable listItem
 - autocomplete - added option to show no entry found

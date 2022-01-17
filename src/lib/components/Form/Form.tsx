@@ -239,7 +239,7 @@ export class Form extends Component<IFormProps, IFormState> {
 								value={this.getControl(fieldKey).value}
 								disabled={this.getControl(fieldKey).config.disabled}
 								readonly={this.getControl(fieldKey).config.readonly}
-								onChange={(name, value, type) => this.handleInputChange(name, value, type)}
+								onChange={({ name, value, type }) => this.handleInputChange(name as string, value, type as string)}
 								onBlur={(e) => this.handleOnBlur(e)}
 								onKeyDown={(e) => this.handleOnKeyDown(e)}
 							/>
@@ -250,7 +250,7 @@ export class Form extends Component<IFormProps, IFormState> {
 							}
 
 							{this.getControl(fieldKey).config.hint &&
-								<FormHint hint={this.getControl(fieldKey).config.hint as string} />
+								<FormHint>{this.getControl(fieldKey).config.hint as string}</FormHint>
 							}
 
 							{this.getControl(fieldKey).errors &&
