@@ -1,3 +1,6 @@
+## 18.8.7
+- speedDial - color fix
+
 ## 18.8.6
 - form - restructure components and events
 

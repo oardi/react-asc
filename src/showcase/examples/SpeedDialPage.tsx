@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ISpeedDialProps, snackbarService, SpeedDial, SpeedDialAction } from '../../lib';
+import { COLOR, ISpeedDialProps, snackbarService, SpeedDial, SpeedDialAction } from '../../lib';
 import { InfoSolidIcon } from '../assets';
 import { IShowcaseBaseProps, withOptions } from './components';
 
@@ -35,6 +35,7 @@ const SpeedDialPageBase = ({ settingValues, setSettingsControls }: IShowcaseBase
 				<SpeedDialAction
 					icon={<InfoSolidIcon />}
 					tooltipTitle="some tooltip text"
+					color={COLOR.primary}
 					onClick={() => handleClick(1)}
 				/>
 				<SpeedDialAction
