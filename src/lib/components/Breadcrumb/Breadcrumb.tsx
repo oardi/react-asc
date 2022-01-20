@@ -1,14 +1,13 @@
 import React, { ReactNode } from 'react';
 import styles from './Breadcrumb.module.scss';
 
-export interface IBreadcrumbProps {
-	className?: string;
+export interface IBreadcrumbProps extends React.ComponentProps<"nav"> {
 	children?: ReactNode;
 }
 
 export const Breadcrumb = (props: IBreadcrumbProps) => {
 
-	const { children, className } = props;
+	const { children, className, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -18,7 +17,7 @@ export const Breadcrumb = (props: IBreadcrumbProps) => {
 	};
 
 	return (
-		<nav>
+		<nav {...rest}>
 			<ol className={getCssClasses()}>
 				{children}
 			</ol>

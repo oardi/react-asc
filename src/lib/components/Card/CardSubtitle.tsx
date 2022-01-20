@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './CardSubtitle.module.scss';
 
-interface ICardSubtitleProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+interface ICardSubtitleProps extends React.ComponentProps<"div"> {
 }
 
 export const CardSubtitle = (props: ICardSubtitleProps) => {

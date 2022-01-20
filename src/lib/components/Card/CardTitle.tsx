@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './CardTitle.module.scss';
 
-interface ICardTitleProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+interface ICardTitleProps extends React.ComponentProps<"div"> {
 	as?: any;
 }
 

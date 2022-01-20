@@ -135,52 +135,50 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 	}
 
 	return (
-		<>
-			<div ref={selectConainter} className={styles.selectContainer}>
-				<div className="d-flex">
+		<div ref={selectConainter} className={styles.selectContainer}>
+			<div className="d-flex">
 
-					<input
-						type="text"
-						className={getCssClass()}
-						id={id}
-						name={name}
-						tabIndex={0}
-						readOnly={readOnly}
-						disabled={disabled}
-						onChange={handleOnChange}
-						onFocus={handleOnFocus}
-						placeholder={placeholder}
-						value={model}
-					/>
+				<input
+					type="text"
+					className={getCssClass()}
+					id={id}
+					name={name}
+					tabIndex={0}
+					readOnly={readOnly}
+					disabled={disabled}
+					onChange={handleOnChange}
+					onFocus={handleOnFocus}
+					placeholder={placeholder}
+					value={model}
+				/>
 
-					{showClearButton && (model?.length as number) > 0 &&
-						<IconButton
-							icon={<TimesSolidIcon />}
-							onClick={handleClickReset}
-						/>}
-				</div>
-
-				{isShow &&
-					<>
-						<div className={styles.selectMenu}>
-							<List>
-								{optionsTemp && optionsTemp.map((option, index) =>
-									<ListItem
-										id={`list-item-${index}`}
-										key={option.value}
-										onClick={() => handleOnClick(option)}
-										disabled={!option.value}
-									>
-										<ListItemText primary={option.label ? option.label : option.value} />
-									</ListItem>
-								)}
-							</List>
-						</div>
-						<Backdrop isTransparent onClick={() => hide()} />
-					</>
-				}
-
+				{showClearButton && (model?.length as number) > 0 &&
+					<IconButton
+						icon={<TimesSolidIcon />}
+						onClick={handleClickReset}
+					/>}
 			</div>
-		</>
+
+			{isShow &&
+				<>
+					<div className={styles.selectMenu}>
+						<List>
+							{optionsTemp && optionsTemp.map((option, index) =>
+								<ListItem
+									id={`list-item-${index}`}
+									key={option.value}
+									onClick={() => handleOnClick(option)}
+									disabled={!option.value}
+								>
+									<ListItemText primary={option.label ? option.label : option.value} />
+								</ListItem>
+							)}
+						</List>
+					</div>
+					<Backdrop isTransparent onClick={() => hide()} />
+				</>
+			}
+
+		</div>
 	)
 }

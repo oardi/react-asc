@@ -1,3 +1,8 @@
+## 18.8.8
+- typing fixes for
+	- alert, appBar, appBarTitle, autoComplete, backdrop, badge, breadcrumb, button, buttonGroup, card, chip, formHint
+- checkbox - disabled & readOnly fix
+
 ## 18.8.7
 - speedDial - color fix
 

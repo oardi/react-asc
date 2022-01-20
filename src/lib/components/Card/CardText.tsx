@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './CardText.module.scss';
 
-interface ICardTextProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+interface ICardTextProps extends React.ComponentProps<"p"> {
 }
 
 export const CardText = (props: ICardTextProps) => {

@@ -1,18 +1,15 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import { TimesCircleSolidIcon } from '../../assets/icons';
 import { COLOR } from '../component.enums';
 import styles from './Chip.module.scss';
 
-export interface IChipProps {
+export interface IChipProps extends React.ComponentProps<"div"> {
 	color?: COLOR;
-	children?: ReactNode;
-	className?: string;
 	shadow?: boolean;
 	onClick?: (e: React.MouseEvent<Element>) => void;
 	isDeletable?: boolean;
 	onDelete?: (e: React.MouseEvent<Element>) => void;
 	deleteIcon?: any;
-	style?: any;
 }
 
 export const Chip = (props: IChipProps) => {

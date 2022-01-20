@@ -1,10 +1,7 @@
 import React from 'react';
 import styles from './CardImage.module.scss';
 
-interface ICardImageProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLImageElement>, HTMLImageElement> {
-	src?: string;
-	alt?: string;
-	className?: string;
+interface ICardImageProps extends React.ComponentProps<"img"> {
 }
 
 export const CardImage = (props: ICardImageProps) => {

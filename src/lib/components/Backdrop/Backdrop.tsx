@@ -1,20 +1,18 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 
-interface IBackdropProps {
+interface IBackdropProps extends React.ComponentProps<"div"> {
 	target?: HTMLElement;
-	onClick?: () => void;
 	isTransparent?: boolean;
-	style?: any;
 }
 
 export const Backdrop = (props: IBackdropProps) => {
 
-	const { target = document.body, isTransparent = false, onClick, style } = props;
+	const { target = document.body, isTransparent = false, onClick, style, ...rest } = props;
 
-	const handleClick = (e: React.MouseEvent) => {
+	const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
 		e.stopPropagation();
-		onClick && onClick();
+		onClick && onClick(e);
 	}
 
 	const getCssClasses = () => {
@@ -33,7 +31,7 @@ export const Backdrop = (props: IBackdropProps) => {
 
 	return (
 		createPortal(
-			<div className={getCssClasses()} onClick={handleClick} style={getStyles()} />,
+			<div className={getCssClasses()} onClick={handleClick} style={getStyles()} {...rest} />,
 			target
 		)
 	)

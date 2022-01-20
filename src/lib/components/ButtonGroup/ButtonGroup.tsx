@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ButtonGroup.module.scss';
 
-export interface IButtonGroupProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+export interface IButtonGroupProps extends React.ComponentProps<"div"> {
 }
 
 export const ButtonGroup = (props: IButtonGroupProps) => {

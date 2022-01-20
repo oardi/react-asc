@@ -1,9 +1,8 @@
 import React from 'react';
 import styles from './Card.module.scss';
 
-interface ICardProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+interface ICardProps extends React.ComponentProps<"div"> {
 	shadow?: boolean;
-	style?: any;
 }
 
 export const Card = (props: ICardProps) => {

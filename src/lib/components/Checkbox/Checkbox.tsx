@@ -1,15 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { CheckSquareRegularIcon, SquareRegularIcon } from '../../assets/icons';
-import { HtmlBaseProps } from '../component.interfaces';
 import { IconButton } from '../IconButton';
 import styles from './Checkbox.module.scss';
 
 // TODO refactor htmlBasaeProps
-export interface ICheckboxProps extends HtmlBaseProps {
-	id?: string;
-	name?: string;
-	className?: string;
-	checked?: boolean;
+export interface ICheckboxProps extends React.ComponentProps<"input"> {
 	label?: string;
 	value?: string;
 	onChange?: (val: React.FocusEvent<HTMLInputElement>) => void;
@@ -53,8 +48,10 @@ export const Checkbox = (props: ICheckboxProps) => {
 	};
 
 	const handleClick = () => {
-		setIsChecked(!isChecked);
-		checkboxElement?.current?.click();
+		if (!disabled && !readOnly) {
+			setIsChecked(!isChecked);
+			checkboxElement?.current?.click();
+		}
 	};
 
 	return (

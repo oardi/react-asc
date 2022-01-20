@@ -2,10 +2,9 @@ import React from 'react';
 import { COLOR } from "../component.enums";
 import styles from './Badge.module.scss';
 
-export interface IBadgeProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+export interface IBadgeProps extends React.ComponentProps<"div"> {
 	color?: COLOR;
 	content?: any;
-	onClick?: (e: React.MouseEvent) => void;
 }
 
 export const Badge = (props: IBadgeProps) => {

@@ -1,18 +1,66 @@
 import React from 'react';
+import { Icon } from '..';
 
 import { COLOR, VARIANT } from '../component.enums';
-import { ButtonTemplate } from './Button.template';
+import styles from './Button.module.scss';
 
-export interface IButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
+export interface IButtonProps extends React.ComponentProps<"button"> {
 	color?: COLOR;
 	isActive?: boolean;
 	isRounded?: boolean;
-	onClick?: (e: React.MouseEvent) => void;
 	variant?: VARIANT;
 	startIcon?: React.SVGProps<SVGSVGElement>;
 	endIcon?: React.SVGProps<SVGSVGElement>;
 }
 
-export const Button = (props: IButtonProps) => {
-	return (<ButtonTemplate {...props} />);
+export const Button: React.FunctionComponent<IButtonProps> = (props) => {
+
+	const { children, variant = VARIANT.contained, color = COLOR.primary, isRounded, isActive, className, startIcon, endIcon, ...rest } = props;
+
+	const getCssClasses = () => {
+		const cssClasses: Array<string> = [];
+		cssClasses.push(styles.button);
+
+		if (variant !== 'outline' && variant !== 'text') {
+			cssClasses.push(styles.btnContained);
+			cssClasses.push(styles[color]);
+		}
+		if (variant === 'outline') {
+			cssClasses.push(styles.btnOutline);
+			cssClasses.push(styles[color]);
+		}
+		if (variant === 'text') {
+			cssClasses.push(styles.btnText);
+			cssClasses.push(styles[color]);
+		}
+		if (isRounded && variant !== 'text') {
+			cssClasses.push(`rounded-pill`);
+		}
+		if (isActive) {
+			cssClasses.push('active');
+		}
+		className && cssClasses.push(className);
+		return cssClasses.filter(css => css).join(' ');
+	};
+
+	return (
+		<button
+			className={getCssClasses()}
+			{...rest}
+		>
+			<span className="d-flex justify-content-center">
+				{startIcon &&
+					<Icon className={styles.startIcon}>
+						{startIcon}
+					</Icon>
+				}
+				{children}
+				{endIcon &&
+					<Icon className={styles.endIcon}>
+						{endIcon}
+					</Icon>
+				}
+			</span>
+		</button>
+	);
 };

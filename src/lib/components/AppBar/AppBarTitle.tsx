@@ -1,10 +1,8 @@
 import React, { ReactNode } from 'react'
 import styles from './AppBarTitle.module.scss';
 
-export interface IAppBarTitleProps {
+export interface IAppBarTitleProps extends React.ComponentProps<"div">  {
 	children?: ReactNode;
-	onClick?: () => void;
-	className?: string;
 }
 
 export const AppBarTitle = (props: IAppBarTitleProps) => {
@@ -19,7 +17,7 @@ export const AppBarTitle = (props: IAppBarTitleProps) => {
 	}
 
 	return (
-		<div className={getCssClass()} onClick={() => onClick && onClick()}>
+		<div className={getCssClass()} onClick={onClick}>
 			{children}
 		</div>
 	)
