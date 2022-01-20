@@ -1,3 +1,7 @@
+## 18.9.0
+- snackbar changed message to children
+- typing fixes
+
 ## 18.8.8
 - typing fixes for
 	- alert, appBar, appBarTitle, autoComplete, backdrop, badge, breadcrumb, button, buttonGroup, card, chip, formHint

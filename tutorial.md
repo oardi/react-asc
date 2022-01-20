@@ -38,10 +38,11 @@ export const ServiceWorkerWrapper = () => {
 			{showReload &&
 				<div className="snackbar-container">
 					<Snackbar
-						message={'A new version is available!'}
 						actionText={'reload'}
 						onOk={reloadPage}
-					/>
+					>
+						A new version is available!
+					</Snackbar>
 				</div>
 			}
 		</>

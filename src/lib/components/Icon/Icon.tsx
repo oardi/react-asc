@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { COLOR } from '../component.enums';
 import styles from './Icon.module.scss';
 
-export interface IIconProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-	children?: React.ReactNode;
+export interface IIconProps extends ComponentProps<"div">  {
 	iconColor?: COLOR;
 }
 

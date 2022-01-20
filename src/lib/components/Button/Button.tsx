@@ -45,6 +45,7 @@ export const Button: React.FunctionComponent<IButtonProps> = (props) => {
 
 	return (
 		<button
+			type="button"
 			className={getCssClasses()}
 			{...rest}
 		>

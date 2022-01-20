@@ -11,7 +11,7 @@ const SnackbarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 
 	useEffect(() => {
 		setSettingsControls({
-			message: new FormControl(settingValues.message, [], 'text', { label: 'Message' }),
+			children: new FormControl(settingValues.children, [], 'text', { label: 'Message' }),
 			actionText: new FormControl(settingValues.actionText, [], 'text', { label: 'Actiontext' }),
 			timeout: new FormControl(settingValues.timeout, [], 'number', { label: 'timeout' }),
 			color: new FormControl(settingValues.color, [], 'select', { label: 'color', options: Object.keys(COLOR).map(c => ({ label: c, value: c })) }),
@@ -20,7 +20,7 @@ const SnackbarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 
 	const handleClick = () => {
 		snackbarService
-			.show(settingValues.message, {
+			.show(settingValues.children as React.ReactChildren, {
 				actionText: settingValues.actionText,
 				timeout: settingValues.timeout,
 				color: settingValues.color
@@ -38,7 +38,7 @@ const SnackbarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 }
 
 export const SnackbarPage = withOptions<ISnackbarServiceProps>(SnackbarPageBase, {
-	message: 'snackbar message',
+	children: 'snackbar message',
 	actionText: 'ok',
 	color: COLOR.dark,
 	timeout: 3000

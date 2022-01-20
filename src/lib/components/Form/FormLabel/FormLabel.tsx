@@ -1,9 +1,7 @@
-import React, { FunctionComponent, HTMLAttributes } from 'react';
+import React, { ComponentProps, FunctionComponent, HTMLAttributes } from 'react';
 import styles from './FormLabel.module.scss';
 
-export interface IFormLabelProps {
-	className?: string;
-	htmlFor?: string;
+export interface IFormLabelProps extends ComponentProps<"label"> {
 }
 
 export const FormLabel: FunctionComponent<IFormLabelProps & HTMLAttributes<HTMLLabelElement>> = (props) => {
