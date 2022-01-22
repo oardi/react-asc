@@ -1,14 +1,9 @@
 import React from "react";
 import styles from './TreeView.module.scss';
 
-export interface ITreeViewProps {
-	children?: any;
-	className?: string;
-}
+export const TreeView = (props: React.ComponentProps<"ul">) => {
 
-export const TreeView = (props: ITreeViewProps) => {
-
-	const { children, className } = props;
+	const { children, className, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -18,7 +13,7 @@ export const TreeView = (props: ITreeViewProps) => {
 	};
 
 	return (
-		<ul className={getCssClasses()}>
+		<ul className={getCssClasses()} {...rest}>
 			{children}
 		</ul>
 	);

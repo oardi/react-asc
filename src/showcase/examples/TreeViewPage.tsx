@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { FormControl, ITreeItemProps, ITreeViewProps, snackbarService, TreeItem, TreeView, Typography } from '../../lib';
+import { FormControl, ITreeItemProps, snackbarService, TreeItem, TreeView, Typography } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-interface ITreeViewExampleProps extends ITreeViewProps, ITreeItemProps {
-
-}
-
-const TreeViewPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITreeViewExampleProps>) => {
+const TreeViewPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITreeItemProps>) => {
 
 	useEffect(() => {
 		setSettingsControls({

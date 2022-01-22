@@ -1,10 +1,7 @@
 import React from 'react';
 import styles from './Textarea.module.scss';
 
-export interface ITextareaProps extends React.DetailedHTMLProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> {
-}
-
-export const Textarea = (props: ITextareaProps) => {
+export const Textarea = (props: React.ComponentProps<"textarea">) => {
 
 	const { className, ...rest } = props;
 
