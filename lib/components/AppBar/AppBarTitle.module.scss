@@ -1,0 +1,17 @@
+.appbarTitle {
+	align-items: center;
+	padding-top: 0.3125rem;
+	padding-bottom: 0.3125rem;
+	font-size: 1.25rem;
+	line-height: 1.8;
+	white-space: nowrap;
+
+	text-overflow: ellipsis;
+	overflow: hidden !important;
+	display: inline-block;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+}

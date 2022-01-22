@@ -1,0 +1,33 @@
+.icon {
+	align-items: center;
+	justify-content: center;
+	display: flex;
+
+	width: 20px;
+	height: 20px;
+
+	svg {
+		width: inherit;
+		height: inherit;
+	}
+
+	&.primary {
+		color: var(--primary);
+	}
+
+	&.accent {
+		color: var(--accent);
+	}
+
+	&.secondary {
+		color: var(--secondary);
+	}
+
+	&.light {
+		color: var(--light);
+	}
+
+	&.dark {
+		color: var(--dark);
+	}
+}

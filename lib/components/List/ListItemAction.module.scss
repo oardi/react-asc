@@ -1,0 +1,10 @@
+.listItemAction {
+	display: flex;
+	justify-content: center;
+	min-width: 40px;
+
+	svg {
+		width: 20px;
+		height: 20px;
+	}
+}

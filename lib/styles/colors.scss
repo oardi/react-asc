@@ -1,0 +1,11 @@
+$theme-colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+	(
+		"primary": #3f51b5,
+		"secondary": rgb(223, 225, 230),
+		"accent": #ff4081,
+		"light": #ffffff,
+	),
+	$theme-colors
+);

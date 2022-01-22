@@ -1,0 +1,22 @@
+.menuBody {
+	z-index: 1111;
+	margin: 0;
+
+	position: absolute;
+	top: 100%;
+	left: 0;
+	min-width: 10rem;
+
+	padding: 8px 0px;
+	font-size: 1rem;
+	color: #212529;
+	text-align: left;
+	list-style: none;
+	background-color: #fff;
+	background-clip: padding-box;
+	border-radius: var(--borderRadius);
+
+	&.shadow {
+		box-shadow: var(--shadow);
+	}
+}

@@ -1,0 +1,11 @@
+.expansionPanelHeader {
+	display: flex;
+	align-items: center;
+	padding: 12px 16px;
+	min-height: 48px;
+
+	&:hover {
+		cursor: pointer;
+		background-color: var(--highlight);
+	}
+}

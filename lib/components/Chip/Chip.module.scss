@@ -1,0 +1,72 @@
+.chip {
+	display: inline-flex;
+	align-items: center;
+
+	padding: 0.5rem;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	font-size: 75%;
+	font-weight: 700;
+	border-radius: 10rem;
+	line-height: 1;
+
+	svg {
+		width: 18px;
+		height: 18px;
+	}
+
+	.deleteIcon {
+		margin-left: 5px;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	&.primary {
+		background: var(--primary);
+		color: var(--primary-contrast-text);
+	}
+
+	&.secondary {
+		background: var(--secondary);
+		color: var(--secondary-contrast-text);
+	}
+
+	&.accent {
+		background: var(--accent);
+		color: var(--accent-contrast-text);
+	}
+
+	&.light {
+		color: var(--light-contrast-text);
+		background-color: var(--light);
+	}
+
+	&.dark {
+		color: var(--dark-contrast-text);
+		background-color: var(--dark);
+	}
+
+	&.clickable {
+		&:hover {
+			cursor: pointer;
+
+			&.primary {
+				background: var(--primary-dark);
+			}
+
+			&.secondary {
+				background: var(--secondary-dark);
+			}
+			&.accent {
+				background: var(--accent-dark);
+			}
+		}
+	}
+
+	&.shadow {
+		box-shadow: var(--shadow);
+	}
+}

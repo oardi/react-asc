@@ -1,0 +1,72 @@
+.snackbar {
+	display: flex;
+	align-items: center;
+	min-width: 288px;
+	padding: 6px 16px;
+	transform-origin: center;
+	min-height: 52px;
+	animation: bounceIn 0.4s ease;
+	z-index: 1001;
+	position: fixed;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 2%;
+
+	border-radius: var(--borderRadius);
+
+	&.primary {
+		color: var(--primary-contrast-text);
+		background-color: var(--primary);
+	}
+
+	&.accent {
+		color: var(--accent-contrast-text);
+		background-color: var(--accent);
+	}
+
+	&.secondary {
+		color: var(--secondary-contrast-text);
+		background-color: var(--secondary);
+	}
+
+	&.light {
+		color: var(--light-contrast-text);
+		background-color: var(--light);
+	}
+
+	&.dark {
+		color: var(--dark-contrast-text);
+		background-color: var(--dark);
+	}
+}
+
+.text {
+	width: 100%;
+	padding: 8px 0;
+}
+
+.action {
+	margin-left: auto;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+@keyframes bounceIn {
+	0% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 0.9;
+	}
+
+	80% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
