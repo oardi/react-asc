@@ -1,3 +1,6 @@
+## 18.9.3
+- grid typing fixes
+
 ## 18.9.2
 - link typing fixes
 

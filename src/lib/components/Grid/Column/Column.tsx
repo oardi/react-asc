@@ -1,9 +1,6 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
-interface IColProps {
-	children?: ReactNode;
-	className?: string;
-
+interface IColProps extends React.ComponentProps<"div"> {
 	xs?: number;
 	sm?: number;
 	md?: number;

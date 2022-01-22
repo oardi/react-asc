@@ -1,11 +1,6 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
-interface IRowProps {
-	children?: ReactNode;
-	className?: string;
-}
-
-export const Row = (props: IRowProps) => {
+export const Row = (props: React.ComponentProps<"div">) => {
 
 	const { children, className, ...rest } = props;
 
