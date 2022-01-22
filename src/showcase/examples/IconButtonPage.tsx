@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { IconButton, IIconButtonProps, HomeSolidIcon, FormControl, COLOR, VARIANT, snackbarService, SIZE } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
@@ -20,7 +20,7 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 	}
 
 	return (
-		<Fragment>
+		<>
 			<IconButton
 				color={settingValues.color}
 				isActive={settingValues.isActive}
@@ -31,7 +31,7 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 				shadow={settingValues.shadow}
 				onClick={handleClick}
 			/>
-		</Fragment>
+		</>
 	);
 }
 

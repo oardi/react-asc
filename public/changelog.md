@@ -1,3 +1,6 @@
+## 18.9.1
+- iconButton typing fixes
+
 ## 18.9.0
 - snackbar changed message to children
 - typing fixes
