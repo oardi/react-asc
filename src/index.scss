@@ -1,5 +1,5 @@
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
 
 $enable-shadows: true;
 $theme-colors: (
@@ -22,7 +22,7 @@ $btn-focus-box-shadow: false;
 $btn-active-box-shadow: false;
 $btn-box-shadow: false;
 
-@import "./showcase/assets/custom-bootstrap.scss";
+@import "./main/assets/custom-bootstrap.scss";
 @import "./lib/styles/style.scss";
 
 html,

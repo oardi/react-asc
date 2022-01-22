@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { AppBar, AppBarTitle, ISidebarItem, Sidebar } from '../../lib';
+import { AppBar, AppBarTitle, ISidebarItem, Sidebar } from 'lib';
 
 interface IAppSidebarProps {
 	menuItems: Array<ISidebarItem>;

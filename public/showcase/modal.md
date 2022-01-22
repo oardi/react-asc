@@ -1,4 +1,4 @@
-import { Button, modalService } from '../../lib';
+import { Button, modalService } from 'react-asc';
 
 const ModalExample = () => {
 

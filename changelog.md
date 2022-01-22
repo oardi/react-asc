@@ -1,3 +1,6 @@
+## 19.0.0
+- changed module bundler to vite
+
 ## 18.9.6
 - textarea, treeview typing fixes
 

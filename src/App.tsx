@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './index.scss';
-import * as Pages from './showcase'; // LazyLoading?
-import { AppBar, AppBarTitle, COLOR, Drawer, IconButton, ISidebarItem, useWindowSize } from './lib';
+import * as Pages from './main'; // LazyLoading?
 import { AppSidebar, AppInfo, AppBreadcrumb, loggerService, ServiceWorkerWrapper } from './shared';
 import { useAppContext } from './AppContext';
 import { showcaseService } from './app.service';
-import { MenuModel, RouteModel, BarsSolidIcon } from './showcase';
 import { APPSTATE } from './app.enums';
+import { MenuModel, RouteModel } from './main';
+import { BarsSolidIcon } from './main/assets';
+import { AppBar, AppBarTitle, COLOR, Drawer, IconButton, ISidebarItem, useWindowSize } from 'lib';
 
 const CLASSNAME = 'App';
 

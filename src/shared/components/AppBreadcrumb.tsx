@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { Breadcrumb, BreadcrumbItem } from '../../lib';
+import { Breadcrumb, BreadcrumbItem } from 'lib';
 import { loggerService } from '../services';
 
 interface IAppBreadcrumb {

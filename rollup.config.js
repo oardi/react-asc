@@ -3,14 +3,24 @@ import commonjs from "rollup-plugin-commonjs";
 import external from "rollup-plugin-peer-deps-external";
 import resolve from "rollup-plugin-node-resolve";
 import json from '@rollup/plugin-json';
-import pkg from "./package.json";
 import url from '@rollup/plugin-url';
 import postcss from 'rollup-plugin-postcss';
+import pkg from "./package.json";
 
 const rollupConfig = {
-	input: "src/lib/index.ts",
+	input: "lib/index.ts",
 
 	external: ['react', 'react-dom', '@popperjs/core'],
+
+	// preserveModules: true,
+
+	// output: {
+	// 	dir: 'dist',
+	// 	format: 'esm',
+	// 	preserveModules: true,
+	// 	preserveModulesRoot: 'src',
+	// 	sourcemap: true,
+	// },
 
 	output: [
 		{
@@ -28,20 +38,19 @@ const rollupConfig = {
 	],
 
 	plugins: [
+		resolve(),
+		commonjs(),
 		external(),
+		typescript({
+			tsconfig: "tsconfig.lib.json",
+			declaration: true,
+			declarationDir: 'dist',
+		}),
 		postcss({
 			extract: false,
 			modules: true,
 			use: ['sass'],
 		}),
-		typescript({
-			tsconfig: "tsconfig.lib.json",
-			rollupCommonJSResolveHack: true,
-			exclude: "**/__tests__/**",
-			clean: true
-		}),
-		resolve(),
-		commonjs(),
 		json(),
 		url()
 	]

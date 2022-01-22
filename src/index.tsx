@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import reportWebVitals from './reportWebVitals';
 import { AppContainer } from './AppContainer';
 
 ReactDOM.render(
@@ -12,5 +11,3 @@ ReactDOM.render(
 	</Suspense>,
 	document.getElementById('root')
 );
-
-reportWebVitals();

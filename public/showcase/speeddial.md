@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ISpeedDialProps, snackbarService, SpeedDial, SpeedDialAction } from '../../lib';
+import { ISpeedDialProps, snackbarService, SpeedDial, SpeedDialAction } from 'react-asc';
 import { InfoSolidIcon } from '../assets';
 import { IShowcaseBaseProps, withOptions } from './components';
 

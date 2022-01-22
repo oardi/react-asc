@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { COLOR, IconButton, modalService } from '../../lib';
-import { InfoSolidIcon } from '../../showcase';
+import { COLOR, IconButton, modalService } from 'lib';
+import { InfoSolidIcon } from '../../main/assets';
 import { fileLoaderService, loggerService } from '../services';
 import { Markdown } from './Markdown';
 

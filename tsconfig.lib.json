@@ -21,7 +21,7 @@
 		"declaration": true
 	},
 	"include": [
-		"src/custom.d.ts",
-		"src/lib/**/*"
+		"lib/custom.d.ts",
+		"lib/**/*"
 	]
 }

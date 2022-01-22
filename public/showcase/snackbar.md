@@ -1,4 +1,4 @@
-import { Button, COLOR, snackbarService } from '../../lib';
+import { Button, COLOR, snackbarService } from 'react-asc';
 
 const SnackbarExample = () => {
 

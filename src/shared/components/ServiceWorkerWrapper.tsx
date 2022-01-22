@@ -1,6 +1,6 @@
 import React from 'react';
-import { Snackbar, useConstructor } from '../../lib';
-import * as serviceWorkerRegistration from '../../serviceWorkerRegistration';
+import { Snackbar, useConstructor } from 'lib';
+// import * as serviceWorkerRegistration from '../../serviceWorkerRegistration';
 
 export const ServiceWorkerWrapper = () => {
 	const [showReload, setShowReload] = React.useState(false);
@@ -12,7 +12,7 @@ export const ServiceWorkerWrapper = () => {
 	};
 
 	useConstructor(() => {
-		serviceWorkerRegistration.register({ onUpdate: onSWUpdate });
+		// serviceWorkerRegistration.register({ onUpdate: onSWUpdate });
 	});
 
 	const reloadPage = () => {

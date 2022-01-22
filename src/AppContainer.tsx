@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { HashRouter as Router } from "react-router-dom";
+import { HashRouter as Router } from 'react-router-dom';
 import { AppContext } from './AppContext';
 import App from './App';
 
 import packageJson from '../package.json';
-import { snackbarService, modalService } from './lib';
+import { snackbarService, modalService } from 'lib';
 import { IAppInfo } from './app.interfaces';
 import { fileLoaderService } from './shared';
 
