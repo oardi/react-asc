@@ -18,19 +18,10 @@
 		"isolatedModules": true,
 		"noEmit": true,
 		"jsx": "react",
-		"declaration": true,
-		"baseUrl": "src/",
-		"paths": {
-			"components/*": [
-				"components/*"
-			],
-			"hooks/*": [
-				"hooks/*"
-			]
-		}
+		"declaration": true
 	},
 	"include": [
 		"src/custom.d.ts",
-		"src/**/*"
+		"src/lib/**/*"
 	]
 }

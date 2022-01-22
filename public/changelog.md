@@ -1,6 +1,3 @@
-## 18.9.6
-- textarea, treeview typing fixes
-
 ## 18.9.5
 - loadingIndicator, select, sidebar, snackbar, typography typing fixes
 
