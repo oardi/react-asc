@@ -42,13 +42,13 @@ export const GettingStartedPage = () => {
 			</Typography>
 			<List>
 				<ListItem>
-					<Link url="https://codesandbox.io/s/react-asc-example-8y9ob" target="blank">Codesandbox</Link>
+					<Link href="https://codesandbox.io/s/react-asc-example-8y9ob" target="blank">Codesandbox</Link>
 				</ListItem>
 				<ListItem>
-					<Link url="https://stackblitz.com/edit/react-asc-example-ts" target="blank">Stackblitz Typescript</Link>
+					<Link href="https://stackblitz.com/edit/react-asc-example-ts" target="blank">Stackblitz Typescript</Link>
 				</ListItem>
 				<ListItem>
-					<Link url="https://stackblitz.com/edit/react-asc-example-js" target="blank">Stackblitz Javascript</Link>
+					<Link href="https://stackblitz.com/edit/react-asc-example-js" target="blank">Stackblitz Javascript</Link>
 				</ListItem>
 			</List>
 

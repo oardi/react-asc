@@ -1,3 +1,6 @@
+## 18.9.2
+- link typing fixes
+
 ## 18.9.1
 - iconButton typing fixes
 

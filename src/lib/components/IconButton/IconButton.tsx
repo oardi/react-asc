@@ -5,7 +5,6 @@ import styles from './IconButton.module.scss';
 
 export interface IIconButtonProps extends React.ComponentProps<"button"> {
 	icon?: React.SVGProps<SVGSVGElement>;
-	label?: string;
 	color?: COLOR;
 	size?: SIZE;
 	isActive?: boolean;
@@ -15,7 +14,7 @@ export interface IIconButtonProps extends React.ComponentProps<"button"> {
 
 export const IconButton = (props: IIconButtonProps) => {
 
-	const { children, icon, label, variant = VARIANT.text, color = COLOR.dark, size = SIZE.md, isActive, disabled, className, shadow, ...rest } = props;
+	const { children, icon, variant = VARIANT.text, color = COLOR.dark, size = SIZE.md, isActive, disabled, className, shadow, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

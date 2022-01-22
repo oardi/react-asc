@@ -1,26 +1,26 @@
-import React, { Fragment, useEffect } from 'react';
-import { ILinkProps, Link } from '../../lib';
+import React, { useEffect } from 'react';
+import { FormControl, Link } from '../../lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-export const LinkPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ILinkProps>) => {
+export const LinkPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<React.ComponentProps<"a">>) => {
 
 	useEffect(() => {
 		setSettingsControls({
-			// isHoverable: new FormControl(settingValues.isHoverable, [], 'checkbox', { label: 'isHoverable' }),
+			href: new FormControl(settingValues.href, [], 'text', { label: 'href' }),
 		});
 	}, []);
 
 	return (
-		<Fragment>
-
-			<Link>
+		<>
+			<Link
+				href={settingValues.href}
+			>
 				some link text
 			</Link>
-
-		</Fragment>
+		</>
 	);
 }
 
-export const LinkPage = withOptions<ILinkProps>(LinkPageBase, {
-
+export const LinkPage = withOptions<React.ComponentProps<"a">>(LinkPageBase, {
+	href: 'https://google.com'
 }, 'LinkPageBase');

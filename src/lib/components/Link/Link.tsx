@@ -1,20 +1,13 @@
-import React, { ReactNode, useState } from 'react';
+import React, { useState } from 'react';
 import { STATUS } from '../component.enums';
 
-export interface ILinkProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLLinkElement>, HTMLLinkElement> {
-	url?: string;
-	children?: ReactNode;
-	target?: string;
-}
+export const Link = (props: React.ComponentProps<"a">) => {
 
-export const Link = (props: ILinkProps) => {
-
-	const { url, className, target, children } = props;
+	const { href, className, target, children } = props;
 	const [status, setStatus] = useState(STATUS.NORMAL);
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		// cssClasses.push(styles.badgeContainer);
 		className && cssClasses.push(className);
 		status !== STATUS.NORMAL && cssClasses.push(status);
 		return cssClasses.filter(css => css).join(' ');
@@ -31,7 +24,7 @@ export const Link = (props: ILinkProps) => {
 	return (
 		<a
 			className={getCssClasses()}
-			href={url || '#'}
+			href={href || '#'}
 			target={target}
 			onMouseEnter={onMouseEnter}
 			onMouseLeave={onMouseLeave}
