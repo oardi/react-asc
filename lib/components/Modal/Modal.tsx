@@ -4,7 +4,7 @@ import { ModalBody } from './ModalBody';
 import { Backdrop } from '../Backdrop';
 import styles from './Modal.module.scss';
 import { ModalFooter } from './ModalFooter';
-import { SIZE } from '..';
+import { SIZE } from '../component.enums';
 
 export interface IModalProps {
 	className?: string;

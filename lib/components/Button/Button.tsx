@@ -1,6 +1,5 @@
 import React from 'react';
-import { Icon } from '..';
-
+import { Icon } from '../Icon';
 import { COLOR, VARIANT } from '../component.enums';
 import styles from './Button.module.scss';
 

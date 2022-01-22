@@ -7,7 +7,7 @@ import { List, ListItem, ListItemText } from '../List';
 import { Icon } from '../Icon';
 import { ISelectOption } from '../component.interfaces';
 import styles from './Select.module.scss';
-import { Backdrop } from '..';
+import { Backdrop } from '../Backdrop';
 import { createPortal } from 'react-dom';
 
 // TODO

@@ -1,7 +1,9 @@
 import React, { ReactNode } from 'react';
-import { IconButton, VARIANT } from '..';
-import { TimesSolidIcon } from '../..';
+import { IconButton } from '../IconButton';
+import { VARIANT } from '../component.enums';
+import { TimesSolidIcon } from '../../icons';
 import styles from './ModalHeader.module.scss';
+
 interface IModalHeaderProps {
 	children?: ReactNode;
 	onClose?: Function;

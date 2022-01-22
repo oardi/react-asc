@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { IconButton } from '..';
-import { TimesSolidIcon, useDebounce } from '../..';
+import { IconButton } from '../IconButton';
+import { TimesSolidIcon } from '../../icons';
+import { useDebounce } from '../../hooks';
 import { Backdrop } from '../Backdrop';
 import { ISelectOption } from '../component.interfaces';
 import { List, ListItem, ListItemText } from '../List';

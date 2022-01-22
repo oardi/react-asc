@@ -1,7 +1,6 @@
 import React, { Fragment, ReactElement, useEffect, useRef, useState } from 'react';
-import { SIZE } from '..';
 import { Button } from '../Button';
-import { COLOR, VARIANT } from '../component.enums';
+import { SIZE, COLOR, VARIANT } from '../component.enums';
 import { Form, IControls, IFormValues } from '../Form';
 import { Modal } from './Modal';
 import { MODALBUTTONTYPE, MODALTYPE } from './modal.enum';

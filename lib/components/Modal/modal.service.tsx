@@ -4,7 +4,7 @@ import { IControls, IFormValues } from '../Form';
 import { ReactElement } from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { IModalButton } from './modal.interfaces';
-import { SIZE } from '..';
+import { SIZE } from '../component.enums';
 
 export interface IModalService {
 	show(title: string, description: string | ReactElement, options?: IModalOptions): Promise<void | IFormValues>;

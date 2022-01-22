@@ -1,5 +1,5 @@
 import React from 'react';
-import { VARIANT } from '..';
+import { VARIANT } from '../component.enums';
 import { COLOR } from '../component.enums';
 import { IconButton } from '../IconButton';
 import styles from './SpeedDialAction.module.scss';
