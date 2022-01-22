@@ -9,6 +9,8 @@ import { showcaseService } from './app.service';
 import { MenuModel, RouteModel, BarsSolidIcon } from './showcase';
 import { APPSTATE } from './app.enums';
 
+const CLASSNAME = 'App';
+
 const App = () => {
 
 	const { appInfo } = useAppContext();
@@ -33,6 +35,7 @@ const App = () => {
 	}, [isMobile, appState]);
 
 	const init = async () => {
+		loggerService.debug(CLASSNAME, 'init');
 		try {
 			const menuItems = await showcaseService.loadMenu();
 			setMenuItems(menuItems.map(item => new MenuModel(item)));
@@ -43,11 +46,7 @@ const App = () => {
 
 	const checkIsMobile = (height: number, width: number) => {
 		if (height > 0 && width > 0) {
-			if (width >= 1024) {
-				setIsMobile(false);
-			} else {
-				setIsMobile(true);
-			}
+			setIsMobile(!(width >= 1024));
 		}
 	}
 

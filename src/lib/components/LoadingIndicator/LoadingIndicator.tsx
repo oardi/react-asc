@@ -5,7 +5,7 @@ import styles from './LoadingIndicator.module.scss';
 export interface ILoadingIndicatorProps {
 }
 
-export const LoadingIndicator = () => {
+export const LoadingIndicator = ({ ...rest }: React.ComponentProps<"div">) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -14,7 +14,7 @@ export const LoadingIndicator = () => {
 	}
 
 	return (
-		<div className={getCssClasses()}>
+		<div className={getCssClasses()} {...rest}>
 			<SpinnerSolidIcon />
 		</div>
 	);

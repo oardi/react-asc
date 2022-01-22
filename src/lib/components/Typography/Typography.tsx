@@ -1,9 +1,9 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import styles from './Typography.module.scss';
 
 export interface IWrapperProps {
 	as?: string;
-	children: ReactElement;
+	children: React.ReactNode;
 	className?: string;
 }
 
@@ -21,11 +21,8 @@ const Wrapper = (props: IWrapperProps) => {
 }
 
 
-export interface ITypographyProps {
+export interface ITypographyProps extends React.ComponentProps<"span"> {
 	as?: string;
-	children: any;
-	className?: string;
-	style?: any;
 }
 
 export const Typography = ({ children, as = 'span', ...rest }: ITypographyProps) => {

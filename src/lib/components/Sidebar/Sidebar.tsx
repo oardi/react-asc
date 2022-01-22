@@ -4,7 +4,7 @@ import { ISidebarItem } from './sidebar.interfaces';
 import { SidebarItemModel } from './sidebar.models';
 import { ChevronUpSolidIcon, ChevronDownSolidIcon } from '../../assets/icons';
 
-interface ISidebarProps {
+interface ISidebarProps extends React.ComponentProps<"nav"> {
 	items: Array<ISidebarItem>;
 	currentUrl: string;
 	onItemClicked: (path: string) => void;
@@ -12,8 +12,7 @@ interface ISidebarProps {
 
 export const Sidebar = (props: ISidebarProps) => {
 
-	const { items, currentUrl, onItemClicked } = props;
-
+	const { className, items, currentUrl, onItemClicked, ...rest } = props;
 	const [menuItems, setMenuItems] = useState<Array<SidebarItemModel>>([]);
 
 	useEffect(() => {
@@ -22,7 +21,11 @@ export const Sidebar = (props: ISidebarProps) => {
 		}
 	}, []);
 
-	useEffect(() => { initMenuItems(); }, [currentUrl]);
+	const getCssClasses = () => {
+		const cssClasses: Array<string> = [];
+		className && cssClasses.push(className);
+		return cssClasses.filter(css => css).join(' ');
+	};
 
 	const initMenuItems = () => {
 		const newItems = items.map(item => new SidebarItemModel(
@@ -64,13 +67,7 @@ export const Sidebar = (props: ISidebarProps) => {
 	const handleClickItem = (item: SidebarItemModel, e: React.MouseEvent<Element, MouseEvent>) => {
 		if (item.items && item.items.length > 0 && item.isCollapsible) {
 			const newMenuItems = menuItems.map((menuItem) => {
-				if (item.id === menuItem.id) {
-					const updatedItem = {
-						...menuItem,
-						isCollapsed: !menuItem.isCollapsed,
-					};
-					return updatedItem;
-				}
+				menuItem.isCollapsed = !menuItem.isCollapsed;
 				return menuItem;
 			});
 			setMenuItems(newMenuItems);
@@ -84,7 +81,7 @@ export const Sidebar = (props: ISidebarProps) => {
 	}
 
 	return (
-		<nav className="sidebar">
+		<nav className={getCssClasses()} {...rest}>
 
 			<List>
 				{menuItems.map(item => (

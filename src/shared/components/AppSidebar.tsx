@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { AppBar, AppBarTitle, ISidebarItem, Sidebar } from '../../lib';
 
@@ -18,7 +18,7 @@ export const AppSidebar = ({ menuItems, onItemClicked }: IAppSidebarProps) => {
 	}
 
 	return (
-		<Fragment>
+		<>
 			<div className="d-flex flex-column h-100">
 				<AppBar>
 					<AppBarTitle>Menu</AppBarTitle>
@@ -31,6 +31,6 @@ export const AppSidebar = ({ menuItems, onItemClicked }: IAppSidebarProps) => {
 					/>
 				</div>
 			</div>
-		</Fragment>
+		</>
 	);
 }

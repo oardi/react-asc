@@ -1,3 +1,9 @@
+## 18.9.5
+- loadingIndicator, select, sidebar, snackbar, typography typing fixes
+
+## 18.9.4
+- list typing fixes
+
 ## 18.9.3
 - grid typing fixes
 

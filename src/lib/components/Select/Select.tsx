@@ -1,6 +1,5 @@
 import React, { KeyboardEventHandler, useEffect, useRef, useState } from 'react';
 import { ChevronDownSolidIcon } from '../../assets/icons';
-// import { Backdrop } from '../Backdrop';
 import { Checkbox } from '../Checkbox';
 import { Chip } from '../Chip';
 import { COLOR } from '../component.enums';
@@ -182,44 +181,42 @@ export const Select = (props: ISelectProps) => {
 	}
 
 	return (
-		<>
-			<div ref={selectConainter} className={styles.selectContainer}>
+		<div ref={selectConainter} className={styles.selectContainer}>
 
-				<div id={id} className={getCssClass()} onClick={() => show()} tabIndex={0} onKeyDown={e => handleOnKeyDown(e as any)}>
-					{!multiple && renderSingleViewModel()}
-					{multiple && renderMultipleViewModel()}
+			<div id={id} className={getCssClass()} onClick={() => show()} tabIndex={0} onKeyDown={e => handleOnKeyDown(e as any)}>
+				{!multiple && renderSingleViewModel()}
+				{multiple && renderMultipleViewModel()}
 
-					<Icon className="ml-auto"><ChevronDownSolidIcon /></Icon>
-				</div>
-
-				{isShow &&
-
-					createPortal(
-						<>
-							<div className={styles.selectMenu} style={{ left: selectConainter.current?.getBoundingClientRect().x, top: selectConainter.current?.getBoundingClientRect().y, width: selectConainter.current?.getBoundingClientRect().width }}>
-								<List>
-									{options && options.map((option, index) =>
-										<ListItem id={`list-item-${index}`} key={option.value} onClick={() => handleOnClick(option)} active={isActive(option)}>
-
-											{multiple &&
-												<Checkbox
-													checked={isActive(option)}
-													onChange={() => handleOnClick(option)}
-												/>
-											}
-
-											<ListItemText primary={option.label ? option.label : option.value} />
-										</ListItem>
-									)}
-								</List>
-							</div>
-							<Backdrop style={{ zIndex: 1111 }} isTransparent onClick={() => hide()} />
-						</>, document.body)
-
-
-				}
-
+				<Icon className="ml-auto"><ChevronDownSolidIcon /></Icon>
 			</div>
-		</>
+
+			{isShow &&
+
+				createPortal(
+					<>
+						<div className={styles.selectMenu} style={{ left: selectConainter.current?.getBoundingClientRect().x, top: selectConainter.current?.getBoundingClientRect().y, width: selectConainter.current?.getBoundingClientRect().width }}>
+							<List>
+								{options && options.map((option, index) =>
+									<ListItem id={`list-item-${index}`} key={option.value} onClick={() => handleOnClick(option)} active={isActive(option)}>
+
+										{multiple &&
+											<Checkbox
+												checked={isActive(option)}
+												onChange={() => handleOnClick(option)}
+											/>
+										}
+
+										<ListItemText primary={option.label ? option.label : option.value} />
+									</ListItem>
+								)}
+							</List>
+						</div>
+						<Backdrop style={{ zIndex: 1111 }} isTransparent onClick={() => hide()} />
+					</>, document.body)
+
+
+			}
+
+		</div>
 	);
 }

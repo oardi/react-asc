@@ -10,7 +10,7 @@ export interface ISnackbarProps extends ComponentProps<"div"> {
 
 export const Snackbar = (props: ISnackbarProps) => {
 
-	const { children, color = COLOR.dark, actionText = 'ok', onOk } = props;
+	const { children, color = COLOR.dark, actionText = 'ok', onOk, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -25,7 +25,7 @@ export const Snackbar = (props: ISnackbarProps) => {
 	}
 
 	return (
-		<div className={getCssClasses()}>
+		<div className={getCssClasses()} {...rest}>
 			<div className={styles.text}>
 				{children}
 			</div>
