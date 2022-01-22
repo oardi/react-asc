@@ -1,36 +1,24 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { COLOR } from '../component.enums';
 import styles from './ListItem.module.scss';
 
-export interface IListItemProps {
-	id?: string;
-	children?: ReactNode;
+export interface IListItemProps extends React.ComponentProps<"li"> {
 	color?: COLOR;
 	active?: boolean;
-	className?: string;
 	isHoverable?: boolean;
 	disabled?: boolean;
-	onClick?: (e: React.MouseEvent) => void;
 }
 
 export const ListItem = (props: IListItemProps) => {
 
-	const { id, children, color, active, className, isHoverable, disabled, onClick } = props;
+	const { children, color, active, className, disabled, onClick, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		if (active) {
-			cssClasses.push(styles['active']);
-		}
-		if (isHoverable) {
-			// cssClasses.push(`list-group-item-action`);
-		}
-		if (disabled) {
-			cssClasses.push(styles['disabled']);
-		}
-
-		color && cssClasses.push(styles[color]);
 		cssClasses.push(styles.listItem);
+		color && cssClasses.push(styles[color]);
+		active && cssClasses.push(styles['active']);
+		disabled && cssClasses.push(styles['disabled']);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	}
@@ -40,7 +28,11 @@ export const ListItem = (props: IListItemProps) => {
 	};
 
 	return (
-		<li id={id} onClick={handleClick} className={getCssClasses()}>
+		<li
+			onClick={handleClick}
+			className={getCssClasses()}
+			{...rest}
+		>
 			{children}
 		</li>
 	);

@@ -1,30 +1,24 @@
-import React, { ReactElement } from 'react';
-import { IListItemProps } from './ListItem';
+import React from 'react';
 import styles from './List.module.scss';
 
-export interface IListProps {
-	children?: ReactElement<IListItemProps> | Array<ReactElement<IListItemProps>>;
-	className?: string;
+export interface IListProps extends React.ComponentProps<"ul"> {
 	isFlush?: boolean;
-	// isHoverable?: boolean;
 }
 
 export const List = (props: IListProps) => {
 
-	const { children, className, isFlush } = props;
+	const { children, className, isFlush, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		if (isFlush) {
-			cssClasses.push(styles.flush);
-		}
+		isFlush && cssClasses.push(styles.flush);
 		cssClasses.push(styles.list);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	}
 
 	return (
-		<ul className={getCssClasses()}>
+		<ul className={getCssClasses()} {...rest}>
 			{children}
 		</ul>
 	);

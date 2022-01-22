@@ -3,7 +3,7 @@ import { STATUS } from '../component.enums';
 
 export const Link = (props: React.ComponentProps<"a">) => {
 
-	const { href, className, target, children } = props;
+	const { href = '#', className, target, children, ...rest } = props;
 	const [status, setStatus] = useState(STATUS.NORMAL);
 
 	const getCssClasses = () => {
@@ -24,10 +24,11 @@ export const Link = (props: React.ComponentProps<"a">) => {
 	return (
 		<a
 			className={getCssClasses()}
-			href={href || '#'}
+			href={href}
 			target={target}
 			onMouseEnter={onMouseEnter}
 			onMouseLeave={onMouseLeave}
+			{...rest}
 		>
 			{children}
 		</a>

@@ -1,12 +1,12 @@
 import React, { ReactNode } from 'react';
 import styles from './ListItemTextIcon.module.scss';
 
-interface IListItemTextProps {
+interface IListItemTextProps extends React.ComponentProps<"div"> {
 	primary: ReactNode;
 	secondary?: ReactNode;
 }
 
-export const ListItemText = ({ primary, secondary }: IListItemTextProps) => {
+export const ListItemText = ({ primary, secondary, ...rest }: IListItemTextProps) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -15,7 +15,7 @@ export const ListItemText = ({ primary, secondary }: IListItemTextProps) => {
 	}
 
 	return (
-		<div className={getCssClasses()}>
+		<div className={getCssClasses()} {...rest}>
 			<ListItemTextPrimary>
 				{primary}
 			</ListItemTextPrimary>
