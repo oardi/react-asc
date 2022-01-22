@@ -11,26 +11,17 @@
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
 		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"noFallthroughCasesInSwitch": true,
 		"module": "esnext",
 		"moduleResolution": "node",
 		"sourceMap": true,
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"noEmit": true,
-		"jsx": "react",
-		"declaration": true,
-		"baseUrl": "src/",
-		"paths": {
-			"components/*": [
-				"components/*"
-			],
-			"hooks/*": [
-				"hooks/*"
-			]
-		}
+		"jsx": "react-jsx"
 	},
 	"include": [
-		"src/custom.d.ts",
-		"src/**/*"
+		"../src"
 	]
 }
