@@ -21,6 +21,10 @@
 	&.right {
 		order: 2;
 	}
+
+	&.shadow {
+		box-shadow: var(--shadow);
+	}
 }
 
 .drawerOpen {

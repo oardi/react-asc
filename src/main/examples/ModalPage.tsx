@@ -28,7 +28,7 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 			fullScreen: fullscreen,
 			size: settingValues.size
 		})
-			.then(() => loggerService.debug('ok clicked')).catch(() => { });
+			.then(() => loggerService.debug('ok clicked'));
 	}
 
 	const customHandler = () => {
@@ -116,7 +116,7 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 			})
 		};
 		modalService.show('Form', '', { formControls: controls, size: settingValues.size })
-			.then(res => loggerService.debug(res)).catch(() => { });
+			.then(res => loggerService.debug(res));
 	}
 
 	return (
@@ -154,4 +154,4 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 	);
 }
 
-export const ModalPage = withOptions(ModalPageBase, null, 'ModalPageBase');
+export const ModalPage = withOptions(ModalPageBase, undefined, 'ModalPageBase');

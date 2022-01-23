@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Breadcrumb, BreadcrumbItem } from 'lib';
 import { loggerService } from '../services';
@@ -33,16 +33,16 @@ export const AppBreadcrumb = () => {
 	}
 
 	return (
-		<Fragment>
-			<Breadcrumb>
-				{items &&
-					items.map((item, index) =>
+		<>
+			{items && items.length > 0 &&
+				<Breadcrumb>
+					{items.map((item, index) =>
 						<BreadcrumbItem key={index} isActive={item.isActive} path={item.path} onClick={() => handleClickBreadcrumbItem(item)}>
 							{item.label}
 						</BreadcrumbItem>
-					)
-				}
-			</Breadcrumb>
-		</Fragment>
+					)}
+				</Breadcrumb>
+			}
+		</>
 	);
 }

@@ -3,10 +3,9 @@ import { createPortal } from 'react-dom';
 import { Backdrop } from '../Backdrop';
 import styles from './Drawer.module.scss';
 
-export interface IDrawerProps {
-	children?: ReactNode;
+export interface IDrawerProps extends React.ComponentProps<"div"> {
 	position?: 'left' | 'right';
-	className?: string;
+	shadow?: boolean;
 	onClickBackdrop?: () => void;
 	permanent?: boolean;
 	target?: HTMLElement;
@@ -14,7 +13,7 @@ export interface IDrawerProps {
 
 export const Drawer = (props: IDrawerProps) => {
 
-	const { children, className, position = 'left', permanent = false, target = document.body, onClickBackdrop } = props;
+	const { children, className, position = 'left', permanent = false, target = document.body, shadow = true, onClickBackdrop, ...rest } = props;
 
 	useEffect(() => {
 		document.body.classList.add(styles.drawerOpen);
@@ -28,32 +27,34 @@ export const Drawer = (props: IDrawerProps) => {
 	}
 
 	return createPortal(
-		<Fragment>
-			<DrawerContent className={className} position={position} permanent={permanent}>
+		<>
+			<DrawerContent className={className} position={position} permanent={permanent} shadow={shadow} {...rest}>
 				{children}
 			</DrawerContent>
 			{!permanent && <Backdrop onClick={handleClickBackdrop} />}
-		</Fragment>,
+		</>,
 		target
 	);
 }
 
-interface IDrawerContentProps {
+interface IDrawerContentProps extends React.ComponentProps<"div"> {
 	children?: ReactNode;
 	position?: 'left' | 'right';
 	className?: string;
 	permanent?: boolean;
+	shadow?: boolean;
 }
 
 const DrawerContent = (props: IDrawerContentProps) => {
-	const { children, className, position = 'left', permanent = false } = props;
+	const { children, className, position = 'left', permanent = false, shadow, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.drawer);
-		className && cssClasses.push(className);
+		shadow && cssClasses.push(styles.shadow);
 		!!permanent && cssClasses.push(styles['permanent']);
 		position === 'left' ? cssClasses.push(styles['left']) : cssClasses.push(styles['right']);
+		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
 
@@ -67,7 +68,7 @@ const DrawerContent = (props: IDrawerContentProps) => {
 	};
 
 	return (
-		<div className={getCssClasses()} style={getStyles()}>
+		<div className={getCssClasses()} style={getStyles()} {...rest}>
 			{children}
 		</div>
 	);

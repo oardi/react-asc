@@ -1,3 +1,6 @@
+## 19.0.1
+- typing fixes
+
 ## 19.0.0
 - changed module bundler to vite
 

@@ -1,28 +1,28 @@
-import { Card, CardBody, CardTitle, Column, IControls, Row, Tab, TabPanel, Tabs } from "lib";
+import { Card, CardBody, CardTitle, Column, IControls, ITabOnChangeEvent, Row, Tab, TabPanel, Tabs } from "lib";
 import React, { Dispatch, useEffect, useState } from "react";
 import { Highlight } from "../../../shared";
 import { ShowcaseExample } from './ShowcaseExample';
 import { ShowcaseOptions } from './ShowcaseOptions';
 
-export interface IShowcaseBaseProps<T> {
-	settingValues: T;
+export interface IShowcaseBaseProps<P> {
+	settingValues: P;
 	setSettingsControls: Dispatch<IControls>; // TODO add types
 }
 
 // with template inheritance
 // TODO -> any to type
-export const withOptions = <T,>(WrappedComponent: any, defaultSettingValues?: T, componentName?: string) => {
+export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowcaseBaseProps<T>>, defaultSettingValues?: T, componentName?: string) {
 
-	const HOC = (props: any) => {
+	const HOC = ({...rest}) => {
 
 		const [fileUrl, setFileUrl] = useState('');
-		const [settingValues, setSettingValues] = useState(defaultSettingValues ? defaultSettingValues : {});
-		const [settingsControls, setSettingsControls] = useState<any>(null);
+		const [settingValues, setSettingValues] = useState<T>(defaultSettingValues as T);
+		const [settingsControls, setSettingsControls] = useState<IControls | undefined>();
 
 		const [value, setValue] = useState<string>('tab1');
 
-		const onFormChange = (val: any) => {
-			setSettingValues(val);
+		const onFormChange = (val: unknown) => {
+			setSettingValues(val as T);
 		}
 
 		useEffect(() => {
@@ -31,8 +31,8 @@ export const withOptions = <T,>(WrappedComponent: any, defaultSettingValues?: T,
 			setFileUrl(newFileUrl);
 		}, []);
 
-		const handleChange = (event: any, newValue: string) => {
-			setValue(newValue);
+		const handleChange = (e: ITabOnChangeEvent) => {
+			setValue(e.newValue);
 		}
 
 		// props passed to WrappedComponent
@@ -52,7 +52,7 @@ export const withOptions = <T,>(WrappedComponent: any, defaultSettingValues?: T,
 								<TabPanel value={value} index="tab1">
 									<div className="p-3">
 										<WrappedComponent
-											{...props}
+											{...rest as T}
 											settingValues={settingValues}
 											setSettingsControls={setSettingsControls}
 										/>
@@ -90,7 +90,8 @@ export const withOptions = <T,>(WrappedComponent: any, defaultSettingValues?: T,
 
 			</Row>
 		);
+
 	};
 
 	return HOC;
-};
+}

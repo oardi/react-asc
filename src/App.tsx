@@ -84,11 +84,13 @@ const App = () => {
 								<Route
 									exact
 									path={!appRoute.routes ? appRoute.path : appRoute.routes.map(r => r.path)}
+									// eslint-disable-next-line @typescript-eslint/no-explicit-any
 									component={(Pages as any)[appRoute.componentKey]}
 									key={appRoute.componentKey}>
 
 									{appRoute.routes &&
 										appRoute.routes.map(route => (
+											// eslint-disable-next-line @typescript-eslint/no-explicit-any
 											<Route exact path={route.path} component={(Pages as any)[route.componentKey]} key={route.componentKey} />
 										))
 									}

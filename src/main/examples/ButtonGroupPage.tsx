@@ -3,7 +3,7 @@ import { Button, ButtonGroup, IButtonGroupProps, snackbarService } from 'lib';
 import { withOptions } from './components';
 import { IShowcaseBaseProps } from './components';
 
-const ButtonGroupPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IButtonGroupProps>) => {
+const ButtonGroupPageBase = ({ setSettingsControls }: IShowcaseBaseProps<IButtonGroupProps>) => {
 
 	useEffect(() => {
 		setSettingsControls({

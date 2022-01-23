@@ -4,13 +4,18 @@ import { ITabProps } from './Tab';
 import { TabIndicator } from './TabIndicator';
 import styles from './Tabs.module.scss';
 
+export interface ITabOnChangeEvent {
+	event: React.MouseEvent;
+	newValue: string;
+}
+
 export interface ITabsProps {
 	color?: COLOR;
 	indicatorColor?: COLOR;
 	children?: ReactElement<ITabProps> | Array<ReactElement<ITabProps>>;
 	className?: string;
 	fixed?: boolean;
-	onChange?: (event: any, newValue: string) => void;
+	onChange?: (e: ITabOnChangeEvent) => void;
 	value?: string;
 }
 
@@ -35,10 +40,10 @@ export const Tabs = (props: ITabsProps) => {
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleClickTab = (event: any, newValue: string, index: number) => {
+	const handleClickTab = (event: React.MouseEvent, newValue: string, index: number) => {
 		setSelectedValue(newValue);
 		setSelectedIndex(index);
-		onChange && onChange(event, newValue);
+		onChange && onChange({ event, newValue });
 	}
 
 	const renderTabs = (child: ReactChild, index: number) => { //<PropsWithChildren<ITabProps>>
@@ -46,7 +51,7 @@ export const Tabs = (props: ITabsProps) => {
 			key: child.props.value,
 			isActive: child.props.value === selectedValue,
 			fixed: fixed,
-			onClick: (event: any, newValue: string) => handleClickTab(event, newValue, index),
+			onClick: (event: React.MouseEvent, newValue: string) => handleClickTab(event, newValue, index),
 		});
 	}
 

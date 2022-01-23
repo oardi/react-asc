@@ -7,7 +7,7 @@ import styles from './Checkbox.module.scss';
 export interface ICheckboxProps extends React.ComponentProps<"input"> {
 	label?: string;
 	value?: string;
-	onChange?: (val: React.FocusEvent<HTMLInputElement>) => void;
+	// onChange?: (val: React.FocusEvent<HTMLInputElement>) => void;
 	onKeyDown?: (event: React.KeyboardEvent) => void;
 }
 

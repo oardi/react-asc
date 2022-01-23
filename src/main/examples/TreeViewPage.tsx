@@ -53,4 +53,4 @@ const TreeViewPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 	);
 }
 
-export const TreeViewPage = withOptions(TreeViewPageBase, null, 'TreeViewPageBase');
+export const TreeViewPage = withOptions(TreeViewPageBase, undefined, 'TreeViewPageBase');

@@ -2,10 +2,7 @@ import React, { useEffect } from 'react';
 import { Button, ILoadingIndicatorProps, loadingIndicatorService } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-interface ILoadingIndicatorServiceProps extends ILoadingIndicatorProps {
-}
-
-const LoadingIndicatorPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ILoadingIndicatorServiceProps>) => {
+const LoadingIndicatorPageBase = ({ setSettingsControls }: IShowcaseBaseProps<ILoadingIndicatorProps>) => {
 
 	useEffect(() => {
 		setSettingsControls({});
@@ -27,5 +24,5 @@ const LoadingIndicatorPageBase = ({ settingValues, setSettingsControls }: IShowc
 	);
 }
 
-export const LoadingIndicatorPage = withOptions(LoadingIndicatorPageBase, null, 'LoadingIndicatorPageBase');
+export const LoadingIndicatorPage = withOptions(LoadingIndicatorPageBase, undefined, 'LoadingIndicatorPageBase');
 

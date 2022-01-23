@@ -1,9 +1,8 @@
-import React from 'react';
-import { Card, CardBody, CardTitle, Form, IControls } from 'lib';
+import { Card, CardBody, CardTitle, Form, IControls, IFormValues } from 'lib';
 
 interface IShowcaseSettingsProps {
 	controls: IControls;
-	onFormChange: (val: any) => void;
+	onFormChange: (val: IFormValues) => void;
 }
 
 export const ShowcaseSettings = ({ controls, onFormChange }: IShowcaseSettingsProps) => {

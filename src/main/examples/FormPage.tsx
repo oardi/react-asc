@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react';
-import { FormControl, Form, IControls, Button, VARIANT, COLOR, IFormProps, modalService } from 'lib';
+import { FormControl, Form, IControls, Button, VARIANT, COLOR, IFormProps, modalService, IFormValues } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 import dayjs from 'dayjs';
 import { loggerService } from '../../shared';
@@ -71,7 +71,7 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 		})
 	};
 
-	const onFormSubmit = (values: any) => {
+	const onFormSubmit = (values: IFormValues) => {
 		loggerService.debug(CLASSNAME, 'onFormSubmit', JSON.stringify(values, null, 2));
 		setValues(values);
 	};
@@ -86,14 +86,14 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 		myForm?.current?.handleFormReset();
 	}
 
-	const onFormChange = (values: any) => {
+	const onFormChange = (values: IFormValues) => {
 		loggerService.debug(CLASSNAME, 'onFormChange', JSON.stringify(values, null, 2));
 		setValues(values);
 	}
 
 	const handleOpenInModal = () => {
 		modalService.show('Form', '', { formControls: controls })
-			.then(res => loggerService.debug(res)).catch(() => { });
+			.then(res => loggerService.debug(res));
 	}
 
 	return (

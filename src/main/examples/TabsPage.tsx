@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { ITabsProps, snackbarService, Tab, TabPanel, Tabs } from 'lib';
+import { ITabOnChangeEvent, ITabsProps, snackbarService, Tab, TabPanel, Tabs } from 'lib';
 import { loggerService } from '../../shared';
 import { IShowcaseBaseProps, withOptions } from './components';
+
 
 const CLASSNAME = 'TabsPageBase';
 const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITabsProps>) => {
@@ -15,10 +16,10 @@ const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 	}, []);
 
 
-	const handleChange = (event: any, newValue: string) => {
-		loggerService.debug(CLASSNAME, 'handleSelected', newValue);
-		snackbarService.show(`You selected: ${newValue}`);
-		setValue(newValue);
+	const handleChange = (e: ITabOnChangeEvent) => {
+		loggerService.debug(CLASSNAME, 'handleSelected', e.newValue);
+		snackbarService.show(`You selected: ${e.newValue}`);
+		setValue(e.newValue);
 	}
 
 	return (

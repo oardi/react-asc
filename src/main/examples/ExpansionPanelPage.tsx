@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
-import { ExpansionPanel, IExpansionPanelProps } from 'lib';
-import { IShowcaseBaseProps, withOptions } from './components';
+import { ExpansionPanel } from 'lib';
+import { withOptions } from './components';
 
-const ExpansionPanelPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IExpansionPanelProps>) => {
+const ExpansionPanelPageBase = () => {
 
 	const [expanded, setExpanded] = React.useState<string | false>(false);
 

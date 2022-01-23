@@ -22,8 +22,10 @@ $btn-focus-box-shadow: false;
 $btn-active-box-shadow: false;
 $btn-box-shadow: false;
 
-@import "./main/assets/custom-bootstrap.scss";
 @import "./lib/styles/style.scss";
+
+@import "./styles/custom-bootstrap.scss";
+@import "./styles/variables.scss";
 
 html,
 body,
@@ -36,7 +38,7 @@ body {
 }
 
 #root {
-	background: var(--white);
+	background: var(--bodyBg);
 	display: flex;
 	flex-direction: column;
 	width: 100%;

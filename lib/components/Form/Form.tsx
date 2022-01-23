@@ -105,7 +105,7 @@ export class Form extends Component<IFormProps, IFormState> {
 		return errors;
 	}
 
-	private handleInputChange(name: string, value: any, type: string) {
+	private handleInputChange(name: string, value: unknown) {
 		const field = this.getControl(name);
 		field.value = value;
 
@@ -119,7 +119,7 @@ export class Form extends Component<IFormProps, IFormState> {
 		this.setState({ controls: newControls, isChanged: true }, () => this.handleChange());
 	}
 
-	private handleOnBlur(e: Event) {
+	private handleOnBlur(e: React.FocusEvent<HTMLInputElement>) {
 		if (this.props.validateOnBlur) {
 			const { name } = (e.target as HTMLInputElement);
 			const field = this.getControl(name);
@@ -133,7 +133,7 @@ export class Form extends Component<IFormProps, IFormState> {
 				this.setState({ controls: controls, isChanged: true }, () => this.handleChange());
 			}
 		}
-	};
+	}
 
 	private isRequired(fieldName: string) {
 		let result = false;
@@ -153,10 +153,10 @@ export class Form extends Component<IFormProps, IFormState> {
 		return (this.state.controls as IControls)[name];
 	}
 
-	private renderLabel(fieldKey: string, label: string, labelClassName: string = 'form-label') {
+	private renderLabel(fieldKey: string, label: string, labelClassName = 'form-label') {
 		const cssClasses = [labelClassName, this.isRequired(fieldKey) ? 'required' : undefined];
 		return <FormLabel htmlFor={fieldKey} className={cssClasses.join(' ')}>{label}</FormLabel>;
-	};
+	}
 
 	// trigger via ref
 	handleFormSubmit() {
@@ -194,7 +194,7 @@ export class Form extends Component<IFormProps, IFormState> {
 		});
 	}
 
-	handleOnKeyDown(e: KeyboardEvent) {
+	handleOnKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
 		if (e.key === 'Enter') {
 			e.preventDefault();
 			this.state.submitOnEnter && this.handleFormSubmit();
@@ -206,7 +206,7 @@ export class Form extends Component<IFormProps, IFormState> {
 	}
 
 	getFormGroupCssClass(fieldKey: string) {
-		let result = this.getControl(fieldKey).config.formGroupClassName;
+		const result = this.getControl(fieldKey).config.formGroupClassName;
 		return result;
 	}
 
@@ -239,7 +239,7 @@ export class Form extends Component<IFormProps, IFormState> {
 								value={this.getControl(fieldKey).value}
 								disabled={this.getControl(fieldKey).config.disabled}
 								readonly={this.getControl(fieldKey).config.readonly}
-								onChange={({ name, value, type }) => this.handleInputChange(name as string, value, type as string)}
+								onChange={({ name, value }) => this.handleInputChange(name as string, value)}
 								onBlur={(e) => this.handleOnBlur(e)}
 								onKeyDown={(e) => this.handleOnKeyDown(e)}
 							/>

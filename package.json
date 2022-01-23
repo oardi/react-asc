@@ -1,6 +1,6 @@
 {
 	"name": "react-asc",
-	"version": "19.0.0",
+	"version": "19.0.1",
 	"description": "handcrafted react components",
 	"main": "dist/index.js",
 	"module": "dist/index.es.js",
@@ -42,6 +42,8 @@
 		"@types/react": "^17.0.33",
 		"@types/react-dom": "^17.0.10",
 		"@types/react-router-dom": "^5.3.3",
+		"@typescript-eslint/eslint-plugin": "^5.10.0",
+		"@typescript-eslint/parser": "^5.10.0",
 		"@vitejs/plugin-react": "^1.0.7",
 		"eslint": "^8.7.0",
 		"postcss": "^8.4.5",

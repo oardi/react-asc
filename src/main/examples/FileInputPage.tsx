@@ -13,7 +13,7 @@ const FileInputPageBase = ({ settingValues, setSettingsControls }: IShowcaseBase
 		});
 	}, []);
 
-	const handleOnChange = (e: any) => {
+	const handleOnChange = () => {
 		snackbarService.show(`FileInput changed`);
 	}
 

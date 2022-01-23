@@ -66,24 +66,24 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 				<ListItem onClick={handleClickItem}>
 					<ListItemText primary="lorem ipsum" />
 					<ListItemAction>
-						<IconButton onClick={e => handleClickAction(e as any)} icon={<HomeSolidIcon />} />
+						<IconButton onClick={handleClickAction} icon={<HomeSolidIcon />} />
 					</ListItemAction>
 				</ListItem>
 				<ListItem onClick={handleClickItem}>
 					<ListItemText primary="lorem ipsum" />
 					<ListItemAction>
-						<IconButton color={COLOR.primary} onClick={e => handleClickAction(e as any)} icon={<HomeSolidIcon />} />
+						<IconButton color={COLOR.primary} onClick={handleClickAction} icon={<HomeSolidIcon />} />
 					</ListItemAction>
 				</ListItem>
 				<ListItem onClick={handleClickItem}>
 					<ListItemText primary="lorem ipsum" />
 					<ListItemAction>
-						<IconButton color={COLOR.accent} variant={VARIANT.text} onClick={e => handleClickAction(e as any)} icon={<HomeSolidIcon />} />
+						<IconButton color={COLOR.accent} variant={VARIANT.text} onClick={handleClickAction} icon={<HomeSolidIcon />} />
 					</ListItemAction>
 				</ListItem>
 				<ListItem onClick={handleClickItem}>
 					<ListItemAction>
-						<IconButton onClick={e => handleClickAction(e as any)} icon={<HomeSolidIcon />} />
+						<IconButton onClick={handleClickAction} icon={<HomeSolidIcon />} />
 					</ListItemAction>
 					<ListItemText primary="lorem ipsum" />
 				</ListItem>

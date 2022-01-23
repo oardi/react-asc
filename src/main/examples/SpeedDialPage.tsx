@@ -3,7 +3,7 @@ import { COLOR, ISpeedDialProps, snackbarService, SpeedDial, SpeedDialAction } f
 import { InfoSolidIcon } from '../assets';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const SpeedDialPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ISpeedDialProps>) => {
+const SpeedDialPageBase = ({ setSettingsControls }: IShowcaseBaseProps<ISpeedDialProps>) => {
 
 	const [open, setOpen] = useState<boolean>(false);
 

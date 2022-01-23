@@ -4,12 +4,12 @@ import { Snackbar, useConstructor } from 'lib';
 
 export const ServiceWorkerWrapper = () => {
 	const [showReload, setShowReload] = React.useState(false);
-	const [waitingWorker, setWaitingWorker] = React.useState<ServiceWorker | null>(null);
+	const [waitingWorker] = React.useState<ServiceWorker | null>(null);
 
-	const onSWUpdate = (registration: ServiceWorkerRegistration) => {
-		setShowReload(true);
-		setWaitingWorker(registration.waiting);
-	};
+	// const onSWUpdate = (registration: ServiceWorkerRegistration) => {
+	// 	setShowReload(true);
+	// 	setWaitingWorker(registration.waiting);
+	// };
 
 	useConstructor(() => {
 		// serviceWorkerRegistration.register({ onUpdate: onSWUpdate });

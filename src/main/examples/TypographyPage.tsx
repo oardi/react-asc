@@ -1,8 +1,8 @@
 import React, { Fragment, useEffect } from 'react';
-import { IFileInputProps, Typography } from 'lib';
+import { ITypographyProps, Typography } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const TypographyPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IFileInputProps>) => {
+const TypographyPageBase = ({ setSettingsControls }: IShowcaseBaseProps<ITypographyProps>) => {
 
 	useEffect(() => {
 		setSettingsControls({});
@@ -22,4 +22,7 @@ const TypographyPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 	);
 }
 
-export const TypographyPage = withOptions(TypographyPageBase, null, 'TypographyPageBase');
+export const TypographyPage = withOptions(TypographyPageBase,
+	undefined,
+	'TypographyPageBase'
+);
