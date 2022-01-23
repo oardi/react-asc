@@ -16,7 +16,7 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 	const HOC = ({...rest}) => {
 
 		const [fileUrl, setFileUrl] = useState('');
-		const [settingValues, setSettingValues] = useState<T>(defaultSettingValues as T);
+		const [settingValues, setSettingValues] = useState<T>(defaultSettingValues as T || {} as T);
 		const [settingsControls, setSettingsControls] = useState<IControls | undefined>();
 
 		const [value, setValue] = useState<string>('tab1');
