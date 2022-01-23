@@ -66,7 +66,7 @@ export class Form extends Component<IFormProps, IFormState> {
 	}
 
 	// extract to service?
-	private validateField(fieldValue: any, fieldValidators: Array<string>): Array<IFormInputError> {
+	private validateField(fieldValue: unknown, fieldValidators: Array<string>): Array<IFormInputError> {
 		const errors: Array<IFormInputError> = [];
 		if (fieldValidators) {
 			for (const validator of fieldValidators) {
@@ -81,7 +81,7 @@ export class Form extends Component<IFormProps, IFormState> {
 						}
 						break;
 					case 'email':
-						if (EmailValidator(fieldValue)) {
+						if (EmailValidator(fieldValue as string)) {
 							errors.push({ validator: validatorName, message: 'Email format is wrong' });
 						}
 						break;
