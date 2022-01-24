@@ -5,7 +5,7 @@ import { MilliSecondSelect } from "./MilliSecondSelect";
 import { MinuteSelect } from "./MinuteSelect";
 import { SecondSelect } from "./SecondSelect";
 
-export enum TIMEMODE { HOUR, MINUTE, SECONDS, MILLISECONDS };
+export enum TIMEMODE { HOUR, MINUTE, SECONDS, MILLISECONDS }
 
 export interface ITimeSelectProps {
 	value?: Date;

@@ -1,10 +1,7 @@
 import React from 'react';
 import styles from './CardImage.module.scss';
 
-interface ICardImageProps extends React.ComponentProps<"img"> {
-}
-
-export const CardImage = (props: ICardImageProps) => {
+export const CardImage = (props: React.ComponentProps<"img">) => {
 
 	const { src, alt, className, ...rest } = props;
 

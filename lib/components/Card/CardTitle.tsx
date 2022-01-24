@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './CardTitle.module.scss';
 
 interface ICardTitleProps extends React.ComponentProps<"div"> {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	as?: any;
 }
 

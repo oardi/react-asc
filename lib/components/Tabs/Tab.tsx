@@ -9,7 +9,7 @@ export interface ITabProps {
 	fixed?: boolean; // TODO
 	disabled?: boolean;
 	className?: string;
-	onClick?: (event: any, value: string) => void;
+	onClick?: (e: { event: React.MouseEvent, value: string }) => void;
 }
 
 export const Tab = (props: ITabProps) => {
@@ -29,7 +29,7 @@ export const Tab = (props: ITabProps) => {
 	return (
 		<Button
 			className={getCssClasses()}
-			onClick={(event) => onClick && onClick(event, value)}
+			onClick={(event) => onClick && onClick({ event, value })}
 			isActive={isActive}
 			disabled={disabled}
 		>

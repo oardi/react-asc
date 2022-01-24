@@ -1,13 +1,10 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { ConditionalWrapper } from '../ConditionalWrapper';
 import styles from './BreadcrumbItem.module.scss';
 
-export interface IBreadcrumbItemProps {
-	className?: string;
+export interface IBreadcrumbItemProps extends React.ComponentProps<'li'> {
 	isActive?: boolean;
 	path?: string;
-	children?: ReactNode;
-	onClick?: (event: React.MouseEvent) => void;
 }
 
 export const BreadcrumbItem = (props: IBreadcrumbItemProps) => {
@@ -22,7 +19,7 @@ export const BreadcrumbItem = (props: IBreadcrumbItemProps) => {
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleClick = (event: React.MouseEvent) => {
+	const handleClick = (event: React.MouseEvent<HTMLLIElement>) => {
 		onClick && onClick(event);
 	}
 
@@ -30,7 +27,6 @@ export const BreadcrumbItem = (props: IBreadcrumbItemProps) => {
 		<li className={getCssClasses()} onClick={handleClick}>
 			<ConditionalWrapper
 				condition={!isActive}
-				// eslint-disable-next-line jsx-a11y/anchor-is-valid
 				wrapper={label => <a>{label}</a>}>
 				{children}
 			</ConditionalWrapper>

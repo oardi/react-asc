@@ -1,4 +1,4 @@
-import React, { cloneElement, Fragment, PropsWithChildren, ReactChild, ReactElement, useEffect, useState } from 'react';
+import React, { cloneElement, PropsWithChildren, ReactChild, ReactElement, useEffect, useState } from 'react';
 import { COLOR } from '../component.enums';
 import { ITabProps } from './Tab';
 import { TabIndicator } from './TabIndicator';
@@ -51,12 +51,12 @@ export const Tabs = (props: ITabsProps) => {
 			key: child.props.value,
 			isActive: child.props.value === selectedValue,
 			fixed: fixed,
-			onClick: (event: React.MouseEvent, newValue: string) => handleClickTab(event, newValue, index),
+			onClick: (e: {event: React.MouseEvent, value: string}) => handleClickTab(e.event, e.value, index),
 		});
 	}
 
 	return (
-		<Fragment>
+		<>
 			<div className={getCssClasses()}>
 				{children && React.Children.toArray(children).map((child, index) => renderTabs(child as ReactChild, index))}
 
@@ -69,6 +69,6 @@ export const Tabs = (props: ITabsProps) => {
 					/>
 				}
 			</div>
-		</Fragment>
+		</>
 	)
 }

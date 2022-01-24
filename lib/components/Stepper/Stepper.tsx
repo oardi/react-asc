@@ -46,7 +46,7 @@ export const Stepper = (props: IStepperProps) => {
 		return skipped.has(step);
 	};
 
-	const handleClickStep = (event: any, newValue: string, index: number) => {
+	const handleClickStep = (event: React.MouseEvent, newValue: string, index: number) => {
 		setActiveIndex(() => {
 			onChange && onChange(index);
 			return index;
@@ -62,11 +62,9 @@ export const Stepper = (props: IStepperProps) => {
 				isDisabled: isLinear && (activeIndex + 1 < index),
 				showLabel: showLabel,
 				showProgressCheckIcon: showProgressCheckIcon,
-				onClick: (event: any, val: string) => handleClickStep(event, val, index)
+				onClick: (e: { event: React.MouseEvent, value: string }) => handleClickStep(e.event, e.value, index)
 			});
 	}
-
-
 
 	const isStepOptional = (index: number) => {
 		return steps && steps[index].props.isOptional;
@@ -126,7 +124,7 @@ export const Stepper = (props: IStepperProps) => {
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.stepper);
-		isHorizontal && cssClasses.push(styles['isHorizontal' as any]);
+		isHorizontal && cssClasses.push(styles['isHorizontal']);
 		return cssClasses.filter(css => css).join(' ');
 	}
 

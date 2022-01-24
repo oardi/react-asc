@@ -22,7 +22,7 @@ export interface IAutoCompleteProps {
 	showClearButton?: boolean;
 	onSelect?: (val: ISelectOption) => void;
 	onChange?: (val: string | undefined) => void;
-	onKeyDown?: (event: any) => void;
+	// onKeyDown?: (event: any) => void;
 }
 
 // preset value
@@ -120,7 +120,7 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 		hide();
 	}
 
-	const handleOnChange = (e: any) => {
+	const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setModel(e.target.value);
 		setSearchText(e.target.value);
 		show();

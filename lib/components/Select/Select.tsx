@@ -1,4 +1,4 @@
-import React, { KeyboardEventHandler, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ChevronDownSolidIcon } from '../../icons';
 import { Checkbox } from '../Checkbox';
 import { Chip } from '../Chip';
@@ -27,7 +27,7 @@ export interface ISelectProps {
 	multipleMaxCountItems?: number;
 	disabled?: boolean;
 	onChange?: (val: string | Array<string>) => void;
-	onKeyDown?: (event: any) => void;
+	onKeyDown?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
 }
 
 export const Select = (props: ISelectProps) => {
@@ -48,7 +48,7 @@ export const Select = (props: ISelectProps) => {
 	}
 
 	useEffect(() => {
-		const newValue = !!value ? value : '';
+		const newValue = value ? value : '';
 		writeValue(newValue);
 		if (newValue) {
 			const option = options.find(o => o.value === newValue);
@@ -126,15 +126,15 @@ export const Select = (props: ISelectProps) => {
 		let result = null;
 		if (selectedOptions.length <= multipleMaxCountItems && selectedOptions.length > 0) {
 			result = selectedOptions
-				.map(o =>
+				.map(option =>
 					<Chip
-						key={o.value}
+						key={option.value}
 						className="mr-2"
 						color={COLOR.primary}
 						isDeletable={true}
-						onDelete={(e) => handleOnDelete((e as any), o)}
+						onDelete={(e) => handleOnDelete(e, option)}
 					>
-						{o.label}
+						{option.label}
 					</Chip>
 				);
 		} else {
@@ -143,17 +143,17 @@ export const Select = (props: ISelectProps) => {
 		return result;
 	}
 
-	const handleOnDelete = (event: Event, option: ISelectOption) => {
+	const handleOnDelete = (event: React.MouseEvent, option: ISelectOption) => {
 		event.stopPropagation();
 		handleOnClick(option);
 	}
 
 	// TODO - extract with wrapper?
-	const handleOnKeyDown = (e: KeyboardEventHandler<HTMLDivElement>) => {
+	const handleOnKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
 		if (isShow) {
 			onKeyDown && onKeyDown(e);
 
-			switch ((e as any).code) {
+			switch (e.code) {
 				case 'Escape':
 					hide();
 					break;
@@ -183,7 +183,7 @@ export const Select = (props: ISelectProps) => {
 	return (
 		<div ref={selectConainter} className={styles.selectContainer}>
 
-			<div id={id} className={getCssClass()} onClick={() => show()} tabIndex={0} onKeyDown={e => handleOnKeyDown(e as any)}>
+			<div id={id} className={getCssClass()} onClick={() => show()} tabIndex={0} onKeyDown={e => handleOnKeyDown(e)}>
 				{!multiple && renderSingleViewModel()}
 				{multiple && renderMultipleViewModel()}
 

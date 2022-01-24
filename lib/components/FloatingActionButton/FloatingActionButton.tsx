@@ -10,7 +10,7 @@ export interface IFloatingActionButtonProps extends React.DetailedHTMLProps<Reac
 	fixed?: boolean;
 	isActive?: boolean;
 	disabled?: boolean;
-	onClick?: (e: any) => void;
+	onClick?: (e: React.MouseEvent) => void;
 }
 
 export const FloatingActionButton = (props: IFloatingActionButtonProps) => {

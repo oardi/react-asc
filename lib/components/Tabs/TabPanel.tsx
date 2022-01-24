@@ -3,12 +3,11 @@ import React from 'react';
 export interface ITabPanelProps extends React.DetailedHTMLProps<React.HTMLProps<HTMLDivElement>, HTMLDivElement> {
 	value: string;
 	index: string;
-	className?: string;
 }
 
 export const TabPanel = (props: ITabPanelProps) => {
 
-	const { children, className, value, index, ...rest } = props;
+	const { children, value, index, ...rest } = props;
 
 	return (
 		<div

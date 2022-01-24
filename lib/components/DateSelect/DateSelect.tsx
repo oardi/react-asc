@@ -4,7 +4,7 @@ import { DaySelect } from "./DaySelect";
 import { MonthSelect } from "./MonthSelect";
 import { YearSelect } from "./YearSelect";
 
-export enum DATEMODE { YEAR, MONTH, DAY };
+export enum DATEMODE { YEAR, MONTH, DAY }
 
 export interface IDateSelectProps {
 	value?: Date;

@@ -15,14 +15,14 @@ export interface ISnackbarOptions {
 }
 
 class SnackbarService implements ISnackbarService {
-	private container: any;
-	private handler: any;
+	private container: HTMLElement | undefined;
+	private handler: NodeJS.Timeout | undefined;
 
 	show(message: React.ReactChildren | string, options?: ISnackbarOptions): Promise<void> {
 		const defaultOptions: ISnackbarOptions = { timeout: 3000, actionText: 'ok', color: COLOR.dark, target: document.body };
 		const mergedOptions = Object.assign(defaultOptions, options);
 
-		return new Promise((resolve, reject) => {
+		return new Promise((resolve) => {
 			if (this.container) {
 				this.hide();
 			}
@@ -58,8 +58,8 @@ class SnackbarService implements ISnackbarService {
 		if (this.container) {
 			unmountComponentAtNode(this.container);
 			document.body.removeChild(this.container);
-			this.container = null;
-			clearTimeout(this.handler);
+			this.container = undefined;
+			this.handler && clearTimeout(this.handler);
 		}
 	}
 }

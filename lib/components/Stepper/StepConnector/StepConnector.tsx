@@ -19,7 +19,7 @@ export const StepConnector = (props: IStepConnectorProps) => {
 	const getCssClassesLine = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.stepConnectorLine);
-		isActive && cssClasses.push(styles['isActive' as any]);
+		isActive && cssClasses.push(styles['isActive']);
 		isHorizontal && cssClasses.push(styles.stepConnectorLineHorizontal);
 		return cssClasses.filter(css => css).join(' ');
 	}

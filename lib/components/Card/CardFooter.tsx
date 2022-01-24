@@ -1,10 +1,7 @@
 import React from 'react';
 import styles from './CardFooter.module.scss';
 
-interface ICardFooter extends React.ComponentProps<"div"> {
-}
-
-export const CardFooter = (props: ICardFooter) => {
+export const CardFooter = (props: React.ComponentProps<"div">) => {
 
 	const { children, className, ...rest } = props;
 

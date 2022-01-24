@@ -1,3 +1,6 @@
+## 19.0.2
+- lint fixes
+
 ## 19.0.1
 - typing fixes
 

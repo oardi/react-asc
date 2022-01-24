@@ -4,21 +4,19 @@ import { Checkbox } from '../Checkbox';
 import { IconButton } from '../IconButton';
 import styles from './TreeItem.module.scss';
 
-export interface ITreeItemProps {
+export interface ITreeItemProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLLIElement>, HTMLLIElement> {
 	nodeId: string;
 	label: string;
-	children?: any;
-	className?: string;
 	isExpanded?: boolean;
 	isSelected?: boolean;
 	isSelectable?: boolean;
 	onToggleExpand?: (id: string) => void;
-	onSelect?: (id: string, isSelected: boolean) => void;
+	onItemSelect?: (e: { id: string, isSelected: boolean }) => void;
 }
 
 export const TreeItem = (props: ITreeItemProps) => {
 
-	const { nodeId, label, children, className, isExpanded, isSelected, isSelectable, onToggleExpand, onSelect } = props;
+	const { nodeId, label, children, className, isExpanded, isSelected, isSelectable, onToggleExpand, onItemSelect } = props;
 
 	const [_isExpanded, setIsExpanded] = useState<boolean>(false);
 	const [_isSelected, setIsSelected] = useState<boolean>(false);
@@ -47,7 +45,7 @@ export const TreeItem = (props: ITreeItemProps) => {
 
 	const handleOnSelect = (nodeId: string) => {
 		setIsSelected(!_isSelected);
-		onSelect && onSelect(nodeId, !_isSelected);
+		onItemSelect && onItemSelect({ id: nodeId, isSelected: !_isSelected });
 	}
 
 	return (

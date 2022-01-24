@@ -1,4 +1,4 @@
-import React, {  ReactElement, useRef } from 'react';
+import React, { ReactElement, useRef } from 'react';
 import { MenuPosition } from './menu.types';
 import { IMenuItemProps } from './MenuItem';
 import { MenuBody } from './MenuBody';
@@ -9,13 +9,12 @@ export interface IMenuProps extends React.DetailedHTMLProps<React.HtmlHTMLAttrib
 	open?: boolean;
 	children?: ReactElement<IMenuItemProps> | Array<ReactElement<IMenuItemProps>>;
 	menuPosition?: MenuPosition;
-	onToggleClick?: (e: Event) => void;
 	onClickBackdrop?: () => void;
 }
 
 export const Menu = (props: IMenuProps) => {
 
-	const { toggle, children, className, open, menuPosition, onClickBackdrop, onToggleClick, ...rest } = props;
+	const { toggle, children, className, open, menuPosition, onClickBackdrop, ...rest } = props;
 
 	const menuContainer = useRef<HTMLDivElement>(null);
 	const toggleContainerRef = useRef<HTMLDivElement>(null);
@@ -43,7 +42,7 @@ export const Menu = (props: IMenuProps) => {
 					parentRef={toggleContainerRef}
 					menuPosition={menuPosition}
 					onClickBackdrop={handleClickBackdrop}
-					>
+				>
 					{children}
 				</MenuBody>
 			}

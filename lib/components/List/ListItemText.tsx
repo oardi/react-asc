@@ -29,13 +29,13 @@ export const ListItemText = ({ primary, secondary, ...rest }: IListItemTextProps
 }
 
 
-const ListItemTextPrimary = ({ children }: any) => (
+const ListItemTextPrimary = ({ children }: React.ComponentProps<'div'>) => (
 	<div className="list-item-text-primary">
 		{children}
 	</div>
 );
 
-const ListItemTextSecondary = ({ children }: any) => (
+const ListItemTextSecondary = ({ children }: React.ComponentProps<'div'>) => (
 	<div className="list-item-text-secondary text-muted" style={{ fontSize: '0.875rem' }}>
 		{children}
 	</div>

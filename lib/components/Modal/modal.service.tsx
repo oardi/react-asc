@@ -1,8 +1,8 @@
 import React from 'react';
+import { render, unmountComponentAtNode } from 'react-dom';
 import { GlobalModal } from './GlobalModal';
 import { IControls, IFormValues } from '../Form';
 import { ReactElement } from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
 import { IModalButton } from './modal.interfaces';
 import { SIZE } from '../component.enums';
 
@@ -21,7 +21,7 @@ export interface IModalOptions {
 }
 
 class ModalService implements IModalService {
-	private container: any;
+	private container: HTMLElement | undefined;
 
 	show(title: string, description: string | ReactElement, options?: IModalOptions): Promise<void | IFormValues> {
 		return new Promise((resolve, reject) => {

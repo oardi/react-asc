@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useRef } from 'react';
 import { CheckSolidIcon, CircleSolidIcon } from '../../../icons';
 import { useHover } from '../../../hooks';
 import { COLOR } from '../../component.enums';
@@ -18,17 +18,18 @@ export interface IStepProps {
 	isOptional?: boolean;
 	className?: string;
 	showProgressCheckIcon?: boolean;
-	onClick?: (event: any, value: string) => void;
+	onClick?: (e: { event: React.MouseEvent, value: string }) => void;
 }
 
 export const Step = (props: IStepProps) => {
 
 	const { className, label, showLabel, index, value, isActive, isDone, isDisabled, showProgressCheckIcon, onClick } = props;
-	const [hoverRef, isHovered] = useHover();
+	const hoverRef = useRef(null)
+	const isHover = useHover(hoverRef);
 
-	const handleClick = (e: any) => {
+	const handleClick = (event: React.MouseEvent) => {
 		if (!isDisabled) {
-			onClick && onClick(e, value);
+			onClick && onClick({ event, value });
 		}
 	}
 
@@ -49,15 +50,23 @@ export const Step = (props: IStepProps) => {
 		return cssClasses.filter(css => css).join(' ');
 	}
 
+	const getCssClassesStepValue = () => {
+		const cssClasses: Array<string> = [];
+		cssClasses.push(styles.stepValue);
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		isActive && cssClasses.push((styles.stepValue as any)['isActive'])
+		return cssClasses.filter(css => css).join(' ');
+	}
+
 	return (
-		<div ref={hoverRef as any} className={getCssClasses()} onClick={handleClick}>
+		<div ref={hoverRef} className={getCssClasses()} onClick={handleClick}>
 
 			<div className={getCssClassesStep()}>
-				<Icon className={styles.stepIconCircle} iconColor={(isHovered || isActive) && !isDisabled ? COLOR.primary : COLOR.secondary}>
+				<Icon className={styles.stepIconCircle} iconColor={(isHover || isActive) && !isDisabled ? COLOR.primary : COLOR.secondary}>
 					<CircleSolidIcon />
 				</Icon>
 
-				<div className={styles.stepValue + ' ' + (isActive ? (styles.stepValue['isActive' as any]) : '')}>
+				<div className={getCssClassesStepValue()}>
 					{showProgressCheckIcon && isActive && isDone ?
 						<Icon>
 							<CheckSolidIcon />

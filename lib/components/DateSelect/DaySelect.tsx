@@ -31,7 +31,7 @@ export const DaySelect = (props: IDaySelectProps) => {
 	}, [month, year]);
 
 	const init = () => {
-		var daysInMonth = new Date(year, month + 1, 0).getDate();
+		const daysInMonth = new Date(year, month + 1, 0).getDate();
 		const newDays: Array<ISelectOption> = [];
 		for (let i = 1; i <= daysInMonth; i++) {
 			newDays.push({ value: i.toString(), label: i.toString() });

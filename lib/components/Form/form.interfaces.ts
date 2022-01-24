@@ -5,7 +5,7 @@ export interface IControls {
 }
 
 export interface IFormValues {
-	[key: string]: any;
+	[key: string]: unknown;
 }
 
 export interface IFormTextAreaOptions {

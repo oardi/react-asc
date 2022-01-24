@@ -1,9 +1,6 @@
 import React from 'react';
 
-interface IFormHintProps extends React.ComponentProps<"small"> {
-}
-
-export const FormHint = (props: IFormHintProps) => {
+export const FormHint = (props: React.ComponentProps<"small">) => {
 
 	const { children, className = 'form-text text-muted' } = props;
 

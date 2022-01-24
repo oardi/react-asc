@@ -12,14 +12,14 @@ const TreeViewPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 
 	const [selectedIds, setSelectedIds] = useState<Array<string>>([]);
 
-	const handleOnSelect = (id: string, isSelected: boolean) => {
+	const handleOnSelect = (e: {id: string, isSelected: boolean}) => {
 		let oldIds: Array<string> = selectedIds;
-		if (isSelected) {
-			oldIds = oldIds.concat([id]);
+		if (e.isSelected) {
+			oldIds = oldIds.concat([e.id]);
 			setSelectedIds(oldIds);
-			isSelected && snackbarService.show(id);
+			e.isSelected && snackbarService.show(e.id);
 		} else {
-			oldIds = oldIds.filter(oldId => oldId !== id);
+			oldIds = oldIds.filter(oldId => oldId !== e.id);
 			setSelectedIds(oldIds);
 		}
 	}
@@ -27,16 +27,16 @@ const TreeViewPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 	return (
 		<>
 			<TreeView>
-				<TreeItem nodeId="1" label="some text" onSelect={handleOnSelect} isSelectable={settingValues.isSelectable}>
-					<TreeItem nodeId="11" label="some text" onSelect={handleOnSelect} isSelectable={settingValues.isSelectable} />
-					<TreeItem nodeId="12" label="some text" onSelect={handleOnSelect} isSelectable={settingValues.isSelectable} />
-					<TreeItem nodeId="13" label="some text" onSelect={handleOnSelect} isSelectable={settingValues.isSelectable}>
-						<TreeItem nodeId="111" label="some text" onSelect={handleOnSelect} isSelectable={settingValues.isSelectable} />
-						<TreeItem nodeId="112" label="some text" onSelect={handleOnSelect} isSelectable={settingValues.isSelectable} />
+				<TreeItem nodeId="1" label="some text" onItemSelect={handleOnSelect} isSelectable={settingValues.isSelectable}>
+					<TreeItem nodeId="11" label="some text" onItemSelect={handleOnSelect} isSelectable={settingValues.isSelectable} />
+					<TreeItem nodeId="12" label="some text" onItemSelect={handleOnSelect} isSelectable={settingValues.isSelectable} />
+					<TreeItem nodeId="13" label="some text" onItemSelect={handleOnSelect} isSelectable={settingValues.isSelectable}>
+						<TreeItem nodeId="111" label="some text" onItemSelect={handleOnSelect} isSelectable={settingValues.isSelectable} />
+						<TreeItem nodeId="112" label="some text" onItemSelect={handleOnSelect} isSelectable={settingValues.isSelectable} />
 					</TreeItem>
 				</TreeItem>
-				<TreeItem nodeId="2" label="some text" onSelect={handleOnSelect} isSelectable={settingValues.isSelectable} />
-				<TreeItem nodeId="3" label="some text" onSelect={handleOnSelect} isSelectable={settingValues.isSelectable} />
+				<TreeItem nodeId="2" label="some text" onItemSelect={handleOnSelect} isSelectable={settingValues.isSelectable} />
+				<TreeItem nodeId="3" label="some text" onItemSelect={handleOnSelect} isSelectable={settingValues.isSelectable} />
 			</TreeView>
 
 			{settingValues.isSelectable &&

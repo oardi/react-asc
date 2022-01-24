@@ -11,8 +11,8 @@ export interface IModalProps {
 	children?: ReactNode;
 	header?: string;
 	footer?: string | ReactElement;
-	onHeaderCloseClick?: Function;
-	onBackdropClick?: Function;
+	onHeaderCloseClick?: () => void;
+	onBackdropClick?: () => void;
 	isDismissable?: boolean;
 	fullScreen?: boolean;
 	size?: SIZE;
@@ -47,7 +47,7 @@ export const Modal = (props: IModalProps) => {
 		<Fragment>
 			<div className={"modal show " + styles.modal} style={{ display: 'block' }}>
 				<div className={getCssClass()}>
-					<div className={'modal-content ' + (!!fullScreen ? styles['modalContent'] : undefined)}>
+					<div className={'modal-content ' + (fullScreen ? styles['modalContent'] : undefined)}>
 						{
 							header &&
 							<ModalHeader isDismissable={isDismissable} onClose={() => onHeaderCloseClick && onHeaderCloseClick()}>

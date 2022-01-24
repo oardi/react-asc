@@ -1,1 +1,1 @@
-export const IsEqualValidator = (valueA: any, valueB: any) => valueA === valueB;
+export const IsEqualValidator = (valueA: unknown, valueB: unknown) => valueA === valueB;

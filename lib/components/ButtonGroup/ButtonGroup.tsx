@@ -1,10 +1,7 @@
 import React from 'react';
 import styles from './ButtonGroup.module.scss';
 
-export interface IButtonGroupProps extends React.ComponentProps<"div"> {
-}
-
-export const ButtonGroup = (props: IButtonGroupProps) => {
+export const ButtonGroup = (props: React.ComponentProps<"div">) => {
 
 	const { children, className, ...rest } = props;
 

@@ -15,7 +15,7 @@ export interface IFormInputEvent {
 }
 
 export interface IFormInputProps {
-	value: string | number | readonly string[] | undefined;
+	value: string | number | boolean | readonly string[] | undefined;
 	name: string;
 	type: IFormControlType;
 	placeholder?: string;
@@ -32,7 +32,7 @@ export interface IFormInputProps {
 	onInput?: (e: IFormInputEvent) => void;
 	onChange?: (e: IFormInputEvent) => void;
 	onBlur?: React.FocusEventHandler<HTMLInputElement> | undefined;
-	onKeyDown?: React.KeyboardEventHandler<HTMLInputElement> | undefined;
+	onKeyDown?: React.KeyboardEventHandler<HTMLInputElement | undefined>;
 }
 
 export const FormInput = (props: IFormInputProps) => {
@@ -147,7 +147,7 @@ export const FormInput = (props: IFormInputProps) => {
 					value={value as string}
 					multiple={selectOptions?.multiple}
 					onChange={e => handleOnChange(e, type, name as string)}
-					onKeyDown={onKeyDown}
+					// onKeyDown={e => onKeyDown(e)}
 					options={options}
 				/>
 			}
@@ -161,7 +161,6 @@ export const FormInput = (props: IFormInputProps) => {
 					value={value as string}
 					openOnFocus={autoCompleteOptions?.openOnFocus}
 					onChange={e => handleOnChange(e, type, name as string)}
-					onKeyDown={onKeyDown}
 					options={options}
 				/>
 			}
@@ -175,7 +174,7 @@ export const FormInput = (props: IFormInputProps) => {
 					className={(!isValid ? ' is-invalid' : '')}
 					// onChange={e => handleOnChange((e?.target as HTMLInputElement).checked, type, name as string)}
 					checked={value === 'true' ? true : false}
-					// onKeyDown={onKeyDown}
+				// onKeyDown={onKeyDown}
 				/>
 			}
 
@@ -197,7 +196,7 @@ export const FormInput = (props: IFormInputProps) => {
 
 			{
 				type === 'radio' &&
-				<Fragment>
+				<>
 					{options.map((option) =>
 						<div className="form-check" key={option.id}>
 							<input
@@ -215,7 +214,7 @@ export const FormInput = (props: IFormInputProps) => {
 							</label>
 						</div>
 					)}
-				</Fragment>
+				</>
 			}
 
 		</Fragment>

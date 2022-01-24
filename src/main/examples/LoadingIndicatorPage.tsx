@@ -1,12 +1,7 @@
-import React, { useEffect } from 'react';
-import { Button, ILoadingIndicatorProps, loadingIndicatorService } from 'lib';
-import { IShowcaseBaseProps, withOptions } from './components';
+import { Button, loadingIndicatorService } from 'lib';
+import { withOptions } from './components';
 
-const LoadingIndicatorPageBase = ({ setSettingsControls }: IShowcaseBaseProps<ILoadingIndicatorProps>) => {
-
-	useEffect(() => {
-		setSettingsControls({});
-	}, []);
+const LoadingIndicatorPageBase = () => {
 
 	const handleClick = () => {
 		loadingIndicatorService.show();

@@ -7,5 +7,5 @@ export interface IMenuContext {
 
 export const MenuContext = createContext<IMenuContext>({
 	isShow: false,
-	setIsShow: () => { }
+	setIsShow: () => Function
 });

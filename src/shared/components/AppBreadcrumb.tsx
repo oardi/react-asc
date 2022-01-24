@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { Breadcrumb, BreadcrumbItem } from 'lib';
+import { Breadcrumb, BreadcrumbItem, HomeSolidIcon, Icon } from 'lib';
 import { loggerService } from '../services';
 
 interface IAppBreadcrumb {
 	label: string;
 	path?: string;
 	isActive?: boolean;
+	icon?: React.ReactElement;
 }
 
 const CLASSNAME = 'AppBreadcrumb';
@@ -20,8 +21,8 @@ export const AppBreadcrumb = () => {
 	useEffect(() => {
 		const currentPath = location.pathname.replace(' ', '');
 		const splittedPath = currentPath.split('/').filter(p => p !== 'Showcase' && p); // TODO - showcase
-		const newItems = splittedPath.map(sP => ({ label: sP, path: '/' + sP, isActive: false }));
-		newItems.unshift({ label: 'Home', path: '/', isActive: false });
+		const newItems: Array<IAppBreadcrumb> = splittedPath.map(sP => ({ label: sP, path: '/' + sP, isActive: false }));
+		newItems.unshift({ label: 'Home', path: '/', isActive: false, icon: <HomeSolidIcon /> });
 		newItems[newItems.length - 1].isActive = true;
 		setItems(newItems.length <= 1 ? [] : newItems);
 	}, [location]);
@@ -39,6 +40,11 @@ export const AppBreadcrumb = () => {
 					{items.map((item, index) =>
 						<BreadcrumbItem key={index} isActive={item.isActive} path={item.path} onClick={() => handleClickBreadcrumbItem(item)}>
 							{item.label}
+							{item.icon &&
+								<Icon>
+									{item.icon}
+								</Icon>
+							}
 						</BreadcrumbItem>
 					)}
 				</Breadcrumb>

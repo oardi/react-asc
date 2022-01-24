@@ -8,6 +8,6 @@ export interface IAppContext {
 
 export const AppContext = createContext<IAppContext>({
 	appInfo: {},
-	setAppInfo: () => { }
+	setAppInfo: () => Function
 });
 export const useAppContext = () => useContext(AppContext);

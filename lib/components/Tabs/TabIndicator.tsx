@@ -6,8 +6,8 @@ export interface ITabIndicatorProps extends React.DetailedHTMLProps<React.HtmlHT
 	amount?: number;
 	index?: number;
 	color?: COLOR;
-	width?: any;
-	left?: any;
+	width?: string;
+	left?: number;
 }
 
 export const TabIndicator = (props: ITabIndicatorProps) => {

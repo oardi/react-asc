@@ -1,10 +1,7 @@
 import React from 'react';
 import styles from './CardBody.module.scss';
 
-interface ICardBodyProps extends React.ComponentProps<"div"> {
-}
-
-export const CardBody = (props: ICardBodyProps) => {
+export const CardBody = (props: React.ComponentProps<"div">) => {
 
 	const { children, className, ...rest } = props;
 

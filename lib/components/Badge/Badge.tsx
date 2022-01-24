@@ -4,7 +4,7 @@ import styles from './Badge.module.scss';
 
 export interface IBadgeProps extends React.ComponentProps<"div"> {
 	color?: COLOR;
-	content?: any;
+	content?: React.ReactNode;
 }
 
 export const Badge = (props: IBadgeProps) => {

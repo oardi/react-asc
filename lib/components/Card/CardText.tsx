@@ -1,10 +1,7 @@
 import React from 'react';
 import styles from './CardText.module.scss';
 
-interface ICardTextProps extends React.ComponentProps<"p"> {
-}
-
-export const CardText = (props: ICardTextProps) => {
+export const CardText = (props: React.ComponentProps<"p">) => {
 
 	const { children, className, ...rest } = props;
 
@@ -17,7 +14,7 @@ export const CardText = (props: ICardTextProps) => {
 
 	return (
 		<p className={getCssClasses()} {...rest}>
-			{props.children}
+			{children}
 		</p>
 	);
 }

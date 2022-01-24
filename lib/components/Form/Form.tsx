@@ -49,7 +49,7 @@ export class Form extends Component<IFormProps, IFormState> {
 			const values = keys.reduce((obj, f) => {
 				const control = this.getControl(f);
 				// TODO - refactor
-				const newValue = ((control.type === 'date' || control.type === 'datetime-local') && control.value && isValidDate(control.value)) ? new Date(control.value).toISOString() : control.value;
+				const newValue = ((control.type === 'date' || control.type === 'datetime-local') && control.value && isValidDate((control.value) as unknown as Date)) ? new Date((control.value) as unknown as Date).toISOString() : control.value;
 
 				return ({
 					...obj,
@@ -105,7 +105,7 @@ export class Form extends Component<IFormProps, IFormState> {
 		return errors;
 	}
 
-	private handleInputChange(name: string, value: unknown) {
+	private handleInputChange(name: string, value: string | number | readonly string[] | undefined) {
 		const field = this.getControl(name);
 		field.value = value;
 
@@ -194,7 +194,7 @@ export class Form extends Component<IFormProps, IFormState> {
 		});
 	}
 
-	handleOnKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+	handleOnKeyDown(e: React.KeyboardEvent<HTMLInputElement | undefined>) {
 		if (e.key === 'Enter') {
 			e.preventDefault();
 			this.state.submitOnEnter && this.handleFormSubmit();

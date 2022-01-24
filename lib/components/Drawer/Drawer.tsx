@@ -1,4 +1,4 @@
-import React, { Fragment, ReactNode, useEffect } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Backdrop } from '../Backdrop';
 import styles from './Drawer.module.scss';

@@ -10,7 +10,6 @@ export const FileInput = (props: IFileInputProps) => {
 
 	const {
 		id,
-		checked,
 		className,
 		children,
 		name,
@@ -26,7 +25,7 @@ export const FileInput = (props: IFileInputProps) => {
 	const inputFileElement = useRef<HTMLInputElement>(null);
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const [model, setModel] = useState<any>(value);
+	const [model, setModel] = useState(value);
 	const [fileList, setFileList] = useState<FileList>();
 
 	const getCssClasses = () => {
@@ -35,14 +34,13 @@ export const FileInput = (props: IFileInputProps) => {
 		return cssClasses.filter(r => r).join(' ');
 	}
 
-	const handleOnChange = (event: any) => {
+	const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const values = event.target.files as FileList;
 		setFileList(values);
 		onChange && onChange(event);
 	}
 
-	const handleOnDelete = (file: File) => {
-		// TODO - setModel
+	const handleOnDelete = () => {
 		alert('coming soon');
 	}
 
@@ -57,7 +55,7 @@ export const FileInput = (props: IFileInputProps) => {
 					<Chip
 						key={file.name}
 						isDeletable={deletable}
-						onDelete={() => handleOnDelete(file)}
+						onDelete={() => handleOnDelete()}
 					>
 						{file.name}
 					</Chip>

@@ -10,7 +10,7 @@ export interface IMenuBodyProps {
 	children?: ReactElement<IMenuItemProps> | Array<ReactElement<IMenuItemProps>>;
 	className?: string;
 	menuPosition?: MenuPosition;
-	parentRef: React.RefObject<any>;
+	parentRef: React.RefObject<HTMLDivElement>;
 	shadow?: boolean;
 	onClickBackdrop?: () => void;
 }
@@ -21,14 +21,15 @@ export const MenuBody = (props: IMenuBodyProps) => {
 	const menuBodyRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		if (menuBodyRef) {
-			createPopper((parentRef.current as any), (menuBodyRef.current as any), {
+		if (menuBodyRef && parentRef.current && menuBodyRef.current) {
+			createPopper(parentRef.current, menuBodyRef.current, {
 				placement: `${menuPosition}-start`,
 				modifiers: [
 					{
 						name: 'offset',
 						options: {
-							offset: ({ placement, reference, popper }: any) => {
+							// eslint-disable-next-line @typescript-eslint/no-explicit-any
+							offset: ({ placement, popper }: any) => {
 								if (placement === 'left-start') {
 									return [0, -popper.width]; // y, x
 								}

@@ -6,7 +6,7 @@ export class ListItemModel {
 		return { ...dto }
 	}
 
-	key: any;
+	key: unknown;
 	props: IListItemProps | undefined;
-	type: any;
+	type: unknown;
 }

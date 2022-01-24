@@ -4,40 +4,36 @@ import { LoadingIndicator } from './LoadingIndicator';
 import { LoadingIndicatorContainer } from './LoadingIndicatorContainer';
 
 export interface ILoadingIndicatorService {
-	show(message: string, options?: ILoadingIndicatorOptions): Promise<void>;
-}
-
-export interface ILoadingIndicatorOptions {
+	show(message: string): void;
 }
 
 class LoadingIndicatorService implements ILoadingIndicatorService {
-	private container: any;
-	private handler: any;
+	private container: HTMLDivElement | undefined;
+	private handler: NodeJS.Timer | undefined;
 
-	show(): Promise<void> {
-		return new Promise((resolve, reject) => {
-			if (this.container) {
-				this.hide();
-			}
-			this.container = document.createElement('div');
-			this.container.classList.add('snackbar-container');
-			document.body.appendChild(this.container);
+	show() {
+		if (this.container) {
+			this.hide();
+		}
+		this.container = document.createElement('div');
+		this.container.classList.add('snackbar-container');
+		document.body.appendChild(this.container);
 
-			render(
-				<LoadingIndicatorContainer>
-					<LoadingIndicator />
-				</LoadingIndicatorContainer>,
-				this.container
-			);
-		})
+		render(
+			<LoadingIndicatorContainer>
+				<LoadingIndicator />
+			</LoadingIndicatorContainer>,
+			this.container
+		);
+
 	}
 
 	hide() {
 		if (this.container) {
 			unmountComponentAtNode(this.container);
 			document.body.removeChild(this.container);
-			this.container = null;
-			clearTimeout(this.handler);
+			this.container = undefined;
+			this.handler && clearTimeout(this.handler);
 		}
 	}
 }

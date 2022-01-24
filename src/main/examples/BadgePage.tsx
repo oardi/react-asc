@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Badge, COLOR, FormControl, IBadgeProps, HomeSolidIcon, Icon } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
@@ -15,7 +15,7 @@ const BadgePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 	}, []);
 
 	return (
-		<Fragment>
+		<>
 			<Badge
 				color={settingValues.color}
 				content={settingValues.content}
@@ -24,7 +24,7 @@ const BadgePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 					<HomeSolidIcon />
 				</Icon>
 			</Badge>
-		</Fragment>
+		</>
 	);
 }
 

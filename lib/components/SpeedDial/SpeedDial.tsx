@@ -21,7 +21,7 @@ export const SpeedDial = (props: ISpeedDialProps) => {
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleClick = (e: any) => {
+	const handleClick = (e: React.MouseEvent) => {
 		if (open) onClose && onClose(e)
 		else onOpen && onOpen(e)
 	};

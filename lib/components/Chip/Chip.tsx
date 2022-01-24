@@ -9,7 +9,7 @@ export interface IChipProps extends React.ComponentProps<"div"> {
 	onClick?: (e: React.MouseEvent<Element>) => void;
 	isDeletable?: boolean;
 	onDelete?: (e: React.MouseEvent<Element>) => void;
-	deleteIcon?: any;
+	deleteIcon?: JSX.Element;
 }
 
 export const Chip = (props: IChipProps) => {
