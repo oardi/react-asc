@@ -76,7 +76,7 @@ const App = () => {
 				}
 
 				<div className="container-fluid">
-					<AppBreadcrumb />
+					<AppBreadcrumb className="mt-3" />
 
 					<Switch>
 						{appRoutes &&

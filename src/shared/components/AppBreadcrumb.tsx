@@ -3,6 +3,10 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { Breadcrumb, BreadcrumbItem, HomeSolidIcon, Icon } from 'lib';
 import { loggerService } from '../services';
 
+interface IAppBreadcrumbProps {
+	className?: string;
+}
+
 interface IAppBreadcrumb {
 	label: string;
 	path?: string;
@@ -11,7 +15,7 @@ interface IAppBreadcrumb {
 }
 
 const CLASSNAME = 'AppBreadcrumb';
-export const AppBreadcrumb = () => {
+export const AppBreadcrumb = ({ className }: IAppBreadcrumbProps) => {
 
 	const location = useLocation();
 	const history = useHistory();
@@ -36,7 +40,7 @@ export const AppBreadcrumb = () => {
 	return (
 		<>
 			{items && items.length > 0 &&
-				<Breadcrumb>
+				<Breadcrumb className={className}>
 					{items.map((item, index) =>
 						<BreadcrumbItem key={index} isActive={item.isActive} path={item.path} onClick={() => handleClickBreadcrumbItem(item)}>
 							{item.label && !item.icon &&

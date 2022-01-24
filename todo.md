@@ -28,7 +28,6 @@ ListItemAction -> color prüfen
 - Snackbar
 - SpeedDial
 - Stepper
-- Table
 - TreeView
 - Typography
 

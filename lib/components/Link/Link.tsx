@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { STATUS } from '../component.enums';
+import styles from './Link.module.scss';
 
 export const Link = (props: React.ComponentProps<"a">) => {
 
@@ -8,6 +9,7 @@ export const Link = (props: React.ComponentProps<"a">) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
+		cssClasses.push(styles.link);
 		className && cssClasses.push(className);
 		status !== STATUS.NORMAL && cssClasses.push(status);
 		return cssClasses.filter(css => css).join(' ');

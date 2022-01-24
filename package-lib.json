@@ -1,6 +1,6 @@
 {
 	"name": "react-asc",
-	"version": "19.0.4",
+	"version": "19.0.5",
 	"description": "handcrafted react components",
 	"main": "index.js",
 	"module": "index.es.js",
