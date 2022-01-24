@@ -9,13 +9,15 @@ import { IFormControlType } from '../form.types';
 import styles from './FormInput.module.scss';
 
 export interface IFormInputEvent {
-	value: string | number | readonly string[] | undefined;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	value: any;
 	type?: string;
 	name?: string;
 }
 
 export interface IFormInputProps {
-	value: string | number | boolean | readonly string[] | undefined;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	value: any;
 	name: string;
 	type: IFormControlType;
 	placeholder?: string;
