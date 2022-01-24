@@ -26,7 +26,7 @@ const CardPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 				<Card style={{ width: '320px' }}>
 					{
 						settingValues.showImage &&
-						<CardImage src="./manifest-icon-512.png" alt="some alt text" />
+						<CardImage src="./pwa-512x512.png" alt="some alt text" />
 					}
 					<CardBody>
 						<CardTitle>Title</CardTitle>

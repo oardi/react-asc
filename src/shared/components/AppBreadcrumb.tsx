@@ -39,7 +39,11 @@ export const AppBreadcrumb = () => {
 				<Breadcrumb>
 					{items.map((item, index) =>
 						<BreadcrumbItem key={index} isActive={item.isActive} path={item.path} onClick={() => handleClickBreadcrumbItem(item)}>
-							{item.label}
+							{item.label && !item.icon &&
+								<span>
+									{item.label}
+								</span>
+							}
 							{item.icon &&
 								<Icon>
 									{item.icon}

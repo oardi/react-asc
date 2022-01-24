@@ -1,4 +1,7 @@
 .breadcrumbItem {
+	display: flex;
+	align-items: center;
+
 	& + .breadcrumbItem {
 		padding-left: 0.5rem;
 	}

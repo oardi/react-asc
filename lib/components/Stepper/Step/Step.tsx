@@ -24,8 +24,7 @@ export interface IStepProps {
 export const Step = (props: IStepProps) => {
 
 	const { className, label, showLabel, index, value, isActive, isDone, isDisabled, showProgressCheckIcon, onClick } = props;
-	const hoverRef = useRef(null)
-	const isHover = useHover(hoverRef);
+	const [hoverRef, isHovered] = useHover();
 
 	const handleClick = (event: React.MouseEvent) => {
 		if (!isDisabled) {
@@ -59,10 +58,10 @@ export const Step = (props: IStepProps) => {
 	}
 
 	return (
-		<div ref={hoverRef} className={getCssClasses()} onClick={handleClick}>
+		<div ref={hoverRef as React.MutableRefObject<null>} className={getCssClasses()} onClick={handleClick}>
 
 			<div className={getCssClassesStep()}>
-				<Icon className={styles.stepIconCircle} iconColor={(isHover || isActive) && !isDisabled ? COLOR.primary : COLOR.secondary}>
+				<Icon className={styles.stepIconCircle} iconColor={(isHovered || isActive) && !isDisabled ? COLOR.primary : COLOR.secondary}>
 					<CircleSolidIcon />
 				</Icon>
 

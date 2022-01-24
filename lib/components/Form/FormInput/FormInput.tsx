@@ -68,11 +68,13 @@ export const FormInput = (props: IFormInputProps) => {
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleOnInput = (value: string | number | readonly string[] | undefined, type: string, name: string) => {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	const handleOnInput = (value: any, type: IFormControlType, name: string) => {
 		onInput && onInput({ value, type, name })
 	};
 
-	const handleOnChange = (value: string | number | readonly string[] | undefined, type: string, name: string) => {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	const handleOnChange = (value: any, type: IFormControlType, name: string) => {
 		onChange && onChange({ value, type, name })
 	};
 
@@ -174,7 +176,7 @@ export const FormInput = (props: IFormInputProps) => {
 					name={name}
 					label={label}
 					className={(!isValid ? ' is-invalid' : '')}
-					// onChange={e => handleOnChange((e?.target as HTMLInputElement).checked, type, name as string)}
+					onChange={e => handleOnChange((e?.target as HTMLInputElement).checked, type, name as string)}
 					checked={value === 'true' ? true : false}
 				// onKeyDown={onKeyDown}
 				/>
