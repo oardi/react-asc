@@ -18,7 +18,10 @@
 	font-size: 0.875rem;
 
 	border-radius: var(--borderRadius);
-	box-shadow: var(--shadow);
+
+	&.shadow {
+		box-shadow: var(--shadow);
+	}
 }
 
 .btnContained {

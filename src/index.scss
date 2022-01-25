@@ -2,18 +2,6 @@
 @import "bootstrap/scss/variables";
 
 $enable-shadows: true;
-$theme-colors: (
-	"primary": #3f51b5,
-	"secondary": $secondary,
-	"accent": #ff4081,
-	"light": #ffffff,
-	"success": $success,
-	"info": $info,
-	"warning": $warning,
-	"danger": $danger,
-	"dark": $dark,
-);
-
 $box-shadow-sm: false;
 $box-shadow: false;
 $box-shadow-lg: false;

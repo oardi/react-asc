@@ -10,11 +10,12 @@ export interface IButtonProps extends React.ComponentProps<"button"> {
 	variant?: VARIANT;
 	startIcon?: React.SVGProps<SVGSVGElement>;
 	endIcon?: React.SVGProps<SVGSVGElement>;
+	shadow?: boolean;
 }
 
 export const Button: React.FunctionComponent<IButtonProps> = (props) => {
 
-	const { children, variant = VARIANT.contained, color = COLOR.primary, isRounded, isActive, className, startIcon, endIcon, ...rest } = props;
+	const { children, variant = VARIANT.contained, color = COLOR.primary, isRounded, isActive, className, startIcon, endIcon, shadow = true, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -38,6 +39,7 @@ export const Button: React.FunctionComponent<IButtonProps> = (props) => {
 		if (isActive) {
 			cssClasses.push('active');
 		}
+		shadow && cssClasses.push(styles.shadow);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};

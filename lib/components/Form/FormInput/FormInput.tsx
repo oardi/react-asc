@@ -177,7 +177,7 @@ export const FormInput = (props: IFormInputProps) => {
 					label={label}
 					className={(!isValid ? ' is-invalid' : '')}
 					onChange={e => handleOnChange((e?.target as HTMLInputElement).checked, type, name as string)}
-					checked={value === 'true' ? true : false}
+					checked={value}
 				// onKeyDown={onKeyDown}
 				/>
 			}

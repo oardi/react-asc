@@ -20,6 +20,7 @@ const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 			isRounded: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'isRounded' }),
 			showStartIcon: new FormControl(settingValues.showStartIcon, [], 'checkbox', { label: 'showStartIcon' }),
 			showEndIcon: new FormControl(settingValues.showEndIcon, [], 'checkbox', { label: 'showEndIcon' }),
+			shadow: new FormControl(settingValues.shadow, [], 'checkbox', { label: 'shadow' }),
 		});
 	}, []);
 
@@ -39,6 +40,7 @@ const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 				onClick={handleClick}
 				startIcon={settingValues.showStartIcon ? <InfoSolidIcon /> : undefined}
 				endIcon={settingValues.showEndIcon ? <InfoSolidIcon /> : undefined}
+				shadow={settingValues.shadow}
 			>
 				some button text
 			</Button>
@@ -49,5 +51,6 @@ const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 
 export const ButtonPage = withOptions<IButtonExampleProps>(ButtonPageBase, {
 	color: COLOR.primary,
-	variant: VARIANT.contained
+	variant: VARIANT.contained,
+	shadow: true
 }, 'ButtonPageBase');

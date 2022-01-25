@@ -1,3 +1,7 @@
+## 19.0.6
+- checkbox form fix
+- button shadow fix
+
 ## 19.0.5
 - scss fixes
 
