@@ -42,10 +42,13 @@
 	--buttonMinWidth: 62px;
 	--buttonPadding: 11px 15px;
 
-	--fontFamily: "Segoe UI", "Roboto", "Helvetica Neue", "Arial";
+	--fontFamily:  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	--fontSize: 16px;
+	--fontWeight: 400;
 
 	--highlight: rgba(204, 216, 224, 0.2); // ???
 
 	--breakpointMd: 768px;
+
+	--bodyLineHeight: 1.5;
 }

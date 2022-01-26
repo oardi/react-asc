@@ -13,6 +13,7 @@ const Wrapper = (props: IWrapperProps) => {
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.typography);
+		cssClasses.push(styles.as);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};

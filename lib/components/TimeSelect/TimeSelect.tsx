@@ -64,7 +64,6 @@ export const TimeSelect = (props: ITimeSelectProps) => {
 				<FormGroup className="col">
 					<FormLabel>Hours</FormLabel>
 					<HourSelect
-						className="form-control"
 						value={currDate.getHours()}
 						disabled={disabled}
 						onChange={e => handleOnChange(e, TIMEMODE.HOUR)}
@@ -76,7 +75,6 @@ export const TimeSelect = (props: ITimeSelectProps) => {
 				<FormGroup className="col">
 					<FormLabel>Minutes</FormLabel>
 					<MinuteSelect
-						className="form-control"
 						value={currDate.getMinutes()}
 						disabled={disabled}
 						onChange={e => handleOnChange(e, TIMEMODE.MINUTE)}
@@ -88,7 +86,6 @@ export const TimeSelect = (props: ITimeSelectProps) => {
 				<FormGroup className="col">
 					<FormLabel>Seconds</FormLabel>
 					<SecondSelect
-						className="form-control"
 						value={currDate.getSeconds()}
 						disabled={disabled}
 						onChange={e => handleOnChange(e, TIMEMODE.SECONDS)}
@@ -100,7 +97,6 @@ export const TimeSelect = (props: ITimeSelectProps) => {
 				<FormGroup className="col">
 					<FormLabel>Milliseconds</FormLabel>
 					<MilliSecondSelect
-						className="form-control"
 						value={currDate.getMilliseconds()}
 						disabled={disabled}
 						onChange={e => handleOnChange(e, TIMEMODE.MILLISECONDS)}

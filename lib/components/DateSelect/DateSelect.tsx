@@ -42,7 +42,6 @@ export const DateSelect = (props: IDateSelectProps) => {
 			<FormGroup className="col">
 				<FormLabel>Year</FormLabel>
 				<YearSelect
-					className="form-control"
 					value={currDate.getFullYear()}
 					disabled={disabled}
 					from={yearConfig?.from}
@@ -53,7 +52,6 @@ export const DateSelect = (props: IDateSelectProps) => {
 			<FormGroup className="col">
 				<FormLabel>Month</FormLabel>
 				<MonthSelect
-					className="form-control"
 					value={currDate.getMonth()}
 					disabled={disabled}
 					onChange={e => handleOnChange(e, DATEMODE.MONTH)}
@@ -62,7 +60,6 @@ export const DateSelect = (props: IDateSelectProps) => {
 			<FormGroup className="col">
 				<FormLabel>Day</FormLabel>
 				<DaySelect
-					className="form-control"
 					day={currDate.getDate()}
 					month={currDate.getMonth()}
 					year={currDate.getFullYear()}

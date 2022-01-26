@@ -44,7 +44,7 @@ export const FormInput = (props: IFormInputProps) => {
 		name,
 		type,
 		placeholder,
-		className = 'form-control',
+		className,
 		isValid = true,
 		options = [],
 		textareaOptions,
@@ -64,7 +64,7 @@ export const FormInput = (props: IFormInputProps) => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.formInput);
 		className && cssClasses.push(className);
-		!isValid && cssClasses.push('is-invalid');
+		!isValid && cssClasses.push(styles['isInvalid']);
 		return cssClasses.filter(css => css).join(' ');
 	};
 
@@ -131,7 +131,8 @@ export const FormInput = (props: IFormInputProps) => {
 				<Textarea
 					id={name}
 					name={name}
-					className={className + (!isValid ? ' is-invalid' : '')}
+					className={className}
+					error={!isValid}
 					value={value}
 					autoFocus={autoFocus}
 					onInput={e => handleOnInput((e.target as HTMLTextAreaElement).value, type, name as string)}

@@ -24,7 +24,6 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 			<Select
 				id="myselect"
 				name="myselect"
-				className="form-control"
 				multiple={settingValues.multiple}
 				multipleMaxCountItems={settingValues.multipleMaxCountItems}
 				options={[

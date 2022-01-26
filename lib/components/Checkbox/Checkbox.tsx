@@ -42,6 +42,13 @@ export const Checkbox = (props: ICheckboxProps) => {
 		return cssClasses.filter(css => css).join(' ');
 	};
 
+	const getCssClassesLabel = () => {
+		const cssClasses: Array<string> = [];
+		cssClasses.push(styles.checkboxLabel);
+		disabled && cssClasses.push(styles['disabled']);
+		return cssClasses.filter(css => css).join(' ');
+	};
+
 	const getIcon = () => {
 		return isChecked ? icons.selected : icons.default;
 	};
@@ -63,7 +70,7 @@ export const Checkbox = (props: ICheckboxProps) => {
 				disabled={disabled || readOnly}
 			/>
 
-			<label onClick={handleClick} className={styles.checkboxLabel + ' ' + (disabled ? styles['disabled'] : undefined)}>
+			<label onClick={handleClick} className={getCssClassesLabel()}>
 				{label}
 			</label>
 

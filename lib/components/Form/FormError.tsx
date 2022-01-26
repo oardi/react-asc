@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { IFormInputError } from './form.interfaces';
+import styles from './FormError.module.scss';
 
 interface IFormErrorProps {
 	className?: string;
@@ -8,7 +9,7 @@ interface IFormErrorProps {
 
 export const FormError = (props: IFormErrorProps) => {
 
-	const { className = 'invalid-feedback', errors = [] } = props;
+	const { className = styles.isInvalid, errors = [] } = props;
 
 	return (
 		<Fragment>

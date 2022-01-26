@@ -1,6 +1,10 @@
 .alert {
 	border-radius: var(--borderRadius);
 	padding: 6px 16px;
+
+	&.shadow {
+		box-shadow: var(--shadow);
+	}
 }
 
 .contained {

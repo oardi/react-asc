@@ -9,7 +9,7 @@ import pkg from "./package.json";
 const rollupConfig = {
 	input: "lib/index.ts",
 
-	external: ['react', 'react-dom', '@popperjs/core'],
+	external: ['react', 'react-dom', '@popperjs/core', 'modern-normalize'],
 
 	// preserveModules: true,
 

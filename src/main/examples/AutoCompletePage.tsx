@@ -58,7 +58,6 @@ const AutoCompletePageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 			<AutoComplete
 				id="myAutoComplete"
 				name="myAutoComplete"
-				className="form-control"
 				options={options}
 				openOnFocus={settingValues.openOnFocus}
 				debounce={settingValues.debounce}

@@ -27,7 +27,7 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 				{ id: 'radioOption2', label: 'Option 2', value: 'option2' }
 			]
 		}),
-		textarea: new FormControl('', [], 'textarea', { label: 'Textarea', placeholder: 'some notes', textareaOptions: { rows: 3, resize: false } }),
+		textarea: new FormControl('', ['required'], 'textarea', { label: 'Textarea', placeholder: 'some notes', textareaOptions: { rows: 3, resize: false } }),
 		number: new FormControl('', [], 'number', { label: 'Number' }),
 		password: new FormControl('', ['required'], 'password', { label: 'Password' }),
 		passwordMatch: new FormControl('', ['required', 'match:password'], 'password', { label: 'Password Match' }),

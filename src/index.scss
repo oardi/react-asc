@@ -13,6 +13,7 @@ $btn-box-shadow: false;
 @import "./lib/styles/style.scss";
 
 @import "./styles/custom-bootstrap.scss";
+@import "modern-normalize/modern-normalize.css";
 @import "./styles/variables.scss";
 
 html,
@@ -23,6 +24,7 @@ body,
 
 body {
 	display: flex;
+	line-height: var(--bodyLineHeight);
 }
 
 #root {

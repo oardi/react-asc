@@ -34,7 +34,6 @@ export const NumberSelect = (props: INumberSelectProps) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push('form-control');
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	}

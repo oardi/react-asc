@@ -1,3 +1,10 @@
+## 20.0.0
+- added modern-normalize as a dependency
+- form - removed bootstrap classes
+- alert - added shadow
+- button - added outline
+- iconButton - added outline
+
 ## 19.0.7
 - modal - removed bootstrap classes
 - backdrop - removed bootstrap classes
