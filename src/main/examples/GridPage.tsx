@@ -1,17 +1,25 @@
-import React, { Fragment } from 'react';
-import { Column, Row } from 'lib';
-import { withOptions } from './components';
+import React, { useEffect } from 'react';
+import { Column, IContainerProps, FormControl, Row } from 'lib';
+import { IShowcaseBaseProps, withOptions } from './components';
 
-const GridPageBase = () => {
+const GridPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IContainerProps>) => {
+
+	useEffect(() => {
+		setSettingsControls({
+			direction: new FormControl(settingValues.direction, [], 'select', { label: 'direction', options: ['row', 'row-reverse', 'column', 'column-reverse'].map(c => ({ label: c, value: c })) }),
+		});
+	}, []);
+
 	return (
-		<Fragment>
-			<Row>
-				<Column>col 1</Column>
-				<Column>col 2</Column>
-				<Column>col 3</Column>
-			</Row>
+		<Row direction={settingValues.direction}>
+			<Column>col 1</Column>
+			<Column>col 2</Column>
+			<Column>col 3</Column>
 
-			<Row>
+			{/* <Row>
+			</Row> */}
+
+			{/* <Row>
 				<Column xs={12} md={4}>col 1</Column>
 				<Column xs={6} md={4}>col 2</Column>
 				<Column xs={6} md={4}>col 3</Column>
@@ -24,9 +32,11 @@ const GridPageBase = () => {
 				<Column xs={2}>col 4</Column>
 				<Column xs={2}>col 5</Column>
 				<Column xs={2}>col 6</Column>
-			</Row>
-		</Fragment>
+			</Row> */}
+		</Row>
 	);
 }
 
-export const GridPage = withOptions(GridPageBase, null, 'GridPageBase');
+export const GridPage = withOptions(GridPageBase, {
+	direction: 'row'
+}, 'GridPageBase');

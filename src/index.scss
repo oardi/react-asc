@@ -10,9 +10,9 @@ $btn-focus-box-shadow: false;
 $btn-active-box-shadow: false;
 $btn-box-shadow: false;
 
-@import "./lib/styles/style.scss";
-
 @import "./styles/custom-bootstrap.scss";
+
+@import "./lib/styles/style.scss";
 @import "modern-normalize/modern-normalize.css";
 @import "./styles/variables.scss";
 

@@ -1,11 +1,7 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { Card } from 'lib';
 
-interface IShowcaseExampleProps {
-	children: ReactElement;
-}
-
-export const ShowcaseExample = ({ children }: IShowcaseExampleProps) => (
+export const ShowcaseExample = ({ children }: React.ComponentProps<'div'>) => (
 	<Card>
 		{children}
 	</Card>

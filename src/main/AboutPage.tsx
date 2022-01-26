@@ -35,6 +35,7 @@ export const AboutPage = () => {
 				<ListItem>React</ListItem>
 				<ListItem>Twitter Bootstrap</ListItem>
 				<ListItem>PopperJs</ListItem>
+				<ListItem>Modern Normalize</ListItem>
 			</List>
 
 			<Typography as="h3">

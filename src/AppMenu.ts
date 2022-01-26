@@ -25,7 +25,7 @@ export const menuItems: Array<IMenuItem> = [
 			{ id: "FileInput" },
 			{ id: "FloatingActionButton" },
 			{ id: "Form", label: "Form (beta)" },
-			{ id: "Grid" },
+			{ id: "Grid", label: "Grid (beta)" },
 			{ id: "Icon" },
 			{ id: "IconButton" },
 			{ id: "Link" },

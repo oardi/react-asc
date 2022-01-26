@@ -90,10 +90,26 @@
 	flex-wrap: wrap;
 }
 
-@media (min-width: 768px) {
-	.mt-md-0 {
-		margin-top: 0 !important;
+.flex-row {
+	flex-direction: row;
+}
+.flex-row-reverse {
+	flex-direction: row-reverse;
+}
+.flex-column {
+	flex-direction: column;
+}
+.flex-column-reverse {
+	flex-direction: column-reverse;
+}
+
+@media (max-width: 576px) {
+	.flex-row {
+		flex-direction: column!important;
 	}
+}
+@media (min-width: 768px) {
+
 }
 
 .modal-open {

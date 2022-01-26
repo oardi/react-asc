@@ -13,7 +13,7 @@ export interface IShowcaseBaseProps<P> {
 // TODO -> any to type
 export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowcaseBaseProps<T>>, defaultSettingValues?: T, componentName?: string) {
 
-	const HOC = ({...rest}) => {
+	const HOC = ({ ...rest }) => {
 
 		const [fileUrl, setFileUrl] = useState('');
 		const [settingValues, setSettingValues] = useState<T>(defaultSettingValues as T || {} as T);
@@ -35,20 +35,18 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 			setValue(e.newValue);
 		}
 
-		// props passed to WrappedComponent
 		return (
 			<Row>
-
 				<Column md={6}>
-					<ShowcaseExample>
-						<>
 
-							<Tabs fixed onChange={handleChange} value={value}>
-								<Tab value="tab1" label="Preview" />
-								<Tab value="tab2" label="Usage" />
-							</Tabs>
+					<Row direction="column">
+						<Column>
+							<ShowcaseExample>
+								<Tabs fixed onChange={handleChange} value={value}>
+									<Tab value="tab1" label="Preview" />
+									<Tab value="tab2" label="Usage" />
+								</Tabs>
 
-							<div>
 								<TabPanel value={value} index="tab1">
 									<div className="p-3">
 										<WrappedComponent
@@ -62,31 +60,33 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 								<TabPanel value={value} index="tab2">
 									<Highlight url={fileUrl} />
 								</TabPanel>
-							</div>
+							</ShowcaseExample>
+						</Column>
 
-						</>
-					</ShowcaseExample>
+						{settingValues && Object.keys(settingValues).length > 0 &&
+							<Column>
+								<Card>
+									<CardBody>
+										<CardTitle>Setted Props</CardTitle>
+										<pre>
+											{JSON.stringify(settingValues, null, 4)}
+										</pre>
+									</CardBody>
+								</Card>
+							</Column>
+						}
 
-					{settingValues && Object.keys(settingValues).length > 0 &&
-						<Card className="mt-3">
-							<CardBody>
-								<CardTitle>Setted Props</CardTitle>
-								<pre>
-									{JSON.stringify(settingValues, null, 4)}
-								</pre>
-							</CardBody>
-						</Card>
-					}
+					</Row>
 				</Column>
 
-				{settingsControls && Object.keys(settingsControls).length > 0 &&
-					<Column md={6} className="mt-3 mt-md-0">
+				<Column md={6}>
+					{settingsControls && Object.keys(settingsControls).length > 0 &&
 						<ShowcaseOptions
 							controls={settingsControls}
 							onFormChange={onFormChange}
 						/>
-					</Column>
-				}
+					}
+				</Column>
 
 			</Row>
 		);

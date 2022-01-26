@@ -1,3 +1,7 @@
+## 20.1.0
+- grid - removed bootstrap classes
+- added utility classes
+
 ## 20.0.0
 - added modern-normalize as a dependency
 - form - removed bootstrap classes

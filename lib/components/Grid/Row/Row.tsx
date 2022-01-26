@@ -1,13 +1,17 @@
 import React from 'react';
+import styles from './Row.module.scss';
 
-export const Row = (props: React.ComponentProps<"div">) => {
+export interface IContainerProps extends React.ComponentProps<"div"> {
+	direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
+}
 
-	const { children, className, ...rest } = props;
+export const Row = ({ children, direction = 'row', className, ...rest }: IContainerProps) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push('row');
+		cssClasses.push(styles.row);
 		className && cssClasses.push(className);
+		direction && cssClasses.push(`flex-${direction}`);
 		return cssClasses.filter(css => css).join(' ');
 	};
 
@@ -15,5 +19,5 @@ export const Row = (props: React.ComponentProps<"div">) => {
 		<div className={getCssClasses()} {...rest}>
 			{children}
 		</div>
-	)
+	);
 }

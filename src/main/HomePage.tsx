@@ -30,8 +30,8 @@ export const HomePage = () => {
 			</div>
 
 			<Row className="mt-4">
-				<Column md={6} className="mt-3 mt-md-0">
-					<Card>
+				<Column md={6}>
+					<Card className='h-100'>
 						<CardBody>
 							<CardTitle>
 								Well documentated
@@ -44,8 +44,8 @@ export const HomePage = () => {
 					</Card>
 				</Column>
 
-				<Column md={6} className="mt-3 mt-md-0">
-					<Card>
+				<Column md={6}>
+					<Card className='h-100'>
 						<CardBody>
 							<CardTitle>
 								Compatible
