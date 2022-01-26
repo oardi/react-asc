@@ -1,5 +1,6 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
+import styles from './Backdrop.module.scss';
 
 interface IBackdropProps extends React.ComponentProps<"div"> {
 	target?: HTMLElement;
@@ -17,10 +18,8 @@ export const Backdrop = (props: IBackdropProps) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push(`modal-backdrop fade show`);
-		if (isTransparent) {
-			cssClasses.push(`bg-transparent`);
-		}
+		cssClasses.push(styles.backdrop);
+		isTransparent && cssClasses.push(`bg-transparent`);
 		return cssClasses.filter(css => css).join(' ');
 	}
 

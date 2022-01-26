@@ -18,8 +18,8 @@ export const ModalHeader = (props: IModalHeaderProps) => {
 	};
 
 	return (
-		<div className={"modal-header " + styles.modalHeader} {...rest}>
-			<h5 className="modal-title">
+		<div className={styles.modalHeader} {...rest}>
+			<h5 className={styles.modalTitle}>
 				{children}
 			</h5>
 			{

@@ -1,10 +1,8 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import styles from './ModalFooter.module.scss';
 
-interface IModalFooterProps {
-	children?: ReactNode;
-}
-
-export const ModalFooter = ({ children }: IModalFooterProps) => (
-	<div className={"modal-footer " + styles.modalFooter}>{children}</div>
+export const ModalFooter = ({ children }: React.ComponentProps<'div'>) => (
+	<div className={styles.modalFooter}>
+		{children}
+	</div>
 );

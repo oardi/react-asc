@@ -27,8 +27,8 @@ export const GlobalModal = ({
 	onCancel,
 	isDismissable = false,
 	buttons = [
-		{ label: 'Cancel', type: MODALBUTTONTYPE.CANCEL, color: COLOR.secondary, variant: VARIANT.text, focus: true },
-		{ label: 'Ok', type: MODALBUTTONTYPE.OK, variant: VARIANT.contained },
+		{ label: 'Cancel', type: MODALBUTTONTYPE.CANCEL, color: COLOR.secondary, variant: VARIANT.text, shadow: false },
+		{ label: 'Ok', type: MODALBUTTONTYPE.OK, variant: VARIANT.contained, focus: true },
 	],
 	size = SIZE.md,
 	fullScreen = false
@@ -91,6 +91,7 @@ export const GlobalModal = ({
 							variant={button.variant}
 							color={button.color}
 							autoFocus={button.autoFocus}
+							shadow={button.shadow}
 							onClick={() => handleClickButton(button)}>
 							{button.label}
 						</Button>

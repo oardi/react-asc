@@ -1,10 +1,10 @@
-import React, { Fragment, ReactElement, ReactNode, useEffect } from 'react';
+import React, { ReactElement, ReactNode, useEffect } from 'react';
 import { ModalHeader } from './ModalHeader';
 import { ModalBody } from './ModalBody';
 import { Backdrop } from '../Backdrop';
-import styles from './Modal.module.scss';
 import { ModalFooter } from './ModalFooter';
 import { SIZE } from '../component.enums';
+import styles from './Modal.module.scss';
 
 export interface IModalProps {
 	className?: string;
@@ -24,9 +24,9 @@ export const Modal = (props: IModalProps) => {
 
 	const getCssClass = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push('modal-dialog modal-dialog-centered');
-		cssClasses.push(styles.modal);
-		!!fullScreen && cssClasses.push(styles['fullscreen']);
+		cssClasses.push(styles.modalDialog);
+		cssClasses.push(styles.modalDialogCentered);
+		fullScreen && cssClasses.push(styles.fullscreen);
 		size && cssClasses.push(styles[size]);
 		className && cssClasses.push(className);
 		return cssClasses.filter(r => r).join(' ');
@@ -44,10 +44,10 @@ export const Modal = (props: IModalProps) => {
 	}
 
 	return (
-		<Fragment>
-			<div className={"modal show " + styles.modal} style={{ display: 'block' }}>
+		<>
+			<div className={styles.modal}>
 				<div className={getCssClass()}>
-					<div className={'modal-content ' + (fullScreen ? styles['modalContent'] : undefined)}>
+					<div className={styles.modalContent}>
 						{
 							header &&
 							<ModalHeader isDismissable={isDismissable} onClose={() => onHeaderCloseClick && onHeaderCloseClick()}>
@@ -64,6 +64,6 @@ export const Modal = (props: IModalProps) => {
 				</div>
 			</div>
 			<Backdrop onClick={handleClickBackdrop} />
-		</Fragment>
+		</>
 	);
 };

@@ -9,4 +9,5 @@ export interface IModalButton {
 	autoFocus?: boolean;
 	type?: MODALBUTTONTYPE;
 	focus?: boolean;
+	shadow?: boolean;
 }

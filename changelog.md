@@ -1,3 +1,7 @@
+## 19.0.7
+- modal - removed bootstrap classes
+- backdrop - removed bootstrap classes
+
 ## 19.0.6
 - checkbox form fix
 - button shadow fix
