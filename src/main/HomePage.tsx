@@ -24,12 +24,12 @@ export const HomePage = () => {
 			</Typography>
 
 			<div className="text-center">
-				<Button className="mt-4" onClick={handleClickGetStarted} startIcon={<RocketSolidIcon />}>
+				<Button className="mt-3" onClick={handleClickGetStarted} startIcon={<RocketSolidIcon />}>
 					Getting started
 				</Button>
 			</div>
 
-			<Row className="mt-4">
+			<Row className="mt-3">
 				<Column md={6}>
 					<Card className='h-100'>
 						<CardBody>

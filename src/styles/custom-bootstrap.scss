@@ -44,8 +44,8 @@ $grid-breakpoints: map-remove($grid-breakpoints, "sm"); // xl?
 // @import "~bootstrap/scss/print";
 
 // Helpers
-@import "bootstrap/scss/helpers";
+// @import "bootstrap/scss/helpers";
 
 // Utilities
-@import "bootstrap/scss/utilities/api";
+// @import "bootstrap/scss/utilities/api";
 // scss-docs-end import-stack

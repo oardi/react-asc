@@ -19,7 +19,7 @@ export const Backdrop = (props: IBackdropProps) => {
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.backdrop);
-		isTransparent && cssClasses.push(`bg-transparent`);
+		isTransparent && cssClasses.push(styles['isTransparent']);
 		return cssClasses.filter(css => css).join(' ');
 	}
 

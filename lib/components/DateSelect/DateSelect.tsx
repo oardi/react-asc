@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { FormGroup, FormLabel } from "../Form";
+import { Row, Column } from "../Grid";
+import { FormLabel } from "../Form";
 import { DaySelect } from "./DaySelect";
 import { MonthSelect } from "./MonthSelect";
 import { YearSelect } from "./YearSelect";
@@ -38,8 +39,8 @@ export const DateSelect = (props: IDateSelectProps) => {
 	};
 
 	return (
-		<div className={getCssClasses()}>
-			<FormGroup className="col">
+		<Row className={getCssClasses()}>
+			<Column>
 				<FormLabel>Year</FormLabel>
 				<YearSelect
 					value={currDate.getFullYear()}
@@ -48,16 +49,16 @@ export const DateSelect = (props: IDateSelectProps) => {
 					to={yearConfig?.to}
 					onChange={e => handleOnChange(e, DATEMODE.YEAR)}
 				/>
-			</FormGroup>
-			<FormGroup className="col">
+			</Column>
+			<Column>
 				<FormLabel>Month</FormLabel>
 				<MonthSelect
 					value={currDate.getMonth()}
 					disabled={disabled}
 					onChange={e => handleOnChange(e, DATEMODE.MONTH)}
 				/>
-			</FormGroup>
-			<FormGroup className="col">
+			</Column>
+			<Column>
 				<FormLabel>Day</FormLabel>
 				<DaySelect
 					day={currDate.getDate()}
@@ -66,8 +67,8 @@ export const DateSelect = (props: IDateSelectProps) => {
 					disabled={disabled}
 					onChange={e => handleOnChange(e, DATEMODE.DAY)}
 				/>
-			</FormGroup>
-		</div>
+			</Column>
+		</Row>
 	);
 }
 

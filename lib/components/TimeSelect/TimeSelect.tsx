@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { FormGroup, FormLabel } from "../Form";
+import { Row, Column } from "../Grid";
+import { FormLabel } from "../Form";
 import { HourSelect } from "./HourSelect";
 import { MilliSecondSelect } from "./MilliSecondSelect";
 import { MinuteSelect } from "./MinuteSelect";
@@ -59,50 +60,50 @@ export const TimeSelect = (props: ITimeSelectProps) => {
 	}
 
 	return (
-		<div className={getCssClasses()}>
+		<Row className={getCssClasses()}>
 			{showHours &&
-				<FormGroup className="col">
+				<Column>
 					<FormLabel>Hours</FormLabel>
 					<HourSelect
 						value={currDate.getHours()}
 						disabled={disabled}
 						onChange={e => handleOnChange(e, TIMEMODE.HOUR)}
 					/>
-				</FormGroup>
+				</Column>
 			}
 
 			{showMinutes &&
-				<FormGroup className="col">
+				<Column>
 					<FormLabel>Minutes</FormLabel>
 					<MinuteSelect
 						value={currDate.getMinutes()}
 						disabled={disabled}
 						onChange={e => handleOnChange(e, TIMEMODE.MINUTE)}
 					/>
-				</FormGroup>
+				</Column>
 			}
 
 			{showSeconds &&
-				<FormGroup className="col">
+				<Column>
 					<FormLabel>Seconds</FormLabel>
 					<SecondSelect
 						value={currDate.getSeconds()}
 						disabled={disabled}
 						onChange={e => handleOnChange(e, TIMEMODE.SECONDS)}
 					/>
-				</FormGroup>
+				</Column>
 			}
 
 			{showMilliSeconds &&
-				<FormGroup className="col">
+				<Column>
 					<FormLabel>Milliseconds</FormLabel>
 					<MilliSecondSelect
 						value={currDate.getMilliseconds()}
 						disabled={disabled}
 						onChange={e => handleOnChange(e, TIMEMODE.MILLISECONDS)}
 					/>
-				</FormGroup>
+				</Column>
 			}
-		</div>
+		</Row>
 	);
 }

@@ -1,3 +1,9 @@
+## 20.2.0
+- backdrop - style fixes
+- dateselect - use new grid
+- timeselect - use new grid
+- added utility classes
+
 ## 20.1.0
 - grid - removed bootstrap classes
 - added utility classes
