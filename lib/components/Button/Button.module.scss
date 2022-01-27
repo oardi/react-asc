@@ -24,6 +24,10 @@
 		box-shadow: var(--shadow);
 	}
 
+	&.block {
+		width: 100%;
+	}
+
 	&:hover {
 		cursor: pointer;
 	}

@@ -1,3 +1,7 @@
+## 21.0.1
+- button - block style fix
+- added utility classes
+
 ## 21.0.0
 - removed twitter bootstrap
 - autocomplete - disabled & readOnly style fix
