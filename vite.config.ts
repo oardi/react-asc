@@ -13,7 +13,7 @@ export default defineConfig({
 			manifest: {
 				"short_name": "react-asc",
 				"name": "react-asc",
-				"description": "handcrafted react components written in Typescript using Twitter Bootstrap 5 inspired by Material Design",
+				"description": "handcrafted react components written in Typescript inspired by Material Design",
 				"icons": [
 					{
 						"src": "pwa-192x192.png",

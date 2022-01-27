@@ -1,9 +1,4 @@
-<Table
-	bordered={settingValues.bordered}
-	hover={settingValues.hover}
-	striped={settingValues.striped}
-	responsive={settingValues.responsive}
->
+<Table>
 	<thead>
 		<tr>
 			<th scope="col">#</th>

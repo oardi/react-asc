@@ -1,6 +1,5 @@
 <Menu
 	toggle={<Button>Menu Button</Button>}
-	menuPosition={settingValues.menuPosition}
 >
 	<MenuItem type="header">
 		This is a header

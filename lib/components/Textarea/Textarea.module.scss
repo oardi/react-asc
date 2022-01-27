@@ -24,7 +24,7 @@
 
 	border: 1px solid #ced4da;
 
-	&:focus {
+	&:focus:not(&.disabled) {
 		outline: none !important;
 		border-color: var(--primary);
 	}

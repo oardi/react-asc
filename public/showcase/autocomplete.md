@@ -39,11 +39,7 @@ const AutoCompletePageBase = () => {
 
 	return (
 		<AutoComplete
-			className="form-control"
 			options={options}
-			openOnFocus={settingValues.openOnFocus}
-			debounce={settingValues.debounce}
-			disabled={settingValues.disabled}
 			onSelect={handleOnSelect}
 			onChange={handleOnChange}
 			value={value}

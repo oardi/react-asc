@@ -12,16 +12,14 @@ react-asc interactive showcase [link](https://react-asc.netlify.app)
 `npm install react-asc`
 
 
-### install twitter bootstrap 5
-react-asc aims to get rid of bootstrap - but for now you need Bootstrap
-
-`npm install bootstrap`
+### install modern-normalize
+`npm install modern-normalize`
 
 
 ### Include needed scss files
 
 ```scss
-@import "~bootstrap/scss/bootstrap";
+@import "modern-normalize";
 @import "react-asc/react-asc.scss";
 ```
 

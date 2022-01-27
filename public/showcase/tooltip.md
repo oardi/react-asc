@@ -1,6 +1,6 @@
 <Tooltip
-	text={settingValues.text}
+	text="some tooltip text"
 	placement={settingValues.placement}
 >
-	<Button>show tooltip</Button>
+	<Button>some button text</Button>
 </Tooltip>

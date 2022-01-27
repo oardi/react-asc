@@ -26,13 +26,14 @@ export interface ISelectProps {
 	multiple?: boolean;
 	multipleMaxCountItems?: number;
 	disabled?: boolean;
+	readOnly?: boolean;
 	onChange?: (val: string | Array<string>) => void;
 	onKeyDown?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
 }
 
 export const Select = (props: ISelectProps) => {
 
-	const { id, className, options = [], value, multiple, multipleMaxCountItems = 5, onChange, onKeyDown } = props;
+	const { id, className, options = [], value, multiple, multipleMaxCountItems = 5, disabled, readOnly, onChange, onKeyDown } = props;
 
 	const [model, setModel] = useState<string | Array<string>>('');
 	const [hoverIndex, setHoverIndex] = useState<number | null>(null);
@@ -43,6 +44,8 @@ export const Select = (props: ISelectProps) => {
 	const getCssClass = () => {
 		const cssClasses: Array<string> = [];
 		className && cssClasses.push(className);
+		disabled && cssClasses.push(styles['disabled']);
+		readOnly && cssClasses.push(styles['readOnly']);
 		cssClasses.push(styles.select);
 		return cssClasses.filter(r => r).join(' ');
 	}
@@ -108,7 +111,11 @@ export const Select = (props: ISelectProps) => {
 		writeValue(newValue);
 	}
 
-	const show = () => setIsShow(true);
+	const show = () => {
+		if (!disabled && !readOnly) {
+			setIsShow(true)
+		}
+	};
 	const hide = () => setIsShow(false);
 	const isActive = (option: ISelectOption) => {
 		return selectedOptions.indexOf(option) >= 0 || hoverIndex === options.indexOf(option);

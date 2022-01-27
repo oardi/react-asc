@@ -1,17 +1,3 @@
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-
-$enable-shadows: true;
-$box-shadow-sm: false;
-$box-shadow: false;
-$box-shadow-lg: false;
-$input-btn-focus-box-shadow: false;
-$btn-focus-box-shadow: false;
-$btn-active-box-shadow: false;
-$btn-box-shadow: false;
-
-@import "./styles/custom-bootstrap.scss";
-
 @import "./lib/styles/style.scss";
 @import "modern-normalize/modern-normalize.css";
 @import "./styles/variables.scss";

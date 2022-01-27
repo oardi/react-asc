@@ -11,6 +11,7 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 			multiple: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'multiple' }),
 			multipleMaxCountItems: new FormControl(settingValues.multipleMaxCountItems, [], 'number', { label: 'max count items show (multiple)' }),
 			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' }),
+			readOnly: new FormControl(settingValues.readOnly, [], 'checkbox', { label: 'readOnly' }),
 		});
 	}, []);
 
@@ -45,6 +46,7 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 				]}
 				onChange={handleOnChange}
 				disabled={settingValues.disabled}
+				readOnly={settingValues.readOnly}
 				value={value}
 			/>
 		</Fragment>

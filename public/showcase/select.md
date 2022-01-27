@@ -1,9 +1,4 @@
 <Select
-	id="myselect"
-	name="myselect"
-	className="form-control"
-	multiple={settingValues.multiple}
-	multipleMaxCountItems={settingValues.multipleMaxCountItems}
 	options={[
 		{ value: "1", label: 'one' },
 		{ value: "2", label: 'two' },
@@ -22,6 +17,4 @@
 		{ value: "15", label: 'fifteen' },
 	]}
 	onChange={handleOnChange}
-	disabled={settingValues.disabled}
-	value="2"
 />

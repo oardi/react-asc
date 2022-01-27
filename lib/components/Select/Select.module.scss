@@ -28,12 +28,27 @@
 		cursor: pointer;
 	}
 
-	&:focus {
+	&:focus:not(&.disabled) {
 		color: #212529;
 		background-color: #fff;
 		border-color: #86b7fe;
 		outline: 0;
 		box-shadow: inset 0 1px 2px #00000013, 0 0 0 0.25rem #0d6efd40;
+	}
+
+	&.disabled,
+	&.readOnly {
+		background-color: #e9ecef;
+	}
+	&.disabled {
+		&:hover {
+			cursor: not-allowed;
+		}
+	}
+	&.readOnly {
+		&:hover {
+			cursor: inherit;
+		}
 	}
 }
 

@@ -13,16 +13,17 @@ export const GettingStartedPage = () => {
 			<Highlight text={`npm install react-asc`} />
 
 			<Typography as="h3" className="mt-3">
-				Install Twitter Bootstrap 5
+				Install Modern Normalize
 			</Typography>
-			<Highlight text={`npm install bootstrap`} />
+			<Highlight text={`npm install modern-normalize`} />
 
 			<Typography as="h3" className="mt-3">
 				Include needed scss files
 			</Typography>
 			<Highlight text={`
-				@import "~bootstrap/scss/bootstrap";
-				@import "react-asc/react-asc.scss";`} />
+				@import "modern-normalize";
+				@import "react-asc/react-asc.scss";`
+			} />
 
 			<Typography as="h3" className="mt-3">
 				Start using it
