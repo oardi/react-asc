@@ -6,7 +6,7 @@ import { Layout } from './Layout';
 export const GettingStartedPage = () => {
 
 	return (
-		<Layout title="Getting started" className="pb-4">
+		<Layout title="Getting started" className="pb-3 pt-0">
 			<Typography as="h3">
 				Install react-asc
 			</Typography>

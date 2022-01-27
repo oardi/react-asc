@@ -1,3 +1,6 @@
+## 21.0.2
+- typography - responsive style fix
+
 ## 21.0.1
 - button - block style fix
 - added utility classes

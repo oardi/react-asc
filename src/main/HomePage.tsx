@@ -19,12 +19,12 @@ export const HomePage = () => {
 				react-asc
 			</Typography>
 
-			<Typography as="h2" className="mt-4 text-center">
+			<Typography as="h2" className="mt-3 text-center">
 				Build apps with React and react-asc
 			</Typography>
 
-			<div className="text-center">
-				<Button className="mt-3" onClick={handleClickGetStarted} startIcon={<RocketSolidIcon />}>
+			<div className="text-center mt-3">
+				<Button onClick={handleClickGetStarted} startIcon={<RocketSolidIcon />}>
 					Getting started
 				</Button>
 			</div>
