@@ -5,8 +5,8 @@ import { IconButton } from '../IconButton';
 import styles from './TreeItem.module.scss';
 
 export interface ITreeItemProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLLIElement>, HTMLLIElement> {
-	nodeId: string;
-	label: string;
+	nodeId?: string;
+	label?: string;
 	isExpanded?: boolean;
 	isSelected?: boolean;
 	isSelectable?: boolean;
@@ -55,11 +55,11 @@ export const TreeItem = (props: ITreeItemProps) => {
 		>
 			<div className="d-flex align-items-center">
 
-				{children &&
+				{children && nodeId &&
 					<IconButton onClick={() => handleOnToggleExpand(nodeId)} icon={!_isExpanded ? <ChevronRightSolidIcon /> : <ChevronDownSolidIcon />} />
 				}
 
-				{isSelectable &&
+				{isSelectable && nodeId &&
 					<Checkbox checked={_isSelected} onChange={() => handleOnSelect(nodeId)} />
 				}
 

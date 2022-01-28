@@ -12,7 +12,7 @@ const TreeViewPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 
 	const [selectedIds, setSelectedIds] = useState<Array<string>>([]);
 
-	const handleOnSelect = (e: {id: string, isSelected: boolean}) => {
+	const handleOnSelect = (e: { id: string, isSelected: boolean }) => {
 		let oldIds: Array<string> = selectedIds;
 		if (e.isSelected) {
 			oldIds = oldIds.concat([e.id]);
@@ -53,4 +53,6 @@ const TreeViewPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 	);
 }
 
-export const TreeViewPage = withOptions(TreeViewPageBase, undefined, 'TreeViewPageBase');
+export const TreeViewPage = withOptions(TreeViewPageBase, {
+	isSelectable: false
+}, 'TreeViewPageBase');

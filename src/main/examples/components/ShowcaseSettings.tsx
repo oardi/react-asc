@@ -9,7 +9,9 @@ export const ShowcaseSettings = ({ controls, onFormChange }: IShowcaseSettingsPr
 	return (
 		<Card>
 			<CardBody>
-				<CardTitle>Settings</CardTitle>
+				<CardTitle>
+					Props
+				</CardTitle>
 				<Form
 					controls={controls}
 					validateOnBlur

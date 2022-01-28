@@ -1,3 +1,6 @@
+## 21.0.4
+- treeview - style fixes
+
 ## 21.0.3
 - style fixes
 
