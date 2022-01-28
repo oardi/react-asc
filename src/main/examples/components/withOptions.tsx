@@ -48,7 +48,7 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 								</Tabs>
 
 								<TabPanel value={value} index="tab1">
-									<div className="p-3">
+									<div className="p-1">
 										<WrappedComponent
 											{...rest as T}
 											settingValues={settingValues}

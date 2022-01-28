@@ -8,28 +8,9 @@ ListItemAction -> color prüfen
 - reuse menuItems in autoComplete and Select
 
 ### autocomplete
-- readonly
-- disabled
 - start to filter on X chars?
 - highlight filter?
 - check in form
-
-### Remove Bootstrap from Components
-- Backdrop
-- DateSelect
-- Form
-- Grid
-- Link
-- LoadingIndicator
-- Modal
-- NumberSelect
-- Select
-- Sidebar
-- Snackbar
-- SpeedDial
-- Stepper
-- TreeView
-- Typography
 
 ### Tests
 - AppBar
@@ -74,10 +55,8 @@ ListItemAction -> color prüfen
 - set selected with SET
 
 ### radio 
-- add component (formControl)
-
-### checkbox
-- checkboxGroup as Component and type?
+- add component 
+- add to form
 
 ### form 
 - novalidate to form-input to disable default behaviour
@@ -98,8 +77,7 @@ ListItemAction -> color prüfen
 - theme provider
 - css modules?
 
-## TODO Components
-
+## Components
 
 ### select
 - search

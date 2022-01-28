@@ -1,3 +1,6 @@
+## 21.0.3
+- style fixes
+
 ## 21.0.2
 - typography - responsive style fix
 

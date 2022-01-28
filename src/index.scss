@@ -1,6 +1,5 @@
-@import "./lib/styles/style.scss";
 @import "modern-normalize/modern-normalize.css";
-@import "./styles/variables.scss";
+@import "./lib/styles/style.scss";
 
 html,
 body,
@@ -10,7 +9,7 @@ body,
 
 body {
 	display: flex;
-	line-height: var(--bodyLineHeight);
+	line-height: var(--fontLineHeight);
 }
 
 #root {
@@ -38,16 +37,6 @@ body {
 .list-level-1 {
 	.list-item-level-1 {
 		padding-left: 40px;
-	}
-}
-
-@media (min-width: 1200px) {
-	.container-xl,
-	.container-lg,
-	.container-md,
-	.container-sm,
-	.container {
-		max-width: 100%;
 	}
 }
 
