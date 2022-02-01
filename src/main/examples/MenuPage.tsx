@@ -28,7 +28,11 @@ const MenuPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 		<Fragment>
 
 			<Menu
-				toggle={<Button onClick={() => setOpen(true)}>Menu Button</Button>}
+				toggle={
+					<Button onClick={() => setOpen(true)}>
+						Menu Button
+					</Button>
+				}
 				open={open}
 				menuPosition={settingValues.menuPosition}
 				onClickBackdrop={() => setOpen(false)}
