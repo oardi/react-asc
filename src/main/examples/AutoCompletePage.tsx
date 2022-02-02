@@ -12,7 +12,6 @@ const AutoCompletePageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 			openOnFocus: new FormControl(settingValues.openOnFocus, [], 'checkbox', { label: 'openOnFocus' }),
 			debounce: new FormControl(settingValues.debounce, [], 'number', { label: 'debounce' }),
 			placeholder: new FormControl(settingValues.placeholder, [], 'text', { label: 'placeholder' }),
-			showNoEntry: new FormControl(settingValues.showNoEntry, [], 'checkbox', { label: 'showNoEntry' }),
 			showClearButton: new FormControl(settingValues.showClearButton, [], 'checkbox', { label: 'showClearButton' }),
 			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' }),
 			readOnly: new FormControl(settingValues.readOnly, [], 'checkbox', { label: 'readOnly' }),
@@ -64,7 +63,6 @@ const AutoCompletePageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 				disabled={settingValues.disabled}
 				readOnly={settingValues.readOnly}
 				placeholder={settingValues.placeholder}
-				showNoEntry={settingValues.showNoEntry}
 				showClearButton={settingValues.showClearButton}
 				onSelect={handleOnSelect}
 				onChange={handleOnChange}
@@ -78,5 +76,4 @@ export const AutoCompletePage = withOptions<IAutoCompleteProps>(AutoCompletePage
 	debounce: 250,
 	openOnFocus: false,
 	placeholder: 'search...',
-	showNoEntry: true
 }, 'AutoCompletePageBase');

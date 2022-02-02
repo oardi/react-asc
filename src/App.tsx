@@ -76,7 +76,7 @@ const App = () => {
 				}
 
 				<div className="p-1 pt-0 w-100">
-					<AppBreadcrumb className="mt-2" />
+					<AppBreadcrumb className="mt-1" />
 
 					<Switch>
 						{appRoutes &&

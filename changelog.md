@@ -1,3 +1,6 @@
+## 21.0.6
+- autocomplete - removed empty entry
+
 ## 21.0.5
 - autocomplete - removed filter by regex
 

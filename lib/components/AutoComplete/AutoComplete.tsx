@@ -18,7 +18,6 @@ export interface IAutoCompleteProps {
 	placeholder?: string;
 	readOnly?: boolean;
 	debounce?: number;
-	showNoEntry?: boolean;
 	showClearButton?: boolean;
 	onSelect?: (val: ISelectOption) => void;
 	onChange?: (val: string | undefined) => void;
@@ -43,7 +42,6 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 		readOnly,
 		debounce = 0,
 		placeholder,
-		showNoEntry = true,
 		showClearButton,
 		onChange,
 		onSelect,
@@ -53,7 +51,7 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 	const [model, setModel] = useState<string | undefined>('');
 	const [searchText, setSearchText] = useState<string | undefined>('');
 	const [isShow, setIsShow] = useState<boolean>(false);
-	const [optionsTemp, setOptionsTemp] = useState<Array<ISelectOption>>([]);
+	const [_options, setOptions] = useState<Array<ISelectOption>>([]);
 	const selectConainter = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
@@ -64,11 +62,7 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 	}, [value]);
 
 	useEffect(() => {
-		if (options.length === 0 && showNoEntry) {
-			setOptionsTemp([{ value: '', label: '- no entry found -' }]);
-		} else {
-			setOptionsTemp(options);
-		}
+		setOptions(options);
 	}, [options]);
 
 	useDebounce(
@@ -159,7 +153,7 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 				<>
 					<div className={styles.selectMenu}>
 						<List>
-							{optionsTemp && optionsTemp.map((option, index) =>
+							{_options && _options.map((option, index) =>
 								<ListItem
 									id={`list-item-${index}`}
 									key={option.value}
