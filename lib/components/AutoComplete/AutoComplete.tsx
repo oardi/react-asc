@@ -64,15 +64,10 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 	}, [value]);
 
 	useEffect(() => {
-		if (options && options.length > 0) {
-			const optionsOrigin: Array<ISelectOption> = JSON.parse(JSON.stringify(options));
-			const regex = new RegExp((searchText as string).replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'), 'gi');
-			const optionsFiltered = optionsOrigin.filter(o => o.label?.match(regex));
-			if (optionsFiltered.length === 0 && showNoEntry) {
-				setOptionsTemp([{ value: '', label: '- no entry found -' }]);
-			} else {
-				setOptionsTemp(optionsFiltered);
-			}
+		if (options.length === 0 && showNoEntry) {
+			setOptionsTemp([{ value: '', label: '- no entry found -' }]);
+		} else {
+			setOptionsTemp(options);
 		}
 	}, [options]);
 

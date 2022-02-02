@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AutoComplete, FormControl, IAutoCompleteProps, ISelectOption, snackbarService } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
@@ -19,43 +19,42 @@ const AutoCompletePageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 		});
 	}, []);
 
+	const newOptions = [
+		{ id: "1", label: 'one', description: '1' },
+		{ id: "2", label: 'two', description: '2' },
+		{ id: "3", label: 'three', description: '3' },
+		{ id: "4", label: 'four', description: '4' },
+		{ id: "5", label: 'five', description: '5' },
+		{ id: "6", label: 'six', description: '6' },
+		{ id: "7", label: 'seven', description: '7' },
+		{ id: "8", label: 'eight', description: '8' },
+		{ id: "9", label: 'nine', description: '9' },
+		{ id: "10", label: 'ten', description: '10' },
+		{ id: "11", label: 'eleven', description: '11' },
+		{ id: "12", label: 'twelve', description: '12' },
+		{ id: "13", label: 'thirteen', description: '13' },
+		{ id: "14", label: 'fourteen', description: '14' },
+		{ id: "15", label: 'fifteen', description: '15' },
+		{ id: "16", label: 'sixteen', description: '16' },
+		{ id: "17", label: 'seventeen', description: '17' },
+		{ id: "18", label: 'eighteen', description: '18' },
+		{ id: "19", label: 'nineteen', description: '19' },
+		{ id: "20", label: 'twenty', description: '20' },
+	];
+
 	const handleOnSelect = (e: ISelectOption) => {
 		snackbarService.show(`value changed: ${e.label}`);
 	}
 
-	const handleOnChange = (e: string | undefined) => {
-		setValue(e as string);
-
-		const oldOptions = options;
-		const newOptions: Array<ISelectOption> = [
-			{ value: "1", label: 'one' },
-			{ value: "2", label: 'two' },
-			{ value: "3", label: 'three' },
-			{ value: "4", label: 'four' },
-			{ value: "5", label: 'five' },
-			{ value: "6", label: 'six' },
-			{ value: "7", label: 'seven' },
-			{ value: "8", label: 'eight' },
-			{ value: "9", label: 'nine' },
-			{ value: "10", label: 'ten' },
-			{ value: "11", label: 'eleven' },
-			{ value: "12", label: 'twelve' },
-			{ value: "13", label: 'thirteen' },
-			{ value: "14", label: 'fourteen' },
-			{ value: "15", label: 'fifteen' },
-			{ value: "16", label: 'sixteen' },
-			{ value: "17", label: 'seventeen' },
-			{ value: "18", label: 'eighteen' },
-			{ value: "19", label: 'nineteen' },
-			{ value: "20", label: 'twenty' },
-		];
-
-		const filteredNewOptions = newOptions.filter(option => oldOptions.map(o => o.value).indexOf(option.value) < 0);
-		setOptions(options.concat(filteredNewOptions));
+	const handleOnChange = (val: string | undefined) => {
+		setValue(val as string);
+		const regex = new RegExp(val as string, 'gi');
+		const filteredOptions = newOptions.filter(option => val && option?.label?.match(regex) || option?.description?.match(regex));
+		setOptions(filteredOptions.map(o => ({ value: o.id, label: o.label })));
 	}
 
 	return (
-		<Fragment>
+		<>
 			<AutoComplete
 				id="myAutoComplete"
 				name="myAutoComplete"
@@ -71,7 +70,7 @@ const AutoCompletePageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 				onChange={handleOnChange}
 				value={value}
 			/>
-		</Fragment>
+		</>
 	);
 }
 

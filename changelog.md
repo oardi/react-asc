@@ -1,3 +1,6 @@
+## 21.0.5
+- autocomplete - removed filter by regex
+
 ## 21.0.4
 - treeview - style fixes
 
