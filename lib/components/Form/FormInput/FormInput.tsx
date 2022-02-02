@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { AutoComplete } from '../../AutoComplete';
 import { Checkbox } from '../../Checkbox';
 import { FileInput } from '../../FileInput';
@@ -79,7 +79,7 @@ export const FormInput = (props: IFormInputProps) => {
 	};
 
 	return (
-		<Fragment>
+		<>
 			{/* 'toggle' */}
 
 			{
@@ -152,7 +152,6 @@ export const FormInput = (props: IFormInputProps) => {
 					value={value as string}
 					multiple={selectOptions?.multiple}
 					onChange={e => handleOnChange(e, type, name as string)}
-					// onKeyDown={e => onKeyDown(e)}
 					options={options}
 				/>
 			}
@@ -166,6 +165,7 @@ export const FormInput = (props: IFormInputProps) => {
 					value={value as string}
 					openOnFocus={autoCompleteOptions?.openOnFocus}
 					onChange={e => handleOnChange(e, type, name as string)}
+					onSelect={e => handleOnChange(e.value, type, name as string)}
 					options={options}
 				/>
 			}
@@ -179,7 +179,6 @@ export const FormInput = (props: IFormInputProps) => {
 					className={(!isValid ? ' is-invalid' : '')}
 					onChange={e => handleOnChange((e?.target as HTMLInputElement).checked, type, name as string)}
 					checked={value}
-				// onKeyDown={onKeyDown}
 				/>
 			}
 
@@ -222,6 +221,6 @@ export const FormInput = (props: IFormInputProps) => {
 				</>
 			}
 
-		</Fragment>
+		</>
 	);
 };
