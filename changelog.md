@@ -1,3 +1,6 @@
+## 21.1.1
+- iconButton - focus style fix
+
 ## 21.1.0
 - added hook useCssClasses
 - form - autocomplete - fixed onChange
