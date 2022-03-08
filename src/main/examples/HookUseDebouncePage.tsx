@@ -1,12 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { withOptions } from './components';
 
 const HookUseDebouncePageBase = () => {
 
 	return (
-		<Fragment>
+		<>
 			TODO
-		</Fragment>
+		</>
 	);
 }
 

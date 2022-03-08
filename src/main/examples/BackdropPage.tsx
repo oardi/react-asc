@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FormControl, IBadgeProps, Button, Backdrop } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
@@ -13,7 +13,7 @@ const BackdropPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 	const [isShow, setIsShow] = useState<boolean>(false);
 
 	return (
-		<Fragment>
+		<>
 			<Button onClick={() => setIsShow(!isShow)}>
 				{isShow ? 'hide' : 'show'}
 			</Button>
@@ -25,7 +25,7 @@ const BackdropPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 			{isShow &&
 				<Backdrop target={document.body.querySelector('#backdrop-container') as HTMLElement} />
 			}
-		</Fragment>
+		</>
 	);
 }
 

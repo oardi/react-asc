@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { HomeSolidIcon, FormControl, COLOR, snackbarService, FloatingActionButton, SIZE, IFloatingActionButtonProps } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
@@ -19,7 +19,7 @@ const FloatingActionButtonPageBase = ({ settingValues, setSettingsControls }: IS
 	}
 
 	return (
-		<Fragment>
+		<>
 			<FloatingActionButton
 				color={settingValues.color}
 				fixed={settingValues.fixed}
@@ -29,7 +29,7 @@ const FloatingActionButtonPageBase = ({ settingValues, setSettingsControls }: IS
 				icon={<HomeSolidIcon />}
 				onClick={handleClick}
 			/>
-		</Fragment>
+		</>
 	);
 }
 

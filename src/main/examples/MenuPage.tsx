@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Menu, MenuDivider, MenuItem, FormControl, IMenuProps, snackbarService } from 'lib';
 import { loggerService } from '../../shared';
 import { IShowcaseBaseProps, withOptions } from './components';
@@ -25,8 +25,7 @@ const MenuPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 	}
 
 	return (
-		<Fragment>
-
+		<>
 			<Menu
 				toggle={
 					<Button onClick={() => setOpen(true)}>
@@ -51,7 +50,7 @@ const MenuPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 					Action 3
 				</MenuItem>
 			</Menu>
-		</Fragment>
+		</>
 	);
 }
 

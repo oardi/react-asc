@@ -23,7 +23,7 @@ const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 	}
 
 	return (
-		<div>
+		<>
 			<Tabs
 				value={value}
 				fixed={settingValues.fixed}
@@ -47,7 +47,7 @@ const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 			<TabPanel value={value} index="tab4">
 				Tab4 Content should never be displayed
 			</TabPanel>
-		</div>
+		</>
 	);
 }
 

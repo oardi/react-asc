@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FormControl, INumberSelectProps, NumberSelect, snackbarService } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
@@ -23,7 +23,7 @@ const NumberSelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 	}
 
 	return (
-		<Fragment>
+		<>
 			<NumberSelect
 				name="myNumberSelect"
 				id="selectNumber"
@@ -32,7 +32,7 @@ const NumberSelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 				value={value}
 				onChange={handleOnChange}
 			/>
-		</Fragment>
+		</>
 	);
 }
 

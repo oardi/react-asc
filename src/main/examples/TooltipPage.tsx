@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Button, FormControl, ITooltipProps, Tooltip } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
@@ -19,14 +19,14 @@ export const TooltipPageBase = ({ settingValues, setSettingsControls }: IShowcas
 	}, []);
 
 	return (
-		<Fragment>
-			<Tooltip
-				text={settingValues.text}
-				placement={settingValues.placement}
-			>
-				<Button>show tooltip</Button>
-			</Tooltip>
-		</Fragment>
+		<Tooltip
+			text={settingValues.text}
+			placement={settingValues.placement}
+		>
+			<Button>
+				show tooltip
+			</Button>
+		</Tooltip>
 	);
 }
 

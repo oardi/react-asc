@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { ExpansionPanel } from 'lib';
 import { withOptions } from './components';
 
@@ -11,7 +11,7 @@ const ExpansionPanelPageBase = () => {
 	};
 
 	return (
-		<Fragment>
+		<>
 			<h3>Simple ExpansionPanel</h3>
 			<div>
 				<ExpansionPanel header={'header 1'}>
@@ -46,7 +46,7 @@ const ExpansionPanelPageBase = () => {
 					Some Content 3
 				</ExpansionPanel>
 			</div>
-		</Fragment>
+		</>
 	);
 }
 

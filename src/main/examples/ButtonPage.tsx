@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Button, COLOR, FormControl, IButtonProps, snackbarService, VARIANT } from 'lib';
 import { InfoSolidIcon } from '../assets';
 import { withOptions } from './components';
@@ -30,7 +30,7 @@ const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 	}
 
 	return (
-		<Fragment>
+		<>
 
 			<Button
 				color={settingValues.color}
@@ -47,7 +47,7 @@ const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 				some button text
 			</Button>
 
-		</Fragment>
+		</>
 	);
 }
 

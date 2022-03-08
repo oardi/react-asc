@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { withOptions } from './components';
 
 const HookUseWindowSizePageBase = () => {
 	return (
-		<Fragment>
+		<>
 			TODO
-		</Fragment>
+		</>
 	);
 }
 

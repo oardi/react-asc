@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FormControl, Form, IControls, Button, VARIANT, COLOR, IFormProps, modalService, IFormValues } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 import dayjs from 'dayjs';
@@ -97,7 +97,7 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	}
 
 	return (
-		<Fragment>
+		<>
 			<Form
 				ref={myForm}
 				controls={controls}
@@ -123,7 +123,7 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 				</Button>
 			</div>
 
-		</Fragment>
+		</>
 	);
 }
 

@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { AppBar, AppBarTitle, COLOR, FormControl, HomeSolidIcon, IAppBarProps, IconButton, Tooltip, Typography } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
@@ -15,7 +15,7 @@ const AppBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 	}, []);
 
 	return (
-		<Fragment>
+		<>
 			<AppBar
 				color={settingValues.color}
 				shadow={settingValues.shadow}
@@ -27,7 +27,7 @@ const AppBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 				</AppBarTitle>
 				<IconButton className="ml-auto" color={COLOR.light} icon={<HomeSolidIcon />} />
 			</AppBar>
-		</Fragment>
+		</>
 	);
 }
 

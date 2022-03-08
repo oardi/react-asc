@@ -29,11 +29,11 @@ const SnackbarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 	};
 
 	return (
-		<div>
+		<>
 			<Button onClick={handleClick}>
 				show snackbar
 			</Button>
-		</div>
+		</>
 	);
 }
 

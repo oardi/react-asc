@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, COLOR, FormControl, IControls, IModalProps, Modal, MODALBUTTONTYPE, modalService, SIZE, snackbarService, VARIANT } from 'lib';
 import { loggerService } from '../../shared';
 import { IShowcaseBaseProps, withOptions } from './components';
@@ -120,7 +120,7 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 	}
 
 	return (
-		<Fragment>
+		<>
 			<div className="d-flex flex-wrap">
 				<Button className="mr-2 mb-2" onClick={() => handleClickShowModal()}>
 					show modal
@@ -150,7 +150,7 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 					</Modal>
 				}
 			</div>
-		</Fragment>
+		</>
 	);
 }
 

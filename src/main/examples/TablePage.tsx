@@ -14,7 +14,7 @@ const TablePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 	}, []);
 
 	return (
-		<div>
+		<>
 			<Table
 				bordered={settingValues.bordered}
 				hover={settingValues.hover}
@@ -49,7 +49,7 @@ const TablePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 					</tr>
 				</tbody>
 			</Table>
-		</div>
+		</>
 	);
 }
 

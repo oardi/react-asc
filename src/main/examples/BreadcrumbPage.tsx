@@ -4,13 +4,13 @@ import { withOptions } from './components';
 
 const BreadcrumbPageBase = () => {
 	return (
-		<div>
+		<>
 			<Breadcrumb className="mb-0">
 				<BreadcrumbItem path="/">Home</BreadcrumbItem>
 				<BreadcrumbItem path="/">Library</BreadcrumbItem>
 				<BreadcrumbItem path="/" isActive>Data</BreadcrumbItem>
 			</Breadcrumb>
-		</div>
+		</>
 	);
 }
 

@@ -9,13 +9,11 @@ const ButtonGroupPageBase = () => {
 
 	return (
 		<>
-
 			<ButtonGroup>
 				<Button onClick={handleClick}>some button</Button>
 				<Button onClick={handleClick}>some button</Button>
 				<Button onClick={handleClick}>some button</Button>
 			</ButtonGroup>
-
 		</>
 	);
 }

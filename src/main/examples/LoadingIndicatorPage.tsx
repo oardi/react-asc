@@ -11,11 +11,9 @@ const LoadingIndicatorPageBase = () => {
 	};
 
 	return (
-		<div>
-			<Button onClick={handleClick}>
-				show loading indicator
-			</Button>
-		</div>
+		<Button onClick={handleClick}>
+			show loading indicator
+		</Button>
 	);
 }
 

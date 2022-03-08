@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Alert, COLOR, FormControl, IAlertProps, VARIANT } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
@@ -11,12 +11,12 @@ const AlertPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 				options: Object.keys(COLOR).map(c => ({ label: c, value: c }))
 			}),
 			variant: new FormControl(settingValues.variant, [], 'select', { label: 'variant', options: Object.keys(VARIANT).map(c => ({ label: c, value: c })) }),
-			shadow: new FormControl(settingValues.shadow, [], 'checkbox', { label: 'Shadow' }),
+			shadow: new FormControl(settingValues.shadow, [], 'checkbox', { label: 'shadow' }),
 		});
 	}, []);
 
 	return (
-		<Fragment>
+		<>
 			<Alert
 				color={settingValues.color}
 				variant={settingValues.variant}
@@ -26,7 +26,7 @@ const AlertPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 				{/* <AppBarTitle>Navbar</AppBarTitle> */}
 				{/* <IconButton className="ml-auto" color={COLOR.light} icon={<HomeSolidIcon />} /> */}
 			</Alert>
-		</Fragment>
+		</>
 	);
 }
 

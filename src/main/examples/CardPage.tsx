@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Card, CardBody, CardFooter, CardImage, CardSubtitle, CardText, CardTitle, FormControl, List, ListItem, ListItemText } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
@@ -21,7 +21,7 @@ const CardPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 	}, []);
 
 	return (
-		<Fragment>
+		<>
 			<div className="d-flex justify-content-center">
 				<Card style={{ width: '320px' }}>
 					{
@@ -65,7 +65,7 @@ const CardPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 					}
 				</Card>
 			</div>
-		</Fragment>
+		</>
 	);
 }
 

@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { FileInput, FormControl, IFileInputProps, snackbarService } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
@@ -18,7 +18,7 @@ const FileInputPageBase = ({ settingValues, setSettingsControls }: IShowcaseBase
 	}
 
 	return (
-		<Fragment>
+		<>
 			<FileInput
 				accept={settingValues.accept}
 				multiple={settingValues.multiple}
@@ -28,7 +28,7 @@ const FileInputPageBase = ({ settingValues, setSettingsControls }: IShowcaseBase
 			>
 				choose a file
 			</FileInput>
-		</Fragment>
+		</>
 	);
 }
 

@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { List, IListProps, ListItem, ListItemAvatar, HomeSolidIcon, ListItemAction, IconButton, ListItemText, ListItemIcon, snackbarService, COLOR, VARIANT } from 'lib';
 import { UserCircleSolidIcon } from '../assets';
 import { IShowcaseBaseProps, withOptions } from './components';
@@ -22,7 +22,7 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	}
 
 	return (
-		<Fragment>
+		<>
 
 			<h3>Single Line</h3>
 			<List isFlush={settingValues.isFlush}>
@@ -98,7 +98,7 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 				<ListItem color={COLOR.dark}>dark</ListItem>
 			</List>
 
-		</Fragment>
+		</>
 	);
 }
 

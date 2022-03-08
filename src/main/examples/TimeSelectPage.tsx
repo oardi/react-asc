@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { FormControl, ITimeSelectProps, TimeSelect } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
@@ -14,14 +14,12 @@ const TimeSelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 	}, []);
 
 	return (
-		<Fragment>
-			<TimeSelect
-				showHours={settingValues.showHours}
-				showMinutes={settingValues.showMinutes}
-				showSeconds={settingValues.showSeconds}
-				showMilliSeconds={settingValues.showMilliSeconds}
-			/>
-		</Fragment>
+		<TimeSelect
+			showHours={settingValues.showHours}
+			showMinutes={settingValues.showMinutes}
+			showSeconds={settingValues.showSeconds}
+			showMilliSeconds={settingValues.showMilliSeconds}
+		/>
 	);
 }
 

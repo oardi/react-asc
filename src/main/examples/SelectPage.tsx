@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FormControl, ISelectProps, Select, snackbarService } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
@@ -21,7 +21,7 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 	}
 
 	return (
-		<Fragment>
+		<>
 			<Select
 				id="myselect"
 				name="myselect"
@@ -49,7 +49,7 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 				readOnly={settingValues.readOnly}
 				value={value}
 			/>
-		</Fragment>
+		</>
 	);
 }
 

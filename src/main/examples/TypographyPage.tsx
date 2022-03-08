@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { ITypographyProps, Typography } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
@@ -9,7 +9,7 @@ const TypographyPageBase = ({ setSettingsControls }: IShowcaseBaseProps<ITypogra
 	}, []);
 
 	return (
-		<Fragment>
+		<>
 			<Typography as="h1">Heading1</Typography>
 			<Typography as="h2">Heading1</Typography>
 			<Typography as="h3">Heading1</Typography>
@@ -18,7 +18,7 @@ const TypographyPageBase = ({ setSettingsControls }: IShowcaseBaseProps<ITypogra
 			<Typography as="h6">Heading1</Typography>
 
 			<Typography>some span text</Typography>
-		</Fragment>
+		</>
 	);
 }
 
