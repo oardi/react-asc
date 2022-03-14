@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { FormControl, ITableProps, Table } from 'lib';
+import { FormControl, ITableProps, Table, TableBody, TableCell, TableHead, TableRow } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const TablePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITableProps>) => {
@@ -21,33 +21,34 @@ const TablePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 				striped={settingValues.striped}
 				responsive={settingValues.responsive}
 			>
-				<thead>
-					<tr>
-						<th scope="col">#</th>
-						<th scope="col">First</th>
-						<th scope="col">Last</th>
-						<th scope="col">Handle</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th scope="row">1</th>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-					</tr>
-					<tr>
-						<th scope="row">2</th>
-						<td>Jacob</td>
-						<td>Thornton</td>
-						<td>@fat</td>
-					</tr>
-					<tr>
-						<th scope="row">3</th>
-						<td colSpan={2}>Larry the Bird</td>
-						<td>@twitter</td>
-					</tr>
-				</tbody>
+				<TableHead>
+					<TableRow>
+						<TableCell scope="col">#</TableCell>
+						<TableCell scope="col">First</TableCell>
+						<TableCell scope="col">Last</TableCell>
+						<TableCell scope="col">Handle</TableCell>
+					</TableRow>
+				</TableHead>
+
+				<TableBody>
+					<TableRow>
+						<TableCell component='th' scope="row">1</TableCell>
+						<TableCell>Mark</TableCell>
+						<TableCell>Otto</TableCell>
+						<TableCell>@mdo</TableCell>
+					</TableRow>
+					<TableRow>
+						<TableCell component='th' scope="row">2</TableCell>
+						<TableCell>Jacob</TableCell>
+						<TableCell>Thornton</TableCell>
+						<TableCell>@fat</TableCell>
+					</TableRow>
+					<TableRow>
+						<TableCell component='th' scope="row">3</TableCell>
+						<TableCell colSpan={2}>Larry the Bird</TableCell>
+						<TableCell>@twitter</TableCell>
+					</TableRow>
+				</TableBody>
 			</Table>
 		</>
 	);

@@ -19,7 +19,7 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 		const [settingValues, setSettingValues] = useState<T>(defaultSettingValues as T || {} as T);
 		const [settingsControls, setSettingsControls] = useState<IControls | undefined>();
 
-		const [value, setValue] = useState<string>('tab1');
+		const [selectedTab, setSelectedTab] = useState<string>('tab1');
 
 		const onFormChange = (val: unknown) => {
 			setSettingValues(val as T);
@@ -31,8 +31,8 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 			setFileUrl(newFileUrl);
 		}, []);
 
-		const handleChange = (e: ITabOnChangeEvent) => {
-			setValue(e.newValue);
+		const handleChangeTab = (e: ITabOnChangeEvent) => {
+			setSelectedTab(e.newValue);
 		}
 
 		return (
@@ -42,12 +42,12 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 					<Row direction="column">
 						<Column>
 							<ShowcaseExample>
-								<Tabs fixed onChange={handleChange} value={value}>
+								<Tabs fixed onChange={handleChangeTab} value={selectedTab}>
 									<Tab value="tab1" label="Preview" />
 									<Tab value="tab2" label="Usage" />
 								</Tabs>
 
-								<TabPanel value={value} index="tab1">
+								<TabPanel value={selectedTab} index="tab1">
 									<div className="p-1">
 										<WrappedComponent
 											{...rest as T}
@@ -57,7 +57,7 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 									</div>
 								</TabPanel>
 
-								<TabPanel value={value} index="tab2">
+								<TabPanel value={selectedTab} index="tab2">
 									<Highlight url={fileUrl} />
 								</TabPanel>
 							</ShowcaseExample>
