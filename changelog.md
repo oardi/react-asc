@@ -1,3 +1,6 @@
+## 21.2.0
+- table - added tableRow, tableRow, tableCell components
+
 ## 21.1.1
 - iconButton - focus style fix
 
