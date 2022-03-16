@@ -7,9 +7,7 @@ export const TableHead = (props: React.ComponentProps<"thead">) => {
 
 	return (
 		<TableContext.Provider value={ { variant: 'head' } }>
-			<thead
-				{...rest}
-			>
+			<thead {...rest}>
 				{children}
 			</thead>
 		</TableContext.Provider>

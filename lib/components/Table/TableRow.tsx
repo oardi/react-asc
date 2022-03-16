@@ -5,9 +5,7 @@ export const TableRow = (props: React.ComponentProps<"tr">) => {
 	const { children, ...rest } = props;
 
 	return (
-		<tr
-			{...rest}
-		>
+		<tr {...rest} >
 			{children}
 		</tr>
 	);
