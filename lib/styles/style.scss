@@ -16,3 +16,24 @@ label.required {
 		vertical-align: text-top;
 	}
 }
+
+.overline {
+	font-size: var(--textOverlineFontSize) !important;
+	line-height: var(--textOverlineLineHeight) !important;
+	text-transform: var(--textOverlineTransform) !important;
+	font-weight: bold;
+}
+
+.body1 {
+	font-size: var(--textBody1FontSize) !important;
+	line-height: var(--textBody1LineHeight) !important;
+}
+
+.body2 {
+	font-size: var(--textBody2FontSize) !important;
+	line-height: var(--textBody2LineHeight) !important;
+}
+
+.uppercase {
+	text-transform: uppercase !important;
+}

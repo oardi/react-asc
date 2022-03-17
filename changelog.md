@@ -1,3 +1,6 @@
+## 21.2.1
+- typography - overline, body1, body2, uppercase
+
 ## 21.2.0
 - table - added tableRow, tableRow, tableCell components
 

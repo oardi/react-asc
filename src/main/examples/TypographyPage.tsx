@@ -10,14 +10,22 @@ const TypographyPageBase = ({ setSettingsControls }: IShowcaseBaseProps<ITypogra
 
 	return (
 		<>
-			<Typography as="h1">Heading1</Typography>
-			<Typography as="h2">Heading1</Typography>
-			<Typography as="h3">Heading1</Typography>
-			<Typography as="h4">Heading1</Typography>
-			<Typography as="h5">Heading1</Typography>
-			<Typography as="h6">Heading1</Typography>
+			<Typography as="h1">Heading 1</Typography>
+			<Typography as="h2">Heading 2</Typography>
+			<Typography as="h3">Heading 3</Typography>
+			<Typography as="h4">Heading 4</Typography>
+			<Typography as="h5">Heading 5</Typography>
+			<Typography as="h6">Heading 6</Typography>
 
-			<Typography>some span text</Typography>
+			<div>
+				<Typography className="overline">overline</Typography>
+			</div>
+			<div>
+				<Typography className="uppercase">uppercase</Typography>
+			</div>
+			<div>
+				<Typography className="body2">body2</Typography>
+			</div>
 		</>
 	);
 }
