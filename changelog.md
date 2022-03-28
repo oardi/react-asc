@@ -1,3 +1,6 @@
+## 21.3.0
+- loadingIndicator - added isFixed
+
 ## 21.2.2
 - buttonGroup - style fixes
 

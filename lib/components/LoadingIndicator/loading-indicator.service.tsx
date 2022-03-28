@@ -20,7 +20,7 @@ class LoadingIndicatorService implements ILoadingIndicatorService {
 		document.body.appendChild(this.container);
 
 		render(
-			<LoadingIndicatorContainer>
+			<LoadingIndicatorContainer isFixed={true}>
 				<LoadingIndicator />
 			</LoadingIndicatorContainer>,
 			this.container
