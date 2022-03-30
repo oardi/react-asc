@@ -33,9 +33,9 @@ export const Chip = (props: IChipProps) => {
 
 	return (
 		<div className={getCssClass()} {...rest} style={style}>
-			<div>
+			<span>
 				{children}
-			</div>
+			</span>
 			{isDeletable && (
 				<div className={styles.deleteIcon} onClick={e => handleClickOnDelete(e)}>
 					{deleteIcon}

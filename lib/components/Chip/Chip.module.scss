@@ -6,11 +6,16 @@
 	text-align: center;
 	white-space: nowrap;
 	vertical-align: baseline;
-	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+		box-shadow 0.15s ease-in-out;
 	font-size: 75%;
 	font-weight: 700;
 	border-radius: 10rem;
 	line-height: 1;
+
+	span {
+		margin-bottom: 2px;
+	}
 
 	svg {
 		width: 18px;

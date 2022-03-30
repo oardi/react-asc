@@ -1,3 +1,6 @@
+## 21.3.1
+- style fixes
+
 ## 21.3.0
 - loadingIndicator - added isFixed
 

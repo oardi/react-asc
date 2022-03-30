@@ -23,6 +23,11 @@
 	min-height: calc(1.5em + 0.75rem + 2px);
 	height: auto;
 	display: flex;
+	flex-wrap: wrap;
+
+	> span {
+		flex: 1;
+	}
 
 	&:hover {
 		cursor: pointer;
@@ -50,6 +55,13 @@
 			cursor: inherit;
 		}
 	}
+}
+
+.chipContainer {
+	gap: 10px;
+	flex: 1;
+	display: inline-flex;
+	flex-wrap: wrap;
 }
 
 .selectMenu {

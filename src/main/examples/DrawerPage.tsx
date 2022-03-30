@@ -23,7 +23,7 @@ const DrawerPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 	return (
 		<>
 			<Button onClick={() => handleClick()}>
-				show drawer
+				{!isVisible ? 'show' : 'hide'} drawer
 			</Button>
 
 			{isVisible &&

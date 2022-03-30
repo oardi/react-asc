@@ -136,7 +136,6 @@ export const Select = (props: ISelectProps) => {
 				.map(option =>
 					<Chip
 						key={option.value}
-						className="mr-2"
 						color={COLOR.primary}
 						isDeletable={true}
 						onDelete={(e) => handleOnDelete(e, option)}
@@ -192,9 +191,14 @@ export const Select = (props: ISelectProps) => {
 
 			<div id={id} className={getCssClass()} onClick={() => show()} tabIndex={0} onKeyDown={e => handleOnKeyDown(e)}>
 				{!multiple && renderSingleViewModel()}
-				{multiple && renderMultipleViewModel()}
 
-				<Icon className="ml-auto"><ChevronDownSolidIcon /></Icon>
+				{multiple &&
+					<div className={styles.chipContainer}>
+						{renderMultipleViewModel()}
+					</div>
+				}
+
+				<Icon className="ml-2"><ChevronDownSolidIcon /></Icon>
 			</div>
 
 			{isShow &&
