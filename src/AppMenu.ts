@@ -19,6 +19,7 @@ export const menuItems: Array<IMenuItem> = [
 			{ id: "Card" },
 			{ id: "Checkbox" },
 			{ id: "Chip" },
+			{ id: "CssTransition" },
 			{ id: "DateSelect" },
 			{ id: "Drawer" },
 			{ id: "ExpansionPanel" },

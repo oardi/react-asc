@@ -47,6 +47,7 @@ const MyApp = () => {
 -   Card
 -   Checkbox
 -   Chip
+-	CssTransition
 -   ConditionalWrapper
 -   DateSelect
 -   Drawer

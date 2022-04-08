@@ -10,6 +10,7 @@ export * from './Card';
 export * from './ConditionalWrapper';
 export * from './Checkbox';
 export * from './Chip';
+export * from './CssTransition';
 export * from './DateSelect';
 export * from './Drawer';
 export * from './Menu';

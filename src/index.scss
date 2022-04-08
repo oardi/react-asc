@@ -44,3 +44,22 @@ body {
 .modal-backdrop {
 	z-index: 1040;
 }
+
+.hidden {
+	display: none;
+}
+
+.fade-enter,
+.fade-leave {
+	transition: all 1s ease;
+}
+
+.fade-enter-start,
+.fade-leave-end {
+	opacity: 0;
+}
+
+.fade-enter-end,
+.fade-leave-start {
+	opacity: 1;
+}

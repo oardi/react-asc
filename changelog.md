@@ -1,3 +1,6 @@
+## 22.0.0
+- cssTransition - added component
+
 ## 21.3.1
 - style fixes
 

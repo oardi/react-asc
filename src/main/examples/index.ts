@@ -9,6 +9,7 @@ export * from './BreadcrumbPage';
 export * from './CardPage';
 export * from './ChipPage';
 export * from './CheckboxPage';
+export * from './CssTransitionPage';
 export * from './DateSelectPage';
 export * from './DrawerPage';
 export * from './MenuPage';
