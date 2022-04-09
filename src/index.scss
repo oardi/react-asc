@@ -51,7 +51,7 @@ body {
 
 .fade-enter,
 .fade-leave {
-	transition: all 1s ease;
+	transition: all 1000ms ease;
 }
 
 .fade-enter-start,
@@ -62,4 +62,19 @@ body {
 .fade-enter-end,
 .fade-leave-start {
 	opacity: 1;
+}
+
+.move-enter,
+.move-leave {
+	transition: all 1000ms ease;
+}
+
+.move-enter-start,
+.move-leave-end {
+	transform: translateX(-2000px);
+}
+
+.move-enter-end,
+.move-leave-start {
+	transform: translateX(0);
 }
