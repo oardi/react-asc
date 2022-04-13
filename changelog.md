@@ -1,3 +1,8 @@
+## 23.0.0
+- useMobileDetect - added hook
+- floatingActionButton - added styles
+- refactored Showcase
+
 ## 22.0.0
 - cssTransition - added component
 

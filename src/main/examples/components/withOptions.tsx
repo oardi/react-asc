@@ -1,5 +1,6 @@
-import { Card, CardBody, CardTitle, Column, IControls, ITabOnChangeEvent, Row, Tab, TabPanel, Tabs } from "lib";
 import React, { Dispatch, useEffect, useState } from "react";
+import { Card, CardBody, CardTitle, COLOR, Column, Drawer, FloatingActionButton, IControls, ITabOnChangeEvent, Row, Tab, TabPanel, Tabs, useMobileDetect } from "lib";
+import { GearSolidIcon } from "..";
 import { Highlight } from "../../../shared";
 import { ShowcaseExample } from './ShowcaseExample';
 import { ShowcaseOptions } from './ShowcaseOptions';
@@ -20,6 +21,13 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 		const [settingsControls, setSettingsControls] = useState<IControls | undefined>();
 
 		const [selectedTab, setSelectedTab] = useState<string>('tab1');
+		const [selectedSettingsTab, setSelectedSettingsTab] = useState<string>('props');
+
+		const { isMobile } = useMobileDetect();
+		const [showSettingsDrawer, setShowSettingsDrawer] = useState<boolean>(true);
+		useEffect(() => {
+			setShowSettingsDrawer(!isMobile);
+		}, [isMobile]);
 
 		const onFormChange = (val: unknown) => {
 			setSettingValues(val as T);
@@ -35,58 +43,88 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 			setSelectedTab(e.newValue);
 		}
 
+		const handleChangeSettingsTab = (e: ITabOnChangeEvent) => {
+			setSelectedSettingsTab(e.newValue);
+		}
+
 		return (
-			<Row>
-				<Column md={6}>
+			<Row direction="column">
+				<Column>
+					<ShowcaseExample>
+						<Tabs fixed onChange={handleChangeTab} value={selectedTab}>
+							<Tab value="tab1" label="Preview" />
+							<Tab value="tab2" label="Usage" />
+						</Tabs>
 
-					<Row direction="column">
-						<Column>
-							<ShowcaseExample>
-								<Tabs fixed onChange={handleChangeTab} value={selectedTab}>
-									<Tab value="tab1" label="Preview" />
-									<Tab value="tab2" label="Usage" />
-								</Tabs>
+						<TabPanel value={selectedTab} index="tab1">
+							<div className="p-1">
+								<WrappedComponent
+									{...rest as T}
+									settingValues={settingValues}
+									setSettingsControls={setSettingsControls}
+								/>
+							</div>
+						</TabPanel>
 
-								<TabPanel value={selectedTab} index="tab1">
-									<div className="p-1">
-										<WrappedComponent
-											{...rest as T}
-											settingValues={settingValues}
-											setSettingsControls={setSettingsControls}
-										/>
-									</div>
-								</TabPanel>
-
-								<TabPanel value={selectedTab} index="tab2">
-									<Highlight url={fileUrl} />
-								</TabPanel>
-							</ShowcaseExample>
-						</Column>
-
-						{settingValues && Object.keys(settingValues).length > 0 &&
-							<Column>
-								<Card>
-									<CardBody>
-										<CardTitle>Setted Props</CardTitle>
-										<pre>
-											{JSON.stringify(settingValues, null, 4)}
-										</pre>
-									</CardBody>
-								</Card>
-							</Column>
-						}
-
-					</Row>
+						<TabPanel value={selectedTab} index="tab2">
+							<Highlight url={fileUrl} />
+						</TabPanel>
+					</ShowcaseExample>
 				</Column>
 
-				<Column md={6}>
-					{settingsControls && Object.keys(settingsControls).length > 0 &&
-						<ShowcaseOptions
-							controls={settingsControls}
-							onFormChange={onFormChange}
-						/>
-					}
-				</Column>
+				{settingValues && Object.keys(settingValues).length > 0 &&
+					<Column>
+						<Card>
+							<CardBody>
+								<CardTitle>Setted Props</CardTitle>
+								<pre>
+									{JSON.stringify(settingValues, null, 4)}
+								</pre>
+							</CardBody>
+						</Card>
+					</Column>
+				}
+
+				{isMobile &&
+					<FloatingActionButton
+						color={COLOR.light}
+						icon={<GearSolidIcon />}
+						onClick={() => setShowSettingsDrawer(!showSettingsDrawer)}
+						fixed={true}
+					/>
+				}
+
+				{showSettingsDrawer &&
+					<Drawer
+						permanent={!isMobile}
+						position={"right"}
+						shadow={false}
+						target={document.querySelector(".main") as HTMLElement}
+						onClickBackdrop={() => setShowSettingsDrawer(false)}
+					>
+						<Tabs
+							color={COLOR.light}
+							value={selectedSettingsTab}
+							fixed={true}
+							onChange={handleChangeSettingsTab}
+						>
+							<Tab value="props" label="Props" />
+							<Tab value="description" label="Description" />
+						</Tabs>
+
+						<TabPanel value={selectedSettingsTab} index="props">
+							{settingsControls && Object.keys(settingsControls).length > 0 &&
+								<ShowcaseOptions
+									controls={settingsControls}
+									onFormChange={onFormChange}
+								/>
+							}
+						</TabPanel>
+						<TabPanel value={selectedSettingsTab} index="description">
+							TODO
+						</TabPanel>
+					</Drawer>
+				}
 
 			</Row>
 		);

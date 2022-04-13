@@ -15,7 +15,7 @@ const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 		setSettingsControls({
 			color: new FormControl(settingValues.color, [], 'select', { label: 'color', options: Object.keys(COLOR).map(c => ({ label: c, value: c })) }),
 			variant: new FormControl(settingValues.variant, [], 'select', { label: 'variant', options: Object.keys(VARIANT).map(c => ({ label: c, value: c })) }),
-			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' }),
+			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled', hint: 'whether the tag is disabled or enabled' }),
 			block: new FormControl(settingValues.block, [], 'checkbox', { label: 'block' }),
 			isActive: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'isActive' }),
 			isRounded: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'isRounded' }),

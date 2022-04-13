@@ -39,6 +39,7 @@ export * from './StepperPage';
 export * from './HookUseConstructorPage';
 export * from './HookUseDebouncePage';
 export * from './HookUseHoverPage';
+export * from './HookUseMobileDetectPage';
 export * from './HookUseWindowSizePage';
 
 export * from '../assets';

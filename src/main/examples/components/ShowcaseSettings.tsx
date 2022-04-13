@@ -1,4 +1,4 @@
-import { Card, CardBody, CardTitle, Form, IControls, IFormValues } from 'lib';
+import { Card, CardBody, Form, IControls, IFormValues } from 'lib';
 
 interface IShowcaseSettingsProps {
 	controls: IControls;
@@ -7,11 +7,8 @@ interface IShowcaseSettingsProps {
 
 export const ShowcaseSettings = ({ controls, onFormChange }: IShowcaseSettingsProps) => {
 	return (
-		<Card>
+		<Card shadow={false}>
 			<CardBody>
-				<CardTitle>
-					Props
-				</CardTitle>
 				<Form
 					controls={controls}
 					validateOnBlur

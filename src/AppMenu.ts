@@ -55,6 +55,7 @@ export const menuItems: Array<IMenuItem> = [
 			{ id: "HookUseConstructor" },
 			{ id: "HookUseDebounce" },
 			{ id: "HookUseHover" },
+			{ id: "HookUseMobileDetect" },
 			{ id: "HookUseWindowSize" },
 		]
 	},

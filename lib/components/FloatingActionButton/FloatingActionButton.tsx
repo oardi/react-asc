@@ -10,17 +10,19 @@ export interface IFloatingActionButtonProps extends React.DetailedHTMLProps<Reac
 	fixed?: boolean;
 	isActive?: boolean;
 	disabled?: boolean;
+	position?: 'leftTop' | 'leftBottom' | 'rightTop' | 'rightBottom';
 	onClick?: (e: React.MouseEvent) => void;
 }
 
 export const FloatingActionButton = (props: IFloatingActionButtonProps) => {
 
-	const { className, icon, color = COLOR.primary, fixed, size = SIZE.lg, isActive, disabled, onClick } = props;
+	const { className, icon, color = COLOR.primary, fixed, position = 'rightBottom', size = SIZE.lg, isActive, disabled, onClick } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.fab);
-		fixed && cssClasses.push(styles['fixed']);
+		fixed && cssClasses.push(styles.fixed);
+		position && fixed && cssClasses.push(styles[position]);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};

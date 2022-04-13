@@ -1,10 +1,28 @@
 .fab {
 	box-shadow: var(--shadow);
+}
 
-	&.fixed {
-		position: fixed;
+.fixed {
+	position: fixed;
+	z-index: 1000;
+
+	&.leftTop {
+		top: 16px;
+		left: 16px;
+	}
+
+	&.leftBottom {
+		bottom: 16px;
+		left: 16px;
+	}
+
+	&.rightTop {
+		top: 64px;
+		right: 16px;
+	}
+
+	&.rightBottom {
 		bottom: 16px;
 		right: 16px;
-		z-index: 1000;
 	}
 }
