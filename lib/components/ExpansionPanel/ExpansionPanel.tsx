@@ -7,12 +7,13 @@ export interface IExpansionPanelProps {
 	header: ReactNode;
 	children: ReactNode;
 	isExpanded?: boolean;
+	shadow?: boolean;
 	onChange?: (event: React.MouseEvent, isExpanded: boolean) => void;
 }
 
 export const ExpansionPanel = (props: IExpansionPanelProps) => {
 
-	const { header, children, isExpanded = false, onChange } = props;
+	const { header, children, isExpanded = false, shadow, onChange } = props;
 
 	const [_isExpanded, setIsExpanded] = useState<boolean>(false);
 
@@ -26,6 +27,7 @@ export const ExpansionPanel = (props: IExpansionPanelProps) => {
 		if (_isExpanded) {
 			cssClasses.push(styles.isExpanded);
 		}
+		shadow && cssClasses.push(styles.shadow);
 		return cssClasses.filter(css => css).join(' ');
 	};
 

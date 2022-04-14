@@ -8,6 +8,11 @@
 @import "./Form.scss";
 @import "./utility.scss";
 
+* {
+	min-width: 0;
+	min-height: 0;
+}
+
 label.required {
 	&::after {
 		display: inline-block;

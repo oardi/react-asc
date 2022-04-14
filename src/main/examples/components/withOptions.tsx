@@ -1,5 +1,5 @@
 import React, { Dispatch, useEffect, useState } from "react";
-import { Card, CardBody, CardTitle, COLOR, Column, Drawer, FloatingActionButton, IControls, ITabOnChangeEvent, Row, Tab, TabPanel, Tabs, useMobileDetect } from "lib";
+import { COLOR, Column, Drawer, ExpansionPanel, FloatingActionButton, IControls, ITabOnChangeEvent, List, ListItem, ListItemText, Row, Tab, TabPanel, Tabs, useMobileDetect } from "lib";
 import { GearSolidIcon } from "..";
 import { Highlight } from "../../../shared";
 import { ShowcaseExample } from './ShowcaseExample';
@@ -72,19 +72,6 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 					</ShowcaseExample>
 				</Column>
 
-				{settingValues && Object.keys(settingValues).length > 0 &&
-					<Column>
-						<Card>
-							<CardBody>
-								<CardTitle>Setted Props</CardTitle>
-								<pre>
-									{JSON.stringify(settingValues, null, 4)}
-								</pre>
-							</CardBody>
-						</Card>
-					</Column>
-				}
-
 				{isMobile &&
 					<FloatingActionButton
 						color={COLOR.light}
@@ -114,10 +101,27 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 
 						<TabPanel value={selectedSettingsTab} index="props">
 							{settingsControls && Object.keys(settingsControls).length > 0 &&
-								<ShowcaseOptions
-									controls={settingsControls}
-									onFormChange={onFormChange}
-								/>
+								<>
+									<ShowcaseOptions
+										controls={settingsControls}
+										onFormChange={onFormChange}
+									/>
+									<ExpansionPanel
+										header="Setted Props"
+									>
+										<pre>
+											{JSON.stringify(settingValues, null, 4)}
+										</pre>
+									</ExpansionPanel>
+								</>
+							}
+
+							{(!settingsControls || Object.keys(settingsControls).length === 0) &&
+								<List>
+									<ListItem>
+										<ListItemText primary="no settings" />
+									</ListItem>
+								</List>
 							}
 						</TabPanel>
 						<TabPanel value={selectedSettingsTab} index="description">

@@ -1,3 +1,8 @@
+## 23.1.0
+- style fixes (breadCrumb, expansionPanel)
+- expansionPanel - added prop shadow
+- showcase fixes
+
 ## 23.0.0
 - useMobileDetect - added hook
 - floatingActionButton - added styles
