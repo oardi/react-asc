@@ -1,3 +1,4 @@
+import { useCssClasses } from 'lib/hooks';
 import React from 'react';
 import { COLOR } from "../component.enums";
 import styles from './Badge.module.scss';
@@ -11,27 +12,34 @@ export const Badge = (props: IBadgeProps) => {
 
 	const { children, content, className, color = COLOR.primary, ...rest } = props;
 
-	const getCssClassesBadgeContainer = () => {
-		const cssClasses: Array<string> = [];
-		cssClasses.push(styles.badgeContainer);
-		className && cssClasses.push(className);
-		return cssClasses.filter(css => css).join(' ');
-	};
-
-	const getCssClassesBadge = () => {
-		const cssClasses: Array<string> = [];
-		cssClasses.push(styles.badge);
-		cssClasses.push(styles[color]);
-		return cssClasses.filter(css => css).join(' ');
-	};
+	const [cssClassName] = useCssClasses([
+		styles.badge,
+		styles[color],
+		className as string
+	]);
 
 	return (
-		<div className={getCssClassesBadgeContainer()} {...rest}>
+		<BadgeContainer>
 			{children}
-
-			<span className={getCssClassesBadge()}>
+			<span className={cssClassName} {...rest}>
 				{content}
 			</span>
+		</BadgeContainer>
+	);
+}
+
+const BadgeContainer = (props: React.ComponentProps<"div">) => {
+
+	const { children, className, ...rest } = props;
+
+	const [cssClassName] = useCssClasses([
+		styles.badgeContainer,
+		className as string,
+	]);
+
+	return (
+		<div className={cssClassName} {...rest}>
+			{children}
 		</div>
 	);
 }
