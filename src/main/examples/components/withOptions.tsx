@@ -1,7 +1,7 @@
 import React, { Dispatch, useEffect, useState } from "react";
 import { COLOR, Column, Drawer, ExpansionPanel, FloatingActionButton, IControls, ITabOnChangeEvent, List, ListItem, ListItemText, Row, Tab, TabPanel, Tabs, useMobileDetect } from "lib";
 import { GearSolidIcon } from "..";
-import { Highlight } from "../../../shared";
+import { Highlight, Markdown } from "../../../shared";
 import { ShowcaseExample } from './ShowcaseExample';
 import { ShowcaseOptions } from './ShowcaseOptions';
 
@@ -16,7 +16,8 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 
 	const HOC = ({ ...rest }) => {
 
-		const [fileUrl, setFileUrl] = useState('');
+		const [fileUrlUsage, setFileUrlUsage] = useState('');
+		const [fileUrlDescription, setFileUrlDescription] = useState('');
 		const [settingValues, setSettingValues] = useState<T>(defaultSettingValues as T || {} as T);
 		const [settingsControls, setSettingsControls] = useState<IControls | undefined>();
 
@@ -35,8 +36,10 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 
 		useEffect(() => {
 			const fileName = componentName?.replace('PageBase', '');
-			const newFileUrl = `./showcase/${fileName?.toLowerCase()}.md`;
-			setFileUrl(newFileUrl);
+			const newFileUrlUsage = `./showcase/${fileName?.toLowerCase()}.md`;
+			setFileUrlUsage(newFileUrlUsage);
+			const newFileUrlDescription = `./showcase/${fileName?.toLowerCase()}.description.md`;
+			setFileUrlDescription(newFileUrlDescription);
 		}, []);
 
 		const handleChangeTab = (e: ITabOnChangeEvent) => {
@@ -67,7 +70,7 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 						</TabPanel>
 
 						<TabPanel value={selectedTab} index="tab2">
-							<Highlight url={fileUrl} />
+							<Highlight url={fileUrlUsage} />
 						</TabPanel>
 					</ShowcaseExample>
 				</Column>
@@ -88,6 +91,7 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 						shadow={false}
 						target={document.querySelector(".main") as HTMLElement}
 						onClickBackdrop={() => setShowSettingsDrawer(false)}
+						style={{ maxWidth: "300px" }}
 					>
 						<Tabs
 							color={COLOR.light}
@@ -124,8 +128,8 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 								</List>
 							}
 						</TabPanel>
-						<TabPanel value={selectedSettingsTab} index="description">
-							TODO
+						<TabPanel className="p-1" value={selectedSettingsTab} index="description">
+							<Markdown url={fileUrlDescription} />
 						</TabPanel>
 					</Drawer>
 				}

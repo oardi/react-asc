@@ -1,12 +1,39 @@
-import React from 'react';
+import { Typography } from 'lib';
+import React, { useEffect, useState } from 'react';
 import snarkdown from 'snarkdown';
+import { fileLoaderService, loggerService } from '../services';
 
 export interface IMarkdownProps {
-	text: string;
+	text?: string;
+	url?: string;
 }
 
-export const Markdown = ({ text }: IMarkdownProps) => {
+export const Markdown = ({ url, text }: IMarkdownProps) => {
+
+	const [markdownText, setMarkdownText] = useState<string>('');
+
+	useEffect(() => {
+		if (url) { loadFile(url); }
+	}, [url]);
+
+	useEffect(() => {
+		if (text) { renderText(text); }
+	}, [text]);
+
+	const loadFile = async (url: string) => {
+		try {
+			const response = await fileLoaderService.get<string>(url, { responseType: 'text' });
+			setMarkdownText(response.data);
+		} catch (err) {
+			loggerService.error(`Markdown: file ${url} not found.`);
+		}
+	}
+
+	const renderText = async (text: string) => {
+		setMarkdownText(snarkdown(text));
+	}
+
 	return (
-		<div dangerouslySetInnerHTML={{ __html: snarkdown(text) }}></div>
+		<Typography dangerouslySetInnerHTML={{ __html: markdownText }}></Typography>
 	);
 }

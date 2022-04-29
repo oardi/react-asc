@@ -1,15 +1,23 @@
 import React, { useEffect } from 'react';
-import { ITypographyProps, Typography } from 'lib';
+import { FormControl, ITypographyProps, Typography } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const TypographyPageBase = ({ setSettingsControls }: IShowcaseBaseProps<ITypographyProps>) => {
+const TypographyPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITypographyProps>) => {
 
 	useEffect(() => {
-		setSettingsControls({});
+		setSettingsControls({
+			wrap: new FormControl(settingValues.wrap, [], 'checkbox', { label: 'wrap' }),
+		});
 	}, []);
 
 	return (
-		<>
+		<div className='d-flex flex-column'>
+			<Typography as="h2">Interactive</Typography>
+			<Typography wrap={settingValues.wrap}>
+				lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+			</Typography>
+
+			<Typography className='mt-2' as="h2">Examples</Typography>
 			<Typography as="h1">Heading 1</Typography>
 			<Typography as="h2">Heading 2</Typography>
 			<Typography as="h3">Heading 3</Typography>
@@ -26,7 +34,7 @@ const TypographyPageBase = ({ setSettingsControls }: IShowcaseBaseProps<ITypogra
 			<div>
 				<Typography className="body2">body2</Typography>
 			</div>
-		</>
+		</div>
 	);
 }
 

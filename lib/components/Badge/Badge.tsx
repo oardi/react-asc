@@ -1,4 +1,4 @@
-import { useCssClasses } from 'lib/hooks';
+import { useCssClasses } from '../../hooks';
 import React from 'react';
 import { COLOR } from "../component.enums";
 import styles from './Badge.module.scss';

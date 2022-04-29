@@ -1,9 +1,11 @@
 .typography {
 	font-family: var(--fontFamily);
 
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+	&.wrap {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
 }
 
 h1 {

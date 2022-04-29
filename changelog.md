@@ -1,3 +1,6 @@
+## 23.2.0
+- typography - added wrap prop
+
 ## 23.1.0
 - style fixes (breadCrumb, expansionPanel)
 - expansionPanel - added prop shadow
