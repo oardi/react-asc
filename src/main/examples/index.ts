@@ -41,5 +41,6 @@ export * from './HookUseDebouncePage';
 export * from './HookUseHoverPage';
 export * from './HookUseMobileDetectPage';
 export * from './HookUseWindowSizePage';
+export * from './HookUseOnDestroyPage';
 
 export * from '../assets';

@@ -1,3 +1,6 @@
+## 23.3.0
+- useOnDestroy - added hook
+
 ## 23.2.0
 - typography - added wrap prop
 

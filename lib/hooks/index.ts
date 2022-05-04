@@ -4,3 +4,4 @@ export * from './useCssClasses';
 export * from './useHover';
 export * from './useMobileDetect';
 export * from './useWindowSize';
+export * from './useOnDestroy';
