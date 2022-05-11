@@ -1,4 +1,10 @@
-ListItemAction -> color prüfen
+### CssTransitipon
+- onTransition toggle
+-- abort previous transition (toggle during toggle)
+-- only on transition at a time
+
+### ListItemAction 
+- color prüfen
 
 ### select
 - multiselect bug

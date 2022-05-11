@@ -15,11 +15,13 @@ interface ICssState {
 interface ICssTransitionProps {
 	className: string;
 	children: React.ReactNode;
-	show: boolean | undefined;
+	show: boolean;
 }
 
 export const CssTransition = (props: ICssTransitionProps) => {
 	const { className, children, show } = props;
+	const [isInit, setIsInit] = useState<boolean>(false);
+	const [isRenderChild, setIsRenderChild] = useState<boolean | undefined>(undefined);
 	const [isShow, setIsShow] = useState<boolean | undefined>(undefined);
 	const [cssState, setCssState] = useState<ICssState | undefined>({
 		hidden: true
@@ -27,8 +29,15 @@ export const CssTransition = (props: ICssTransitionProps) => {
 	const transitionConainter = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		if (show !== undefined) {
+		if (isInit && show !== undefined) {
 			setIsShow(show);
+
+			if (show === true) {
+				setIsRenderChild(true);
+			}
+		}
+		if (!isInit) {
+			setIsInit(true);
 		}
 	}, [show]);
 
@@ -65,6 +74,7 @@ export const CssTransition = (props: ICssTransitionProps) => {
 			setCssState({ leave: true, leaveEnd: true });
 			await afterTransition(transitionConainter.current as Element);
 			setCssState({ hidden: true });
+			setIsRenderChild(false);
 		}
 	};
 
@@ -90,8 +100,12 @@ export const CssTransition = (props: ICssTransitionProps) => {
 	};
 
 	return (
-		<div ref={transitionConainter} className={getCssClasses()}>
-			{children}
-		</div>
+		<>
+			{isRenderChild &&
+				<div ref={transitionConainter} className={getCssClasses()}>
+					{children}
+				</div>
+			}
+		</>
 	);
 };

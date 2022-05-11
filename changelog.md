@@ -1,3 +1,6 @@
+## 23.3.1
+- cssTransition - fixed init state
+
 ## 23.3.0
 - useOnDestroy - added hook
 

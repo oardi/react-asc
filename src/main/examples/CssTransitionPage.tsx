@@ -4,7 +4,7 @@ import { withOptions } from './components';
 
 export const CssTransitionPageBase = () => {
 
-	const [isShow, setIsShow] = useState<boolean | undefined>(undefined);
+	const [isShow, setIsShow] = useState<boolean>(false);
 
 	return (
 		<>
