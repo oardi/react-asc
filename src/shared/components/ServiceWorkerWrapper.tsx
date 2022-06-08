@@ -1,6 +1,7 @@
 import React from 'react';
 import { Snackbar, useConstructor } from 'lib';
 // import * as serviceWorkerRegistration from '../../serviceWorkerRegistration';
+import { registerSW } from 'virtual:pwa-register';
 
 export const ServiceWorkerWrapper = () => {
 	const [showReload, setShowReload] = React.useState(false);
@@ -12,7 +13,7 @@ export const ServiceWorkerWrapper = () => {
 	// };
 
 	useConstructor(() => {
-		// serviceWorkerRegistration.register({ onUpdate: onSWUpdate });
+		registerSW();
 	});
 
 	const reloadPage = () => {
