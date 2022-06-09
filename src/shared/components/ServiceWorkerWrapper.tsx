@@ -13,7 +13,9 @@ export const ServiceWorkerWrapper = () => {
 	// };
 
 	useConstructor(() => {
-		registerSW();
+		if ("serviceWorker" in navigator) {
+			registerSW();
+		}
 	});
 
 	const reloadPage = () => {
