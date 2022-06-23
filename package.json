@@ -59,7 +59,7 @@
 		"rollup-plugin-typescript2": "0.30.0",
 		"sass": "^1.49.0",
 		"scss-bundle": "^3.1.2",
-		"typescript": "^4.4.4",
+		"typescript": "^4.7.4",
 		"vite": "^2.9.10",
 		"vite-plugin-pwa": "^0.12.0",
 		"vite-tsconfig-paths": "^3.5.0"
