@@ -13,7 +13,7 @@ export const ServiceWorkerWrapper = () => {
 	// };
 
 	useConstructor(() => {
-		if ("serviceWorker" in navigator) {
+		if ('serviceWorker' in navigator) {
 			registerSW();
 		}
 	});

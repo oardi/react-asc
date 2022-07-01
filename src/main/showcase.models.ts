@@ -22,7 +22,7 @@ export class MenuModel implements ISidebarItem {
 
 export class RouteModel {
 	constructor(dto: IMenuItem, parentPath?: string) {
-		this.path = [parentPath, dto.path !== undefined ? dto.path : dto.id].join("/");
+		this.path = [parentPath, dto.path !== undefined ? dto.path : dto.id].join('/');
 		this.componentKey = `${dto.id}Page`;
 		this.routes = dto.items && dto.items.map(item => new RouteModel(item, this.path));
 	}

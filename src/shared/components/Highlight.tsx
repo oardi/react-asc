@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fileLoaderService, loggerService } from '../services';
-import Prism from "prismjs";
-import "prismjs/themes/prism-tomorrow.css";
+import Prism from 'prismjs';
+import 'prismjs/themes/prism-tomorrow.css';
 
 import snarkdown from 'snarkdown';
 

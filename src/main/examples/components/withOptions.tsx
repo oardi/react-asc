@@ -1,7 +1,7 @@
-import React, { Dispatch, useEffect, useState } from "react";
-import { COLOR, Column, Drawer, ExpansionPanel, FloatingActionButton, IControls, ITabOnChangeEvent, List, ListItem, ListItemText, Row, Tab, TabPanel, Tabs, useMobileDetect } from "lib";
-import { GearSolidIcon } from "..";
-import { Highlight, Markdown } from "../../../shared";
+import React, { Dispatch, useEffect, useState } from 'react';
+import { COLOR, Column, Drawer, ExpansionPanel, FloatingActionButton, IControls, ITabOnChangeEvent, List, ListItem, ListItemText, Row, Tab, TabPanel, Tabs, useMobileDetect } from 'lib';
+import { GearSolidIcon } from '..';
+import { Highlight, Markdown } from '../../../shared';
 import { ShowcaseExample } from './ShowcaseExample';
 import { ShowcaseOptions } from './ShowcaseOptions';
 
@@ -87,11 +87,11 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 				{showSettingsDrawer &&
 					<Drawer
 						permanent={!isMobile}
-						position={"right"}
+						position={'right'}
 						shadow={false}
-						target={document.querySelector(".main") as HTMLElement}
+						target={document.querySelector('.main') as HTMLElement}
 						onClickBackdrop={() => setShowSettingsDrawer(false)}
-						style={{ maxWidth: "300px" }}
+						style={{ maxWidth: '300px' }}
 					>
 						<Tabs
 							color={COLOR.light}
