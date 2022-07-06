@@ -12,7 +12,7 @@ export interface ITabIndicatorProps extends React.DetailedHTMLProps<React.HtmlHT
 
 export const TabIndicator = (props: ITabIndicatorProps) => {
 
-	const { color = COLOR.accent, width, amount, index } = props;
+	const { color = COLOR.primary, width, amount, index } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

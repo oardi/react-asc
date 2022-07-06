@@ -16,10 +16,12 @@
 
 	&.left {
 		order: 0;
+		left: 0;
 	}
 
 	&.right {
 		order: 2;
+		right: 0;
 	}
 
 	&.shadow {

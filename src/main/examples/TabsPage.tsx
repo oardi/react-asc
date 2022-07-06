@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ITabOnChangeEvent, ITabsProps, snackbarService, Tab, TabPanel, Tabs } from 'lib';
+import { COLOR, FormControl, ITabOnChangeEvent, ITabsProps, snackbarService, Tab, TabPanel, Tabs } from 'lib';
 import { loggerService } from '../../shared';
 import { IShowcaseBaseProps, withOptions } from './components';
 
@@ -11,7 +11,7 @@ const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 
 	useEffect(() => {
 		setSettingsControls({
-			// fill: new FormControl(settingValues.fixed, [], 'checkbox', { label: 'fill' }),
+			color: new FormControl(settingValues.color, [], 'select', { label: 'color', options: Object.keys(COLOR).map(c => ({ label: c, value: c })) }),
 		});
 	}, []);
 
@@ -25,6 +25,7 @@ const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 	return (
 		<>
 			<Tabs
+				color={settingValues.color}
 				value={value}
 				fixed={settingValues.fixed}
 				onChange={handleChange}
@@ -52,5 +53,6 @@ const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 }
 
 export const TabsPage = withOptions<ITabsProps>(TabsPageBase, {
+	color: COLOR.primary,
 	fixed: false
 }, CLASSNAME);

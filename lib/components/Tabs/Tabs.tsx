@@ -1,4 +1,5 @@
 import React, { cloneElement, PropsWithChildren, ReactChild, ReactElement, useEffect, useState } from 'react';
+import { ButtonContext } from '../Button';
 import { COLOR } from '../component.enums';
 import { ITabProps } from './Tab';
 import { TabIndicator } from './TabIndicator';
@@ -21,7 +22,7 @@ export interface ITabsProps {
 
 export const Tabs = (props: ITabsProps) => {
 
-	const { children, className, fixed, indicatorColor, onChange, value } = props;
+	const { children, className, fixed, color, indicatorColor, onChange, value } = props;
 	const [selectedValue, setSelectedValue] = useState<string | undefined>(value);
 	const [selectedIndex, setSelectedIndex] = useState<number>();
 
@@ -56,7 +57,7 @@ export const Tabs = (props: ITabsProps) => {
 	}
 
 	return (
-		<>
+		<ButtonContext.Provider value={{ color: color || COLOR.light }}>
 			<div className={getCssClasses()}>
 				{children && React.Children.toArray(children).map((child, index) => renderTabs(child as ReactChild, index))}
 
@@ -69,6 +70,6 @@ export const Tabs = (props: ITabsProps) => {
 					/>
 				}
 			</div>
-		</>
+		</ButtonContext.Provider>
 	)
 }

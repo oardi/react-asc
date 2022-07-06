@@ -1,7 +1,15 @@
-import { Button, ButtonGroup, snackbarService } from 'lib';
-import { withOptions } from './components';
+import { Button, ButtonGroup, COLOR, FormControl, IButtonGroupProps, snackbarService } from 'lib';
+import { useEffect } from 'react';
+import { IShowcaseBaseProps, withOptions } from './components';
 
-const ButtonGroupPageBase = () => {
+const ButtonGroupPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IButtonGroupProps>) => {
+
+	useEffect(() => {
+		setSettingsControls({
+			color: new FormControl(settingValues.color, [], 'select', { label: 'color', options: Object.keys(COLOR).map(c => ({ label: c, value: c })) }),
+		});
+	}, []);
+
 
 	const handleClick = () => {
 		snackbarService.show('Button clicked');
@@ -9,7 +17,8 @@ const ButtonGroupPageBase = () => {
 
 	return (
 		<>
-			<ButtonGroup>
+			<ButtonGroup
+				color={settingValues.color}>
 				<Button
 					onClick={handleClick}
 					shadow={false}>
@@ -30,4 +39,6 @@ const ButtonGroupPageBase = () => {
 	);
 }
 
-export const ButtonGroupPage = withOptions(ButtonGroupPageBase, undefined, 'ButtonGroupPageBase');
+export const ButtonGroupPage = withOptions(ButtonGroupPageBase, {
+	color: COLOR.primary
+}, 'ButtonGroupPageBase');

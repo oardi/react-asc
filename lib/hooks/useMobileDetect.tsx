@@ -7,7 +7,7 @@ export function useMobileDetect() {
 
 	const checkIsMobile = (height: number, width: number) => {
 		if (height > 0 && width > 0) {
-			setIsMobile(!(width >= 1024));
+			setIsMobile(!(width >= 640));
 		}
 	}
 

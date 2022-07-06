@@ -2,6 +2,7 @@ import React from 'react';
 import { Icon } from '../Icon';
 import { COLOR, VARIANT } from '../component.enums';
 import styles from './Button.module.scss';
+import { useButtonContext } from './ButtonContext';
 
 export interface IButtonProps extends React.ComponentProps<'button'> {
 	color?: COLOR;
@@ -18,21 +19,25 @@ export const Button: React.FunctionComponent<IButtonProps> = (props) => {
 
 	const { children, variant = VARIANT.contained, color = COLOR.primary, isRounded, isActive, className, startIcon, endIcon, shadow = true, block, ...rest } = props;
 
+	const buttonContext = useButtonContext();
+
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.button);
 
+		const buttonColor = buttonContext.color || color;
+
 		if (variant !== 'outline' && variant !== 'text') {
 			cssClasses.push(styles.btnContained);
-			cssClasses.push(styles[color]);
+			cssClasses.push(styles[buttonColor]);
 		}
 		if (variant === 'outline') {
 			cssClasses.push(styles.btnOutline);
-			cssClasses.push(styles[color]);
+			cssClasses.push(styles[buttonColor]);
 		}
 		if (variant === 'text') {
 			cssClasses.push(styles.btnText);
-			cssClasses.push(styles[color]);
+			cssClasses.push(styles[buttonColor]);
 		}
 		if (isRounded && variant !== 'text') {
 			cssClasses.push(`rounded-pill`);

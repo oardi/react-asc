@@ -1,9 +1,15 @@
 import React from 'react';
+import { ButtonContext } from '../Button/ButtonContext';
+import { COLOR } from '../component.enums';
 import styles from './ButtonGroup.module.scss';
 
-export const ButtonGroup = (props: React.ComponentProps<'div'>) => {
+export interface IButtonGroupProps extends React.ComponentProps<'div'> {
+	color?: COLOR;
+}
 
-	const { children, className, ...rest } = props;
+export const ButtonGroup = (props: IButtonGroupProps) => {
+
+	const { children, className, color, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -13,8 +19,10 @@ export const ButtonGroup = (props: React.ComponentProps<'div'>) => {
 	};
 
 	return (
-		<div className={getCssClasses()} role="group" {...rest}>
-			{children}
-		</div>
+		<ButtonContext.Provider value={{ color: color || COLOR.primary }}>
+			<div className={getCssClasses()} role="group" {...rest}>
+				{children}
+			</div>
+		</ButtonContext.Provider>
 	);
 }
