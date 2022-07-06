@@ -88,7 +88,7 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 					<Drawer
 						permanent={!isMobile}
 						position={'right'}
-						shadow={false}
+						shadow={true}
 						target={document.querySelector('.main') as HTMLElement}
 						onClickBackdrop={() => setShowSettingsDrawer(false)}
 						style={{ maxWidth: '300px' }}

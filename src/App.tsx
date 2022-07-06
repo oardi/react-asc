@@ -75,7 +75,7 @@ const App = () => {
 					</Drawer>
 				}
 
-				<div className="p-1 pt-0 w-100">
+				<div className="p-2 pt-0 w-100">
 					<AppBreadcrumb className="mt-1 mb-1" />
 
 					<Switch>

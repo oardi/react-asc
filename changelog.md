@@ -1,3 +1,6 @@
+## 23.3.2
+- style fixes
+
 ## 23.3.1
 - cssTransition - fixed init state
 
