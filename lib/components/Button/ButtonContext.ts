@@ -2,10 +2,10 @@ import { createContext, useContext } from 'react';
 import { COLOR } from '../component.enums';
 
 export interface IButtonContext {
-	color: COLOR;
+	color: COLOR | null;
 }
 
 export const ButtonContext = createContext<IButtonContext>({
-	color: COLOR.primary
+	color: null
 });
 export const useButtonContext = () => useContext(ButtonContext);

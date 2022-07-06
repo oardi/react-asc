@@ -1,3 +1,6 @@
+## 23.4.1
+- button fixed set color
+
 ## 23.4.0
 - added color to buttonGroup
 - added buttonContext
