@@ -2,7 +2,7 @@ import React, { ComponentProps } from 'react';
 import { COLOR } from '../component.enums';
 import styles from './Icon.module.scss';
 
-export interface IIconProps extends ComponentProps<"div">  {
+export interface IIconProps extends ComponentProps<'div'>  {
 	iconColor?: COLOR;
 }
 

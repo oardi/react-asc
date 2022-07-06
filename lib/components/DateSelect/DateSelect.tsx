@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { Row, Column } from "../Grid";
-import { FormLabel } from "../Form";
-import { DaySelect } from "./DaySelect";
-import { MonthSelect } from "./MonthSelect";
-import { YearSelect } from "./YearSelect";
+import React, { useState } from 'react';
+import { Row, Column } from '../Grid';
+import { FormLabel } from '../Form';
+import { DaySelect } from './DaySelect';
+import { MonthSelect } from './MonthSelect';
+import { YearSelect } from './YearSelect';
 
 export enum DATEMODE { YEAR, MONTH, DAY }
 

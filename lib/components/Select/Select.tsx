@@ -70,7 +70,7 @@ export const Select = (props: ISelectProps) => {
 	const scrollIntoView = (index: number) => {
 		const htmlListItem = selectConainter.current?.querySelector(`#list-item-${index}`);
 		if (htmlListItem) {
-			htmlListItem?.scrollIntoView({ block: "end", behavior: "smooth" });
+			htmlListItem?.scrollIntoView({ block: 'end', behavior: 'smooth' });
 		}
 	}
 

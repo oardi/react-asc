@@ -2,7 +2,7 @@ import React from 'react';
 import { COLOR } from '../component.enums';
 import styles from './ListItem.module.scss';
 
-export interface IListItemProps extends React.ComponentProps<"li"> {
+export interface IListItemProps extends React.ComponentProps<'li'> {
 	color?: COLOR;
 	active?: boolean;
 	isHoverable?: boolean;

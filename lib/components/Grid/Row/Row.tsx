@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Row.module.scss';
 
-export interface IContainerProps extends React.ComponentProps<"div"> {
+export interface IContainerProps extends React.ComponentProps<'div'> {
 	direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
 }
 

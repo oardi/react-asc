@@ -4,7 +4,7 @@ import { IconButton } from '../IconButton';
 import styles from './Checkbox.module.scss';
 
 // TODO refactor htmlBasaeProps
-export interface ICheckboxProps extends React.ComponentProps<"input"> {
+export interface ICheckboxProps extends React.ComponentProps<'input'> {
 	label?: string;
 	value?: string;
 	onKeyDown?: (event: React.KeyboardEvent) => void;
@@ -12,7 +12,7 @@ export interface ICheckboxProps extends React.ComponentProps<"input"> {
 
 export const Checkbox = (props: ICheckboxProps) => {
 
-	const { id, checked, className, label, name, value = "off", disabled, readOnly, ...rest } = props;
+	const { id, checked, className, label, name, value = 'off', disabled, readOnly, ...rest } = props;
 
 	// TODO
 	// add own value

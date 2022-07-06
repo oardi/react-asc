@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 import { TimesCircleSolidIcon } from '../../icons';
 import { COLOR } from '../component.enums';
 import styles from './Chip.module.scss';
 
-export interface IChipProps extends React.ComponentProps<"div"> {
+export interface IChipProps extends React.ComponentProps<'div'> {
 	color?: COLOR;
 	shadow?: boolean;
 	onClick?: (e: React.MouseEvent<Element>) => void;

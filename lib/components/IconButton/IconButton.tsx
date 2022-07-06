@@ -3,7 +3,7 @@ import { COLOR, SIZE, VARIANT } from '../component.enums';
 import { Icon } from '../Icon';
 import styles from './IconButton.module.scss';
 
-export interface IIconButtonProps extends React.ComponentProps<"button"> {
+export interface IIconButtonProps extends React.ComponentProps<'button'> {
 	icon?: React.SVGProps<SVGSVGElement>;
 	color?: COLOR;
 	size?: SIZE;

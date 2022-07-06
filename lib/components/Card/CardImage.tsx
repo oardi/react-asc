@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './CardImage.module.scss';
 
-export const CardImage = (props: React.ComponentProps<"img">) => {
+export const CardImage = (props: React.ComponentProps<'img'>) => {
 
 	const { src, alt, className, ...rest } = props;
 

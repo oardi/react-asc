@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './FormLabel.module.scss';
 
-export const FormLabel = ({ children, className, htmlFor, ...rest }: React.ComponentProps<"label">) => {
+export const FormLabel = ({ children, className, htmlFor, ...rest }: React.ComponentProps<'label'>) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

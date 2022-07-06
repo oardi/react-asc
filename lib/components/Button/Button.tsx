@@ -3,7 +3,7 @@ import { Icon } from '../Icon';
 import { COLOR, VARIANT } from '../component.enums';
 import styles from './Button.module.scss';
 
-export interface IButtonProps extends React.ComponentProps<"button"> {
+export interface IButtonProps extends React.ComponentProps<'button'> {
 	color?: COLOR;
 	isActive?: boolean;
 	isRounded?: boolean;

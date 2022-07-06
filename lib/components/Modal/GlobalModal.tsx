@@ -13,6 +13,7 @@ interface IModalProps {
 	modalType?: MODALTYPE;
 	onOk?: (values?: IFormValues) => void;
 	onCancel?: () => void;
+	onBackdropClick?: () => void;
 	isDismissable?: boolean;
 	buttons?: Array<IModalButton>;
 	fullScreen?: boolean;
@@ -25,6 +26,7 @@ export const GlobalModal = ({
 	formControls,
 	onOk,
 	onCancel,
+	onBackdropClick,
 	isDismissable = false,
 	buttons = [
 		{ label: 'Cancel', type: MODALBUTTONTYPE.CANCEL, color: COLOR.secondary, variant: VARIANT.text, shadow: false },
@@ -82,6 +84,7 @@ export const GlobalModal = ({
 			fullScreen={fullScreen}
 			header={title}
 			onHeaderCloseClick={onCancel}
+			onBackdropClick={onBackdropClick}
 			isDismissable={isDismissable}
 			footer={
 				<Fragment>

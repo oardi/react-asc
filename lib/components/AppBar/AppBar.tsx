@@ -2,10 +2,10 @@ import React, { ReactNode } from 'react';
 import { COLOR, SIZE } from '../component.enums';
 import styles from './AppBar.module.scss';
 
-export interface IAppBarProps extends React.ComponentProps<"nav"> {
+export interface IAppBarProps extends React.ComponentProps<'nav'> {
 	children?: ReactNode;
 	className?: string;
-	color?: COLOR.primary | COLOR.light;
+	color?: COLOR;
 	shadow?: boolean | SIZE.sm | SIZE.md | SIZE.lg;
 }
 

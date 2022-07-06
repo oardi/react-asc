@@ -2,7 +2,7 @@ import React, { cloneElement, useEffect, useRef, useState } from 'react';
 import { createPopper } from '@popperjs/core';
 import styles from './Tooltip.module.scss';
 
-export interface ITooltipProps extends React.ComponentProps<"div">  {
+export interface ITooltipProps extends React.ComponentProps<'div'>  {
 	placement?: 'top' | 'bottom' | 'right' | 'left',
 	text?: string;
 }

@@ -24,7 +24,7 @@ const Wrapper = (props: IWrapperProps) => {
 }
 
 
-export interface ITypographyProps extends React.ComponentProps<"span"> {
+export interface ITypographyProps extends React.ComponentProps<'span'> {
 	as?: string;
 	wrap?: boolean;
 }

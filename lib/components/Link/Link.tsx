@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { STATUS } from '../component.enums';
 import styles from './Link.module.scss';
 
-export const Link = (props: React.ComponentProps<"a">) => {
+export const Link = (props: React.ComponentProps<'a'>) => {
 
 	const { href = '#', className, target, children, ...rest } = props;
 	const [status, setStatus] = useState(STATUS.NORMAL);

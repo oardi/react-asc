@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Column.module.scss';
 
-interface IColProps extends React.ComponentProps<"div"> {
+interface IColProps extends React.ComponentProps<'div'> {
 	xs?: number;
 	sm?: number;
 	md?: number;

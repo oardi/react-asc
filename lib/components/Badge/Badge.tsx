@@ -1,9 +1,9 @@
 import { useCssClasses } from '../../hooks';
 import React from 'react';
-import { COLOR } from "../component.enums";
+import { COLOR } from '../component.enums';
 import styles from './Badge.module.scss';
 
-export interface IBadgeProps extends React.ComponentProps<"div"> {
+export interface IBadgeProps extends React.ComponentProps<'div'> {
 	color?: COLOR;
 	content?: React.ReactNode;
 }
@@ -28,7 +28,7 @@ export const Badge = (props: IBadgeProps) => {
 	);
 }
 
-const BadgeContainer = (props: React.ComponentProps<"div">) => {
+const BadgeContainer = (props: React.ComponentProps<'div'>) => {
 
 	const { children, className, ...rest } = props;
 

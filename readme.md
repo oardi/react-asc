@@ -34,6 +34,11 @@ const MyApp = () => {
 };
 ```
 
+
+## TypeScript
+react-asc provides built-in ts definition
+
+
 ## Included Components
 
 -   Alert (beta)

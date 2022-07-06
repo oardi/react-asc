@@ -2,7 +2,7 @@ import React, { ComponentProps } from 'react';
 import { COLOR } from '../component.enums';
 import styles from './Snackbar.module.scss';
 
-export interface ISnackbarProps extends ComponentProps<"div"> {
+export interface ISnackbarProps extends ComponentProps<'div'> {
 	color?: COLOR;
 	actionText?: string;
 	onOk?: (e: React.MouseEvent) => void;
@@ -30,7 +30,7 @@ export const Snackbar = (props: ISnackbarProps) => {
 				{children}
 			</div>
 
-			<div className={styles.action + " text-accent"} onClick={handleClickAction}>
+			<div className={styles.action + ' text-accent'} onClick={handleClickAction}>
 				<span>{actionText}</span>
 			</div>
 		</div>

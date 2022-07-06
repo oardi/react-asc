@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import styles from './ListItemTextIcon.module.scss';
 
-interface IListItemTextProps extends React.ComponentProps<"div"> {
+interface IListItemTextProps extends React.ComponentProps<'div'> {
 	primary: ReactNode;
 	secondary?: ReactNode;
 }

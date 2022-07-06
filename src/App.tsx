@@ -53,9 +53,9 @@ const App = () => {
 
 	return (
 		<>
-			<AppBar shadow>
+			<AppBar shadow color={COLOR.light}>
 				<IconButton
-					color={COLOR.light}
+					color={COLOR.primary}
 					icon={<BarsSolidIcon />}
 					onClick={() => setShowMenu(!showMenu)}
 				/>

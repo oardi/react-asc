@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './List.module.scss';
 
-export interface IListProps extends React.ComponentProps<"ul"> {
+export interface IListProps extends React.ComponentProps<'ul'> {
 	isFlush?: boolean;
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Card.module.scss';
 
-interface ICardProps extends React.ComponentProps<"div"> {
+interface ICardProps extends React.ComponentProps<'div'> {
 	shadow?: boolean;
 }
 

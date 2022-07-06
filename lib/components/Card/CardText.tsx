@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './CardText.module.scss';
 
-export const CardText = (props: React.ComponentProps<"p">) => {
+export const CardText = (props: React.ComponentProps<'p'>) => {
 
 	const { children, className, ...rest } = props;
 

@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import { Backdrop } from '../Backdrop';
 import styles from './Drawer.module.scss';
 
-export interface IDrawerProps extends React.ComponentProps<"div"> {
+export interface IDrawerProps extends React.ComponentProps<'div'> {
 	position?: 'left' | 'right';
 	shadow?: boolean;
 	onClickBackdrop?: () => void;
@@ -37,7 +37,7 @@ export const Drawer = (props: IDrawerProps) => {
 	);
 }
 
-interface IDrawerContentProps extends React.ComponentProps<"div"> {
+interface IDrawerContentProps extends React.ComponentProps<'div'> {
 	children?: ReactNode;
 	position?: 'left' | 'right';
 	className?: string;

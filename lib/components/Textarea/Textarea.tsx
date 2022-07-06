@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Textarea.module.scss';
 
-export interface ITextareaProps extends React.ComponentProps<"textarea"> {
+export interface ITextareaProps extends React.ComponentProps<'textarea'> {
 	error?: boolean;
 }
 

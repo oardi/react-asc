@@ -2,7 +2,7 @@ import React from 'react';
 import { SpinnerSolidIcon } from '../../icons';
 import styles from './LoadingIndicator.module.scss';
 
-export const LoadingIndicator = ({ ...rest }: React.ComponentProps<"div">) => {
+export const LoadingIndicator = ({ ...rest }: React.ComponentProps<'div'>) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

@@ -3,7 +3,7 @@ import { VARIANT } from '../component.enums';
 import { COLOR, SIZE } from '../component.enums';
 import styles from './Alert.module.scss';
 
-export interface IAlertProps extends React.ComponentProps<"div"> {
+export interface IAlertProps extends React.ComponentProps<'div'> {
 	children?: ReactNode;
 	className?: string;
 	variant?: VARIANT;

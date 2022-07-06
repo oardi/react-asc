@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import { ISelectOption } from '../component.interfaces';
-import { Select } from "../Select";
+import { Select } from '../Select';
 export interface ISecondProps {
 	value?: number;
 	className?: string;

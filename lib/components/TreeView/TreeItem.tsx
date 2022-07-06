@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import { ChevronDownSolidIcon, ChevronRightSolidIcon } from '../../icons';
 import { Checkbox } from '../Checkbox';
 import { IconButton } from '../IconButton';

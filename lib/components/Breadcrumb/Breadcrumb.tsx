@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import styles from './Breadcrumb.module.scss';
 
-export interface IBreadcrumbProps extends React.ComponentProps<"nav"> {
+export interface IBreadcrumbProps extends React.ComponentProps<'nav'> {
 	children?: ReactNode;
 }
 

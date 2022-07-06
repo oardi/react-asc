@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 
 interface ICssState {
 	hidden?: boolean;
@@ -52,7 +52,7 @@ export const CssTransition = (props: ICssTransitionProps) => {
 	const afterTransition = (element: Element | undefined): Promise<void> => {
 		return new Promise((resolve) => {
 			if (element) {
-				const duration = Number(getComputedStyle(element).transitionDuration.replace("s", "")) * 1000;
+				const duration = Number(getComputedStyle(element).transitionDuration.replace('s', '')) * 1000;
 				setTimeout(() => { resolve(); }, duration);
 			} else {
 				resolve();
@@ -96,7 +96,7 @@ export const CssTransition = (props: ICssTransitionProps) => {
 		cssState?.leaveStart && cssClasses.push(`${className}-leave-start`);
 		cssState?.leaveEnd && cssClasses.push(`${className}-leave-end`);
 
-		return cssClasses.filter((css) => css).join(" ");
+		return cssClasses.filter((css) => css).join(' ');
 	};
 
 	return (

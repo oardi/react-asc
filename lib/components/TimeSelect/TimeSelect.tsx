@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { Row, Column } from "../Grid";
-import { FormLabel } from "../Form";
-import { HourSelect } from "./HourSelect";
-import { MilliSecondSelect } from "./MilliSecondSelect";
-import { MinuteSelect } from "./MinuteSelect";
-import { SecondSelect } from "./SecondSelect";
+import React, { useState } from 'react';
+import { Row, Column } from '../Grid';
+import { FormLabel } from '../Form';
+import { HourSelect } from './HourSelect';
+import { MilliSecondSelect } from './MilliSecondSelect';
+import { MinuteSelect } from './MinuteSelect';
+import { SecondSelect } from './SecondSelect';
 
 export enum TIMEMODE { HOUR, MINUTE, SECONDS, MILLISECONDS }
 

@@ -81,7 +81,7 @@ export const Stepper = (props: IStepperProps) => {
 	// TODO
 	const handleSkip = () => {
 		if (!isStepOptional(activeIndex)) {
-			throw new Error("You can't skip a step that isn't optional.");
+			throw new Error('You can\'t skip a step that isn\'t optional.');
 		}
 
 		setActiveIndex((prevActiveStep) => prevActiveStep + 1);

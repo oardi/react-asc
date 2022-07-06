@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './CardBody.module.scss';
 
-export const CardBody = (props: React.ComponentProps<"div">) => {
+export const CardBody = (props: React.ComponentProps<'div'>) => {
 
 	const { children, className, ...rest } = props;
 

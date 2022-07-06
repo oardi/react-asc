@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ListItemIcon.module.scss';
 
-interface IListItemIconProps extends React.ComponentProps<"div"> {
+interface IListItemIconProps extends React.ComponentProps<'div'> {
 	icon: React.SVGProps<SVGSVGElement>;
 }
 

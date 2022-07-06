@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 import styles from './TreeView.module.scss';
 
-export const TreeView = (props: React.ComponentProps<"ul">) => {
+export const TreeView = (props: React.ComponentProps<'ul'>) => {
 
 	const { children, className, ...rest } = props;
 

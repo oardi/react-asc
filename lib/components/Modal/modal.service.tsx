@@ -47,6 +47,7 @@ class ModalService implements IModalService {
 						description={description}
 						formControls={options && options.formControls}
 						onCancel={handleCancel}
+						onBackdropClick={handleCancel}
 						onOk={handleOk}
 						isDismissable={options && options.isDismissable}
 						buttons={options && options.buttons}

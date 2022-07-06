@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './CardFooter.module.scss';
 
-export const CardFooter = (props: React.ComponentProps<"div">) => {
+export const CardFooter = (props: React.ComponentProps<'div'>) => {
 
 	const { children, className, ...rest } = props;
 

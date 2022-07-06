@@ -10,11 +10,11 @@ export function useHover() {
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			const node = ref.current as any;
 			if (node) {
-				node.addEventListener("mouseover", handleMouseOver);
-				node.addEventListener("mouseout", handleMouseOut);
+				node.addEventListener('mouseover', handleMouseOver);
+				node.addEventListener('mouseout', handleMouseOut);
 				return () => {
-					node.removeEventListener("mouseover", handleMouseOver);
-					node.removeEventListener("mouseout", handleMouseOut);
+					node.removeEventListener('mouseover', handleMouseOver);
+					node.removeEventListener('mouseout', handleMouseOut);
 				};
 			}
 			return;

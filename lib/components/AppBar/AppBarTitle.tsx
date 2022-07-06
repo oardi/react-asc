@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import styles from './AppBarTitle.module.scss';
 
-export interface IAppBarTitleProps extends React.ComponentProps<"div">  {
+export interface IAppBarTitleProps extends React.ComponentProps<'div'>  {
 	children?: ReactNode;
 }
 

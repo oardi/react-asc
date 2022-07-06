@@ -2,7 +2,7 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 import styles from './Backdrop.module.scss';
 
-interface IBackdropProps extends React.ComponentProps<"div"> {
+interface IBackdropProps extends React.ComponentProps<'div'> {
 	target?: HTMLElement;
 	isTransparent?: boolean;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { ConditionalWrapper } from '../ConditionalWrapper';
 import { useTableContext } from './TableContext';
 
-export interface ITableCellProps extends React.ComponentProps<"th">, React.ComponentProps<"td"> {
+export interface ITableCellProps extends React.ComponentProps<'th'>, React.ComponentProps<'td'> {
 	component?: 'th';
 }
 
