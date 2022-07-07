@@ -5,7 +5,7 @@ import { Layout } from './Layout';
 export const AboutPage = () => {
 
 	return (
-		<Layout title="About">
+		<Layout>
 			<Typography as="h3">
 				Author
 			</Typography>
@@ -14,7 +14,7 @@ export const AboutPage = () => {
 			</Typography>
 
 			<Typography as="h3">
-				Browser supported
+				Browser offically supported
 			</Typography>
 			<Typography as="p">
 				Chrome
@@ -24,7 +24,7 @@ export const AboutPage = () => {
 				Credits and Thanks
 			</Typography>
 			<Typography as="p">
-				This React library aims to deliver reusable react components.
+				This React library aims to deliver reusable react components. <br />
 				Thank you React Team for providing such a awesome library :)
 			</Typography>
 

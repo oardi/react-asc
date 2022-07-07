@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './index.scss';
 import * as Pages from './main'; // LazyLoading?
-import { AppSidebar, AppInfo, AppBreadcrumb, loggerService, ServiceWorkerWrapper } from './shared';
+import { AppSidebar, AppInfo, AppBreadcrumb, loggerService, ServiceWorkerWrapper, PageNotFound } from './shared';
 import { useAppContext } from './AppContext';
 import { showcaseService } from './app.service';
 import { APPSTATE } from './app.enums';
@@ -99,7 +99,7 @@ const App = () => {
 								</Route>
 							))}
 
-						{appRoutes && <Route render={() => <div>404 - Missing!</div>} />}
+						{appRoutes && <Route render={() => <PageNotFound />} />}
 
 					</Switch>
 				</div>
