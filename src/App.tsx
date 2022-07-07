@@ -45,6 +45,7 @@ const App = () => {
 		} catch (err) { loggerService.error('init', err) }
 	}
 
+	// TODO - use isMobile hook
 	const checkIsMobile = (height: number, width: number) => {
 		if (height > 0 && width > 0) {
 			setIsMobile(!(width >= 1024));

@@ -123,7 +123,7 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 							{(!settingsControls || Object.keys(settingsControls).length === 0) &&
 								<List>
 									<ListItem>
-										<ListItemText primary="no settings" />
+										<ListItemText primary=" - no settings are listed - " />
 									</ListItem>
 								</List>
 							}

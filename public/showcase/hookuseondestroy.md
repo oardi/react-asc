@@ -1,5 +1,5 @@
 const MyComponent = () => {
 	useOnDestroy(() => {
-		// do something
+		// do something on component unmount
 	});
 }

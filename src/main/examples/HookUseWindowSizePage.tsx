@@ -4,7 +4,7 @@ import { withOptions } from './components';
 const HookUseWindowSizePageBase = () => {
 	return (
 		<>
-			TODO
+			Switch to "Usage" to see how to use this hook
 		</>
 	);
 }
