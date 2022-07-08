@@ -5,7 +5,7 @@ import { FormInput } from './FormInput';
 import { FormHint } from './FormHint';
 import { FormError } from './FormError';
 import { IControls, IFormInputError, IFormValues } from './form.interfaces';
-import { IsEmptyValidator, EmailValidator, IsEqualValidator } from './validators';
+import { IsEmptyValidator, EmailValidator, IsEqualValidator, MaxValidator } from './validators';
 import { FormControl } from './form.models';
 
 export interface IFormProps {
@@ -83,6 +83,11 @@ export class Form extends Component<IFormProps, IFormState> {
 					case 'email':
 						if (EmailValidator(fieldValue as string)) {
 							errors.push({ validator: validatorName, message: 'Email format is wrong' });
+						}
+						break;
+					case 'max':
+						if (MaxValidator(fieldValue as number, parseInt(validatorParam as string))) {
+							errors.push({ validator: validatorName, message: `Number is greater than ${validatorParam}` });
 						}
 						break;
 					case 'match':

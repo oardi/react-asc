@@ -1,3 +1,6 @@
+## 23.5.0
+- added component ProgressBar
+
 ## 23.4.1
 - button fixed set color
 

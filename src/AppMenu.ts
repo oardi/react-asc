@@ -35,6 +35,7 @@ export const menuItems: Array<IMenuItem> = [
 			{ id: 'Menu' },
 			{ id: 'Modal' },
 			{ id: 'NumberSelect' },
+			{ id: 'ProgressBar' },
 			{ id: 'Select' },
 			{ id: 'Snackbar' },
 			{ id: 'SpeedDial' },

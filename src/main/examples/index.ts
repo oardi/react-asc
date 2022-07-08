@@ -35,6 +35,7 @@ export * from './IconPage';
 export * from './SelectPage';
 export * from './SpeedDialPage';
 export * from './StepperPage';
+export * from './ProgressBarPage';
 
 export * from './HookUseConstructorPage';
 export * from './HookUseDebouncePage';

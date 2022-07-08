@@ -26,6 +26,7 @@ export * from './List';
 export * from './LoadingIndicator';
 export * from './Modal';
 export * from './NumberSelect';
+export * from './ProgressBar';
 export * from './Sidebar';
 export * from './Snackbar';
 export * from './SpeedDial';

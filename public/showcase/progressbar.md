@@ -1,0 +1,3 @@
+<ProgressBar 
+	value={10} 
+/>
