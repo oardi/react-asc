@@ -8,26 +8,21 @@ import { showcaseService } from './app.service';
 import { APPSTATE } from './app.enums';
 import { MenuModel, RouteModel } from './main';
 import { BarsSolidIcon } from './main/assets';
-import { AppBar, AppBarTitle, COLOR, Drawer, IconButton, ISidebarItem, useWindowSize } from 'lib';
+import { AppBar, AppBarTitle, COLOR, Drawer, IconButton, ISidebarItem, useMobileDetect } from 'lib';
 
 const CLASSNAME = 'App';
 
 const App = () => {
 
 	const { appInfo } = useAppContext();
-	const windowSize = useWindowSize();
 
 	const [appState, setAppState] = useState(APPSTATE.init);
 	const [showMenu, setShowMenu] = useState<boolean>(false);
-	const [isMobile, setIsMobile] = useState<boolean>(false);
+	const { isMobile } = useMobileDetect();
 	const [menuItems, setMenuItems] = useState<Array<ISidebarItem>>([]);
 	const [appRoutes, setAppRoutes] = useState<Array<RouteModel>>();
 
 	useEffect(() => { init() }, []);
-
-	useEffect(() => {
-		windowSize && checkIsMobile(windowSize.height, windowSize.width);
-	}, [windowSize]);
 
 	useEffect(() => {
 		if (appState === APPSTATE.ready && isMobile === false) {
@@ -43,13 +38,6 @@ const App = () => {
 			setAppRoutes(menuItems.map(item => new RouteModel(item)));
 			setAppState(APPSTATE.ready);
 		} catch (err) { loggerService.error('init', err) }
-	}
-
-	// TODO - use isMobile hook
-	const checkIsMobile = (height: number, width: number) => {
-		if (height > 0 && width > 0) {
-			setIsMobile(!(width >= 1024));
-		}
 	}
 
 	return (

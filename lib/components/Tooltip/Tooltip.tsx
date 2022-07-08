@@ -47,7 +47,7 @@ export const Tooltip = (props: ITooltipProps) => {
 				})}
 			</div>
 
-			{show &&
+			{show && text &&
 				<div className={styles.tooltip} ref={refTooltip} id="tooltip">
 					{text}
 					<div id="arrow" data-popper-arrow></div>

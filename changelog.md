@@ -1,3 +1,6 @@
+## 23.5.1
+- fixed showing empty toolTip
+
 ## 23.5.0
 - added component ProgressBar
 

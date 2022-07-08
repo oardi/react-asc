@@ -26,19 +26,37 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 
 			<h3>Single Line</h3>
 			<List isFlush={settingValues.isFlush}>
-				<ListItem onClick={handleClickItem}><ListItemText primary="lorem ipsum" /></ListItem>
-				<ListItem onClick={handleClickItem}><ListItemText primary="lorem ipsum" /></ListItem>
-				<ListItem onClick={handleClickItem}><ListItemText primary="lorem ipsum" /></ListItem>
-				<ListItem onClick={handleClickItem}><ListItemText primary="lorem ipsum" /></ListItem>
-				<ListItem onClick={handleClickItem} disabled={true}><ListItemText primary="disabled" /></ListItem>
+				<ListItem onClick={handleClickItem}>
+					<ListItemText primary="lorem ipsum" />
+				</ListItem>
+				<ListItem onClick={handleClickItem}>
+					<ListItemText primary="lorem ipsum" />
+				</ListItem>
+				<ListItem onClick={handleClickItem}>
+					<ListItemText primary="lorem ipsum" />
+				</ListItem>
+				<ListItem onClick={handleClickItem}>
+					<ListItemText primary="lorem ipsum" />
+				</ListItem>
+				<ListItem onClick={handleClickItem} disabled={true}>
+					<ListItemText primary="disabled" />
+				</ListItem>
 			</List>
 
 			<h3 className="mt-3">Two lines</h3>
 			<List isFlush={settingValues.isFlush}>
-				<ListItem onClick={handleClickItem}><ListItemText primary="1st lorem ipsum" secondary="2nd lorem ipsum" /></ListItem>
-				<ListItem onClick={handleClickItem}><ListItemText primary="1st lorem ipsum" secondary="2nd lorem ipsum" /></ListItem>
-				<ListItem onClick={handleClickItem}><ListItemText primary="1st lorem ipsum" secondary="2nd lorem ipsum" /></ListItem>
-				<ListItem onClick={handleClickItem}><ListItemText primary="1st lorem ipsum" secondary="2nd lorem ipsum" /></ListItem>
+				<ListItem onClick={handleClickItem}>
+					<ListItemText primary="1st lorem ipsum" secondary="2nd lorem ipsum" />
+				</ListItem>
+				<ListItem onClick={handleClickItem}>
+					<ListItemText primary="1st lorem ipsum" secondary="2nd lorem ipsum" />
+				</ListItem>
+				<ListItem onClick={handleClickItem}>
+					<ListItemText primary="1st lorem ipsum" secondary="2nd lorem ipsum" />
+				</ListItem>
+				<ListItem onClick={handleClickItem}>
+					<ListItemText primary="1st lorem ipsum" secondary="2nd lorem ipsum" />
+				</ListItem>
 			</List>
 
 			<h3 className="mt-3">Avatar</h3>
