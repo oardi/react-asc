@@ -1,3 +1,6 @@
+## 23.5.2
+- modal style fixes
+
 ## 23.5.1
 - fixed showing empty toolTip
 
