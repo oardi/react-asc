@@ -37,6 +37,7 @@ export const menuItems: Array<IMenuItem> = [
 			{ id: 'NumberSelect' },
 			{ id: 'ProgressBar' },
 			{ id: 'Select' },
+			{ id: 'Skeleton' },
 			{ id: 'Snackbar' },
 			{ id: 'SpeedDial' },
 			{ id: 'Stepper', label: 'Stepper (beta)' },

@@ -1,3 +1,6 @@
+## 23.6.0
+- added components for skeleton placeholders
+
 ## 23.5.2
 - modal style fixes
 

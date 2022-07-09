@@ -1,0 +1,17 @@
+@import "./SkeletonBase.module.scss";
+
+.skeletonImage {
+	height: 10rem;
+	margin: 0.5rem 0;
+	border-radius: 0.75rem;
+	animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.div {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	margin: auto;
+	border-radius: 0.75rem;
+	border-color: none;
+}

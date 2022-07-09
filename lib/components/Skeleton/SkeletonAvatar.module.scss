@@ -1,0 +1,9 @@
+@import "./SkeletonBase.module.scss";
+
+.skeletonAvatar {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: var(--secondary);
+	animation: skeleton-loading 1s linear infinite alternate;
+}

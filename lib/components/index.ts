@@ -32,6 +32,7 @@ export * from './Snackbar';
 export * from './SpeedDial';
 export * from './Select';
 export * from './Stepper';
+export * from './Skeleton';
 export * from './Table';
 export * from './Tabs';
 export * from './Textarea';

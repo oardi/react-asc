@@ -1,0 +1,8 @@
+@import "./SkeletonBase.module.scss";
+
+.skeletonFooter {
+	width: 30%;
+	height: 0.7rem;
+	border-radius: 0.25rem;
+	animation: skeleton-loading 1s linear infinite alternate;
+}
