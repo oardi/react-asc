@@ -1,3 +1,7 @@
+## 23.6.1
+- fixed progressbar styling
+- added min-validator
+
 ## 23.6.0
 - added components for skeleton placeholders
 

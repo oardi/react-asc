@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { COLOR } from '../component.enums';
+import { Tooltip } from '../Tooltip';
 import styles from './ProgressBar.module.scss';
 
 export interface IProgressBarProps extends React.ComponentProps<'div'> {
@@ -12,6 +13,25 @@ export interface IProgressBarProps extends React.ComponentProps<'div'> {
 export const ProgressBar = (props: IProgressBarProps) => {
 
 	const { className, color = COLOR.primary, value, indeterminate, ...rest } = props;
+	const [model, setModel] = useState<number>();
+
+	useEffect(() => {
+		document.body.style.setProperty(
+			'--progress-bar-bg',
+			`var(--${color})`
+		);
+	}, [color]);
+
+	useEffect(() => {
+		let newValue = value;
+		if (value && value < 0) {
+			newValue = 0;
+		}
+		if (value && value > 100) {
+			newValue = 100;
+		}
+		setModel(newValue);
+	}, [value]);
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -27,21 +47,24 @@ export const ProgressBar = (props: IProgressBarProps) => {
 		return cssClasses.filter(r => r).join(' ');
 	};
 
-	useEffect(() => {
-		document.body.style.setProperty(
-			'--progress-bar-bg',
-			`var(--${color})`
-		);
-	}, [color]);
+	const getStyle = () => {
+		let width = model && model >= 0 ? model : 0;
+		if (indeterminate) {
+			width = 100;
+		}
+		return `${width}%`
+	}
 
 	return (
-		<div className={getCssClasses()} {...rest}>
-			<div
-				className={getCssClassesBar()}
-				style={{ 'width': `${(!indeterminate && value && value > 0) ? value : 100}%` }}
-				role="progressbar"
-			>
+		<Tooltip text={model?.toString()}>
+			<div className={getCssClasses()} {...rest}>
+				<div
+					className={getCssClassesBar()}
+					style={{ 'width': getStyle() }}
+					role="progressbar"
+				>
+				</div>
 			</div>
-		</div>
+		</Tooltip>
 	);
 };

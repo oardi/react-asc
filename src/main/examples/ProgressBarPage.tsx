@@ -10,7 +10,7 @@ const ProgressBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 				label: 'color',
 				options: Object.keys(COLOR).map(c => ({ label: c, value: c }))
 			}),
-			value: new FormControl(settingValues.value, ['max:100'], 'number', {
+			value: new FormControl(settingValues.value, ['min:0','max:100'], 'number', {
 				label: 'value',
 				hint: 'number from 0 to 100'
 			}),
