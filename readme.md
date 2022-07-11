@@ -69,8 +69,10 @@ react-asc provides built-in ts definition
 -   Menu
 -   Modal + ModalService
 -   NumberSelect
+	Portal
 -   Select
 -   Sidebar
+-	Skeleton (Avatar, Image, Text, SkeletonFooter)
 -   Snackbar + SnackbarService
 -   SpeedDial
 -   Stepper (beta)

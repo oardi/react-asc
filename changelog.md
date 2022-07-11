@@ -1,3 +1,7 @@
+## 23.7.0
+- added component "portal"
+- style fixes
+
 ## 23.6.1
 - fixed progressbar styling
 - added min-validator

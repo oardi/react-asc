@@ -1,6 +1,6 @@
 {
 	"name": "react-asc",
-	"version": "23.6.1",
+	"version": "23.7.0",
 	"description": "handcrafted react components",
 	"main": "dist/index.js",
 	"module": "dist/index.es.js",
@@ -16,8 +16,7 @@
 		"postbuild:lib": "node copyfiles-lib.js && npm run scss-bundle-styles",
 		"scss-bundle-styles": "scss-bundle -c scss-bundle.config.json",
 		"preview": "vite preview",
-		"lint": "eslint --ext ts,tsx src",
-		"lint:lib": "eslint --ext ts,tsx lib"
+		"lint": "eslint --ext ts,tsx src && eslint --ext ts,tsx lib"
 	},
 	"dependencies": {
 		"@popperjs/core": "^2.11.5",

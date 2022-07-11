@@ -3,6 +3,18 @@
 -- abort previous transition (toggle during toggle)
 -- only on transition at a time
 
+	// szenarios
+	// initial visible
+	// - no animation
+	// initial not visible
+	// - hidden
+	// show item which was invisible
+	// renderAnimation
+	// hide item which is visible
+	// renderAnimation
+
+	
+
 ### ListItemAction 
 - color prüfen
 

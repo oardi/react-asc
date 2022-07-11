@@ -1,6 +1,6 @@
 import React, { ReactNode, useEffect } from 'react';
-import { createPortal } from 'react-dom';
 import { Backdrop } from '../Backdrop';
+import { Portal } from '../Portal';
 import styles from './Drawer.module.scss';
 
 export interface IDrawerProps extends React.ComponentProps<'div'> {
@@ -26,14 +26,13 @@ export const Drawer = (props: IDrawerProps) => {
 		onClickBackdrop && onClickBackdrop();
 	}
 
-	return createPortal(
-		<>
+	return (
+		<Portal className='drawer-container' target={target}>
 			<DrawerContent className={className} position={position} permanent={permanent} shadow={shadow} {...rest}>
 				{children}
 			</DrawerContent>
 			{!permanent && <Backdrop onClick={handleClickBackdrop} />}
-		</>,
-		target
+		</Portal>
 	);
 }
 
