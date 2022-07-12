@@ -56,8 +56,10 @@
 - LoadingIndicator
 - Modal
 - NumberSelect
+- Portal
 - Select
 - Sidebar
+- Skeleton
 - Snackbar
 - SpeedDial
 - Stepper

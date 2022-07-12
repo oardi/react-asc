@@ -8,7 +8,7 @@ import { Icon } from '../Icon';
 import { ISelectOption } from '../component.interfaces';
 import styles from './Select.module.scss';
 import { Backdrop } from '../Backdrop';
-import { createPortal } from 'react-dom';
+import { Portal } from '../Portal';
 
 // TODO
 // navigate by keys
@@ -202,30 +202,26 @@ export const Select = (props: ISelectProps) => {
 			</div>
 
 			{isShow &&
+				<Portal className='backdrop-root'>
+					<div className={styles.selectMenu} style={{ left: selectConainter.current?.getBoundingClientRect().x, top: selectConainter.current?.getBoundingClientRect().y, width: selectConainter.current?.getBoundingClientRect().width }}>
+						<List>
+							{options && options.map((option, index) =>
+								<ListItem id={`list-item-${index}`} key={option.value} onClick={() => handleOnClick(option)} active={isActive(option)}>
 
-				createPortal(
-					<>
-						<div className={styles.selectMenu} style={{ left: selectConainter.current?.getBoundingClientRect().x, top: selectConainter.current?.getBoundingClientRect().y, width: selectConainter.current?.getBoundingClientRect().width }}>
-							<List>
-								{options && options.map((option, index) =>
-									<ListItem id={`list-item-${index}`} key={option.value} onClick={() => handleOnClick(option)} active={isActive(option)}>
+									{multiple &&
+										<Checkbox
+											checked={isActive(option)}
+											onChange={() => handleOnClick(option)}
+										/>
+									}
 
-										{multiple &&
-											<Checkbox
-												checked={isActive(option)}
-												onChange={() => handleOnClick(option)}
-											/>
-										}
-
-										<ListItemText primary={option.label ? option.label : option.value} />
-									</ListItem>
-								)}
-							</List>
-						</div>
-						<Backdrop style={{ zIndex: 1111 }} isTransparent onClick={() => hide()} />
-					</>, document.body)
-
-
+									<ListItemText primary={option.label ? option.label : option.value} />
+								</ListItem>
+							)}
+						</List>
+					</div>
+					<Backdrop style={{ zIndex: 1111 }} isTransparent onClick={() => hide()} />
+				</Portal>
 			}
 
 		</div>

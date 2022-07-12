@@ -1,10 +1,10 @@
 import React, { ReactElement, useEffect, useRef } from 'react';
-import { createPortal } from 'react-dom';
 import { Backdrop } from '../Backdrop';
 import { MenuPosition } from './menu.types';
 import { IMenuItemProps } from './MenuItem';
 import { createPopper } from '@popperjs/core';
 import styles from './MenuBody.module.scss';
+import { Portal } from '../Portal';
 
 export interface IMenuBodyProps {
 	children?: ReactElement<IMenuItemProps> | Array<ReactElement<IMenuItemProps>>;
@@ -59,21 +59,18 @@ export const MenuBody = (props: IMenuBodyProps) => {
 	}
 
 	return (
-		createPortal(
-			<>
-				<div
-					ref={menuBodyRef}
-					className={getCssClasses()}
-				>
-					{children}
-				</div>
+		<Portal className='menu-root'>
+			<div
+				ref={menuBodyRef}
+				className={getCssClasses()}
+			>
+				{children}
+			</div>
 
-				<Backdrop
-					isTransparent
-					onClick={handleClickBackdrop}
-				/>
-			</>,
-			document.body
-		)
+			<Backdrop
+				isTransparent
+				onClick={handleClickBackdrop}
+			/>
+		</Portal>
 	)
 }

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { FormControl, IBadgeProps, Button, Backdrop } from 'lib';
+import { FormControl, Button, Backdrop, IBackdropProps } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const BackdropPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IBadgeProps>) => {
+const BackdropPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IBackdropProps>) => {
 
 	useEffect(() => {
 		setSettingsControls({
-			content: new FormControl(settingValues.content, [], 'text', { label: 'content' })
+			isTransparent: new FormControl(settingValues.isTransparent, [], 'checkbox', { label: 'isTransparent' })
 		});
 	}, []);
 
@@ -23,10 +23,15 @@ const BackdropPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 			</div>
 
 			{isShow &&
-				<Backdrop target={document.body.querySelector('#backdrop-container') as HTMLElement} />
+				<Backdrop
+					isTransparent={settingValues.isTransparent}
+					target={document.body.querySelector('#backdrop-container') as HTMLElement}
+				/>
 			}
 		</>
 	);
 }
 
-export const BackdropPage = withOptions<IBadgeProps>(BackdropPageBase, undefined, 'BackdropPageBase');
+export const BackdropPage = withOptions<IBackdropProps>(BackdropPageBase, {
+	isTransparent: false
+}, 'BackdropPageBase');

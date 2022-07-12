@@ -1,8 +1,8 @@
 import React from 'react';
-import { createPortal } from 'react-dom';
+import { Portal } from '../Portal';
 import styles from './Backdrop.module.scss';
 
-interface IBackdropProps extends React.ComponentProps<'div'> {
+export interface IBackdropProps extends React.ComponentProps<'div'> {
 	target?: HTMLElement;
 	isTransparent?: boolean;
 }
@@ -24,14 +24,12 @@ export const Backdrop = (props: IBackdropProps) => {
 	}
 
 	const getStyles = () => {
-		const styles = Object.assign({ height: '100%', width: '100%', position: 'absolute' }, style);
-		return styles;
+		return Object.assign({ height: '100%', width: '100%', position: 'absolute' }, style);
 	};
 
 	return (
-		createPortal(
-			<div className={getCssClasses()} onClick={handleClick} style={getStyles()} {...rest} />,
-			target
-		)
+		<Portal className='backdrop-root' target={target}>
+			<div className={getCssClasses()} onClick={handleClick} style={getStyles()} {...rest} />
+		</Portal>
 	)
 }

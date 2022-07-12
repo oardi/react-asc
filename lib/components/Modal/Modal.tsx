@@ -5,11 +5,13 @@ import { Backdrop } from '../Backdrop';
 import { ModalFooter } from './ModalFooter';
 import { SIZE } from '../component.enums';
 import styles from './Modal.module.scss';
+import { Portal } from '../Portal';
 
 export interface IModalProps {
+	target?: HTMLElement;
 	className?: string;
 	children?: ReactNode;
-	header?: string;
+	header?: string | ReactElement;
 	footer?: string | ReactElement;
 	onHeaderCloseClick?: () => void;
 	onBackdropClick?: () => void;
@@ -20,7 +22,7 @@ export interface IModalProps {
 
 export const Modal = (props: IModalProps) => {
 
-	const { className, size, fullScreen, children, header, footer, onHeaderCloseClick, onBackdropClick, isDismissable = false } = props;
+	const { target = document.body, className, size, fullScreen, children, header, footer, onHeaderCloseClick, onBackdropClick, isDismissable = false } = props;
 
 	const getCssClass = () => {
 		const cssClasses: Array<string> = [];
@@ -40,29 +42,32 @@ export const Modal = (props: IModalProps) => {
 	}, []);
 
 	const handleClickBackdrop = () => {
+		console.warn('backdrop clicked');
 		onBackdropClick && onBackdropClick();
 	}
 
 	return (
 		<>
-			<div className={styles.modal}>
-				<div className={getCssClass()}>
-					<div className={styles.modalContent}>
-						{
-							header &&
-							<ModalHeader isDismissable={isDismissable} onClose={() => onHeaderCloseClick && onHeaderCloseClick()}>
-								{header}
-							</ModalHeader>
-						}
-						<ModalBody>{children}</ModalBody>
-						{footer &&
-							<ModalFooter>
-								{footer}
-							</ModalFooter>
-						}
+			<Portal className='modal-root' target={target}>
+				<div className={styles.modal}>
+					<div className={getCssClass()}>
+						<div className={styles.modalContent}>
+							{
+								header &&
+								<ModalHeader isDismissable={isDismissable} onClose={() => onHeaderCloseClick && onHeaderCloseClick()}>
+									{header}
+								</ModalHeader>
+							}
+							<ModalBody>{children}</ModalBody>
+							{footer &&
+								<ModalFooter>
+									{footer}
+								</ModalFooter>
+							}
+						</div>
 					</div>
 				</div>
-			</div>
+			</Portal>
 			<Backdrop onClick={handleClickBackdrop} />
 		</>
 	);

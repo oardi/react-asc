@@ -27,7 +27,7 @@ export const Drawer = (props: IDrawerProps) => {
 	}
 
 	return (
-		<Portal className='drawer-container' target={target}>
+		<Portal className='drawer-root' target={target}>
 			<DrawerContent className={className} position={position} permanent={permanent} shadow={shadow} {...rest}>
 				{children}
 			</DrawerContent>
