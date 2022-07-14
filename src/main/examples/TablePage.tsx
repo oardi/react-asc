@@ -6,9 +6,7 @@ const TablePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 
 	useEffect(() => {
 		setSettingsControls({
-			bordered: new FormControl(settingValues.bordered, [], 'checkbox', { label: 'bordered' }),
 			hover: new FormControl(settingValues.hover, [], 'checkbox', { label: 'hover' }),
-			striped: new FormControl(settingValues.striped, [], 'checkbox', { label: 'striped' }),
 			responsive: new FormControl(settingValues.responsive, [], 'checkbox', { label: 'responsive' }),
 		});
 	}, []);

@@ -1,5 +1,6 @@
 ## unpublished
 - referenced Portal Component in drawer, menu, modal, select
+- table style fixes
 
 ## 23.7.0
 - added component "portal"
