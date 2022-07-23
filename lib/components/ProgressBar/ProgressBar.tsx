@@ -52,11 +52,11 @@ export const ProgressBar = (props: IProgressBarProps) => {
 		if (indeterminate) {
 			width = 100;
 		}
-		return `${width}%`
-	}
+		return `${width}%`;
+	};
 
 	return (
-		<Tooltip text={model?.toString()}>
+		<Tooltip text={!indeterminate ? model?.toString() : ''}>
 			<div className={getCssClasses()} {...rest}>
 				<div
 					className={getCssClassesBar()}

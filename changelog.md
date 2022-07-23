@@ -1,3 +1,6 @@
+### 23.7.2
+- Portal fix
+
 ### 23.7.1
 - referenced Portal Component
 - table style fixes
