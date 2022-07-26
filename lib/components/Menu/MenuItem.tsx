@@ -1,42 +1,27 @@
-import React, { ReactNode } from 'react';
-import { ConditionalWrapper } from '../ConditionalWrapper';
-import styles from './MenuItem.module.scss';
-export interface IMenuItemProps {
-	key?: string;
-	children?: ReactNode;
-	onClick?: (e: React.MouseEvent) => void;
-	type?: 'item' | 'header'
-}
+import React from 'react';
+import { IListItemProps, ListItem } from '../List';
 
-export const MenuItem = (props: IMenuItemProps) => {
+export const MenuItem = (props: IListItemProps) => {
 
-	const { children, onClick, type = 'item' } = props;
+	const { children, onClick, ...rest } = props;
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push(styles.menuItem);
-		if (type === 'header') {
-			cssClasses.push(styles.menuItemHeader);
-		}
 		return cssClasses.filter(css => css).join(' ');
 	}
 
-	const handleClick = (e: React.MouseEvent) => {
+	const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
 		e.stopPropagation();
 		onClick && onClick(e);
 	}
 
 	return (
-		<ConditionalWrapper
-			condition={true}
-			wrapper={children => (
-				(type === 'item' ? (
-					<a className={getCssClasses()} onClick={handleClick}>{children}</a>
-				) :
-					<div className={getCssClasses()} onClick={handleClick}>{children}</div>)
-			)}
+		<ListItem
+			className={getCssClasses()}
+			onClick={handleClick}
+			{...rest}
 		>
 			{children}
-		</ConditionalWrapper>
+		</ListItem>
 	)
 }

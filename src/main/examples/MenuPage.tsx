@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Menu, MenuDivider, MenuItem, FormControl, IMenuProps, snackbarService } from 'lib';
+import { Button, Menu, MenuItem, FormControl, IMenuProps, snackbarService, ListItemAvatar, ListItemText } from 'lib';
 import { loggerService } from '../../shared';
 import { IShowcaseBaseProps, withOptions } from './components';
+import { UserCircleSolidIcon } from '../assets';
 
 const MenuPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IMenuProps>) => {
 
@@ -36,17 +37,14 @@ const MenuPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 				menuPosition={settingValues.menuPosition}
 				onClickBackdrop={() => setOpen(false)}
 			>
-				<MenuItem type="header">
-					This is a header
-				</MenuItem>
-				<MenuDivider />
 				<MenuItem onClick={() => handleClick('1')}>
-					Action 1
+					<ListItemAvatar avatar={<UserCircleSolidIcon />} />
+					<ListItemText primary="lorem ipsum" />
 				</MenuItem>
 				<MenuItem onClick={() => handleClick('2')}>
 					Action 2
 				</MenuItem>
-				<MenuItem onClick={() => handleClick('3')}>
+				<MenuItem disabled onClick={() => handleClick('3')}>
 					Action 3
 				</MenuItem>
 			</Menu>

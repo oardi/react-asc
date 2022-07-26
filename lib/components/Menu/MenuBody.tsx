@@ -1,13 +1,13 @@
 import React, { ReactElement, useEffect, useRef } from 'react';
 import { Backdrop } from '../Backdrop';
 import { MenuPosition } from './menu.types';
-import { IMenuItemProps } from './MenuItem';
 import { createPopper } from '@popperjs/core';
 import styles from './MenuBody.module.scss';
 import { Portal } from '../Portal';
+import { IListItemProps, List } from '../List';
 
 export interface IMenuBodyProps {
-	children?: ReactElement<IMenuItemProps> | Array<ReactElement<IMenuItemProps>>;
+	children?: ReactElement<IListItemProps> | Array<ReactElement<IListItemProps>>;
 	className?: string;
 	menuPosition?: MenuPosition;
 	parentRef: React.RefObject<HTMLDivElement>;
@@ -64,7 +64,9 @@ export const MenuBody = (props: IMenuBodyProps) => {
 				ref={menuBodyRef}
 				className={getCssClasses()}
 			>
-				{children}
+				<List>
+					{children}
+				</List>
 			</div>
 
 			<Backdrop

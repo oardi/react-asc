@@ -1,13 +1,12 @@
 import React, { ReactElement, useRef } from 'react';
 import { MenuPosition } from './menu.types';
-import { IMenuItemProps } from './MenuItem';
 import { MenuBody } from './MenuBody';
-import styles from './Menu.module.scss';
+import { IListItemProps } from '../List';
 
 export interface IMenuProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	toggle?: ReactElement;
 	open?: boolean;
-	children?: ReactElement<IMenuItemProps> | Array<ReactElement<IMenuItemProps>>;
+	children?: ReactElement<IListItemProps> | Array<ReactElement<IListItemProps>>;
 	menuPosition?: MenuPosition;
 	onClickBackdrop?: () => void;
 }
@@ -21,7 +20,6 @@ export const Menu = (props: IMenuProps) => {
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
-		cssClasses.push(styles.menu);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};

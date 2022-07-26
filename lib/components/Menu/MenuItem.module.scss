@@ -17,9 +17,18 @@
 		font-size: 0.875rem;
 	}
 
-	&:hover {
+	&:hover:not(.disabled) {
 		cursor: pointer;
 		color: #1e2125;
 		background-color: rgba(0, 0, 0, 0.04);
+	}
+
+	&.disabled {
+		color: rgba(0, 0, 0, 0.26);
+		border: 1px solid rgba(0, 0, 0, 0.12);
+
+		&:hover {
+			cursor: not-allowed;
+		}
 	}
 }

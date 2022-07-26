@@ -1,3 +1,7 @@
+### 23.7.3
+- list item style fixes
+- menu fixes -> allow ListItem Child Components
+
 ### 23.7.2
 - Portal fix
 
