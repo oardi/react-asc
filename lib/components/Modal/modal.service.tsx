@@ -7,30 +7,31 @@ import { IModalButton } from './modal.interfaces';
 import { SIZE } from '../component.enums';
 
 export interface IModalService {
-	show(title: string, description: string | ReactElement, options?: IModalOptions): Promise<void | IFormValues>;
+	show(title: string, description: string | ReactElement, options?: IModalOptions): Promise<void>;
 }
 
 export interface IModalOptions {
-	formControls?: IControls
-	// showOkButton?: boolean;
-	// showCancelButton?: boolean;
 	isDismissable?: boolean;
 	buttons?: Array<IModalButton>;
 	fullScreen?: boolean;
 	size?: SIZE;
 }
 
+export interface IModalFormOptions extends IModalOptions {
+	formControls?: IControls;
+}
+
 class ModalService implements IModalService {
 	private container: HTMLElement | undefined;
 
-	show(title: string, description: string | ReactElement, options?: IModalOptions): Promise<void | IFormValues> {
+	show(title: string, description: string | ReactElement, options?: IModalOptions): Promise<void> {
 		return new Promise((resolve, reject) => {
 			if (!this.container) {
 				this.container = document.createElement('div');
 				document.body.appendChild(this.container);
 
-				const handleOk = (values?: IFormValues) => {
-					resolve(values);
+				const handleOk = () => {
+					resolve();
 					this.hide();
 				}
 
@@ -45,7 +46,6 @@ class ModalService implements IModalService {
 						size={options && options.size}
 						title={title}
 						description={description}
-						formControls={options && options.formControls}
 						onCancel={handleCancel}
 						onBackdropClick={handleCancel}
 						onOk={handleOk}
@@ -55,7 +55,47 @@ class ModalService implements IModalService {
 					this.container
 				);
 			}
-		})
+		});
+	}
+
+	showForm<T>(title: string, options?: IModalFormOptions): Promise<T> {
+		return new Promise((resolve, reject) => {
+			if (!this.container) {
+				this.container = document.createElement('div');
+				document.body.appendChild(this.container);
+
+				const handleOk = (values?: unknown) => {
+					resolve(values as T);
+					this.hide();
+				}
+
+				// TODO - for AutoComplete
+				const handleOnChange = (values?: IFormValues) => {
+					console.info(values);
+				}
+
+				const handleCancel = () => {
+					reject();
+					this.hide();
+				}
+
+				render(
+					<GlobalModal
+						fullScreen={options && options.fullScreen}
+						size={options && options.size}
+						title={title}
+						formControls={options && options.formControls}
+						onCancel={handleCancel}
+						onBackdropClick={handleCancel}
+						onOk={handleOk}
+						onChange={handleOnChange}
+						isDismissable={options && options.isDismissable}
+						buttons={options && options.buttons}
+					/>,
+					this.container
+				);
+			}
+		});
 	}
 
 	private hide() {

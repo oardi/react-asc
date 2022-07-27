@@ -11,7 +11,8 @@ interface IModalProps {
 	description?: string | ReactElement;
 	formControls?: IControls;
 	modalType?: MODALTYPE;
-	onOk?: (values?: IFormValues) => void;
+	onOk: (values?: IFormValues) => void;
+	onChange?: (values?: IFormValues) => void;
 	onCancel?: () => void;
 	onBackdropClick?: () => void;
 	isDismissable?: boolean;
@@ -25,6 +26,7 @@ export const GlobalModal = ({
 	description,
 	formControls,
 	onOk,
+	onChange,
 	onCancel,
 	onBackdropClick,
 	isDismissable = false,
@@ -112,6 +114,7 @@ export const GlobalModal = ({
 						controls={(myControls as IControls)}
 						validateOnBlur
 						onSubmit={onSubmit}
+						onChange={onChange}
 					/>
 				</Fragment>
 			}

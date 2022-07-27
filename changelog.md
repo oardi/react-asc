@@ -1,3 +1,8 @@
+- breaking change for modal showing form
+	- modalService.showForm
+- style fixes
+- type fixes
+
 ### 23.7.3
 - list item style fixes
 - menu fixes -> allow ListItem Child Components

@@ -11,6 +11,6 @@ export class FormControl {
 	}
 
 	errors: Array<IFormInputError> = [];
-	isValid = false;
-	isDirty = false;
+	isValid: boolean = false;
+	isDirty: boolean = false;
 }

@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useWindowSize } from './useWindowSize';
+import { IUseWindowSize, useWindowSize } from './useWindowSize';
 
 export function useMobileDetect() {
 	const [isMobile, setIsMobile] = useState<boolean>(false);
-	const windowSize = useWindowSize();
+	const windowSize: IUseWindowSize = useWindowSize();
 
 	const checkIsMobile = (height: number, width: number) => {
 		if (height > 0 && width > 0) {

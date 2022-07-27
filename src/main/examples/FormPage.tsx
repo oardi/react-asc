@@ -4,6 +4,25 @@ import { IShowcaseBaseProps, withOptions } from './components';
 import dayjs from 'dayjs';
 import { loggerService } from '../../shared';
 
+export interface IFormPageControls {
+	text: string;
+	email: string;
+	date: Date;
+	dateTimeLocal: Date;
+	radio: string[];
+	textarea: string;
+	number: number;
+	password: string;
+	passwordMatch: string;
+	color: string;
+	time: Date;
+	file: File;
+	checkbox: boolean;
+	select: string;
+	selectMultiple: string[];
+	autoComplete: string;
+}
+
 const CLASSNAME = 'ShowcaseForm';
 export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IFormProps>) => {
 	const [values, setValues] = useState({});
@@ -92,7 +111,7 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	}
 
 	const handleOpenInModal = () => {
-		modalService.show('Form', '', { formControls: controls })
+		modalService.showForm<IFormPageControls>('Form', { formControls: controls })
 			.then(res => loggerService.debug(res));
 	}
 

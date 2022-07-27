@@ -42,7 +42,6 @@ export const Modal = (props: IModalProps) => {
 	}, []);
 
 	const handleClickBackdrop = () => {
-		console.warn('backdrop clicked');
 		onBackdropClick && onBackdropClick();
 	}
 

@@ -6,11 +6,11 @@ const FloatingActionButtonPageBase = ({ settingValues, setSettingsControls }: IS
 
 	useEffect(() => {
 		setSettingsControls({
-			color: new FormControl(settingValues.color, [], 'select', { label: 'color', options: Object.keys(COLOR).map(c => ({ label: c, value: c })) }),
+			color: new FormControl(settingValues.color, [], 'select', { label: 'color', options: Object.keys(COLOR).map((c: string) => ({ label: c, value: c })) }),
 			fixed: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'fixed' }),
 			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' }),
 			isActive: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'isActive' }),
-			size: new FormControl(settingValues.size, [], 'select', { label: 'size', options: Object.keys(SIZE).map(c => ({ label: c, value: c })) }),
+			size: new FormControl(settingValues.size, [], 'select', { label: 'size', options: Object.keys(SIZE).map((c: string) => ({ label: c, value: c })) }),
 		});
 	}, []);
 

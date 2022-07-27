@@ -3,6 +3,13 @@ import { Button, COLOR, FormControl, IControls, IModalProps, Modal, MODALBUTTONT
 import { loggerService } from '../../shared';
 import { IShowcaseBaseProps, withOptions } from './components';
 
+interface IModalPageValues {
+	firstname: string;
+	select: string;
+	selectMultiple: string[];
+	autoComplete: string;
+}
+
 const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IModalProps>) => {
 
 	useEffect(() => {
@@ -115,8 +122,10 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 				]
 			})
 		};
-		modalService.show('Form', '', { formControls: controls, size: settingValues.size })
-			.then(res => loggerService.debug(res));
+		modalService.showForm<IModalPageValues>('Form', { formControls: controls, size: settingValues.size })
+			.then(res => {
+				loggerService.debug(res);
+			});
 	}
 
 	return (

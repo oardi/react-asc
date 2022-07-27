@@ -66,7 +66,9 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 	}, [options]);
 
 	useDebounce(
-		() => { onChange && onChange(searchText); },
+		() => {
+			onChange && onChange(searchText);
+		},
 		debounce,
 		[searchText]
 	);

@@ -40,7 +40,7 @@ export class Form extends Component<IFormProps, IFormState> {
 		return null;
 	}
 
-	myForm = createRef<HTMLFormElement>();
+	myForm: React.RefObject<HTMLFormElement> = createRef<HTMLFormElement>();
 
 	handleChange() {
 		// get value by myForm instead of getControl?
@@ -163,7 +163,7 @@ export class Form extends Component<IFormProps, IFormState> {
 		return (this.state.controls as IControls)[name];
 	}
 
-	private renderLabel(fieldKey: string, label: string, labelClassName = 'form-label') {
+	private renderLabel(fieldKey: string, label: string, labelClassName: string = 'form-label') {
 		const cssClasses = [labelClassName, this.isRequired(fieldKey) ? 'required' : undefined];
 		return <FormLabel htmlFor={fieldKey} className={cssClasses.join(' ')}>{label}</FormLabel>;
 	}

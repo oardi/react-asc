@@ -198,7 +198,7 @@ export const Select = (props: ISelectProps) => {
 					</div>
 				}
 
-				<Icon className="ml-2"><ChevronDownSolidIcon /></Icon>
+				<Icon className="ml-auto"><ChevronDownSolidIcon /></Icon>
 			</div>
 
 			{isShow &&

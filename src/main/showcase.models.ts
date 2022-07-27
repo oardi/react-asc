@@ -16,8 +16,8 @@ export class MenuModel implements ISidebarItem {
 	label: string;
 	path: string;
 	items: Array<MenuModel>;
-	isCollapsible = false;
-	isCollapsed = false;
+	isCollapsible: boolean;
+	isCollapsed: boolean;
 }
 
 export class RouteModel {
