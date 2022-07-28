@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { GlobalModal } from './GlobalModal';
-import { IControls, IFormValues } from '../Form';
+import { IControls } from '../Form';
 import { ReactElement } from 'react';
 import { IModalButton } from './modal.interfaces';
 import { SIZE } from '../component.enums';
@@ -70,9 +70,9 @@ class ModalService implements IModalService {
 				}
 
 				// TODO - for AutoComplete
-				const handleOnChange = (values?: IFormValues) => {
-					console.info(values);
-				}
+				// const handleOnChange = (values?: IFormValues) => {
+				// 	console.info(values);
+				// }
 
 				const handleCancel = () => {
 					reject();
@@ -88,7 +88,6 @@ class ModalService implements IModalService {
 						onCancel={handleCancel}
 						onBackdropClick={handleCancel}
 						onOk={handleOk}
-						onChange={handleOnChange}
 						isDismissable={options && options.isDismissable}
 						buttons={options && options.buttons}
 					/>,
