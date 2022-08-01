@@ -1,12 +1,11 @@
 import React, { ReactNode } from 'react';
 import { Button } from '../Button';
 import styles from './Tab.module.scss';
+import { useTabContext } from './TabContext';
 
 export interface ITabProps {
 	label: ReactNode;
 	value: string;
-	isActive?: boolean;
-	fixed?: boolean; // TODO
 	disabled?: boolean;
 	className?: string;
 	onClick?: (e: { event: React.MouseEvent, value: string }) => void;
@@ -14,23 +13,27 @@ export interface ITabProps {
 
 export const Tab = (props: ITabProps) => {
 
-	const { label, className, isActive, disabled, value, onClick } = props;
+	const { label, className, disabled, value, onClick } = props;
+
+	const { selectedValue, setSelectedValue } = useTabContext();
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.tab);
-		if (isActive) {
-			cssClasses.push(`show active`);
-		}
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
+	};
+
+	const handleClick = (event: React.MouseEvent) => {
+		onClick && onClick({ event, value });
+		setSelectedValue(value);
 	};
 
 	return (
 		<Button
 			className={getCssClasses()}
-			onClick={(event) => onClick && onClick({ event, value })}
-			isActive={isActive}
+			onClick={handleClick}
+			isActive={selectedValue === value}
 			disabled={disabled}
 		>
 			{label}

@@ -1,5 +1,5 @@
 import React, { Dispatch, useEffect, useState } from 'react';
-import { COLOR, Column, Drawer, ExpansionPanel, FloatingActionButton, IControls, ITabOnChangeEvent, List, ListItem, ListItemText, Row, Tab, TabPanel, Tabs, useMobileDetect } from 'lib';
+import { COLOR, Column, Drawer, ExpansionPanel, FloatingActionButton, IControls, List, ListItem, ListItemText, Row, Tab, TabPanel, Tabs, useMobileDetect } from 'lib';
 import { GearSolidIcon } from '..';
 import { Highlight, Markdown } from '../../../shared';
 import { ShowcaseExample } from './ShowcaseExample';
@@ -42,12 +42,12 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 			setFileUrlDescription(newFileUrlDescription);
 		}, []);
 
-		const handleChangeTab = (e: ITabOnChangeEvent) => {
-			setSelectedTab(e.newValue);
+		const handleChangeTab = (val: string) => {
+			setSelectedTab(val);
 		}
 
-		const handleChangeSettingsTab = (e: ITabOnChangeEvent) => {
-			setSelectedSettingsTab(e.newValue);
+		const handleChangeSettingsTab = (val: string) => {
+			setSelectedSettingsTab(val);
 		}
 
 		return (
