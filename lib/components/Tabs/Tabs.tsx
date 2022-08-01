@@ -2,7 +2,7 @@ import React, { PropsWithChildren, ReactElement, useEffect, useRef, useState } f
 import { ButtonContext } from '../Button';
 import { COLOR } from '../component.enums';
 import { ITabProps } from './Tab';
-import { TabContext } from './TabContext';
+import { ITabsContext, TabContext } from './TabContext';
 import { TabIndicator } from './TabIndicator';
 import styles from './Tabs.module.scss';
 
@@ -23,7 +23,7 @@ export const Tabs = (props: ITabsProps) => {
 	const [selectedValue, setSelectedValue] = useState<string>('');
 	const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
-	const tabContext = ({
+	const tabContext: ITabsContext = ({
 		selectedValue,
 		setSelectedValue,
 		fixed
