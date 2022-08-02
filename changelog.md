@@ -1,6 +1,7 @@
 
-### unreleased
+### 25.0.0
 - breaking change! upgraded to react 18
+- updated dependencies
 
 ### 24.1.0
 - tabs added tabContext
