@@ -36,9 +36,9 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 
 		useEffect(() => {
 			const fileName = componentName?.replace('PageBase', '');
-			const newFileUrlUsage = `./showcase/${fileName?.toLowerCase()}.md`;
+			const newFileUrlUsage = `/showcase/${fileName?.toLowerCase()}.md`;
 			setFileUrlUsage(newFileUrlUsage);
-			const newFileUrlDescription = `./showcase/${fileName?.toLowerCase()}.description.md`;
+			const newFileUrlDescription = `/showcase/${fileName?.toLowerCase()}.description.md`;
 			setFileUrlDescription(newFileUrlDescription);
 		}, []);
 
