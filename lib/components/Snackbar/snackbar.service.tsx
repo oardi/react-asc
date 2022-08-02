@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
+import { unmountComponentAtNode } from 'react-dom';
+import { Root, createRoot } from 'react-dom/client';
 import { COLOR } from '../component.enums';
 import { Snackbar } from './Snackbar';
 
@@ -17,6 +18,7 @@ export interface ISnackbarOptions {
 class SnackbarService implements ISnackbarService {
 	private container: HTMLElement | undefined;
 	private handler: NodeJS.Timeout | undefined;
+	private root: Root | undefined;
 
 	show(message: React.ReactNode | string, options?: ISnackbarOptions): Promise<void> {
 		const defaultOptions: ISnackbarOptions = { timeout: 3000, actionText: 'ok', color: COLOR.dark, target: document.body };
@@ -41,22 +43,22 @@ class SnackbarService implements ISnackbarService {
 				this.hide();
 			}
 
-			render(
+			this.root = createRoot(this.container);
+			this.root.render(
 				<Snackbar
 					color={mergedOptions.color}
 					actionText={mergedOptions.actionText}
 					onOk={handleOk}
 				>
 					{message}
-				</Snackbar>,
-				this.container
+				</Snackbar>
 			);
-		})
+		});
 	}
 
 	private hide() {
 		if (this.container) {
-			unmountComponentAtNode(this.container);
+			this.root?.unmount();
 			document.body.removeChild(this.container);
 			this.container = undefined;
 			this.handler && clearTimeout(this.handler);
