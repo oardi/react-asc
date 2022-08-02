@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface IAppInfo {
 	name?: string;
 	version?: string;
@@ -10,4 +12,5 @@ export interface IMenuItem {
 	items?: Array<IMenuItem>;
 	isCollapsible?: boolean;
 	isCollapsed?: boolean;
+	element?: React.ReactNode;
 }

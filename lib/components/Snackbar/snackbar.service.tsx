@@ -4,7 +4,7 @@ import { COLOR } from '../component.enums';
 import { Snackbar } from './Snackbar';
 
 export interface ISnackbarService {
-	show(message: React.ReactChildren | string, options?: ISnackbarOptions): Promise<void>;
+	show(message: React.ReactNode | string, options?: ISnackbarOptions): Promise<void>;
 }
 
 export interface ISnackbarOptions {
@@ -18,7 +18,7 @@ class SnackbarService implements ISnackbarService {
 	private container: HTMLElement | undefined;
 	private handler: NodeJS.Timeout | undefined;
 
-	show(message: React.ReactChildren | string, options?: ISnackbarOptions): Promise<void> {
+	show(message: React.ReactNode | string, options?: ISnackbarOptions): Promise<void> {
 		const defaultOptions: ISnackbarOptions = { timeout: 3000, actionText: 'ok', color: COLOR.dark, target: document.body };
 		const mergedOptions = Object.assign(defaultOptions, options);
 

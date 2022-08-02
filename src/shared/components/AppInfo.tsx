@@ -11,7 +11,7 @@ export const AppInfo = () => {
 	useEffect(() => { init(); }, []);
 
 	const init = async () => {
-		const data = await fileLoaderService.get<string>('./changelog.md', { responseType: 'arraybuffer' });
+		const data = await fileLoaderService.get<string>('/changelog.md', { responseType: 'arraybuffer' });
 		setMarkdownText(data.data);
 	}
 

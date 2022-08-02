@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
+import { unmountComponentAtNode } from 'react-dom';
 import { GlobalModal } from './GlobalModal';
 import { IControls } from '../Form';
 import { ReactElement } from 'react';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AppBar, AppBarTitle, COLOR, ISidebarItem, Sidebar } from 'lib';
 
 interface IAppSidebarProps {
@@ -9,12 +9,12 @@ interface IAppSidebarProps {
 
 export const AppSidebar = ({ menuItems, onItemClicked }: IAppSidebarProps) => {
 
-	const history = useHistory();
+	const navigate = useNavigate();
 	const location = useLocation();
 
 	const handleItemClicked = (path: string) => {
 		onItemClicked && onItemClicked();
-		history.push(path);
+		navigate(path);
 	}
 
 	return (

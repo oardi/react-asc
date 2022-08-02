@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Breadcrumb, BreadcrumbItem, HomeSolidIcon, Icon } from 'lib';
 import { loggerService } from '../services';
 
@@ -18,7 +18,7 @@ const CLASSNAME = 'AppBreadcrumb';
 export const AppBreadcrumb = ({ className }: IAppBreadcrumbProps) => {
 
 	const location = useLocation();
-	const history = useHistory();
+	const navigate = useNavigate();
 	const [items, setItems] = useState<Array<IAppBreadcrumb>>([]);
 
 	// extract in AppBreadcrumb
@@ -34,7 +34,7 @@ export const AppBreadcrumb = ({ className }: IAppBreadcrumbProps) => {
 	const handleClickBreadcrumbItem = (item: IAppBreadcrumb) => {
 		loggerService.debug(CLASSNAME, 'handleClickBreadcrumbItem');
 		if (!item.isActive && location.pathname !== item.path)
-			history.push(item.path as string);
+			navigate(item.path as string);
 	}
 
 	return (

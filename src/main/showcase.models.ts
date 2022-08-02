@@ -25,9 +25,11 @@ export class RouteModel {
 		this.path = [parentPath, dto.path !== undefined ? dto.path : dto.id].join('/');
 		this.componentKey = `${dto.id}Page`;
 		this.routes = dto.items && dto.items.map(item => new RouteModel(item, this.path));
+		this.element = dto.element;
 	}
 
 	path: string;
 	componentKey: string;
 	routes?: Array<RouteModel>;
+	element?: React.ReactNode;
 }

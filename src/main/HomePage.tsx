@@ -1,15 +1,15 @@
 import React from 'react';
 import { Layout } from './Layout';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { RocketSolidIcon } from './assets';
 import { Button, Card, CardBody, CardText, CardTitle, Column, Row, Typography } from 'lib';
 
 export const HomePage = () => {
 
-	const history = useHistory();
+	const navigate = useNavigate();
 
 	const handleClickGetStarted = () => {
-		history.push('/gettingstarted');
+		navigate('/gettingstarted');
 	};
 
 	return (

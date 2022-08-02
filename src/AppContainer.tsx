@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { HashRouter as Router } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { AppContext } from './AppContext';
 import App from './App';
 
@@ -24,10 +24,10 @@ export const AppContainer = () => {
 	});
 
 	return (
-		<Router>
+		<BrowserRouter>
 			<AppContext.Provider value={appContext}>
 				<App />
 			</AppContext.Provider>
-		</Router>
+		</BrowserRouter>
 	);
 }
