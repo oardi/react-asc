@@ -5,7 +5,7 @@ import { IconButton } from '../IconButton';
 import styles from './SpeedDialAction.module.scss';
 
 export interface ISpeedDialActionProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-	icon: React.SVGProps<SVGSVGElement>;
+	icon: React.ReactNode;
 	tooltipTitle?: string;
 	color?: COLOR;
 	onClick?: (e: React.MouseEvent) => void;

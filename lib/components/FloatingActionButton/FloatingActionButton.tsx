@@ -4,7 +4,7 @@ import { IconButton } from '../IconButton';
 import styles from './FloatingActionButton.module.scss';
 
 export interface IFloatingActionButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
-	icon?: React.SVGProps<SVGSVGElement>;
+	icon?: React.ReactNode;
 	color?: COLOR;
 	size?: SIZE;
 	fixed?: boolean;

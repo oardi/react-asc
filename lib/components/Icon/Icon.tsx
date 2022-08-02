@@ -4,6 +4,7 @@ import styles from './Icon.module.scss';
 
 export interface IIconProps extends ComponentProps<'div'>  {
 	iconColor?: COLOR;
+	children?: React.ReactNode;
 }
 
 export const Icon = (props: IIconProps) => {

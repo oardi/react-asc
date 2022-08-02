@@ -9,8 +9,8 @@ export interface IButtonProps extends React.ComponentProps<'button'> {
 	isActive?: boolean;
 	isRounded?: boolean;
 	variant?: VARIANT;
-	startIcon?: React.SVGProps<SVGSVGElement>;
-	endIcon?: React.SVGProps<SVGSVGElement>;
+	startIcon?: React.ReactNode;
+	endIcon?: React.ReactNode;
 	shadow?: boolean;
 	block?: boolean;
 }

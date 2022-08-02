@@ -1,3 +1,4 @@
+import React from 'react';
 import { Root, createRoot } from 'react-dom/client';
 import { GlobalModal } from './GlobalModal';
 import { IControls } from '../Form';

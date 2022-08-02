@@ -122,7 +122,7 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 				]
 			})
 		};
-		modalService.showForm<IModalPageValues>('Form', { formControls: controls, size: settingValues.size })
+		modalService.showForm<IModalPageValues>('Form', controls, { size: settingValues.size })
 			.then(res => {
 				loggerService.debug(res);
 			});

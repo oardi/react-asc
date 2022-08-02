@@ -4,7 +4,7 @@ import { Icon } from '../Icon';
 import styles from './IconButton.module.scss';
 
 export interface IIconButtonProps extends React.ComponentProps<'button'> {
-	icon?: React.SVGProps<SVGSVGElement>;
+	icon?: React.ReactNode;
 	color?: COLOR;
 	size?: SIZE;
 	isActive?: boolean;
