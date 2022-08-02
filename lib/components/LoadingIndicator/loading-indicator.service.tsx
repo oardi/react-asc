@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
+import { createRoot, Root } from 'react-dom/client';
 import { LoadingIndicator } from './LoadingIndicator';
 import { LoadingIndicatorContainer } from './LoadingIndicatorContainer';
 
@@ -10,6 +10,7 @@ export interface ILoadingIndicatorService {
 class LoadingIndicatorService implements ILoadingIndicatorService {
 	private container: HTMLDivElement | undefined;
 	private handler: NodeJS.Timer | undefined;
+	private root: Root | undefined;
 
 	show() {
 		if (this.container) {
@@ -19,18 +20,18 @@ class LoadingIndicatorService implements ILoadingIndicatorService {
 		this.container.classList.add('snackbar-container');
 		document.body.appendChild(this.container);
 
-		render(
+		this.root = createRoot(this.container);
+		this.root.render(
 			<LoadingIndicatorContainer isFixed={true}>
 				<LoadingIndicator />
-			</LoadingIndicatorContainer>,
-			this.container
+			</LoadingIndicatorContainer>
 		);
 
 	}
 
 	hide() {
 		if (this.container) {
-			unmountComponentAtNode(this.container);
+			this.root?.unmount();
 			document.body.removeChild(this.container);
 			this.container = undefined;
 			this.handler && clearTimeout(this.handler);

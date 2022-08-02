@@ -1,4 +1,7 @@
 
+### 25.0.1
+- fixed loadingIndicatorService
+
 ### 25.0.0
 - breaking change! upgraded to react 18
 - updated dependencies
