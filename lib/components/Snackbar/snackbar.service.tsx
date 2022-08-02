@@ -1,5 +1,4 @@
 import React from 'react';
-import { unmountComponentAtNode } from 'react-dom';
 import { Root, createRoot } from 'react-dom/client';
 import { COLOR } from '../component.enums';
 import { Snackbar } from './Snackbar';

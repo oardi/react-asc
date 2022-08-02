@@ -1,5 +1,4 @@
-import React from 'react';
-import { unmountComponentAtNode } from 'react-dom';
+import { Root, createRoot } from 'react-dom/client';
 import { GlobalModal } from './GlobalModal';
 import { IControls } from '../Form';
 import { ReactElement } from 'react';
@@ -17,12 +16,9 @@ export interface IModalOptions {
 	size?: SIZE;
 }
 
-export interface IModalFormOptions extends IModalOptions {
-	formControls?: IControls;
-}
-
 class ModalService implements IModalService {
 	private container: HTMLElement | undefined;
+	private root: Root | undefined;
 
 	show(title: string, description: string | ReactElement, options?: IModalOptions): Promise<void> {
 		return new Promise((resolve, reject) => {
@@ -40,7 +36,8 @@ class ModalService implements IModalService {
 					this.hide();
 				}
 
-				render(
+				this.root = createRoot(this.container);
+				this.root.render(
 					<GlobalModal
 						fullScreen={options && options.fullScreen}
 						size={options && options.size}
@@ -51,14 +48,13 @@ class ModalService implements IModalService {
 						onOk={handleOk}
 						isDismissable={options && options.isDismissable}
 						buttons={options && options.buttons}
-					/>,
-					this.container
+					/>
 				);
 			}
 		});
 	}
 
-	showForm<T>(title: string, options?: IModalFormOptions): Promise<T> {
+	showForm<T>(title: string, formControls: IControls, options?: IModalOptions): Promise<T> {
 		return new Promise((resolve, reject) => {
 			if (!this.container) {
 				this.container = document.createElement('div');
@@ -77,21 +73,21 @@ class ModalService implements IModalService {
 				const handleCancel = () => {
 					reject();
 					this.hide();
-				}
+				};
 
-				render(
+				this.root = createRoot(this.container);
+				this.root.render(
 					<GlobalModal
 						fullScreen={options && options.fullScreen}
 						size={options && options.size}
 						title={title}
-						formControls={options && options.formControls}
+						formControls={formControls}
 						onCancel={handleCancel}
 						onBackdropClick={handleCancel}
 						onOk={handleOk}
 						isDismissable={options && options.isDismissable}
 						buttons={options && options.buttons}
-					/>,
-					this.container
+					/>
 				);
 			}
 		});
@@ -99,7 +95,7 @@ class ModalService implements IModalService {
 
 	private hide() {
 		if (this.container) {
-			unmountComponentAtNode(this.container);
+			this.root?.unmount();
 			document.body.removeChild(this.container);
 			this.container = undefined;
 		}
