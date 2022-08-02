@@ -111,7 +111,7 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	}
 
 	const handleOpenInModal = () => {
-		modalService.showForm<IFormPageControls>('Form', { formControls: controls })
+		modalService.showForm<IFormPageControls>('Form', controls)
 			.then(res => loggerService.debug(res));
 	}
 

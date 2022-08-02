@@ -20,7 +20,7 @@ const SnackbarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 
 	const handleClick = () => {
 		snackbarService
-			.show(settingValues.children as React.ReactChildren, {
+			.show(settingValues.children as React.ReactNode, {
 				actionText: settingValues.actionText,
 				timeout: settingValues.timeout,
 				color: settingValues.color
