@@ -31,6 +31,7 @@ export const Tabs = (props: ITabsProps) => {
 
 	const prevSelectedValueRef = useRef<string>();
 	useEffect(() => {
+		// TODO - check if prev needs to be set
 		if (value !== undefined && value !== prevSelectedValueRef.current) {
 			setSelectedValue(value);
 		}

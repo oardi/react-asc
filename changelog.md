@@ -1,4 +1,7 @@
 
+### 25.0.2
+- form - fixed min and max validator
+
 ### 25.0.1
 - fixed loadingIndicatorService
 

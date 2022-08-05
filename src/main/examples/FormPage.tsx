@@ -35,7 +35,7 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	}, []);
 
 	const controls: IControls = {
-		text: new FormControl('', ['required'], 'text', { label: 'Text', autoFocus: true, placeholder: 'Text' }),
+		text: new FormControl('', ['required', 'min:3'], 'text', { label: 'Text', autoFocus: true, placeholder: 'Text' }),
 		email: new FormControl('', ['email', 'required'], 'text', { label: 'E-Mail', hint: 'We will never share your email with anyone else' }),
 		date: new FormControl('2017-06-01', [], 'date', { label: 'Date' }),
 		dateTimeLocal: new FormControl(dayjs('2021-01-07T08:27:00Z').format('YYYY-MM-DDThh:mm'), [], 'datetime-local', { label: 'DateTimeLocal' }),

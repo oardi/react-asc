@@ -1,1 +1,1 @@
-export const MaxValidator = (valueA: number, valueB: number) => valueA <= valueB;
+export const MaxValidator = (val: string, valueB: number): boolean => val.length <= valueB;

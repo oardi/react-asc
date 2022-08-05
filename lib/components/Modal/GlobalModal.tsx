@@ -1,4 +1,4 @@
-import React, { Fragment, ReactElement, useEffect, useRef, useState } from 'react';
+import React, { ReactElement, useEffect, useRef, useState } from 'react';
 import { Button } from '../Button';
 import { SIZE, COLOR, VARIANT } from '../component.enums';
 import { Form, IControls, IFormValues } from '../Form';
@@ -89,7 +89,7 @@ export const GlobalModal = ({
 			onBackdropClick={onBackdropClick}
 			isDismissable={isDismissable}
 			footer={
-				<Fragment>
+				<>
 					{buttons.map((button, index) => (
 						<Button
 							key={index}
@@ -101,14 +101,14 @@ export const GlobalModal = ({
 							{button.label}
 						</Button>
 					))}
-				</Fragment>
+				</>
 			}>
 
 			{description && <div>{description}</div>}
 
 			{
 				modalType === MODALTYPE.FORM &&
-				<Fragment>
+				<>
 					<Form
 						ref={myForm}
 						controls={(myControls as IControls)}
@@ -116,7 +116,7 @@ export const GlobalModal = ({
 						onSubmit={onSubmit}
 						onChange={onChange}
 					/>
-				</Fragment>
+				</>
 			}
 		</Modal>
 	);

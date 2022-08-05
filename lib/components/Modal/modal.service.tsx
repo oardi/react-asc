@@ -59,7 +59,7 @@ class ModalService implements IModalService {
 		return new Promise((resolve, reject) => {
 			if (!this.container) {
 				this.container = document.createElement('div');
-				document.body.appendChild(this.container);
+				this.container.classList.add('modal-container');
 
 				const handleOk = (values?: unknown) => {
 					resolve(values as T);
@@ -97,7 +97,7 @@ class ModalService implements IModalService {
 	private hide() {
 		if (this.container) {
 			this.root?.unmount();
-			document.body.removeChild(this.container);
+			// document.body.removeChild(this.container);
 			this.container = undefined;
 		}
 	}

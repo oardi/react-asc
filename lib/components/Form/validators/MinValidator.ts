@@ -1,1 +1,1 @@
-export const MinValidator = (valueA: number, valueB: number) => valueA >= valueB;
+export const MinValidator = (val: string, minLength: number): boolean => val.length >= minLength;

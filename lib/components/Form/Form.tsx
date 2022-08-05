@@ -86,13 +86,13 @@ export class Form extends Component<IFormProps, IFormState> {
 						}
 						break;
 					case 'min':
-						if (!MinValidator(fieldValue as number, parseInt(validatorParam as string))) {
-							errors.push({ validator: validatorName, message: `Number is less than ${validatorParam}` });
+						if (!MinValidator(fieldValue as string, parseInt(validatorParam as string))) {
+							errors.push({ validator: validatorName, message: `Minimum number of ${validatorParam} characters not met` });
 						}
 						break;
 					case 'max':
-						if (!MaxValidator(fieldValue as number, parseInt(validatorParam as string))) {
-							errors.push({ validator: validatorName, message: `Number is greater than ${validatorParam}` });
+						if (!MaxValidator(fieldValue as string, parseInt(validatorParam as string))) {
+							errors.push({ validator: validatorName, message: `Maximum number of ${validatorParam} characters exceeded` });
 						}
 						break;
 					case 'match':
