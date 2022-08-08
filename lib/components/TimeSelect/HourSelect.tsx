@@ -19,7 +19,7 @@ export const HourSelect = (props: IHourProps) => {
 
 	useEffect(() => {
 		const newHourOptions: Array<ISelectOption> = [];
-		for (let i = 0; i < 24; i++) {
+		for (let i: number = 0; i < 24; i++) {
 			newHourOptions.push({ value: i.toString(), label: i.toString() });
 		}
 		setHourOptions(newHourOptions);

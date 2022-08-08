@@ -17,7 +17,7 @@ module.exports = {
 		'@typescript-eslint'
 	],
 	rules: {
-		'@typescript-eslint/no-var-requires': 0,
+		'@typescript-eslint/no-var-requires': 'error',
 		'@typescript-eslint/typedef': [
 			"warn",
 			{
@@ -32,7 +32,7 @@ module.exports = {
 			}
 		],
 		'@typescript-eslint/no-inferrable-types': 0,
-		'@typescript-eslint/no-empty-function': 0
+		'@typescript-eslint/no-empty-function': 'error'
 	},
 	ignorePatterns: ['node_modules'],
 	overrides: [

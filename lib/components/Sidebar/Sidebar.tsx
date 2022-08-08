@@ -28,7 +28,7 @@ export const Sidebar = (props: ISidebarProps) => {
 	};
 
 	const initMenuItems = () => {
-		const newItems = items.map(item => new SidebarItemModel(
+		const newItems: SidebarItemModel[] = items.map(item => new SidebarItemModel(
 			item.id,
 			item.label,
 			item.path,
@@ -48,8 +48,8 @@ export const Sidebar = (props: ISidebarProps) => {
 	}
 
 	const isMenuItemActive = (path: string) => {
-		const lastSegment = currentUrl.substring(currentUrl.lastIndexOf('/') + 1, currentUrl.length);
-		let result = false;
+		const lastSegment: string = currentUrl.substring(currentUrl.lastIndexOf('/') + 1, currentUrl.length);
+		let result: boolean = false;
 		if (currentUrl === '/' && path === '') {
 			result = true;
 		} else if (path !== '') {

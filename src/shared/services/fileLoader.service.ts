@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { loggerService } from './logger.service';
 
-const CLASSNAME = 'FileLoaderService';
+const CLASSNAME: string = 'FileLoaderService';
 
 class FileLoaderService {
 	get<T>(segmentUrl: string, params?: AxiosRequestConfig<unknown> | undefined): Promise<AxiosResponse<T>> {
@@ -11,4 +11,4 @@ class FileLoaderService {
 
 }
 
-export const fileLoaderService = new FileLoaderService();
+export const fileLoaderService: FileLoaderService = new FileLoaderService();

@@ -39,7 +39,7 @@ export const Select = (props: ISelectProps) => {
 	const [hoverIndex, setHoverIndex] = useState<number | null>(null);
 	const [isShow, setIsShow] = useState<boolean>(false);
 	const [selectedOptions, setSelectedOptions] = useState<Array<ISelectOption>>([]);
-	const selectConainter = useRef<HTMLDivElement>(null);
+	const selectConainter: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
 
 	const getCssClass = () => {
 		const cssClasses: Array<string> = [];
@@ -51,10 +51,10 @@ export const Select = (props: ISelectProps) => {
 	}
 
 	useEffect(() => {
-		const newValue = value ? value : '';
+		const newValue: string | string[] = value ? value : '';
 		writeValue(newValue);
 		if (newValue) {
-			const option = options.find(o => o.value === newValue);
+			const option: ISelectOption | undefined = options.find(o => o.value === newValue);
 			if (option) {
 				setHoverIndex(options.indexOf(option));
 			}

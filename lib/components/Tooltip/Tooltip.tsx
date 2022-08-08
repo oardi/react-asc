@@ -2,7 +2,7 @@ import React, { cloneElement, useEffect, useRef, useState } from 'react';
 import { createPopper } from '@popperjs/core';
 import styles from './Tooltip.module.scss';
 
-export interface ITooltipProps extends React.ComponentProps<'div'>  {
+export interface ITooltipProps extends React.ComponentProps<'div'> {
 	placement?: 'top' | 'bottom' | 'right' | 'left',
 	text?: string;
 }
@@ -12,8 +12,8 @@ export const Tooltip = (props: ITooltipProps) => {
 	const { children, text, placement = 'bottom' } = props;
 
 	const [show, setShow] = useState<boolean>(false);
-	const refChild = useRef() as React.RefObject<HTMLDivElement>;
-	const refTooltip = useRef() as React.RefObject<HTMLDivElement>;
+	const refChild: React.RefObject<HTMLDivElement> = useRef() as React.RefObject<HTMLDivElement>;
+	const refTooltip: React.RefObject<HTMLDivElement> = useRef() as React.RefObject<HTMLDivElement>;
 
 	useEffect(() => {
 		if (show === true && refChild && refChild.current && refTooltip && refTooltip.current) {
