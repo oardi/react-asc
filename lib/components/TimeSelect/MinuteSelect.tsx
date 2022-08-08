@@ -19,7 +19,7 @@ export const MinuteSelect = (props: IMinuteProps) => {
 
 	useEffect(() => {
 		const newMinuteOptions: Array<ISelectOption> = [];
-		for (let i = 0; i < 60; i++) {
+		for (let i: number = 0; i < 60; i++) {
 			newMinuteOptions.push({ value: i.toString(), label: i.toString() });
 		}
 		setMinuteOptions(newMinuteOptions);

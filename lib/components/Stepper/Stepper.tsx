@@ -1,4 +1,4 @@
-import React, { cloneElement, Fragment, PropsWithChildren, ReactChild, ReactElement, useEffect, useState } from 'react';
+import React, { cloneElement, Fragment, PropsWithChildren, ReactElement, useEffect, useState } from 'react';
 import { IStepProps } from './Step';
 import { StepperActions } from './StepperActions';
 import { StepPanel } from './StepPanel/StepPanel';
@@ -53,7 +53,7 @@ export const Stepper = (props: IStepperProps) => {
 		});
 	}
 
-	const renderSteps = (child: ReactChild, index: number) => {
+	const renderSteps = (child: React.ReactNode, index: number) => {
 		return React.isValidElement(child) &&
 			cloneElement((child as ReactElement<PropsWithChildren<IStepProps>>), {
 				index: index,
@@ -72,7 +72,7 @@ export const Stepper = (props: IStepperProps) => {
 
 	const handleBack = () => {
 		setActiveIndex((prevActiveStep) => {
-			const newIndex = prevActiveStep - 1;
+			const newIndex: number = prevActiveStep - 1;
 			onChange && onChange(newIndex);
 			return newIndex;
 		});
@@ -86,7 +86,7 @@ export const Stepper = (props: IStepperProps) => {
 
 		setActiveIndex((prevActiveStep) => prevActiveStep + 1);
 		setSkipped((prevSkipped) => {
-			const newSkipped = new Set(prevSkipped.values());
+			const newSkipped: Set<number> = new Set(prevSkipped.values());
 			newSkipped.add(activeIndex);
 			return newSkipped;
 		});
@@ -95,14 +95,14 @@ export const Stepper = (props: IStepperProps) => {
 	// TODO
 	const handleNext = () => {
 		if (!isLastStep()) {
-			let newSkipped = skipped;
+			let newSkipped: Set<number> = skipped;
 			if (isStepSkipped(activeIndex)) {
 				newSkipped = new Set(newSkipped.values());
 				newSkipped.delete(activeIndex);
 			}
 
 			setActiveIndex((prevActiveStep) => {
-				const newIndex = prevActiveStep + 1;
+				const newIndex: number = prevActiveStep + 1;
 				onChange && onChange(newIndex);
 				return newIndex;
 			});
@@ -137,7 +137,7 @@ export const Stepper = (props: IStepperProps) => {
 							steps.map(
 								(child, index) => (
 									<React.Fragment key={child.props.value}>
-										{renderSteps(child as ReactChild, index)}
+										{renderSteps(child, index)}
 										{index !== steps.length - 1 && <StepConnector isActive={activeIndex > index} />}
 									</React.Fragment>
 								)

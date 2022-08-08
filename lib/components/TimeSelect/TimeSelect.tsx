@@ -44,16 +44,16 @@ export const TimeSelect = (props: ITimeSelectProps) => {
 	}
 
 	const handleOnChange = (e: number, mode: TIMEMODE) => {
-		const currYear = currDate.getFullYear();
-		const currMonth = currDate.getMonth();
-		const currday = currDate.getDate();
+		const currYear: number = currDate.getFullYear();
+		const currMonth: number = currDate.getMonth();
+		const currday: number = currDate.getDate();
 
-		const currHour = mode === TIMEMODE.HOUR ? e : currDate.getHours();
-		const currMinute = mode === TIMEMODE.MINUTE ? e : currDate.getMinutes();
-		const currSeconds = mode === TIMEMODE.SECONDS ? e : currDate.getSeconds();
-		const currMilliSeconds = mode === TIMEMODE.MILLISECONDS ? e : currDate.getMilliseconds();
+		const currHour: number = mode === TIMEMODE.HOUR ? e : currDate.getHours();
+		const currMinute: number = mode === TIMEMODE.MINUTE ? e : currDate.getMinutes();
+		const currSeconds: number = mode === TIMEMODE.SECONDS ? e : currDate.getSeconds();
+		const currMilliSeconds: number = mode === TIMEMODE.MILLISECONDS ? e : currDate.getMilliseconds();
 
-		const newDate = new Date(currYear, currMonth, currday, currHour, currMinute, currSeconds, currMilliSeconds);
+		const newDate: Date = new Date(currYear, currMonth, currday, currHour, currMinute, currSeconds, currMilliSeconds);
 
 		setCurrDate(newDate);
 		onChange && onChange(newDate);

@@ -13,7 +13,7 @@ export enum SIZE { sm = 'sm', md = 'md', lg = 'lg' }
 
 export enum POSITION { right = 'right', left = 'left' }
 
-export const STATUS = {
-	HOVERED: 'hovered',
-	NORMAL: 'normal',
-};
+export enum STATUS {
+	HOVERED = 'hovered',
+	NORMAL = 'normal',
+}

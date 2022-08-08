@@ -29,7 +29,7 @@ export const Tabs = (props: ITabsProps) => {
 		fixed
 	});
 
-	const prevSelectedValueRef = useRef<string>();
+	const prevSelectedValueRef: React.MutableRefObject<string | undefined> = useRef<string>();
 	useEffect(() => {
 		// TODO - check if prev needs to be set
 		if (value !== undefined && value !== prevSelectedValueRef.current) {

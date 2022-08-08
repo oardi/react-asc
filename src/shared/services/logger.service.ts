@@ -52,4 +52,4 @@ class LoggerService implements ILoggerService {
 	}
 }
 
-export const loggerService = new LoggerService();
+export const loggerService: LoggerService = new LoggerService();

@@ -20,7 +20,7 @@ export const MilliSecondSelect = (props: IMilliSecondProps) => {
 
 	useEffect(() => {
 		const newMilliSecondOptions: Array<ISelectOption> = [];
-		for (let i = 0; i < 1000; i += steps) {
+		for (let i: number = 0; i < 1000; i += steps) {
 			newMilliSecondOptions.push({ value: i.toString(), label: i.toString() });
 		}
 		setMilliSecondOptions(newMilliSecondOptions);

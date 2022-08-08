@@ -18,7 +18,7 @@ export const SecondSelect = (props: ISecondProps) => {
 
 	useEffect(() => {
 		const newSecondOptions: Array<ISelectOption> = [];
-		for (let i = 0; i < 60; i++) {
+		for (let i: number = 0; i < 60; i++) {
 			newSecondOptions.push({ value: i.toString(), label: i.toString() });
 		}
 		setSecondOptions(newSecondOptions);

@@ -1,4 +1,4 @@
-import { createContext, Dispatch, useContext } from 'react';
+import { Context, createContext, Dispatch, useContext } from 'react';
 
 export interface ITabsContext {
 	fixed: boolean;
@@ -6,7 +6,7 @@ export interface ITabsContext {
 	setSelectedValue: Dispatch<string>;
 }
 
-export const TabContext = createContext<ITabsContext>({
+export const TabContext: Context<ITabsContext> = createContext<ITabsContext>({
 	fixed: false,
 	selectedValue: '',
 	setSelectedValue: () => { }
