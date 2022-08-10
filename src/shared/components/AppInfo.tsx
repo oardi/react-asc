@@ -3,6 +3,7 @@ import { COLOR, IconButton, modalService } from 'lib';
 import { InfoSolidIcon } from '../../main/assets';
 import { fileLoaderService, loggerService } from '../services';
 import { Markdown } from './Markdown';
+import { AxiosResponse } from 'axios';
 
 export const AppInfo = () => {
 
@@ -11,9 +12,9 @@ export const AppInfo = () => {
 	useEffect(() => { init(); }, []);
 
 	const init = async () => {
-		const data = await fileLoaderService.get<string>('/changelog.md', { responseType: 'arraybuffer' });
+		const data: AxiosResponse<string> = await fileLoaderService.get<string>('/changelog.md', { responseType: 'arraybuffer' });
 		setMarkdownText(data.data);
-	}
+	};
 
 	const handleClick = () => {
 		try {
@@ -29,4 +30,4 @@ export const AppInfo = () => {
 			onClick={handleClick}
 		/>
 	);
-}
+};

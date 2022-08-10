@@ -15,15 +15,15 @@ const SpeedDialPageBase = ({ setSettingsControls }: IShowcaseBaseProps<ISpeedDia
 	const handleClick = (index: number) => {
 		snackbarService.show(`you clicked action: ${index}`);
 		handleClose();
-	}
+	};
 
 	const handleOpen = () => {
 		setOpen(true);
-	}
+	};
 
 	const handleClose = () => {
 		setOpen(false);
-	}
+	};
 
 	return (
 		<div style={{ height: '200px', position: 'relative' }}>
@@ -46,8 +46,6 @@ const SpeedDialPageBase = ({ setSettingsControls }: IShowcaseBaseProps<ISpeedDia
 			</SpeedDial>
 		</div>
 	);
-}
+};
 
-export const SpeedDialPage = withOptions<ISpeedDialProps>(SpeedDialPageBase, {
-
-}, 'SpeedDialPageBase');
+export const SpeedDialPage = withOptions<ISpeedDialProps>(SpeedDialPageBase, {}, 'SpeedDialPageBase');

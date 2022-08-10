@@ -8,7 +8,7 @@ const HookUseMobileDetectPageBase = () => {
 			Switch to "Usage" to see how to use this hook
 		</>
 	);
-}
+};
 
 export const HookUseMobileDetectPage = withOptions(HookUseMobileDetectPageBase, {
 }, 'HookUseMobileDetectPageBase');

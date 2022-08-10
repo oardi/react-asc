@@ -22,8 +22,8 @@ export const SpeedDial = (props: ISpeedDialProps) => {
 	};
 
 	const handleClick = (e: React.MouseEvent) => {
-		if (open) onClose && onClose(e)
-		else onOpen && onOpen(e)
+		if (open) { onClose && onClose(e); }
+		else { onOpen && onOpen(e); }
 	};
 
 	return (
@@ -42,4 +42,4 @@ export const SpeedDial = (props: ISpeedDialProps) => {
 			}
 		</div>
 	);
-}
+};

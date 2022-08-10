@@ -23,7 +23,7 @@ const MenuPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 		loggerService.debug('handleClick', text);
 		setOpen(false);
 		snackbarService.show(`you clicked action ${text}`);
-	}
+	};
 
 	return (
 		<>
@@ -50,7 +50,7 @@ const MenuPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 			</Menu>
 		</>
 	);
-}
+};
 
 export const MenuPage = withOptions<IMenuProps>(MenuPageBase, {
 	menuPosition: 'left'

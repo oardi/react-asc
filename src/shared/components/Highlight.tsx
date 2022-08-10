@@ -37,12 +37,12 @@ export const Highlight = ({ url, text, language = 'javascript' }: IHighlightProp
 		} catch (err) {
 			loggerService.error(`Highlight: file ${url} not found.`);
 		}
-	}
+	};
 
 	const renderText = async (text: string) => {
 		const snarked: string = snarkdown(text);
 		setHighlightedText(snarked);
-	}
+	};
 
 	return (
 		<>
@@ -61,4 +61,4 @@ export const Highlight = ({ url, text, language = 'javascript' }: IHighlightProp
 			</pre>
 		</>
 	);
-}
+};

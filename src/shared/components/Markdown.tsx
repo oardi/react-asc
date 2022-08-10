@@ -1,6 +1,6 @@
+import React, { useEffect, useState } from 'react';
 import { AxiosResponse } from 'axios';
 import { Typography } from 'lib';
-import React, { useEffect, useState } from 'react';
 import snarkdown from 'snarkdown';
 import { fileLoaderService, loggerService } from '../services';
 
@@ -28,13 +28,13 @@ export const Markdown = ({ url, text }: IMarkdownProps) => {
 		} catch (err) {
 			loggerService.error(`Markdown: file ${url} not found.`);
 		}
-	}
+	};
 
 	const renderText = async (text: string) => {
 		setMarkdownText(snarkdown(text));
-	}
+	};
 
 	return (
 		<Typography dangerouslySetInnerHTML={{ __html: markdownText }}></Typography>
 	);
-}
+};

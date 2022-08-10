@@ -16,5 +16,5 @@ export const ShowcaseSettings = ({ controls, onFormChange }: IShowcaseSettingsPr
 				/>
 			</CardBody>
 		</Card>
-	)
-}
+	);
+};

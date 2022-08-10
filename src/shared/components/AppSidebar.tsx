@@ -15,7 +15,7 @@ export const AppSidebar = ({ menuItems, onItemClicked }: IAppSidebarProps) => {
 	const handleItemClicked = (path: string) => {
 		onItemClicked && onItemClicked();
 		navigate(path);
-	}
+	};
 
 	return (
 		<>
@@ -33,4 +33,4 @@ export const AppSidebar = ({ menuItems, onItemClicked }: IAppSidebarProps) => {
 			</div>
 		</>
 	);
-}
+};

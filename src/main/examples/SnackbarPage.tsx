@@ -35,7 +35,7 @@ const SnackbarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 			</Button>
 		</>
 	);
-}
+};
 
 export const SnackbarPage = withOptions<ISnackbarServiceProps>(SnackbarPageBase, {
 	children: 'snackbar message',

@@ -19,7 +19,7 @@ const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 		loggerService.debug(CLASSNAME, 'handleChange');
 		snackbarService.show(`You selected: ${value}`);
 		setSelectedValue(value);
-	}
+	};
 
 	return (
 		<>
@@ -49,7 +49,7 @@ const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 			</TabPanel>
 		</>
 	);
-}
+};
 
 export const TabsPage = withOptions<ITabsProps>(TabsPageBase, {
 	color: COLOR.primary,

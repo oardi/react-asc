@@ -16,4 +16,4 @@ export const ShowcaseOptions = ({ controls, onFormChange }: IShowcaseOptionsProp
 			/>
 		</Fragment>
 	);
-}
+};

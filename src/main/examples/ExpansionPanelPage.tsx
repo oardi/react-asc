@@ -48,6 +48,6 @@ const ExpansionPanelPageBase = () => {
 			</div>
 		</>
 	);
-}
+};
 
 export const ExpansionPanelPage = withOptions(ExpansionPanelPageBase, null, 'ExpansionPanelPageBase');

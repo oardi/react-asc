@@ -20,7 +20,7 @@ const NumberSelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 	const handleOnChange = (e: number) => {
 		snackbarService.show(`You selected: ${e}`);
 		setValue(e);
-	}
+	};
 
 	return (
 		<>
@@ -34,7 +34,7 @@ const NumberSelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 			/>
 		</>
 	);
-}
+};
 
 export const NumberSelectPage = withOptions<INumberSelectProps>(NumberSelectPageBase, {
 	from: 0,

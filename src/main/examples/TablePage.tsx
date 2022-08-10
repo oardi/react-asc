@@ -50,7 +50,7 @@ const TablePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 			</Table>
 		</>
 	);
-}
+};
 
 export const TablePage = withOptions<ITableProps>(TablePageBase,
 	{

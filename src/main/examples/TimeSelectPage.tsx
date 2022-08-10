@@ -21,7 +21,7 @@ const TimeSelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 			showMilliSeconds={settingValues.showMilliSeconds}
 		/>
 	);
-}
+};
 
 export const TimeSelectPage = withOptions<ITimeSelectProps>(TimeSelectPageBase, {
 	showHours: true,

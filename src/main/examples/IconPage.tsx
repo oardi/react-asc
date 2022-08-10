@@ -17,7 +17,7 @@ const IconPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 			</Icon>
 		</>
 	);
-}
+};
 
 export const IconPage = withOptions<IIconProps>(IconPageBase, {
 	iconColor: COLOR.primary

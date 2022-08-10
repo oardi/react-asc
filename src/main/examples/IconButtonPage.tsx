@@ -17,7 +17,7 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 
 	const handleClick = () => {
 		snackbarService.show('IconButton clicked');
-	}
+	};
 
 	return (
 		<>
@@ -33,7 +33,7 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 			/>
 		</>
 	);
-}
+};
 
 export const IconButtonPage = withOptions<IIconButtonProps>(IconButtonPageBase, {
 	color: COLOR.primary,

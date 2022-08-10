@@ -98,22 +98,22 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	const handleClickSubmit = () => {
 		loggerService.debug(CLASSNAME, 'handleClickSubmit');
 		myForm?.current?.handleFormSubmit();
-	}
+	};
 
 	const handleClickReset = () => {
 		loggerService.debug(CLASSNAME, 'handleClickReset');
 		myForm?.current?.handleFormReset();
-	}
+	};
 
 	const onFormChange = (values: IFormValues) => {
 		loggerService.debug(CLASSNAME, 'onFormChange', JSON.stringify(values, null, 2));
 		setValues(values);
-	}
+	};
 
 	const handleOpenInModal = () => {
 		modalService.showForm<IFormPageControls>('Form', controls)
 			.then(res => loggerService.debug(res));
-	}
+	};
 
 	return (
 		<>
@@ -144,7 +144,7 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 
 		</>
 	);
-}
+};
 
 export const FormPage = withOptions<IFormProps>(FormPageBase, {
 	controls: {},

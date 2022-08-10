@@ -33,9 +33,8 @@ export const AppBreadcrumb = ({ className }: IAppBreadcrumbProps) => {
 
 	const handleClickBreadcrumbItem = (item: IAppBreadcrumb) => {
 		loggerService.debug(CLASSNAME, 'handleClickBreadcrumbItem');
-		if (!item.isActive && location.pathname !== item.path)
-			navigate(item.path as string);
-	}
+		if (!item.isActive && location.pathname !== item.path) { navigate(item.path as string); }
+	};
 
 	return (
 		<>
@@ -59,4 +58,4 @@ export const AppBreadcrumb = ({ className }: IAppBreadcrumbProps) => {
 			}
 		</>
 	);
-}
+};

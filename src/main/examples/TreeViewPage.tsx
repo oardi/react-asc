@@ -22,7 +22,7 @@ const TreeViewPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 			oldIds = oldIds.filter(oldId => oldId !== e.id);
 			setSelectedIds(oldIds);
 		}
-	}
+	};
 
 	return (
 		<>
@@ -51,7 +51,7 @@ const TreeViewPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 			}
 		</>
 	);
-}
+};
 
 export const TreeViewPage = withOptions(TreeViewPageBase, {
 	isSelectable: false

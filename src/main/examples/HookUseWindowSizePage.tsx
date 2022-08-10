@@ -7,7 +7,7 @@ const HookUseWindowSizePageBase = () => {
 			Switch to "Usage" to see how to use this hook
 		</>
 	);
-}
+};
 
 export const HookUseWindowSizePage = withOptions(HookUseWindowSizePageBase, {
 }, 'HookUseWindowSizePageBase');

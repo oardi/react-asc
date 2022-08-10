@@ -11,7 +11,7 @@ const MyTest = () => {
 	return (
 		<div>some text</div>
 	);
-}
+};
 
 const HookUseOnDestroyPageBase = () => {
 
@@ -28,7 +28,7 @@ const HookUseOnDestroyPageBase = () => {
 			}
 		</>
 	);
-}
+};
 
 export const HookUseOnDestroyPage = withOptions(HookUseOnDestroyPageBase, {
 }, 'HookUseOnDestroyPageBase');

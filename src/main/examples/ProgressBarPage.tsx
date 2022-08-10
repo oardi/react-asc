@@ -30,7 +30,7 @@ const ProgressBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 			/>
 		</>
 	);
-}
+};
 
 export const ProgressBarPage = withOptions<IProgressBarProps>(ProgressBarPageBase, {
 	color: COLOR.primary,
