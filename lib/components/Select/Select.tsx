@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { ReactElement, useEffect, useRef, useState } from 'react';
 import { ChevronDownSolidIcon } from '../../icons';
 import { Checkbox } from '../Checkbox';
 import { Chip } from '../Chip';
@@ -68,7 +68,7 @@ export const Select = (props: ISelectProps) => {
 	}, [hoverIndex, isShow]);
 
 	const scrollIntoView = (index: number) => {
-		const htmlListItem = selectConainter.current?.querySelector(`#list-item-${index}`);
+		const htmlListItem: Element | null | undefined = selectConainter.current?.querySelector(`#list-item-${index}`);
 		if (htmlListItem) {
 			htmlListItem?.scrollIntoView({ block: 'end', behavior: 'smooth' });
 		}
@@ -78,12 +78,12 @@ export const Select = (props: ISelectProps) => {
 
 	useEffect(() => {
 		if (!multiple) {
-			const newOption = options.find(o => o.value === model);
+			const newOption: ISelectOption | undefined = options.find(o => o.value === model);
 			if (newOption) {
 				setSelectedOptions([newOption]);
 			}
 		} else {
-			const filteredOptions = options.filter(o => model.indexOf(o.value) >= 0);
+			const filteredOptions: ISelectOption[] = options.filter(o => model.indexOf(o.value) >= 0);
 			setSelectedOptions([...filteredOptions]);
 		}
 	}, [model, multiple]);
@@ -98,7 +98,7 @@ export const Select = (props: ISelectProps) => {
 			}
 			hide();
 		} else {
-			const selectedOption = selectedOptions.find(o => o.value === option.value);
+			const selectedOption: ISelectOption | undefined = selectedOptions.find(o => o.value === option.value);
 			if (selectedOption) {
 				newValue = selectedOptions.filter(o => o.value !== option.value).map(o => o.value);
 			} else {
@@ -122,7 +122,7 @@ export const Select = (props: ISelectProps) => {
 	}
 
 	const renderSingleViewModel = () => {
-		let result = null;
+		let result: unknown | null = null;
 		if (selectedOptions.length > 0) {
 			result = <span>{selectedOptions[0].label}</span>;
 		}
@@ -130,7 +130,7 @@ export const Select = (props: ISelectProps) => {
 	}
 
 	const renderMultipleViewModel = () => {
-		let result = null;
+		let result: ReactElement | ReactElement[] | null = null;
 		if (selectedOptions.length <= multipleMaxCountItems && selectedOptions.length > 0) {
 			result = selectedOptions
 				.map(option =>
@@ -144,7 +144,7 @@ export const Select = (props: ISelectProps) => {
 					</Chip>
 				);
 		} else {
-			result = <span>{selectedOptions.length} Items selected</span>
+			result = <span>{selectedOptions.length} Items selected</span>;
 		}
 		return result;
 	}
@@ -176,7 +176,7 @@ export const Select = (props: ISelectProps) => {
 					break;
 				case 'Enter':
 					if (hoverIndex) {
-						const option = options[hoverIndex];
+						const option: ISelectOption = options[hoverIndex];
 						if (option) handleOnClick(option);
 					}
 					break;
@@ -190,15 +190,17 @@ export const Select = (props: ISelectProps) => {
 		<div ref={selectConainter} className={styles.selectContainer}>
 
 			<div id={id} className={getCssClass()} onClick={() => show()} tabIndex={0} onKeyDown={e => handleOnKeyDown(e)}>
-				{!multiple && renderSingleViewModel()}
+				<>
+					{!multiple && renderSingleViewModel()}
 
-				{multiple &&
-					<div className={styles.chipContainer}>
-						{renderMultipleViewModel()}
-					</div>
-				}
+					{multiple &&
+						<div className={styles.chipContainer}>
+							{renderMultipleViewModel()}
+						</div>
+					}
 
-				<Icon className="ml-auto"><ChevronDownSolidIcon /></Icon>
+					<Icon className="ml-auto"><ChevronDownSolidIcon /></Icon>
+				</>
 			</div>
 
 			{isShow &&

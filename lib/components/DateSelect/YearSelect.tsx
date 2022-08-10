@@ -30,7 +30,7 @@ export const YearSelect = (props: IYearProps) => {
 
 	useEffect(() => {
 		const newYears: Array<ISelectOption> = [];
-		for (let i = from; i <= to; i++) {
+		for (let i: number = from; i <= to; i++) {
 			newYears.push({ value: i.toString(), label: i.toString() });
 		}
 		setYears(newYears.reverse());

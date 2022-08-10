@@ -18,7 +18,7 @@ export interface IMenuBodyProps {
 export const MenuBody = (props: IMenuBodyProps) => {
 
 	const { parentRef, children, className, shadow = true, menuPosition = 'left', onClickBackdrop } = props;
-	const menuBodyRef = useRef<HTMLDivElement>(null);
+	const menuBodyRef: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		if (menuBodyRef && parentRef.current && menuBodyRef.current) {

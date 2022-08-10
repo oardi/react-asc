@@ -22,7 +22,7 @@ export const FileInput = (props: IFileInputProps) => {
 		deletable = false,
 		...rest
 	} = props;
-	const inputFileElement = useRef<HTMLInputElement>(null);
+	const inputFileElement: React.RefObject<HTMLInputElement> = useRef<HTMLInputElement>(null);
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [model, setModel] = useState(value);

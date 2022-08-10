@@ -45,8 +45,8 @@ export const GlobalModal = ({
 	}, []);
 	// end
 
-	const modalType = formControls ? MODALTYPE.FORM : MODALTYPE.BASIC;
-	const myForm = useRef<Form>(null);
+	const modalType: MODALTYPE = formControls ? MODALTYPE.FORM : MODALTYPE.BASIC;
+	const myForm: React.RefObject<Form> = useRef<Form>(null);
 
 	const handleOk = () => {
 		if (modalType === MODALTYPE.FORM) {

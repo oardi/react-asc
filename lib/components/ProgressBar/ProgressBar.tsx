@@ -23,7 +23,7 @@ export const ProgressBar = (props: IProgressBarProps) => {
 	}, [color]);
 
 	useEffect(() => {
-		let newValue = value;
+		let newValue: number | undefined = value;
 		if (value && value < 0) {
 			newValue = 0;
 		}
@@ -48,7 +48,7 @@ export const ProgressBar = (props: IProgressBarProps) => {
 	};
 
 	const getStyle = () => {
-		let width = model && model >= 0 ? model : 0;
+		let width: number = model && model >= 0 ? model : 0;
 		if (indeterminate) {
 			width = 100;
 		}

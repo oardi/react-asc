@@ -104,4 +104,4 @@ class ModalService implements IModalService {
 
 }
 
-export const modalService = new ModalService();
+export const modalService: ModalService = new ModalService();

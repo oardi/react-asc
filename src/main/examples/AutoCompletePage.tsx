@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { AutoComplete, FormControl, IAutoCompleteProps, ISelectOption, snackbarService } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
+interface IMyCustomData { id: string, label: string, description: string }
+
 const AutoCompletePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IAutoCompleteProps>) => {
 
 	const [options, setOptions] = useState<Array<ISelectOption>>([]);
@@ -18,7 +20,7 @@ const AutoCompletePageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 		});
 	}, []);
 
-	const newOptions = [
+	const newOptions: IMyCustomData[] = [
 		{ id: '1', label: 'one', description: '1' },
 		{ id: '2', label: 'two', description: '2' },
 		{ id: '3', label: 'three', description: '3' },
@@ -47,8 +49,8 @@ const AutoCompletePageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 
 	const handleOnChange = (val: string | undefined) => {
 		setValue(val as string);
-		const regex = new RegExp(val as string, 'gi');
-		const filteredOptions = newOptions.filter(option => val && option?.label?.match(regex) || option?.description?.match(regex));
+		const regex: RegExp = new RegExp(val as string, 'gi');
+		const filteredOptions: IMyCustomData[] = newOptions.filter(option => val && option?.label?.match(regex) || option?.description?.match(regex));
 		setOptions(filteredOptions.map(o => ({ value: o.id, label: o.label })));
 	}
 

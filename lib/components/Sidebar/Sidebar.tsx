@@ -66,7 +66,7 @@ export const Sidebar = (props: ISidebarProps) => {
 
 	const handleClickItem = (item: SidebarItemModel, e: React.MouseEvent<Element, MouseEvent>) => {
 		if (item.items && item.items.length > 0 && item.isCollapsible) {
-			const newMenuItems = menuItems.map((menuItem) => {
+			const newMenuItems: SidebarItemModel[] = menuItems.map((menuItem) => {
 				if (item.id === menuItem.id) {
 					menuItem.isCollapsed = !item.isCollapsed;
 				}

@@ -21,7 +21,7 @@ class SnackbarService implements ISnackbarService {
 
 	show(message: React.ReactNode | string, options?: ISnackbarOptions): Promise<void> {
 		const defaultOptions: ISnackbarOptions = { timeout: 3000, actionText: 'ok', color: COLOR.dark, target: document.body };
-		const mergedOptions = Object.assign(defaultOptions, options);
+		const mergedOptions: ISnackbarOptions = Object.assign(defaultOptions, options);
 
 		return new Promise((resolve) => {
 			if (this.container) {
@@ -65,4 +65,4 @@ class SnackbarService implements ISnackbarService {
 	}
 }
 
-export const snackbarService = new SnackbarService();
+export const snackbarService: SnackbarService = new SnackbarService();

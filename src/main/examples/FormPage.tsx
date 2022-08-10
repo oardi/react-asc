@@ -23,10 +23,10 @@ export interface IFormPageControls {
 	autoComplete: string;
 }
 
-const CLASSNAME = 'ShowcaseForm';
+const CLASSNAME: string = 'ShowcaseForm';
 export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IFormProps>) => {
 	const [values, setValues] = useState({});
-	const myForm = useRef<Form>(null);
+	const myForm: React.RefObject<Form> = useRef<Form>(null);
 
 	useEffect(() => {
 		setSettingsControls({

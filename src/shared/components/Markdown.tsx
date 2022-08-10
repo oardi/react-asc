@@ -1,3 +1,4 @@
+import { AxiosResponse } from 'axios';
 import { Typography } from 'lib';
 import React, { useEffect, useState } from 'react';
 import snarkdown from 'snarkdown';
@@ -22,7 +23,7 @@ export const Markdown = ({ url, text }: IMarkdownProps) => {
 
 	const loadFile = async (url: string) => {
 		try {
-			const response = await fileLoaderService.get<string>(url, { responseType: 'text' });
+			const response: AxiosResponse<string> = await fileLoaderService.get<string>(url, { responseType: 'text' });
 			setMarkdownText(response.data);
 		} catch (err) {
 			loggerService.error(`Markdown: file ${url} not found.`);

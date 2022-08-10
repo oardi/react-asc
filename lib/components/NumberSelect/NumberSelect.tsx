@@ -26,7 +26,7 @@ export const NumberSelect = (props: INumberSelectProps) => {
 
 	useEffect(() => {
 		const options: Array<ISelectOption> = [];
-		for (let i = from; i <= to; i++) {
+		for (let i: number = from; i <= to; i++) {
 			options.push({ value: i.toString(), label: i.toString() });
 		}
 		setNumberOptions(options);

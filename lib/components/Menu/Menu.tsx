@@ -15,8 +15,8 @@ export const Menu = (props: IMenuProps) => {
 
 	const { toggle, children, className, open, menuPosition, onClickBackdrop, ...rest } = props;
 
-	const menuContainer = useRef<HTMLDivElement>(null);
-	const toggleContainerRef = useRef<HTMLDivElement>(null);
+	const menuContainer: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
+	const toggleContainerRef: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

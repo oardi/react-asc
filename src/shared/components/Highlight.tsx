@@ -4,6 +4,7 @@ import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 
 import snarkdown from 'snarkdown';
+import { AxiosResponse } from 'axios';
 
 // if lineNumber -> add className="line-numbers"
 
@@ -31,7 +32,7 @@ export const Highlight = ({ url, text, language = 'javascript' }: IHighlightProp
 
 	const loadFile = async (url: string) => {
 		try {
-			const response = await fileLoaderService.get<string>(url, { responseType: 'text' });
+			const response: AxiosResponse<string> = await fileLoaderService.get<string>(url, { responseType: 'text' });
 			setHighlightedText(response.data);
 		} catch (err) {
 			loggerService.error(`Highlight: file ${url} not found.`);
@@ -39,7 +40,7 @@ export const Highlight = ({ url, text, language = 'javascript' }: IHighlightProp
 	}
 
 	const renderText = async (text: string) => {
-		const snarked = snarkdown(text);
+		const snarked: string = snarkdown(text);
 		setHighlightedText(snarked);
 	}
 

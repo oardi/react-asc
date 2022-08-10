@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Location, NavigateFunction, useLocation, useNavigate } from 'react-router-dom';
 import { AppBar, AppBarTitle, COLOR, ISidebarItem, Sidebar } from 'lib';
 
 interface IAppSidebarProps {
@@ -9,8 +9,8 @@ interface IAppSidebarProps {
 
 export const AppSidebar = ({ menuItems, onItemClicked }: IAppSidebarProps) => {
 
-	const navigate = useNavigate();
-	const location = useLocation();
+	const navigate: NavigateFunction = useNavigate();
+	const location: Location = useLocation();
 
 	const handleItemClicked = (path: string) => {
 		onItemClicked && onItemClicked();

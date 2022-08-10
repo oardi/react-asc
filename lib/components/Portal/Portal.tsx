@@ -8,7 +8,7 @@ export interface IPortalProps {
 }
 
 export const Portal = ({ children, target = document.body, className }: IPortalProps) => {
-	const containerEl = useMemo(() => document.createElement('div'), []);
+	const containerEl: HTMLDivElement = useMemo(() => document.createElement('div'), []);
 	useEffect(() => {
 		className && className.split(' ').forEach(cssClass => containerEl.classList.add(cssClass));
 		target.appendChild(containerEl);
