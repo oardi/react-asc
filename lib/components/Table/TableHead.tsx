@@ -12,4 +12,4 @@ export const TableHead = (props: React.ComponentProps<'thead'>) => {
 			</thead>
 		</TableContext.Provider>
 	);
-}
+};

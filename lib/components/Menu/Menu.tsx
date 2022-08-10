@@ -26,7 +26,7 @@ export const Menu = (props: IMenuProps) => {
 
 	const handleClickBackdrop = () => {
 		onClickBackdrop && onClickBackdrop();
-	}
+	};
 
 	return (
 		<div ref={menuContainer} className={getCssClasses()} {...rest}>
@@ -45,5 +45,5 @@ export const Menu = (props: IMenuProps) => {
 				</MenuBody>
 			}
 		</div>
-	)
-}
+	);
+};

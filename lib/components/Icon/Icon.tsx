@@ -17,7 +17,7 @@ export const Icon = (props: IIconProps) => {
 		iconColor && cssClasses.push(styles[iconColor]);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
-	}
+	};
 
 	return (
 		<div
@@ -27,4 +27,4 @@ export const Icon = (props: IIconProps) => {
 			{children}
 		</div>
 	);
-}
+};

@@ -28,4 +28,4 @@ export const TableCell = (props: ITableCellProps) => {
 			{children}
 		</ConditionalWrapper>
 	);
-}
+};

@@ -24,12 +24,12 @@ export const Chip = (props: IChipProps) => {
 		onClick && cssClasses.push(styles['clickable']);
 		className && cssClasses.push(className);
 		return cssClasses.filter(r => r).join(' ');
-	}
+	};
 
 	const handleClickOnDelete = (e: React.MouseEvent<Element>) => {
 		e.stopPropagation();
 		onDelete && onDelete(e);
-	}
+	};
 
 	return (
 		<div className={getCssClass()} {...rest} style={style}>
@@ -43,4 +43,4 @@ export const Chip = (props: IChipProps) => {
 			)}
 		</div>
 	);
-}
+};

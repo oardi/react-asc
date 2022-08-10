@@ -14,14 +14,14 @@ export const Backdrop = (props: IBackdropProps) => {
 	const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
 		e.stopPropagation();
 		onClick && onClick(e);
-	}
+	};
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.backdrop);
 		isTransparent && cssClasses.push(styles['isTransparent']);
 		return cssClasses.filter(css => css).join(' ');
-	}
+	};
 
 	const getStyles = () => {
 		return Object.assign({ height: '100%', width: '100%', position: 'absolute' }, style);
@@ -31,5 +31,5 @@ export const Backdrop = (props: IBackdropProps) => {
 		<Portal className='backdrop-root' target={target}>
 			<div className={getCssClasses()} onClick={handleClick} style={getStyles()} {...rest} />
 		</Portal>
-	)
-}
+	);
+};

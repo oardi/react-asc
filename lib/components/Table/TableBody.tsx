@@ -14,4 +14,4 @@ export const TableBody = (props: React.ComponentProps<'tbody'>) => {
 			</tbody>
 		</TableContext.Provider>
 	);
-}
+};

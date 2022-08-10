@@ -23,4 +23,4 @@ export const SkeletonAvatar = (props: ISkeletonAvatarProps) => {
 		>
 		</div>
 	);
-}
+};

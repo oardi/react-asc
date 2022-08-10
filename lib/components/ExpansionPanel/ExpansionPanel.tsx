@@ -32,9 +32,9 @@ export const ExpansionPanel = (props: IExpansionPanelProps) => {
 	};
 
 	const handleClickHeader = (event: React.MouseEvent) => {
-		setIsExpanded(!_isExpanded)
+		setIsExpanded(!_isExpanded);
 		onChange && onChange(event, !_isExpanded);
-	}
+	};
 
 	return (
 		<div className={getCssClasses()}>
@@ -47,4 +47,4 @@ export const ExpansionPanel = (props: IExpansionPanelProps) => {
 			}
 		</div>
 	);
-}
+};

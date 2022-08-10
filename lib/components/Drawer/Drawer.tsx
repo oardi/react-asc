@@ -24,7 +24,7 @@ export const Drawer = (props: IDrawerProps) => {
 
 	const handleClickBackdrop = () => {
 		onClickBackdrop && onClickBackdrop();
-	}
+	};
 
 	return (
 		<Portal className='drawer-root' target={target}>
@@ -34,7 +34,7 @@ export const Drawer = (props: IDrawerProps) => {
 			{!permanent && <Backdrop onClick={handleClickBackdrop} />}
 		</Portal>
 	);
-}
+};
 
 interface IDrawerContentProps extends React.ComponentProps<'div'> {
 	children?: ReactNode;
@@ -71,4 +71,4 @@ const DrawerContent = (props: IDrawerContentProps) => {
 			{children}
 		</div>
 	);
-}
+};

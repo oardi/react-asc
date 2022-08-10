@@ -98,7 +98,7 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 		className && cssClasses.push(className);
 		cssClasses.push(styles.select);
 		return cssClasses.filter(r => r).join(' ');
-	}
+	};
 
 	const show = () => setIsShow(true);
 	const hide = () => setIsShow(false);
@@ -109,22 +109,22 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 		}
 		setModel(option.label as string);
 		hide();
-	}
+	};
 
 	const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setModel(e.target.value);
 		setSearchText(e.target.value);
 		show();
-	}
+	};
 
 	const handleOnFocus = () => {
 		openOnFocus && show();
-	}
+	};
 
 	const handleClickReset = () => {
 		setModel('');
 		setSearchText('');
-	}
+	};
 
 	return (
 		<div ref={selectConainter} className={styles.selectContainer}>
@@ -172,5 +172,5 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 			}
 
 		</div>
-	)
-}
+	);
+};

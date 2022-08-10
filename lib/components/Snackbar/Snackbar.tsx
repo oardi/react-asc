@@ -18,11 +18,11 @@ export const Snackbar = (props: ISnackbarProps) => {
 		cssClasses.push(`shadow-lg`);
 		cssClasses.push(styles[color]);
 		return cssClasses.filter(css => css).join(' ');
-	}
+	};
 
 	const handleClickAction = (e: React.MouseEvent) => {
 		onOk && onOk(e);
-	}
+	};
 
 	return (
 		<div className={getCssClasses()} {...rest}>
@@ -35,4 +35,4 @@ export const Snackbar = (props: ISnackbarProps) => {
 			</div>
 		</div>
 	);
-}
+};

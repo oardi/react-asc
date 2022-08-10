@@ -24,4 +24,4 @@ export const SkeletonImage = (props: ISkeletonImageProps) => {
 			<div className={styles.img} />
 		</div>
 	);
-}
+};

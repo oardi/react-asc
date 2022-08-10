@@ -32,11 +32,11 @@ export const Tooltip = (props: ITooltipProps) => {
 
 	const handleMouseOver = () => {
 		setShow(true);
-	}
+	};
 
 	const handleMouseLeave = () => {
 		setShow(false);
-	}
+	};
 
 	return (
 		<>
@@ -55,4 +55,4 @@ export const Tooltip = (props: ITooltipProps) => {
 			}
 		</>
 	);
-}
+};

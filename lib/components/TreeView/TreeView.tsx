@@ -17,4 +17,4 @@ export const TreeView = (props: React.ComponentProps<'ul'>) => {
 			{children}
 		</ul>
 	);
-}
+};

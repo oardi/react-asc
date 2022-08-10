@@ -54,15 +54,15 @@ export const GlobalModal = ({
 		} else {
 			onOk && onOk();
 		}
-	}
+	};
 
 	const handleCancel = () => {
 		onCancel && onCancel();
-	}
+	};
 
 	const onSubmit = (values: IFormValues) => {
 		onOk && onOk(values);
-	}
+	};
 
 	const handleClickButton = (button: IModalButton) => {
 		switch (button.type) {
@@ -78,7 +78,7 @@ export const GlobalModal = ({
 		}
 
 		button.handler && button.handler();
-	}
+	};
 
 	return (
 		<Modal
@@ -120,4 +120,4 @@ export const GlobalModal = ({
 			}
 		</Modal>
 	);
-}
+};

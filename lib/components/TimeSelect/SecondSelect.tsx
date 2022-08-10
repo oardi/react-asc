@@ -28,12 +28,12 @@ export const SecondSelect = (props: ISecondProps) => {
 		const cssClasses: Array<string> = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
-	}
+	};
 
 	const handleOnChange = (e: number) => {
 		setNewValue(e);
 		onChange && onChange(e);
-	}
+	};
 
 	return (
 		<Select
@@ -46,4 +46,4 @@ export const SecondSelect = (props: ISecondProps) => {
 			value={newValue.toString()}
 		/>
 	);
-}
+};

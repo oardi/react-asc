@@ -71,5 +71,5 @@ export const StepperActions = (props: IStepperActionsProps) => {
 				</Button>
 			</div>
 		</div>
-	)
-}
+	);
+};

@@ -21,7 +21,7 @@ const Wrapper = (props: IWrapperProps) => {
 	};
 
 	return React.createElement(as, { ...rest, className: getCssClasses() }, children);
-}
+};
 
 
 export interface ITypographyProps extends React.ComponentProps<'span'> {
@@ -34,5 +34,5 @@ export const Typography = ({ children, as = 'span', wrap, ...rest }: ITypography
 		<Wrapper as={as} wrap={wrap} {...rest}>
 			{children}
 		</Wrapper>
-	)
-}
+	);
+};

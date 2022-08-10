@@ -20,4 +20,4 @@ export const Row = ({ children, direction = 'row', className, ...rest }: IContai
 			{children}
 		</div>
 	);
-}
+};

@@ -12,7 +12,7 @@ export const ListItemText = ({ primary, secondary, ...rest }: IListItemTextProps
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.listItemText);
 		return cssClasses.filter(css => css).join(' ');
-	}
+	};
 
 	return (
 		<div className={getCssClasses()} {...rest}>
@@ -26,7 +26,7 @@ export const ListItemText = ({ primary, secondary, ...rest }: IListItemTextProps
 			}
 		</div>
 	);
-}
+};
 
 
 const ListItemTextPrimary = ({ children }: React.ComponentProps<'div'>) => (

@@ -45,7 +45,7 @@ export class Form extends Component<IFormProps, IFormState> {
 	handleChange() {
 		// get value by myForm instead of getControl?
 		if (this.state.isChanged || this.state.isSubmitted) {
-			const keys = Object.keys((this.state.controls as IControls));
+			const keys: string[] = Object.keys((this.state.controls as IControls));
 			const values = keys.reduce((obj, f) => {
 				const control = this.getControl(f);
 				// TODO - refactor
@@ -54,7 +54,7 @@ export class Form extends Component<IFormProps, IFormState> {
 				return ({
 					...obj,
 					[f]: newValue
-				})
+				});
 			}, {});
 
 			if (this.state.isValid && this.state.isSubmitted) {
@@ -70,7 +70,7 @@ export class Form extends Component<IFormProps, IFormState> {
 		const errors: Array<IFormInputError> = [];
 		if (fieldValidators) {
 			for (const validator of fieldValidators) {
-				const validatorSplitted = validator.split(':');
+				const validatorSplitted: string[] = validator.split(':');
 				const validatorName: string = validatorSplitted[0];
 				const validatorParam: string | null = validatorSplitted.length > 1 ? validatorSplitted[1] : null;
 
@@ -97,7 +97,7 @@ export class Form extends Component<IFormProps, IFormState> {
 						break;
 					case 'match':
 						if (validatorParam) {
-							const matchControl = this.getControl(validatorParam)
+							const matchControl = this.getControl(validatorParam);
 							if (matchControl) {
 								if (!IsEqualValidator(fieldValue, matchControl.value)) {
 									errors.push({ validator: validatorName, message: 'Values do not match' });
@@ -271,7 +271,7 @@ export class Form extends Component<IFormProps, IFormState> {
 				})}
 
 			</form>
-		)
+		);
 	}
 }
 

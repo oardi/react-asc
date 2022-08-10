@@ -29,12 +29,12 @@ export const MinuteSelect = (props: IMinuteProps) => {
 		const cssClasses: Array<string> = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
-	}
+	};
 
 	const handleOnChange = (e: number) => {
 		setNewValue(e);
 		onChange && onChange(e);
-	}
+	};
 
 	return (
 		<Select
@@ -47,4 +47,4 @@ export const MinuteSelect = (props: IMinuteProps) => {
 			value={newValue.toString()}
 		/>
 	);
-}
+};

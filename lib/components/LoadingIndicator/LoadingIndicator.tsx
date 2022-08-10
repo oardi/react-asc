@@ -8,11 +8,11 @@ export const LoadingIndicator = ({ ...rest }: React.ComponentProps<'div'>) => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.loadingIndicator);
 		return cssClasses.filter(css => css).join(' ');
-	}
+	};
 
 	return (
 		<div className={getCssClasses()} {...rest}>
 			<SpinnerSolidIcon />
 		</div>
 	);
-}
+};

@@ -30,4 +30,4 @@ export const TabIndicator = (props: ITabIndicatorProps) => {
 			}}>
 			</span>
 	);
-}
+};

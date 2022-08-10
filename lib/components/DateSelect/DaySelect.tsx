@@ -46,12 +46,12 @@ export const DaySelect = (props: IDaySelectProps) => {
 		const cssClasses: Array<string> = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
-	}
+	};
 
 	const handleOnChange = (e: number) => {
 		setValue(e);
 		onChange && onChange(e);
-	}
+	};
 
 	return (
 		<Select
@@ -64,4 +64,4 @@ export const DaySelect = (props: IDaySelectProps) => {
 			value={value.toString()}
 		/>
 	);
-}
+};

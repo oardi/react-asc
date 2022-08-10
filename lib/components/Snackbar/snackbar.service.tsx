@@ -40,7 +40,7 @@ class SnackbarService implements ISnackbarService {
 			const handleOk = () => {
 				resolve();
 				this.hide();
-			}
+			};
 
 			this.root = createRoot(this.container);
 			this.root.render(

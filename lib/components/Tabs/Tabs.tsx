@@ -44,7 +44,7 @@ export const Tabs = (props: ITabsProps) => {
 					setSelectedIndex(index);
 					onChange && onChange(selectedValue);
 				}
-			})
+			});
 		}
 	}, [selectedValue]);
 
@@ -72,5 +72,5 @@ export const Tabs = (props: ITabsProps) => {
 				</div>
 			</TabContext.Provider>
 		</ButtonContext.Provider>
-	)
-}
+	);
+};

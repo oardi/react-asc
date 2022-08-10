@@ -15,7 +15,7 @@ export const Textarea = (props: ITextareaProps) => {
 		className && cssClasses.push(className);
 		error && cssClasses.push(styles['isInvalid']);
 		return cssClasses.filter(r => r).join(' ');
-	}
+	};
 
 	return (
 		<textarea
@@ -23,4 +23,4 @@ export const Textarea = (props: ITextareaProps) => {
 			{...rest}
 		/>
 	);
-}
+};

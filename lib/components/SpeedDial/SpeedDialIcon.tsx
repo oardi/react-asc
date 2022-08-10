@@ -20,4 +20,4 @@ export const SpeedDialIcon = (props: ISpeedDialIconProps) => {
 			{children}
 		</Icon>
 	);
-}
+};

@@ -24,7 +24,7 @@ export const DateSelect = (props: IDateSelectProps) => {
 		cssClasses.push('row');
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
-	}
+	};
 
 	const [currDate, setCurrDate] = useState<Date>(value);
 
@@ -70,7 +70,7 @@ export const DateSelect = (props: IDateSelectProps) => {
 			</Column>
 		</Row>
 	);
-}
+};
 
 /*
 * result = { year, month, day, dayOfWeek, weekNumber }

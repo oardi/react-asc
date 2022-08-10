@@ -32,7 +32,7 @@ export const Modal = (props: IModalProps) => {
 		size && cssClasses.push(styles[size]);
 		className && cssClasses.push(className);
 		return cssClasses.filter(r => r).join(' ');
-	}
+	};
 
 	useEffect(() => {
 		document.body.classList.add('modal-open');
@@ -43,7 +43,7 @@ export const Modal = (props: IModalProps) => {
 
 	const handleClickBackdrop = () => {
 		onBackdropClick && onBackdropClick();
-	}
+	};
 
 	return (
 		<>

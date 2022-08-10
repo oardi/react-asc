@@ -13,4 +13,4 @@ export const StepPanel = (props: IStepPanelProps) => {
 			{children}
 		</div>
 	);
-}
+};

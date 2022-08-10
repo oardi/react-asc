@@ -15,11 +15,11 @@ export const List = (props: IListProps) => {
 		cssClasses.push(styles.list);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
-	}
+	};
 
 	return (
 		<ul className={getCssClasses()} {...rest}>
 			{children}
 		</ul>
 	);
-}
+};

@@ -9,7 +9,7 @@ export function useMobileDetect() {
 		if (height > 0 && width > 0) {
 			setIsMobile(!(width >= 640));
 		}
-	}
+	};
 
 	useEffect(() => {
 		windowSize && checkIsMobile(windowSize.height, windowSize.width);

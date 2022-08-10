@@ -15,4 +15,4 @@ export const FormHint = (props: React.ComponentProps<'small'>) => {
 			{children}
 		</small>
 	);
-}
+};

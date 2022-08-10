@@ -26,7 +26,7 @@ export const CssTransition = (props: ICssTransitionProps) => {
 	const [cssState, setCssState] = useState<ICssState | undefined>({
 		hidden: true
 	});
-	const transitionConainter = useRef<HTMLDivElement>(null);
+	const transitionConainter: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		if (isInit && show !== undefined) {
@@ -52,7 +52,7 @@ export const CssTransition = (props: ICssTransitionProps) => {
 	const afterTransition = (element: Element | undefined): Promise<void> => {
 		return new Promise((resolve) => {
 			if (element) {
-				const duration = Number(getComputedStyle(element).transitionDuration.replace('s', '')) * 1000;
+				const duration: number = Number(getComputedStyle(element).transitionDuration.replace('s', '')) * 1000;
 				setTimeout(() => { resolve(); }, duration);
 			} else {
 				resolve();

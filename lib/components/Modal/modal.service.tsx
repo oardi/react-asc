@@ -30,12 +30,12 @@ class ModalService implements IModalService {
 				const handleOk = () => {
 					resolve();
 					this.hide();
-				}
+				};
 
 				const handleCancel = () => {
 					reject();
 					this.hide();
-				}
+				};
 
 				this.root = createRoot(this.container);
 				this.root.render(
@@ -64,7 +64,7 @@ class ModalService implements IModalService {
 				const handleOk = (values?: unknown) => {
 					resolve(values as T);
 					this.hide();
-				}
+				};
 
 				// TODO - for AutoComplete
 				// const handleOnChange = (values?: IFormValues) => {

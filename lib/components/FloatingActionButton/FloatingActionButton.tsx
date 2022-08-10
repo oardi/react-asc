@@ -30,7 +30,7 @@ export const FloatingActionButton = (props: IFloatingActionButtonProps) => {
 	const handleClick = (e: React.MouseEvent) => {
 		e.stopPropagation();
 		onClick && onClick(e);
-	}
+	};
 
 	return (
 		<IconButton

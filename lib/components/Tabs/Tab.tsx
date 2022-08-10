@@ -39,4 +39,4 @@ export const Tab = (props: ITabProps) => {
 			{label}
 		</Button>
 	);
-}
+};

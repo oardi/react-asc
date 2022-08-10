@@ -52,11 +52,11 @@ export const MenuBody = (props: IMenuBodyProps) => {
 		shadow && cssClasses.push(styles.shadow);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
-	}
+	};
 
 	const handleClickBackdrop = () => {
 		onClickBackdrop && onClickBackdrop();
-	}
+	};
 
 	return (
 		<Portal className='menu-root'>
@@ -74,5 +74,5 @@ export const MenuBody = (props: IMenuBodyProps) => {
 				onClick={handleClickBackdrop}
 			/>
 		</Portal>
-	)
-}
+	);
+};

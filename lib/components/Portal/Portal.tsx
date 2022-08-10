@@ -14,7 +14,7 @@ export const Portal = ({ children, target = document.body, className }: IPortalP
 		target.appendChild(containerEl);
 		return () => {
 			target.removeChild(containerEl);
-		}
+		};
 	}, []);
 	return createPortal(children, containerEl);
-}
+};

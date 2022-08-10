@@ -70,12 +70,12 @@ export const FormInput = (props: IFormInputProps) => {
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const handleOnInput = (value: any, type: IFormControlType, name: string) => {
-		onInput && onInput({ value, type, name })
+		onInput && onInput({ value, type, name });
 	};
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const handleOnChange = (value: any, type: IFormControlType, name: string) => {
-		onChange && onChange({ value, type, name })
+		onChange && onChange({ value, type, name });
 	};
 
 	return (

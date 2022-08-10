@@ -45,7 +45,7 @@ export const Sidebar = (props: ISidebarProps) => {
 			item.isCollapsed
 		));
 		setMenuItems(newItems);
-	}
+	};
 
 	const isMenuItemActive = (path: string) => {
 		const lastSegment: string = currentUrl.substring(currentUrl.lastIndexOf('/') + 1, currentUrl.length);
@@ -55,14 +55,14 @@ export const Sidebar = (props: ISidebarProps) => {
 		} else if (path !== '') {
 			result = lastSegment ? lastSegment.toLowerCase() === path.toLowerCase() : false;
 		}
-		return result
-	}
+		return result;
+	};
 
 	const navigate = (e: React.MouseEvent, path: string) => {
 		e.stopPropagation();
 		e.preventDefault();
 		onItemClicked(path);
-	}
+	};
 
 	const handleClickItem = (item: SidebarItemModel, e: React.MouseEvent<Element, MouseEvent>) => {
 		if (item.items && item.items.length > 0 && item.isCollapsible) {
@@ -76,11 +76,11 @@ export const Sidebar = (props: ISidebarProps) => {
 		} else {
 			navigate(e, `/${item.path}`);
 		}
-	}
+	};
 
 	const handleClickSubItem = (itemPath: string, subItemPath: string, e: React.MouseEvent<Element, MouseEvent>) => {
 		navigate(e, `/${itemPath}/${subItemPath}`);
-	}
+	};
 
 	return (
 		<nav className={getCssClasses()} {...rest}>
@@ -126,4 +126,4 @@ export const Sidebar = (props: ISidebarProps) => {
 			</List>
 		</nav>
 	);
-}
+};

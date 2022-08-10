@@ -32,4 +32,4 @@ export const SpeedDialAction = (props: ISpeedDialActionProps) => {
 			onClick={onClick}
 		/>
 	);
-}
+};

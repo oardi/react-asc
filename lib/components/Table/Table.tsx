@@ -35,4 +35,4 @@ export const Table = (props: ITableProps) => {
 			</table>
 		</ConditionalWrapper>
 	);
-}
+};

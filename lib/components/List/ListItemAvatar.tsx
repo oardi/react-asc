@@ -9,4 +9,4 @@ export const ListItemAvatar = ({ avatar, ...rest }: IListItemAvatarProps) => (
 	<div className={styles.avatar} {...rest}>
 		{avatar}
 	</div>
-)
+);

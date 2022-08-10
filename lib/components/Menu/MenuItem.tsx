@@ -8,12 +8,12 @@ export const MenuItem = (props: IListItemProps) => {
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
 		return cssClasses.filter(css => css).join(' ');
-	}
+	};
 
 	const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
 		e.stopPropagation();
 		onClick && onClick(e);
-	}
+	};
 
 	return (
 		<ListItem
@@ -23,5 +23,5 @@ export const MenuItem = (props: IListItemProps) => {
 		>
 			{children}
 		</ListItem>
-	)
-}
+	);
+};

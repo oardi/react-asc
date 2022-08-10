@@ -21,7 +21,7 @@ export const ListItem = (props: IListItemProps) => {
 		disabled && cssClasses.push(styles['disabled']);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
-	}
+	};
 
 	const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
 		!disabled && onClick && onClick(e);
@@ -36,4 +36,4 @@ export const ListItem = (props: IListItemProps) => {
 			{children}
 		</li>
 	);
-}
+};

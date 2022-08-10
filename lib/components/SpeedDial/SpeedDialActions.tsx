@@ -16,4 +16,4 @@ export const SpeedDialActions = (props: React.ComponentProps<'div'>) => {
 			{children}
 		</div>
 	);
-}
+};

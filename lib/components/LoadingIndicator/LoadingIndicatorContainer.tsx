@@ -13,11 +13,11 @@ export const LoadingIndicatorContainer = ({ children, isFixed }: ILoadingIndicat
 		cssClasses.push(styles.loadingIndicatorContainer);
 		isFixed && cssClasses.push(styles.isFixed);
 		return cssClasses.filter(css => css).join(' ');
-	}
+	};
 
 	return (
 		<div className={getCssClasses()}>
 			{children}
 		</div>
 	);
-}
+};

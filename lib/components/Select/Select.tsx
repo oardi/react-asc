@@ -48,7 +48,7 @@ export const Select = (props: ISelectProps) => {
 		readOnly && cssClasses.push(styles['readOnly']);
 		cssClasses.push(styles.select);
 		return cssClasses.filter(r => r).join(' ');
-	}
+	};
 
 	useEffect(() => {
 		const newValue: string | string[] = value ? value : '';
@@ -72,7 +72,7 @@ export const Select = (props: ISelectProps) => {
 		if (htmlListItem) {
 			htmlListItem?.scrollIntoView({ block: 'end', behavior: 'smooth' });
 		}
-	}
+	};
 
 	const writeValue = (val: string | Array<string>) => setModel(val);
 
@@ -109,17 +109,17 @@ export const Select = (props: ISelectProps) => {
 		}
 
 		writeValue(newValue);
-	}
+	};
 
 	const show = () => {
 		if (!disabled && !readOnly) {
-			setIsShow(true)
+			setIsShow(true);
 		}
 	};
 	const hide = () => setIsShow(false);
 	const isActive = (option: ISelectOption) => {
 		return selectedOptions.indexOf(option) >= 0 || hoverIndex === options.indexOf(option);
-	}
+	};
 
 	const renderSingleViewModel = () => {
 		let result: unknown | null = null;
@@ -127,7 +127,7 @@ export const Select = (props: ISelectProps) => {
 			result = <span>{selectedOptions[0].label}</span>;
 		}
 		return result;
-	}
+	};
 
 	const renderMultipleViewModel = () => {
 		let result: ReactElement | ReactElement[] | null = null;
@@ -147,12 +147,12 @@ export const Select = (props: ISelectProps) => {
 			result = <span>{selectedOptions.length} Items selected</span>;
 		}
 		return result;
-	}
+	};
 
 	const handleOnDelete = (event: React.MouseEvent, option: ISelectOption) => {
 		event.stopPropagation();
 		handleOnClick(option);
-	}
+	};
 
 	// TODO - extract with wrapper?
 	const handleOnKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -177,14 +177,14 @@ export const Select = (props: ISelectProps) => {
 				case 'Enter':
 					if (hoverIndex) {
 						const option: ISelectOption = options[hoverIndex];
-						if (option) handleOnClick(option);
+						if (option) {handleOnClick(option);}
 					}
 					break;
 				default:
 					break;
 			}
 		}
-	}
+	};
 
 	return (
 		<div ref={selectConainter} className={styles.selectContainer}>
@@ -228,4 +228,4 @@ export const Select = (props: ISelectProps) => {
 
 		</div>
 	);
-}
+};

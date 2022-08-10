@@ -13,7 +13,7 @@ export interface IMonthProps {
 
 export const MonthSelect = (props: IMonthProps) => {
 
-	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	const months: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 	const { className, value = new Date().getMonth(), id, name, disabled, onChange } = props;
 	const [newValue, setNewValue] = useState<number>(value);
@@ -27,12 +27,12 @@ export const MonthSelect = (props: IMonthProps) => {
 		const cssClasses: Array<string> = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
-	}
+	};
 
 	const handleOnChange = (e: number) => {
 		setNewValue(e);
 		onChange && onChange(e);
-	}
+	};
 
 	return (
 		<Select
@@ -45,4 +45,4 @@ export const MonthSelect = (props: IMonthProps) => {
 			value={newValue.toString()}
 		/>
 	);
-}
+};

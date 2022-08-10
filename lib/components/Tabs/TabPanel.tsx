@@ -20,4 +20,4 @@ export const TabPanel = (props: ITabPanelProps) => {
 			{ value === index && children }
 		</div>
 	);
-}
+};

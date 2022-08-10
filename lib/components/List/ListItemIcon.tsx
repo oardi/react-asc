@@ -9,4 +9,4 @@ export const ListItemIcon = ({ icon, ...rest }: IListItemIconProps) => (
 	<div className={styles.icon} {...rest}>
 		{icon}
 	</div>
-)
+);

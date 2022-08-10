@@ -32,17 +32,17 @@ export const FileInput = (props: IFileInputProps) => {
 		const cssClasses: Array<string> = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(r => r).join(' ');
-	}
+	};
 
 	const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const values = event.target.files as FileList;
 		setFileList(values);
 		onChange && onChange(event);
-	}
+	};
 
 	const handleOnDelete = () => {
 		alert('coming soon');
-	}
+	};
 
 	return (
 		<div className="d-flex align-items-start">
@@ -79,4 +79,4 @@ export const FileInput = (props: IFileInputProps) => {
 			/>
 		</div>
 	);
-}
+};

@@ -16,7 +16,7 @@ export const ExpansionPanelHeader = (props: IExpansionPanelHeaderProps) => {
 	const handleClick = (e: React.MouseEvent) => {
 		e.stopPropagation();
 		onClick && onClick(e);
-	}
+	};
 
 	return (
 		<div
@@ -33,5 +33,5 @@ export const ExpansionPanelHeader = (props: IExpansionPanelHeaderProps) => {
 			</span>
 		</div>
 	);
-}
+};
 

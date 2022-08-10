@@ -15,4 +15,4 @@ export const FormLabel = ({ children, className, htmlFor, ...rest }: React.Compo
 			{children}
 		</label>
 	);
-}
+};

@@ -39,5 +39,5 @@ export const Column = (props: IColProps) => {
 		<div className={getCssClasses()} {...rest}>
 			{children}
 		</div>
-	)
-}
+	);
+};

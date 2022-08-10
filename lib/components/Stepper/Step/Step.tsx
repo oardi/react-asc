@@ -30,7 +30,7 @@ export const Step = (props: IStepProps) => {
 		if (!isDisabled) {
 			onClick && onClick({ event, value });
 		}
-	}
+	};
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];
@@ -39,7 +39,7 @@ export const Step = (props: IStepProps) => {
 		isDisabled && cssClasses.push(styles['disabled']);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
-	}
+	};
 
 	const getCssClassesStep = () => {
 		const cssClasses: Array<string> = [];
@@ -47,15 +47,15 @@ export const Step = (props: IStepProps) => {
 		label && showLabel && cssClasses.push(styles['hasLabel']);
 		isDisabled && cssClasses.push(styles['disabled']);
 		return cssClasses.filter(css => css).join(' ');
-	}
+	};
 
 	const getCssClassesStepValue = () => {
 		const cssClasses: Array<string> = [];
 		cssClasses.push(styles.stepValue);
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		isActive && cssClasses.push((styles.stepValue as any)['isActive'])
+		isActive && cssClasses.push((styles.stepValue as any)['isActive']);
 		return cssClasses.filter(css => css).join(' ');
-	}
+	};
 
 	return (
 		<div ref={hoverRef as React.MutableRefObject<null>} className={getCssClasses()} onClick={handleClick}>
@@ -85,4 +85,4 @@ export const Step = (props: IStepProps) => {
 			}
 		</div>
 	);
-}
+};

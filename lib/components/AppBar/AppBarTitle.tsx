@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode } from 'react';
 import styles from './AppBarTitle.module.scss';
 
 export interface IAppBarTitleProps extends React.ComponentProps<'div'>  {
@@ -14,11 +14,11 @@ export const AppBarTitle = (props: IAppBarTitleProps) => {
 		cssClasses.push(styles.appbarTitle);
 		className && cssClasses.push(className);
 		return cssClasses.filter(r => r).join(' ');
-	}
+	};
 
 	return (
 		<div className={getCssClass()} onClick={onClick}>
 			{children}
 		</div>
-	)
-}
+	);
+};

@@ -41,7 +41,7 @@ export const TimeSelect = (props: ITimeSelectProps) => {
 		cssClasses.push('row');
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
-	}
+	};
 
 	const handleOnChange = (e: number, mode: TIMEMODE) => {
 		const currYear: number = currDate.getFullYear();
@@ -57,7 +57,7 @@ export const TimeSelect = (props: ITimeSelectProps) => {
 
 		setCurrDate(newDate);
 		onChange && onChange(newDate);
-	}
+	};
 
 	return (
 		<Row className={getCssClasses()}>
@@ -106,4 +106,4 @@ export const TimeSelect = (props: ITimeSelectProps) => {
 			}
 		</Row>
 	);
-}
+};
