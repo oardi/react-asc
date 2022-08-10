@@ -21,8 +21,8 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 		const [settingValues, setSettingValues] = useState<T>(defaultSettingValues as T || {} as T);
 		const [settingsControls, setSettingsControls] = useState<IControls | undefined>();
 
-		const [selectedTab, setSelectedTab] = useState<string>('tab1');
-		const [selectedSettingsTab, setSelectedSettingsTab] = useState<string>('props');
+		const [selectedTab, setSelectedTab] = useState<string>('options-tab-preview');
+		const [selectedSettingsTab, setSelectedSettingsTab] = useState<string>('options-props');
 
 		const { isMobile } = useMobileDetect();
 		const [showSettingsDrawer, setShowSettingsDrawer] = useState<boolean>(true);
@@ -35,10 +35,10 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 		}
 
 		useEffect(() => {
-			const fileName = componentName?.replace('PageBase', '');
-			const newFileUrlUsage = `/showcase/${fileName?.toLowerCase()}.md`;
+			const fileName: string | undefined = componentName?.replace('PageBase', '');
+			const newFileUrlUsage: string = `/showcase/${fileName?.toLowerCase()}.md`;
 			setFileUrlUsage(newFileUrlUsage);
-			const newFileUrlDescription = `/showcase/${fileName?.toLowerCase()}.description.md`;
+			const newFileUrlDescription: string = `/showcase/${fileName?.toLowerCase()}.description.md`;
 			setFileUrlDescription(newFileUrlDescription);
 		}, []);
 
@@ -55,11 +55,11 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 				<Column>
 					<ShowcaseExample>
 						<Tabs fixed onChange={handleChangeTab} value={selectedTab}>
-							<Tab value="tab1" label="Preview" />
-							<Tab value="tab2" label="Usage" />
+							<Tab value="options-tab-preview" label="Preview" />
+							<Tab value="options-tab-usage" label="Usage" />
 						</Tabs>
 
-						<TabPanel value={selectedTab} index="tab1">
+						<TabPanel value={selectedTab} index="options-tab-preview">
 							<div className="p-1">
 								<WrappedComponent
 									{...rest as T}
@@ -69,7 +69,7 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 							</div>
 						</TabPanel>
 
-						<TabPanel value={selectedTab} index="tab2">
+						<TabPanel value={selectedTab} index="options-tab-usage">
 							<Highlight url={fileUrlUsage} />
 						</TabPanel>
 					</ShowcaseExample>
@@ -99,11 +99,11 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 							fixed={true}
 							onChange={handleChangeSettingsTab}
 						>
-							<Tab value="props" label="Props" />
-							<Tab value="description" label="Description" />
+							<Tab value="options-props" label="Props" />
+							<Tab value="options-description" label="Description" />
 						</Tabs>
 
-						<TabPanel value={selectedSettingsTab} index="props">
+						<TabPanel value={selectedSettingsTab} index="options-props">
 							{settingsControls && Object.keys(settingsControls).length > 0 &&
 								<>
 									<ShowcaseOptions
@@ -128,7 +128,7 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 								</List>
 							}
 						</TabPanel>
-						<TabPanel className="p-1" value={selectedSettingsTab} index="description">
+						<TabPanel className="p-1" value={selectedSettingsTab} index="options-description">
 							<Markdown url={fileUrlDescription} />
 						</TabPanel>
 					</Drawer>

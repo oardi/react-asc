@@ -26,7 +26,7 @@ export const Tab = (props: ITabProps) => {
 
 	const handleClick = (event: React.MouseEvent) => {
 		onClick && onClick({ event, value });
-		setSelectedValue(value);
+		setSelectedValue && setSelectedValue(value);
 	};
 
 	return (
@@ -38,5 +38,5 @@ export const Tab = (props: ITabProps) => {
 		>
 			{label}
 		</Button>
-	)
+	);
 }

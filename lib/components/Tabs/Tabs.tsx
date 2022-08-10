@@ -31,20 +31,22 @@ export const Tabs = (props: ITabsProps) => {
 
 	const prevSelectedValueRef: React.MutableRefObject<string | undefined> = useRef<string>();
 	useEffect(() => {
-		// TODO - check if prev needs to be set
 		if (value !== undefined && value !== prevSelectedValueRef.current) {
-			setSelectedValue(value);
+			prevSelectedValueRef.current = value;
+			setSelectedValue(value as string);
 		}
 	}, [value]);
 
 	useEffect(() => {
-		React.Children.toArray(children).forEach((child, index) => {
-			if ((child as ReactElement<PropsWithChildren<ITabProps>>).props.value === selectedValue) {
-				setSelectedIndex(index);
-				onChange && onChange(selectedValue);
-			}
-		})
-	}, [children, selectedValue]);
+		if (selectedValue && children) {
+			React.Children.toArray(children).forEach((child, index) => {
+				if ((child as ReactElement<PropsWithChildren<ITabProps>>).props.value === selectedValue) {
+					setSelectedIndex(index);
+					onChange && onChange(selectedValue);
+				}
+			})
+		}
+	}, [selectedValue]);
 
 	const getCssClasses = () => {
 		const cssClasses: Array<string> = [];

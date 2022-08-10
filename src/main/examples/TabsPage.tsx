@@ -4,10 +4,10 @@ import { loggerService } from '../../shared';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 
-const CLASSNAME = 'TabsPageBase';
+const CLASSNAME: string = 'TabsPageBase';
 const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITabsProps>) => {
 
-	const [selectedValue, setSelectedValue] = useState<string>('tab2');
+	const [selectedValue, setSelectedValue] = useState<string>('tabspage-tab2');
 
 	useEffect(() => {
 		setSettingsControls({
@@ -16,7 +16,7 @@ const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 	}, []);
 
 	const handleChange = (value: string) => {
-		loggerService.debug(CLASSNAME, 'handleSelected');
+		loggerService.debug(CLASSNAME, 'handleChange');
 		snackbarService.show(`You selected: ${value}`);
 		setSelectedValue(value);
 	}
@@ -29,22 +29,22 @@ const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 				onChange={handleChange}
 				value={selectedValue}
 			>
-				<Tab value="tab1" label="Tab 1" />
-				<Tab value="tab2" label="Tab 2" />
-				<Tab value="tab3" label={<div className="text-success">Tab 3 with css</div>} />
-				<Tab value="tab4" label="Tab 4" disabled />
+				<Tab value="tabspage-tab1" label="Tab 1" />
+				<Tab value="tabspage-tab2" label="Tab 2" />
+				<Tab value="tabspage-tab3" label={<div className="text-success">Tab 3 with css</div>} />
+				<Tab value="tabspage-tab4" label="Tab 4" disabled />
 			</Tabs>
 
-			<TabPanel value={selectedValue} index="tab1">
+			<TabPanel value={selectedValue} index="tabspage-tab1">
 				Tab1 Content
 			</TabPanel>
-			<TabPanel value={selectedValue} index="tab2">
+			<TabPanel value={selectedValue} index="tabspage-tab2">
 				Tab2 Content
 			</TabPanel>
-			<TabPanel value={selectedValue} index="tab3">
+			<TabPanel value={selectedValue} index="tabspage-tab3">
 				Tab3 Content
 			</TabPanel>
-			<TabPanel value={selectedValue} index="tab4">
+			<TabPanel value={selectedValue} index="tabspage-tab4">
 				Tab4 Content should never be displayed
 			</TabPanel>
 		</>

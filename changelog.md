@@ -1,4 +1,7 @@
 
+### 25.0.3
+- tabs - fixed context
+
 ### 25.0.2
 - form - fixed min and max validator
 
