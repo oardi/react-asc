@@ -17,4 +17,4 @@ export const CardFooter = (props: React.ComponentProps<'div'>) => {
 			{children}
 		</div>
 	);
-}
+};

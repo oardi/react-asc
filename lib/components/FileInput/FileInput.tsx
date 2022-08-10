@@ -35,7 +35,7 @@ export const FileInput = (props: IFileInputProps) => {
 	};
 
 	const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		const values = event.target.files as FileList;
+		const values: FileList = event.target.files as FileList;
 		setFileList(values);
 		onChange && onChange(event);
 	};

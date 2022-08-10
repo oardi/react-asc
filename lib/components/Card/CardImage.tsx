@@ -19,5 +19,5 @@ export const CardImage = (props: React.ComponentProps<'img'>) => {
 			alt={alt}
 			{...rest}
 		/>
-	)
+	);
 };

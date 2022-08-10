@@ -22,4 +22,4 @@ export const Card = (props: ICardProps) => {
 			{children}
 		</div>
 	);
-}
+};

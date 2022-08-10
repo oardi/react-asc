@@ -52,11 +52,11 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 	const [searchText, setSearchText] = useState<string | undefined>('');
 	const [isShow, setIsShow] = useState<boolean>(false);
 	const [_options, setOptions] = useState<Array<ISelectOption>>([]);
-	const selectConainter = useRef<HTMLDivElement>(null);
+	const selectConainter: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		if (value !== model) {
-			const option = options.find(o => o.value === value);
+			const option: ISelectOption | undefined = options.find(o => o.value === value);
 			setModel(option ? option.label : '');
 		}
 	}, [value]);
@@ -76,11 +76,11 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 	useEffect(() => {
 		if (isShow === true) {
 			document.body.classList.add('modal-open');
-			const main = document.querySelector('.main');
+			const main: Element | null = document.querySelector('.main');
 			main?.classList.add('modal-open');
 		} else {
 			document.body.classList.remove('modal-open');
-			const main = document.querySelector('.main');
+			const main: Element | null = document.querySelector('.main');
 			main?.classList.remove('modal-open');
 		}
 	}, [isShow]);
@@ -88,7 +88,7 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 	useEffect(() => {
 		return () => {
 			document.body.classList.remove('modal-open');
-			const main = document.querySelector('.main');
+			const main: Element | null = document.querySelector('.main');
 			main?.classList.remove('modal-open');
 		};
 	}, []);

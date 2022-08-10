@@ -40,12 +40,12 @@ export const YearSelect = (props: IYearProps) => {
 		const cssClasses: Array<string> = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
-	}
+	};
 
 	const handleOnChange = (e: string | Array<string>) => {
 		setNewValue(e as string);
 		onChange && onChange(parseInt(e as string));
-	}
+	};
 
 	return (
 		<Select
@@ -58,4 +58,4 @@ export const YearSelect = (props: IYearProps) => {
 			value={newValue}
 		/>
 	);
-}
+};

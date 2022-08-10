@@ -21,7 +21,7 @@ export const BreadcrumbItem = (props: IBreadcrumbItemProps) => {
 
 	const handleClick = (event: React.MouseEvent<HTMLLIElement>) => {
 		onClick && onClick(event);
-	}
+	};
 
 	return (
 		<li className={getCssClasses()} onClick={handleClick}>
@@ -32,4 +32,4 @@ export const BreadcrumbItem = (props: IBreadcrumbItemProps) => {
 			</ConditionalWrapper>
 		</li>
 	);
-}
+};

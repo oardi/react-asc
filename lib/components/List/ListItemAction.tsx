@@ -9,4 +9,4 @@ export const ListItemAction = ({ children, onClick, ...rest }: React.ComponentPr
 	>
 		{children}
 	</div>
-)
+);

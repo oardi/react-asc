@@ -84,8 +84,8 @@ export const CssTransition = (props: ICssTransitionProps) => {
 		}
 	}, [isShow]);
 
-	const getCssClasses = () => {
-		const cssClasses = [];
+	const getCssClasses = (): string => {
+		const cssClasses: string[] = [];
 		cssState?.hidden && cssClasses.push(`hidden`);
 
 		cssState?.enter && cssClasses.push(`${className}-enter`);

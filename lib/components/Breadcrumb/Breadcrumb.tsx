@@ -23,4 +23,4 @@ export const Breadcrumb = (props: IBreadcrumbProps) => {
 			</ol>
 		</nav>
 	);
-}
+};

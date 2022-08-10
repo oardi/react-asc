@@ -21,5 +21,5 @@ export const CardTitle = (props: ICardTitleProps) => {
 		<As className={getCssClasses()} {...rest}>
 			{children}
 		</As>
-	)
-}
+	);
+};

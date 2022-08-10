@@ -22,7 +22,7 @@ export const Checkbox = (props: ICheckboxProps) => {
 	// can be: true/false, custom
 
 	const [isChecked, setIsChecked] = useState<boolean>(false);
-	const checkboxElement = useRef<HTMLInputElement>(null);
+	const checkboxElement: React.RefObject<HTMLInputElement> = useRef<HTMLInputElement>(null);
 
 	useEffect(() => {
 		if (checked === true || checked === false) {
@@ -30,7 +30,7 @@ export const Checkbox = (props: ICheckboxProps) => {
 		}
 	}, [checked]);
 
-	const icons = {
+	const icons: { default: React.ReactElement, selected: React.ReactElement } = {
 		default: <SquareRegularIcon />,
 		selected: <CheckSquareRegularIcon />
 	};
@@ -88,4 +88,4 @@ export const Checkbox = (props: ICheckboxProps) => {
 			/>
 		</div>
 	);
-}
+};

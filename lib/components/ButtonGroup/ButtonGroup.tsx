@@ -25,4 +25,4 @@ export const ButtonGroup = (props: IButtonGroupProps) => {
 			</div>
 		</ButtonContext.Provider>
 	);
-}
+};

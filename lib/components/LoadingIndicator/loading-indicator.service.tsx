@@ -39,4 +39,4 @@ class LoadingIndicatorService implements ILoadingIndicatorService {
 	}
 }
 
-export const loadingIndicatorService = new LoadingIndicatorService();
+export const loadingIndicatorService: LoadingIndicatorService = new LoadingIndicatorService();

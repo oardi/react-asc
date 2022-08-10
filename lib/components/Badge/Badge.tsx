@@ -26,7 +26,7 @@ export const Badge = (props: IBadgeProps) => {
 			</span>
 		</BadgeContainer>
 	);
-}
+};
 
 const BadgeContainer = (props: React.ComponentProps<'div'>) => {
 
@@ -42,4 +42,4 @@ const BadgeContainer = (props: React.ComponentProps<'div'>) => {
 			{children}
 		</div>
 	);
-}
+};

@@ -17,4 +17,4 @@ export const CardSubtitle = (props: React.ComponentProps<'div'>) => {
 			{children}
 		</p>
 	);
-}
+};

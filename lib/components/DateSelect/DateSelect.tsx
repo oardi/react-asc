@@ -29,10 +29,10 @@ export const DateSelect = (props: IDateSelectProps) => {
 	const [currDate, setCurrDate] = useState<Date>(value);
 
 	const handleOnChange = (e: number, mode: DATEMODE) => {
-		const currYear = mode === DATEMODE.YEAR ? e : currDate.getFullYear();
-		const currMonth = mode === DATEMODE.MONTH ? e : currDate.getMonth();
-		const currday = mode === DATEMODE.DAY ? e : currDate.getDate();
-		const newDate = new Date(currYear, currMonth, currday);
+		const currYear: number = mode === DATEMODE.YEAR ? e : currDate.getFullYear();
+		const currMonth: number = mode === DATEMODE.MONTH ? e : currDate.getMonth();
+		const currday: number = mode === DATEMODE.DAY ? e : currDate.getDate();
+		const newDate: Date = new Date(currYear, currMonth, currday);
 
 		setCurrDate(newDate);
 		onChange && onChange(newDate);

@@ -11,4 +11,4 @@ export const ExpansionPanelContent = ({ children }: IExpansionPanelContentProps)
 			{children}
 		</div>
 	);
-}
+};

@@ -17,4 +17,4 @@ export const CardBody = (props: React.ComponentProps<'div'>) => {
 			{children}
 		</div>
 	);
-}
+};

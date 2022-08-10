@@ -2,6 +2,7 @@ import React, { ReactNode, useEffect } from 'react';
 import { Backdrop } from '../Backdrop';
 import { Portal } from '../Portal';
 import styles from './Drawer.module.scss';
+import { IDictionary } from '../../interfaces';
 
 export interface IDrawerProps extends React.ComponentProps<'div'> {
 	position?: 'left' | 'right';
@@ -57,9 +58,9 @@ const DrawerContent = (props: IDrawerContentProps) => {
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const positionStyles = {
+	const positionStyles: IDictionary<React.CSSProperties> = {
 		left: { left: '0px' },
-		right: { right: '0px' },
+		right: { right: '0px' }
 	};
 
 	const getStyles = () => {

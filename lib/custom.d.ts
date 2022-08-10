@@ -16,3 +16,10 @@ declare module '*.module.scss' {
 }
 
 declare module '*.md';
+
+// declare module 'react' {
+//     interface StyleHTMLAttributes<T> extends HTMLAttributes<T> {
+//         jsx?: boolean;
+//         global?: boolean;
+//     }
+// }

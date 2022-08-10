@@ -5,7 +5,7 @@ export interface IButtonContext {
 	color: COLOR | null;
 }
 
-export const ButtonContext = createContext<IButtonContext>({
+export const ButtonContext: React.Context<IButtonContext> = createContext<IButtonContext>({
 	color: null
 });
 export const useButtonContext = () => useContext(ButtonContext);

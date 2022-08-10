@@ -17,4 +17,4 @@ export const CardText = (props: React.ComponentProps<'p'>) => {
 			{children}
 		</p>
 	);
-}
+};
