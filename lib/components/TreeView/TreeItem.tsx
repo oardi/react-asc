@@ -29,24 +29,26 @@ export const TreeItem = (props: ITreeItemProps) => {
 	};
 
 	useEffect(() => {
-		if (isExpanded !== undefined)
+		if (isExpanded !== undefined) {
 			setIsExpanded(isExpanded);
+		}
 	}, [isExpanded]);
 
 	useEffect(() => {
-		if (isSelected !== undefined)
+		if (isSelected !== undefined) {
 			setIsSelected(isSelected);
+		}
 	}, [isSelected]);
 
 	const handleOnToggleExpand = (nodeId: string) => {
 		setIsExpanded(!_isExpanded);
 		onToggleExpand && onToggleExpand(nodeId);
-	}
+	};
 
 	const handleOnSelect = (nodeId: string) => {
 		setIsSelected(!_isSelected);
 		onItemSelect && onItemSelect({ id: nodeId, isSelected: !_isSelected });
-	}
+	};
 
 	return (
 		<li
@@ -69,4 +71,4 @@ export const TreeItem = (props: ITreeItemProps) => {
 			{children && _isExpanded ? <ul>{children}</ul> : null}
 		</li>
 	);
-}
+};

@@ -17,6 +17,9 @@ module.exports = {
 		'@typescript-eslint'
 	],
 	rules: {
+		'semi': 'error',
+		'curly': 'error',
+		'@typescript-eslint/no-empty-interface': 'error',
 		'@typescript-eslint/no-var-requires': 'error',
 		'@typescript-eslint/typedef': [
 			"warn",
@@ -48,4 +51,4 @@ module.exports = {
 			}
 		}
 	]
-}
+};

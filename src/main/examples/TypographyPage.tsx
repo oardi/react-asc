@@ -36,7 +36,7 @@ const TypographyPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 			</div>
 		</div>
 	);
-}
+};
 
 export const TypographyPage = withOptions(TypographyPageBase,
 	undefined,

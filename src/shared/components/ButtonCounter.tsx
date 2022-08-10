@@ -11,7 +11,7 @@ interface IState {
 export class ButtonCounter extends Component<IProps, IState> {
 	constructor(props: IProps) {
 		super(props);
-		this.state = { count: 0 }
+		this.state = { count: 0 };
 	}
 
 	handleClick() {

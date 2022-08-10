@@ -32,7 +32,7 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 
 		const onFormChange = (val: unknown) => {
 			setSettingValues(val as T);
-		}
+		};
 
 		useEffect(() => {
 			const fileName: string | undefined = componentName?.replace('PageBase', '');
@@ -44,11 +44,11 @@ export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowca
 
 		const handleChangeTab = (val: string) => {
 			setSelectedTab(val);
-		}
+		};
 
 		const handleChangeSettingsTab = (val: string) => {
 			setSelectedSettingsTab(val);
-		}
+		};
 
 		return (
 			<Row direction="column">

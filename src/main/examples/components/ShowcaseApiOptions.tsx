@@ -32,5 +32,5 @@ export const ShowcaseApiOptions = () => {
 				</CardText>
 			</CardBody>
 		</Card>
-	)
-}
+	);
+};
