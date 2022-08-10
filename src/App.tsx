@@ -9,7 +9,7 @@ import { BarsSolidIcon } from './main/assets';
 import { AppBar, AppBarTitle, COLOR, Drawer, IconButton, ISidebarItem, useMobileDetect } from 'lib';
 import { menuItems } from './AppMenu';
 
-const CLASSNAME = 'App';
+const CLASSNAME: string = 'App';
 
 const App = () => {
 
@@ -21,7 +21,7 @@ const App = () => {
 	const [routes, setRoutes] = useState<Array<RouteModel>>([]);
 	const [sidebarItems, setSidebarItems] = useState<Array<ISidebarItem>>([]);
 
-	useEffect(() => { init() }, []);
+	useEffect(() => { init(); }, []);
 
 	useEffect(() => {
 		if (appState === APPSTATE.ready && isMobile === false) {
@@ -35,8 +35,8 @@ const App = () => {
 			setRoutes(menuItems.map(item => new RouteModel(item)));
 			setSidebarItems(menuItems.map(item => new MenuModel(item)));
 			setAppState(APPSTATE.ready);
-		} catch (err) { loggerService.error('init', err) }
-	}
+		} catch (err) { loggerService.error('init', err); }
+	};
 
 	return (
 		<>
@@ -83,6 +83,6 @@ const App = () => {
 			<ServiceWorkerWrapper />
 		</>
 	);
-}
+};
 
 export default App;

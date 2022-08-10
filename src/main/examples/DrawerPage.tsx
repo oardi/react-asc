@@ -18,7 +18,7 @@ const DrawerPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 	const handleClick = () => {
 		loggerService.debug(CLASSNAME, 'handleClick');
 		setIsVisible(!isVisible);
-	}
+	};
 
 	return (
 		<>
@@ -37,7 +37,7 @@ const DrawerPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 			}
 		</>
 	);
-}
+};
 
 export const DrawerPage = withOptions<IDrawerProps>(DrawerPageBase, {
 	position: 'left',

@@ -113,4 +113,4 @@ export const menuItems: Array<IMenuItem> = [
 		]
 	},
 	{ id: 'About', element: <AboutPage /> }
-]
+];

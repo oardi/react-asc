@@ -30,7 +30,7 @@ const BackdropPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 			}
 		</>
 	);
-}
+};
 
 export const BackdropPage = withOptions<IBackdropProps>(BackdropPageBase, {
 	isTransparent: false

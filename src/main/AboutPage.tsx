@@ -44,5 +44,5 @@ export const AboutPage = () => {
 				MIT
 			</Typography>
 		</Layout>
-	)
-}
+	);
+};

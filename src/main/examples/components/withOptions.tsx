@@ -12,9 +12,13 @@ export interface IShowcaseBaseProps<P> {
 
 // with template inheritance
 // TODO -> any to type
-export function withOptions<T>(WrappedComponent: React.ComponentType<T & IShowcaseBaseProps<T>>, defaultSettingValues?: T, componentName?: string) {
+export function withOptions<T>(
+	WrappedComponent: React.ComponentType<T & IShowcaseBaseProps<T>>,
+	defaultSettingValues?: T,
+	componentName?: string
+): React.ComponentType<T & IShowcaseBaseProps<T>> {
 
-	const HOC = ({ ...rest }) => {
+	const HOC: React.ComponentType<T & IShowcaseBaseProps<T>> = ({ ...rest }) => {
 
 		const [fileUrlUsage, setFileUrlUsage] = useState('');
 		const [fileUrlDescription, setFileUrlDescription] = useState('');

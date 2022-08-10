@@ -67,7 +67,7 @@ const CardPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 			</div>
 		</>
 	);
-}
+};
 
 export const CardPage = withOptions<ICardPageBaseProps>(CardPageBase, {
 	showImage: false,

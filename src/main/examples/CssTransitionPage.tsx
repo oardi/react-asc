@@ -21,6 +21,6 @@ export const CssTransitionPageBase = () => {
 			</CssTransition>
 		</>
 	);
-}
+};
 
 export const CssTransitionPage = withOptions(CssTransitionPageBase, {}, 'CssTransitionPageBase');

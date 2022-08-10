@@ -16,7 +16,7 @@ const DateSelectPageBase = ({ setSettingsControls }: IShowcaseBaseProps<IDateSel
 				value={ new Date(2001, 11, 30) } */}
 		</>
 	);
-}
+};
 
 export const DateSelectPage = withOptions<IDateSelectProps>(DateSelectPageBase, {
 }, 'DateSelectPageBase');

@@ -15,7 +15,7 @@ const FileInputPageBase = ({ settingValues, setSettingsControls }: IShowcaseBase
 
 	const handleOnChange = () => {
 		snackbarService.show(`FileInput changed`);
-	}
+	};
 
 	return (
 		<>
@@ -30,7 +30,7 @@ const FileInputPageBase = ({ settingValues, setSettingsControls }: IShowcaseBase
 			</FileInput>
 		</>
 	);
-}
+};
 
 export const FileInputPage = withOptions<IFileInputProps>(FileInputPageBase, {
 	accept: '*',

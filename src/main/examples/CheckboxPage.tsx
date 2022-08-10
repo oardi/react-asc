@@ -3,7 +3,7 @@ import { FormControl, Checkbox, ICheckboxProps } from 'lib';
 import { loggerService } from '../../shared';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const CLASSNAME = 'ShowcaseCheckboxBase';
+const CLASSNAME: string = 'ShowcaseCheckboxBase';
 export const CheckboxPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ICheckboxProps>) => {
 
 	useEffect(() => {
@@ -17,7 +17,7 @@ export const CheckboxPageBase = ({ settingValues, setSettingsControls }: IShowca
 
 	const handleChange = (event: FocusEvent<HTMLInputElement>) => {
 		loggerService.debug(CLASSNAME, 'handleCheck', event.target.checked);
-	}
+	};
 
 	return (
 		<Checkbox
@@ -28,7 +28,7 @@ export const CheckboxPageBase = ({ settingValues, setSettingsControls }: IShowca
 			onChange={handleChange}
 		/>
 	);
-}
+};
 
 export const CheckboxPage = withOptions<ICheckboxProps>(CheckboxPageBase, {
 	checked: true,

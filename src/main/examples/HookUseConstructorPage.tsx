@@ -8,7 +8,7 @@ const HookUseConstructorPageBase = () => {
 			Switch to "Usage" to see how to use this hook
 		</>
 	);
-}
+};
 
 export const HookUseConstructorPage = withOptions(HookUseConstructorPageBase, {
 }, 'HookUseConstructorPageBase');

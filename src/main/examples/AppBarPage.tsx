@@ -29,7 +29,7 @@ const AppBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 			</AppBar>
 		</>
 	);
-}
+};
 
 export const AppBarPage = withOptions<IAppBarProps>(AppBarPageBase, {
 	shadow: false,

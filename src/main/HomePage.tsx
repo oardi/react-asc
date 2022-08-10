@@ -1,12 +1,12 @@
 import React from 'react';
 import { Layout } from './Layout';
-import { useNavigate } from 'react-router-dom';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { RocketSolidIcon } from './assets';
 import { Button, Card, CardBody, CardText, CardTitle, Column, Row, Typography } from 'lib';
 
 export const HomePage = () => {
 
-	const navigate = useNavigate();
+	const navigate: NavigateFunction = useNavigate();
 
 	const handleClickGetStarted = () => {
 		navigate('/gettingstarted');
@@ -60,4 +60,4 @@ export const HomePage = () => {
 
 		</Layout>
 	);
-}
+};

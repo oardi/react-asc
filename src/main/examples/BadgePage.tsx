@@ -26,7 +26,7 @@ const BadgePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 			</Badge>
 		</>
 	);
-}
+};
 
 export const BadgePage = withOptions<IBadgeProps>(BadgePageBase, {
 	content: '10',

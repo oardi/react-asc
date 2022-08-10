@@ -4,7 +4,7 @@ import { loggerService } from '../../shared';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 
-const CLASSNAME = 'ShowcaseChipPageBase';
+const CLASSNAME: string = 'ShowcaseChipPageBase';
 export const ChipPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IChipProps>) => {
 
 	useEffect(() => {
@@ -18,7 +18,7 @@ export const ChipPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	const handleClick = () => {
 		loggerService.debug(CLASSNAME, 'handleClick');
 		snackbarService.show('chip clicked');
-	}
+	};
 
 	return (
 		<Chip
@@ -30,7 +30,7 @@ export const ChipPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 			some label
 		</Chip>
 	);
-}
+};
 
 export const ChipPage = withOptions<IChipProps>(ChipPageBase, {
 	color: COLOR.primary,

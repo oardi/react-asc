@@ -45,14 +45,14 @@ const AutoCompletePageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 
 	const handleOnSelect = (e: ISelectOption) => {
 		snackbarService.show(`value changed: ${e.label}`);
-	}
+	};
 
 	const handleOnChange = (val: string | undefined) => {
 		setValue(val as string);
 		const regex: RegExp = new RegExp(val as string, 'gi');
 		const filteredOptions: IMyCustomData[] = newOptions.filter(option => val && option?.label?.match(regex) || option?.description?.match(regex));
 		setOptions(filteredOptions.map(o => ({ value: o.id, label: o.label })));
-	}
+	};
 
 	return (
 		<>
@@ -72,7 +72,7 @@ const AutoCompletePageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 			/>
 		</>
 	);
-}
+};
 
 export const AutoCompletePage = withOptions<IAutoCompleteProps>(AutoCompletePageBase, {
 	debounce: 250,

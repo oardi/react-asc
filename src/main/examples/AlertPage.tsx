@@ -28,7 +28,7 @@ const AlertPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 			</Alert>
 		</>
 	);
-}
+};
 
 export const AlertPage = withOptions<IAlertProps>(AlertPageBase, {
 	shadow: false,

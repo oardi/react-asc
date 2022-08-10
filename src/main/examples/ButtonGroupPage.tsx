@@ -13,7 +13,7 @@ const ButtonGroupPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 
 	const handleClick = () => {
 		snackbarService.show('Button clicked');
-	}
+	};
 
 	return (
 		<>
@@ -37,7 +37,7 @@ const ButtonGroupPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 			</ButtonGroup>
 		</>
 	);
-}
+};
 
 export const ButtonGroupPage = withOptions(ButtonGroupPageBase, {
 	color: COLOR.primary

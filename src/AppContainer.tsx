@@ -30,4 +30,4 @@ export const AppContainer = () => {
 			</AppContext.Provider>
 		</BrowserRouter>
 	);
-}
+};

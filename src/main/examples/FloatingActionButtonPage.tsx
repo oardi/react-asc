@@ -16,7 +16,7 @@ const FloatingActionButtonPageBase = ({ settingValues, setSettingsControls }: IS
 
 	const handleClick = () => {
 		snackbarService.show('FloatingActionButton clicked');
-	}
+	};
 
 	return (
 		<>
@@ -31,7 +31,7 @@ const FloatingActionButtonPageBase = ({ settingValues, setSettingsControls }: IS
 			/>
 		</>
 	);
-}
+};
 
 export const FloatingActionButtonPage = withOptions<IFloatingActionButtonProps>(FloatingActionButtonPageBase, {
 	color: COLOR.primary,
