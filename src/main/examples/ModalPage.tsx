@@ -23,7 +23,7 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 
 	const handleClickShowModal = () => {
 		setIsVisible(!isVisible);
-	}
+	};
 
 	const handleClickTriggerModalService = (fullscreen?: boolean) => {
 		modalService.show('Hello Modal', 'Modal with custom buttons - using custom buttons make sure to attach Modalbuttontype for ok and cancel', {
@@ -36,11 +36,11 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 			size: settingValues.size
 		})
 			.then(() => loggerService.debug('ok clicked'));
-	}
+	};
 
 	const customHandler = () => {
 		snackbarService.show('custom handler triggered');
-	}
+	};
 
 	const handleClickTriggerModalFormService = () => {
 		const controls: IControls = {
@@ -126,7 +126,7 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 			.then(res => {
 				loggerService.debug(res);
 			});
-	}
+	};
 
 	return (
 		<>
@@ -161,6 +161,6 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 			</div>
 		</>
 	);
-}
+};
 
 export const ModalPage = withOptions(ModalPageBase, undefined, 'ModalPageBase');

@@ -28,7 +28,7 @@ export const TooltipPageBase = ({ settingValues, setSettingsControls }: IShowcas
 			</Button>
 		</Tooltip>
 	);
-}
+};
 
 export const TooltipPage = withOptions(TooltipPageBase, {
 	text: 'some tooltip text',

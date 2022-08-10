@@ -12,6 +12,6 @@ const SkeletonPageBase = () => {
 			<SkeletonFooter />
 		</>
 	);
-}
+};
 
 export const SkeletonPage = withOptions<unknown>(SkeletonPageBase, null, 'SkeletonPageBase');

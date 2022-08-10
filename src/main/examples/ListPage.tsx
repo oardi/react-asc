@@ -14,12 +14,12 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 
 	const handleClickItem = () => {
 		snackbarService.show('item clicked');
-	}
+	};
 
 	const handleClickAction = (e: React.MouseEvent) => {
 		e.stopPropagation();
 		snackbarService.show('action clicked');
-	}
+	};
 
 	return (
 		<>
@@ -118,7 +118,7 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 
 		</>
 	);
-}
+};
 
 export const ListPage = withOptions<IListProps>(ListPageBase, {
 	isFlush: false

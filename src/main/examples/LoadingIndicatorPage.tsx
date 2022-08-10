@@ -45,7 +45,7 @@ const LoadingIndicatorPageBase = ({ settingValues, setSettingsControls }: IShowc
 			</Button>
 		</>
 	);
-}
+};
 
 export const LoadingIndicatorPage = withOptions(LoadingIndicatorPageBase, undefined, 'LoadingIndicatorPageBase');
 

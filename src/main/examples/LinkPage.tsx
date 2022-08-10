@@ -19,7 +19,7 @@ export const LinkPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 			</Link>
 		</>
 	);
-}
+};
 
 export const LinkPage = withOptions<React.ComponentProps<'a'>>(LinkPageBase, {
 	href: 'https://google.com'

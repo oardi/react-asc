@@ -18,7 +18,7 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 	const handleOnChange = (e: string | Array<string>) => {
 		snackbarService.show(`value changed: ${e}`);
 		setValue(e as string);
-	}
+	};
 
 	return (
 		<>
@@ -51,7 +51,7 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 			/>
 		</>
 	);
-}
+};
 
 export const SelectPage = withOptions<ISelectProps>(SelectPageBase, {
 	multipleMaxCountItems: 5

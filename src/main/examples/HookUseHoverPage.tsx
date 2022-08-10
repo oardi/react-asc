@@ -8,7 +8,7 @@ const HookUseHoverPageBase = () => {
 			Switch to "Usage" to see how to use this hook
 		</>
 	);
-}
+};
 
 export const HookUseHoverPage = withOptions(HookUseHoverPageBase, {
 }, 'HookUseHoverPageBase');

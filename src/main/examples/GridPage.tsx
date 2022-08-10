@@ -35,7 +35,7 @@ const GridPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 			</Row> */}
 		</Row>
 	);
-}
+};
 
 export const GridPage = withOptions(GridPageBase, {
 	direction: 'row'

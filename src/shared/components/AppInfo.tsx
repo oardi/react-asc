@@ -30,4 +30,4 @@ export const AppInfo = () => {
 			onClick={handleClick}
 		/>
 	);
-}
+};
