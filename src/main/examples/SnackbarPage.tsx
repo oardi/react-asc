@@ -37,7 +37,7 @@ const SnackbarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 	);
 };
 
-export const SnackbarPage = withOptions<ISnackbarServiceProps>(SnackbarPageBase, {
+export const SnackbarPage: () => JSX.Element = withOptions<ISnackbarServiceProps>(SnackbarPageBase, {
 	children: 'snackbar message',
 	actionText: 'ok',
 	color: COLOR.dark,

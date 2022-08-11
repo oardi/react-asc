@@ -9,5 +9,5 @@ const HookUseWindowSizePageBase = () => {
 	);
 };
 
-export const HookUseWindowSizePage = withOptions(HookUseWindowSizePageBase, {
+export const HookUseWindowSizePage: () => JSX.Element = withOptions(HookUseWindowSizePageBase, {
 }, 'HookUseWindowSizePageBase');

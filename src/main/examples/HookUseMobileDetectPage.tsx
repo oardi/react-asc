@@ -10,5 +10,5 @@ const HookUseMobileDetectPageBase = () => {
 	);
 };
 
-export const HookUseMobileDetectPage = withOptions(HookUseMobileDetectPageBase, {
+export const HookUseMobileDetectPage: () => JSX.Element = withOptions(HookUseMobileDetectPageBase, {
 }, 'HookUseMobileDetectPageBase');

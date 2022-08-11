@@ -10,5 +10,5 @@ const HookUseHoverPageBase = () => {
 	);
 };
 
-export const HookUseHoverPage = withOptions(HookUseHoverPageBase, {
+export const HookUseHoverPage: () => JSX.Element = withOptions(HookUseHoverPageBase, {
 }, 'HookUseHoverPageBase');

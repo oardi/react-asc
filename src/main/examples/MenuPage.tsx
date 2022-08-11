@@ -52,6 +52,6 @@ const MenuPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 	);
 };
 
-export const MenuPage = withOptions<IMenuProps>(MenuPageBase, {
+export const MenuPage: () => JSX.Element = withOptions<IMenuProps>(MenuPageBase, {
 	menuPosition: 'left'
 }, 'MenuPageBase');

@@ -120,6 +120,6 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	);
 };
 
-export const ListPage = withOptions<IListProps>(ListPageBase, {
+export const ListPage: () => JSX.Element = withOptions<IListProps>(ListPageBase, {
 	isFlush: false
 }, 'ListPageBase');

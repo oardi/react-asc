@@ -7,16 +7,15 @@ import { ShowcaseOptions } from './ShowcaseOptions';
 
 export interface IShowcaseBaseProps<P> {
 	settingValues: P;
-	setSettingsControls: Dispatch<IControls>; // TODO add types
+	setSettingsControls: Dispatch<IControls>;
 }
 
 // with template inheritance
-// TODO -> any to type
 export function withOptions<T>(
 	WrappedComponent: React.ComponentType<T & IShowcaseBaseProps<T>>,
 	defaultSettingValues?: T,
 	componentName?: string
-): React.ComponentType<T & IShowcaseBaseProps<T>> {
+): () => JSX.Element {
 
 	const HOC: React.ComponentType<T & IShowcaseBaseProps<T>> = ({ ...rest }) => {
 
@@ -143,5 +142,5 @@ export function withOptions<T>(
 
 	};
 
-	return HOC;
+	return HOC as () => JSX.Element;
 }

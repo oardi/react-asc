@@ -14,4 +14,4 @@ const SkeletonPageBase = () => {
 	);
 };
 
-export const SkeletonPage = withOptions<unknown>(SkeletonPageBase, null, 'SkeletonPageBase');
+export const SkeletonPage: () => JSX.Element = withOptions<unknown>(SkeletonPageBase, null, 'SkeletonPageBase');

@@ -19,6 +19,6 @@ const IconPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 	);
 };
 
-export const IconPage = withOptions<IIconProps>(IconPageBase, {
+export const IconPage: () => JSX.Element = withOptions<IIconProps>(IconPageBase, {
 	iconColor: COLOR.primary
 }, 'IconPageBase');

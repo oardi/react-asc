@@ -32,7 +32,7 @@ export const ChipPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	);
 };
 
-export const ChipPage = withOptions<IChipProps>(ChipPageBase, {
+export const ChipPage: () => JSX.Element = withOptions<IChipProps>(ChipPageBase, {
 	color: COLOR.primary,
 	shadow: false,
 }, 'ChipPageBase');

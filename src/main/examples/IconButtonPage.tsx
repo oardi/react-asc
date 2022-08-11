@@ -35,7 +35,7 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 	);
 };
 
-export const IconButtonPage = withOptions<IIconButtonProps>(IconButtonPageBase, {
+export const IconButtonPage: () => JSX.Element = withOptions<IIconButtonProps>(IconButtonPageBase, {
 	color: COLOR.primary,
 	variant: VARIANT.text,
 	size: SIZE.md,

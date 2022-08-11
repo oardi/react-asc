@@ -31,7 +31,7 @@ const AppBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 	);
 };
 
-export const AppBarPage = withOptions<IAppBarProps>(AppBarPageBase, {
+export const AppBarPage: () => JSX.Element = withOptions<IAppBarProps>(AppBarPageBase, {
 	shadow: false,
 	color: COLOR.light
 }, 'AppBarPageBase');

@@ -39,6 +39,6 @@ const ButtonGroupPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	);
 };
 
-export const ButtonGroupPage = withOptions(ButtonGroupPageBase, {
+export const ButtonGroupPage: () => JSX.Element = withOptions(ButtonGroupPageBase, {
 	color: COLOR.primary
 }, 'ButtonGroupPageBase');

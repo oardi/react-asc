@@ -51,7 +51,7 @@ const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 	);
 };
 
-export const ButtonPage = withOptions<IButtonExampleProps>(ButtonPageBase, {
+export const ButtonPage: () => JSX.Element = withOptions<IButtonExampleProps>(ButtonPageBase, {
 	color: COLOR.primary,
 	variant: VARIANT.contained,
 	shadow: true

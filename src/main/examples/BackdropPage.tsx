@@ -32,6 +32,6 @@ const BackdropPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 	);
 };
 
-export const BackdropPage = withOptions<IBackdropProps>(BackdropPageBase, {
+export const BackdropPage: () => JSX.Element = withOptions<IBackdropProps>(BackdropPageBase, {
 	isTransparent: false
 }, 'BackdropPageBase');

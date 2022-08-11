@@ -146,7 +146,7 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	);
 };
 
-export const FormPage = withOptions<IFormProps>(FormPageBase, {
+export const FormPage: () => JSX.Element = withOptions<IFormProps>(FormPageBase, {
 	controls: {},
 	validateOnBlur: false
 }, 'FormPageBase');

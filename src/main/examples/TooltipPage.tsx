@@ -30,7 +30,7 @@ export const TooltipPageBase = ({ settingValues, setSettingsControls }: IShowcas
 	);
 };
 
-export const TooltipPage = withOptions(TooltipPageBase, {
+export const TooltipPage: () => JSX.Element = withOptions(TooltipPageBase, {
 	text: 'some tooltip text',
 	placement: 'top'
 }, 'TooltipPageBase');

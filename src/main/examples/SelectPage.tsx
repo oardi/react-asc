@@ -53,6 +53,6 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 	);
 };
 
-export const SelectPage = withOptions<ISelectProps>(SelectPageBase, {
+export const SelectPage: () => JSX.Element = withOptions<ISelectProps>(SelectPageBase, {
 	multipleMaxCountItems: 5
 }, 'SelectPageBase');

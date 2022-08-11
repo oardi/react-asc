@@ -4,19 +4,12 @@ import { IShowcaseBaseProps, withOptions } from './components';
 
 const DateSelectPageBase = ({ setSettingsControls }: IShowcaseBaseProps<IDateSelectProps>) => {
 
-	useEffect(() => {
-		setSettingsControls({
-		});
-	}, []);
+	useEffect(() => setSettingsControls({}), []);
 
 	return (
-		<>
-			<DateSelect />
-			{/* yearConfig={{ from: 2000, to: 2010 }}
-				value={ new Date(2001, 11, 30) } */}
-		</>
+		<DateSelect />
 	);
 };
 
-export const DateSelectPage = withOptions<IDateSelectProps>(DateSelectPageBase, {
+export const DateSelectPage: () => JSX.Element = withOptions<IDateSelectProps>(DateSelectPageBase, {
 }, 'DateSelectPageBase');

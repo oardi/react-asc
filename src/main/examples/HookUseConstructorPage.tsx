@@ -10,5 +10,5 @@ const HookUseConstructorPageBase = () => {
 	);
 };
 
-export const HookUseConstructorPage = withOptions(HookUseConstructorPageBase, {
+export const HookUseConstructorPage: () => JSX.Element = withOptions(HookUseConstructorPageBase, {
 }, 'HookUseConstructorPageBase');

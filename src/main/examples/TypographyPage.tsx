@@ -38,7 +38,7 @@ const TypographyPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 	);
 };
 
-export const TypographyPage = withOptions(TypographyPageBase,
+export const TypographyPage: () => JSX.Element = withOptions(TypographyPageBase,
 	undefined,
 	'TypographyPageBase'
 );

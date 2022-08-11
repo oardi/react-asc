@@ -32,7 +32,7 @@ const FileInputPageBase = ({ settingValues, setSettingsControls }: IShowcaseBase
 	);
 };
 
-export const FileInputPage = withOptions<IFileInputProps>(FileInputPageBase, {
+export const FileInputPage: () => JSX.Element = withOptions<IFileInputProps>(FileInputPageBase, {
 	accept: '*',
 	multiple: false,
 	disabled: false

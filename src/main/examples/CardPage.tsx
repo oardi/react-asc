@@ -69,7 +69,7 @@ const CardPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 	);
 };
 
-export const CardPage = withOptions<ICardPageBaseProps>(CardPageBase, {
+export const CardPage: () => JSX.Element = withOptions<ICardPageBaseProps>(CardPageBase, {
 	showImage: false,
 	showSubtitle: false,
 	showFooter: false

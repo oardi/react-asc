@@ -48,4 +48,4 @@ const SpeedDialPageBase = ({ setSettingsControls }: IShowcaseBaseProps<ISpeedDia
 	);
 };
 
-export const SpeedDialPage = withOptions<ISpeedDialProps>(SpeedDialPageBase, {}, 'SpeedDialPageBase');
+export const SpeedDialPage: () => JSX.Element = withOptions<ISpeedDialProps>(SpeedDialPageBase, {}, 'SpeedDialPageBase');

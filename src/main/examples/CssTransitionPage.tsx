@@ -23,4 +23,4 @@ export const CssTransitionPageBase = () => {
 	);
 };
 
-export const CssTransitionPage = withOptions(CssTransitionPageBase, {}, 'CssTransitionPageBase');
+export const CssTransitionPage: () => JSX.Element = withOptions(CssTransitionPageBase, {}, 'CssTransitionPageBase');

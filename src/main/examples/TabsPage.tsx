@@ -51,7 +51,7 @@ const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 	);
 };
 
-export const TabsPage = withOptions<ITabsProps>(TabsPageBase, {
+export const TabsPage: () => JSX.Element = withOptions<ITabsProps>(TabsPageBase, {
 	color: COLOR.primary,
 	fixed: false
 }, CLASSNAME);

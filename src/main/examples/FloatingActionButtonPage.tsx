@@ -33,7 +33,7 @@ const FloatingActionButtonPageBase = ({ settingValues, setSettingsControls }: IS
 	);
 };
 
-export const FloatingActionButtonPage = withOptions<IFloatingActionButtonProps>(FloatingActionButtonPageBase, {
+export const FloatingActionButtonPage: () => JSX.Element = withOptions<IFloatingActionButtonProps>(FloatingActionButtonPageBase, {
 	color: COLOR.primary,
 	size: SIZE.lg
 }, 'FloatingActionButtonPageBase');

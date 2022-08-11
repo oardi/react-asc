@@ -53,6 +53,6 @@ const TreeViewPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 	);
 };
 
-export const TreeViewPage = withOptions(TreeViewPageBase, {
+export const TreeViewPage: () => JSX.Element = withOptions(TreeViewPageBase, {
 	isSelectable: false
 }, 'TreeViewPageBase');

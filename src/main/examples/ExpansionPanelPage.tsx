@@ -50,4 +50,4 @@ const ExpansionPanelPageBase = () => {
 	);
 };
 
-export const ExpansionPanelPage = withOptions(ExpansionPanelPageBase, null, 'ExpansionPanelPageBase');
+export const ExpansionPanelPage: () => JSX.Element = withOptions(ExpansionPanelPageBase, null, 'ExpansionPanelPageBase');

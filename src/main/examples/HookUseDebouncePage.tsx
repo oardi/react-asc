@@ -10,5 +10,5 @@ const HookUseDebouncePageBase = () => {
 	);
 };
 
-export const HookUseDebouncePage = withOptions(HookUseDebouncePageBase, {
+export const HookUseDebouncePage: () => JSX.Element = withOptions(HookUseDebouncePageBase, {
 }, 'HookUseDebouncePageBase');

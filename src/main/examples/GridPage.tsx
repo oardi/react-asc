@@ -15,28 +15,10 @@ const GridPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 			<Column>col 1</Column>
 			<Column>col 2</Column>
 			<Column>col 3</Column>
-
-			{/* <Row>
-			</Row> */}
-
-			{/* <Row>
-				<Column xs={12} md={4}>col 1</Column>
-				<Column xs={6} md={4}>col 2</Column>
-				<Column xs={6} md={4}>col 3</Column>
-			</Row>
-
-			<Row>
-				<Column xs={2}>col 1</Column>
-				<Column xs={2}>col 2</Column>
-				<Column xs={2}>col 3</Column>
-				<Column xs={2}>col 4</Column>
-				<Column xs={2}>col 5</Column>
-				<Column xs={2}>col 6</Column>
-			</Row> */}
 		</Row>
 	);
 };
 
-export const GridPage = withOptions(GridPageBase, {
+export const GridPage: () => JSX.Element = withOptions(GridPageBase, {
 	direction: 'row'
 }, 'GridPageBase');

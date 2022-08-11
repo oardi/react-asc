@@ -30,7 +30,7 @@ const AlertPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 	);
 };
 
-export const AlertPage = withOptions<IAlertProps>(AlertPageBase, {
+export const AlertPage: () => JSX.Element = withOptions<IAlertProps>(AlertPageBase, {
 	shadow: false,
 	variant: VARIANT.contained,
 	color: COLOR.primary

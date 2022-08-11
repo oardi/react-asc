@@ -30,5 +30,5 @@ const HookUseOnDestroyPageBase = () => {
 	);
 };
 
-export const HookUseOnDestroyPage = withOptions(HookUseOnDestroyPageBase, {
+export const HookUseOnDestroyPage: () => JSX.Element = withOptions(HookUseOnDestroyPageBase, {
 }, 'HookUseOnDestroyPageBase');

@@ -55,7 +55,7 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 	);
 };
 
-export const StepperPage = withOptions<IStepperProps>(StepperPageBase, {
+export const StepperPage: () => JSX.Element = withOptions<IStepperProps>(StepperPageBase, {
 	isLinear: false,
 	showLabel: true,
 	showProgressCheckIcon: false,

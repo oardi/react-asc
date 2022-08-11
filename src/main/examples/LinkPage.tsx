@@ -21,6 +21,6 @@ export const LinkPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	);
 };
 
-export const LinkPage = withOptions<React.ComponentProps<'a'>>(LinkPageBase, {
+export const LinkPage: () => JSX.Element = withOptions<React.ComponentProps<'a'>>(LinkPageBase, {
 	href: 'https://google.com'
 }, 'LinkPageBase');

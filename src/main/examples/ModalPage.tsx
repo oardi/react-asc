@@ -163,4 +163,4 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 	);
 };
 
-export const ModalPage = withOptions(ModalPageBase, undefined, 'ModalPageBase');
+export const ModalPage: () => JSX.Element = withOptions(ModalPageBase, undefined, 'ModalPageBase');

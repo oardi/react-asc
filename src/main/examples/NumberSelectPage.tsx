@@ -36,7 +36,7 @@ const NumberSelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 	);
 };
 
-export const NumberSelectPage = withOptions<INumberSelectProps>(NumberSelectPageBase, {
+export const NumberSelectPage: () => JSX.Element = withOptions<INumberSelectProps>(NumberSelectPageBase, {
 	from: 0,
 	to: 100
 }, 'NumberSelectPageBase');

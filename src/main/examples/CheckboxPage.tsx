@@ -30,7 +30,7 @@ export const CheckboxPageBase = ({ settingValues, setSettingsControls }: IShowca
 	);
 };
 
-export const CheckboxPage = withOptions<ICheckboxProps>(CheckboxPageBase, {
+export const CheckboxPage: () => JSX.Element = withOptions<ICheckboxProps>(CheckboxPageBase, {
 	checked: true,
 	label: 'my checkbox',
 	readOnly: false,

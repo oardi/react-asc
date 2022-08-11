@@ -23,7 +23,7 @@ const TimeSelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 	);
 };
 
-export const TimeSelectPage = withOptions<ITimeSelectProps>(TimeSelectPageBase, {
+export const TimeSelectPage: () => JSX.Element = withOptions<ITimeSelectProps>(TimeSelectPageBase, {
 	showHours: true,
 	showMinutes: true,
 	showSeconds: false,

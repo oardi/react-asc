@@ -47,5 +47,5 @@ const LoadingIndicatorPageBase = ({ settingValues, setSettingsControls }: IShowc
 	);
 };
 
-export const LoadingIndicatorPage = withOptions(LoadingIndicatorPageBase, undefined, 'LoadingIndicatorPageBase');
+export const LoadingIndicatorPage: () => JSX.Element = withOptions(LoadingIndicatorPageBase, undefined, 'LoadingIndicatorPageBase');
 

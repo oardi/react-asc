@@ -74,7 +74,7 @@ const AutoCompletePageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 	);
 };
 
-export const AutoCompletePage = withOptions<IAutoCompleteProps>(AutoCompletePageBase, {
+export const AutoCompletePage: () => JSX.Element = withOptions<IAutoCompleteProps>(AutoCompletePageBase, {
 	debounce: 250,
 	openOnFocus: false,
 	placeholder: 'search...',

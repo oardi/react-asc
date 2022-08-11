@@ -1,5 +1,3 @@
-import React from 'react';
-
 export interface IAppInfo {
 	name?: string;
 	version?: string;

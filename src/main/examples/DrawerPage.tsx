@@ -3,7 +3,7 @@ import { Button, Drawer, FormControl, IDrawerProps } from 'lib';
 import { loggerService } from '../../shared';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const CLASSNAME = 'ShowcaseDrawerBase';
+const CLASSNAME: string = 'ShowcaseDrawerBase';
 const DrawerPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IDrawerProps>) => {
 
 	const [isVisible, setIsVisible] = useState(false);
@@ -39,7 +39,7 @@ const DrawerPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 	);
 };
 
-export const DrawerPage = withOptions<IDrawerProps>(DrawerPageBase, {
+export const DrawerPage: () => JSX.Element = withOptions<IDrawerProps>(DrawerPageBase, {
 	position: 'left',
 	permanent: false
 }, 'DrawerPageBase');

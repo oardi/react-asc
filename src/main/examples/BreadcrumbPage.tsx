@@ -14,4 +14,4 @@ const BreadcrumbPageBase = () => {
 	);
 };
 
-export const BreadcrumbPage = withOptions(BreadcrumbPageBase, null, 'BreadcrumbPageBase');
+export const BreadcrumbPage: () => JSX.Element = withOptions(BreadcrumbPageBase, null, 'BreadcrumbPageBase');
