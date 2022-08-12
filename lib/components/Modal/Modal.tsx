@@ -67,7 +67,10 @@ export const Modal = (props: IModalProps) => {
 					</div>
 				</div>
 			</Portal>
-			<Backdrop onClick={handleClickBackdrop} />
+			<Backdrop
+				onClick={handleClickBackdrop}
+				style={{ zIndex: 1040 }}
+			/>
 		</>
 	);
 };

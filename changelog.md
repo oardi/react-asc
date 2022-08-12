@@ -1,4 +1,7 @@
 
+### 25.0.4
+- modal - backdrop style fix
+
 ### 25.0.3
 - tabs - fixed context
 
