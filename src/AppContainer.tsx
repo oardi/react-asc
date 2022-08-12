@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { AppContext } from './AppContext';
+import { AppContext, IAppContext } from './AppContext';
 import App from './App';
 
 import packageJson from '../package.json';
-import { snackbarService, modalService } from 'lib';
 import { IAppInfo } from './app.interfaces';
-import { fileLoaderService } from './shared';
 
 export const AppContainer = () => {
 
@@ -15,10 +13,7 @@ export const AppContainer = () => {
 	}, []);
 
 	const [appInfo, setAppInfo] = useState<IAppInfo>({});
-	const appContext = ({
-		fileLoaderService,
-		snackbarService,
-		modalService,
+	const appContext: IAppContext = ({
 		appInfo,
 		setAppInfo
 	});

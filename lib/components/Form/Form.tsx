@@ -7,6 +7,7 @@ import { FormError } from './FormError';
 import { IControls, IFormInputError, IFormValues } from './form.interfaces';
 import { IsEmptyValidator, EmailValidator, IsEqualValidator, MaxValidator, MinValidator } from './validators';
 import { FormControl } from './form.models';
+import { IDictionary } from 'lib/interfaces';
 
 export interface IFormProps {
 	controls: IControls;
@@ -46,10 +47,13 @@ export class Form extends Component<IFormProps, IFormState> {
 		// get value by myForm instead of getControl?
 		if (this.state.isChanged || this.state.isSubmitted) {
 			const keys: string[] = Object.keys((this.state.controls as IControls));
-			const values = keys.reduce((obj, f) => {
-				const control = this.getControl(f);
-				// TODO - refactor
-				const newValue = ((control.type === 'date' || control.type === 'datetime-local') && control.value && isValidDate((control.value) as unknown as Date)) ? new Date((control.value) as unknown as Date).toISOString() : control.value;
+			const values: IDictionary<string> = keys.reduce((obj, f) => {
+				const control: FormControl = this.getControl(f);
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
+				const newValue: any = (
+					(control.type === 'date' || control.type === 'datetime-local') &&
+					control.value &&
+					isValidDate((control.value) as unknown as Date)) ? new Date((control.value) as unknown as Date).toISOString() : control.value;
 
 				return ({
 					...obj,
@@ -97,7 +101,7 @@ export class Form extends Component<IFormProps, IFormState> {
 						break;
 					case 'match':
 						if (validatorParam) {
-							const matchControl = this.getControl(validatorParam);
+							const matchControl: FormControl = this.getControl(validatorParam);
 							if (matchControl) {
 								if (!IsEqualValidator(fieldValue, matchControl.value)) {
 									errors.push({ validator: validatorName, message: 'Values do not match' });
@@ -116,7 +120,7 @@ export class Form extends Component<IFormProps, IFormState> {
 	}
 
 	private handleInputChange(name: string, value: string | number | readonly string[] | undefined) {
-		const field = this.getControl(name);
+		const field: FormControl = this.getControl(name);
 		field.value = value;
 
 		// redundant mit handleOnBlur
@@ -124,7 +128,7 @@ export class Form extends Component<IFormProps, IFormState> {
 		field.errors = this.validateField(field.value, field.validators);
 		field.isValid = field.errors.length === 0;
 
-		const newControls = { ...this.state.controls };
+		const newControls: IDictionary<FormControl> = { ...this.state.controls };
 		newControls[name] = field;
 		this.setState({ controls: newControls, isChanged: true }, () => this.handleChange());
 	}
@@ -132,12 +136,12 @@ export class Form extends Component<IFormProps, IFormState> {
 	private handleOnBlur(e: React.FocusEvent<HTMLInputElement>) {
 		if (this.props.validateOnBlur) {
 			const { name } = (e.target as HTMLInputElement);
-			const field = this.getControl(name);
+			const field: FormControl = this.getControl(name);
 			field.isDirty = true;
 			field.errors = this.validateField(field.value, field.validators);
 			field.isValid = field.errors.length === 0;
 
-			const controls = this.state.controls;
+			const controls: IControls | undefined = this.state.controls;
 			if (controls) {
 				controls[name] = field;
 				this.setState({ controls: controls, isChanged: true }, () => this.handleChange());
@@ -146,14 +150,14 @@ export class Form extends Component<IFormProps, IFormState> {
 	}
 
 	private isRequired(fieldName: string) {
-		let result = false;
+		let result: boolean = false;
 		result = this.getControl(fieldName).validators.indexOf('required') >= 0;
 		return result;
 	}
 
 	private isInvalid(fieldName: string): boolean {
-		let result = false;
-		const field = this.getControl(fieldName);
+		let result: boolean = false;
+		const field: FormControl = this.getControl(fieldName);
 		result = field.isDirty && !field.isValid;
 
 		return result;
@@ -164,14 +168,14 @@ export class Form extends Component<IFormProps, IFormState> {
 	}
 
 	private renderLabel(fieldKey: string, label: string, labelClassName: string = 'form-label') {
-		const cssClasses = [labelClassName, this.isRequired(fieldKey) ? 'required' : undefined];
+		const cssClasses: (string | undefined)[] = [labelClassName, this.isRequired(fieldKey) ? 'required' : undefined];
 		return <FormLabel htmlFor={fieldKey} className={cssClasses.join(' ')}>{label}</FormLabel>;
 	}
 
 	// trigger via ref
 	handleFormSubmit() {
 		for (const fieldKey of Object.keys((this.state.controls as IControls))) {
-			const field = this.getControl(fieldKey);
+			const field: FormControl = this.getControl(fieldKey);
 
 			// redundant mit handleBlur
 			field.isDirty = true;
@@ -189,7 +193,7 @@ export class Form extends Component<IFormProps, IFormState> {
 	// trigger via ref
 	handleFormReset() {
 		for (const fieldKey of Object.keys((this.state.controls as IControls))) {
-			const field = this.getControl(fieldKey);
+			const field: FormControl = this.getControl(fieldKey);
 			field.value = '';
 			field.isDirty = false;
 			field.errors = [];
@@ -216,8 +220,7 @@ export class Form extends Component<IFormProps, IFormState> {
 	}
 
 	getFormGroupCssClass(fieldKey: string) {
-		const result = this.getControl(fieldKey).config.formGroupClassName;
-		return result;
+		return this.getControl(fieldKey).config.formGroupClassName;
 	}
 
 	render() {
