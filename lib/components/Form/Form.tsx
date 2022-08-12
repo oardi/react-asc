@@ -7,7 +7,7 @@ import { FormError } from './FormError';
 import { IControls, IFormInputError, IFormValues } from './form.interfaces';
 import { IsEmptyValidator, EmailValidator, IsEqualValidator, MaxValidator, MinValidator } from './validators';
 import { FormControl } from './form.models';
-import { IDictionary } from 'lib/interfaces';
+import { IDictionary } from '../../interfaces';
 
 export interface IFormProps {
 	controls: IControls;
