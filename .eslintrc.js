@@ -17,6 +17,7 @@ module.exports = {
 		'@typescript-eslint'
 	],
 	rules: {
+		'@typescript-eslint/no-unused-vars': ['error'],
 		'semi': 'error',
 		'curly': 'error',
 		'@typescript-eslint/no-explicit-any': 'error',
