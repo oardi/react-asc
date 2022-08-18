@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Alert, COLOR, FormControl, IAlertProps, VARIANT } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const AlertPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IAlertProps>) => {
+const AlertPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IAlertProps>): JSX.Element => {
 
 	useEffect(() => {
 		setSettingsControls({

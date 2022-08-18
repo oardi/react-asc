@@ -3,7 +3,7 @@ import { List, IListProps, ListItem, ListItemAvatar, HomeSolidIcon, ListItemActi
 import { UserCircleSolidIcon } from '../assets';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IListProps>) => {
+export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IListProps>): JSX.Element => {
 
 	useEffect(() => {
 		setSettingsControls({
@@ -12,11 +12,11 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 		});
 	}, []);
 
-	const handleClickItem = () => {
+	const handleClickItem = (): void => {
 		snackbarService.show('item clicked');
 	};
 
-	const handleClickAction = (e: React.MouseEvent) => {
+	const handleClickAction = (e: React.MouseEvent): void => {
 		e.stopPropagation();
 		snackbarService.show('action clicked');
 	};

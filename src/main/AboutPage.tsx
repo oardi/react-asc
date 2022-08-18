@@ -2,7 +2,7 @@ import React from 'react';
 import { List, ListItem, Typography } from 'lib';
 import { Layout } from './Layout';
 
-export const AboutPage = () => {
+export const AboutPage = (): JSX.Element => {
 
 	return (
 		<Layout>

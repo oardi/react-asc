@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Column, IContainerProps, FormControl, Row } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const GridPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IContainerProps>) => {
+const GridPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IContainerProps>): JSX.Element => {
 
 	useEffect(() => {
 		setSettingsControls({

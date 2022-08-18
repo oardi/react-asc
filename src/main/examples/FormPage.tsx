@@ -24,7 +24,7 @@ export interface IFormPageControls {
 }
 
 const CLASSNAME: string = 'ShowcaseForm';
-export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IFormProps>) => {
+export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IFormProps>): JSX.Element => {
 	const [values, setValues] = useState({});
 	const myForm: React.RefObject<Form> = useRef<Form>(null);
 
@@ -90,27 +90,27 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 		})
 	};
 
-	const onFormSubmit = (values: IFormValues) => {
+	const onFormSubmit = (values: IFormValues): void => {
 		loggerService.debug(CLASSNAME, 'onFormSubmit', JSON.stringify(values, null, 2));
 		setValues(values);
 	};
 
-	const handleClickSubmit = () => {
+	const handleClickSubmit = (): void => {
 		loggerService.debug(CLASSNAME, 'handleClickSubmit');
 		myForm?.current?.handleFormSubmit();
 	};
 
-	const handleClickReset = () => {
+	const handleClickReset = (): void => {
 		loggerService.debug(CLASSNAME, 'handleClickReset');
 		myForm?.current?.handleFormReset();
 	};
 
-	const onFormChange = (values: IFormValues) => {
+	const onFormChange = (values: IFormValues): void => {
 		loggerService.debug(CLASSNAME, 'onFormChange', JSON.stringify(values, null, 2));
 		setValues(values);
 	};
 
-	const handleOpenInModal = () => {
+	const handleOpenInModal = (): void => {
 		modalService.showForm<IFormPageControls>('Form', controls)
 			.then(res => loggerService.debug(res));
 	};

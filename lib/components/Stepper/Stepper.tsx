@@ -22,7 +22,7 @@ export interface IStepperProps {
 	isReadonly?: boolean;
 }
 
-export const Stepper = (props: IStepperProps) => {
+export const Stepper = (props: IStepperProps): JSX.Element => {
 	const { children, isLinear = true, showLabel = true, showProgressCheckIcon = false, value, isHorizontal = true, onChange, onFinish } = props;
 
 	const [steps, setSteps] = useState<(ReactElement<IStepProps>)[]>();

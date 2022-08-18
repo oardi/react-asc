@@ -13,7 +13,7 @@ export interface INumberSelectProps {
 	onChange?: (val: number) => void;
 }
 
-export const NumberSelect = (props: INumberSelectProps) => {
+export const NumberSelect = (props: INumberSelectProps): JSX.Element => {
 
 	const { className, value = 0, from = 0, to = 100, id, name, disabled = false, onChange } = props;
 

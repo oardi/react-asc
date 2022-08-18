@@ -11,7 +11,7 @@ export interface ITableProps {
 	responsive?: boolean;
 }
 
-export const Table = (props: ITableProps) => {
+export const Table = (props: ITableProps): JSX.Element => {
 
 	const { children, className, bordered, striped, hover, responsive = false } = props;
 

@@ -33,7 +33,7 @@ export function withOptions<T>(
 			setShowSettingsDrawer(!isMobile);
 		}, [isMobile]);
 
-		const onFormChange = (val: unknown) => {
+		const onFormChange = (val: unknown): void => {
 			setSettingValues(val as T);
 		};
 
@@ -45,11 +45,11 @@ export function withOptions<T>(
 			setFileUrlDescription(newFileUrlDescription);
 		}, []);
 
-		const handleChangeTab = (val: string) => {
+		const handleChangeTab = (val: string): void => {
 			setSelectedTab(val);
 		};
 
-		const handleChangeSettingsTab = (val: string) => {
+		const handleChangeSettingsTab = (val: string): void => {
 			setSelectedSettingsTab(val);
 		};
 
@@ -82,7 +82,7 @@ export function withOptions<T>(
 					<FloatingActionButton
 						color={COLOR.light}
 						icon={<GearSolidIcon />}
-						onClick={() => setShowSettingsDrawer(!showSettingsDrawer)}
+						onClick={(): void => setShowSettingsDrawer(!showSettingsDrawer)}
 						fixed={true}
 					/>
 				}
@@ -93,7 +93,7 @@ export function withOptions<T>(
 						position={'right'}
 						shadow={true}
 						target={document.querySelector('.main') as HTMLElement}
-						onClickBackdrop={() => setShowSettingsDrawer(false)}
+						onClickBackdrop={(): void => setShowSettingsDrawer(false)}
 						style={{ maxWidth: '300px' }}
 					>
 						<Tabs

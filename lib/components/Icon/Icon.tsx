@@ -7,11 +7,11 @@ export interface IIconProps extends ComponentProps<'div'>  {
 	children?: React.ReactNode;
 }
 
-export const Icon = (props: IIconProps) => {
+export const Icon = (props: IIconProps): JSX.Element => {
 
 	const { children, iconColor, className, ...rest } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.icon);
 		iconColor && cssClasses.push(styles[iconColor]);

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FormControl, ITreeItemProps, snackbarService, TreeItem, TreeView, Typography } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const TreeViewPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITreeItemProps>) => {
+const TreeViewPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITreeItemProps>): JSX.Element => {
 
 	useEffect(() => {
 		setSettingsControls({
@@ -12,7 +12,7 @@ const TreeViewPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 
 	const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
-	const handleOnSelect = (e: { id: string, isSelected: boolean }) => {
+	const handleOnSelect = (e: { id: string, isSelected: boolean }): void => {
 		let oldIds: string[] = selectedIds;
 		if (e.isSelected) {
 			oldIds = oldIds.concat([e.id]);

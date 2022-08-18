@@ -21,7 +21,7 @@ export interface ITimeSelectProps {
 	onChange?: (val: Date) => void;
 }
 
-export const TimeSelect = (props: ITimeSelectProps) => {
+export const TimeSelect = (props: ITimeSelectProps): JSX.Element => {
 
 	const {
 		className,
@@ -36,14 +36,14 @@ export const TimeSelect = (props: ITimeSelectProps) => {
 
 	const [currDate, setCurrDate] = useState<Date>(value);
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push('row');
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleOnChange = (e: number, mode: TIMEMODE) => {
+	const handleOnChange = (e: number, mode: TIMEMODE): void => {
 		const currYear: number = currDate.getFullYear();
 		const currMonth: number = currDate.getMonth();
 		const currday: number = currDate.getDate();
@@ -67,7 +67,7 @@ export const TimeSelect = (props: ITimeSelectProps) => {
 					<HourSelect
 						value={currDate.getHours()}
 						disabled={disabled}
-						onChange={e => handleOnChange(e, TIMEMODE.HOUR)}
+						onChange={(e: number): void => handleOnChange(e, TIMEMODE.HOUR)}
 					/>
 				</Column>
 			}
@@ -78,7 +78,7 @@ export const TimeSelect = (props: ITimeSelectProps) => {
 					<MinuteSelect
 						value={currDate.getMinutes()}
 						disabled={disabled}
-						onChange={e => handleOnChange(e, TIMEMODE.MINUTE)}
+						onChange={(e: number): void => handleOnChange(e, TIMEMODE.MINUTE)}
 					/>
 				</Column>
 			}
@@ -89,7 +89,7 @@ export const TimeSelect = (props: ITimeSelectProps) => {
 					<SecondSelect
 						value={currDate.getSeconds()}
 						disabled={disabled}
-						onChange={e => handleOnChange(e, TIMEMODE.SECONDS)}
+						onChange={(e: number): void => handleOnChange(e, TIMEMODE.SECONDS)}
 					/>
 				</Column>
 			}
@@ -100,7 +100,7 @@ export const TimeSelect = (props: ITimeSelectProps) => {
 					<MilliSecondSelect
 						value={currDate.getMilliseconds()}
 						disabled={disabled}
-						onChange={e => handleOnChange(e, TIMEMODE.MILLISECONDS)}
+						onChange={(e: number): void => handleOnChange(e, TIMEMODE.MILLISECONDS)}
 					/>
 				</Column>
 			}

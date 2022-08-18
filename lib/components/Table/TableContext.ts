@@ -7,4 +7,4 @@ export interface ITableContext {
 export const TableContext: Context<ITableContext> = createContext<ITableContext>({
 	variant: 'head'
 });
-export const useTableContext = () => useContext(TableContext);
+export const useTableContext = (): ITableContext => useContext(TableContext);

@@ -7,4 +7,4 @@ export interface ITabsContext {
 }
 
 export const TabContext: Context<ITabsContext> = createContext<ITabsContext>({});
-export const useTabContext = () => useContext(TabContext);
+export const useTabContext = (): ITabsContext => useContext(TabContext);

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FormControl, ISelectProps, Select, snackbarService } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ISelectProps>) => {
+const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ISelectProps>): JSX.Element => {
 
 	const [value, setValue] = useState<string>('8');
 
@@ -15,7 +15,7 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 		});
 	}, []);
 
-	const handleOnChange = (e: string | string[]) => {
+	const handleOnChange = (e: string | string[]): void => {
 		snackbarService.show(`value changed: ${e}`);
 		setValue(e as string);
 	};

@@ -6,7 +6,7 @@ import App from './App';
 import packageJson from '../package.json';
 import { IAppInfo } from './app.interfaces';
 
-export const AppContainer = () => {
+export const AppContainer = (): JSX.Element => {
 
 	useEffect(() => {
 		setAppInfo({ name: packageJson.name, version: packageJson.version });

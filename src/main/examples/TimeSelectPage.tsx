@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { FormControl, ITimeSelectProps, TimeSelect } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const TimeSelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITimeSelectProps>) => {
+const TimeSelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITimeSelectProps>): JSX.Element => {
 
 	useEffect(() => {
 		setSettingsControls({

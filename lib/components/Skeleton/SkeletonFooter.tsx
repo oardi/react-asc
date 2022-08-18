@@ -5,7 +5,7 @@ export interface ISkeletonFooterProps extends React.ComponentProps<'div'> {
 	indeterminate?: boolean;
 }
 
-export const SkeletonFooter = (props: ISkeletonFooterProps) => {
+export const SkeletonFooter = (props: ISkeletonFooterProps): JSX.Element => {
 
 	const { className, ...rest } = props;
 

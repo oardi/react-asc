@@ -9,7 +9,7 @@ interface ICardPageBaseProps {
 	showFooter?: boolean;
 }
 
-const CardPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ICardPageBaseProps>) => {
+const CardPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ICardPageBaseProps>): JSX.Element => {
 
 	useEffect(() => {
 		setSettingsControls({

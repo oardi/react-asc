@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Button, Card, CardBody, CssTransition } from 'lib';
 import { withOptions } from './components';
 
-export const CssTransitionPageBase = () => {
+export const CssTransitionPageBase = (): JSX.Element => {
 
 	const [isShow, setIsShow] = useState<boolean>(false);
 
 	return (
 		<>
-			<Button onClick={() => setIsShow(!isShow)}>
+			<Button onClick={(): void => setIsShow(!isShow)}>
 				toggle css transition
 			</Button>
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FormControl, INumberSelectProps, NumberSelect, snackbarService } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const NumberSelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<INumberSelectProps>) => {
+const NumberSelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<INumberSelectProps>): JSX.Element => {
 
 	const [value, setValue] = useState<number>(settingValues.from as number);
 
@@ -17,7 +17,7 @@ const NumberSelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 		setValue(settingValues.from as number);
 	}, [settingValues.from]);
 
-	const handleOnChange = (e: number) => {
+	const handleOnChange = (e: number): void => {
 		snackbarService.show(`You selected: ${e}`);
 		setValue(e);
 	};

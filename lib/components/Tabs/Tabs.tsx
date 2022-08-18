@@ -16,7 +16,7 @@ export interface ITabsProps {
 	value?: string;
 }
 
-export const Tabs = (props: ITabsProps) => {
+export const Tabs = (props: ITabsProps): JSX.Element => {
 
 	const { children, className, fixed = false, color, indicatorColor = COLOR.accent, value, onChange } = props;
 
@@ -48,7 +48,7 @@ export const Tabs = (props: ITabsProps) => {
 		}
 	}, [selectedValue]);
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.tabs);
 		className && cssClasses.push(className);

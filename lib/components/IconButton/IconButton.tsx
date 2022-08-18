@@ -12,11 +12,11 @@ export interface IIconButtonProps extends React.ComponentProps<'button'> {
 	shadow?: boolean;
 }
 
-export const IconButton = (props: IIconButtonProps) => {
+export const IconButton = (props: IIconButtonProps): JSX.Element => {
 
 	const { children, icon, variant = VARIANT.text, color = COLOR.dark, size = SIZE.md, isActive, disabled, className, shadow, ...rest } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles[color]);
 		cssClasses.push(styles[variant]);

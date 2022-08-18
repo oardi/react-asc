@@ -2,7 +2,7 @@ import { Button, FormControl, ILoadingIndicatorContainerProps, LoadingIndicator,
 import { useEffect, useState } from 'react';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const LoadingIndicatorPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ILoadingIndicatorContainerProps>) => {
+const LoadingIndicatorPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ILoadingIndicatorContainerProps>): JSX.Element => {
 
 	const [isVisible, setIsVisible] = useState<boolean>(false);
 
@@ -12,14 +12,14 @@ const LoadingIndicatorPageBase = ({ settingValues, setSettingsControls }: IShowc
 		});
 	}, []);
 
-	const handleClick = () => {
+	const handleClick = (): void => {
 		setIsVisible(true);
 		setTimeout(() => {
 			setIsVisible(false);
 		}, 1000);
 	};
 
-	const handleClickByService = () => {
+	const handleClickByService = (): void => {
 		loadingIndicatorService.show();
 		setTimeout(() => {
 			loadingIndicatorService.hide();

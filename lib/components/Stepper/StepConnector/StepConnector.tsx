@@ -6,7 +6,7 @@ export interface IStepConnectorProps {
 	isHorizontal?: boolean;
 }
 
-export const StepConnector = (props: IStepConnectorProps) => {
+export const StepConnector = (props: IStepConnectorProps): JSX.Element => {
 
 	const { isActive, isHorizontal = true } = props;
 

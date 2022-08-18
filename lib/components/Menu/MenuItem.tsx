@@ -1,7 +1,7 @@
 import React from 'react';
 import { IListItemProps, ListItem } from '../List';
 
-export const MenuItem = (props: IListItemProps) => {
+export const MenuItem = (props: IListItemProps): JSX.Element => {
 
 	const { children, onClick, ...rest } = props;
 

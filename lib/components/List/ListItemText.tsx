@@ -6,9 +6,9 @@ interface IListItemTextProps extends React.ComponentProps<'div'> {
 	secondary?: ReactNode;
 }
 
-export const ListItemText = ({ primary, secondary, ...rest }: IListItemTextProps) => {
+export const ListItemText = ({ primary, secondary, ...rest }: IListItemTextProps): JSX.Element => {
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.listItemText);
 		return cssClasses.filter(css => css).join(' ');
@@ -29,13 +29,13 @@ export const ListItemText = ({ primary, secondary, ...rest }: IListItemTextProps
 };
 
 
-const ListItemTextPrimary = ({ children }: React.ComponentProps<'div'>) => (
+const ListItemTextPrimary = ({ children }: React.ComponentProps<'div'>): JSX.Element => (
 	<div className="list-item-text-primary">
 		{children}
 	</div>
 );
 
-const ListItemTextSecondary = ({ children }: React.ComponentProps<'div'>) => (
+const ListItemTextSecondary = ({ children }: React.ComponentProps<'div'>): JSX.Element => (
 	<div className="list-item-text-secondary text-muted" style={{ fontSize: '0.875rem' }}>
 		{children}
 	</div>

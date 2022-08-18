@@ -5,7 +5,7 @@ export interface ITabPanelProps extends React.DetailedHTMLProps<React.HTMLProps<
 	index: string;
 }
 
-export const TabPanel = (props: ITabPanelProps) => {
+export const TabPanel = (props: ITabPanelProps): JSX.Element => {
 
 	const { children, value, index, ...rest } = props;
 

@@ -10,7 +10,7 @@ export interface ISecondProps {
 	onChange?: (val: number) => void;
 }
 
-export const SecondSelect = (props: ISecondProps) => {
+export const SecondSelect = (props: ISecondProps): JSX.Element => {
 
 	const { className, value = 0, id, name, disabled, onChange } = props;
 	const [newValue, setNewValue] = useState<number>(value);
@@ -24,13 +24,13 @@ export const SecondSelect = (props: ISecondProps) => {
 		setSecondOptions(newSecondOptions);
 	}, []);
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleOnChange = (e: number) => {
+	const handleOnChange = (e: number): void => {
 		setNewValue(e);
 		onChange && onChange(e);
 	};
@@ -41,7 +41,7 @@ export const SecondSelect = (props: ISecondProps) => {
 			name={name}
 			className={getCssClasses()}
 			options={secondOptions}
-			onChange={(e) => handleOnChange(parseInt(e as string))}
+			onChange={(e): void => handleOnChange(parseInt(e as string))}
 			disabled={disabled}
 			value={newValue.toString()}
 		/>

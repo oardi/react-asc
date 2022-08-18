@@ -36,7 +36,7 @@ export const GlobalModal = ({
 	],
 	size = SIZE.md,
 	fullScreen = false
-}: IModalProps) => {
+}: IModalProps): JSX.Element => {
 
 	// workaround for getDerivedStateFromProps
 	const [myControls, setMyControls] = useState<IControls | null>(null);

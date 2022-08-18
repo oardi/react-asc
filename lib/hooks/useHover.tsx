@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 
-export function useHover() {
+export function useHover(): (boolean | React.MutableRefObject<null>)[] {
 	const [value, setValue] = useState(false);
 	const ref: React.MutableRefObject<null> = useRef(null);
-	const handleMouseOver = () => setValue(true);
-	const handleMouseOut = () => setValue(false);
+	const handleMouseOver = (): void => setValue(true);
+	const handleMouseOut = (): void => setValue(false);
 	useEffect(
 		() => {
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any

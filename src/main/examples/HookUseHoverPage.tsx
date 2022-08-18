@@ -1,7 +1,7 @@
 import React from 'react';
 import { withOptions } from './components';
 
-const HookUseHoverPageBase = () => {
+const HookUseHoverPageBase = (): JSX.Element => {
 
 	return (
 		<>

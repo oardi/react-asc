@@ -7,7 +7,7 @@ interface IShowcaseOptionsProps {
 	onFormChange: (val: unknown) => void;
 }
 
-export const ShowcaseOptions = ({ controls, onFormChange }: IShowcaseOptionsProps) => {
+export const ShowcaseOptions = ({ controls, onFormChange }: IShowcaseOptionsProps): JSX.Element => {
 	return (
 		<Fragment>
 			<ShowcaseSettings

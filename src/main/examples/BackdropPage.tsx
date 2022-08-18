@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FormControl, Button, Backdrop, IBackdropProps } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const BackdropPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IBackdropProps>) => {
+const BackdropPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IBackdropProps>): JSX.Element => {
 
 	useEffect(() => {
 		setSettingsControls({
@@ -14,7 +14,7 @@ const BackdropPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 
 	return (
 		<>
-			<Button onClick={() => setIsShow(!isShow)}>
+			<Button onClick={(): void => setIsShow(!isShow)}>
 				{isShow ? 'hide' : 'show'}
 			</Button>
 

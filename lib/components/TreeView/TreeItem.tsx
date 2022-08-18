@@ -14,14 +14,14 @@ export interface ITreeItemProps extends React.DetailedHTMLProps<React.InputHTMLA
 	onItemSelect?: (e: { id: string, isSelected: boolean }) => void;
 }
 
-export const TreeItem = (props: ITreeItemProps) => {
+export const TreeItem = (props: ITreeItemProps): JSX.Element => {
 
 	const { nodeId, label, children, className, isExpanded, isSelected, isSelectable, onToggleExpand, onItemSelect } = props;
 
 	const [_isExpanded, setIsExpanded] = useState<boolean>(false);
 	const [_isSelected, setIsSelected] = useState<boolean>(false);
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.treeItem);
 		className && cssClasses.push(className);
@@ -40,12 +40,12 @@ export const TreeItem = (props: ITreeItemProps) => {
 		}
 	}, [isSelected]);
 
-	const handleOnToggleExpand = (nodeId: string) => {
+	const handleOnToggleExpand = (nodeId: string): void => {
 		setIsExpanded(!_isExpanded);
 		onToggleExpand && onToggleExpand(nodeId);
 	};
 
-	const handleOnSelect = (nodeId: string) => {
+	const handleOnSelect = (nodeId: string): void => {
 		setIsSelected(!_isSelected);
 		onItemSelect && onItemSelect({ id: nodeId, isSelected: !_isSelected });
 	};
@@ -58,11 +58,17 @@ export const TreeItem = (props: ITreeItemProps) => {
 			<div className="d-flex align-items-center">
 
 				{children && nodeId &&
-					<IconButton onClick={() => handleOnToggleExpand(nodeId)} icon={!_isExpanded ? <ChevronRightSolidIcon /> : <ChevronDownSolidIcon />} />
+					<IconButton
+						onClick={(): void => handleOnToggleExpand(nodeId)}
+						icon={!_isExpanded ? <ChevronRightSolidIcon /> : <ChevronDownSolidIcon />}
+					/>
 				}
 
 				{isSelectable && nodeId &&
-					<Checkbox checked={_isSelected} onChange={() => handleOnSelect(nodeId)} />
+					<Checkbox
+						checked={_isSelected}
+						onChange={(): void => handleOnSelect(nodeId)}
+					/>
 				}
 
 				{label}

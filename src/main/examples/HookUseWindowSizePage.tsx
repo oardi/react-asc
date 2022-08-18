@@ -1,7 +1,7 @@
 import React from 'react';
 import { withOptions } from './components';
 
-const HookUseWindowSizePageBase = () => {
+const HookUseWindowSizePageBase = (): JSX.Element => {
 	return (
 		<>
 			Switch to "Usage" to see how to use this hook

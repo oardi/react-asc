@@ -8,10 +8,10 @@ export interface IWrapperProps {
 	wrap?: boolean;
 }
 
-const Wrapper = (props: IWrapperProps) => {
+const Wrapper = (props: IWrapperProps): JSX.Element => {
 	const { as = 'span', wrap, children, className, ...rest } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.typography);
 		cssClasses.push(styles.as);
@@ -29,7 +29,7 @@ export interface ITypographyProps extends React.ComponentProps<'span'> {
 	wrap?: boolean;
 }
 
-export const Typography = ({ children, as = 'span', wrap, ...rest }: ITypographyProps) => {
+export const Typography = ({ children, as = 'span', wrap, ...rest }: ITypographyProps): JSX.Element => {
 	return (
 		<Wrapper as={as} wrap={wrap} {...rest}>
 			{children}

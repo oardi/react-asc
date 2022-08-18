@@ -5,7 +5,7 @@ import { IShowcaseBaseProps, withOptions } from './components';
 
 
 const CLASSNAME: string = 'TabsPageBase';
-const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITabsProps>) => {
+const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITabsProps>): JSX.Element => {
 
 	const [selectedValue, setSelectedValue] = useState<string>('tabspage-tab2');
 
@@ -15,7 +15,7 @@ const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 		});
 	}, []);
 
-	const handleChange = (value: string) => {
+	const handleChange = (value: string): void => {
 		loggerService.debug(CLASSNAME, 'handleChange');
 		snackbarService.show(`You selected: ${value}`);
 		setSelectedValue(value);

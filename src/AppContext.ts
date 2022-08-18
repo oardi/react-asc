@@ -7,4 +7,4 @@ export interface IAppContext {
 }
 
 export const AppContext: Context<IAppContext> = createContext<IAppContext>({});
-export const useAppContext = () => useContext(AppContext);
+export const useAppContext = (): IAppContext => useContext(AppContext);

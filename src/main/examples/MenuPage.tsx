@@ -4,7 +4,7 @@ import { loggerService } from '../../shared';
 import { IShowcaseBaseProps, withOptions } from './components';
 import { UserCircleSolidIcon } from '../assets';
 
-const MenuPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IMenuProps>) => {
+const MenuPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IMenuProps>): JSX.Element => {
 
 	const [open, setOpen] = useState(false);
 
@@ -19,7 +19,7 @@ const MenuPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 		});
 	}, []);
 
-	const handleClick = (text: string) => {
+	const handleClick = (text: string): void => {
 		loggerService.debug('handleClick', text);
 		setOpen(false);
 		snackbarService.show(`you clicked action ${text}`);
@@ -29,22 +29,22 @@ const MenuPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 		<>
 			<Menu
 				toggle={
-					<Button onClick={() => setOpen(true)}>
+					<Button onClick={(): void => setOpen(true)}>
 						Menu Button
 					</Button>
 				}
 				open={open}
 				menuPosition={settingValues.menuPosition}
-				onClickBackdrop={() => setOpen(false)}
+				onClickBackdrop={(): void => setOpen(false)}
 			>
-				<MenuItem onClick={() => handleClick('1')}>
+				<MenuItem onClick={(): void => handleClick('1')}>
 					<ListItemAvatar avatar={<UserCircleSolidIcon />} />
 					<ListItemText primary="lorem ipsum" />
 				</MenuItem>
-				<MenuItem onClick={() => handleClick('2')}>
+				<MenuItem onClick={(): void => handleClick('2')}>
 					Action 2
 				</MenuItem>
-				<MenuItem disabled onClick={() => handleClick('3')}>
+				<MenuItem disabled onClick={(): void => handleClick('3')}>
 					Action 3
 				</MenuItem>
 			</Menu>

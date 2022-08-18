@@ -5,7 +5,7 @@ interface IListItemIconProps extends React.ComponentProps<'div'> {
 	icon: React.ReactNode;
 }
 
-export const ListItemIcon = ({ icon, ...rest }: IListItemIconProps) => (
+export const ListItemIcon = ({ icon, ...rest }: IListItemIconProps): JSX.Element => (
 	<div className={styles.icon} {...rest}>
 		{icon}
 	</div>

@@ -3,7 +3,7 @@ import { Snackbar, useConstructor } from 'lib';
 // import * as serviceWorkerRegistration from '../../serviceWorkerRegistration';
 import { registerSW } from 'virtual:pwa-register';
 
-export const ServiceWorkerWrapper = () => {
+export const ServiceWorkerWrapper = (): JSX.Element => {
 	const [showReload, setShowReload] = React.useState(false);
 	const [waitingWorker] = React.useState<ServiceWorker | null>(null);
 
@@ -18,7 +18,7 @@ export const ServiceWorkerWrapper = () => {
 		}
 	});
 
-	const reloadPage = () => {
+	const reloadPage = (): void => {
 		setShowReload(false);
 		waitingWorker?.postMessage({ type: 'SKIP_WAITING' });
 		window.location.reload();

@@ -11,7 +11,7 @@ import { menuItems } from './AppMenu';
 
 const CLASSNAME: string = 'App';
 
-const App = () => {
+const App = (): JSX.Element => {
 
 	const { appInfo } = useAppContext();
 
@@ -29,7 +29,7 @@ const App = () => {
 		}
 	}, [isMobile, appState]);
 
-	const init = () => {
+	const init = (): void => {
 		loggerService.debug(CLASSNAME, 'init');
 		try {
 			setRoutes(menuItems.map(item => new RouteModel(item)));
@@ -44,7 +44,7 @@ const App = () => {
 				<IconButton
 					color={COLOR.primary}
 					icon={<BarsSolidIcon />}
-					onClick={() => setShowMenu(!showMenu)}
+					onClick={(): void => setShowMenu(!showMenu)}
 				/>
 
 				{appInfo && (
@@ -57,8 +57,13 @@ const App = () => {
 
 			<div className="main">
 				{showMenu &&
-					<Drawer permanent={!isMobile} onClickBackdrop={() => setShowMenu(false)}>
-						<AppSidebar menuItems={sidebarItems} onItemClicked={() => isMobile && setShowMenu(false)} />
+					<Drawer
+						permanent={!isMobile}
+						onClickBackdrop={(): void => setShowMenu(false)}>
+						<AppSidebar
+							menuItems={sidebarItems}
+							onItemClicked={(): false | void => isMobile && setShowMenu(false)}
+						/>
 					</Drawer>
 				}
 

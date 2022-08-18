@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardBody, CardText, CardTitle } from 'lib';
 
-export const ShowcaseApiOptions = () => {
+export const ShowcaseApiOptions = (): JSX.Element => {
 	return (
 		<Card className="mt-3">
 			<CardBody>

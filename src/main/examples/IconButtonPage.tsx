@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { IconButton, IIconButtonProps, HomeSolidIcon, FormControl, COLOR, VARIANT, snackbarService, SIZE } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IIconButtonProps>) => {
+const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IIconButtonProps>): JSX.Element => {
 
 	useEffect(() => {
 		setSettingsControls({
@@ -15,7 +15,7 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 		});
 	}, []);
 
-	const handleClick = () => {
+	const handleClick = (): void => {
 		snackbarService.show('IconButton clicked');
 	};
 

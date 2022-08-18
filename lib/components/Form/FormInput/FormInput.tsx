@@ -37,7 +37,7 @@ export interface IFormInputProps {
 	onKeyDown?: React.KeyboardEventHandler<HTMLInputElement | undefined>;
 }
 
-export const FormInput = (props: IFormInputProps) => {
+export const FormInput = (props: IFormInputProps): JSX.Element => {
 
 	const {
 		value,

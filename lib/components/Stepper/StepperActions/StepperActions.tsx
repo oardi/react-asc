@@ -15,7 +15,7 @@ export interface IStepperActionsProps {
 	onReset?: () => void;
 }
 
-export const StepperActions = (props: IStepperActionsProps) => {
+export const StepperActions = (props: IStepperActionsProps): JSX.Element => {
 
 	const { className, isCompleted, isFirstStep, isStepOptional, onBack, onSkip, onNext, onReset } = props;
 

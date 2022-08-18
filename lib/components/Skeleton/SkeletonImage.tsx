@@ -5,7 +5,7 @@ export interface ISkeletonImageProps extends React.ComponentProps<'div'> {
 	indeterminate?: boolean;
 }
 
-export const SkeletonImage = (props: ISkeletonImageProps) => {
+export const SkeletonImage = (props: ISkeletonImageProps): JSX.Element => {
 
 	const { className, ...rest } = props;
 

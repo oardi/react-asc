@@ -11,7 +11,7 @@ export interface IMenuProps extends React.DetailedHTMLProps<React.HtmlHTMLAttrib
 	onClickBackdrop?: () => void;
 }
 
-export const Menu = (props: IMenuProps) => {
+export const Menu = (props: IMenuProps): JSX.Element => {
 
 	const { toggle, children, className, open, menuPosition, onClickBackdrop, ...rest } = props;
 

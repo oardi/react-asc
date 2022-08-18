@@ -5,7 +5,7 @@ export interface ISpeedDialIconProps extends React.DetailedHTMLProps<React.HtmlH
 	openIcon?: ReactElement;
 }
 
-export const SpeedDialIcon = (props: ISpeedDialIconProps) => {
+export const SpeedDialIcon = (props: ISpeedDialIconProps): JSX.Element => {
 
 	const { children, className, ...rest } = props;
 

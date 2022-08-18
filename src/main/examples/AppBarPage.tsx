@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { AppBar, AppBarTitle, COLOR, FormControl, HomeSolidIcon, IAppBarProps, IconButton, Tooltip, Typography } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const AppBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IAppBarProps>) => {
+const AppBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IAppBarProps>): JSX.Element => {
 
 	useEffect(() => {
 		setSettingsControls({

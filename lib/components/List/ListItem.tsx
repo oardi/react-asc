@@ -9,11 +9,11 @@ export interface IListItemProps extends React.ComponentProps<'li'> {
 	disabled?: boolean;
 }
 
-export const ListItem = (props: IListItemProps) => {
+export const ListItem = (props: IListItemProps): JSX.Element => {
 
 	const { children, color, active, className, disabled, onClick, ...rest } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.listItem);
 		color && cssClasses.push(styles[color]);
@@ -23,7 +23,7 @@ export const ListItem = (props: IListItemProps) => {
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
+	const handleClick = (e: React.MouseEvent<HTMLLIElement>): void => {
 		!disabled && onClick && onClick(e);
 	};
 

@@ -2,7 +2,7 @@ import { Button, ButtonGroup, COLOR, FormControl, IButtonGroupProps, snackbarSer
 import { useEffect } from 'react';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const ButtonGroupPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IButtonGroupProps>) => {
+const ButtonGroupPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IButtonGroupProps>): JSX.Element => {
 
 	useEffect(() => {
 		setSettingsControls({
@@ -11,7 +11,7 @@ const ButtonGroupPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	}, []);
 
 
-	const handleClick = () => {
+	const handleClick = (): void => {
 		snackbarService.show('Button clicked');
 	};
 

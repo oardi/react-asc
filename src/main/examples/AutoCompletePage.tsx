@@ -4,7 +4,7 @@ import { IShowcaseBaseProps, withOptions } from './components';
 
 interface IMyCustomData { id: string, label: string, description: string }
 
-const AutoCompletePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IAutoCompleteProps>) => {
+const AutoCompletePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IAutoCompleteProps>): JSX.Element => {
 
 	const [options, setOptions] = useState<ISelectOption[]>([]);
 	const [value, setValue] = useState<string>('');
@@ -43,11 +43,11 @@ const AutoCompletePageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 		{ id: '20', label: 'twenty', description: '20' },
 	];
 
-	const handleOnSelect = (e: ISelectOption) => {
+	const handleOnSelect = (e: ISelectOption): void => {
 		snackbarService.show(`value changed: ${e.label}`);
 	};
 
-	const handleOnChange = (val: string | undefined) => {
+	const handleOnChange = (val: string | undefined): void => {
 		setValue(val as string);
 		const regex: RegExp = new RegExp(val as string, 'gi');
 		const filteredOptions: IMyCustomData[] = newOptions.filter(option => val && option?.label?.match(regex) || option?.description?.match(regex));

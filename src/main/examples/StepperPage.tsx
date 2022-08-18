@@ -3,7 +3,7 @@ import { FormControl, IStepperProps, snackbarService, Step, Stepper } from 'lib'
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const CLASSNAME: string = 'StepperPageBase';
-const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IStepperProps>) => {
+const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IStepperProps>): JSX.Element => {
 
 	const [value, setValue] = useState<number>(0);
 
@@ -15,12 +15,12 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 		});
 	}, []);
 
-	const handleOnChange = (index: number) => {
+	const handleOnChange = (index: number): void => {
 		snackbarService.show(`you selected step ${index + 1}`);
 		setValue(index);
 	};
 
-	const handleOnFinish = () => {
+	const handleOnFinish = (): void => {
 		snackbarService.show('you reached the end');
 	};
 

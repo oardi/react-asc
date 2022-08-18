@@ -12,7 +12,7 @@ class LoadingIndicatorService implements ILoadingIndicatorService {
 	private handler: NodeJS.Timer | undefined;
 	private root: Root | undefined;
 
-	show() {
+	show(): void {
 		if (this.container) {
 			this.hide();
 		}
@@ -29,7 +29,7 @@ class LoadingIndicatorService implements ILoadingIndicatorService {
 
 	}
 
-	hide() {
+	hide(): void {
 		if (this.container) {
 			this.root?.unmount();
 			document.body.removeChild(this.container);

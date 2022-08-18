@@ -9,7 +9,7 @@ interface IButtonExampleProps extends IButtonProps {
 	showEndIcon?: boolean;
 }
 
-const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IButtonExampleProps>) => {
+const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IButtonExampleProps>): JSX.Element => {
 
 	useEffect(() => {
 		setSettingsControls({
@@ -25,7 +25,7 @@ const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 		});
 	}, []);
 
-	const handleClick = () => {
+	const handleClick = (): void => {
 		snackbarService.show('Button clicked');
 	};
 

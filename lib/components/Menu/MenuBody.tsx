@@ -15,7 +15,7 @@ export interface IMenuBodyProps {
 	onClickBackdrop?: () => void;
 }
 
-export const MenuBody = (props: IMenuBodyProps) => {
+export const MenuBody = (props: IMenuBodyProps): JSX.Element => {
 
 	const { parentRef, children, className, shadow = true, menuPosition = 'left', onClickBackdrop } = props;
 	const menuBodyRef: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);

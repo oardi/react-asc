@@ -5,11 +5,11 @@ export interface IListProps extends React.ComponentProps<'ul'> {
 	isFlush?: boolean;
 }
 
-export const List = (props: IListProps) => {
+export const List = (props: IListProps): JSX.Element => {
 
 	const { children, className, isFlush, ...rest } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		isFlush && cssClasses.push(styles.flush);
 		cssClasses.push(styles.list);

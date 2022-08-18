@@ -9,7 +9,7 @@ interface IColProps extends React.ComponentProps<'div'> {
 	xl?: number;
 }
 
-export const Column = (props: IColProps) => {
+export const Column = (props: IColProps): JSX.Element => {
 
 	const {
 		children,

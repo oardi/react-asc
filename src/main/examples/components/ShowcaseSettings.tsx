@@ -5,7 +5,7 @@ interface IShowcaseSettingsProps {
 	onFormChange: (val: IFormValues) => void;
 }
 
-export const ShowcaseSettings = ({ controls, onFormChange }: IShowcaseSettingsProps) => {
+export const ShowcaseSettings = ({ controls, onFormChange }: IShowcaseSettingsProps): JSX.Element => {
 	return (
 		<Card shadow={false}>
 			<CardBody>

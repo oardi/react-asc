@@ -20,7 +20,7 @@ export interface IModalProps {
 	size?: SIZE;
 }
 
-export const Modal = (props: IModalProps) => {
+export const Modal = (props: IModalProps): JSX.Element => {
 
 	const { target = document.body, className, size, fullScreen, children, header, footer, onHeaderCloseClick, onBackdropClick, isDismissable = false } = props;
 

@@ -10,28 +10,28 @@ export enum LogType { log = 'log', info = 'info', warn = 'warn', debug = 'debug'
 
 class LoggerService implements ILoggerService {
 
-	log(...args: unknown[]) {
+	log(...args: unknown[]): void {
 		this._doLog(LogType.log, args);
 	}
 
-	info(...args: unknown[]) {
+	info(...args: unknown[]): void {
 		this._doLog(LogType.info, args);
 	}
 
-	warn(...args: unknown[]) {
+	warn(...args: unknown[]): void {
 		this._doLog(LogType.warn, args);
 	}
 
-	debug(...args: unknown[]) {
+	debug(...args: unknown[]): void {
 		this._doLog(LogType.debug, args);
 
 	}
 
-	error(...args: unknown[]) {
+	error(...args: unknown[]): void {
 		this._doLog(LogType.error, args);
 	}
 
-	_doLog(logType: LogType, args: unknown) {
+	_doLog(logType: LogType, args: unknown): void {
 		switch (logType) {
 			case LogType.log:
 				console.log(args);

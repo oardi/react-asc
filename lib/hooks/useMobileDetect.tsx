@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { IUseWindowSize, useWindowSize } from './useWindowSize';
 
-export function useMobileDetect() {
+export function useMobileDetect(): { isMobile: boolean; } {
 	const [isMobile, setIsMobile] = useState<boolean>(false);
 	const windowSize: IUseWindowSize = useWindowSize();
 
-	const checkIsMobile = (height: number, width: number) => {
+	const checkIsMobile = (height: number, width: number): void => {
 		if (height > 0 && width > 0) {
 			setIsMobile(!(width >= 640));
 		}

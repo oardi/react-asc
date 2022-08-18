@@ -10,7 +10,7 @@ interface ISidebarProps extends React.ComponentProps<'nav'> {
 	onItemClicked: (path: string) => void;
 }
 
-export const Sidebar = (props: ISidebarProps) => {
+export const Sidebar = (props: ISidebarProps): JSX.Element => {
 
 	const { className, items, currentUrl, onItemClicked, ...rest } = props;
 	const [menuItems, setMenuItems] = useState<SidebarItemModel[]>([]);

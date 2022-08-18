@@ -5,7 +5,7 @@ import { IShowcaseBaseProps, withOptions } from './components';
 
 
 const CLASSNAME: string = 'ShowcaseChipPageBase';
-export const ChipPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IChipProps>) => {
+export const ChipPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IChipProps>): JSX.Element => {
 
 	useEffect(() => {
 		setSettingsControls({
@@ -15,7 +15,7 @@ export const ChipPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 		});
 	}, []);
 
-	const handleClick = () => {
+	const handleClick = (): void => {
 		loggerService.debug(CLASSNAME, 'handleClick');
 		snackbarService.show('chip clicked');
 	};

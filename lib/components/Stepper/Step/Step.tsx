@@ -21,7 +21,7 @@ export interface IStepProps {
 	onClick?: (e: { event: React.MouseEvent, value: string }) => void;
 }
 
-export const Step = (props: IStepProps) => {
+export const Step = (props: IStepProps): JSX.Element => {
 
 	const { className, label, showLabel, index, value, isActive, isDone, isDisabled, showProgressCheckIcon, onClick } = props;
 	const [hoverRef, isHovered] = useHover();

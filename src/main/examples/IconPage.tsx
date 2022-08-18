@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { COLOR, FormControl, HomeSolidIcon, Icon, IIconProps } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const IconPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IIconProps>) => {
+const IconPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IIconProps>): JSX.Element => {
 
 	useEffect(() => {
 		setSettingsControls({

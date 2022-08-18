@@ -11,20 +11,20 @@ export interface ITabProps {
 	onClick?: (e: { event: React.MouseEvent, value: string }) => void;
 }
 
-export const Tab = (props: ITabProps) => {
+export const Tab = (props: ITabProps): JSX.Element => {
 
 	const { label, className, disabled, value, onClick } = props;
 
 	const { selectedValue, setSelectedValue } = useTabContext();
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string[] => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.tab);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleClick = (event: React.MouseEvent) => {
+	const handleClick = (event: React.MouseEvent): void => {
 		onClick && onClick({ event, value });
 		setSelectedValue && setSelectedValue(value);
 	};

@@ -6,7 +6,7 @@ export interface ITableCellProps extends React.ComponentProps<'th'>, React.Compo
 	component?: 'th';
 }
 
-export const TableCell = (props: ITableCellProps) => {
+export const TableCell = (props: ITableCellProps): JSX.Element => {
 
 	const { variant } = useTableContext();
 

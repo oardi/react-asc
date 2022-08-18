@@ -7,7 +7,7 @@ interface IFormErrorProps {
 	errors?: IFormInputError[];
 }
 
-export const FormError = (props: IFormErrorProps) => {
+export const FormError = (props: IFormErrorProps): JSX.Element => {
 
 	const { className = styles.isInvalid, errors = [] } = props;
 

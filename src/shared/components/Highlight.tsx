@@ -14,7 +14,7 @@ export interface IHighlightProps {
 	language?: string;
 }
 
-export const Highlight = ({ url, text, language = 'javascript' }: IHighlightProps) => {
+export const Highlight = ({ url, text, language = 'javascript' }: IHighlightProps): JSX.Element => {
 
 	const [highlightedText, setHighlightedText] = useState<string>('');
 
@@ -30,7 +30,7 @@ export const Highlight = ({ url, text, language = 'javascript' }: IHighlightProp
 		if (text) { renderText(text); }
 	}, [text]);
 
-	const loadFile = async (url: string) => {
+	const loadFile = async (url: string): Promise<void> => {
 		try {
 			const response: AxiosResponse<string> = await fileLoaderService.get<string>(url, { responseType: 'text' });
 			setHighlightedText(response.data);
@@ -39,9 +39,8 @@ export const Highlight = ({ url, text, language = 'javascript' }: IHighlightProp
 		}
 	};
 
-	const renderText = async (text: string) => {
-		const snarked: string = snarkdown(text);
-		setHighlightedText(snarked);
+	const renderText = (text: string): void => {
+		setHighlightedText(snarkdown(text));
 	};
 
 	return (

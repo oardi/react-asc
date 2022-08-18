@@ -6,7 +6,7 @@ export interface ILoadingIndicatorContainerProps {
 	isFixed?: boolean;
 }
 
-export const LoadingIndicatorContainer = ({ children, isFixed }: ILoadingIndicatorContainerProps) => {
+export const LoadingIndicatorContainer = ({ children, isFixed }: ILoadingIndicatorContainerProps): JSX.Element => {
 
 	const getCssClasses = () => {
 		const cssClasses: string[] = [];

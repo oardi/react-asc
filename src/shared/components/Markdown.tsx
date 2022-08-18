@@ -9,7 +9,7 @@ export interface IMarkdownProps {
 	url?: string;
 }
 
-export const Markdown = ({ url, text }: IMarkdownProps) => {
+export const Markdown = ({ url, text }: IMarkdownProps): JSX.Element => {
 
 	const [markdownText, setMarkdownText] = useState<string>('');
 
@@ -21,7 +21,7 @@ export const Markdown = ({ url, text }: IMarkdownProps) => {
 		if (text) { renderText(text); }
 	}, [text]);
 
-	const loadFile = async (url: string) => {
+	const loadFile = async (url: string): Promise<void> => {
 		try {
 			const response: AxiosResponse<string> = await fileLoaderService.get<string>(url, { responseType: 'text' });
 			setMarkdownText(response.data);
@@ -30,7 +30,7 @@ export const Markdown = ({ url, text }: IMarkdownProps) => {
 		}
 	};
 
-	const renderText = async (text: string) => {
+	const renderText = (text: string): void => {
 		setMarkdownText(snarkdown(text));
 	};
 

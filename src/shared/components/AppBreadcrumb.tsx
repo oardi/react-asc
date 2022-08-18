@@ -15,7 +15,7 @@ interface IAppBreadcrumb {
 }
 
 const CLASSNAME: string = 'AppBreadcrumb';
-export const AppBreadcrumb = ({ className }: IAppBreadcrumbProps) => {
+export const AppBreadcrumb = ({ className }: IAppBreadcrumbProps): JSX.Element => {
 
 	const location: Location = useLocation();
 	const navigate: NavigateFunction = useNavigate();
@@ -31,7 +31,7 @@ export const AppBreadcrumb = ({ className }: IAppBreadcrumbProps) => {
 		setItems(newItems.length <= 1 ? [] : newItems);
 	}, [location]);
 
-	const handleClickBreadcrumbItem = (item: IAppBreadcrumb) => {
+	const handleClickBreadcrumbItem = (item: IAppBreadcrumb): void => {
 		loggerService.debug(CLASSNAME, 'handleClickBreadcrumbItem');
 		if (!item.isActive && location.pathname !== item.path) { navigate(item.path as string); }
 	};
@@ -41,7 +41,12 @@ export const AppBreadcrumb = ({ className }: IAppBreadcrumbProps) => {
 			{items && items.length > 0 &&
 				<Breadcrumb className={className}>
 					{items.map((item, index) =>
-						<BreadcrumbItem key={index} isActive={item.isActive} path={item.path} onClick={() => handleClickBreadcrumbItem(item)}>
+						<BreadcrumbItem
+							key={index}
+							isActive={item.isActive}
+							path={item.path}
+							onClick={(): void => handleClickBreadcrumbItem(item)}
+						>
 							{item.label && !item.icon &&
 								<span>
 									{item.label}

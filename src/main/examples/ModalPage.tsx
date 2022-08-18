@@ -10,7 +10,7 @@ interface IModalPageValues {
 	autoComplete: string;
 }
 
-const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IModalProps>) => {
+const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IModalProps>): JSX.Element => {
 
 	useEffect(() => {
 		setSettingsControls({
@@ -21,11 +21,11 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 
 	const [isVisible, setIsVisible] = useState(false);
 
-	const handleClickShowModal = () => {
+	const handleClickShowModal = (): void => {
 		setIsVisible(!isVisible);
 	};
 
-	const handleClickTriggerModalService = (fullscreen?: boolean) => {
+	const handleClickTriggerModalService = (fullscreen?: boolean): void => {
 		modalService.show('Hello Modal', 'Modal with custom buttons - using custom buttons make sure to attach Modalbuttontype for ok and cancel', {
 			buttons: [
 				{ label: 'delete', color: COLOR.accent, handler: customHandler },
@@ -38,11 +38,11 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 			.then(() => loggerService.debug('ok clicked'));
 	};
 
-	const customHandler = () => {
+	const customHandler = (): void => {
 		snackbarService.show('custom handler triggered');
 	};
 
-	const handleClickTriggerModalFormService = () => {
+	const handleClickTriggerModalFormService = (): void => {
 		const controls: IControls = {
 			firstName: new FormControl('', ['required'], 'text', { label: 'Firstname', autoFocus: true, placeholder: 'Firstname' }),
 			select: new FormControl('option2', [], 'select', {
@@ -131,19 +131,19 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 	return (
 		<>
 			<div className="d-flex flex-wrap">
-				<Button className="mr-2 mb-2" onClick={() => handleClickShowModal()}>
+				<Button className="mr-2 mb-2" onClick={(): void => handleClickShowModal()}>
 					show modal
 				</Button>
 
-				<Button className="mr-2 mb-2" onClick={() => handleClickTriggerModalService()}>
+				<Button className="mr-2 mb-2" onClick={(): void => handleClickTriggerModalService()}>
 					modal with service
 				</Button>
 
-				<Button className="mr-2 mb-2" onClick={() => handleClickTriggerModalService(true)}>
+				<Button className="mr-2 mb-2" onClick={(): void => handleClickTriggerModalService(true)}>
 					fullscreeen via service
 				</Button>
 
-				<Button className="mr-2" onClick={() => handleClickTriggerModalFormService()}>
+				<Button className="mr-2" onClick={(): void => handleClickTriggerModalFormService()}>
 					modal with form via service
 				</Button>
 
@@ -153,7 +153,7 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 						header="Modal Header"
 						size={settingValues.size}
 						isDismissable={true}
-						onHeaderCloseClick={() => setIsVisible(!isVisible)}
+						onHeaderCloseClick={(): void => setIsVisible(!isVisible)}
 					>
 						some modal content
 					</Modal>

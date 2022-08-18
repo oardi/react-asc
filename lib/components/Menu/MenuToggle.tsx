@@ -4,6 +4,6 @@ interface IMenuToggleProps {
 	children?: ReactNode;
 }
 
-export const MenuToggle = ({ children }: IMenuToggleProps) => {
+export const MenuToggle = ({ children }: IMenuToggleProps): JSX.Element => {
 	return children;
 };

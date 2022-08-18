@@ -5,7 +5,7 @@ interface IFormGroupProps {
 	className?: string;
 }
 
-export const FormGroup = (props: IFormGroupProps) => {
+export const FormGroup = (props: IFormGroupProps): JSX.Element => {
 
 	const { children, className = 'mb-1' } = props;
 

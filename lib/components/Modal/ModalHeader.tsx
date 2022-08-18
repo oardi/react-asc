@@ -9,7 +9,7 @@ interface IModalHeaderProps extends React.ComponentProps<'div'> {
 	isDismissable?: boolean;
 }
 
-export const ModalHeader = (props: IModalHeaderProps) => {
+export const ModalHeader = (props: IModalHeaderProps): JSX.Element => {
 
 	const { children, isDismissable = false, onClose, ...rest } = props;
 

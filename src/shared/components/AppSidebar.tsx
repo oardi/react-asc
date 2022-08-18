@@ -7,12 +7,12 @@ interface IAppSidebarProps {
 	onItemClicked?: () => void;
 }
 
-export const AppSidebar = ({ menuItems, onItemClicked }: IAppSidebarProps) => {
+export const AppSidebar = ({ menuItems, onItemClicked }: IAppSidebarProps): JSX.Element => {
 
 	const navigate: NavigateFunction = useNavigate();
 	const location: Location = useLocation();
 
-	const handleItemClicked = (path: string) => {
+	const handleItemClicked = (path: string): void => {
 		onItemClicked && onItemClicked();
 		navigate(path);
 	};

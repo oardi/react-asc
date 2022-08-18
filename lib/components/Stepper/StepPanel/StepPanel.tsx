@@ -4,7 +4,7 @@ export interface IStepPanelProps {
 	children?: ReactNode;
 }
 
-export const StepPanel = (props: IStepPanelProps) => {
+export const StepPanel = (props: IStepPanelProps): JSX.Element => {
 
 	const { children } = props;
 

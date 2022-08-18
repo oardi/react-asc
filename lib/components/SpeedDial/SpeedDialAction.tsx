@@ -11,7 +11,7 @@ export interface ISpeedDialActionProps extends React.DetailedHTMLProps<React.Htm
 	onClick?: (e: React.MouseEvent) => void;
 }
 
-export const SpeedDialAction = (props: ISpeedDialActionProps) => {
+export const SpeedDialAction = (props: ISpeedDialActionProps): JSX.Element => {
 
 	const { icon, color = COLOR.light, onClick, className } = props;
 

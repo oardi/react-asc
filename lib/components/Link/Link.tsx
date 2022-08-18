@@ -3,18 +3,18 @@ import React, { useState } from 'react';
 import { STATUS } from '../component.enums';
 import styles from './Link.module.scss';
 
-export const Link = (props: React.ComponentProps<'a'>) => {
+export const Link = (props: React.ComponentProps<'a'>): JSX.Element => {
 
 	const { href = '#', className, target, children, ...rest } = props;
 	const [status, setStatus] = useState(STATUS.NORMAL);
 
 	const [cssClassName] = useCssClasses([styles.link, className as string, status]);
 
-	const onMouseEnter = () => {
+	const onMouseEnter = (): void => {
 		setStatus(STATUS.HOVERED);
 	};
 
-	const onMouseLeave = () => {
+	const onMouseLeave = (): void => {
 		setStatus(STATUS.NORMAL);
 	};
 

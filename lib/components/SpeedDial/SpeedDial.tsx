@@ -10,7 +10,7 @@ export interface ISpeedDialProps extends React.DetailedHTMLProps<React.HtmlHTMLA
 	open?: boolean;
 }
 
-export const SpeedDial = (props: ISpeedDialProps) => {
+export const SpeedDial = (props: ISpeedDialProps): JSX.Element => {
 
 	const { children, className, open, onOpen, onClose, ...rest } = props;
 

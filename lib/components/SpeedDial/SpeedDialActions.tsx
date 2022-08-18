@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './SpeedDialActions.module.scss';
 
-export const SpeedDialActions = (props: React.ComponentProps<'div'>) => {
+export const SpeedDialActions = (props: React.ComponentProps<'div'>): JSX.Element => {
 
 	const { children } = props;
 

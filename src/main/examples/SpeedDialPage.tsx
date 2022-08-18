@@ -3,7 +3,7 @@ import { COLOR, ISpeedDialProps, snackbarService, SpeedDial, SpeedDialAction } f
 import { InfoSolidIcon } from '../assets';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const SpeedDialPageBase = ({ setSettingsControls }: IShowcaseBaseProps<ISpeedDialProps>) => {
+const SpeedDialPageBase = ({ setSettingsControls }: IShowcaseBaseProps<ISpeedDialProps>): JSX.Element => {
 
 	const [open, setOpen] = useState<boolean>(false);
 
@@ -12,16 +12,16 @@ const SpeedDialPageBase = ({ setSettingsControls }: IShowcaseBaseProps<ISpeedDia
 		});
 	}, []);
 
-	const handleClick = (index: number) => {
+	const handleClick = (index: number): void => {
 		snackbarService.show(`you clicked action: ${index}`);
 		handleClose();
 	};
 
-	const handleOpen = () => {
+	const handleOpen = (): void => {
 		setOpen(true);
 	};
 
-	const handleClose = () => {
+	const handleClose = (): void => {
 		setOpen(false);
 	};
 
@@ -36,12 +36,12 @@ const SpeedDialPageBase = ({ setSettingsControls }: IShowcaseBaseProps<ISpeedDia
 					icon={<InfoSolidIcon />}
 					tooltipTitle="some tooltip text"
 					color={COLOR.primary}
-					onClick={() => handleClick(1)}
+					onClick={(): void => handleClick(1)}
 				/>
 				<SpeedDialAction
 					icon={<InfoSolidIcon />}
 					tooltipTitle="some tooltip text"
-					onClick={() => handleClick(2)}
+					onClick={(): void => handleClick(2)}
 				/>
 			</SpeedDial>
 		</div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { ExpansionPanel } from 'lib';
 import { withOptions } from './components';
 
-const ExpansionPanelPageBase = () => {
+const ExpansionPanelPageBase = (): JSX.Element => {
 
 	const [expanded, setExpanded] = React.useState<string | false>(false);
 

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Badge, COLOR, FormControl, IBadgeProps, HomeSolidIcon, Icon } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const BadgePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IBadgeProps>) => {
+const BadgePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IBadgeProps>): JSX.Element => {
 
 	useEffect(() => {
 		setSettingsControls({

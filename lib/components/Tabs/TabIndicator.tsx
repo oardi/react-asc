@@ -10,11 +10,11 @@ export interface ITabIndicatorProps extends React.DetailedHTMLProps<React.HtmlHT
 	left?: number;
 }
 
-export const TabIndicator = (props: ITabIndicatorProps) => {
+export const TabIndicator = (props: ITabIndicatorProps): JSX.Element => {
 
 	const { color = COLOR.primary, width, amount, index } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.tabIndicator);
 		cssClasses.push(styles[color]);

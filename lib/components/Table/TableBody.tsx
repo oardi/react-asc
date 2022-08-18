@@ -1,7 +1,7 @@
 import React from 'react';
 import { TableContext } from './TableContext';
 
-export const TableBody = (props: React.ComponentProps<'tbody'>) => {
+export const TableBody = (props: React.ComponentProps<'tbody'>): JSX.Element => {
 
 	const { children, ...rest } = props;
 

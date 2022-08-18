@@ -17,6 +17,8 @@ module.exports = {
 		'@typescript-eslint'
 	],
 	rules: {
+		"@typescript-eslint/explicit-function-return-type": "error",
+		'require-await': 'error',
 		"@typescript-eslint/array-type": "error",
 		'@typescript-eslint/no-unused-vars': ['error'],
 		'semi': 'error',

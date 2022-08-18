@@ -12,7 +12,7 @@ export interface IMilliSecondProps {
 	onChange?: (val: number) => void;
 }
 
-export const MilliSecondSelect = (props: IMilliSecondProps) => {
+export const MilliSecondSelect = (props: IMilliSecondProps): JSX.Element => {
 
 	const { className, value = 0, steps = 100, id, name, disabled, onChange } = props;
 	const [newValue, setNewValue] = useState<number>(value);
@@ -26,13 +26,13 @@ export const MilliSecondSelect = (props: IMilliSecondProps) => {
 		setMilliSecondOptions(newMilliSecondOptions);
 	}, []);
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleOnChange = (e: number) => {
+	const handleOnChange = (e: number): void => {
 		setNewValue(e);
 		onChange && onChange(e);
 	};
@@ -43,7 +43,7 @@ export const MilliSecondSelect = (props: IMilliSecondProps) => {
 			name={name}
 			className={getCssClasses()}
 			options={milliSecondOptions}
-			onChange={(e) => handleOnChange(parseInt(e as string))}
+			onChange={(e): void => handleOnChange(parseInt(e as string))}
 			disabled={disabled}
 			value={newValue.toString()}
 		/>

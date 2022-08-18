@@ -4,11 +4,11 @@ import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { RocketSolidIcon } from './assets';
 import { Button, Card, CardBody, CardText, CardTitle, Column, Row, Typography } from 'lib';
 
-export const HomePage = () => {
+export const HomePage = (): JSX.Element => {
 
 	const navigate: NavigateFunction = useNavigate();
 
-	const handleClickGetStarted = () => {
+	const handleClickGetStarted = (): void => {
 		navigate('/gettingstarted');
 	};
 

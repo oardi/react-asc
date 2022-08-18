@@ -1,7 +1,7 @@
 import { Typography } from 'lib';
 
 
-export const PageNotFound = () => {
+export const PageNotFound = (): JSX.Element => {
 	return (
 		<>
 			<Typography as="h1">

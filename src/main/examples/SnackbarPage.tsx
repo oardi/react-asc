@@ -7,7 +7,7 @@ interface ISnackbarServiceProps extends ISnackbarProps {
 	timeout: number;
 }
 
-const SnackbarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ISnackbarServiceProps>) => {
+const SnackbarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ISnackbarServiceProps>): JSX.Element => {
 
 	useEffect(() => {
 		setSettingsControls({
@@ -18,7 +18,7 @@ const SnackbarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 		});
 	}, []);
 
-	const handleClick = () => {
+	const handleClick = (): void => {
 		snackbarService
 			.show(settingValues.children as React.ReactNode, {
 				actionText: settingValues.actionText,

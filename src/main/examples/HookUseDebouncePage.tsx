@@ -1,7 +1,7 @@
 import React from 'react';
 import { withOptions } from './components';
 
-const HookUseDebouncePageBase = () => {
+const HookUseDebouncePageBase = (): JSX.Element => {
 
 	return (
 		<>

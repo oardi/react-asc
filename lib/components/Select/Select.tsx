@@ -31,7 +31,7 @@ export interface ISelectProps {
 	onKeyDown?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
 }
 
-export const Select = (props: ISelectProps) => {
+export const Select = (props: ISelectProps): JSX.Element => {
 
 	const { id, className, options = [], value, multiple, multipleMaxCountItems = 5, disabled, readOnly, onChange, onKeyDown } = props;
 

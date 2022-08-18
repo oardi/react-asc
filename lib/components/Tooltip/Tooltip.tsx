@@ -7,7 +7,7 @@ export interface ITooltipProps extends React.ComponentProps<'div'> {
 	text?: string;
 }
 
-export const Tooltip = (props: ITooltipProps) => {
+export const Tooltip = (props: ITooltipProps): JSX.Element => {
 
 	const { children, text, placement = 'bottom' } = props;
 
@@ -30,11 +30,11 @@ export const Tooltip = (props: ITooltipProps) => {
 		}
 	}, [show]);
 
-	const handleMouseOver = () => {
+	const handleMouseOver = (): void => {
 		setShow(true);
 	};
 
-	const handleMouseLeave = () => {
+	const handleMouseLeave = (): void => {
 		setShow(false);
 	};
 

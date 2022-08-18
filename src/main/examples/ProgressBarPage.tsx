@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { COLOR, FormControl, IProgressBarProps, ProgressBar } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-const ProgressBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IProgressBarProps>) => {
+const ProgressBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IProgressBarProps>): JSX.Element => {
 
 	useEffect(() => {
 		setSettingsControls({

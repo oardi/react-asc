@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, snackbarService, useOnDestroy } from 'lib';
 import { withOptions } from './components';
 
-const MyTest = () => {
+const MyTest = (): JSX.Element => {
 
 	useOnDestroy(() => {
 		snackbarService.show('Component unmounted');
@@ -13,13 +13,13 @@ const MyTest = () => {
 	);
 };
 
-const HookUseOnDestroyPageBase = () => {
+const HookUseOnDestroyPageBase = (): JSX.Element => {
 
 	const [isVisible, setIsVisible] = useState(true);
 
 	return (
 		<>
-			<Button onClick={() => setIsVisible(!isVisible)}>
+			<Button onClick={(): void => setIsVisible(!isVisible)}>
 				toggle
 			</Button>
 

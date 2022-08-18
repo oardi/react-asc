@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Button, FormControl, ITooltipProps, Tooltip } from 'lib';
 import { IShowcaseBaseProps, withOptions } from './components';
 
-export const TooltipPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITooltipProps>) => {
+export const TooltipPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITooltipProps>): JSX.Element => {
 
 	useEffect(() => {
 		setSettingsControls({

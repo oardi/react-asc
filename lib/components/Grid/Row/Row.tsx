@@ -5,7 +5,7 @@ export interface IContainerProps extends React.ComponentProps<'div'> {
 	direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
 }
 
-export const Row = ({ children, direction = 'row', className, ...rest }: IContainerProps) => {
+export const Row = ({ children, direction = 'row', className, ...rest }: IContainerProps): JSX.Element => {
 
 	const getCssClasses = () => {
 		const cssClasses: string[] = [];

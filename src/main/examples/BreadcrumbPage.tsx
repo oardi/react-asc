@@ -2,7 +2,7 @@ import React from 'react';
 import { Breadcrumb, BreadcrumbItem } from 'lib';
 import { withOptions } from './components';
 
-const BreadcrumbPageBase = () => {
+const BreadcrumbPageBase = (): JSX.Element => {
 	return (
 		<>
 			<Breadcrumb className="mb-0">

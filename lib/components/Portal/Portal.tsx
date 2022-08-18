@@ -7,7 +7,7 @@ export interface IPortalProps {
 	className?: string;
 }
 
-export const Portal = ({ children, target = document.body, className }: IPortalProps) => {
+export const Portal = ({ children, target = document.body, className }: IPortalProps): JSX.Element => {
 	const containerEl: HTMLDivElement = useMemo(() => document.createElement('div'), []);
 	useEffect(() => {
 		className && className.split(' ').forEach(cssClass => containerEl.classList.add(cssClass));

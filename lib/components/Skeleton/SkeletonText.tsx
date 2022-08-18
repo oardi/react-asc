@@ -5,7 +5,7 @@ export interface ISkeletonTextProps extends React.ComponentProps<'div'> {
 	indeterminate?: boolean;
 }
 
-export const SkeletonText = (props: ISkeletonTextProps) => {
+export const SkeletonText = (props: ISkeletonTextProps): JSX.Element => {
 
 	const { className, ...rest } = props;
 

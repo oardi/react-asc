@@ -5,11 +5,11 @@ export interface ITextareaProps extends React.ComponentProps<'textarea'> {
 	error?: boolean;
 }
 
-export const Textarea = (props: ITextareaProps) => {
+export const Textarea = (props: ITextareaProps): JSX.Element => {
 
 	const { className, error, ...rest } = props;
 
-	const getCssClass = () => {
+	const getCssClass = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.textarea);
 		className && cssClasses.push(className);

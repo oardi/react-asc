@@ -4,7 +4,7 @@ import { loggerService } from '../../shared';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const CLASSNAME: string = 'ShowcaseCheckboxBase';
-export const CheckboxPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ICheckboxProps>) => {
+export const CheckboxPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ICheckboxProps>): JSX.Element => {
 
 	useEffect(() => {
 		setSettingsControls({
@@ -15,7 +15,7 @@ export const CheckboxPageBase = ({ settingValues, setSettingsControls }: IShowca
 		});
 	}, []);
 
-	const handleChange = (event: FocusEvent<HTMLInputElement>) => {
+	const handleChange = (event: FocusEvent<HTMLInputElement>): void => {
 		loggerService.debug(CLASSNAME, 'handleCheck', event.target.checked);
 	};
 

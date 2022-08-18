@@ -8,7 +8,7 @@ export interface ISnackbarProps extends ComponentProps<'div'> {
 	onOk?: (e: React.MouseEvent) => void;
 }
 
-export const Snackbar = (props: ISnackbarProps) => {
+export const Snackbar = (props: ISnackbarProps): JSX.Element => {
 
 	const { children, color = COLOR.dark, actionText = 'ok', onOk, ...rest } = props;
 

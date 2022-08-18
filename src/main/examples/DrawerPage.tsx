@@ -4,7 +4,7 @@ import { loggerService } from '../../shared';
 import { IShowcaseBaseProps, withOptions } from './components';
 
 const CLASSNAME: string = 'ShowcaseDrawerBase';
-const DrawerPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IDrawerProps>) => {
+const DrawerPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IDrawerProps>): JSX.Element => {
 
 	const [isVisible, setIsVisible] = useState(false);
 
@@ -15,14 +15,14 @@ const DrawerPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 		});
 	}, []);
 
-	const handleClick = () => {
+	const handleClick = (): void => {
 		loggerService.debug(CLASSNAME, 'handleClick');
 		setIsVisible(!isVisible);
 	};
 
 	return (
 		<>
-			<Button onClick={() => handleClick()}>
+			<Button onClick={(): void => handleClick()}>
 				{!isVisible ? 'show' : 'hide'} drawer
 			</Button>
 

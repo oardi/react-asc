@@ -3,7 +3,7 @@ import { ListItem, Typography, List, Link } from 'lib';
 import { Highlight } from '../shared';
 import { Layout } from './Layout';
 
-export const GettingStartedPage = () => {
+export const GettingStartedPage = (): JSX.Element => {
 
 	return (
 		<Layout className="pb-3 pt-0">
