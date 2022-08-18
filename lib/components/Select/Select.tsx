@@ -41,7 +41,7 @@ export const Select = (props: ISelectProps): JSX.Element => {
 	const [selectedOptions, setSelectedOptions] = useState<ISelectOption[]>([]);
 	const selectConainter: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
 
-	const getCssClass = () => {
+	const getCssClass = (): string => {
 		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		disabled && cssClasses.push(styles['disabled']);
@@ -67,14 +67,14 @@ export const Select = (props: ISelectProps): JSX.Element => {
 		}
 	}, [hoverIndex, isShow]);
 
-	const scrollIntoView = (index: number) => {
+	const scrollIntoView = (index: number): void => {
 		const htmlListItem: Element | null | undefined = selectConainter.current?.querySelector(`#list-item-${index}`);
 		if (htmlListItem) {
 			htmlListItem?.scrollIntoView({ block: 'end', behavior: 'smooth' });
 		}
 	};
 
-	const writeValue = (val: string | string[]) => setModel(val);
+	const writeValue = (val: string | string[]): void => setModel(val);
 
 	useEffect(() => {
 		if (!multiple) {
@@ -88,7 +88,7 @@ export const Select = (props: ISelectProps): JSX.Element => {
 		}
 	}, [model, multiple]);
 
-	const handleOnClick = (option: ISelectOption) => {
+	const handleOnClick = (option: ISelectOption): void => {
 		let newValue: string | string[] = multiple ? [] : '';
 
 		if (!multiple) {
@@ -111,17 +111,17 @@ export const Select = (props: ISelectProps): JSX.Element => {
 		writeValue(newValue);
 	};
 
-	const show = () => {
+	const show = (): void => {
 		if (!disabled && !readOnly) {
 			setIsShow(true);
 		}
 	};
-	const hide = () => setIsShow(false);
-	const isActive = (option: ISelectOption) => {
+	const hide = (): void => setIsShow(false);
+	const isActive = (option: ISelectOption): boolean => {
 		return selectedOptions.indexOf(option) >= 0 || hoverIndex === options.indexOf(option);
 	};
 
-	const renderSingleViewModel = () => {
+	const renderSingleViewModel = (): unknown | null => {
 		let result: unknown | null = null;
 		if (selectedOptions.length > 0) {
 			result = <span>{selectedOptions[0].label}</span>;
@@ -129,7 +129,7 @@ export const Select = (props: ISelectProps): JSX.Element => {
 		return result;
 	};
 
-	const renderMultipleViewModel = () => {
+	const renderMultipleViewModel = (): ReactElement | ReactElement[] | null => {
 		let result: ReactElement | ReactElement[] | null = null;
 		if (selectedOptions.length <= multipleMaxCountItems && selectedOptions.length > 0) {
 			result = selectedOptions
@@ -138,7 +138,7 @@ export const Select = (props: ISelectProps): JSX.Element => {
 						key={option.value}
 						color={COLOR.primary}
 						isDeletable={true}
-						onDelete={(e) => handleOnDelete(e, option)}
+						onDelete={(e): void => handleOnDelete(e, option)}
 					>
 						{option.label}
 					</Chip>
@@ -149,13 +149,13 @@ export const Select = (props: ISelectProps): JSX.Element => {
 		return result;
 	};
 
-	const handleOnDelete = (event: React.MouseEvent, option: ISelectOption) => {
+	const handleOnDelete = (event: React.MouseEvent, option: ISelectOption): void => {
 		event.stopPropagation();
 		handleOnClick(option);
 	};
 
 	// TODO - extract with wrapper?
-	const handleOnKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+	const handleOnKeyDown = (e: React.KeyboardEvent<HTMLDivElement>): void => {
 		if (isShow) {
 			onKeyDown && onKeyDown(e);
 
@@ -177,7 +177,7 @@ export const Select = (props: ISelectProps): JSX.Element => {
 				case 'Enter':
 					if (hoverIndex) {
 						const option: ISelectOption = options[hoverIndex];
-						if (option) {handleOnClick(option);}
+						if (option) { handleOnClick(option); }
 					}
 					break;
 				default:
@@ -189,7 +189,12 @@ export const Select = (props: ISelectProps): JSX.Element => {
 	return (
 		<div ref={selectConainter} className={styles.selectContainer}>
 
-			<div id={id} className={getCssClass()} onClick={() => show()} tabIndex={0} onKeyDown={e => handleOnKeyDown(e)}>
+			<div
+				id={id}
+				className={getCssClass()}
+				onClick={(): void => show()}
+				tabIndex={0}
+				onKeyDown={(e): void => handleOnKeyDown(e)}>
 				<>
 					{!multiple && renderSingleViewModel()}
 
@@ -208,21 +213,31 @@ export const Select = (props: ISelectProps): JSX.Element => {
 					<div className={styles.selectMenu} style={{ left: selectConainter.current?.getBoundingClientRect().x, top: selectConainter.current?.getBoundingClientRect().y, width: selectConainter.current?.getBoundingClientRect().width }}>
 						<List>
 							{options && options.map((option, index) =>
-								<ListItem id={`list-item-${index}`} key={option.value} onClick={() => handleOnClick(option)} active={isActive(option)}>
+								<ListItem
+									id={`list-item-${index}`}
+									key={option.value}
+									onClick={(): void => handleOnClick(option)}
+									active={isActive(option)}>
 
 									{multiple &&
 										<Checkbox
 											checked={isActive(option)}
-											onChange={() => handleOnClick(option)}
+											onChange={(): void => handleOnClick(option)}
 										/>
 									}
 
-									<ListItemText primary={option.label ? option.label : option.value} />
+									<ListItemText
+										primary={option.label ? option.label : option.value}
+									/>
 								</ListItem>
 							)}
 						</List>
 					</div>
-					<Backdrop style={{ zIndex: 1111 }} isTransparent onClick={() => hide()} />
+					<Backdrop
+						style={{ zIndex: 1111 }}
+						isTransparent
+						onClick={(): void => hide()}
+					/>
 				</Portal>
 			}
 

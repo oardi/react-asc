@@ -5,12 +5,12 @@ export const MenuItem = (props: IListItemProps): JSX.Element => {
 
 	const { children, onClick, ...rest } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
+	const handleClick = (e: React.MouseEvent<HTMLLIElement>): void => {
 		e.stopPropagation();
 		onClick && onClick(e);
 	};

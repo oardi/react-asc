@@ -48,7 +48,7 @@ export const GlobalModal = ({
 	const modalType: MODALTYPE = formControls ? MODALTYPE.FORM : MODALTYPE.BASIC;
 	const myForm: React.RefObject<Form> = useRef<Form>(null);
 
-	const handleOk = () => {
+	const handleOk = (): void => {
 		if (modalType === MODALTYPE.FORM) {
 			myForm?.current?.handleFormSubmit();
 		} else {
@@ -56,15 +56,15 @@ export const GlobalModal = ({
 		}
 	};
 
-	const handleCancel = () => {
+	const handleCancel = (): void => {
 		onCancel && onCancel();
 	};
 
-	const onSubmit = (values: IFormValues) => {
+	const onSubmit = (values: IFormValues): void => {
 		onOk && onOk(values);
 	};
 
-	const handleClickButton = (button: IModalButton) => {
+	const handleClickButton = (button: IModalButton): void => {
 		switch (button.type) {
 			case MODALBUTTONTYPE.OK:
 				handleOk();
@@ -97,7 +97,7 @@ export const GlobalModal = ({
 							color={button.color}
 							autoFocus={button.autoFocus}
 							shadow={button.shadow}
-							onClick={() => handleClickButton(button)}>
+							onClick={(): void => handleClickButton(button)}>
 							{button.label}
 						</Button>
 					))}

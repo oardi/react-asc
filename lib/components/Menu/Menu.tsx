@@ -18,13 +18,13 @@ export const Menu = (props: IMenuProps): JSX.Element => {
 	const menuContainer: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
 	const toggleContainerRef: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleClickBackdrop = () => {
+	const handleClickBackdrop = (): void => {
 		onClickBackdrop && onClickBackdrop();
 	};
 

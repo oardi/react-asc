@@ -10,7 +10,7 @@ export interface IProgressBarProps extends React.ComponentProps<'div'> {
 	indeterminate?: boolean;
 }
 
-export const ProgressBar = (props: IProgressBarProps) => {
+export const ProgressBar = (props: IProgressBarProps): JSX.Element => {
 
 	const { className, color = COLOR.primary, value, indeterminate, ...rest } = props;
 	const [model, setModel] = useState<number>();
@@ -33,21 +33,21 @@ export const ProgressBar = (props: IProgressBarProps) => {
 		setModel(newValue);
 	}, [value]);
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.progressBarContainer);
 		className && cssClasses.push(className);
 		return cssClasses.filter(r => r).join(' ');
 	};
 
-	const getCssClassesBar = () => {
+	const getCssClassesBar = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.progressBar);
 		indeterminate && cssClasses.push(styles['indeterminate']);
 		return cssClasses.filter(r => r).join(' ');
 	};
 
-	const getStyle = () => {
+	const getStyle = (): string => {
 		let width: number = model && model >= 0 ? model : 0;
 		if (indeterminate) {
 			width = 100;

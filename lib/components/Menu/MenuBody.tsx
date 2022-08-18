@@ -29,7 +29,7 @@ export const MenuBody = (props: IMenuBodyProps): JSX.Element => {
 						name: 'offset',
 						options: {
 							// eslint-disable-next-line @typescript-eslint/no-explicit-any
-							offset: ({ placement, popper }: any) => {
+							offset: ({ placement, popper }: any): number[] => {
 								if (placement === 'left-start') {
 									return [0, -popper.width]; // y, x
 								}
@@ -46,7 +46,7 @@ export const MenuBody = (props: IMenuBodyProps): JSX.Element => {
 		}
 	}, [menuBodyRef]);
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.menuBody);
 		shadow && cssClasses.push(styles.shadow);
@@ -54,7 +54,7 @@ export const MenuBody = (props: IMenuBodyProps): JSX.Element => {
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleClickBackdrop = () => {
+	const handleClickBackdrop = (): void => {
 		onClickBackdrop && onClickBackdrop();
 	};
 

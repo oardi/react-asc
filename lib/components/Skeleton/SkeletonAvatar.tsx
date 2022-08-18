@@ -9,7 +9,7 @@ export const SkeletonAvatar = (props: ISkeletonAvatarProps): JSX.Element => {
 
 	const { className, ...rest } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.skeletonAvatar);
 		className && cssClasses.push(className);

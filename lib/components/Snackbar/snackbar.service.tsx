@@ -37,7 +37,7 @@ class SnackbarService implements ISnackbarService {
 				}, mergedOptions.timeout);
 			}
 
-			const handleOk = () => {
+			const handleOk = (): void => {
 				resolve();
 				this.hide();
 			};
@@ -55,7 +55,7 @@ class SnackbarService implements ISnackbarService {
 		});
 	}
 
-	private hide() {
+	private hide(): void {
 		if (this.container) {
 			this.root?.unmount();
 			document.body.removeChild(this.container);

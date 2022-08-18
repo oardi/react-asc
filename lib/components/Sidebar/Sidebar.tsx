@@ -21,13 +21,13 @@ export const Sidebar = (props: ISidebarProps): JSX.Element => {
 		}
 	}, []);
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const initMenuItems = () => {
+	const initMenuItems = (): void => {
 		const newItems: SidebarItemModel[] = items.map(item => new SidebarItemModel(
 			item.id,
 			item.label,
@@ -47,7 +47,7 @@ export const Sidebar = (props: ISidebarProps): JSX.Element => {
 		setMenuItems(newItems);
 	};
 
-	const isMenuItemActive = (path: string) => {
+	const isMenuItemActive = (path: string): boolean => {
 		const lastSegment: string = currentUrl.substring(currentUrl.lastIndexOf('/') + 1, currentUrl.length);
 		let result: boolean = false;
 		if (currentUrl === '/' && path === '') {
@@ -58,13 +58,13 @@ export const Sidebar = (props: ISidebarProps): JSX.Element => {
 		return result;
 	};
 
-	const navigate = (e: React.MouseEvent, path: string) => {
+	const navigate = (e: React.MouseEvent, path: string): void => {
 		e.stopPropagation();
 		e.preventDefault();
 		onItemClicked(path);
 	};
 
-	const handleClickItem = (item: SidebarItemModel, e: React.MouseEvent<Element, MouseEvent>) => {
+	const handleClickItem = (item: SidebarItemModel, e: React.MouseEvent<Element, MouseEvent>): void => {
 		if (item.items && item.items.length > 0 && item.isCollapsible) {
 			const newMenuItems: SidebarItemModel[] = menuItems.map((menuItem) => {
 				if (item.id === menuItem.id) {
@@ -78,7 +78,7 @@ export const Sidebar = (props: ISidebarProps): JSX.Element => {
 		}
 	};
 
-	const handleClickSubItem = (itemPath: string, subItemPath: string, e: React.MouseEvent<Element, MouseEvent>) => {
+	const handleClickSubItem = (itemPath: string, subItemPath: string, e: React.MouseEvent<Element, MouseEvent>): void => {
 		navigate(e, `/${itemPath}/${subItemPath}`);
 	};
 
@@ -90,7 +90,7 @@ export const Sidebar = (props: ISidebarProps): JSX.Element => {
 					<React.Fragment key={item.id}>
 						<ListItem
 							active={isMenuItemActive(item.path)}
-							onClick={(e) => handleClickItem(item, e)}
+							onClick={(e): void => handleClickItem(item, e)}
 						>
 							<ListItemText primary={
 								<>
@@ -114,7 +114,7 @@ export const Sidebar = (props: ISidebarProps): JSX.Element => {
 										className="list-item-level-1"
 										active={isMenuItemActive(subItem.path)}
 										key={subItem.id}
-										onClick={(e) => handleClickSubItem(item.path, subItem.path, e)}
+										onClick={(e): void => handleClickSubItem(item.path, subItem.path, e)}
 									>
 										{subItem.label}
 									</ListItem>

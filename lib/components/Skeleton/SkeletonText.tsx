@@ -9,7 +9,7 @@ export const SkeletonText = (props: ISkeletonTextProps): JSX.Element => {
 
 	const { className, ...rest } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.skeletonText);
 		className && cssClasses.push(className);
