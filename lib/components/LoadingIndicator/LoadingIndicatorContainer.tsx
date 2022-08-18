@@ -8,7 +8,7 @@ export interface ILoadingIndicatorContainerProps {
 
 export const LoadingIndicatorContainer = ({ children, isFixed }: ILoadingIndicatorContainerProps): JSX.Element => {
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.loadingIndicatorContainer);
 		isFixed && cssClasses.push(styles.isFixed);

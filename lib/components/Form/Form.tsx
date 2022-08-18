@@ -34,7 +34,7 @@ export class Form extends Component<IFormProps, IFormState> {
 		this.state = { controls: undefined, isValid: false, isChanged: false, isSubmitted: false, submitOnEnter: props.submitOnEnter !== undefined ? props.submitOnEnter : true };
 	}
 
-	static getDerivedStateFromProps(nextProps: IFormProps, state: IFormState) {
+	static getDerivedStateFromProps(nextProps: IFormProps, state: IFormState): { controls: IControls; } | null {
 		if (!state.controls && nextProps.controls) {
 			return ({ controls: nextProps.controls });
 		}
@@ -43,7 +43,7 @@ export class Form extends Component<IFormProps, IFormState> {
 
 	myForm: React.RefObject<HTMLFormElement> = createRef<HTMLFormElement>();
 
-	handleChange() {
+	handleChange(): void {
 		// get value by myForm instead of getControl?
 		if (this.state.isChanged || this.state.isSubmitted) {
 			const keys: string[] = Object.keys((this.state.controls as IControls));
@@ -119,7 +119,7 @@ export class Form extends Component<IFormProps, IFormState> {
 		return errors;
 	}
 
-	private handleInputChange(name: string, value: string | number | readonly string[] | undefined) {
+	private handleInputChange(name: string, value: string | number | readonly string[] | undefined): void {
 		const field: FormControl = this.getControl(name);
 		field.value = value;
 
@@ -133,7 +133,7 @@ export class Form extends Component<IFormProps, IFormState> {
 		this.setState({ controls: newControls, isChanged: true }, () => this.handleChange());
 	}
 
-	private handleOnBlur(e: React.FocusEvent<HTMLInputElement>) {
+	private handleOnBlur(e: React.FocusEvent<HTMLInputElement>): void {
 		if (this.props.validateOnBlur) {
 			const { name } = (e.target as HTMLInputElement);
 			const field: FormControl = this.getControl(name);
@@ -149,7 +149,7 @@ export class Form extends Component<IFormProps, IFormState> {
 		}
 	}
 
-	private isRequired(fieldName: string) {
+	private isRequired(fieldName: string): boolean {
 		let result: boolean = false;
 		result = this.getControl(fieldName).validators.indexOf('required') >= 0;
 		return result;
@@ -159,7 +159,6 @@ export class Form extends Component<IFormProps, IFormState> {
 		let result: boolean = false;
 		const field: FormControl = this.getControl(fieldName);
 		result = field.isDirty && !field.isValid;
-
 		return result;
 	}
 
@@ -167,13 +166,12 @@ export class Form extends Component<IFormProps, IFormState> {
 		return (this.state.controls as IControls)[name];
 	}
 
-	private renderLabel(fieldKey: string, label: string, labelClassName: string = 'form-label') {
+	private renderLabel(fieldKey: string, label: string, labelClassName: string = 'form-label'): JSX.Element {
 		const cssClasses: (string | undefined)[] = [labelClassName, this.isRequired(fieldKey) ? 'required' : undefined];
 		return <FormLabel htmlFor={fieldKey} className={cssClasses.join(' ')}>{label}</FormLabel>;
 	}
 
-	// trigger via ref
-	handleFormSubmit() {
+	handleFormSubmit(): void {
 		for (const fieldKey of Object.keys((this.state.controls as IControls))) {
 			const field: FormControl = this.getControl(fieldKey);
 
@@ -191,7 +189,7 @@ export class Form extends Component<IFormProps, IFormState> {
 	}
 
 	// trigger via ref
-	handleFormReset() {
+	handleFormReset(): void {
 		for (const fieldKey of Object.keys((this.state.controls as IControls))) {
 			const field: FormControl = this.getControl(fieldKey);
 			field.value = '';
@@ -208,22 +206,22 @@ export class Form extends Component<IFormProps, IFormState> {
 		});
 	}
 
-	handleOnKeyDown(e: React.KeyboardEvent<HTMLInputElement | undefined>) {
+	handleOnKeyDown(e: React.KeyboardEvent<HTMLInputElement | undefined>): void {
 		if (e.key === 'Enter') {
 			e.preventDefault();
 			this.state.submitOnEnter && this.handleFormSubmit();
 		}
 	}
 
-	destroy() {
+	destroy(): void {
 		this.setState({ controls: {}, isValid: false, isChanged: false, isSubmitted: false });
 	}
 
-	getFormGroupCssClass(fieldKey: string) {
+	getFormGroupCssClass(fieldKey: string): string | undefined {
 		return this.getControl(fieldKey).config.formGroupClassName;
 	}
 
-	render() {
+	render(): JSX.Element {
 		return (
 			<form ref={this.myForm}>
 
@@ -252,9 +250,9 @@ export class Form extends Component<IFormProps, IFormState> {
 								value={this.getControl(fieldKey).value}
 								disabled={this.getControl(fieldKey).config.disabled}
 								readonly={this.getControl(fieldKey).config.readonly}
-								onChange={({ name, value }) => this.handleInputChange(name as string, value)}
-								onBlur={(e) => this.handleOnBlur(e)}
-								onKeyDown={(e) => this.handleOnKeyDown(e)}
+								onChange={({ name, value }): void => this.handleInputChange(name as string, value)}
+								onBlur={(e): void => this.handleOnBlur(e)}
+								onKeyDown={(e): void => this.handleOnKeyDown(e)}
 							/>
 
 							{
@@ -279,6 +277,6 @@ export class Form extends Component<IFormProps, IFormState> {
 }
 
 
-function isValidDate(dateObject: Date) {
+function isValidDate(dateObject: Date): boolean {
 	return new Date(dateObject).toString() !== 'Invalid Date';
 }

@@ -60,7 +60,7 @@ export const FormInput = (props: IFormInputProps): JSX.Element => {
 		onKeyDown
 	} = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.formInput);
 		className && cssClasses.push(className);
@@ -69,12 +69,12 @@ export const FormInput = (props: IFormInputProps): JSX.Element => {
 	};
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const handleOnInput = (value: any, type: IFormControlType, name: string) => {
+	const handleOnInput = (value: any, type: IFormControlType, name: string): void => {
 		onInput && onInput({ value, type, name });
 	};
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const handleOnChange = (value: any, type: IFormControlType, name: string) => {
+	const handleOnChange = (value: any, type: IFormControlType, name: string): void => {
 		onChange && onChange({ value, type, name });
 	};
 
@@ -101,8 +101,8 @@ export const FormInput = (props: IFormInputProps): JSX.Element => {
 					className={getCssClasses()}
 					value={value}
 					autoFocus={autoFocus}
-					onInput={e => handleOnInput((e.target as HTMLInputElement).value, type, name as string)}
-					onChange={e => handleOnChange((e?.target as HTMLInputElement).value, type, name as string)}
+					onInput={(e): void => handleOnInput((e.target as HTMLInputElement).value, type, name as string)}
+					onChange={(e): void => handleOnChange((e?.target as HTMLInputElement).value, type, name as string)}
 					onBlur={onBlur}
 					placeholder={placeholder}
 					readOnly={readonly}
@@ -120,7 +120,7 @@ export const FormInput = (props: IFormInputProps): JSX.Element => {
 					autoFocus={autoFocus}
 					readOnly={readonly}
 					disabled={disabled}
-					onChange={e => handleOnChange(e.target.value, type, name)}
+					onChange={(e): void => handleOnChange(e.target.value, type, name)}
 				>
 					choose a file
 				</FileInput>
@@ -135,8 +135,8 @@ export const FormInput = (props: IFormInputProps): JSX.Element => {
 					error={!isValid}
 					value={value}
 					autoFocus={autoFocus}
-					onInput={e => handleOnInput((e.target as HTMLTextAreaElement).value, type, name as string)}
-					onChange={e => handleOnChange((e.target as HTMLTextAreaElement).value, type, name as string)}
+					onInput={(e): void => handleOnInput((e.target as HTMLTextAreaElement).value, type, name as string)}
+					onChange={(e): void => handleOnChange((e.target as HTMLTextAreaElement).value, type, name as string)}
 					placeholder={placeholder}
 					rows={textareaOptions?.rows}
 					style={textareaOptions?.resize !== false ? undefined : { resize: 'none' }}
@@ -151,7 +151,7 @@ export const FormInput = (props: IFormInputProps): JSX.Element => {
 					className={className + (!isValid ? ' is-invalid' : '')}
 					value={value as string}
 					multiple={selectOptions?.multiple}
-					onChange={e => handleOnChange(e, type, name as string)}
+					onChange={(e): void => handleOnChange(e, type, name as string)}
 					options={options}
 				/>
 			}
@@ -164,8 +164,8 @@ export const FormInput = (props: IFormInputProps): JSX.Element => {
 					className={className + (!isValid ? ' is-invalid' : '')}
 					value={value as string}
 					openOnFocus={autoCompleteOptions?.openOnFocus}
-					onChange={e => handleOnChange(e, type, name as string)}
-					onSelect={e => handleOnChange(e.value, type, name as string)}
+					onChange={(e): void => handleOnChange(e, type, name as string)}
+					onSelect={(e): void => handleOnChange(e.value, type, name as string)}
 					options={options}
 				/>
 			}
@@ -177,7 +177,7 @@ export const FormInput = (props: IFormInputProps): JSX.Element => {
 					name={name}
 					label={label}
 					className={(!isValid ? ' is-invalid' : '')}
-					onChange={e => handleOnChange((e?.target as HTMLInputElement).checked, type, name as string)}
+					onChange={(e): void => handleOnChange((e?.target as HTMLInputElement).checked, type, name as string)}
 					checked={value}
 				/>
 			}
@@ -208,7 +208,7 @@ export const FormInput = (props: IFormInputProps): JSX.Element => {
 								name={name}
 								type="radio"
 								className="form-check-input"
-								onChange={e => handleOnChange((e?.target as HTMLInputElement).value, type, name as string)}
+								onChange={(e): void => handleOnChange((e?.target as HTMLInputElement).value, type, name as string)}
 								value={option.value}
 								checked={value === option.value}
 								onKeyDown={onKeyDown}
