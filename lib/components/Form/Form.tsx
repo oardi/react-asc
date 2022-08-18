@@ -70,8 +70,8 @@ export class Form extends Component<IFormProps, IFormState> {
 	}
 
 	// extract to service?
-	private validateField(fieldValue: unknown, fieldValidators: Array<string>): Array<IFormInputError> {
-		const errors: Array<IFormInputError> = [];
+	private validateField(fieldValue: unknown, fieldValidators: string[]): IFormInputError[] {
+		const errors: IFormInputError[] = [];
 		if (fieldValidators) {
 			for (const validator of fieldValidators) {
 				const validatorSplitted: string[] = validator.split(':');

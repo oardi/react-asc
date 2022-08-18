@@ -29,7 +29,7 @@ export const FileInput = (props: IFileInputProps) => {
 	const [fileList, setFileList] = useState<FileList>();
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(r => r).join(' ');
 	};

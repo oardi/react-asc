@@ -9,7 +9,7 @@ import styles from './Tabs.module.scss';
 export interface ITabsProps {
 	color?: COLOR;
 	indicatorColor?: COLOR;
-	children?: ReactElement<ITabProps> | Array<ReactElement<ITabProps>>;
+	children?: ReactElement<ITabProps> | ReactElement<ITabProps>[];
 	className?: string;
 	fixed?: boolean;
 	onChange?: (value: string) => void;
@@ -49,7 +49,7 @@ export const Tabs = (props: ITabsProps) => {
 	}, [selectedValue]);
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.tabs);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');

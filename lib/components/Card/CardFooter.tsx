@@ -6,7 +6,7 @@ export const CardFooter = (props: React.ComponentProps<'div'>) => {
 	const { children, className, ...rest } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.cardFooter);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');

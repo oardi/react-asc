@@ -17,7 +17,7 @@ export const IconButton = (props: IIconButtonProps) => {
 	const { children, icon, variant = VARIANT.text, color = COLOR.dark, size = SIZE.md, isActive, disabled, className, shadow, ...rest } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles[color]);
 		cssClasses.push(styles[variant]);
 		cssClasses.push(styles[size]);

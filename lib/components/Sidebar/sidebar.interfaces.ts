@@ -3,7 +3,7 @@ export interface ISidebarItem {
 	path: string;
 	label: string;
 	icon?: string;
-	items?: Array<ISidebarItem>;
+	items?: ISidebarItem[];
 	isCollapsible?: boolean;
 	isCollapsed?: boolean;
 }

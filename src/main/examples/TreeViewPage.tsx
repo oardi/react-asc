@@ -10,10 +10,10 @@ const TreeViewPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 		});
 	}, []);
 
-	const [selectedIds, setSelectedIds] = useState<Array<string>>([]);
+	const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
 	const handleOnSelect = (e: { id: string, isSelected: boolean }) => {
-		let oldIds: Array<string> = selectedIds;
+		let oldIds: string[] = selectedIds;
 		if (e.isSelected) {
 			oldIds = oldIds.concat([e.id]);
 			setSelectedIds(oldIds);

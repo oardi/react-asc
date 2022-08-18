@@ -17,6 +17,7 @@ module.exports = {
 		'@typescript-eslint'
 	],
 	rules: {
+		"@typescript-eslint/array-type": "error",
 		'@typescript-eslint/no-unused-vars': ['error'],
 		'semi': 'error',
 		'curly': 'error',

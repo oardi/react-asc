@@ -33,7 +33,7 @@ export const Step = (props: IStepProps) => {
 	};
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.stepWrapper);
 		label && showLabel && cssClasses.push(styles['hasLabel']);
 		isDisabled && cssClasses.push(styles['disabled']);
@@ -42,7 +42,7 @@ export const Step = (props: IStepProps) => {
 	};
 
 	const getCssClassesStep = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.step);
 		label && showLabel && cssClasses.push(styles['hasLabel']);
 		isDisabled && cssClasses.push(styles['disabled']);
@@ -50,7 +50,7 @@ export const Step = (props: IStepProps) => {
 	};
 
 	const getCssClassesStepValue = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.stepValue);
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		isActive && cssClasses.push((styles.stepValue as any)['isActive']);

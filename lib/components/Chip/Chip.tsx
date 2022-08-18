@@ -17,7 +17,7 @@ export const Chip = (props: IChipProps) => {
 	const { children, color = 'secondary', className, shadow, onClick, isDeletable, onDelete, deleteIcon = <TimesCircleSolidIcon />, style, ...rest } = props;
 
 	const getCssClass = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.chip);
 		cssClasses.push(styles[color]);
 		shadow && cssClasses.push(styles['shadow']);

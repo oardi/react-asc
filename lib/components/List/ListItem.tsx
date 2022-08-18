@@ -14,7 +14,7 @@ export const ListItem = (props: IListItemProps) => {
 	const { children, color, active, className, disabled, onClick, ...rest } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.listItem);
 		color && cssClasses.push(styles[color]);
 		active && cssClasses.push(styles['active']);

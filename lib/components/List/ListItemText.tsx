@@ -9,7 +9,7 @@ interface IListItemTextProps extends React.ComponentProps<'div'> {
 export const ListItemText = ({ primary, secondary, ...rest }: IListItemTextProps) => {
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.listItemText);
 		return cssClasses.filter(css => css).join(' ');
 	};

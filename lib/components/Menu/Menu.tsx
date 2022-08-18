@@ -6,7 +6,7 @@ import { IListItemProps } from '../List';
 export interface IMenuProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	toggle?: ReactElement;
 	open?: boolean;
-	children?: ReactElement<IListItemProps> | Array<ReactElement<IListItemProps>>;
+	children?: ReactElement<IListItemProps> | ReactElement<IListItemProps>[];
 	menuPosition?: MenuPosition;
 	onClickBackdrop?: () => void;
 }
@@ -19,7 +19,7 @@ export const Menu = (props: IMenuProps) => {
 	const toggleContainerRef: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};

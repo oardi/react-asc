@@ -20,7 +20,7 @@ export const DateSelect = (props: IDateSelectProps) => {
 	const { className, value = new Date(), disabled, yearConfig, onChange } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push('row');
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');

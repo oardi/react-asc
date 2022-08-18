@@ -15,7 +15,7 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 		});
 	}, []);
 
-	const handleOnChange = (e: string | Array<string>) => {
+	const handleOnChange = (e: string | string[]) => {
 		snackbarService.show(`value changed: ${e}`);
 		setValue(e as string);
 	};

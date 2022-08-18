@@ -6,7 +6,7 @@ export const CardImage = (props: React.ComponentProps<'img'>) => {
 	const { src, alt, className, ...rest } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.cardImage);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');

@@ -5,7 +5,7 @@ import { SidebarItemModel } from './sidebar.models';
 import { ChevronUpSolidIcon, ChevronDownSolidIcon } from '../../icons';
 
 interface ISidebarProps extends React.ComponentProps<'nav'> {
-	items: Array<ISidebarItem>;
+	items: ISidebarItem[];
 	currentUrl: string;
 	onItemClicked: (path: string) => void;
 }
@@ -13,7 +13,7 @@ interface ISidebarProps extends React.ComponentProps<'nav'> {
 export const Sidebar = (props: ISidebarProps) => {
 
 	const { className, items, currentUrl, onItemClicked, ...rest } = props;
-	const [menuItems, setMenuItems] = useState<Array<SidebarItemModel>>([]);
+	const [menuItems, setMenuItems] = useState<SidebarItemModel[]>([]);
 
 	useEffect(() => {
 		if (items && items.length > 0) {
@@ -22,7 +22,7 @@ export const Sidebar = (props: ISidebarProps) => {
 	}, []);
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};

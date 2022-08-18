@@ -5,7 +5,7 @@ export class SidebarItemModel {
 		public path: string,
 		public icon?: string,
 		public isActive?: boolean,
-		public items?: Array<SidebarItemModel>,
+		public items?: SidebarItemModel[],
 		public isCollapsible: boolean = false,
 		public isCollapsed: boolean = false,
 		) {

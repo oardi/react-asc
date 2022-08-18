@@ -12,7 +12,7 @@ export const Icon = (props: IIconProps) => {
 	const { children, iconColor, className, ...rest } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.icon);
 		iconColor && cssClasses.push(styles[iconColor]);
 		className && cssClasses.push(className);

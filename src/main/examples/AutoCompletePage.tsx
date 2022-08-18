@@ -6,7 +6,7 @@ interface IMyCustomData { id: string, label: string, description: string }
 
 const AutoCompletePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IAutoCompleteProps>) => {
 
-	const [options, setOptions] = useState<Array<ISelectOption>>([]);
+	const [options, setOptions] = useState<ISelectOption[]>([]);
 	const [value, setValue] = useState<string>('');
 
 	useEffect(() => {

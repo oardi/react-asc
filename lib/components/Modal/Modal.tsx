@@ -25,7 +25,7 @@ export const Modal = (props: IModalProps) => {
 	const { target = document.body, className, size, fullScreen, children, header, footer, onHeaderCloseClick, onBackdropClick, isDismissable = false } = props;
 
 	const getCssClass = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.modalDialog);
 		cssClasses.push(styles.modalDialogCentered);
 		fullScreen && cssClasses.push(styles.fullscreen);

@@ -26,10 +26,10 @@ export const YearSelect = (props: IYearProps) => {
 		onChange
 	} = props;
 	const [newValue, setNewValue] = useState<string>(value.toString());
-	const [years, setYears] = useState<Array<ISelectOption>>();
+	const [years, setYears] = useState<ISelectOption[]>();
 
 	useEffect(() => {
-		const newYears: Array<ISelectOption> = [];
+		const newYears: ISelectOption[] = [];
 		for (let i: number = from; i <= to; i++) {
 			newYears.push({ value: i.toString(), label: i.toString() });
 		}
@@ -37,12 +37,12 @@ export const YearSelect = (props: IYearProps) => {
 	}, [from, to]);
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleOnChange = (e: string | Array<string>) => {
+	const handleOnChange = (e: string | string[]) => {
 		setNewValue(e as string);
 		onChange && onChange(parseInt(e as string));
 	};

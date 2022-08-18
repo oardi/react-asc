@@ -36,14 +36,14 @@ export const Checkbox = (props: ICheckboxProps) => {
 	};
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push('checkbox');
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
 
 	const getCssClassesLabel = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.checkboxLabel);
 		disabled && cssClasses.push(styles['disabled']);
 		return cssClasses.filter(css => css).join(' ');

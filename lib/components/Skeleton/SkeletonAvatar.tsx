@@ -10,7 +10,7 @@ export const SkeletonAvatar = (props: ISkeletonAvatarProps) => {
 	const { className, ...rest } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.skeletonAvatar);
 		className && cssClasses.push(className);
 		return cssClasses.filter(r => r).join(' ');

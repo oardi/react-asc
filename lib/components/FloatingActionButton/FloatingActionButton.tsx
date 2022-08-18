@@ -19,7 +19,7 @@ export const FloatingActionButton = (props: IFloatingActionButtonProps) => {
 	const { className, icon, color = COLOR.primary, fixed, position = 'rightBottom', size = SIZE.lg, isActive, disabled, onClick } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.fab);
 		fixed && cssClasses.push(styles.fixed);
 		position && fixed && cssClasses.push(styles[position]);

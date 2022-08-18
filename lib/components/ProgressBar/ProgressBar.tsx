@@ -34,14 +34,14 @@ export const ProgressBar = (props: IProgressBarProps) => {
 	}, [value]);
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.progressBarContainer);
 		className && cssClasses.push(className);
 		return cssClasses.filter(r => r).join(' ');
 	};
 
 	const getCssClassesBar = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.progressBar);
 		indeterminate && cssClasses.push(styles['indeterminate']);
 		return cssClasses.filter(r => r).join(' ');

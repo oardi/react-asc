@@ -37,7 +37,7 @@ export const TimeSelect = (props: ITimeSelectProps) => {
 	const [currDate, setCurrDate] = useState<Date>(value);
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push('row');
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');

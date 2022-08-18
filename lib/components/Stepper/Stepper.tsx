@@ -6,7 +6,7 @@ import { StepConnector } from './StepConnector/StepConnector';
 import styles from './Stepper.module.scss';
 
 export interface IStepperProps {
-	children?: ReactElement<IStepProps> | Array<ReactElement<IStepProps>>;
+	children?: ReactElement<IStepProps> | ReactElement<IStepProps>[];
 	isLinear?: boolean;
 	isDisabled?: boolean;
 	showLabel?: boolean;
@@ -122,7 +122,7 @@ export const Stepper = (props: IStepperProps) => {
 	};
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.stepper);
 		isHorizontal && cssClasses.push(styles['isHorizontal']);
 		return cssClasses.filter(css => css).join(' ');

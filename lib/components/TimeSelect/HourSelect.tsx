@@ -15,10 +15,10 @@ export const HourSelect = (props: IHourProps) => {
 
 	const { className, value = 0, id, name, disabled, onChange } = props;
 	const [newValue, setNewValue] = useState<number>(value);
-	const [hourOptions, setHourOptions] = useState<Array<ISelectOption>>();
+	const [hourOptions, setHourOptions] = useState<ISelectOption[]>();
 
 	useEffect(() => {
-		const newHourOptions: Array<ISelectOption> = [];
+		const newHourOptions: ISelectOption[] = [];
 		for (let i: number = 0; i < 24; i++) {
 			newHourOptions.push({ value: i.toString(), label: i.toString() });
 		}
@@ -26,7 +26,7 @@ export const HourSelect = (props: IHourProps) => {
 	}, []);
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};

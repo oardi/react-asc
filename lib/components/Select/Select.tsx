@@ -21,13 +21,13 @@ export interface ISelectProps {
 	id?: string;
 	name?: string;
 	className?: string;
-	options?: Array<ISelectOption>;
-	value?: string | Array<string>;
+	options?: ISelectOption[];
+	value?: string | string[];
 	multiple?: boolean;
 	multipleMaxCountItems?: number;
 	disabled?: boolean;
 	readOnly?: boolean;
-	onChange?: (val: string | Array<string>) => void;
+	onChange?: (val: string | string[]) => void;
 	onKeyDown?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
 }
 
@@ -35,14 +35,14 @@ export const Select = (props: ISelectProps) => {
 
 	const { id, className, options = [], value, multiple, multipleMaxCountItems = 5, disabled, readOnly, onChange, onKeyDown } = props;
 
-	const [model, setModel] = useState<string | Array<string>>('');
+	const [model, setModel] = useState<string | string[]>('');
 	const [hoverIndex, setHoverIndex] = useState<number | null>(null);
 	const [isShow, setIsShow] = useState<boolean>(false);
-	const [selectedOptions, setSelectedOptions] = useState<Array<ISelectOption>>([]);
+	const [selectedOptions, setSelectedOptions] = useState<ISelectOption[]>([]);
 	const selectConainter: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
 
 	const getCssClass = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		disabled && cssClasses.push(styles['disabled']);
 		readOnly && cssClasses.push(styles['readOnly']);
@@ -74,7 +74,7 @@ export const Select = (props: ISelectProps) => {
 		}
 	};
 
-	const writeValue = (val: string | Array<string>) => setModel(val);
+	const writeValue = (val: string | string[]) => setModel(val);
 
 	useEffect(() => {
 		if (!multiple) {
@@ -89,7 +89,7 @@ export const Select = (props: ISelectProps) => {
 	}, [model, multiple]);
 
 	const handleOnClick = (option: ISelectOption) => {
-		let newValue: string | Array<string> = multiple ? [] : '';
+		let newValue: string | string[] = multiple ? [] : '';
 
 		if (!multiple) {
 			if (model !== option.value) {
@@ -102,8 +102,8 @@ export const Select = (props: ISelectProps) => {
 			if (selectedOption) {
 				newValue = selectedOptions.filter(o => o.value !== option.value).map(o => o.value);
 			} else {
-				newValue = (newValue as Array<string>).concat(selectedOptions.map(o => o.value));
-				(newValue as Array<string>).push(option.value);
+				newValue = (newValue as string[]).concat(selectedOptions.map(o => o.value));
+				(newValue as string[]).push(option.value);
 			}
 			onChange && onChange(newValue);
 		}

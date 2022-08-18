@@ -15,7 +15,7 @@ export const TabIndicator = (props: ITabIndicatorProps) => {
 	const { color = COLOR.primary, width, amount, index } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.tabIndicator);
 		cssClasses.push(styles[color]);
 		return cssClasses.filter(css => css).join(' ');

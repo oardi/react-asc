@@ -10,7 +10,7 @@ export const Breadcrumb = (props: IBreadcrumbProps) => {
 	const { children, className, ...rest } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.breadcrumb);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');

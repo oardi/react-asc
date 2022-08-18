@@ -9,7 +9,7 @@ export interface ILoadingIndicatorContainerProps {
 export const LoadingIndicatorContainer = ({ children, isFixed }: ILoadingIndicatorContainerProps) => {
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.loadingIndicatorContainer);
 		isFixed && cssClasses.push(styles.isFixed);
 		return cssClasses.filter(css => css).join(' ');

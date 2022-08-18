@@ -20,7 +20,7 @@ export const StepperActions = (props: IStepperActionsProps) => {
 	const { className, isCompleted, isFirstStep, isStepOptional, onBack, onSkip, onNext, onReset } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.stepperActions);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');

@@ -12,7 +12,7 @@ export const BreadcrumbItem = (props: IBreadcrumbItemProps) => {
 	const { children, className, isActive, onClick } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.breadcrumbItem);
 		className && cssClasses.push(className);
 		isActive && cssClasses.push('active');

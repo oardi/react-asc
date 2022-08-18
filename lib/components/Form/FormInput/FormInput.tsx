@@ -26,7 +26,7 @@ export interface IFormInputProps {
 	readonly?: boolean;
 	isValid?: boolean;
 	autoFocus?: boolean;
-	options?: Array<IFormInputOptions>;
+	options?: IFormInputOptions[];
 	textareaOptions?: IFormTextAreaOptions;
 	selectOptions?: IFormSelectOptions;
 	autoCompleteOptions?: IFormAutoCompleteOptions;
@@ -61,7 +61,7 @@ export const FormInput = (props: IFormInputProps) => {
 	} = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.formInput);
 		className && cssClasses.push(className);
 		!isValid && cssClasses.push(styles['isInvalid']);

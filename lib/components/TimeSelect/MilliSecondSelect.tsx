@@ -16,10 +16,10 @@ export const MilliSecondSelect = (props: IMilliSecondProps) => {
 
 	const { className, value = 0, steps = 100, id, name, disabled, onChange } = props;
 	const [newValue, setNewValue] = useState<number>(value);
-	const [milliSecondOptions, setMilliSecondOptions] = useState<Array<ISelectOption>>();
+	const [milliSecondOptions, setMilliSecondOptions] = useState<ISelectOption[]>();
 
 	useEffect(() => {
-		const newMilliSecondOptions: Array<ISelectOption> = [];
+		const newMilliSecondOptions: ISelectOption[] = [];
 		for (let i: number = 0; i < 1000; i += steps) {
 			newMilliSecondOptions.push({ value: i.toString(), label: i.toString() });
 		}
@@ -27,7 +27,7 @@ export const MilliSecondSelect = (props: IMilliSecondProps) => {
 	}, []);
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};

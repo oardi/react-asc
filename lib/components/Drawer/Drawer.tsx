@@ -49,7 +49,7 @@ const DrawerContent = (props: IDrawerContentProps) => {
 	const { children, className, position = 'left', permanent = false, shadow, ...rest } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.drawer);
 		shadow && cssClasses.push(styles.shadow);
 		!!permanent && cssClasses.push(styles['permanent']);

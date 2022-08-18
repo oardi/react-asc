@@ -1,3 +1,3 @@
-export function useCssClasses(cssClasses: Array<string>) {
+export function useCssClasses(cssClasses: string[]) {
 	return [cssClasses?.filter(css => css).join(' ') || ''];
 }

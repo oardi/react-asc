@@ -3,7 +3,7 @@ import { Location, NavigateFunction, useLocation, useNavigate } from 'react-rout
 import { AppBar, AppBarTitle, COLOR, ISidebarItem, Sidebar } from 'lib';
 
 interface IAppSidebarProps {
-	menuItems: Array<ISidebarItem>;
+	menuItems: ISidebarItem[];
 	onItemClicked?: () => void;
 }
 

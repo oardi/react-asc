@@ -6,7 +6,7 @@ export const MenuItem = (props: IListItemProps) => {
 	const { children, onClick, ...rest } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		return cssClasses.filter(css => css).join(' ');
 	};
 

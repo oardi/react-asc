@@ -14,10 +14,10 @@ export const SecondSelect = (props: ISecondProps) => {
 
 	const { className, value = 0, id, name, disabled, onChange } = props;
 	const [newValue, setNewValue] = useState<number>(value);
-	const [secondOptions, setSecondOptions] = useState<Array<ISelectOption>>();
+	const [secondOptions, setSecondOptions] = useState<ISelectOption[]>();
 
 	useEffect(() => {
-		const newSecondOptions: Array<ISelectOption> = [];
+		const newSecondOptions: ISelectOption[] = [];
 		for (let i: number = 0; i < 60; i++) {
 			newSecondOptions.push({ value: i.toString(), label: i.toString() });
 		}
@@ -25,7 +25,7 @@ export const SecondSelect = (props: ISecondProps) => {
 	}, []);
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};

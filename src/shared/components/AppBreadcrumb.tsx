@@ -19,13 +19,13 @@ export const AppBreadcrumb = ({ className }: IAppBreadcrumbProps) => {
 
 	const location: Location = useLocation();
 	const navigate: NavigateFunction = useNavigate();
-	const [items, setItems] = useState<Array<IAppBreadcrumb>>([]);
+	const [items, setItems] = useState<IAppBreadcrumb[]>([]);
 
 	// extract in AppBreadcrumb
 	useEffect(() => {
 		const currentPath: string = location.pathname.replace(' ', '');
 		const splittedPath: string[] = currentPath.split('/').filter(p => p !== 'Showcase' && p); // TODO - showcase
-		const newItems: Array<IAppBreadcrumb> = splittedPath.map(sP => ({ label: sP, path: '/' + sP, isActive: false }));
+		const newItems: IAppBreadcrumb[] = splittedPath.map(sP => ({ label: sP, path: '/' + sP, isActive: false }));
 		newItems.unshift({ label: 'Home', path: '/', isActive: false, icon: <HomeSolidIcon /> });
 		newItems[newItems.length - 1].isActive = true;
 		setItems(newItems.length <= 1 ? [] : newItems);

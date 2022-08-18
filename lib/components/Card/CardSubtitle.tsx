@@ -6,7 +6,7 @@ export const CardSubtitle = (props: React.ComponentProps<'div'>) => {
 	const { children, className, ...rest } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.cardSubtitle);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');

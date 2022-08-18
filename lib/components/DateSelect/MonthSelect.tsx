@@ -17,14 +17,14 @@ export const MonthSelect = (props: IMonthProps) => {
 
 	const { className, value = new Date().getMonth(), id, name, disabled, onChange } = props;
 	const [newValue, setNewValue] = useState<number>(value);
-	const [monthOptions, setMonthOptions] = useState<Array<ISelectOption>>();
+	const [monthOptions, setMonthOptions] = useState<ISelectOption[]>();
 
 	useEffect(() => {
 		setMonthOptions(months.map((m, index) => ({ value: index.toString(), label: m })));
 	}, []);
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};

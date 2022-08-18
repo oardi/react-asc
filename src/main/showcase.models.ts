@@ -15,7 +15,7 @@ export class MenuModel implements ISidebarItem {
 	id: string;
 	label: string;
 	path: string;
-	items: Array<MenuModel>;
+	items: MenuModel[];
 	isCollapsible: boolean;
 	isCollapsed: boolean;
 }
@@ -30,6 +30,6 @@ export class RouteModel {
 
 	path: string;
 	componentKey: string;
-	routes?: Array<RouteModel>;
+	routes?: RouteModel[];
 	element?: React.ReactNode;
 }

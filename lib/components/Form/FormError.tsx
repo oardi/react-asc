@@ -4,7 +4,7 @@ import styles from './FormError.module.scss';
 
 interface IFormErrorProps {
 	className?: string;
-	errors?: Array<IFormInputError>;
+	errors?: IFormInputError[];
 }
 
 export const FormError = (props: IFormErrorProps) => {

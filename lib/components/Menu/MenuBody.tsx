@@ -7,7 +7,7 @@ import { Portal } from '../Portal';
 import { IListItemProps, List } from '../List';
 
 export interface IMenuBodyProps {
-	children?: ReactElement<IListItemProps> | Array<ReactElement<IListItemProps>>;
+	children?: ReactElement<IListItemProps> | ReactElement<IListItemProps>[];
 	className?: string;
 	menuPosition?: MenuPosition;
 	parentRef: React.RefObject<HTMLDivElement>;
@@ -47,7 +47,7 @@ export const MenuBody = (props: IMenuBodyProps) => {
 	}, [menuBodyRef]);
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.menuBody);
 		shadow && cssClasses.push(styles.shadow);
 		className && cssClasses.push(className);

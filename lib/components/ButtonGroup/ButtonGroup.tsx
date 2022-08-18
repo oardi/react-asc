@@ -12,7 +12,7 @@ export const ButtonGroup = (props: IButtonGroupProps) => {
 	const { children, className, color, ...rest } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.buttonGroup);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');

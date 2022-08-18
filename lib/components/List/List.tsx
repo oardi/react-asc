@@ -10,7 +10,7 @@ export const List = (props: IListProps) => {
 	const { children, className, isFlush, ...rest } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		isFlush && cssClasses.push(styles.flush);
 		cssClasses.push(styles.list);
 		className && cssClasses.push(className);

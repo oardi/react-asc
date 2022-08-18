@@ -44,7 +44,7 @@ export interface IFormControlConfig {
 	disabled?: boolean;
 	readonly?: boolean;
 
-	options?: Array<IFormInputOptions>;
+	options?: IFormInputOptions[];
 	// fileOptions
 
 	textareaOptions?: IFormTextAreaOptions;

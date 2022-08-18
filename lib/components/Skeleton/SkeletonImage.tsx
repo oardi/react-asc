@@ -10,7 +10,7 @@ export const SkeletonImage = (props: ISkeletonImageProps) => {
 	const { className, ...rest } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.skeletonImage);
 		className && cssClasses.push(className);
 		return cssClasses.filter(r => r).join(' ');

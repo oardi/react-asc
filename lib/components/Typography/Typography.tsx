@@ -12,7 +12,7 @@ const Wrapper = (props: IWrapperProps) => {
 	const { as = 'span', wrap, children, className, ...rest } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.typography);
 		cssClasses.push(styles.as);
 		wrap && cssClasses.push(styles.wrap);

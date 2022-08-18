@@ -18,8 +18,8 @@ const App = () => {
 	const [appState, setAppState] = useState(APPSTATE.init);
 	const [showMenu, setShowMenu] = useState<boolean>(false);
 	const { isMobile } = useMobileDetect();
-	const [routes, setRoutes] = useState<Array<RouteModel>>([]);
-	const [sidebarItems, setSidebarItems] = useState<Array<ISidebarItem>>([]);
+	const [routes, setRoutes] = useState<RouteModel[]>([]);
+	const [sidebarItems, setSidebarItems] = useState<ISidebarItem[]>([]);
 
 	useEffect(() => { init(); }, []);
 

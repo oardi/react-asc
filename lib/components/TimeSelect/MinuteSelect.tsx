@@ -15,10 +15,10 @@ export const MinuteSelect = (props: IMinuteProps) => {
 
 	const { className, value = 0, id, name, disabled, onChange } = props;
 	const [newValue, setNewValue] = useState<number>(value);
-	const [minuteOptions, setMinuteOptions] = useState<Array<ISelectOption>>();
+	const [minuteOptions, setMinuteOptions] = useState<ISelectOption[]>();
 
 	useEffect(() => {
-		const newMinuteOptions: Array<ISelectOption> = [];
+		const newMinuteOptions: ISelectOption[] = [];
 		for (let i: number = 0; i < 60; i++) {
 			newMinuteOptions.push({ value: i.toString(), label: i.toString() });
 		}
@@ -26,7 +26,7 @@ export const MinuteSelect = (props: IMinuteProps) => {
 	}, []);
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};

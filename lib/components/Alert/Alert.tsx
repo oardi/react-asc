@@ -16,7 +16,7 @@ export const Alert = (props: IAlertProps) => {
 	const { children, className, color = COLOR.primary, variant = VARIANT.contained, shadow = true, ...rest } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.alert);
 
 		if (variant === VARIANT.contained) {

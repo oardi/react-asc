@@ -50,7 +50,7 @@ import {
 	TypographyPage
 } from './main';
 
-export const menuItems: Array<IMenuItem> = [
+export const menuItems: IMenuItem[] = [
 	{ id: 'Home', path: '', element: <HomePage /> },
 	{ id: 'GettingStarted', label: 'Getting started', element: <GettingStartedPage /> },
 	{

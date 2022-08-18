@@ -1,33 +1,33 @@
 export interface ILoggerService {
-	log(...args: Array<unknown>): void;
-	info(...args: Array<unknown>): void;
-	warn(...args: Array<unknown>): void;
-	debug(...args: Array<unknown>): void;
-	error(...args: Array<unknown>): void;
+	log(...args: unknown[]): void;
+	info(...args: unknown[]): void;
+	warn(...args: unknown[]): void;
+	debug(...args: unknown[]): void;
+	error(...args: unknown[]): void;
 }
 
 export enum LogType { log = 'log', info = 'info', warn = 'warn', debug = 'debug', error = 'error' }
 
 class LoggerService implements ILoggerService {
 
-	log(...args: Array<unknown>) {
+	log(...args: unknown[]) {
 		this._doLog(LogType.log, args);
 	}
 
-	info(...args: Array<unknown>) {
+	info(...args: unknown[]) {
 		this._doLog(LogType.info, args);
 	}
 
-	warn(...args: Array<unknown>) {
+	warn(...args: unknown[]) {
 		this._doLog(LogType.warn, args);
 	}
 
-	debug(...args: Array<unknown>) {
+	debug(...args: unknown[]) {
 		this._doLog(LogType.debug, args);
 
 	}
 
-	error(...args: Array<unknown>) {
+	error(...args: unknown[]) {
 		this._doLog(LogType.error, args);
 	}
 

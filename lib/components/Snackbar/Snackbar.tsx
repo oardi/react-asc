@@ -13,7 +13,7 @@ export const Snackbar = (props: ISnackbarProps) => {
 	const { children, color = COLOR.dark, actionText = 'ok', onOk, ...rest } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.snackbar);
 		cssClasses.push(`shadow-lg`);
 		cssClasses.push(styles[color]);

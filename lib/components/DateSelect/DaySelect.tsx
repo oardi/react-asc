@@ -32,7 +32,7 @@ export const DaySelect = (props: IDaySelectProps) => {
 
 	const init = () => {
 		const daysInMonth: number = new Date(year, month + 1, 0).getDate();
-		const newDays: Array<ISelectOption> = [];
+		const newDays: ISelectOption[] = [];
 		for (let i: number = 1; i <= daysInMonth; i++) {
 			newDays.push({ value: i.toString(), label: i.toString() });
 		}
@@ -40,10 +40,10 @@ export const DaySelect = (props: IDaySelectProps) => {
 	};
 
 	const [value, setValue] = useState<number>(day);
-	const [dayOptions, setDayOptions] = useState<Array<ISelectOption>>();
+	const [dayOptions, setDayOptions] = useState<ISelectOption[]>();
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};

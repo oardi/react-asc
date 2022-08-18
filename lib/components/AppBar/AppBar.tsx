@@ -14,7 +14,7 @@ export const AppBar = (props: IAppBarProps) => {
 	const { children, className, color = COLOR.primary, shadow = true, ...rest } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles[color]);
 		cssClasses.push(styles.appbar);
 		shadow && cssClasses.push(styles['shadow']);

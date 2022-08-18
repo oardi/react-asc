@@ -18,7 +18,7 @@ export const Tab = (props: ITabProps) => {
 	const { selectedValue, setSelectedValue } = useTabContext();
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.tab);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');

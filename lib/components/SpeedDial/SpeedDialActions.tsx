@@ -6,7 +6,7 @@ export const SpeedDialActions = (props: React.ComponentProps<'div'>) => {
 	const { children } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.speedDialActions);
 		return cssClasses.filter(css => css).join(' ');
 	};

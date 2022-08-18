@@ -7,7 +7,7 @@ export interface IMenuItem {
 	id: string;
 	label?: string;
 	path?: string;
-	items?: Array<IMenuItem>;
+	items?: IMenuItem[];
 	isCollapsible?: boolean;
 	isCollapsed?: boolean;
 	element?: React.ReactNode;

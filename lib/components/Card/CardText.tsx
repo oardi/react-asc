@@ -6,7 +6,7 @@ export const CardText = (props: React.ComponentProps<'p'>) => {
 	const { children, className, ...rest } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.cardText);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');

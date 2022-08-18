@@ -18,14 +18,14 @@ export const NumberSelect = (props: INumberSelectProps) => {
 	const { className, value = 0, from = 0, to = 100, id, name, disabled = false, onChange } = props;
 
 	const [newValue, setNewValue] = useState<number>(0);
-	const [numberOptions, setNumberOptions] = useState<Array<ISelectOption>>();
+	const [numberOptions, setNumberOptions] = useState<ISelectOption[]>();
 
 	useEffect(() => {
 		setNewValue(value);
 	}, [value]);
 
 	useEffect(() => {
-		const options: Array<ISelectOption> = [];
+		const options: ISelectOption[] = [];
 		for (let i: number = from; i <= to; i++) {
 			options.push({ value: i.toString(), label: i.toString() });
 		}
@@ -33,7 +33,7 @@ export const NumberSelect = (props: INumberSelectProps) => {
 	}, [from, to]);
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};

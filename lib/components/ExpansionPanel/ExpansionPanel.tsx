@@ -22,7 +22,7 @@ export const ExpansionPanel = (props: IExpansionPanelProps) => {
 	}, [isExpanded]);
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.expansionPanel);
 		if (_isExpanded) {
 			cssClasses.push(styles.isExpanded);

@@ -10,7 +10,7 @@ export const Textarea = (props: ITextareaProps) => {
 	const { className, error, ...rest } = props;
 
 	const getCssClass = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.textarea);
 		className && cssClasses.push(className);
 		error && cssClasses.push(styles['isInvalid']);

@@ -16,7 +16,7 @@ export const SpeedDialAction = (props: ISpeedDialActionProps) => {
 	const { icon, color = COLOR.light, onClick, className } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.speedDialAction);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');

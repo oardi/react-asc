@@ -6,7 +6,7 @@ export const TreeView = (props: React.ComponentProps<'ul'>) => {
 	const { children, className, ...rest } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.treeView);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');

@@ -8,7 +8,7 @@ export interface IContainerProps extends React.ComponentProps<'div'> {
 export const Row = ({ children, direction = 'row', className, ...rest }: IContainerProps) => {
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.row);
 		className && cssClasses.push(className);
 		direction && cssClasses.push(`flex-${direction}`);

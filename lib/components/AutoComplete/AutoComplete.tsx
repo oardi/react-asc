@@ -11,7 +11,7 @@ export interface IAutoCompleteProps {
 	id?: string;
 	name?: string;
 	className?: string;
-	options?: Array<ISelectOption>;
+	options?: ISelectOption[];
 	value?: string;
 	openOnFocus?: boolean;
 	disabled?: boolean;
@@ -51,7 +51,7 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 	const [model, setModel] = useState<string | undefined>('');
 	const [searchText, setSearchText] = useState<string | undefined>('');
 	const [isShow, setIsShow] = useState<boolean>(false);
-	const [_options, setOptions] = useState<Array<ISelectOption>>([]);
+	const [_options, setOptions] = useState<ISelectOption[]>([]);
 	const selectConainter: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
@@ -94,7 +94,7 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 	}, []);
 
 	const getCssClass = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		cssClasses.push(styles.select);
 		return cssClasses.filter(r => r).join(' ');

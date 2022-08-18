@@ -23,7 +23,7 @@ export const Column = (props: IColProps) => {
 	} = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		// !xs && !sm && !md && !lg && !xl && cssClasses.push('col');
 		// if (xs) cssClasses.push(`col-${xs.toString()}`);
 		// if (sm) cssClasses.push(`col-sm-${sm.toString()}`);

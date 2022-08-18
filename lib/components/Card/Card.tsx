@@ -10,7 +10,7 @@ export const Card = (props: ICardProps) => {
 	const { children, className, shadow = true, ...rest } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.card);
 		shadow && cssClasses.push(styles.shadow);
 		className && cssClasses.push(className);

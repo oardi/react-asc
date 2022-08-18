@@ -12,7 +12,7 @@ export interface IModalService {
 
 export interface IModalOptions {
 	isDismissable?: boolean;
-	buttons?: Array<IModalButton>;
+	buttons?: IModalButton[];
 	fullScreen?: boolean;
 	size?: SIZE;
 }

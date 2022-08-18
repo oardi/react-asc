@@ -22,7 +22,7 @@ export const Button: React.FunctionComponent<IButtonProps> = (props) => {
 	const buttonContext: IButtonContext = useButtonContext();
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.button);
 
 		const buttonColor: COLOR = buttonContext.color || color;

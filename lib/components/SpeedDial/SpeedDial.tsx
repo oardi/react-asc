@@ -15,7 +15,7 @@ export const SpeedDial = (props: ISpeedDialProps) => {
 	const { children, className, open, onOpen, onClose, ...rest } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.speedDial);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');

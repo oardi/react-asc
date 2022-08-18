@@ -3,7 +3,7 @@ import { ConditionalWrapper } from '../ConditionalWrapper';
 import styles from './Table.module.scss';
 
 export interface ITableProps {
-	children?: ReactElement | Array<ReactElement>;
+	children?: ReactElement | ReactElement[];
 	className?: string;
 	striped?: boolean;
 	bordered?: boolean;
@@ -16,7 +16,7 @@ export const Table = (props: ITableProps) => {
 	const { children, className, bordered, striped, hover, responsive = false } = props;
 
 	const getCssClasses = () => {
-		const cssClasses: Array<string> = [];
+		const cssClasses: string[] = [];
 		cssClasses.push(styles.table);
 		bordered && cssClasses.push(styles['bordered']);
 		striped && cssClasses.push(styles['striped']);

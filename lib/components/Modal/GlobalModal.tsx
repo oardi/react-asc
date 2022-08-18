@@ -16,7 +16,7 @@ interface IModalProps {
 	onCancel?: () => void;
 	onBackdropClick?: () => void;
 	isDismissable?: boolean;
-	buttons?: Array<IModalButton>;
+	buttons?: IModalButton[];
 	fullScreen?: boolean;
 	size?: SIZE;
 }
