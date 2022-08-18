@@ -9,11 +9,11 @@ export interface IExpansionPanelHeaderProps {
 	isExpanded: boolean;
 }
 
-export const ExpansionPanelHeader = (props: IExpansionPanelHeaderProps) => {
+export const ExpansionPanelHeader = (props: IExpansionPanelHeaderProps): JSX.Element => {
 
 	const { children, isExpanded, onClick } = props;
 
-	const handleClick = (e: React.MouseEvent) => {
+	const handleClick = (e: React.MouseEvent): void => {
 		e.stopPropagation();
 		onClick && onClick(e);
 	};

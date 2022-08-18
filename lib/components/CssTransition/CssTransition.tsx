@@ -18,7 +18,7 @@ interface ICssTransitionProps {
 	show: boolean;
 }
 
-export const CssTransition = (props: ICssTransitionProps) => {
+export const CssTransition = (props: ICssTransitionProps): JSX.Element => {
 	const { className, children, show } = props;
 	const [isInit, setIsInit] = useState<boolean>(false);
 	const [isRenderChild, setIsRenderChild] = useState<boolean | undefined>(undefined);
@@ -41,7 +41,7 @@ export const CssTransition = (props: ICssTransitionProps) => {
 		}
 	}, [show]);
 
-	const nextFrame = () => {
+	const nextFrame = (): Promise<unknown> => {
 		return new Promise((resolve) => {
 			requestAnimationFrame(() => {
 				requestAnimationFrame(resolve);
@@ -60,7 +60,7 @@ export const CssTransition = (props: ICssTransitionProps) => {
 		});
 	};
 
-	const renderAnimation = async (show: boolean) => {
+	const renderAnimation = async (show: boolean): Promise<void> => {
 		if (show === true) {
 			setCssState({ enter: true, enterStart: true });
 			await nextFrame();

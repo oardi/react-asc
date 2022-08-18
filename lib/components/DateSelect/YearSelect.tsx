@@ -13,7 +13,7 @@ export interface IYearProps {
 	onChange?: (val: number) => void;
 }
 
-export const YearSelect = (props: IYearProps) => {
+export const YearSelect = (props: IYearProps): JSX.Element => {
 
 	const {
 		className,
@@ -36,13 +36,13 @@ export const YearSelect = (props: IYearProps) => {
 		setYears(newYears.reverse());
 	}, [from, to]);
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleOnChange = (e: string | string[]) => {
+	const handleOnChange = (e: string | string[]): void => {
 		setNewValue(e as string);
 		onChange && onChange(parseInt(e as string));
 	};

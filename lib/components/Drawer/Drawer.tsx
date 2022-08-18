@@ -12,7 +12,7 @@ export interface IDrawerProps extends React.ComponentProps<'div'> {
 	target?: HTMLElement;
 }
 
-export const Drawer = (props: IDrawerProps) => {
+export const Drawer = (props: IDrawerProps): JSX.Element => {
 
 	const { children, className, position = 'left', permanent = false, target = document.body, shadow = true, onClickBackdrop, ...rest } = props;
 
@@ -23,7 +23,7 @@ export const Drawer = (props: IDrawerProps) => {
 		};
 	}, []);
 
-	const handleClickBackdrop = () => {
+	const handleClickBackdrop = (): void => {
 		onClickBackdrop && onClickBackdrop();
 	};
 
@@ -45,10 +45,10 @@ interface IDrawerContentProps extends React.ComponentProps<'div'> {
 	shadow?: boolean;
 }
 
-const DrawerContent = (props: IDrawerContentProps) => {
+const DrawerContent = (props: IDrawerContentProps): JSX.Element => {
 	const { children, className, position = 'left', permanent = false, shadow, ...rest } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.drawer);
 		shadow && cssClasses.push(styles.shadow);
@@ -63,7 +63,7 @@ const DrawerContent = (props: IDrawerContentProps) => {
 		right: { right: '0px' }
 	};
 
-	const getStyles = () => {
+	const getStyles = (): React.CSSProperties | undefined => {
 		return !permanent ? positionStyles[position] : undefined;
 	};
 

@@ -6,7 +6,7 @@ export interface IFileInputProps extends React.DetailedHTMLProps<React.InputHTML
 	deletable?: boolean;
 }
 
-export const FileInput = (props: IFileInputProps) => {
+export const FileInput = (props: IFileInputProps): JSX.Element => {
 
 	const {
 		id,
@@ -28,25 +28,29 @@ export const FileInput = (props: IFileInputProps) => {
 	const [model, setModel] = useState(value);
 	const [fileList, setFileList] = useState<FileList>();
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(r => r).join(' ');
 	};
 
-	const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+	const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
 		const values: FileList = event.target.files as FileList;
 		setFileList(values);
 		onChange && onChange(event);
 	};
 
-	const handleOnDelete = () => {
+	const handleOnDelete = (): void => {
 		alert('coming soon');
 	};
 
 	return (
 		<div className="d-flex align-items-start">
-			<Button className="flex-wrap" disabled={disabled} onClick={() => inputFileElement.current?.click()}>
+			<Button
+				className="flex-wrap"
+				disabled={disabled}
+				onClick={(): void => inputFileElement.current?.click()}
+			>
 				{children}
 			</Button>
 
@@ -55,7 +59,7 @@ export const FileInput = (props: IFileInputProps) => {
 					<Chip
 						key={file.name}
 						isDeletable={deletable}
-						onDelete={() => handleOnDelete()}
+						onDelete={(): void => handleOnDelete()}
 					>
 						{file.name}
 					</Chip>

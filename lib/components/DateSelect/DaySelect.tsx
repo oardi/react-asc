@@ -13,7 +13,7 @@ export interface IDaySelectProps {
 	onChange?: (val: number) => void;
 }
 
-export const DaySelect = (props: IDaySelectProps) => {
+export const DaySelect = (props: IDaySelectProps): JSX.Element => {
 
 	const {
 		className,
@@ -30,7 +30,7 @@ export const DaySelect = (props: IDaySelectProps) => {
 		init();
 	}, [month, year]);
 
-	const init = () => {
+	const init = (): void => {
 		const daysInMonth: number = new Date(year, month + 1, 0).getDate();
 		const newDays: ISelectOption[] = [];
 		for (let i: number = 1; i <= daysInMonth; i++) {
@@ -42,13 +42,13 @@ export const DaySelect = (props: IDaySelectProps) => {
 	const [value, setValue] = useState<number>(day);
 	const [dayOptions, setDayOptions] = useState<ISelectOption[]>();
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleOnChange = (e: number) => {
+	const handleOnChange = (e: number): void => {
 		setValue(e);
 		onChange && onChange(e);
 	};
@@ -59,7 +59,7 @@ export const DaySelect = (props: IDaySelectProps) => {
 			name={name}
 			className={getCssClasses()}
 			options={dayOptions}
-			onChange={(e) => handleOnChange(parseInt(e as string))}
+			onChange={(e): void => handleOnChange(parseInt(e as string))}
 			disabled={disabled}
 			value={value.toString()}
 		/>

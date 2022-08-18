@@ -14,11 +14,11 @@ export interface IFloatingActionButtonProps extends React.DetailedHTMLProps<Reac
 	onClick?: (e: React.MouseEvent) => void;
 }
 
-export const FloatingActionButton = (props: IFloatingActionButtonProps) => {
+export const FloatingActionButton = (props: IFloatingActionButtonProps): JSX.Element => {
 
 	const { className, icon, color = COLOR.primary, fixed, position = 'rightBottom', size = SIZE.lg, isActive, disabled, onClick } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.fab);
 		fixed && cssClasses.push(styles.fixed);
@@ -27,7 +27,7 @@ export const FloatingActionButton = (props: IFloatingActionButtonProps) => {
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleClick = (e: React.MouseEvent) => {
+	const handleClick = (e: React.MouseEvent): void => {
 		e.stopPropagation();
 		onClick && onClick(e);
 	};

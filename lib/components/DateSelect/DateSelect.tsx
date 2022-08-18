@@ -15,11 +15,11 @@ export interface IDateSelectProps {
 	onChange?: (val: Date) => void;
 }
 
-export const DateSelect = (props: IDateSelectProps) => {
+export const DateSelect = (props: IDateSelectProps): JSX.Element => {
 
 	const { className, value = new Date(), disabled, yearConfig, onChange } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push('row');
 		className && cssClasses.push(className);
@@ -28,7 +28,7 @@ export const DateSelect = (props: IDateSelectProps) => {
 
 	const [currDate, setCurrDate] = useState<Date>(value);
 
-	const handleOnChange = (e: number, mode: DATEMODE) => {
+	const handleOnChange = (e: number, mode: DATEMODE): void => {
 		const currYear: number = mode === DATEMODE.YEAR ? e : currDate.getFullYear();
 		const currMonth: number = mode === DATEMODE.MONTH ? e : currDate.getMonth();
 		const currday: number = mode === DATEMODE.DAY ? e : currDate.getDate();
@@ -47,7 +47,7 @@ export const DateSelect = (props: IDateSelectProps) => {
 					disabled={disabled}
 					from={yearConfig?.from}
 					to={yearConfig?.to}
-					onChange={e => handleOnChange(e, DATEMODE.YEAR)}
+					onChange={(e): void => handleOnChange(e, DATEMODE.YEAR)}
 				/>
 			</Column>
 			<Column>
@@ -55,7 +55,7 @@ export const DateSelect = (props: IDateSelectProps) => {
 				<MonthSelect
 					value={currDate.getMonth()}
 					disabled={disabled}
-					onChange={e => handleOnChange(e, DATEMODE.MONTH)}
+					onChange={(e): void => handleOnChange(e, DATEMODE.MONTH)}
 				/>
 			</Column>
 			<Column>
@@ -65,7 +65,7 @@ export const DateSelect = (props: IDateSelectProps) => {
 					month={currDate.getMonth()}
 					year={currDate.getFullYear()}
 					disabled={disabled}
-					onChange={e => handleOnChange(e, DATEMODE.DAY)}
+					onChange={(e): void => handleOnChange(e, DATEMODE.DAY)}
 				/>
 			</Column>
 		</Row>

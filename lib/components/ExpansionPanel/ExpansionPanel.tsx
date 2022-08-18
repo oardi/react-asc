@@ -11,7 +11,7 @@ export interface IExpansionPanelProps {
 	onChange?: (event: React.MouseEvent, isExpanded: boolean) => void;
 }
 
-export const ExpansionPanel = (props: IExpansionPanelProps) => {
+export const ExpansionPanel = (props: IExpansionPanelProps): JSX.Element => {
 
 	const { header, children, isExpanded = false, shadow, onChange } = props;
 
@@ -21,7 +21,7 @@ export const ExpansionPanel = (props: IExpansionPanelProps) => {
 		setIsExpanded(isExpanded);
 	}, [isExpanded]);
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.expansionPanel);
 		if (_isExpanded) {
@@ -31,7 +31,7 @@ export const ExpansionPanel = (props: IExpansionPanelProps) => {
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleClickHeader = (event: React.MouseEvent) => {
+	const handleClickHeader = (event: React.MouseEvent): void => {
 		setIsExpanded(!_isExpanded);
 		onChange && onChange(event, !_isExpanded);
 	};

@@ -11,7 +11,7 @@ export interface IMonthProps {
 	onChange?: (val: number) => void;
 }
 
-export const MonthSelect = (props: IMonthProps) => {
+export const MonthSelect = (props: IMonthProps): JSX.Element => {
 
 	const months: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -23,13 +23,13 @@ export const MonthSelect = (props: IMonthProps) => {
 		setMonthOptions(months.map((m, index) => ({ value: index.toString(), label: m })));
 	}, []);
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleOnChange = (e: number) => {
+	const handleOnChange = (e: number): void => {
 		setNewValue(e);
 		onChange && onChange(e);
 	};
@@ -40,7 +40,7 @@ export const MonthSelect = (props: IMonthProps) => {
 			name={name}
 			className={getCssClasses()}
 			options={monthOptions}
-			onChange={(e) => handleOnChange(parseInt(e as string))}
+			onChange={(e): void => handleOnChange(parseInt(e as string))}
 			disabled={disabled}
 			value={newValue.toString()}
 		/>
