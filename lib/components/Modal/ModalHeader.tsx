@@ -13,7 +13,7 @@ export const ModalHeader = (props: IModalHeaderProps): JSX.Element => {
 
 	const { children, isDismissable = false, onClose, ...rest } = props;
 
-	const handleClick = () => {
+	const handleClick = (): void => {
 		onClose && onClose();
 	};
 

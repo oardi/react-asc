@@ -14,14 +14,14 @@ export const SpeedDial = (props: ISpeedDialProps): JSX.Element => {
 
 	const { children, className, open, onOpen, onClose, ...rest } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.speedDial);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleClick = (e: React.MouseEvent) => {
+	const handleClick = (e: React.MouseEvent): void => {
 		if (open) { onClose && onClose(e); }
 		else { onOpen && onOpen(e); }
 	};

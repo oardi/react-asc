@@ -15,7 +15,7 @@ export const TableCell = (props: ITableCellProps): JSX.Element => {
 	return (
 		<ConditionalWrapper
 			condition={true}
-			wrapper={children => (
+			wrapper={(children): JSX.Element => (
 				(variant === 'head' || component === 'th') ? (
 					<th {...rest}>
 						{children}

@@ -15,7 +15,7 @@ export const Table = (props: ITableProps): JSX.Element => {
 
 	const { children, className, bordered, striped, hover, responsive = false } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.table);
 		bordered && cssClasses.push(styles['bordered']);
@@ -28,7 +28,7 @@ export const Table = (props: ITableProps): JSX.Element => {
 	return (
 		<ConditionalWrapper
 			condition={responsive}
-			wrapper={children => <div className={styles.tableResponsive}>{children}</div>}
+			wrapper={(children): JSX.Element => <div className={styles.tableResponsive}>{children}</div>}
 		>
 			<table className={getCssClasses()}>
 				{children}

@@ -19,7 +19,7 @@ export const StepperActions = (props: IStepperActionsProps): JSX.Element => {
 
 	const { className, isCompleted, isFirstStep, isStepOptional, onBack, onSkip, onNext, onReset } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.stepperActions);
 		className && cssClasses.push(className);
@@ -33,7 +33,7 @@ export const StepperActions = (props: IStepperActionsProps): JSX.Element => {
 				variant={VARIANT.outline}
 				disabled={isFirstStep}
 				startIcon={!isFirstStep ? <ChevronLeftSolidIcon /> : undefined}
-				onClick={() => onBack && onBack()}
+				onClick={(): void => onBack && onBack()}
 			>
 				Back
 			</Button>
@@ -44,7 +44,7 @@ export const StepperActions = (props: IStepperActionsProps): JSX.Element => {
 						className="mr-2"
 						color={COLOR.secondary}
 						variant={VARIANT.text}
-						onClick={() => onReset && onReset()}
+						onClick={(): void => onReset && onReset()}
 					>
 						Reset
 					</Button>
@@ -55,7 +55,7 @@ export const StepperActions = (props: IStepperActionsProps): JSX.Element => {
 						className="mr-2"
 						variant={VARIANT.contained}
 						color={COLOR.primary}
-						onClick={() => onSkip && onSkip()}
+						onClick={(): void => onSkip && onSkip()}
 					>
 						Skip
 					</Button>
@@ -65,7 +65,7 @@ export const StepperActions = (props: IStepperActionsProps): JSX.Element => {
 					color={COLOR.primary}
 					startIcon={isCompleted ? <CheckSolidIcon /> : undefined}
 					endIcon={!isCompleted ? <ChevronRightSolidIcon /> : undefined}
-					onClick={() => onNext && onNext()}
+					onClick={(): void => onNext && onNext()}
 				>
 					{isCompleted ? 'Done' : 'Next'}
 				</Button>

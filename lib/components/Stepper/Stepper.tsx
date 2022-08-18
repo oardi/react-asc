@@ -42,35 +42,40 @@ export const Stepper = (props: IStepperProps): JSX.Element => {
 		}
 	}, [value]);
 
-	const isStepSkipped = (step: number) => {
+	const isStepSkipped = (step: number): boolean => {
 		return skipped.has(step);
 	};
 
-	const handleClickStep = (event: React.MouseEvent, newValue: string, index: number) => {
+	const handleClickStep = (event: React.MouseEvent, newValue: string, index: number): void => {
 		setActiveIndex(() => {
 			onChange && onChange(index);
 			return index;
 		});
 	};
 
-	const renderSteps = (child: React.ReactNode, index: number) => {
-		return React.isValidElement(child) &&
-			cloneElement((child as ReactElement<PropsWithChildren<IStepProps>>), {
-				index: index,
-				isActive: activeIndex >= index,
-				isDone: activeIndex > index,
-				isDisabled: isLinear && (activeIndex + 1 < index),
-				showLabel: showLabel,
-				showProgressCheckIcon: showProgressCheckIcon,
-				onClick: (e: { event: React.MouseEvent, value: string }) => handleClickStep(e.event, e.value, index)
-			});
+	const renderSteps = (child: React.ReactNode, index: number): JSX.Element => {
+		return (
+			<>
+				{React.isValidElement(child) &&
+					cloneElement((child as ReactElement<PropsWithChildren<IStepProps>>), {
+						index: index,
+						isActive: activeIndex >= index,
+						isDone: activeIndex > index,
+						isDisabled: isLinear && (activeIndex + 1 < index),
+						showLabel: showLabel,
+						showProgressCheckIcon: showProgressCheckIcon,
+						onClick: (e: { event: React.MouseEvent, value: string }) => handleClickStep(e.event, e.value, index)
+					})}
+
+			</>
+		);
 	};
 
-	const isStepOptional = (index: number) => {
+	const isStepOptional = (index: number): boolean | undefined => {
 		return steps && steps[index].props.isOptional;
 	};
 
-	const handleBack = () => {
+	const handleBack = (): void => {
 		setActiveIndex((prevActiveStep) => {
 			const newIndex: number = prevActiveStep - 1;
 			onChange && onChange(newIndex);
@@ -79,7 +84,7 @@ export const Stepper = (props: IStepperProps): JSX.Element => {
 	};
 
 	// TODO
-	const handleSkip = () => {
+	const handleSkip = (): void => {
 		if (!isStepOptional(activeIndex)) {
 			throw new Error('You can\'t skip a step that isn\'t optional.');
 		}
@@ -93,7 +98,7 @@ export const Stepper = (props: IStepperProps): JSX.Element => {
 	};
 
 	// TODO
-	const handleNext = () => {
+	const handleNext = (): void => {
 		if (!isLastStep()) {
 			let newSkipped: Set<number> = skipped;
 			if (isStepSkipped(activeIndex)) {
@@ -112,16 +117,16 @@ export const Stepper = (props: IStepperProps): JSX.Element => {
 		}
 	};
 
-	const handleReset = () => {
+	const handleReset = (): void => {
 		setActiveIndex(0);
 		onChange && onChange(0);
 	};
 
-	const isLastStep = () => {
+	const isLastStep = (): boolean | undefined => {
 		return steps && activeIndex === steps.length - 1;
 	};
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.stepper);
 		isHorizontal && cssClasses.push(styles['isHorizontal']);

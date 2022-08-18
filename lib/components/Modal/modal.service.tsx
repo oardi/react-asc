@@ -27,12 +27,12 @@ class ModalService implements IModalService {
 				this.container = document.createElement('div');
 				document.body.appendChild(this.container);
 
-				const handleOk = () => {
+				const handleOk = (): void => {
 					resolve();
 					this.hide();
 				};
 
-				const handleCancel = () => {
+				const handleCancel = (): void => {
 					reject();
 					this.hide();
 				};
@@ -61,7 +61,7 @@ class ModalService implements IModalService {
 				this.container = document.createElement('div');
 				this.container.classList.add('modal-container');
 
-				const handleOk = (values?: unknown) => {
+				const handleOk = (values?: unknown): void => {
 					resolve(values as T);
 					this.hide();
 				};
@@ -71,7 +71,7 @@ class ModalService implements IModalService {
 				// 	console.info(values);
 				// }
 
-				const handleCancel = () => {
+				const handleCancel = (): void => {
 					reject();
 					this.hide();
 				};
@@ -94,7 +94,7 @@ class ModalService implements IModalService {
 		});
 	}
 
-	private hide() {
+	private hide(): void {
 		if (this.container) {
 			this.root?.unmount();
 			// document.body.removeChild(this.container);

@@ -26,13 +26,13 @@ export const Step = (props: IStepProps): JSX.Element => {
 	const { className, label, showLabel, index, value, isActive, isDone, isDisabled, showProgressCheckIcon, onClick } = props;
 	const [hoverRef, isHovered] = useHover();
 
-	const handleClick = (event: React.MouseEvent) => {
+	const handleClick = (event: React.MouseEvent): void => {
 		if (!isDisabled) {
 			onClick && onClick({ event, value });
 		}
 	};
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.stepWrapper);
 		label && showLabel && cssClasses.push(styles['hasLabel']);
@@ -41,7 +41,7 @@ export const Step = (props: IStepProps): JSX.Element => {
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const getCssClassesStep = () => {
+	const getCssClassesStep = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.step);
 		label && showLabel && cssClasses.push(styles['hasLabel']);
@@ -49,7 +49,7 @@ export const Step = (props: IStepProps): JSX.Element => {
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const getCssClassesStepValue = () => {
+	const getCssClassesStepValue = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.stepValue);
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any

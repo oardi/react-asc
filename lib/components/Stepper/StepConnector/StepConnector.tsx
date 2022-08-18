@@ -10,13 +10,13 @@ export const StepConnector = (props: IStepConnectorProps): JSX.Element => {
 
 	const { isActive, isHorizontal = true } = props;
 
-	const getCssClassesConnector = () => {
+	const getCssClassesConnector = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.stepConnector);
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const getCssClassesLine = () => {
+	const getCssClassesLine = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.stepConnectorLine);
 		isActive && cssClasses.push(styles['isActive']);

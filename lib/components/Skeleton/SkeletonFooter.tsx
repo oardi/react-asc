@@ -9,7 +9,7 @@ export const SkeletonFooter = (props: ISkeletonFooterProps): JSX.Element => {
 
 	const { className, ...rest } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.skeletonFooter);
 		className && cssClasses.push(className);

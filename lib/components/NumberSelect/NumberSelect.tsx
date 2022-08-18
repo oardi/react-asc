@@ -32,13 +32,13 @@ export const NumberSelect = (props: INumberSelectProps): JSX.Element => {
 		setNumberOptions(options);
 	}, [from, to]);
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleOnChange = (e: number) => {
+	const handleOnChange = (e: number): void => {
 		setNewValue(e);
 		onChange && onChange(e);
 	};
@@ -49,7 +49,7 @@ export const NumberSelect = (props: INumberSelectProps): JSX.Element => {
 			name={name}
 			className={getCssClasses()}
 			options={numberOptions}
-			onChange={(e) => handleOnChange(parseInt(e as string))}
+			onChange={(e): void => handleOnChange(parseInt(e as string))}
 			disabled={disabled}
 			value={newValue.toString()}
 		/>

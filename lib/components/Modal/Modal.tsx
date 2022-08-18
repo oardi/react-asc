@@ -24,7 +24,7 @@ export const Modal = (props: IModalProps): JSX.Element => {
 
 	const { target = document.body, className, size, fullScreen, children, header, footer, onHeaderCloseClick, onBackdropClick, isDismissable = false } = props;
 
-	const getCssClass = () => {
+	const getCssClass = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.modalDialog);
 		cssClasses.push(styles.modalDialogCentered);
@@ -41,7 +41,7 @@ export const Modal = (props: IModalProps): JSX.Element => {
 		};
 	}, []);
 
-	const handleClickBackdrop = () => {
+	const handleClickBackdrop = (): void => {
 		onBackdropClick && onBackdropClick();
 	};
 
@@ -53,7 +53,7 @@ export const Modal = (props: IModalProps): JSX.Element => {
 						<div className={styles.modalContent}>
 							{
 								header &&
-								<ModalHeader isDismissable={isDismissable} onClose={() => onHeaderCloseClick && onHeaderCloseClick()}>
+								<ModalHeader isDismissable={isDismissable} onClose={(): void => onHeaderCloseClick && onHeaderCloseClick()}>
 									{header}
 								</ModalHeader>
 							}
