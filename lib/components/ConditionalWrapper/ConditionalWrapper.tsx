@@ -7,5 +7,5 @@ interface IConditionalWrapperProps {
 	children: any;
 }
 
-export const ConditionalWrapper = ({ condition, wrapper, children }: IConditionalWrapperProps) =>
+export const ConditionalWrapper = ({ condition, wrapper, children }: IConditionalWrapperProps): JSX.Element =>
 	condition ? wrapper(children) : children;

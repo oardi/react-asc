@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './CardImage.module.scss';
 
-export const CardImage = (props: React.ComponentProps<'img'>) => {
+export const CardImage = (props: React.ComponentProps<'img'>): JSX.Element => {
 
 	const { src, alt, className, ...rest } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.cardImage);
 		className && cssClasses.push(className);

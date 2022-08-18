@@ -8,4 +8,4 @@ export interface IButtonContext {
 export const ButtonContext: React.Context<IButtonContext> = createContext<IButtonContext>({
 	color: null
 });
-export const useButtonContext = () => useContext(ButtonContext);
+export const useButtonContext = (): IButtonContext => useContext(ButtonContext);

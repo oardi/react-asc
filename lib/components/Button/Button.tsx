@@ -21,7 +21,7 @@ export const Button: React.FunctionComponent<IButtonProps> = (props) => {
 
 	const buttonContext: IButtonContext = useButtonContext();
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.button);
 

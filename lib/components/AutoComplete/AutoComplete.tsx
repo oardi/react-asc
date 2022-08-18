@@ -30,7 +30,7 @@ export interface IAutoCompleteProps {
 // multiple
 // custom template render items
 
-export const AutoComplete = (props: IAutoCompleteProps) => {
+export const AutoComplete = (props: IAutoCompleteProps): JSX.Element => {
 
 	const {
 		id,
@@ -93,17 +93,17 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 		};
 	}, []);
 
-	const getCssClass = () => {
+	const getCssClass = (): string => {
 		const cssClasses: string[] = [];
 		className && cssClasses.push(className);
 		cssClasses.push(styles.select);
 		return cssClasses.filter(r => r).join(' ');
 	};
 
-	const show = () => setIsShow(true);
-	const hide = () => setIsShow(false);
+	const show = (): void => setIsShow(true);
+	const hide = (): void => setIsShow(false);
 
-	const handleOnClick = (option: ISelectOption) => {
+	const handleOnClick = (option: ISelectOption): void => {
 		if (model !== option.value) {
 			onSelect && onSelect(option);
 		}
@@ -111,17 +111,17 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 		hide();
 	};
 
-	const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+	const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
 		setModel(e.target.value);
 		setSearchText(e.target.value);
 		show();
 	};
 
-	const handleOnFocus = () => {
+	const handleOnFocus = (): void => {
 		openOnFocus && show();
 	};
 
-	const handleClickReset = () => {
+	const handleClickReset = (): void => {
 		setModel('');
 		setSearchText('');
 	};
@@ -159,7 +159,7 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 								<ListItem
 									id={`list-item-${index}`}
 									key={option.value}
-									onClick={() => handleOnClick(option)}
+									onClick={(): void => handleOnClick(option)}
 									disabled={!option.value}
 								>
 									<ListItemText primary={option.label ? option.label : option.value} />
@@ -167,7 +167,10 @@ export const AutoComplete = (props: IAutoCompleteProps) => {
 							)}
 						</List>
 					</div>
-					<Backdrop isTransparent onClick={() => hide()} />
+					<Backdrop
+						isTransparent
+						onClick={(): void => hide()}
+					/>
 				</>
 			}
 

@@ -7,11 +7,11 @@ export interface IBreadcrumbItemProps extends React.ComponentProps<'li'> {
 	path?: string;
 }
 
-export const BreadcrumbItem = (props: IBreadcrumbItemProps) => {
+export const BreadcrumbItem = (props: IBreadcrumbItemProps): JSX.Element => {
 
 	const { children, className, isActive, onClick } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.breadcrumbItem);
 		className && cssClasses.push(className);
@@ -19,7 +19,7 @@ export const BreadcrumbItem = (props: IBreadcrumbItemProps) => {
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const handleClick = (event: React.MouseEvent<HTMLLIElement>) => {
+	const handleClick = (event: React.MouseEvent<HTMLLIElement>): void => {
 		onClick && onClick(event);
 	};
 
@@ -27,7 +27,7 @@ export const BreadcrumbItem = (props: IBreadcrumbItemProps) => {
 		<li className={getCssClasses()} onClick={handleClick}>
 			<ConditionalWrapper
 				condition={!isActive}
-				wrapper={label => <a>{label}</a>}>
+				wrapper={(label): JSX.Element => <a>{label}</a>}>
 				{children}
 			</ConditionalWrapper>
 		</li>

@@ -9,11 +9,11 @@ export interface IAppBarProps extends React.ComponentProps<'nav'> {
 	shadow?: boolean | SIZE.sm | SIZE.md | SIZE.lg;
 }
 
-export const AppBar = (props: IAppBarProps) => {
+export const AppBar = (props: IAppBarProps): JSX.Element => {
 
 	const { children, className, color = COLOR.primary, shadow = true, ...rest } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles[color]);
 		cssClasses.push(styles.appbar);

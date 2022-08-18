@@ -12,11 +12,11 @@ export interface IChipProps extends React.ComponentProps<'div'> {
 	deleteIcon?: JSX.Element;
 }
 
-export const Chip = (props: IChipProps) => {
+export const Chip = (props: IChipProps): JSX.Element => {
 
 	const { children, color = 'secondary', className, shadow, onClick, isDeletable, onDelete, deleteIcon = <TimesCircleSolidIcon />, style, ...rest } = props;
 
-	const getCssClass = () => {
+	const getCssClass = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.chip);
 		cssClasses.push(styles[color]);
@@ -26,7 +26,7 @@ export const Chip = (props: IChipProps) => {
 		return cssClasses.filter(r => r).join(' ');
 	};
 
-	const handleClickOnDelete = (e: React.MouseEvent<Element>) => {
+	const handleClickOnDelete = (e: React.MouseEvent<Element>): void => {
 		e.stopPropagation();
 		onDelete && onDelete(e);
 	};
@@ -37,7 +37,7 @@ export const Chip = (props: IChipProps) => {
 				{children}
 			</span>
 			{isDeletable && (
-				<div className={styles.deleteIcon} onClick={e => handleClickOnDelete(e)}>
+				<div className={styles.deleteIcon} onClick={(e): void => handleClickOnDelete(e)}>
 					{deleteIcon}
 				</div>
 			)}

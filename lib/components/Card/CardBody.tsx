@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './CardBody.module.scss';
 
-export const CardBody = (props: React.ComponentProps<'div'>) => {
+export const CardBody = (props: React.ComponentProps<'div'>): JSX.Element => {
 
 	const { children, className, ...rest } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.cardBody);
 		className && cssClasses.push(className);

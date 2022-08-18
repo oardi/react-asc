@@ -5,11 +5,11 @@ export interface IBreadcrumbProps extends React.ComponentProps<'nav'> {
 	children?: ReactNode;
 }
 
-export const Breadcrumb = (props: IBreadcrumbProps) => {
+export const Breadcrumb = (props: IBreadcrumbProps): JSX.Element => {
 
 	const { children, className, ...rest } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.breadcrumb);
 		className && cssClasses.push(className);

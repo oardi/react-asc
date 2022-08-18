@@ -10,7 +10,7 @@ export interface ICheckboxProps extends React.ComponentProps<'input'> {
 	onKeyDown?: (event: React.KeyboardEvent) => void;
 }
 
-export const Checkbox = (props: ICheckboxProps) => {
+export const Checkbox = (props: ICheckboxProps): JSX.Element => {
 
 	const { id, checked, className, label, name, value = 'off', disabled, readOnly, ...rest } = props;
 
@@ -35,25 +35,25 @@ export const Checkbox = (props: ICheckboxProps) => {
 		selected: <CheckSquareRegularIcon />
 	};
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push('checkbox');
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const getCssClassesLabel = () => {
+	const getCssClassesLabel = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.checkboxLabel);
 		disabled && cssClasses.push(styles['disabled']);
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	const getIcon = () => {
+	const getIcon = (): JSX.Element => {
 		return isChecked ? icons.selected : icons.default;
 	};
 
-	const handleClick = () => {
+	const handleClick = (): void => {
 		if (!disabled && !readOnly) {
 			setIsChecked(!isChecked);
 			checkboxElement?.current?.click();

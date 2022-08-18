@@ -8,7 +8,7 @@ export interface IBadgeProps extends React.ComponentProps<'div'> {
 	content?: React.ReactNode;
 }
 
-export const Badge = (props: IBadgeProps) => {
+export const Badge = (props: IBadgeProps): JSX.Element => {
 
 	const { children, content, className, color = COLOR.primary, ...rest } = props;
 
@@ -28,7 +28,7 @@ export const Badge = (props: IBadgeProps) => {
 	);
 };
 
-const BadgeContainer = (props: React.ComponentProps<'div'>) => {
+const BadgeContainer = (props: React.ComponentProps<'div'>): JSX.Element => {
 
 	const { children, className, ...rest } = props;
 

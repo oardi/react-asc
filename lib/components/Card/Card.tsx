@@ -5,11 +5,11 @@ interface ICardProps extends React.ComponentProps<'div'> {
 	shadow?: boolean;
 }
 
-export const Card = (props: ICardProps) => {
+export const Card = (props: ICardProps): JSX.Element => {
 
 	const { children, className, shadow = true, ...rest } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.card);
 		shadow && cssClasses.push(styles.shadow);

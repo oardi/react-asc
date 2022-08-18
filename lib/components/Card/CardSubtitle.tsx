@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './CardSubtitle.module.scss';
 
-export const CardSubtitle = (props: React.ComponentProps<'div'>) => {
+export const CardSubtitle = (props: React.ComponentProps<'div'>): JSX.Element => {
 
 	const { children, className, ...rest } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.cardSubtitle);
 		className && cssClasses.push(className);

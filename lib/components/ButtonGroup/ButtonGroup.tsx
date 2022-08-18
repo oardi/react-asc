@@ -7,11 +7,11 @@ export interface IButtonGroupProps extends React.ComponentProps<'div'> {
 	color?: COLOR;
 }
 
-export const ButtonGroup = (props: IButtonGroupProps) => {
+export const ButtonGroup = (props: IButtonGroupProps): JSX.Element => {
 
 	const { children, className, color, ...rest } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.buttonGroup);
 		className && cssClasses.push(className);

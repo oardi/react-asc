@@ -11,11 +11,11 @@ export interface IAlertProps extends React.ComponentProps<'div'> {
 	shadow?: boolean | SIZE.sm | SIZE.md | SIZE.lg;
 }
 
-export const Alert = (props: IAlertProps) => {
+export const Alert = (props: IAlertProps): JSX.Element => {
 
 	const { children, className, color = COLOR.primary, variant = VARIANT.contained, shadow = true, ...rest } = props;
 
-	const getCssClasses = () => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.alert);
 

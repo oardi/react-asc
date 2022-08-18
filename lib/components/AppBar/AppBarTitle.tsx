@@ -5,11 +5,11 @@ export interface IAppBarTitleProps extends React.ComponentProps<'div'>  {
 	children?: ReactNode;
 }
 
-export const AppBarTitle = (props: IAppBarTitleProps) => {
+export const AppBarTitle = (props: IAppBarTitleProps): JSX.Element => {
 
 	const { children, className, onClick } = props;
 
-	const getCssClass = () => {
+	const getCssClass = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.appbarTitle);
 		className && cssClasses.push(className);
