@@ -17,7 +17,7 @@ export const Tab = (props: ITabProps): JSX.Element => {
 
 	const { selectedValue, setSelectedValue } = useTabContext();
 
-	const getCssClasses = (): string[] => {
+	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.tab);
 		className && cssClasses.push(className);
