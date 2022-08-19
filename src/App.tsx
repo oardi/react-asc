@@ -24,8 +24,8 @@ const App = (): JSX.Element => {
 	useEffect(() => { init(); }, []);
 
 	useEffect(() => {
-		if (appState === APPSTATE.ready && isMobile === false) {
-			setShowMenu(true);
+		if (appState === APPSTATE.ready) {
+			setShowMenu(!isMobile);
 		}
 	}, [isMobile, appState]);
 
@@ -70,9 +70,8 @@ const App = (): JSX.Element => {
 				<div className="p-2 pt-0 w-100 flex-1">
 					<AppBreadcrumb className="mt-1 mb-1" />
 					{
-						routes && routes.length > 0 &&
 						<Routes>
-							{routes.map(route =>
+							{routes && routes.map(route =>
 								<Route key={route.componentKey} path={route.path} element={route.element}>
 									{route.routes?.map(route =>
 										<Route key={route.componentKey} path={route.path} element={route.element} />
