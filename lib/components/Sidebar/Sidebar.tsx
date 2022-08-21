@@ -74,12 +74,12 @@ export const Sidebar = (props: ISidebarProps): JSX.Element => {
 			});
 			setMenuItems(newMenuItems);
 		} else {
-			navigate(e, `/${item.path}`);
+			navigate(e, `${item.path}`);
 		}
 	};
 
 	const handleClickSubItem = (itemPath: string, subItemPath: string, e: React.MouseEvent<Element, MouseEvent>): void => {
-		navigate(e, `/${itemPath}/${subItemPath}`);
+		navigate(e, `${itemPath}/${subItemPath}`);
 	};
 
 	return (

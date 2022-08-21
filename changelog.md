@@ -1,3 +1,5 @@
+### 25.0.5
+- sidebar - path fix
 - linting 
 
 ### 25.0.4

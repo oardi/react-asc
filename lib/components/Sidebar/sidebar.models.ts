@@ -8,6 +8,6 @@ export class SidebarItemModel {
 		public items?: SidebarItemModel[],
 		public isCollapsible: boolean = false,
 		public isCollapsed: boolean = false,
-		) {
+	) {
 	}
 }
