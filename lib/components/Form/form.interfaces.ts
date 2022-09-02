@@ -1,4 +1,4 @@
-import { FormControl } from './form.models';
+import type { FormControl } from './form.models';
 
 export interface IControls {
 	[key: string]: FormControl;

@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
-import { List, IListProps, ListItem, ListItemAvatar, HomeSolidIcon, ListItemAction, IconButton, ListItemText, ListItemIcon, snackbarService, COLOR, VARIANT } from 'lib';
+import type { IListProps} from 'lib';
+import { List, ListItem, ListItemAvatar, HomeSolidIcon, ListItemAction, IconButton, ListItemText, ListItemIcon, snackbarService, COLOR, VARIANT } from 'lib';
 import { UserCircleSolidIcon } from '../assets';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 
 export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IListProps>): JSX.Element => {
 
@@ -13,12 +15,12 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	}, []);
 
 	const handleClickItem = (): void => {
-		snackbarService.show('item clicked');
+		void snackbarService.show('item clicked');
 	};
 
 	const handleClickAction = (e: React.MouseEvent): void => {
 		e.stopPropagation();
-		snackbarService.show('action clicked');
+		void snackbarService.show('action clicked');
 	};
 
 	return (

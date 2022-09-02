@@ -1,8 +1,10 @@
-import React, { PropsWithChildren, ReactElement, useEffect, useRef, useState } from 'react';
+import type { PropsWithChildren, ReactElement} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ButtonContext } from '../Button';
 import { COLOR } from '../component.enums';
-import { ITabProps } from './Tab';
-import { ITabsContext, TabContext } from './TabContext';
+import type { ITabProps } from './Tab';
+import type { ITabsContext} from './TabContext';
+import { TabContext } from './TabContext';
 import { TabIndicator } from './TabIndicator';
 import styles from './Tabs.module.scss';
 

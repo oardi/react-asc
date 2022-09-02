@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Menu, MenuItem, FormControl, IMenuProps, snackbarService, ListItemAvatar, ListItemText } from 'lib';
+import type { IMenuProps} from 'lib';
+import { Button, Menu, MenuItem, FormControl, snackbarService, ListItemAvatar, ListItemText } from 'lib';
 import { loggerService } from '../../shared';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 import { UserCircleSolidIcon } from '../assets';
 
 const MenuPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IMenuProps>): JSX.Element => {
@@ -22,7 +24,7 @@ const MenuPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 	const handleClick = (text: string): void => {
 		loggerService.debug('handleClick', text);
 		setOpen(false);
-		snackbarService.show(`you clicked action ${text}`);
+		void snackbarService.show(`you clicked action ${text}`);
 	};
 
 	return (

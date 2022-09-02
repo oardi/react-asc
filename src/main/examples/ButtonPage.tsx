@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import { Button, COLOR, FormControl, IButtonProps, snackbarService, VARIANT } from 'lib';
+import type { IButtonProps} from 'lib';
+import { Button, COLOR, FormControl, snackbarService, VARIANT } from 'lib';
 import { InfoSolidIcon } from '../assets';
 import { withOptions } from './components';
-import { IShowcaseBaseProps } from './components';
+import type { IShowcaseBaseProps } from './components';
 
 interface IButtonExampleProps extends IButtonProps {
 	showStartIcon?: boolean;
@@ -26,7 +27,7 @@ const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 	}, []);
 
 	const handleClick = (): void => {
-		snackbarService.show('Button clicked');
+		void snackbarService.show('Button clicked');
 	};
 
 	return (

@@ -1,4 +1,5 @@
-import { Card, CardBody, Form, IControls, IFormValues } from 'lib';
+import type { IControls, IFormValues } from 'lib';
+import { Card, CardBody, Form } from 'lib';
 
 interface IShowcaseSettingsProps {
 	controls: IControls;

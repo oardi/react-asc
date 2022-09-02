@@ -80,7 +80,7 @@ export const CssTransition = (props: ICssTransitionProps): JSX.Element => {
 
 	useEffect(() => {
 		if (isShow !== undefined && (isShow === true || isShow === false)) {
-			renderAnimation(isShow);
+			void renderAnimation(isShow);
 		}
 	}, [isShow]);
 

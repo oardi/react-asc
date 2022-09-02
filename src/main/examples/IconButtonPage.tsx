@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import { IconButton, IIconButtonProps, HomeSolidIcon, FormControl, COLOR, VARIANT, snackbarService, SIZE } from 'lib';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IIconButtonProps} from 'lib';
+import { IconButton, HomeSolidIcon, FormControl, COLOR, VARIANT, snackbarService, SIZE } from 'lib';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 
 const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IIconButtonProps>): JSX.Element => {
 
@@ -16,7 +18,7 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 	}, []);
 
 	const handleClick = (): void => {
-		snackbarService.show('IconButton clicked');
+		void snackbarService.show('IconButton clicked');
 	};
 
 	return (

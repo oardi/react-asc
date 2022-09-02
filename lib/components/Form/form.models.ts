@@ -1,5 +1,5 @@
-import { IFormControlConfig, IFormInputError } from './form.interfaces';
-import { IFormControlType } from './form.types';
+import type { IFormControlConfig, IFormInputError } from './form.interfaces';
+import type { IFormControlType } from './form.types';
 
 export class FormControl {
 	constructor(

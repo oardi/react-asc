@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ISelectOption } from '../component.interfaces';
+import type { ISelectOption } from '../component.interfaces';
 import { Select } from '../Select';
 
 export interface IYearProps {

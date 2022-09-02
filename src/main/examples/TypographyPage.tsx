@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import { FormControl, ITypographyProps, Typography } from 'lib';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { ITypographyProps} from 'lib';
+import { FormControl, Typography } from 'lib';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 
 const TypographyPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITypographyProps>): JSX.Element => {
 

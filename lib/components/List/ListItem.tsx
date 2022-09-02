@@ -1,5 +1,5 @@
 import React from 'react';
-import { COLOR } from '../component.enums';
+import type { COLOR } from '../component.enums';
 import styles from './ListItem.module.scss';
 
 export interface IListItemProps extends React.ComponentProps<'li'> {

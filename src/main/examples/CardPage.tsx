@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Card, CardBody, CardFooter, CardImage, CardSubtitle, CardText, CardTitle, FormControl, List, ListItem, ListItemText } from 'lib';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 
 interface ICardPageBaseProps {
 	showImage?: boolean;

@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import { COLOR, FormControl, HomeSolidIcon, Icon, IIconProps } from 'lib';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IIconProps } from 'lib';
+import { COLOR, FormControl, HomeSolidIcon, Icon } from 'lib';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 
 const IconPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IIconProps>): JSX.Element => {
 

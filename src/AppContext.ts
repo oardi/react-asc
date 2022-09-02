@@ -1,5 +1,6 @@
-import { Context, createContext, Dispatch, useContext } from 'react';
-import { IAppInfo } from './app.interfaces';
+import type { Context, Dispatch} from 'react';
+import { createContext, useContext } from 'react';
+import type { IAppInfo } from './app.interfaces';
 
 export interface IAppContext {
 	appInfo?: IAppInfo;

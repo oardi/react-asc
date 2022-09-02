@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { AxiosResponse } from 'axios';
+import type { AxiosResponse } from 'axios';
 import { Typography } from 'lib';
 import snarkdown from 'snarkdown';
 import { fileLoaderService, loggerService } from '../services';
@@ -14,11 +14,15 @@ export const Markdown = ({ url, text }: IMarkdownProps): JSX.Element => {
 	const [markdownText, setMarkdownText] = useState<string>('');
 
 	useEffect(() => {
-		if (url) { loadFile(url); }
+		if (url) {
+			void loadFile(url);
+		}
 	}, [url]);
 
 	useEffect(() => {
-		if (text) { renderText(text); }
+		if (text) {
+			renderText(text);
+		}
 	}, [text]);
 
 	const loadFile = async (url: string): Promise<void> => {

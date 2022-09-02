@@ -1,4 +1,4 @@
-import { IMenuItem } from './app.interfaces';
+import type { IMenuItem } from './app.interfaces';
 import {
 	AboutPage,
 	AlertPage,

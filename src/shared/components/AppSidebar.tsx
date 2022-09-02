@@ -1,6 +1,8 @@
 import React from 'react';
-import { Location, NavigateFunction, useLocation, useNavigate } from 'react-router-dom';
-import { AppBar, AppBarTitle, COLOR, ISidebarItem, Sidebar } from 'lib';
+import type { Location, NavigateFunction} from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import type { ISidebarItem} from 'lib';
+import { AppBar, AppBarTitle, COLOR, Sidebar } from 'lib';
 
 interface IAppSidebarProps {
 	menuItems: ISidebarItem[];

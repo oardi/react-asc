@@ -1,3 +1,7 @@
+### 25.0.6
+- hook fix - useConstructor
+- fixed lintings
+
 ### 25.0.5
 - sidebar - path fix
 - linting 

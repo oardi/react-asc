@@ -1,10 +1,12 @@
-import React, { ReactElement, useEffect, useRef, useState } from 'react';
+import type { ReactElement} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button } from '../Button';
 import { SIZE, COLOR, VARIANT } from '../component.enums';
-import { Form, IControls, IFormValues } from '../Form';
+import type { IControls, IFormValues } from '../Form';
+import { Form } from '../Form';
 import { Modal } from './Modal';
 import { MODALBUTTONTYPE, MODALTYPE } from './modal.enum';
-import { IModalButton } from './modal.interfaces';
+import type { IModalButton } from './modal.interfaces';
 
 interface IModalProps {
 	title?: string;

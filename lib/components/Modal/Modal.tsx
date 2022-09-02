@@ -1,9 +1,10 @@
-import React, { ReactElement, ReactNode, useEffect } from 'react';
+import type { ReactElement, ReactNode} from 'react';
+import React, { useEffect } from 'react';
 import { ModalHeader } from './ModalHeader';
 import { ModalBody } from './ModalBody';
 import { Backdrop } from '../Backdrop';
 import { ModalFooter } from './ModalFooter';
-import { SIZE } from '../component.enums';
+import type { SIZE } from '../component.enums';
 import styles from './Modal.module.scss';
 import { Portal } from '../Portal';
 

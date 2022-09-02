@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { COLOR, FormControl, ITabsProps, snackbarService, Tab, TabPanel, Tabs } from 'lib';
+import type { ITabsProps} from 'lib';
+import { COLOR, FormControl, snackbarService, Tab, TabPanel, Tabs } from 'lib';
 import { loggerService } from '../../shared';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 
 
 const CLASSNAME: string = 'TabsPageBase';
@@ -17,7 +19,7 @@ const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 
 	const handleChange = (value: string): void => {
 		loggerService.debug(CLASSNAME, 'handleChange');
-		snackbarService.show(`You selected: ${value}`);
+		void snackbarService.show(`You selected: ${value}`);
 		setSelectedValue(value);
 	};
 

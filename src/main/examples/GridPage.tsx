@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import { Column, IContainerProps, FormControl, Row } from 'lib';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IContainerProps} from 'lib';
+import { Column, FormControl, Row } from 'lib';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 
 const GridPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IContainerProps>): JSX.Element => {
 

@@ -1,5 +1,7 @@
-import React, { ReactNode } from 'react';
-import { COLOR, SIZE } from '../component.enums';
+import type { ReactNode } from 'react';
+import React from 'react';
+import type { SIZE } from '../component.enums';
+import { COLOR } from '../component.enums';
 import styles from './AppBar.module.scss';
 
 export interface IAppBarProps extends React.ComponentProps<'nav'> {

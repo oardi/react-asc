@@ -6,7 +6,8 @@ import { useAppContext } from './AppContext';
 import { APPSTATE } from './app.enums';
 import { MenuModel, RouteModel } from './main';
 import { BarsSolidIcon } from './main/assets';
-import { AppBar, AppBarTitle, COLOR, Drawer, IconButton, ISidebarItem, useMobileDetect } from 'lib';
+import type { ISidebarItem} from 'lib';
+import { AppBar, AppBarTitle, COLOR, Drawer, IconButton, useMobileDetect } from 'lib';
 import { menuItems } from './AppMenu';
 
 const CLASSNAME: string = 'App';

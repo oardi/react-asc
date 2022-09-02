@@ -4,8 +4,8 @@ import { Checkbox } from '../../Checkbox';
 import { FileInput } from '../../FileInput';
 import { Select } from '../../Select';
 import { Textarea } from '../../Textarea';
-import { IFormInputOptions, IFormTextAreaOptions, IFormSelectOptions, IFormAutoCompleteOptions } from '../form.interfaces';
-import { IFormControlType } from '../form.types';
+import type { IFormInputOptions, IFormTextAreaOptions, IFormSelectOptions, IFormAutoCompleteOptions } from '../form.interfaces';
+import type { IFormControlType } from '../form.types';
 import styles from './FormInput.module.scss';
 
 export interface IFormInputEvent {

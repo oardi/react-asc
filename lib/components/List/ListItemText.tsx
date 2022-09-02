@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import React from 'react';
 import styles from './ListItemTextIcon.module.scss';
 
 interface IListItemTextProps extends React.ComponentProps<'div'> {

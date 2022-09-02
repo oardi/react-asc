@@ -1,6 +1,7 @@
 import React from 'react';
 import { Layout } from './Layout';
-import { NavigateFunction, useNavigate } from 'react-router-dom';
+import type { NavigateFunction} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { RocketSolidIcon } from './assets';
 import { Button, Card, CardBody, CardText, CardTitle, Column, Row, Typography } from 'lib';
 

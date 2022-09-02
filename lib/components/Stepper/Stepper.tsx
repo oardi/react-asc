@@ -1,5 +1,6 @@
-import React, { cloneElement, Fragment, PropsWithChildren, ReactElement, useEffect, useState } from 'react';
-import { IStepProps } from './Step';
+import type { PropsWithChildren, ReactElement} from 'react';
+import React, { cloneElement, Fragment, useEffect, useState } from 'react';
+import type { IStepProps } from './Step';
 import { StepperActions } from './StepperActions';
 import { StepPanel } from './StepPanel/StepPanel';
 import { StepConnector } from './StepConnector/StepConnector';

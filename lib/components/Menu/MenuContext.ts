@@ -1,4 +1,5 @@
-import { Context, createContext, Dispatch } from 'react';
+import type { Context, Dispatch } from 'react';
+import { createContext } from 'react';
 
 export interface IMenuContext {
 	isShow: boolean;

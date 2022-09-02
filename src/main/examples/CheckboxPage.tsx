@@ -1,7 +1,10 @@
-import React, { useEffect, FocusEvent } from 'react';
-import { FormControl, Checkbox, ICheckboxProps } from 'lib';
+import type { FocusEvent } from 'react';
+import React, { useEffect } from 'react';
+import type { ICheckboxProps } from 'lib';
+import { FormControl, Checkbox } from 'lib';
 import { loggerService } from '../../shared';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 
 const CLASSNAME: string = 'ShowcaseCheckboxBase';
 export const CheckboxPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ICheckboxProps>): JSX.Element => {

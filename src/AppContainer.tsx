@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { AppContext, IAppContext } from './AppContext';
+import type { IAppContext } from './AppContext';
+import { AppContext } from './AppContext';
 import App from './App';
 
 import packageJson from '../package.json';
-import { IAppInfo } from './app.interfaces';
+import type { IAppInfo } from './app.interfaces';
 
 export const AppContainer = (): JSX.Element => {
 

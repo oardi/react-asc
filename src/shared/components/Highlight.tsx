@@ -4,7 +4,7 @@ import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 
 import snarkdown from 'snarkdown';
-import { AxiosResponse } from 'axios';
+import type { AxiosResponse } from 'axios';
 
 // if lineNumber -> add className="line-numbers"
 
@@ -23,7 +23,9 @@ export const Highlight = ({ url, text, language = 'javascript' }: IHighlightProp
 	}, [highlightedText]);
 
 	useEffect(() => {
-		if (url) { loadFile(url); }
+		if (url) {
+			void loadFile(url);
+		}
 	}, [url]);
 
 	useEffect(() => {

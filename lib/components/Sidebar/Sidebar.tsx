@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { List, ListItem, ListItemAction, ListItemText } from '../List';
-import { ISidebarItem } from './sidebar.interfaces';
+import type { ISidebarItem } from './sidebar.interfaces';
 import { SidebarItemModel } from './sidebar.models';
 import { ChevronUpSolidIcon, ChevronDownSolidIcon } from '../../icons';
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import { IListItemProps, ListItem } from '../List';
+import type { IListItemProps} from '../List';
+import { ListItem } from '../List';
 
 export const MenuItem = (props: IListItemProps): JSX.Element => {
 

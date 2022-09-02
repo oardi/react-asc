@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
-import { Chip, COLOR, FormControl, IChipProps, snackbarService } from 'lib';
+import type { IChipProps} from 'lib';
+import { Chip, COLOR, FormControl, snackbarService } from 'lib';
 import { loggerService } from '../../shared';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 
 
 const CLASSNAME: string = 'ShowcaseChipPageBase';
@@ -17,7 +19,7 @@ export const ChipPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 
 	const handleClick = (): void => {
 		loggerService.debug(CLASSNAME, 'handleClick');
-		snackbarService.show('chip clicked');
+		void snackbarService.show('chip clicked');
 	};
 
 	return (

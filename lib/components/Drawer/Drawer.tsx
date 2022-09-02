@@ -1,8 +1,9 @@
-import React, { ReactNode, useEffect } from 'react';
+import type { ReactNode} from 'react';
+import React, { useEffect } from 'react';
 import { Backdrop } from '../Backdrop';
 import { Portal } from '../Portal';
 import styles from './Drawer.module.scss';
-import { IDictionary } from '../../interfaces';
+import type { IDictionary } from '../../interfaces';
 
 export interface IDrawerProps extends React.ComponentProps<'div'> {
 	position?: 'left' | 'right';

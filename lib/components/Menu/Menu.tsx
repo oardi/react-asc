@@ -1,7 +1,8 @@
-import React, { ReactElement, useRef } from 'react';
-import { MenuPosition } from './menu.types';
+import type { ReactElement} from 'react';
+import React, { useRef } from 'react';
+import type { MenuPosition } from './menu.types';
 import { MenuBody } from './MenuBody';
-import { IListItemProps } from '../List';
+import type { IListItemProps } from '../List';
 
 export interface IMenuProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	toggle?: ReactElement;

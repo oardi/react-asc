@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Drawer, FormControl, IDrawerProps } from 'lib';
+import type { IDrawerProps } from 'lib';
+import { Button, Drawer, FormControl } from 'lib';
 import { loggerService } from '../../shared';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 
 const CLASSNAME: string = 'ShowcaseDrawerBase';
 const DrawerPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IDrawerProps>): JSX.Element => {

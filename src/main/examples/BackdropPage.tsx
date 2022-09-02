@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { FormControl, Button, Backdrop, IBackdropProps } from 'lib';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IBackdropProps } from 'lib';
+import { FormControl, Button, Backdrop } from 'lib';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 
 const BackdropPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IBackdropProps>): JSX.Element => {
 

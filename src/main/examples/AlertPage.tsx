@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import { Alert, COLOR, FormControl, IAlertProps, VARIANT } from 'lib';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IAlertProps} from 'lib';
+import { Alert, COLOR, FormControl, VARIANT } from 'lib';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 
 const AlertPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IAlertProps>): JSX.Element => {
 

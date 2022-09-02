@@ -1,5 +1,7 @@
-import React, { Dispatch, useEffect, useState } from 'react';
-import { COLOR, Column, Drawer, ExpansionPanel, FloatingActionButton, IControls, List, ListItem, ListItemText, Row, Tab, TabPanel, Tabs, useMobileDetect } from 'lib';
+import type { Dispatch} from 'react';
+import React, { useEffect, useState } from 'react';
+import type { IControls} from 'lib';
+import { COLOR, Column, Drawer, ExpansionPanel, FloatingActionButton, List, ListItem, ListItemText, Row, Tab, TabPanel, Tabs, useMobileDetect } from 'lib';
 import { GearSolidIcon } from '..';
 import { Highlight, Markdown } from '../../../shared';
 import { ShowcaseExample } from './ShowcaseExample';

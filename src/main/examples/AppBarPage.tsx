@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import { AppBar, AppBarTitle, COLOR, FormControl, HomeSolidIcon, IAppBarProps, IconButton, Tooltip, Typography } from 'lib';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IAppBarProps} from 'lib';
+import { AppBar, AppBarTitle, COLOR, FormControl, HomeSolidIcon, IconButton, Tooltip, Typography } from 'lib';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 
 const AppBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IAppBarProps>): JSX.Element => {
 

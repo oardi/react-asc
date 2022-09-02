@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { IControls } from 'lib';
+import type { IControls } from 'lib';
 import { ShowcaseSettings } from './ShowcaseSettings';
 
 interface IShowcaseOptionsProps {

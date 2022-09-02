@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import { COLOR } from '../component.enums';
+import type { COLOR } from '../component.enums';
 
 export interface IButtonContext {
 	color: COLOR | null;

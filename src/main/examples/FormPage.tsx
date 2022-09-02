@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FormControl, Form, IControls, Button, VARIANT, COLOR, IFormProps, modalService, IFormValues } from 'lib';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IControls, IFormProps, IFormValues } from 'lib';
+import { FormControl, Form, Button, VARIANT, COLOR, modalService } from 'lib';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 import dayjs from 'dayjs';
 import { loggerService } from '../../shared';
 
@@ -111,7 +113,7 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	};
 
 	const handleOpenInModal = (): void => {
-		modalService.showForm<IFormPageControls>('Form', controls)
+		void modalService.showForm<IFormPageControls>('Form', controls)
 			.then(res => loggerService.debug(res));
 	};
 

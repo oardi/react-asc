@@ -1,6 +1,8 @@
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import React from 'react';
 import { VARIANT } from '../component.enums';
-import { COLOR, SIZE } from '../component.enums';
+import type { SIZE } from '../component.enums';
+import { COLOR } from '../component.enums';
 import styles from './Alert.module.scss';
 
 export interface IAlertProps extends React.ComponentProps<'div'> {

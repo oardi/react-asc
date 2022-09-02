@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import { DateSelect, IDateSelectProps } from 'lib';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IDateSelectProps } from 'lib';
+import { DateSelect } from 'lib';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 
 const DateSelectPageBase = ({ setSettingsControls }: IShowcaseBaseProps<IDateSelectProps>): JSX.Element => {
 

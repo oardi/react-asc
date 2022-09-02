@@ -2,7 +2,8 @@ import React from 'react';
 import { Icon } from '../Icon';
 import { COLOR, VARIANT } from '../component.enums';
 import styles from './Button.module.scss';
-import { IButtonContext, useButtonContext } from './ButtonContext';
+import type { IButtonContext} from './ButtonContext';
+import { useButtonContext } from './ButtonContext';
 
 export interface IButtonProps extends React.ComponentProps<'button'> {
 	color?: COLOR;

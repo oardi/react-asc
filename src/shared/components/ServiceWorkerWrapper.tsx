@@ -1,6 +1,5 @@
 import React from 'react';
 import { Snackbar, useConstructor } from 'lib';
-// import * as serviceWorkerRegistration from '../../serviceWorkerRegistration';
 import { registerSW } from 'virtual:pwa-register';
 
 export const ServiceWorkerWrapper = (): JSX.Element => {

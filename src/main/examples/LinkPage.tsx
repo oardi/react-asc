@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { FormControl, Link } from 'lib';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 
 export const LinkPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<React.ComponentProps<'a'>>): JSX.Element => {
 

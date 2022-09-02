@@ -1,4 +1,5 @@
-import { Context, createContext, useContext } from 'react';
+import type { Context} from 'react';
+import { createContext, useContext } from 'react';
 
 export interface ITableContext {
 	variant: 'head' | 'body';

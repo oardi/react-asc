@@ -1,5 +1,6 @@
-import React, { ComponentProps } from 'react';
-import { COLOR } from '../component.enums';
+import type { ComponentProps } from 'react';
+import React from 'react';
+import type { COLOR } from '../component.enums';
 import styles from './Icon.module.scss';
 
 export interface IIconProps extends ComponentProps<'div'>  {

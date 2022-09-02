@@ -12,7 +12,6 @@
 			"dom.iterable",
 			"esnext"
 		],
-		"strict": true,
 		"noFallthroughCasesInSwitch": true,
 		"noEmit": true,
 		"module": "esnext",
@@ -21,9 +20,20 @@
 		"rootDir": ".",
 		"skipLibCheck": true,
 		"sourceMap": true,
+		"strict": true,
 		"target": "es2017",
+		"types": [
+			"node",
+			"jest",
+			"vite-plugin-pwa/client"
+		]
 	},
 	"exclude": [
 		"dist"
-	]
+	],
+	"include": [
+		"src/**/*",
+		"lib/**/*",
+		".eslintrc.js"
+	],
 }

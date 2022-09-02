@@ -5,7 +5,7 @@ import { withOptions } from './components';
 const MyTest = (): JSX.Element => {
 
 	useOnDestroy(() => {
-		snackbarService.show('Component unmounted');
+		void snackbarService.show('Component unmounted');
 	});
 
 	return (

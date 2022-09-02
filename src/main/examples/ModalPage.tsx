@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Button, COLOR, FormControl, IControls, IModalProps, Modal, MODALBUTTONTYPE, modalService, SIZE, snackbarService, VARIANT } from 'lib';
+import type { IControls, IModalProps } from 'lib';
+import { Button, COLOR, FormControl, Modal, MODALBUTTONTYPE, modalService, SIZE, snackbarService, VARIANT } from 'lib';
 import { loggerService } from '../../shared';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IShowcaseBaseProps } from './components';
+import { withOptions } from './components';
 
 interface IModalPageValues {
 	firstname: string;
@@ -18,7 +20,6 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 		});
 	}, []);
 
-
 	const [isVisible, setIsVisible] = useState(false);
 
 	const handleClickShowModal = (): void => {
@@ -26,7 +27,7 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 	};
 
 	const handleClickTriggerModalService = (fullscreen?: boolean): void => {
-		modalService.show('Hello Modal', 'Modal with custom buttons - using custom buttons make sure to attach Modalbuttontype for ok and cancel', {
+		void modalService.show('Hello Modal', 'Modal with custom buttons - using custom buttons make sure to attach Modalbuttontype for ok and cancel', {
 			buttons: [
 				{ label: 'delete', color: COLOR.accent, handler: customHandler },
 				{ label: 'cancel', type: MODALBUTTONTYPE.CANCEL, color: COLOR.secondary, variant: VARIANT.text },
@@ -39,7 +40,7 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 	};
 
 	const customHandler = (): void => {
-		snackbarService.show('custom handler triggered');
+		void snackbarService.show('custom handler triggered');
 	};
 
 	const handleClickTriggerModalFormService = (): void => {
@@ -122,7 +123,8 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 				]
 			})
 		};
-		modalService.showForm<IModalPageValues>('Form', controls, { size: settingValues.size })
+
+		void modalService.showForm<IModalPageValues>('Form', controls, { size: settingValues.size })
 			.then(res => {
 				loggerService.debug(res);
 			});

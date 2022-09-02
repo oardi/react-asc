@@ -1,10 +1,11 @@
 import React from 'react';
-import { Root, createRoot } from 'react-dom/client';
+import type { Root} from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import { GlobalModal } from './GlobalModal';
-import { IControls } from '../Form';
-import { ReactElement } from 'react';
-import { IModalButton } from './modal.interfaces';
-import { SIZE } from '../component.enums';
+import type { IControls } from '../Form';
+import type { ReactElement } from 'react';
+import type { IModalButton } from './modal.interfaces';
+import type { SIZE } from '../component.enums';
 
 export interface IModalService {
 	show(title: string, description: string | ReactElement, options?: IModalOptions): Promise<void>;

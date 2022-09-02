@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { FormControl, IStepperProps, snackbarService, Step, Stepper } from 'lib';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IStepperProps} from 'lib';
+import { FormControl, snackbarService, Step, Stepper } from 'lib';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 
 const CLASSNAME: string = 'StepperPageBase';
 const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IStepperProps>): JSX.Element => {
@@ -16,12 +18,12 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 	}, []);
 
 	const handleOnChange = (index: number): void => {
-		snackbarService.show(`you selected step ${index + 1}`);
+		void snackbarService.show(`you selected step ${index + 1}`);
 		setValue(index);
 	};
 
 	const handleOnFinish = (): void => {
-		snackbarService.show('you reached the end');
+		void snackbarService.show('you reached the end');
 	};
 
 	return (

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { AutoComplete, FormControl, IAutoCompleteProps, ISelectOption, snackbarService } from 'lib';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IAutoCompleteProps, ISelectOption } from 'lib';
+import { AutoComplete, FormControl, snackbarService } from 'lib';
+import type { IShowcaseBaseProps } from './components';
+import { withOptions } from './components';
 
 interface IMyCustomData { id: string, label: string, description: string }
 
@@ -44,7 +46,7 @@ const AutoCompletePageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 	];
 
 	const handleOnSelect = (e: ISelectOption): void => {
-		snackbarService.show(`value changed: ${e.label}`);
+		void snackbarService.show(`value changed: ${e.label}`);
 	};
 
 	const handleOnChange = (val: string | undefined): void => {

@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import React from 'react';
 import { ChevronDownSolidIcon, ChevronUpSolidIcon } from '../../icons';
 import { Icon } from '../Icon';
 import styles from './ExpansionPanelHeader.module.scss';

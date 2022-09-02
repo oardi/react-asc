@@ -1,4 +1,5 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import type { ReactNode} from 'react';
+import React, { useEffect, useState } from 'react';
 import { ExpansionPanelContent } from './ExpansionPanelContent';
 import { ExpansionPanelHeader } from './ExpansionPanelHeader';
 import styles from './ExpansionPanel.module.scss';

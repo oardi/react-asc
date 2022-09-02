@@ -1,10 +1,12 @@
-import React, { ReactElement, useEffect, useRef } from 'react';
+import type { ReactElement} from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Backdrop } from '../Backdrop';
-import { MenuPosition } from './menu.types';
+import type { MenuPosition } from './menu.types';
 import { createPopper } from '@popperjs/core';
 import styles from './MenuBody.module.scss';
 import { Portal } from '../Portal';
-import { IListItemProps, List } from '../List';
+import type { IListItemProps} from '../List';
+import { List } from '../List';
 
 export interface IMenuBodyProps {
 	children?: ReactElement<IListItemProps> | ReactElement<IListItemProps>[];

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { COLOR, ISpeedDialProps, snackbarService, SpeedDial, SpeedDialAction } from 'lib';
+import type { ISpeedDialProps} from 'lib';
+import { COLOR, snackbarService, SpeedDial, SpeedDialAction } from 'lib';
 import { InfoSolidIcon } from '../assets';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 
 const SpeedDialPageBase = ({ setSettingsControls }: IShowcaseBaseProps<ISpeedDialProps>): JSX.Element => {
 
@@ -13,7 +15,7 @@ const SpeedDialPageBase = ({ setSettingsControls }: IShowcaseBaseProps<ISpeedDia
 	}, []);
 
 	const handleClick = (index: number): void => {
-		snackbarService.show(`you clicked action: ${index}`);
+		void snackbarService.show(`you clicked action: ${index}`);
 		handleClose();
 	};
 

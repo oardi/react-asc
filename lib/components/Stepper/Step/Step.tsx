@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import React from 'react';
 import { CheckSolidIcon, CircleSolidIcon } from '../../../icons';
 import { useHover } from '../../../hooks';
 import { COLOR } from '../../component.enums';

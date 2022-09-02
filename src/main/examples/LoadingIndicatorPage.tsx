@@ -1,6 +1,8 @@
-import { Button, FormControl, ILoadingIndicatorContainerProps, LoadingIndicator, LoadingIndicatorContainer, loadingIndicatorService } from 'lib';
+import type { ILoadingIndicatorContainerProps} from 'lib';
+import { Button, FormControl, LoadingIndicator, LoadingIndicatorContainer, loadingIndicatorService } from 'lib';
 import { useEffect, useState } from 'react';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 
 const LoadingIndicatorPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ILoadingIndicatorContainerProps>): JSX.Element => {
 

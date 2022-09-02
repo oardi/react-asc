@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import { HomeSolidIcon, FormControl, COLOR, snackbarService, FloatingActionButton, SIZE, IFloatingActionButtonProps } from 'lib';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IFloatingActionButtonProps } from 'lib';
+import { HomeSolidIcon, FormControl, COLOR, snackbarService, FloatingActionButton, SIZE } from 'lib';
+import type { IShowcaseBaseProps } from './components';
+import { withOptions } from './components';
 
 const FloatingActionButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IFloatingActionButtonProps>): JSX.Element => {
 
@@ -15,7 +17,7 @@ const FloatingActionButtonPageBase = ({ settingValues, setSettingsControls }: IS
 	}, []);
 
 	const handleClick = (): void => {
-		snackbarService.show('FloatingActionButton clicked');
+		void snackbarService.show('FloatingActionButton clicked');
 	};
 
 	return (

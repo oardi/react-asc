@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
-import { Badge, COLOR, FormControl, IBadgeProps, HomeSolidIcon, Icon } from 'lib';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IBadgeProps} from 'lib';
+import { Badge, COLOR, FormControl, HomeSolidIcon, Icon } from 'lib';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 
 const BadgePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IBadgeProps>): JSX.Element => {
 

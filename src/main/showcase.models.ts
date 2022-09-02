@@ -1,5 +1,5 @@
-import { ISidebarItem } from 'lib';
-import { IMenuItem } from '../app.interfaces';
+import type { ISidebarItem } from 'lib';
+import type { IMenuItem } from '../app.interfaces';
 
 export class MenuModel implements ISidebarItem {
 

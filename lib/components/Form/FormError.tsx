@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { IFormInputError } from './form.interfaces';
+import type { IFormInputError } from './form.interfaces';
 import styles from './FormError.module.scss';
 
 interface IFormErrorProps {

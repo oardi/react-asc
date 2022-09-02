@@ -1,5 +1,5 @@
-import { COLOR, VARIANT } from '../component.enums';
-import { MODALBUTTONTYPE } from './modal.enum';
+import type { COLOR, VARIANT } from '../component.enums';
+import type { MODALBUTTONTYPE } from './modal.enum';
 
 export interface IModalButton {
 	label: string;

@@ -1,11 +1,12 @@
-import React, { ReactElement, useEffect, useRef, useState } from 'react';
+import type { ReactElement} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ChevronDownSolidIcon } from '../../icons';
 import { Checkbox } from '../Checkbox';
 import { Chip } from '../Chip';
 import { COLOR } from '../component.enums';
 import { List, ListItem, ListItemText } from '../List';
 import { Icon } from '../Icon';
-import { ISelectOption } from '../component.interfaces';
+import type { ISelectOption } from '../component.interfaces';
 import styles from './Select.module.scss';
 import { Backdrop } from '../Backdrop';
 import { Portal } from '../Portal';

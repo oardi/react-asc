@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { FormControl, ITreeItemProps, snackbarService, TreeItem, TreeView, Typography } from 'lib';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { ITreeItemProps} from 'lib';
+import { FormControl, snackbarService, TreeItem, TreeView, Typography } from 'lib';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 
 const TreeViewPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITreeItemProps>): JSX.Element => {
 

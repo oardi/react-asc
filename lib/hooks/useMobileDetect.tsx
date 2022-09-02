@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { IUseWindowSize, useWindowSize } from './useWindowSize';
+import type { IUseWindowSize} from './useWindowSize';
+import { useWindowSize } from './useWindowSize';
 
 export function useMobileDetect(): { isMobile: boolean; } {
 	const [isMobile, setIsMobile] = useState<boolean>(false);

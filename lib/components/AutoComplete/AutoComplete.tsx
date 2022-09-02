@@ -3,7 +3,7 @@ import { IconButton } from '../IconButton';
 import { TimesSolidIcon } from '../../icons';
 import { useDebounce } from '../../hooks';
 import { Backdrop } from '../Backdrop';
-import { ISelectOption } from '../component.interfaces';
+import type { ISelectOption } from '../component.interfaces';
 import { List, ListItem, ListItemText } from '../List';
 import styles from './AutoComplete.module.scss';
 

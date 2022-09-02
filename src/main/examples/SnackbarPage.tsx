@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
-import { Button, COLOR, FormControl, ISnackbarProps, snackbarService } from 'lib';
+import type { ISnackbarProps} from 'lib';
+import { Button, COLOR, FormControl, snackbarService } from 'lib';
 import { loggerService } from '../../shared';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 
 interface ISnackbarServiceProps extends ISnackbarProps {
 	timeout: number;
@@ -19,7 +21,7 @@ const SnackbarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 	}, []);
 
 	const handleClick = (): void => {
-		snackbarService
+		void snackbarService
 			.show(settingValues.children as React.ReactNode, {
 				actionText: settingValues.actionText,
 				timeout: settingValues.timeout,

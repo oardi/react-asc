@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import { FormControl, ITableProps, Table, TableBody, TableCell, TableHead, TableRow } from 'lib';
-import { IShowcaseBaseProps, withOptions } from './components';
+import type { ITableProps} from 'lib';
+import { FormControl, Table, TableBody, TableCell, TableHead, TableRow } from 'lib';
+import type { IShowcaseBaseProps} from './components';
+import { withOptions } from './components';
 
 const TablePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITableProps>): JSX.Element => {
 
