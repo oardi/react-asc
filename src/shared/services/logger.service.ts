@@ -48,6 +48,9 @@ class LoggerService implements ILoggerService {
 			case LogType.error:
 				console.error(args);
 				break;
+			default:
+				console.log(args);
+				break;
 		}
 	}
 }

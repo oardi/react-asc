@@ -14,7 +14,7 @@ const SpeedDialPageBase = ({ setSettingsControls }: IShowcaseBaseProps<ISpeedDia
 		});
 	}, []);
 
-	const handleClick = (index: number): void => {
+	const handleClick = (index: string): void => {
 		void snackbarService.show(`you clicked action: ${index}`);
 		handleClose();
 	};
@@ -38,12 +38,12 @@ const SpeedDialPageBase = ({ setSettingsControls }: IShowcaseBaseProps<ISpeedDia
 					icon={<InfoSolidIcon />}
 					tooltipTitle="some tooltip text"
 					color={COLOR.primary}
-					onClick={(): void => handleClick(1)}
+					onClick={(): void => handleClick('1')}
 				/>
 				<SpeedDialAction
 					icon={<InfoSolidIcon />}
 					tooltipTitle="some tooltip text"
-					onClick={(): void => handleClick(2)}
+					onClick={(): void => handleClick('2')}
 				/>
 			</SpeedDial>
 		</div>

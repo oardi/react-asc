@@ -119,7 +119,7 @@ export function withOptions<T>(
 										header="Setted Props"
 									>
 										<pre>
-											{JSON.stringify(settingValues, null, 4)}
+											{JSON.stringify(settingValues, null)}
 										</pre>
 									</ExpansionPanel>
 								</>

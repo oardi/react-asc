@@ -18,13 +18,20 @@ module.exports = {
 		'@typescript-eslint'
 	],
 	rules: {
+		'camelcase': 'error',
+		'consistent-return': 'error',
+		'curly': 'error',
+		'default-case': 'error',
+		'eqeqeq': 'error',
+		'no-promise-executor-return': 'error',
+		'no-unused-expressions': 'off',
+		'no-unreachable': 'error',
 		'require-await': 'off',
 		'semi': 'error',
-		'curly': 'error',
-		'no-unused-expressions': 'off',
 		'@typescript-eslint/array-type': 'error',
 		"@typescript-eslint/await-thenable": "error",
-		'@typescript-eslint/ban-types': 0,
+		'@typescript-eslint/ban-types': 'error',
+		"@typescript-eslint/consistent-generic-constructors": "error",
 		'@typescript-eslint/consistent-type-imports': 'error',
 		"@typescript-eslint/explicit-function-return-type": "error",
 		'@typescript-eslint/no-empty-interface': 'error',
@@ -32,6 +39,12 @@ module.exports = {
 		'@typescript-eslint/no-explicit-any': 'error',
 		"@typescript-eslint/no-floating-promises": ["error", { ignoreIIFE: true }],
 		'@typescript-eslint/no-inferrable-types': 0,
+		'@typescript-eslint/no-magic-numbers': ['warn', {
+			'ignore': [0, 1, -1],
+			'ignoreEnums': true,
+			'ignoreArrayIndexes': true
+		}],
+		'@typescript-eslint/no-non-null-assertion': 'error',
 		"@typescript-eslint/no-unused-expressions": [
 			"error",
 			{

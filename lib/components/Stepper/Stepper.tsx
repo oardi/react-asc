@@ -92,7 +92,7 @@ export const Stepper = (props: IStepperProps): JSX.Element => {
 
 		setActiveIndex((prevActiveStep) => prevActiveStep + 1);
 		setSkipped((prevSkipped) => {
-			const newSkipped: Set<number> = new Set(prevSkipped.values());
+			const newSkipped: Set<number> = new Set<number>(prevSkipped.values());
 			newSkipped.add(activeIndex);
 			return newSkipped;
 		});

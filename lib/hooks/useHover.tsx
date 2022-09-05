@@ -17,7 +17,7 @@ export function useHover(): (boolean | React.MutableRefObject<null>)[] {
 					node.removeEventListener('mouseout', handleMouseOut);
 				};
 			}
-			return;
+			return undefined;
 		},
 		[ref.current] // Recall only if ref changes
 	);

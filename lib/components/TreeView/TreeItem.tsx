@@ -4,6 +4,9 @@ import { Checkbox } from '../Checkbox';
 import { IconButton } from '../IconButton';
 import styles from './TreeItem.module.scss';
 
+// TODO - extract
+const TreeViewItemPadding: number = 48;
+
 export interface ITreeItemProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLLIElement>, HTMLLIElement> {
 	nodeId?: string;
 	label?: string;
@@ -53,7 +56,7 @@ export const TreeItem = (props: ITreeItemProps): JSX.Element => {
 	return (
 		<li
 			className={getCssClasses()}
-			style={{ paddingLeft: `${(48 * (children ? 0 : 1))}px` }}
+			style={{ paddingLeft: `${(TreeViewItemPadding * (children ? 0 : 1))}px` }}
 		>
 			<div className="d-flex align-items-center">
 

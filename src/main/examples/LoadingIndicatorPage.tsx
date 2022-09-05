@@ -1,8 +1,10 @@
-import type { ILoadingIndicatorContainerProps} from 'lib';
+import type { ILoadingIndicatorContainerProps } from 'lib';
 import { Button, FormControl, LoadingIndicator, LoadingIndicatorContainer, loadingIndicatorService } from 'lib';
 import { useEffect, useState } from 'react';
-import type { IShowcaseBaseProps} from './components';
+import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
+
+const TimeOutDefault: number = 1000;
 
 const LoadingIndicatorPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ILoadingIndicatorContainerProps>): JSX.Element => {
 
@@ -18,14 +20,14 @@ const LoadingIndicatorPageBase = ({ settingValues, setSettingsControls }: IShowc
 		setIsVisible(true);
 		setTimeout(() => {
 			setIsVisible(false);
-		}, 1000);
+		}, TimeOutDefault);
 	};
 
 	const handleClickByService = (): void => {
 		loadingIndicatorService.show();
 		setTimeout(() => {
 			loadingIndicatorService.hide();
-		}, 1000);
+		}, TimeOutDefault);
 	};
 
 	return (

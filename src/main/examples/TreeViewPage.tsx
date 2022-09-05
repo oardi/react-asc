@@ -47,7 +47,7 @@ const TreeViewPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 						Selected Ids
 					</Typography>
 					<pre>
-						<code>{JSON.stringify(selectedIds, null, 4)}</code>
+						<code>{JSON.stringify(selectedIds, null)}</code>
 					</pre>
 				</>
 			}

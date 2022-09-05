@@ -93,7 +93,7 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	};
 
 	const onFormSubmit = (values: IFormPageControls): void => {
-		loggerService.debug(CLASSNAME, 'onFormSubmit', JSON.stringify(values, null, 2));
+		loggerService.debug(CLASSNAME, 'onFormSubmit');
 		setValues(values);
 	};
 
@@ -108,7 +108,7 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	};
 
 	const onFormChange = (values: IFormPageControls): void => {
-		loggerService.debug(CLASSNAME, 'onFormChange', JSON.stringify(values, null, 2));
+		loggerService.debug(CLASSNAME, 'onFormChange');
 		setValues(values);
 	};
 
@@ -128,7 +128,7 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 			/>
 
 			<pre>
-				{JSON.stringify(values, null, 2)}
+				{JSON.stringify(values, null)}
 			</pre>
 
 			<div className="d-flex flex-wrap">
