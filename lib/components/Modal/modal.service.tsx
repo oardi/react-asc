@@ -67,11 +67,6 @@ class ModalService implements IModalService {
 					this.hide();
 				};
 
-				// TODO - for AutoComplete
-				// const handleOnChange = (values?: IFormValues) => {
-				// 	console.info(values);
-				// }
-
 				const handleCancel = (): void => {
 					reject();
 					this.hide();

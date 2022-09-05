@@ -4,7 +4,7 @@ import { FormGroup } from './FormGroup';
 import { FormInput } from './FormInput';
 import { FormHint } from './FormHint';
 import { FormError } from './FormError';
-import type { IControls, IFormInputError, IFormValues } from './form.interfaces';
+import type { IControls, IFormInputError } from './form.interfaces';
 import { IsEmptyValidator, EmailValidator, IsEqualValidator, MaxValidator, MinValidator } from './validators';
 import type { FormControl } from './form.models';
 import type { IDictionary } from '../../interfaces';
@@ -12,8 +12,8 @@ import type { IDictionary } from '../../interfaces';
 export interface IFormProps {
 	controls: IControls;
 	validateOnBlur?: boolean;
-	onSubmit?: (values: IFormValues) => void;
-	onChange?: (values: IFormValues) => void;
+	onSubmit?: (values: unknown) => void;
+	onChange?: (values: unknown) => void;
 	submitOnEnter?: boolean;
 }
 

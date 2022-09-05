@@ -2,7 +2,7 @@ import type { ReactElement} from 'react';
 import React, { useEffect, useRef, useState } from 'react';
 import { Button } from '../Button';
 import { SIZE, COLOR, VARIANT } from '../component.enums';
-import type { IControls, IFormValues } from '../Form';
+import type { IControls } from '../Form';
 import { Form } from '../Form';
 import { Modal } from './Modal';
 import { MODALBUTTONTYPE, MODALTYPE } from './modal.enum';
@@ -13,8 +13,8 @@ interface IModalProps {
 	description?: string | ReactElement;
 	formControls?: IControls;
 	modalType?: MODALTYPE;
-	onOk: (values?: IFormValues) => void;
-	onChange?: (values?: IFormValues) => void;
+	onOk: <T>(values?: T) => void;
+	onChange?: <T>(values?: T) => void;
 	onCancel?: () => void;
 	onBackdropClick?: () => void;
 	isDismissable?: boolean;
@@ -62,7 +62,7 @@ export const GlobalModal = ({
 		onCancel && onCancel();
 	};
 
-	const onSubmit = (values: IFormValues): void => {
+	const onSubmit = (values: unknown): void => {
 		onOk && onOk(values);
 	};
 

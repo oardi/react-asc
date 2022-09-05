@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import type { IControls, IFormProps, IFormValues } from 'lib';
+import type { IControls, IFormProps } from 'lib';
 import { FormControl, Form, Button, VARIANT, COLOR, modalService } from 'lib';
-import type { IShowcaseBaseProps} from './components';
+import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 import dayjs from 'dayjs';
 import { loggerService } from '../../shared';
@@ -27,7 +27,7 @@ export interface IFormPageControls {
 
 const CLASSNAME: string = 'ShowcaseForm';
 export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IFormProps>): JSX.Element => {
-	const [values, setValues] = useState({});
+	const [values, setValues] = useState<IFormPageControls | undefined>();
 	const myForm: React.RefObject<Form> = useRef<Form>(null);
 
 	useEffect(() => {
@@ -92,7 +92,7 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 		})
 	};
 
-	const onFormSubmit = (values: IFormValues): void => {
+	const onFormSubmit = (values: IFormPageControls): void => {
 		loggerService.debug(CLASSNAME, 'onFormSubmit', JSON.stringify(values, null, 2));
 		setValues(values);
 	};
@@ -107,7 +107,7 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 		myForm?.current?.handleFormReset();
 	};
 
-	const onFormChange = (values: IFormValues): void => {
+	const onFormChange = (values: IFormPageControls): void => {
 		loggerService.debug(CLASSNAME, 'onFormChange', JSON.stringify(values, null, 2));
 		setValues(values);
 	};
@@ -123,8 +123,8 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 				ref={myForm}
 				controls={controls}
 				validateOnBlur={settingValues.validateOnBlur}
-				onSubmit={onFormSubmit}
-				onChange={onFormChange}
+				onSubmit={(values): void => onFormSubmit(values as IFormPageControls)}
+				onChange={(values): void => onFormChange(values as IFormPageControls)}
 			/>
 
 			<pre>

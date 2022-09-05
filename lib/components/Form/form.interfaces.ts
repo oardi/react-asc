@@ -4,10 +4,6 @@ export interface IControls {
 	[key: string]: FormControl;
 }
 
-export interface IFormValues {
-	[key: string]: unknown;
-}
-
 export interface IFormTextAreaOptions {
 	rows: number;
 	resize: boolean;

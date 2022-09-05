@@ -1,9 +1,9 @@
-import type { IControls, IFormValues } from 'lib';
+import type { IControls } from 'lib';
 import { Card, CardBody, Form } from 'lib';
 
 interface IShowcaseSettingsProps {
 	controls: IControls;
-	onFormChange: (val: IFormValues) => void;
+	onFormChange: (val: unknown) => void;
 }
 
 export const ShowcaseSettings = ({ controls, onFormChange }: IShowcaseSettingsProps): JSX.Element => {

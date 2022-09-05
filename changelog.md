@@ -1,3 +1,6 @@
+### 25.0.7
+- form - typing fix
+
 ### 25.0.6
 - hook fix - useConstructor
 - fixed lintings
