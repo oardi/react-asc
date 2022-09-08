@@ -1,4 +1,4 @@
-import type { PropsWithChildren, ReactElement} from 'react';
+import type { PropsWithChildren, ReactElement } from 'react';
 import React, { cloneElement, Fragment, useEffect, useState } from 'react';
 import type { IStepProps } from './Step';
 import { StepperActions } from './StepperActions';
@@ -21,10 +21,24 @@ export interface IStepperProps {
 	alternativeLabel?: boolean; // place underneath
 	value?: number; // active step as string?
 	isReadonly?: boolean;
+
+	showDoneButton?: boolean;
+	showResetButton?: boolean;
 }
 
 export const Stepper = (props: IStepperProps): JSX.Element => {
-	const { children, isLinear = true, showLabel = true, showProgressCheckIcon = false, value, isHorizontal = true, onChange, onFinish } = props;
+	const {
+		children,
+		isLinear = true,
+		showLabel = true,
+		showProgressCheckIcon = false,
+		value,
+		isHorizontal = true,
+		showDoneButton,
+		showResetButton,
+		onChange,
+		onFinish
+	} = props;
 
 	const [steps, setSteps] = useState<(ReactElement<IStepProps>)[]>();
 
@@ -47,7 +61,7 @@ export const Stepper = (props: IStepperProps): JSX.Element => {
 		return skipped.has(step);
 	};
 
-	const handleClickStep = (event: React.MouseEvent, newValue: string, index: number): void => {
+	const handleClickStep = (index: number): void => {
 		setActiveIndex(() => {
 			onChange && onChange(index);
 			return index;
@@ -65,7 +79,7 @@ export const Stepper = (props: IStepperProps): JSX.Element => {
 						isDisabled: isLinear && (activeIndex + 1 < index),
 						showLabel: showLabel,
 						showProgressCheckIcon: showProgressCheckIcon,
-						onClick: (e: { event: React.MouseEvent, value: string }) => handleClickStep(e.event, e.value, index)
+						onClick: () => handleClickStep(index)
 					})}
 
 			</>
@@ -140,14 +154,12 @@ export const Stepper = (props: IStepperProps): JSX.Element => {
 				<>
 					<div className={getCssClasses()}>
 						{
-							steps.map(
-								(child, index) => (
-									<React.Fragment key={child.props.value}>
-										{renderSteps(child, index)}
-										{index !== steps.length - 1 && <StepConnector isActive={activeIndex > index} />}
-									</React.Fragment>
-								)
-							)
+							steps.map((child, index) => (
+								<Fragment key={child.props.value}>
+									{renderSteps(child, index)}
+									{index !== steps.length - 1 && <StepConnector isActive={activeIndex > index} />}
+								</Fragment>
+							))
 						}
 					</div>
 
@@ -172,6 +184,8 @@ export const Stepper = (props: IStepperProps): JSX.Element => {
 						onSkip={handleSkip}
 						onNext={handleNext}
 						onReset={handleReset}
+						showDoneButton={showDoneButton}
+						showResetButton={showResetButton}
 					/>
 
 				</>

@@ -6,6 +6,8 @@ import styles from './StepperActions.module.scss';
 
 export interface IStepperActionsProps {
 	className?: string;
+	showDoneButton?: boolean;
+	showResetButton?: boolean;
 	isCompleted?: boolean;
 	isFirstStep?: boolean;
 	isStepOptional?: boolean;
@@ -17,7 +19,18 @@ export interface IStepperActionsProps {
 
 export const StepperActions = (props: IStepperActionsProps): JSX.Element => {
 
-	const { className, isCompleted, isFirstStep, isStepOptional, onBack, onSkip, onNext, onReset } = props;
+	const {
+		className,
+		showDoneButton,
+		showResetButton,
+		isCompleted,
+		isFirstStep,
+		isStepOptional,
+		onBack,
+		onSkip,
+		onNext,
+		onReset
+	} = props;
 
 	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
@@ -28,20 +41,21 @@ export const StepperActions = (props: IStepperActionsProps): JSX.Element => {
 
 	return (
 		<div className={getCssClasses()}>
-			<Button
-				className="mr-2"
-				variant={VARIANT.outline}
-				disabled={isFirstStep}
-				startIcon={!isFirstStep ? <ChevronLeftSolidIcon /> : undefined}
-				onClick={(): void => onBack && onBack()}
-			>
-				Back
-			</Button>
+
+			{!isFirstStep &&
+				<Button
+					className="mr-2"
+					variant={VARIANT.outline}
+					startIcon={<ChevronLeftSolidIcon />}
+					onClick={(): void => onBack && onBack()}
+				>
+					Back
+				</Button>
+			}
 
 			<div className="ml-auto">
-				{isCompleted && (
+				{isCompleted && showResetButton && (
 					<Button
-						className="mr-2"
 						color={COLOR.secondary}
 						variant={VARIANT.text}
 						onClick={(): void => onReset && onReset()}
@@ -52,7 +66,6 @@ export const StepperActions = (props: IStepperActionsProps): JSX.Element => {
 
 				{isStepOptional && (
 					<Button
-						className="mr-2"
 						variant={VARIANT.contained}
 						color={COLOR.primary}
 						onClick={(): void => onSkip && onSkip()}
@@ -60,15 +73,31 @@ export const StepperActions = (props: IStepperActionsProps): JSX.Element => {
 						Skip
 					</Button>
 				)}
-				<Button
-					variant={VARIANT.contained}
-					color={COLOR.primary}
-					startIcon={isCompleted ? <CheckSolidIcon /> : undefined}
-					endIcon={!isCompleted ? <ChevronRightSolidIcon /> : undefined}
-					onClick={(): void => onNext && onNext()}
-				>
-					{isCompleted ? 'Done' : 'Next'}
-				</Button>
+
+				{!isCompleted &&
+					<Button
+						className='ml-2'
+						variant={VARIANT.contained}
+						color={COLOR.primary}
+						endIcon={<ChevronRightSolidIcon />}
+						onClick={(): void => onNext && onNext()}
+					>
+						Next
+					</Button>
+				}
+
+				{isCompleted && showDoneButton &&
+					<Button
+						className='ml-2'
+						variant={VARIANT.contained}
+						color={COLOR.primary}
+						startIcon={<CheckSolidIcon />}
+						onClick={(): void => onNext && onNext()}
+					>
+						Done
+					</Button>
+				}
+
 			</div>
 		</div>
 	);

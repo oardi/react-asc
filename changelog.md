@@ -1,3 +1,7 @@
+### 25.1.0
+- stepper
+-- added showDoneButton, showResetButton
+
 ### 25.0.7
 - form - typing fix
 
