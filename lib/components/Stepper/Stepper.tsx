@@ -158,16 +158,19 @@ export const Stepper = (props: IStepperProps): JSX.Element => {
 		<>
 			{steps &&
 				<>
-					<div className={getCssClasses()}>
-						{
-							showSteps && steps.map((child, index) => (
-								<Fragment key={child.props.value}>
-									{renderSteps(child, index)}
-									{index !== steps.length - 1 && <StepConnector isActive={activeIndex > index} />}
-								</Fragment>
-							))
-						}
-					</div>
+					{
+						showSteps &&
+						<div className={getCssClasses()}>
+							{
+								steps.map((child, index) => (
+									<Fragment key={child.props.value}>
+										{renderSteps(child, index)}
+										{index !== steps.length - 1 && <StepConnector isActive={activeIndex > index} />}
+									</Fragment>
+								))
+							}
+						</div>
+					}
 
 					{
 						steps && steps.map((step, index) =>

@@ -1,3 +1,7 @@
+### 25.2.1
+- stepper
+-- hide steps style fix
+
 ### 25.2.0
 - stepper 
 -- added dot component
