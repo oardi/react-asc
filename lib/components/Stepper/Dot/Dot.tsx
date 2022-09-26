@@ -1,3 +1,4 @@
+import React from 'react';
 import { COLOR } from '../../component.enums';
 import styles from './Dot.module.scss';
 
