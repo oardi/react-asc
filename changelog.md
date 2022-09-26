@@ -1,3 +1,7 @@
+### 25.1.1
+- updated packages
+- change es target to es2020
+
 ### 25.1.0
 - stepper
 -- added showDoneButton, showResetButton
