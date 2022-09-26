@@ -1,3 +1,9 @@
+### 25.2.0
+- stepper 
+-- added dot component
+-- added possibility to show or hide steps
+-- added possibility to hide dots
+
 ### 25.1.1
 - updated packages
 - change es target to es2020

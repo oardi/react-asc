@@ -5,6 +5,7 @@ import { StepperActions } from './StepperActions';
 import { StepPanel } from './StepPanel/StepPanel';
 import { StepConnector } from './StepConnector/StepConnector';
 import styles from './Stepper.module.scss';
+import { Dot } from './Dot';
 
 export interface IStepperProps {
 	children?: ReactElement<IStepProps> | ReactElement<IStepProps>[];
@@ -24,6 +25,9 @@ export interface IStepperProps {
 
 	showDoneButton?: boolean;
 	showResetButton?: boolean;
+
+	showSteps?: boolean;
+	showDots?: boolean;
 }
 
 export const Stepper = (props: IStepperProps): JSX.Element => {
@@ -36,6 +40,8 @@ export const Stepper = (props: IStepperProps): JSX.Element => {
 		isHorizontal = true,
 		showDoneButton,
 		showResetButton,
+		showSteps = true,
+		showDots,
 		onChange,
 		onFinish
 	} = props;
@@ -154,7 +160,7 @@ export const Stepper = (props: IStepperProps): JSX.Element => {
 				<>
 					<div className={getCssClasses()}>
 						{
-							steps.map((child, index) => (
+							showSteps && steps.map((child, index) => (
 								<Fragment key={child.props.value}>
 									{renderSteps(child, index)}
 									{index !== steps.length - 1 && <StepConnector isActive={activeIndex > index} />}
@@ -188,6 +194,17 @@ export const Stepper = (props: IStepperProps): JSX.Element => {
 						showResetButton={showResetButton}
 					/>
 
+					{
+						steps && showDots &&
+						<div className='d-flex mt-2 align-items-center justify-content-center'>
+							{steps.map((step, index) =>
+								<Dot
+									key={index}
+									isActive={activeIndex >= index}
+								/>
+							)}
+						</div>
+					}
 				</>
 
 			}

@@ -16,6 +16,8 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 			showProgressCheckIcon: new FormControl(settingValues.showProgressCheckIcon, [], 'checkbox', { label: 'showProgressCheckIcon' }),
 			showDoneButton: new FormControl(settingValues.showDoneButton, [], 'checkbox', { label: 'showDoneButton' }),
 			showResetButton: new FormControl(settingValues.showResetButton, [], 'checkbox', { label: 'showResetButton' }),
+			showSteps: new FormControl(settingValues.showSteps, [], 'checkbox', { label: 'showSteps' }),
+			showDots: new FormControl(settingValues.showDots, [], 'checkbox', { label: 'showDots' }),
 		});
 	}, []);
 
@@ -38,6 +40,8 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 			onFinish={handleOnFinish}
 			showDoneButton={settingValues.showDoneButton}
 			showResetButton={settingValues.showResetButton}
+			showSteps={settingValues.showSteps}
+			showDots={settingValues.showDots}
 		>
 			<Step value="1" label="Step 1">
 				Content 1 Content 1 Content 1
@@ -67,4 +71,6 @@ export const StepperPage: () => JSX.Element = withOptions<IStepperProps>(Stepper
 	showProgressCheckIcon: false,
 	showDoneButton: false,
 	showResetButton: false,
+	showSteps: true,
+	showDots: false,
 }, CLASSNAME);
