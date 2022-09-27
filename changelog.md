@@ -1,3 +1,6 @@
+### 25.2.2
+- style fixes
+
 ### 25.2.1
 - stepper
 -- hide steps style fix
