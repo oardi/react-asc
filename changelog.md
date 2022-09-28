@@ -1,3 +1,7 @@
+### 25.2.3
+- stepper
+-- fixed render of activeIndex
+
 ### 25.2.2
 - style fixes
 

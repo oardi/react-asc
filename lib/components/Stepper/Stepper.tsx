@@ -1,4 +1,5 @@
 import type { PropsWithChildren, ReactElement } from 'react';
+import { useRef } from 'react';
 import React, { cloneElement, Fragment, useEffect, useState } from 'react';
 import type { IStepProps } from './Step';
 import { StepperActions } from './StepperActions';
@@ -57,6 +58,14 @@ export const Stepper = (props: IStepperProps): JSX.Element => {
 		}
 	}, [children]);
 
+	const prevActiveIndexRef: React.MutableRefObject<number | undefined> = useRef<number>(activeIndex);
+	useEffect(() => {
+		if (activeIndex !== prevActiveIndexRef.current) {
+			prevActiveIndexRef.current = activeIndex;
+			onChange && onChange(activeIndex);
+		}
+	}, [activeIndex]);
+
 	useEffect(() => {
 		if (value !== undefined) {
 			setActiveIndex(value);
@@ -68,10 +77,7 @@ export const Stepper = (props: IStepperProps): JSX.Element => {
 	};
 
 	const handleClickStep = (index: number): void => {
-		setActiveIndex(() => {
-			onChange && onChange(index);
-			return index;
-		});
+		setActiveIndex(index);
 	};
 
 	const renderSteps = (child: React.ReactNode, index: number): JSX.Element => {
@@ -97,11 +103,7 @@ export const Stepper = (props: IStepperProps): JSX.Element => {
 	};
 
 	const handleBack = (): void => {
-		setActiveIndex((prevActiveStep) => {
-			const newIndex: number = prevActiveStep - 1;
-			onChange && onChange(newIndex);
-			return newIndex;
-		});
+		setActiveIndex((prevActiveStep) => prevActiveStep - 1);
 	};
 
 	// TODO
@@ -127,11 +129,7 @@ export const Stepper = (props: IStepperProps): JSX.Element => {
 				newSkipped.delete(activeIndex);
 			}
 
-			setActiveIndex((prevActiveStep) => {
-				const newIndex: number = prevActiveStep + 1;
-				onChange && onChange(newIndex);
-				return newIndex;
-			});
+			setActiveIndex((prevActiveStep) => prevActiveStep + 1);
 			setSkipped(newSkipped);
 		} else {
 			onFinish && onFinish();

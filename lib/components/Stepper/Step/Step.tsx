@@ -59,10 +59,15 @@ export const Step = (props: IStepProps): JSX.Element => {
 	};
 
 	return (
-		<div ref={hoverRef as React.MutableRefObject<null>} className={getCssClasses()} onClick={handleClick}>
+		<div
+			ref={hoverRef as React.MutableRefObject<null>}
+			className={getCssClasses()}
+			onClick={handleClick}>
 
 			<div className={getCssClassesStep()}>
-				<Icon className={styles.stepIconCircle} iconColor={(isHovered || isActive) && !isDisabled ? COLOR.primary : COLOR.secondary}>
+				<Icon
+					className={styles.stepIconCircle}
+					iconColor={(isHovered || isActive) && !isDisabled ? COLOR.primary : COLOR.secondary}>
 					<CircleSolidIcon />
 				</Icon>
 

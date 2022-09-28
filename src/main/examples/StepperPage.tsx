@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import type { IStepperProps} from 'lib';
-import { FormControl, snackbarService, Step, Stepper } from 'lib';
+import { FormControl, Step, Stepper, snackbarService } from 'lib';
 import type { IShowcaseBaseProps} from './components';
 import { withOptions } from './components';
 
