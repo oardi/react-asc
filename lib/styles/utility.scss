@@ -50,8 +50,16 @@
 	text-align: center;
 }
 
+.text-uppercase {
+	text-transform: uppercase;
+}
+
 .rounded-pill {
 	border-radius: 50rem !important;
+}
+
+.fw-bold {
+    font-weight: 700!important;
 }
 
 @media (max-width: 576px) {

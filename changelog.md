@@ -1,3 +1,6 @@
+### 25.2.4
+- added missing text-uppercase, fw-bold utility classes
+
 ### 25.2.3
 - stepper
 -- fixed render of activeIndex
