@@ -1,3 +1,6 @@
+### 25.2.5
+- modal - mobile style fix 
+
 ### 25.2.4
 - added missing text-uppercase, fw-bold utility classes
 
