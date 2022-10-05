@@ -1,3 +1,6 @@
+### 25.2.6
+- modal - header style fix
+
 ### 25.2.5
 - modal - mobile style fix 
 
