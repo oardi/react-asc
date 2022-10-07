@@ -1,3 +1,6 @@
+### 25.2.7
+- modal - fullscreen content style fix
+
 ### 25.2.6
 - modal - header style fix
 
