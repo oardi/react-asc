@@ -54,6 +54,7 @@
 	box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 8%);
 	outline: 0;
 	margin: 1rem;
+	max-height: 600px;
 
 	@media (min-width: 576px) {
 		& {
