@@ -1,3 +1,6 @@
+### 25.2.8
+- modal - display fullscreen on mobile (default)
+
 ### 25.2.7
 - modal - fullscreen content style fix
 

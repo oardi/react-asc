@@ -8,6 +8,10 @@
 	border-bottom-right-radius: calc(0.3rem - 1px);
 	border-bottom-left-radius: calc(0.3rem - 1px);
 
+	&.shadow {
+		box-shadow: var(--shadow);
+	}
+
 	> * {
 		margin: 0.25rem;
 	}

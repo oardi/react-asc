@@ -7,18 +7,27 @@ import styles from './ModalHeader.module.scss';
 interface IModalHeaderProps extends React.ComponentProps<'div'> {
 	onClose?: () => void;
 	isDismissable?: boolean;
+	shadow?: boolean;
 }
 
 export const ModalHeader = (props: IModalHeaderProps): JSX.Element => {
 
-	const { children, isDismissable = false, onClose, ...rest } = props;
+	const { children, shadow, className, isDismissable = false, onClose, ...rest } = props;
+
+	const getCssClasses = (): string => {
+		const cssClasses: string[] = [];
+		cssClasses.push(styles.modalHeader);
+		shadow && cssClasses.push(styles.shadow);
+		className && cssClasses.push(className);
+		return cssClasses.filter(css => css).join(' ');
+	};
 
 	const handleClick = (): void => {
 		onClose && onClose();
 	};
 
 	return (
-		<div className={styles.modalHeader} {...rest}>
+		<div className={getCssClasses()} {...rest}>
 			<h5 className={styles.modalTitle}>
 				{children}
 			</h5>

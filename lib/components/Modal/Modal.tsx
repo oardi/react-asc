@@ -1,4 +1,5 @@
-import type { ReactElement, ReactNode} from 'react';
+import type { ReactElement, ReactNode } from 'react';
+import { useState } from 'react';
 import React, { useEffect } from 'react';
 import { ModalHeader } from './ModalHeader';
 import { ModalBody } from './ModalBody';
@@ -7,6 +8,7 @@ import { ModalFooter } from './ModalFooter';
 import type { SIZE } from '../component.enums';
 import styles from './Modal.module.scss';
 import { Portal } from '../Portal';
+import { useMobileDetect } from 'lib/hooks';
 
 export interface IModalProps {
 	target?: HTMLElement;
@@ -25,11 +27,22 @@ export const Modal = (props: IModalProps): JSX.Element => {
 
 	const { target = document.body, className, size, fullScreen, children, header, footer, onHeaderCloseClick, onBackdropClick, isDismissable = false } = props;
 
+	const { isMobile } = useMobileDetect();
+	const [isFullScreen, setIsFullScreen] = useState<boolean>(fullScreen as boolean);
+
+	useEffect(() => {
+		if (isMobile === true && (fullScreen === true || fullScreen === undefined)) {
+			setIsFullScreen(true);
+		} else {
+			setIsFullScreen(false);
+		}
+	}, [isMobile, fullScreen]);
+
 	const getCssClass = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.modalDialog);
 		cssClasses.push(styles.modalDialogCentered);
-		fullScreen && cssClasses.push(styles.fullscreen);
+		isFullScreen && cssClasses.push(styles.fullscreen);
 		size && cssClasses.push(styles[size]);
 		className && cssClasses.push(className);
 		return cssClasses.filter(r => r).join(' ');
@@ -54,7 +67,10 @@ export const Modal = (props: IModalProps): JSX.Element => {
 						<div className={styles.modalContent}>
 							{
 								header &&
-								<ModalHeader isDismissable={isDismissable} onClose={(): void => onHeaderCloseClick && onHeaderCloseClick()}>
+								<ModalHeader
+									shadow={fullScreen}
+									isDismissable={isDismissable}
+									onClose={(): void => onHeaderCloseClick && onHeaderCloseClick()}>
 									{header}
 								</ModalHeader>
 							}
