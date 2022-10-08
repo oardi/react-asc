@@ -8,7 +8,7 @@ import { ModalFooter } from './ModalFooter';
 import type { SIZE } from '../component.enums';
 import styles from './Modal.module.scss';
 import { Portal } from '../Portal';
-import { useMobileDetect } from 'lib/hooks';
+import { useMobileDetect } from '../../hooks';
 
 export interface IModalProps {
 	target?: HTMLElement;
