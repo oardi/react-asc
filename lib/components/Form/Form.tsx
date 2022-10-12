@@ -80,7 +80,7 @@ export class Form extends Component<IFormProps, IFormState> {
 
 				switch (validatorName) {
 					case 'required':
-						if (IsEmptyValidator(fieldValue)) {
+						if (IsEmptyValidator(fieldValue as string)) {
 							errors.push({ validator: validatorName, message: 'This field is required' });
 						}
 						break;

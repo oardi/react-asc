@@ -1,1 +1,4 @@
-export const IsEmptyValidator = (value: unknown): boolean => (value as string).trim() === '' || value === null || value === undefined;
+export const IsEmptyValidator = (value: string): boolean =>
+	value?.trim() === ''
+	|| value === null
+	|| value === undefined;

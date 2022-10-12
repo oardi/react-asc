@@ -1,3 +1,6 @@
+### 25.2.10
+- fix isEmptyValidator
+
 ### 25.2.9
 - modal - style fixes
 
