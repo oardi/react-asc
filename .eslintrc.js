@@ -39,11 +39,11 @@ module.exports = {
 		'@typescript-eslint/no-explicit-any': 'error',
 		"@typescript-eslint/no-floating-promises": ["error", { ignoreIIFE: true }],
 		'@typescript-eslint/no-inferrable-types': 0,
-		'@typescript-eslint/no-magic-numbers': ['warn', {
-			'ignore': [0, 1, -1],
-			'ignoreEnums': true,
-			'ignoreArrayIndexes': true
-		}],
+		// '@typescript-eslint/no-magic-numbers': ['warn', {
+		// 	'ignore': [0, 1, -1],
+		// 	'ignoreEnums': true,
+		// 	'ignoreArrayIndexes': true
+		// }],
 		'@typescript-eslint/no-non-null-assertion': 'error',
 		"@typescript-eslint/no-unused-expressions": [
 			"error",

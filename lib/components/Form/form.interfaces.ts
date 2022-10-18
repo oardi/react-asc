@@ -25,7 +25,7 @@ export interface IFormInputError {
 export interface IFormInputOptions {
 	id?: string;
 	value: string;
-	label?: string;
+	label?: React.ReactNode;
 }
 
 export interface IFormControlConfig {

@@ -128,7 +128,9 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 			/>
 
 			<pre>
-				{JSON.stringify(values, null)}
+				<code>
+					{JSON.stringify(values, null, 4)}
+				</code>
 			</pre>
 
 			<div className="d-flex flex-wrap">

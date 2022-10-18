@@ -1,3 +1,6 @@
+### 25.2.12
+- form type fixes
+
 ### 25.2.11
 - select - changed label to jsx.element and string
 
