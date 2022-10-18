@@ -57,7 +57,7 @@ export const AutoComplete = (props: IAutoCompleteProps): JSX.Element => {
 	useEffect(() => {
 		if (value !== model) {
 			const option: ISelectOption | undefined = options.find(o => o.value === value);
-			setModel(option ? option.label : '');
+			setModel(option ? option.label as string : '');
 		}
 	}, [value]);
 

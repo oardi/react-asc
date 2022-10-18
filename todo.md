@@ -79,6 +79,7 @@
 - add to form
 
 ### form 
+- validation select -> red border is missing
 - novalidate to form-input to disable default behaviour
 - getControl - setControl from outside for disable?
 - input debounce

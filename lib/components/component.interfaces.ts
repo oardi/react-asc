@@ -15,5 +15,5 @@ export interface HtmlInputProps extends HtmlBaseProps {
 
 export interface ISelectOption {
 	value: string;
-	label?: string;
+	label?: JSX.Element | string;
 }

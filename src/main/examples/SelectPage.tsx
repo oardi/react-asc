@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import type { ISelectProps} from 'lib';
+import type { ISelectProps } from 'lib';
+import { CheckSolidIcon, Icon } from 'lib';
 import { FormControl, Select, snackbarService } from 'lib';
-import type { IShowcaseBaseProps} from './components';
+import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
 const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ISelectProps>): JSX.Element => {
@@ -44,7 +45,17 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 					{ value: '12', label: 'twelve' },
 					{ value: '13', label: 'thirteen' },
 					{ value: '14', label: 'fourteen' },
-					{ value: '15', label: 'fifteen' },
+					{
+						value: '15',
+						label: (
+							<div className='d-flex align-items-center'>
+								<Icon className='mr-1'>
+									<CheckSolidIcon />
+								</Icon>
+								fifteen
+							</div>
+						)
+					},
 				]}
 				onChange={handleOnChange}
 				disabled={settingValues.disabled}

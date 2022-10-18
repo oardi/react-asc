@@ -1,3 +1,6 @@
+### 25.2.11
+- select - changed label to jsx.element and string
+
 ### 25.2.10
 - fix isEmptyValidator
 
