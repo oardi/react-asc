@@ -1,3 +1,6 @@
+### 25.2.13
+- table - style fixes
+
 ### 25.2.12
 - form type fixes
 

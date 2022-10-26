@@ -1,11 +1,8 @@
-import type { ReactElement } from 'react';
 import React from 'react';
 import { ConditionalWrapper } from '../ConditionalWrapper';
 import styles from './Table.module.scss';
 
-export interface ITableProps {
-	children?: ReactElement | ReactElement[];
-	className?: string;
+export interface ITableProps extends React.ComponentProps<'table'> {
 	striped?: boolean;
 	bordered?: boolean;
 	hover?: boolean;
@@ -14,7 +11,7 @@ export interface ITableProps {
 
 export const Table = (props: ITableProps): JSX.Element => {
 
-	const { children, className, bordered, striped, hover, responsive = false } = props;
+	const { children, className, bordered, striped, hover, responsive = false, ...rest } = props;
 
 	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
@@ -31,7 +28,7 @@ export const Table = (props: ITableProps): JSX.Element => {
 			condition={responsive}
 			wrapper={(children): JSX.Element => <div className={styles.tableResponsive}>{children}</div>}
 		>
-			<table className={getCssClasses()}>
+			<table className={getCssClasses()} {...rest}>
 				{children}
 			</table>
 		</ConditionalWrapper>
