@@ -1,3 +1,6 @@
+### 25.3.0
+- tooltip - added focus, blur, delay, isOpen
+
 ### 25.2.13
 - table - style fixes
 

@@ -8,15 +8,17 @@ export const TooltipPageBase = ({ settingValues, setSettingsControls }: IShowcas
 
 	useEffect(() => {
 		setSettingsControls({
-			text: new FormControl('some tooltip text', [], 'text', { label: 'Text' }),
+			text: new FormControl('some tooltip text', [], 'text', { label: 'text' }),
 			placement: new FormControl('top', [], 'select', {
-				label: 'Placement', options: [
+				label: 'placement', options: [
 					{ label: 'left', value: 'left' },
 					{ label: 'right', value: 'right' },
 					{ label: 'top', value: 'top' },
 					{ label: 'bottom', value: 'bottom' }
 				]
 			}),
+			isOpen: new FormControl(false, [], 'checkbox', { label: 'isOpen', hint: 'weather' }),
+			delay: new FormControl(0, [], 'number', { label: 'delay', hint: 'delay for displaying and hiding a tooltip' }),
 		});
 	}, []);
 
@@ -24,6 +26,8 @@ export const TooltipPageBase = ({ settingValues, setSettingsControls }: IShowcas
 		<Tooltip
 			text={settingValues.text}
 			placement={settingValues.placement}
+			isOpen={settingValues.isOpen}
+			delay={settingValues.delay}
 		>
 			<Button>
 				show tooltip
