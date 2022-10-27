@@ -16,5 +16,5 @@ export function useMobileDetect(): { isMobile: boolean; } {
 		windowSize && checkIsMobile(windowSize.height, windowSize.width);
 	}, [windowSize]);
 
-	return { isMobile };
+	return { isMobile: isMobile };
 }

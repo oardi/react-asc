@@ -26,9 +26,9 @@ export const Tabs = (props: ITabsProps): JSX.Element => {
 	const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
 	const tabContext: ITabsContext = ({
-		selectedValue,
-		setSelectedValue,
-		fixed
+		selectedValue: selectedValue,
+		setSelectedValue: setSelectedValue,
+		fixed: fixed
 	});
 
 	const prevSelectedValueRef: React.MutableRefObject<string | undefined> = useRef<string>();

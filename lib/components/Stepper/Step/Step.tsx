@@ -29,7 +29,7 @@ export const Step = (props: IStepProps): JSX.Element => {
 
 	const handleClick = (event: React.MouseEvent): void => {
 		if (!isDisabled) {
-			onClick && onClick({ event, value });
+			onClick && onClick({ event: event, value: value });
 		}
 	};
 

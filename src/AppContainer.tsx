@@ -15,8 +15,8 @@ export const AppContainer = (): JSX.Element => {
 
 	const [appInfo, setAppInfo] = useState<IAppInfo>({});
 	const appContext: IAppContext = ({
-		appInfo,
-		setAppInfo
+		appInfo: appInfo,
+		setAppInfo: setAppInfo
 	});
 
 	return (

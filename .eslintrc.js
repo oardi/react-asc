@@ -26,6 +26,10 @@ module.exports = {
 		'no-promise-executor-return': 'error',
 		'no-unused-expressions': 'off',
 		'no-unreachable': 'error',
+		'object-shorthand': [
+			'error',
+			'never'
+		],
 		'require-await': 'off',
 		'semi': 'error',
 		'@typescript-eslint/array-type': 'error',

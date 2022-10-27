@@ -26,7 +26,7 @@ export const Tab = (props: ITabProps): JSX.Element => {
 	};
 
 	const handleClick = (event: React.MouseEvent): void => {
-		onClick && onClick({ event, value });
+		onClick && onClick({ event: event, value: value });
 		setSelectedValue && setSelectedValue(value);
 	};
 
