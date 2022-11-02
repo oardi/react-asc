@@ -11,6 +11,7 @@ export * from './ChipPage';
 export * from './CheckboxPage';
 export * from './CssTransitionPage';
 export * from './DateSelectPage';
+export * from './DatePickerPage';
 export * from './DrawerPage';
 export * from './MenuPage';
 export * from './ExpansionPanelPage';
