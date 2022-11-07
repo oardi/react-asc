@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
+import type { Instance } from '@popperjs/core';
 import { createPopper } from '@popperjs/core';
 import styles from './Tooltip.module.scss';
-import { useDebounce } from '../../hooks';
+import { useDebounce, useOnDestroy } from '../../hooks';
 import { Icon } from '../Icon';
 import { TimesSolidIcon } from '../../icons';
 
@@ -24,6 +25,7 @@ export const Tooltip = (props: ITooltipProps): JSX.Element => {
 		delay = 0
 	} = props;
 
+	const [popperInstance, setPopperInstance] = useState<Instance>();
 	const [debounce, setDebounce] = useState<number>(delay);
 	const [open, setOpen] = useState<boolean>(isOpen);
 	const [show, setShow] = useState<boolean>(isOpen);
@@ -51,7 +53,7 @@ export const Tooltip = (props: ITooltipProps): JSX.Element => {
 
 	useEffect(() => {
 		if (open === true && refChild && refChild.current && refTooltip && refTooltip.current) {
-			createPopper(refChild.current, refTooltip.current, {
+			const popperInstance: Instance = createPopper(refChild.current, refTooltip.current, {
 				placement: placement,
 				modifiers: [
 					{
@@ -60,6 +62,9 @@ export const Tooltip = (props: ITooltipProps): JSX.Element => {
 					},
 				]
 			});
+			setPopperInstance(popperInstance);
+		} else {
+			popperInstance?.destroy();
 		}
 	}, [open]);
 
@@ -82,6 +87,10 @@ export const Tooltip = (props: ITooltipProps): JSX.Element => {
 	const handleClickClose = (): void => {
 		setShow(false);
 	};
+
+	useOnDestroy(() => {
+		popperInstance?.destroy();
+	});
 
 	return (
 		<>

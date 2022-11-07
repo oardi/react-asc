@@ -1,3 +1,6 @@
+### 25.3.1
+- tooltip & menubody - performance
+
 ### 25.3.0
 - tooltip - added focus, blur, delay, isOpen
 
