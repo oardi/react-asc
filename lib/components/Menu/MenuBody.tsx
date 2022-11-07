@@ -9,7 +9,7 @@ import styles from './MenuBody.module.scss';
 import { Portal } from '../Portal';
 import type { IListItemProps } from '../List';
 import { List } from '../List';
-import { useOnDestroy } from 'lib/hooks';
+import { useOnDestroy } from '../../hooks';
 
 export interface IMenuBodyProps {
 	children?: ReactElement<IListItemProps> | ReactElement<IListItemProps>[];
