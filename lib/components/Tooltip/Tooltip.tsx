@@ -53,20 +53,28 @@ export const Tooltip = (props: ITooltipProps): JSX.Element => {
 
 	useEffect(() => {
 		if (open === true && refChild && refChild.current && refTooltip && refTooltip.current) {
-			const popperInstance: Instance = createPopper(refChild.current, refTooltip.current, {
-				placement: placement,
-				modifiers: [
-					{
-						name: 'offset',
-						options: { offset: [0, 8] }
-					},
-				]
-			});
-			setPopperInstance(popperInstance);
+			showTooltip();
 		} else {
-			popperInstance?.destroy();
+			hideTooltip();
 		}
 	}, [open]);
+
+	const showTooltip = (): void => {
+		const popperInstance: Instance = createPopper(refChild.current as HTMLDivElement, refTooltip.current as HTMLDivElement, {
+			placement: placement,
+			modifiers: [
+				{
+					name: 'offset',
+					options: { offset: [0, 8] }
+				},
+			]
+		});
+		setPopperInstance(popperInstance);
+	};
+
+	const hideTooltip = (): void => {
+		popperInstance?.destroy();
+	};
 
 	const handleMouseOver = (): void => {
 		setShow(true);
@@ -89,7 +97,7 @@ export const Tooltip = (props: ITooltipProps): JSX.Element => {
 	};
 
 	useOnDestroy(() => {
-		popperInstance?.destroy();
+		hideTooltip();
 	});
 
 	return (

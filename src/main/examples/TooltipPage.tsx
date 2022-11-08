@@ -17,7 +17,8 @@ export const TooltipPageBase = ({ settingValues, setSettingsControls }: IShowcas
 					{ label: 'bottom', value: 'bottom' }
 				]
 			}),
-			isOpen: new FormControl(false, [], 'checkbox', { label: 'isOpen', hint: 'weather' }),
+			isOpen: new FormControl(false, [], 'checkbox', { label: 'isOpen', hint: '' }),
+			isShowClose: new FormControl(false, [], 'checkbox', { label: 'isShowClose', hint: '' }),
 			delay: new FormControl(0, [], 'number', { label: 'delay', hint: 'delay for displaying and hiding a tooltip' }),
 		});
 	}, []);
@@ -27,6 +28,7 @@ export const TooltipPageBase = ({ settingValues, setSettingsControls }: IShowcas
 			text={settingValues.text}
 			placement={settingValues.placement}
 			isOpen={settingValues.isOpen}
+			isShowClose={settingValues.isShowClose}
 			delay={settingValues.delay}
 		>
 			<Button>
