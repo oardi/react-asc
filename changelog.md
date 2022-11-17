@@ -1,3 +1,6 @@
+### 25.4.0
+- tooltip - added enum
+
 ### 25.3.1
 - tooltip & menubody - performance
 

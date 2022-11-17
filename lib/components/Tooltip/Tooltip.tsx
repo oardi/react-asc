@@ -5,9 +5,10 @@ import styles from './Tooltip.module.scss';
 import { useDebounce, useOnDestroy } from '../../hooks';
 import { Icon } from '../Icon';
 import { TimesSolidIcon } from '../../icons';
+import { TooltipPlacement } from './tooltip.enums';
 
 export interface ITooltipProps extends React.ComponentProps<'div'> {
-	placement?: 'top' | 'bottom' | 'right' | 'left',
+	placement?: TooltipPlacement,
 	text?: string;
 	delay?: number;
 	isOpen?: boolean;
@@ -19,7 +20,7 @@ export const Tooltip = (props: ITooltipProps): JSX.Element => {
 	const {
 		children,
 		text,
-		placement = 'bottom',
+		placement = TooltipPlacement.bottom,
 		isOpen = false,
 		isShowClose = false,
 		delay = 0

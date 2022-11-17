@@ -3,6 +3,7 @@ import type { ITooltipProps} from 'lib';
 import { Button, FormControl, Tooltip } from 'lib';
 import type { IShowcaseBaseProps} from './components';
 import { withOptions } from './components';
+import { TooltipPlacement } from 'lib/components/Tooltip/tooltip.enums';
 
 export const TooltipPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITooltipProps>): JSX.Element => {
 
@@ -40,5 +41,5 @@ export const TooltipPageBase = ({ settingValues, setSettingsControls }: IShowcas
 
 export const TooltipPage: () => JSX.Element = withOptions(TooltipPageBase, {
 	text: 'some tooltip text',
-	placement: 'top'
+	placement: TooltipPlacement.top
 }, 'TooltipPageBase');
