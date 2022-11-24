@@ -101,6 +101,13 @@ export const Tooltip = (props: ITooltipProps): JSX.Element => {
 		hideTooltip();
 	});
 
+	const getArrowStyles = (): string => {
+		const cssClasses: string[] = [];
+		cssClasses.push(styles.arrow);
+		placement && cssClasses.push(styles[`placement-${placement}`]);
+		return cssClasses.filter(css => css).join(' ');
+	};
+
 	return (
 		<>
 			<div
@@ -115,7 +122,7 @@ export const Tooltip = (props: ITooltipProps): JSX.Element => {
 			</div>
 
 			{open && text &&
-				<div className={styles.tooltip} ref={refTooltip} id="tooltip">
+				<div className={styles.tooltip} ref={refTooltip}>
 					<div className='d-flex align-items-center'>
 						{text}
 
@@ -126,7 +133,7 @@ export const Tooltip = (props: ITooltipProps): JSX.Element => {
 						}
 					</div>
 
-					<div id="arrow" data-popper-arrow></div>
+					<div className={getArrowStyles()} data-popper-arrow></div>
 				</div >
 			}
 		</>

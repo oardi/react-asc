@@ -11,34 +11,36 @@
 	position: absolute;
 	left: -1000000px;
 	z-index: 1100;
+}
 
-	#arrow,
-	#arrow::before {
+.arrow {
+	&,
+	&::before {
 		position: absolute;
 		width: 8px;
 		height: 8px;
 		z-index: -1;
 	}
 
-	#arrow::before {
+	&::before {
 		content: "";
 		transform: rotate(45deg);
 		background: #333;
 	}
 
-	&[data-popper-placement^="top"] > #arrow {
+	&.placement-top {
 		bottom: -4px;
 	}
 
-	&[data-popper-placement^="bottom"] > #arrow {
+	&.placement-bottom  {
 		top: -4px;
 	}
 
-	&[data-popper-placement^="left"] > #arrow {
+	&.placement-left  {
 		right: -4px;
 	}
 
-	&[data-popper-placement^="right"] > #arrow {
+	&.placement-right  {
 		left: -4px;
 	}
 }

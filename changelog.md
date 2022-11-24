@@ -1,3 +1,6 @@
+### 25.4.1
+- tooltip - arrow style fix
+
 ### 25.4.0
 - tooltip - added enum
 
