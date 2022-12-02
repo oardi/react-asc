@@ -1,3 +1,12 @@
+### 25.4.1
+- tooltip - arrow style fix
+
+### 25.4.0
+- tooltip - added enum
+
+### 25.3.1
+- tooltip & menubody - performance
+
 ### 25.3.0
 - tooltip - added focus, blur, delay, isOpen
 

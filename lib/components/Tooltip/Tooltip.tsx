@@ -1,12 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
+import type { Instance } from '@popperjs/core';
 import { createPopper } from '@popperjs/core';
 import styles from './Tooltip.module.scss';
-import { useDebounce } from '../../hooks';
+import { useDebounce, useOnDestroy } from '../../hooks';
 import { Icon } from '../Icon';
 import { TimesSolidIcon } from '../../icons';
+import { TooltipPlacement } from './tooltip.enums';
 
 export interface ITooltipProps extends React.ComponentProps<'div'> {
-	placement?: 'top' | 'bottom' | 'right' | 'left',
+	placement?: TooltipPlacement,
 	text?: string;
 	delay?: number;
 	isOpen?: boolean;
@@ -18,12 +20,13 @@ export const Tooltip = (props: ITooltipProps): JSX.Element => {
 	const {
 		children,
 		text,
-		placement = 'bottom',
+		placement = TooltipPlacement.bottom,
 		isOpen = false,
 		isShowClose = false,
 		delay = 0
 	} = props;
 
+	const [popperInstance, setPopperInstance] = useState<Instance>();
 	const [debounce, setDebounce] = useState<number>(delay);
 	const [open, setOpen] = useState<boolean>(isOpen);
 	const [show, setShow] = useState<boolean>(isOpen);
@@ -51,17 +54,28 @@ export const Tooltip = (props: ITooltipProps): JSX.Element => {
 
 	useEffect(() => {
 		if (open === true && refChild && refChild.current && refTooltip && refTooltip.current) {
-			createPopper(refChild.current, refTooltip.current, {
-				placement: placement,
-				modifiers: [
-					{
-						name: 'offset',
-						options: { offset: [0, 8] }
-					},
-				]
-			});
+			showTooltip();
+		} else {
+			hideTooltip();
 		}
 	}, [open]);
+
+	const showTooltip = (): void => {
+		const popperInstance: Instance = createPopper(refChild.current as HTMLDivElement, refTooltip.current as HTMLDivElement, {
+			placement: placement,
+			modifiers: [
+				{
+					name: 'offset',
+					options: { offset: [0, 8] }
+				},
+			]
+		});
+		setPopperInstance(popperInstance);
+	};
+
+	const hideTooltip = (): void => {
+		popperInstance?.destroy();
+	};
 
 	const handleMouseOver = (): void => {
 		setShow(true);
@@ -83,6 +97,17 @@ export const Tooltip = (props: ITooltipProps): JSX.Element => {
 		setShow(false);
 	};
 
+	useOnDestroy(() => {
+		hideTooltip();
+	});
+
+	const getArrowStyles = (): string => {
+		const cssClasses: string[] = [];
+		cssClasses.push(styles.arrow);
+		placement && cssClasses.push(styles[`placement-${placement}`]);
+		return cssClasses.filter(css => css).join(' ');
+	};
+
 	return (
 		<>
 			<div
@@ -97,7 +122,7 @@ export const Tooltip = (props: ITooltipProps): JSX.Element => {
 			</div>
 
 			{open && text &&
-				<div className={styles.tooltip} ref={refTooltip} id="tooltip">
+				<div className={styles.tooltip} ref={refTooltip}>
 					<div className='d-flex align-items-center'>
 						{text}
 
@@ -108,7 +133,7 @@ export const Tooltip = (props: ITooltipProps): JSX.Element => {
 						}
 					</div>
 
-					<div id="arrow" data-popper-arrow></div>
+					<div className={getArrowStyles()} data-popper-arrow></div>
 				</div >
 			}
 		</>
