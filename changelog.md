@@ -1,3 +1,6 @@
+### 25.5.0
+- datepicker - added component
+
 ### 25.4.1
 - tooltip - arrow style fix
 
