@@ -16,6 +16,8 @@
 	background-clip: padding-box;
 	border-radius: var(--borderRadius);
 
+	max-width: 300px;
+
 	&.shadow {
 		box-shadow: var(--shadow);
 	}
