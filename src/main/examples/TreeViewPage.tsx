@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import type { ITreeItemProps} from 'lib';
+import type { ITreeItemProps } from 'lib';
 import { FormControl, snackbarService, TreeItem, TreeView, Typography } from 'lib';
-import type { IShowcaseBaseProps} from './components';
+import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
 const TreeViewPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITreeItemProps>): JSX.Element => {
-
 	useEffect(() => {
 		setSettingsControls({
 			isSelectable: new FormControl(settingValues.isSelectable, [], 'checkbox', { label: 'isSelectable' }),
@@ -14,7 +13,7 @@ const TreeViewPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 
 	const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
-	const handleOnSelect = (e: { id: string, isSelected: boolean }): void => {
+	const handleOnSelect = (e: { id: string; isSelected: boolean }): void => {
 		let oldIds: string[] = selectedIds;
 		if (e.isSelected) {
 			oldIds = oldIds.concat([e.id]);
@@ -41,20 +40,22 @@ const TreeViewPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 				<TreeItem nodeId="3" label="some text" onItemSelect={handleOnSelect} isSelectable={settingValues.isSelectable} />
 			</TreeView>
 
-			{settingValues.isSelectable &&
+			{settingValues.isSelectable && (
 				<>
-					<Typography>
-						Selected Ids
-					</Typography>
+					<Typography>Selected Ids</Typography>
 					<pre>
 						<code>{JSON.stringify(selectedIds, null)}</code>
 					</pre>
 				</>
-			}
+			)}
 		</>
 	);
 };
 
-export const TreeViewPage: () => JSX.Element = withOptions(TreeViewPageBase, {
-	isSelectable: false
-}, 'TreeViewPageBase');
+export const TreeViewPage: () => JSX.Element = withOptions(
+	TreeViewPageBase,
+	{
+		isSelectable: false,
+	},
+	'TreeViewPageBase'
+);

@@ -1,13 +1,13 @@
-import typescript from "rollup-plugin-typescript2";
-import commonjs from "rollup-plugin-commonjs";
-import external from "rollup-plugin-peer-deps-external";
-import resolve from "rollup-plugin-node-resolve";
+import typescript from 'rollup-plugin-typescript2';
+import commonjs from 'rollup-plugin-commonjs';
+import external from 'rollup-plugin-peer-deps-external';
+import resolve from 'rollup-plugin-node-resolve';
 import json from '@rollup/plugin-json';
 import postcss from 'rollup-plugin-postcss';
-import pkg from "./package.json";
+import pkg from './package.json';
 
 const rollupConfig = {
-	input: "lib/index.ts",
+	input: 'lib/index.ts',
 
 	external: ['react', 'react-dom', '@popperjs/core', 'modern-normalize'],
 
@@ -24,14 +24,14 @@ const rollupConfig = {
 	output: [
 		{
 			file: pkg.main,
-			format: "cjs",
-			exports: "named",
+			format: 'cjs',
+			exports: 'named',
 		},
 		{
 			file: pkg.module,
-			format: "es",
-			exports: "named",
-		}
+			format: 'es',
+			exports: 'named',
+		},
 	],
 
 	plugins: [
@@ -39,7 +39,7 @@ const rollupConfig = {
 		commonjs(),
 		external(),
 		typescript({
-			tsconfig: "tsconfig.lib.json",
+			tsconfig: 'tsconfig.lib.json',
 			declaration: true,
 			declarationDir: 'dist',
 		}),
@@ -48,8 +48,8 @@ const rollupConfig = {
 			modules: true,
 			use: ['sass'],
 		}),
-		json()
-	]
+		json(),
+	],
 };
 
 export default rollupConfig;

@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import type { ITabsProps} from 'lib';
+import type { ITabsProps } from 'lib';
 import { COLOR, FormControl, snackbarService, Tab, TabPanel, Tabs } from 'lib';
 import { loggerService } from '../../shared';
-import type { IShowcaseBaseProps} from './components';
+import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
-
 
 const CLASSNAME: string = 'TabsPageBase';
 const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITabsProps>): JSX.Element => {
-
 	const [selectedValue, setSelectedValue] = useState<string>('tabspage-tab2');
 
 	useEffect(() => {
 		setSettingsControls({
-			color: new FormControl(settingValues.color, [], 'select', { label: 'color', options: Object.keys(COLOR).map(c => ({ label: c, value: c })) }),
+			color: new FormControl(settingValues.color, [], 'select', {
+				label: 'color',
+				options: Object.keys(COLOR).map(c => ({ label: c, value: c })),
+			}),
 		});
 	}, []);
 
@@ -25,12 +26,7 @@ const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 
 	return (
 		<>
-			<Tabs
-				color={settingValues.color}
-				fixed={settingValues.fixed}
-				onChange={handleChange}
-				value={selectedValue}
-			>
+			<Tabs color={settingValues.color} fixed={settingValues.fixed} onChange={handleChange} value={selectedValue}>
 				<Tab value="tabspage-tab1" label="Tab 1" />
 				<Tab value="tabspage-tab2" label="Tab 2" />
 				<Tab value="tabspage-tab3" label={<div className="text-success">Tab 3 with css</div>} />
@@ -53,7 +49,11 @@ const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 	);
 };
 
-export const TabsPage: () => JSX.Element = withOptions<ITabsProps>(TabsPageBase, {
-	color: COLOR.primary,
-	fixed: false
-}, CLASSNAME);
+export const TabsPage: () => JSX.Element = withOptions<ITabsProps>(
+	TabsPageBase,
+	{
+		color: COLOR.primary,
+		fixed: false,
+	},
+	CLASSNAME
+);

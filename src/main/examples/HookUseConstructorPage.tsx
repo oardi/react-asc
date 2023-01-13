@@ -2,13 +2,7 @@ import React from 'react';
 import { withOptions } from './components';
 
 const HookUseConstructorPageBase = (): JSX.Element => {
-
-	return (
-		<>
-			Switch to "Usage" to see how to use this hook
-		</>
-	);
+	return <>Switch to "Usage" to see how to use this hook</>;
 };
 
-export const HookUseConstructorPage: () => JSX.Element = withOptions(HookUseConstructorPageBase, {
-}, 'HookUseConstructorPageBase');
+export const HookUseConstructorPage: () => JSX.Element = withOptions(HookUseConstructorPageBase, {}, 'HookUseConstructorPageBase');

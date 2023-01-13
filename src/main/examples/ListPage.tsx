@@ -1,12 +1,23 @@
 import React, { useEffect } from 'react';
-import type { IListProps} from 'lib';
-import { List, ListItem, ListItemAvatar, HomeSolidIcon, ListItemAction, IconButton, ListItemText, ListItemIcon, snackbarService, COLOR, VARIANT } from 'lib';
+import type { IListProps } from 'lib';
+import {
+	List,
+	ListItem,
+	ListItemAvatar,
+	HomeSolidIcon,
+	ListItemAction,
+	IconButton,
+	ListItemText,
+	ListItemIcon,
+	snackbarService,
+	COLOR,
+	VARIANT,
+} from 'lib';
 import { UserCircleSolidIcon } from '../assets';
-import type { IShowcaseBaseProps} from './components';
+import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
 export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IListProps>): JSX.Element => {
-
 	useEffect(() => {
 		setSettingsControls({
 			// isHoverable: new FormControl(settingValues.isHoverable, [], 'checkbox', { label: 'isHoverable' }),
@@ -25,7 +36,6 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 
 	return (
 		<>
-
 			<h3>Single Line</h3>
 			<List isFlush={settingValues.isFlush}>
 				<ListItem onClick={handleClickItem}>
@@ -117,11 +127,14 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 				<ListItem color={COLOR.light}>light</ListItem>
 				<ListItem color={COLOR.dark}>dark</ListItem>
 			</List>
-
 		</>
 	);
 };
 
-export const ListPage: () => JSX.Element = withOptions<IListProps>(ListPageBase, {
-	isFlush: false
-}, 'ListPageBase');
+export const ListPage: () => JSX.Element = withOptions<IListProps>(
+	ListPageBase,
+	{
+		isFlush: false,
+	},
+	'ListPageBase'
+);

@@ -8,8 +8,9 @@ interface ILayoutProps {
 	className?: string;
 }
 
-export const Layout = ({ children, className, title }: ILayoutProps): JSX.Element =>
+export const Layout = ({ children, className, title }: ILayoutProps): JSX.Element => (
 	<div className={className}>
 		{title && <Typography as="h1">{title}</Typography>}
 		{children}
-	</div>;
+	</div>
+);

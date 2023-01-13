@@ -1,19 +1,27 @@
 import React, { useEffect } from 'react';
-import type { IIconButtonProps} from 'lib';
+import type { IIconButtonProps } from 'lib';
 import { IconButton, HomeSolidIcon, FormControl, COLOR, VARIANT, snackbarService, SIZE } from 'lib';
-import type { IShowcaseBaseProps} from './components';
+import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
 const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IIconButtonProps>): JSX.Element => {
-
 	useEffect(() => {
 		setSettingsControls({
-			color: new FormControl(settingValues.color, [], 'select', { label: 'color', options: Object.keys(COLOR).map(c => ({ label: c, value: c })) }),
+			color: new FormControl(settingValues.color, [], 'select', {
+				label: 'color',
+				options: Object.keys(COLOR).map(c => ({ label: c, value: c })),
+			}),
 			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' }),
 			isActive: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'isActive' }),
 			shadow: new FormControl(settingValues.size, [], 'checkbox', { label: 'shadow' }),
-			variant: new FormControl(settingValues.variant, [], 'select', { label: 'variant', options: Object.keys(VARIANT).map(c => ({ label: c, value: c })) }),
-			size: new FormControl(settingValues.size, [], 'select', { label: 'size', options: Object.keys(SIZE).map(c => ({ label: c, value: c })) }),
+			variant: new FormControl(settingValues.variant, [], 'select', {
+				label: 'variant',
+				options: Object.keys(VARIANT).map(c => ({ label: c, value: c })),
+			}),
+			size: new FormControl(settingValues.size, [], 'select', {
+				label: 'size',
+				options: Object.keys(SIZE).map(c => ({ label: c, value: c })),
+			}),
 		});
 	}, []);
 
@@ -37,8 +45,12 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 	);
 };
 
-export const IconButtonPage: () => JSX.Element = withOptions<IIconButtonProps>(IconButtonPageBase, {
-	color: COLOR.primary,
-	variant: VARIANT.text,
-	size: SIZE.md,
-}, 'IconButtonPageBase');
+export const IconButtonPage: () => JSX.Element = withOptions<IIconButtonProps>(
+	IconButtonPageBase,
+	{
+		color: COLOR.primary,
+		variant: VARIANT.text,
+		size: SIZE.md,
+	},
+	'IconButtonPageBase'
+);

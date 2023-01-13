@@ -15,7 +15,6 @@ export interface IHighlightProps {
 }
 
 export const Highlight = ({ url, text, language = 'javascript' }: IHighlightProps): JSX.Element => {
-
 	const [highlightedText, setHighlightedText] = useState<string>('');
 
 	useEffect(() => {
@@ -29,7 +28,9 @@ export const Highlight = ({ url, text, language = 'javascript' }: IHighlightProp
 	}, [url]);
 
 	useEffect(() => {
-		if (text) { renderText(text); }
+		if (text) {
+			renderText(text);
+		}
 	}, [text]);
 
 	const loadFile = async (url: string): Promise<void> => {
@@ -48,17 +49,12 @@ export const Highlight = ({ url, text, language = 'javascript' }: IHighlightProp
 	return (
 		<>
 			<pre style={{ margin: '0' }}>
-				{url &&
-					<code className={`language-${language}`}>
-						{url && highlightedText}
-
-					</code>
-				}
-				{text &&
+				{url && <code className={`language-${language}`}>{url && highlightedText}</code>}
+				{text && (
 					<code className={`language-${language}`} dangerouslySetInnerHTML={{ __html: highlightedText }}>
 						{url && highlightedText}
 					</code>
-				}
+				)}
 			</pre>
 		</>
 	);

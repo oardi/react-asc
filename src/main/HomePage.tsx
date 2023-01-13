@@ -1,12 +1,11 @@
 import React from 'react';
 import { Layout } from './Layout';
-import type { NavigateFunction} from 'react-router-dom';
+import type { NavigateFunction } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { RocketSolidIcon } from './assets';
 import { Button, Card, CardBody, CardText, CardTitle, Column, Row, Typography } from 'lib';
 
 export const HomePage = (): JSX.Element => {
-
 	const navigate: NavigateFunction = useNavigate();
 
 	const handleClickGetStarted = (): void => {
@@ -15,7 +14,6 @@ export const HomePage = (): JSX.Element => {
 
 	return (
 		<Layout className="home h-100 d-flex flex-column align-items-md-center justify-content-md-center pb-2">
-
 			<Typography as="h1" className="text-center">
 				react-asc
 			</Typography>
@@ -32,33 +30,28 @@ export const HomePage = (): JSX.Element => {
 
 			<Row className="mt-3">
 				<Column md={6}>
-					<Card className='h-100'>
+					<Card className="h-100">
 						<CardBody>
-							<CardTitle>
-								Well documentated
-							</CardTitle>
+							<CardTitle>Well documentated</CardTitle>
 							<CardText>
-								This documentation is build using this library.
-								Each available component is shown by example and usage.
+								This documentation is build using this library. Each available component is shown by example and usage.
 							</CardText>
 						</CardBody>
 					</Card>
 				</Column>
 
 				<Column md={6}>
-					<Card className='h-100'>
+					<Card className="h-100">
 						<CardBody>
-							<CardTitle>
-								Compatible
-							</CardTitle>
+							<CardTitle>Compatible</CardTitle>
 							<CardText>
-								react-asc aims to deliver a collection of reusable unique ReactJs components to build modern web applications.
+								react-asc aims to deliver a collection of reusable unique ReactJs components to build modern web
+								applications.
 							</CardText>
 						</CardBody>
 					</Card>
 				</Column>
 			</Row>
-
 		</Layout>
 	);
 };

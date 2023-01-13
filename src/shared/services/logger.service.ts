@@ -6,10 +6,15 @@ export interface ILoggerService {
 	error(...args: unknown[]): void;
 }
 
-export enum LogType { log = 'log', info = 'info', warn = 'warn', debug = 'debug', error = 'error' }
+export enum LogType {
+	log = 'log',
+	info = 'info',
+	warn = 'warn',
+	debug = 'debug',
+	error = 'error',
+}
 
 class LoggerService implements ILoggerService {
-
 	log(...args: unknown[]): void {
 		this._doLog(LogType.log, args);
 	}
@@ -24,7 +29,6 @@ class LoggerService implements ILoggerService {
 
 	debug(...args: unknown[]): void {
 		this._doLog(LogType.debug, args);
-
 	}
 
 	error(...args: unknown[]): void {

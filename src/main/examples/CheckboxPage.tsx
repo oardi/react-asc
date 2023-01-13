@@ -3,18 +3,17 @@ import React, { useEffect } from 'react';
 import type { ICheckboxProps } from 'lib';
 import { FormControl, Checkbox } from 'lib';
 import { loggerService } from '../../shared';
-import type { IShowcaseBaseProps} from './components';
+import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
 const CLASSNAME: string = 'ShowcaseCheckboxBase';
 export const CheckboxPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ICheckboxProps>): JSX.Element => {
-
 	useEffect(() => {
 		setSettingsControls({
 			checked: new FormControl(settingValues.checked, [], 'checkbox', { label: 'checked' }),
 			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' }),
 			readOnly: new FormControl(settingValues.readOnly, [], 'checkbox', { label: 'readOnly' }),
-			label: new FormControl(settingValues.label, [], 'text', { label: 'label' })
+			label: new FormControl(settingValues.label, [], 'text', { label: 'label' }),
 		});
 	}, []);
 
@@ -33,9 +32,13 @@ export const CheckboxPageBase = ({ settingValues, setSettingsControls }: IShowca
 	);
 };
 
-export const CheckboxPage: () => JSX.Element = withOptions<ICheckboxProps>(CheckboxPageBase, {
-	checked: true,
-	label: 'my checkbox',
-	readOnly: false,
-	disabled: false
-}, 'CheckboxPageBase');
+export const CheckboxPage: () => JSX.Element = withOptions<ICheckboxProps>(
+	CheckboxPageBase,
+	{
+		checked: true,
+		label: 'my checkbox',
+		readOnly: false,
+		disabled: false,
+	},
+	'CheckboxPageBase'
+);

@@ -9,7 +9,6 @@ class FileLoaderService {
 		loggerService.debug(CLASSNAME, 'get', segmentUrl);
 		return axios.get(segmentUrl, { params: params });
 	}
-
 }
 
 export const fileLoaderService: FileLoaderService = new FileLoaderService();

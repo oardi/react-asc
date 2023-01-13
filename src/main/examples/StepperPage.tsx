@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import type { IStepperProps} from 'lib';
+import type { IStepperProps } from 'lib';
 import { FormControl, Step, Stepper, snackbarService } from 'lib';
-import type { IShowcaseBaseProps} from './components';
+import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
 const CLASSNAME: string = 'StepperPageBase';
 const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IStepperProps>): JSX.Element => {
-
 	const [value, setValue] = useState<number>(0);
 
 	useEffect(() => {
@@ -41,8 +40,7 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 			showDoneButton={settingValues.showDoneButton}
 			showResetButton={settingValues.showResetButton}
 			showSteps={settingValues.showSteps}
-			showDots={settingValues.showDots}
-		>
+			showDots={settingValues.showDots}>
 			<Step value="1" label="Step 1">
 				Content 1 Content 1 Content 1
 			</Step>
@@ -65,12 +63,16 @@ const StepperPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePr
 	);
 };
 
-export const StepperPage: () => JSX.Element = withOptions<IStepperProps>(StepperPageBase, {
-	isLinear: false,
-	showLabel: true,
-	showProgressCheckIcon: false,
-	showDoneButton: false,
-	showResetButton: false,
-	showSteps: true,
-	showDots: false,
-}, CLASSNAME);
+export const StepperPage: () => JSX.Element = withOptions<IStepperProps>(
+	StepperPageBase,
+	{
+		isLinear: false,
+		showLabel: true,
+		showProgressCheckIcon: false,
+		showDoneButton: false,
+		showResetButton: false,
+		showSteps: true,
+		showDots: false,
+	},
+	CLASSNAME
+);

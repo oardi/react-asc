@@ -48,7 +48,7 @@ import {
 	TimeSelectPage,
 	TooltipPage,
 	TreeViewPage,
-	TypographyPage
+	TypographyPage,
 } from './main';
 
 export const menuItems: IMenuItem[] = [
@@ -98,8 +98,8 @@ export const menuItems: IMenuItem[] = [
 			{ id: 'TimeSelect', element: <TimeSelectPage /> },
 			{ id: 'Tooltip', element: <TooltipPage /> },
 			{ id: 'TreeView', label: 'TreeView (beta)', element: <TreeViewPage /> },
-			{ id: 'Typography', element: <TypographyPage /> }
-		]
+			{ id: 'Typography', element: <TypographyPage /> },
+		],
 	},
 	{
 		id: 'Hooks',
@@ -112,7 +112,7 @@ export const menuItems: IMenuItem[] = [
 			{ id: 'HookUseMobileDetect', element: <HookUseMobileDetectPage /> },
 			{ id: 'HookUseWindowSize', element: <HookUseWindowSizePage /> },
 			{ id: 'HookUseOnDestroy', element: <HookUseOnDestroyPage /> },
-		]
+		],
 	},
-	{ id: 'About', element: <AboutPage /> }
+	{ id: 'About', element: <AboutPage /> },
 ];

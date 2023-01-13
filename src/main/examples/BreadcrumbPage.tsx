@@ -8,7 +8,9 @@ const BreadcrumbPageBase = (): JSX.Element => {
 			<Breadcrumb className="mb-0">
 				<BreadcrumbItem path="/">Home</BreadcrumbItem>
 				<BreadcrumbItem path="/">Library</BreadcrumbItem>
-				<BreadcrumbItem path="/" isActive>Data</BreadcrumbItem>
+				<BreadcrumbItem path="/" isActive>
+					Data
+				</BreadcrumbItem>
 			</Breadcrumb>
 		</>
 	);

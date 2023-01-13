@@ -6,8 +6,10 @@ import { withOptions } from './components';
 
 const TimeOutDefault: number = 1000;
 
-const LoadingIndicatorPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ILoadingIndicatorContainerProps>): JSX.Element => {
-
+const LoadingIndicatorPageBase = ({
+	settingValues,
+	setSettingsControls,
+}: IShowcaseBaseProps<ILoadingIndicatorContainerProps>): JSX.Element => {
 	const [isVisible, setIsVisible] = useState<boolean>(false);
 
 	useEffect(() => {
@@ -32,24 +34,17 @@ const LoadingIndicatorPageBase = ({ settingValues, setSettingsControls }: IShowc
 
 	return (
 		<>
-			{isVisible &&
-				<LoadingIndicatorContainer
-					isFixed={settingValues.isFixed}>
+			{isVisible && (
+				<LoadingIndicatorContainer isFixed={settingValues.isFixed}>
 					<LoadingIndicator />
 				</LoadingIndicatorContainer>
-			}
+			)}
 
-			<Button onClick={handleClick}>
-				show loading indicator
-			</Button>
+			<Button onClick={handleClick}>show loading indicator</Button>
 
-
-			<Button onClick={handleClickByService}>
-				show loading indicator by service
-			</Button>
+			<Button onClick={handleClickByService}>show loading indicator by service</Button>
 		</>
 	);
 };
 
 export const LoadingIndicatorPage: () => JSX.Element = withOptions(LoadingIndicatorPageBase, undefined, 'LoadingIndicatorPageBase');
-

@@ -6,13 +6,14 @@ import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
 const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ISelectProps>): JSX.Element => {
-
 	const [value, setValue] = useState<string>('8');
 
 	useEffect(() => {
 		setSettingsControls({
 			multiple: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'multiple' }),
-			multipleMaxCountItems: new FormControl(settingValues.multipleMaxCountItems, [], 'number', { label: 'max count items show (multiple)' }),
+			multipleMaxCountItems: new FormControl(settingValues.multipleMaxCountItems, [], 'number', {
+				label: 'max count items show (multiple)',
+			}),
 			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' }),
 			readOnly: new FormControl(settingValues.readOnly, [], 'checkbox', { label: 'readOnly' }),
 		});
@@ -48,13 +49,13 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 					{
 						value: '15',
 						label: (
-							<div className='d-flex align-items-center'>
-								<Icon className='mr-1'>
+							<div className="d-flex align-items-center">
+								<Icon className="mr-1">
 									<CheckSolidIcon />
 								</Icon>
 								fifteen
 							</div>
-						)
+						),
 					},
 				]}
 				onChange={handleOnChange}
@@ -66,6 +67,10 @@ const SelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 	);
 };
 
-export const SelectPage: () => JSX.Element = withOptions<ISelectProps>(SelectPageBase, {
-	multipleMaxCountItems: 5
-}, 'SelectPageBase');
+export const SelectPage: () => JSX.Element = withOptions<ISelectProps>(
+	SelectPageBase,
+	{
+		multipleMaxCountItems: 5,
+	},
+	'SelectPageBase'
+);

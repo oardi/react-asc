@@ -1,17 +1,18 @@
-import type { IButtonGroupProps} from 'lib';
+import type { IButtonGroupProps } from 'lib';
 import { Button, ButtonGroup, COLOR, FormControl, snackbarService } from 'lib';
 import { useEffect } from 'react';
-import type { IShowcaseBaseProps} from './components';
+import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
 const ButtonGroupPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IButtonGroupProps>): JSX.Element => {
-
 	useEffect(() => {
 		setSettingsControls({
-			color: new FormControl(settingValues.color, [], 'select', { label: 'color', options: Object.keys(COLOR).map(c => ({ label: c, value: c })) }),
+			color: new FormControl(settingValues.color, [], 'select', {
+				label: 'color',
+				options: Object.keys(COLOR).map(c => ({ label: c, value: c })),
+			}),
 		});
 	}, []);
-
 
 	const handleClick = (): void => {
 		void snackbarService.show('Button clicked');
@@ -19,21 +20,14 @@ const ButtonGroupPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 
 	return (
 		<>
-			<ButtonGroup
-				color={settingValues.color}>
-				<Button
-					onClick={handleClick}
-					shadow={false}>
+			<ButtonGroup color={settingValues.color}>
+				<Button onClick={handleClick} shadow={false}>
 					some button
 				</Button>
-				<Button
-					onClick={handleClick}
-					shadow={false}>
+				<Button onClick={handleClick} shadow={false}>
 					some button
 				</Button>
-				<Button
-					onClick={handleClick}
-					shadow={false}>
+				<Button onClick={handleClick} shadow={false}>
 					some button
 				</Button>
 			</ButtonGroup>
@@ -41,6 +35,10 @@ const ButtonGroupPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	);
 };
 
-export const ButtonGroupPage: () => JSX.Element = withOptions(ButtonGroupPageBase, {
-	color: COLOR.primary
-}, 'ButtonGroupPageBase');
+export const ButtonGroupPage: () => JSX.Element = withOptions(
+	ButtonGroupPageBase,
+	{
+		color: COLOR.primary,
+	},
+	'ButtonGroupPageBase'
+);

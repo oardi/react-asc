@@ -1,11 +1,11 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
 	server: {
-		port: 3333
+		port: 3333,
 	},
 	plugins: [
 		react(),
@@ -32,14 +32,14 @@ export default defineConfig({
 						src: 'pwa-512x512.png',
 						sizes: '512x512',
 						type: 'image/png',
-						purpose: 'any maskable'
-					}
+						purpose: 'any maskable',
+					},
 				],
 				start_url: '.',
 				display: 'standalone',
 				theme_color: '#f8f9fa',
-				background_color: '#f5f6fa'
-			}
-		})
-	]
-})
+				background_color: '#f5f6fa',
+			},
+		}),
+	],
+});

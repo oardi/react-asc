@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import type { Location, NavigateFunction} from 'react-router-dom';
+import type { Location, NavigateFunction } from 'react-router-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Breadcrumb, BreadcrumbItem, HomeSolidIcon, Icon } from 'lib';
 import { loggerService } from '../services';
@@ -17,7 +17,6 @@ interface IAppBreadcrumb {
 
 const CLASSNAME: string = 'AppBreadcrumb';
 export const AppBreadcrumb = ({ className }: IAppBreadcrumbProps): JSX.Element => {
-
 	const location: Location = useLocation();
 	const navigate: NavigateFunction = useNavigate();
 	const [items, setItems] = useState<IAppBreadcrumb[]>([]);
@@ -34,34 +33,27 @@ export const AppBreadcrumb = ({ className }: IAppBreadcrumbProps): JSX.Element =
 
 	const handleClickBreadcrumbItem = (item: IAppBreadcrumb): void => {
 		loggerService.debug(CLASSNAME, 'handleClickBreadcrumbItem');
-		if (!item.isActive && location.pathname !== item.path) { navigate(item.path as string); }
+		if (!item.isActive && location.pathname !== item.path) {
+			navigate(item.path as string);
+		}
 	};
 
 	return (
 		<>
-			{items && items.length > 0 &&
+			{items && items.length > 0 && (
 				<Breadcrumb className={className}>
-					{items.map((item, index) =>
+					{items.map((item, index) => (
 						<BreadcrumbItem
 							key={index}
 							isActive={item.isActive}
 							path={item.path}
-							onClick={(): void => handleClickBreadcrumbItem(item)}
-						>
-							{item.label && !item.icon &&
-								<span>
-									{item.label}
-								</span>
-							}
-							{item.icon &&
-								<Icon>
-									{item.icon}
-								</Icon>
-							}
+							onClick={(): void => handleClickBreadcrumbItem(item)}>
+							{item.label && !item.icon && <span>{item.label}</span>}
+							{item.icon && <Icon>{item.icon}</Icon>}
 						</BreadcrumbItem>
-					)}
+					))}
 				</Breadcrumb>
-			}
+			)}
 		</>
 	);
 };

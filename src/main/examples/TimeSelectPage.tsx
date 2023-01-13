@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
-import type { ITimeSelectProps} from 'lib';
+import type { ITimeSelectProps } from 'lib';
 import { FormControl, TimeSelect } from 'lib';
-import type { IShowcaseBaseProps} from './components';
+import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
 const TimeSelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITimeSelectProps>): JSX.Element => {
-
 	useEffect(() => {
 		setSettingsControls({
 			showHours: new FormControl(settingValues.showHours, [], 'checkbox', { label: 'show hours?' }),
@@ -25,9 +24,13 @@ const TimeSelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 	);
 };
 
-export const TimeSelectPage: () => JSX.Element = withOptions<ITimeSelectProps>(TimeSelectPageBase, {
-	showHours: true,
-	showMinutes: true,
-	showSeconds: false,
-	showMilliSeconds: false
-}, 'TimeSelectPageBase');
+export const TimeSelectPage: () => JSX.Element = withOptions<ITimeSelectProps>(
+	TimeSelectPageBase,
+	{
+		showHours: true,
+		showMinutes: true,
+		showSeconds: false,
+		showMilliSeconds: false,
+	},
+	'TimeSelectPageBase'
+);

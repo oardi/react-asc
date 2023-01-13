@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import type { INumberSelectProps} from 'lib';
+import type { INumberSelectProps } from 'lib';
 import { FormControl, NumberSelect, snackbarService } from 'lib';
-import type { IShowcaseBaseProps} from './components';
+import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
 const NumberSelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<INumberSelectProps>): JSX.Element => {
-
 	const [value, setValue] = useState<number>(settingValues.from as number);
 
 	useEffect(() => {
@@ -38,7 +37,11 @@ const NumberSelectPageBase = ({ settingValues, setSettingsControls }: IShowcaseB
 	);
 };
 
-export const NumberSelectPage: () => JSX.Element = withOptions<INumberSelectProps>(NumberSelectPageBase, {
-	from: 0,
-	to: 100
-}, 'NumberSelectPageBase');
+export const NumberSelectPage: () => JSX.Element = withOptions<INumberSelectProps>(
+	NumberSelectPageBase,
+	{
+		from: 0,
+		to: 100,
+	},
+	'NumberSelectPageBase'
+);

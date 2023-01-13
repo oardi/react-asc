@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
-import type { ITypographyProps} from 'lib';
+import type { ITypographyProps } from 'lib';
 import { FormControl, Typography } from 'lib';
-import type { IShowcaseBaseProps} from './components';
+import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
 const TypographyPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITypographyProps>): JSX.Element => {
-
 	useEffect(() => {
 		setSettingsControls({
 			wrap: new FormControl(settingValues.wrap, [], 'checkbox', { label: 'wrap' }),
@@ -13,13 +12,15 @@ const TypographyPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 	}, []);
 
 	return (
-		<div className='d-flex flex-column'>
+		<div className="d-flex flex-column">
 			<Typography as="h2">Interactive</Typography>
 			<Typography wrap={settingValues.wrap}>
 				lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
 			</Typography>
 
-			<Typography className='mt-2' as="h2">Examples</Typography>
+			<Typography className="mt-2" as="h2">
+				Examples
+			</Typography>
 			<Typography as="h1">Heading 1</Typography>
 			<Typography as="h2">Heading 2</Typography>
 			<Typography as="h3">Heading 3</Typography>
@@ -40,7 +41,4 @@ const TypographyPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 	);
 };
 
-export const TypographyPage: () => JSX.Element = withOptions(TypographyPageBase,
-	undefined,
-	'TypographyPageBase'
-);
+export const TypographyPage: () => JSX.Element = withOptions(TypographyPageBase, undefined, 'TypographyPageBase');

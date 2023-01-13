@@ -8,16 +8,15 @@ import packageJson from '../package.json';
 import type { IAppInfo } from './app.interfaces';
 
 export const AppContainer = (): JSX.Element => {
-
 	useEffect(() => {
 		setAppInfo({ name: packageJson.name, version: packageJson.version });
 	}, []);
 
 	const [appInfo, setAppInfo] = useState<IAppInfo>({});
-	const appContext: IAppContext = ({
+	const appContext: IAppContext = {
 		appInfo: appInfo,
-		setAppInfo: setAppInfo
-	});
+		setAppInfo: setAppInfo,
+	};
 
 	return (
 		<BrowserRouter>

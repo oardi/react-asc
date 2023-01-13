@@ -1,7 +1,7 @@
 import React from 'react';
-import type { Location, NavigateFunction} from 'react-router-dom';
+import type { Location, NavigateFunction } from 'react-router-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
-import type { ISidebarItem} from 'lib';
+import type { ISidebarItem } from 'lib';
 import { AppBar, AppBarTitle, COLOR, Sidebar } from 'lib';
 
 interface IAppSidebarProps {
@@ -10,7 +10,6 @@ interface IAppSidebarProps {
 }
 
 export const AppSidebar = ({ menuItems, onItemClicked }: IAppSidebarProps): JSX.Element => {
-
 	const navigate: NavigateFunction = useNavigate();
 	const location: Location = useLocation();
 
@@ -26,11 +25,7 @@ export const AppSidebar = ({ menuItems, onItemClicked }: IAppSidebarProps): JSX.
 					<AppBarTitle>Menu</AppBarTitle>
 				</AppBar>
 				<div style={{ overflowY: 'auto' }}>
-					<Sidebar
-						items={menuItems}
-						currentUrl={location.pathname}
-						onItemClicked={handleItemClicked}
-					/>
+					<Sidebar items={menuItems} currentUrl={location.pathname} onItemClicked={handleItemClicked} />
 				</div>
 			</div>
 		</>

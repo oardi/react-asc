@@ -2,7 +2,6 @@ import type { ISidebarItem } from 'lib';
 import type { IMenuItem } from '../app.interfaces';
 
 export class MenuModel implements ISidebarItem {
-
 	constructor(dto: IMenuItem) {
 		this.id = dto.id;
 		this.label = dto.label ? dto.label : dto.id;

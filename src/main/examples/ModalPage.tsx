@@ -13,7 +13,6 @@ interface IModalPageValues {
 }
 
 const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IModalProps>): JSX.Element => {
-
 	useEffect(() => {
 		setSettingsControls({
 			size: new FormControl(SIZE.md, [], 'select', { label: 'size', options: Object.keys(SIZE).map(c => ({ label: c, value: c })) }),
@@ -28,15 +27,16 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 	};
 
 	const handleClickTriggerModalService = (fullscreen?: boolean): void => {
-		void modalService.show('Hello Modal', 'Modal with custom buttons - using custom buttons make sure to attach Modalbuttontype for ok and cancel', {
-			buttons: [
-				{ label: 'delete', color: COLOR.accent, handler: customHandler },
-				{ label: 'cancel', type: MODALBUTTONTYPE.CANCEL, color: COLOR.secondary, variant: VARIANT.text },
-				{ label: 'ok', type: MODALBUTTONTYPE.OK, autoFocus: true },
-			],
-			fullScreen: fullscreen,
-			size: settingValues.size
-		})
+		void modalService
+			.show('Hello Modal', 'Modal with custom buttons - using custom buttons make sure to attach Modalbuttontype for ok and cancel', {
+				buttons: [
+					{ label: 'delete', color: COLOR.accent, handler: customHandler },
+					{ label: 'cancel', type: MODALBUTTONTYPE.CANCEL, color: COLOR.secondary, variant: VARIANT.text },
+					{ label: 'ok', type: MODALBUTTONTYPE.OK, autoFocus: true },
+				],
+				fullScreen: fullscreen,
+				size: settingValues.size,
+			})
 			.then(() => loggerService.debug('ok clicked'));
 	};
 
@@ -70,7 +70,7 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 					{ value: '18', label: 'eighteen' },
 					{ value: '19', label: 'nineteen' },
 					{ value: '20', label: 'twenty' },
-				]
+				],
 			}),
 			selectMultiple: new FormControl(['option2'], [], 'select', {
 				label: 'Select multiple',
@@ -96,7 +96,7 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 					{ value: '19', label: 'nineteen' },
 					{ value: '20', label: 'twenty' },
 				],
-				selectOptions: { multiple: true }
+				selectOptions: { multiple: true },
 			}),
 			autoComplete: new FormControl('', [], 'autocomplete', {
 				label: 'Autocomplete',
@@ -121,14 +121,13 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 					{ value: '18', label: 'eighteen' },
 					{ value: '19', label: 'nineteen' },
 					{ value: '20', label: 'twenty' },
-				]
-			})
+				],
+			}),
 		};
 
-		void modalService.showForm<IModalPageValues>('Form', controls, { size: settingValues.size })
-			.then(res => {
-				loggerService.debug(res);
-			});
+		void modalService.showForm<IModalPageValues>('Form', controls, { size: settingValues.size }).then(res => {
+			loggerService.debug(res);
+		});
 	};
 
 	return (
@@ -153,41 +152,57 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 					modal with form via service
 				</Button>
 
-				{
-					isVisible &&
+				{isVisible && (
 					<Modal
 						header="Modal Header"
 						size={settingValues.size}
 						isDismissable={true}
-						onHeaderCloseClick={(): void => setIsVisible(!isVisible)}
-					>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Curabitur vitae nunc sed velit dignissim sodales ut eu.Dignissim suspendisse in est ante in nibh mauris cursus mattis.Viverra maecenas accumsan lacus vel facilisis.Aliquam ultrices sagittis orci a.Mauris in aliquam sem fringilla ut morbi tincidunt augue interdum.Ipsum consequat nisl vel pretium.Amet venenatis urna cursus eget nunc scelerisque.Senectus et netus et malesuada.Ac feugiat sed lectus vestibulum mattis ullamcorper velit sed.Lorem donec massa sapien faucibus et molestie ac feugiat sed.Cras pulvinar mattis nunc sed blandit libero volutpat sed cras.Nec feugiat nisl pretium fusce id velit ut.
-
-						Ut sem nulla pharetra diam sit amet nisl suscipit.Faucibus et molestie ac feugiat.Massa tincidunt nunc pulvinar sapien et ligula ullamcorper.Mi proin sed libero enim sed.Nibh sit amet commodo nulla facilisi nullam.Donec et odio pellentesque diam volutpat commodo sed egestas egestas.Faucibus et molestie ac feugiat sed lectus vestibulum mattis.Imperdiet dui accumsan sit amet.Urna duis convallis convallis tellus id interdum velit laoreet id.Adipiscing bibendum est ultricies integer quis.At augue eget arcu dictum varius duis at consectetur lorem.Risus nec feugiat in fermentum posuere urna.Elit ut aliquam purus sit amet luctus venenatis lectus magna.Vulputate enim nulla aliquet porttitor.Cras fermentum odio eu feugiat pretium nibh ipsum.Nisl purus in mollis nunc sed.
+						onHeaderCloseClick={(): void => setIsVisible(!isVisible)}>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+						aliqua.Curabitur vitae nunc sed velit dignissim sodales ut eu.Dignissim suspendisse in est ante in nibh mauris
+						cursus mattis.Viverra maecenas accumsan lacus vel facilisis.Aliquam ultrices sagittis orci a.Mauris in aliquam sem
+						fringilla ut morbi tincidunt augue interdum.Ipsum consequat nisl vel pretium.Amet venenatis urna cursus eget nunc
+						scelerisque.Senectus et netus et malesuada.Ac feugiat sed lectus vestibulum mattis ullamcorper velit sed.Lorem donec
+						massa sapien faucibus et molestie ac feugiat sed.Cras pulvinar mattis nunc sed blandit libero volutpat sed cras.Nec
+						feugiat nisl pretium fusce id velit ut. Ut sem nulla pharetra diam sit amet nisl suscipit.Faucibus et molestie ac
+						feugiat.Massa tincidunt nunc pulvinar sapien et ligula ullamcorper.Mi proin sed libero enim sed.Nibh sit amet
+						commodo nulla facilisi nullam.Donec et odio pellentesque diam volutpat commodo sed egestas egestas.Faucibus et
+						molestie ac feugiat sed lectus vestibulum mattis.Imperdiet dui accumsan sit amet.Urna duis convallis convallis
+						tellus id interdum velit laoreet id.Adipiscing bibendum est ultricies integer quis.At augue eget arcu dictum varius
+						duis at consectetur lorem.Risus nec feugiat in fermentum posuere urna.Elit ut aliquam purus sit amet luctus
+						venenatis lectus magna.Vulputate enim nulla aliquet porttitor.Cras fermentum odio eu feugiat pretium nibh ipsum.Nisl
+						purus in mollis nunc sed.
 					</Modal>
-				}
+				)}
 
-				{
-					isVisibleFullscreen &&
+				{isVisibleFullscreen && (
 					<Modal
 						header="Modal Header"
 						fullScreen={true}
 						isDismissable={true}
 						footer={
 							<>
-								<Button onClick={(): void => setIsVisibleFullscreen(false)}>
-									ok
-								</Button>
+								<Button onClick={(): void => setIsVisibleFullscreen(false)}>ok</Button>
 							</>
 						}
-						onHeaderCloseClick={(): void => setIsVisibleFullscreen(!isVisibleFullscreen)}
-					>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Curabitur vitae nunc sed velit dignissim sodales ut eu.Dignissim suspendisse in est ante in nibh mauris cursus mattis.Viverra maecenas accumsan lacus vel facilisis.Aliquam ultrices sagittis orci a.Mauris in aliquam sem fringilla ut morbi tincidunt augue interdum.Ipsum consequat nisl vel pretium.Amet venenatis urna cursus eget nunc scelerisque.Senectus et netus et malesuada.Ac feugiat sed lectus vestibulum mattis ullamcorper velit sed.Lorem donec massa sapien faucibus et molestie ac feugiat sed.Cras pulvinar mattis nunc sed blandit libero volutpat sed cras.Nec feugiat nisl pretium fusce id velit ut.
-
-						Ut sem nulla pharetra diam sit amet nisl suscipit.Faucibus et molestie ac feugiat.Massa tincidunt nunc pulvinar sapien et ligula ullamcorper.Mi proin sed libero enim sed.Nibh sit amet commodo nulla facilisi nullam.Donec et odio pellentesque diam volutpat commodo sed egestas egestas.Faucibus et molestie ac feugiat sed lectus vestibulum mattis.Imperdiet dui accumsan sit amet.Urna duis convallis convallis tellus id interdum velit laoreet id.Adipiscing bibendum est ultricies integer quis.At augue eget arcu dictum varius duis at consectetur lorem.Risus nec feugiat in fermentum posuere urna.Elit ut aliquam purus sit amet luctus venenatis lectus magna.Vulputate enim nulla aliquet porttitor.Cras fermentum odio eu feugiat pretium nibh ipsum.Nisl purus in mollis nunc sed.
-					</Modal >
-				}
-			</div >
+						onHeaderCloseClick={(): void => setIsVisibleFullscreen(!isVisibleFullscreen)}>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+						aliqua.Curabitur vitae nunc sed velit dignissim sodales ut eu.Dignissim suspendisse in est ante in nibh mauris
+						cursus mattis.Viverra maecenas accumsan lacus vel facilisis.Aliquam ultrices sagittis orci a.Mauris in aliquam sem
+						fringilla ut morbi tincidunt augue interdum.Ipsum consequat nisl vel pretium.Amet venenatis urna cursus eget nunc
+						scelerisque.Senectus et netus et malesuada.Ac feugiat sed lectus vestibulum mattis ullamcorper velit sed.Lorem donec
+						massa sapien faucibus et molestie ac feugiat sed.Cras pulvinar mattis nunc sed blandit libero volutpat sed cras.Nec
+						feugiat nisl pretium fusce id velit ut. Ut sem nulla pharetra diam sit amet nisl suscipit.Faucibus et molestie ac
+						feugiat.Massa tincidunt nunc pulvinar sapien et ligula ullamcorper.Mi proin sed libero enim sed.Nibh sit amet
+						commodo nulla facilisi nullam.Donec et odio pellentesque diam volutpat commodo sed egestas egestas.Faucibus et
+						molestie ac feugiat sed lectus vestibulum mattis.Imperdiet dui accumsan sit amet.Urna duis convallis convallis
+						tellus id interdum velit laoreet id.Adipiscing bibendum est ultricies integer quis.At augue eget arcu dictum varius
+						duis at consectetur lorem.Risus nec feugiat in fermentum posuere urna.Elit ut aliquam purus sit amet luctus
+						venenatis lectus magna.Vulputate enim nulla aliquet porttitor.Cras fermentum odio eu feugiat pretium nibh ipsum.Nisl
+						purus in mollis nunc sed.
+					</Modal>
+				)}
+			</div>
 		</>
 	);
 };

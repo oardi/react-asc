@@ -25,16 +25,13 @@ export const ServiceWorkerWrapper = (): JSX.Element => {
 
 	return (
 		<>
-			{showReload &&
+			{showReload && (
 				<div className="snackbar-container">
-					<Snackbar
-						actionText={'reload'}
-						onOk={reloadPage}
-					>
+					<Snackbar actionText={'reload'} onOk={reloadPage}>
 						A new version is available!
 					</Snackbar>
 				</div>
-			}
+			)}
 		</>
 	);
 };

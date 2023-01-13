@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import type { IButtonProps} from 'lib';
+import type { IButtonProps } from 'lib';
 import { Button, COLOR, FormControl, snackbarService, VARIANT } from 'lib';
 import { InfoSolidIcon } from '../assets';
 import { withOptions } from './components';
@@ -11,12 +11,20 @@ interface IButtonExampleProps extends IButtonProps {
 }
 
 const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IButtonExampleProps>): JSX.Element => {
-
 	useEffect(() => {
 		setSettingsControls({
-			color: new FormControl(settingValues.color, [], 'select', { label: 'color', options: Object.keys(COLOR).map(c => ({ label: c, value: c })) }),
-			variant: new FormControl(settingValues.variant, [], 'select', { label: 'variant', options: Object.keys(VARIANT).map(c => ({ label: c, value: c })) }),
-			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled', hint: 'whether the tag is disabled or enabled' }),
+			color: new FormControl(settingValues.color, [], 'select', {
+				label: 'color',
+				options: Object.keys(COLOR).map(c => ({ label: c, value: c })),
+			}),
+			variant: new FormControl(settingValues.variant, [], 'select', {
+				label: 'variant',
+				options: Object.keys(VARIANT).map(c => ({ label: c, value: c })),
+			}),
+			disabled: new FormControl(settingValues.disabled, [], 'checkbox', {
+				label: 'disabled',
+				hint: 'whether the tag is disabled or enabled',
+			}),
 			block: new FormControl(settingValues.block, [], 'checkbox', { label: 'block' }),
 			isActive: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'isActive' }),
 			isRounded: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'isRounded' }),
@@ -32,7 +40,6 @@ const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 
 	return (
 		<>
-
 			<Button
 				color={settingValues.color}
 				disabled={settingValues.disabled}
@@ -43,17 +50,19 @@ const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 				onClick={handleClick}
 				startIcon={settingValues.showStartIcon ? <InfoSolidIcon /> : undefined}
 				endIcon={settingValues.showEndIcon ? <InfoSolidIcon /> : undefined}
-				shadow={settingValues.shadow}
-			>
+				shadow={settingValues.shadow}>
 				some button text
 			</Button>
-
 		</>
 	);
 };
 
-export const ButtonPage: () => JSX.Element = withOptions<IButtonExampleProps>(ButtonPageBase, {
-	color: COLOR.primary,
-	variant: VARIANT.contained,
-	shadow: true
-}, 'ButtonPageBase');
+export const ButtonPage: () => JSX.Element = withOptions<IButtonExampleProps>(
+	ButtonPageBase,
+	{
+		color: COLOR.primary,
+		variant: VARIANT.contained,
+		shadow: true,
+	},
+	'ButtonPageBase'
+);

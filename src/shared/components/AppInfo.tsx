@@ -6,7 +6,6 @@ import { Markdown } from './Markdown';
 import type { AxiosResponse } from 'axios';
 
 export const AppInfo = (): JSX.Element => {
-
 	const [markdownText, setMarkdownText] = useState<string>('');
 
 	useConstructor(async () => await init());
@@ -24,12 +23,5 @@ export const AppInfo = (): JSX.Element => {
 		}
 	};
 
-	return (
-		<IconButton
-			color={COLOR.primary}
-			className="ml-auto"
-			icon={<InfoSolidIcon />}
-			onClick={handleClick}
-		/>
-	);
+	return <IconButton color={COLOR.primary} className="ml-auto" icon={<InfoSolidIcon />} onClick={handleClick} />;
 };

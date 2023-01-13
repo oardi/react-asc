@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
-import type { ITableProps} from 'lib';
+import type { ITableProps } from 'lib';
 import { FormControl, Table, TableBody, TableCell, TableHead, TableRow } from 'lib';
-import type { IShowcaseBaseProps} from './components';
+import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
 const TablePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<ITableProps>): JSX.Element => {
-
 	useEffect(() => {
 		setSettingsControls({
 			hover: new FormControl(settingValues.hover, [], 'checkbox', { label: 'hover' }),
@@ -18,8 +17,7 @@ const TablePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 			bordered={settingValues.bordered}
 			hover={settingValues.hover}
 			striped={settingValues.striped}
-			responsive={settingValues.responsive}
-		>
+			responsive={settingValues.responsive}>
 			<TableHead>
 				<TableRow>
 					<TableCell scope="col">#</TableCell>
@@ -31,19 +29,25 @@ const TablePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 
 			<TableBody>
 				<TableRow>
-					<TableCell component='th' scope="row">1</TableCell>
+					<TableCell component="th" scope="row">
+						1
+					</TableCell>
 					<TableCell>Mark</TableCell>
 					<TableCell>Otto</TableCell>
 					<TableCell>@mdo</TableCell>
 				</TableRow>
 				<TableRow>
-					<TableCell component='th' scope="row">2</TableCell>
+					<TableCell component="th" scope="row">
+						2
+					</TableCell>
 					<TableCell>Jacob</TableCell>
 					<TableCell>Thornton</TableCell>
 					<TableCell>@fat</TableCell>
 				</TableRow>
 				<TableRow>
-					<TableCell component='th' scope="row">3</TableCell>
+					<TableCell component="th" scope="row">
+						3
+					</TableCell>
 					<TableCell colSpan={2}>Larry the Bird</TableCell>
 					<TableCell>@twitter</TableCell>
 				</TableRow>
@@ -52,11 +56,13 @@ const TablePageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 	);
 };
 
-export const TablePage: () => JSX.Element = withOptions<ITableProps>(TablePageBase,
+export const TablePage: () => JSX.Element = withOptions<ITableProps>(
+	TablePageBase,
 	{
 		hover: false,
 		bordered: false,
 		striped: false,
-		responsive: true
-	}, 'TablePageBase'
+		responsive: true,
+	},
+	'TablePageBase'
 );

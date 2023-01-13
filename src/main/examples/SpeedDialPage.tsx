@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import type { ISpeedDialProps} from 'lib';
+import type { ISpeedDialProps } from 'lib';
 import { COLOR, snackbarService, SpeedDial, SpeedDialAction } from 'lib';
 import { InfoSolidIcon } from '../assets';
-import type { IShowcaseBaseProps} from './components';
+import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
 const SpeedDialPageBase = ({ setSettingsControls }: IShowcaseBaseProps<ISpeedDialProps>): JSX.Element => {
-
 	const [open, setOpen] = useState<boolean>(false);
 
 	useEffect(() => {
-		setSettingsControls({
-		});
+		setSettingsControls({});
 	}, []);
 
 	const handleClick = (index: string): void => {
@@ -29,22 +27,14 @@ const SpeedDialPageBase = ({ setSettingsControls }: IShowcaseBaseProps<ISpeedDia
 
 	return (
 		<div style={{ height: '200px', position: 'relative' }}>
-			<SpeedDial
-				open={open}
-				onOpen={handleOpen}
-				onClose={handleClose}
-				style={{ position: 'absolute', bottom: 0, right: 0 }}>
+			<SpeedDial open={open} onOpen={handleOpen} onClose={handleClose} style={{ position: 'absolute', bottom: 0, right: 0 }}>
 				<SpeedDialAction
 					icon={<InfoSolidIcon />}
 					tooltipTitle="some tooltip text"
 					color={COLOR.primary}
 					onClick={(): void => handleClick('1')}
 				/>
-				<SpeedDialAction
-					icon={<InfoSolidIcon />}
-					tooltipTitle="some tooltip text"
-					onClick={(): void => handleClick('2')}
-				/>
+				<SpeedDialAction icon={<InfoSolidIcon />} tooltipTitle="some tooltip text" onClick={(): void => handleClick('2')} />
 			</SpeedDial>
 		</div>
 	);

@@ -10,7 +10,6 @@ export interface IMarkdownProps {
 }
 
 export const Markdown = ({ url, text }: IMarkdownProps): JSX.Element => {
-
 	const [markdownText, setMarkdownText] = useState<string>('');
 
 	useEffect(() => {
@@ -38,7 +37,5 @@ export const Markdown = ({ url, text }: IMarkdownProps): JSX.Element => {
 		setMarkdownText(snarkdown(text));
 	};
 
-	return (
-		<Typography dangerouslySetInnerHTML={{ __html: markdownText }}></Typography>
-	);
+	return <Typography dangerouslySetInnerHTML={{ __html: markdownText }}></Typography>;
 };

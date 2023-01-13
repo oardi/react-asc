@@ -38,17 +38,26 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 
 	const controls: IControls = {
 		text: new FormControl('', ['required', 'min:3'], 'text', { label: 'Text', autoFocus: true, placeholder: 'Text' }),
-		email: new FormControl('', ['email', 'required'], 'text', { label: 'E-Mail', hint: 'We will never share your email with anyone else' }),
+		email: new FormControl('', ['email', 'required'], 'text', {
+			label: 'E-Mail',
+			hint: 'We will never share your email with anyone else',
+		}),
 		date: new FormControl('2017-06-01', [], 'date', { label: 'Date' }),
-		dateTimeLocal: new FormControl(dayjs('2021-01-07T08:27:00Z').format('YYYY-MM-DDThh:mm'), [], 'datetime-local', { label: 'DateTimeLocal' }),
+		dateTimeLocal: new FormControl(dayjs('2021-01-07T08:27:00Z').format('YYYY-MM-DDThh:mm'), [], 'datetime-local', {
+			label: 'DateTimeLocal',
+		}),
 		radio: new FormControl('', [], 'radio', {
 			label: 'Radio',
 			options: [
 				{ id: 'radioOption1', label: 'Option 1', value: 'option1' },
-				{ id: 'radioOption2', label: 'Option 2', value: 'option2' }
-			]
+				{ id: 'radioOption2', label: 'Option 2', value: 'option2' },
+			],
 		}),
-		textarea: new FormControl('', ['required'], 'textarea', { label: 'Textarea', placeholder: 'some notes', textareaOptions: { rows: 3, resize: false } }),
+		textarea: new FormControl('', ['required'], 'textarea', {
+			label: 'Textarea',
+			placeholder: 'some notes',
+			textareaOptions: { rows: 3, resize: false },
+		}),
 		number: new FormControl('', [], 'number', { label: 'Number' }),
 		password: new FormControl('', ['required'], 'password', { label: 'Password' }),
 		passwordMatch: new FormControl('', ['required', 'match:password'], 'password', { label: 'Password Match' }),
@@ -58,12 +67,20 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 		checkbox: new FormControl('', [], 'checkbox', { label: 'Checkbox' }),
 		select: new FormControl('option2', [], 'select', {
 			label: 'Select',
-			options: [{ label: 'Option 1', value: 'option1' }, { label: 'Option 2', value: 'option2' }, { label: 'Option 3', value: 'option3' }]
+			options: [
+				{ label: 'Option 1', value: 'option1' },
+				{ label: 'Option 2', value: 'option2' },
+				{ label: 'Option 3', value: 'option3' },
+			],
 		}),
 		selectMultiple: new FormControl(['option2'], [], 'select', {
 			label: 'Select multiple',
-			options: [{ label: 'Option 1', value: 'option1' }, { label: 'Option 2', value: 'option2' }, { label: 'Option 3', value: 'option3' }],
-			selectOptions: { multiple: true }
+			options: [
+				{ label: 'Option 1', value: 'option1' },
+				{ label: 'Option 2', value: 'option2' },
+				{ label: 'Option 3', value: 'option3' },
+			],
+			selectOptions: { multiple: true },
 		}),
 		autoComplete: new FormControl('', [], 'autocomplete', {
 			label: 'Autocomplete',
@@ -88,8 +105,8 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 				{ value: '18', label: 'eighteen' },
 				{ value: '19', label: 'nineteen' },
 				{ value: '20', label: 'twenty' },
-			]
-		})
+			],
+		}),
 	};
 
 	const onFormSubmit = (values: IFormPageControls): void => {
@@ -113,8 +130,7 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	};
 
 	const handleOpenInModal = (): void => {
-		void modalService.showForm<IFormPageControls>('Form', controls)
-			.then(res => loggerService.debug(res));
+		void modalService.showForm<IFormPageControls>('Form', controls).then(res => loggerService.debug(res));
 	};
 
 	return (
@@ -128,9 +144,7 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 			/>
 
 			<pre>
-				<code>
-					{JSON.stringify(values, null, 4)}
-				</code>
+				<code>{JSON.stringify(values, null, 4)}</code>
 			</pre>
 
 			<div className="d-flex flex-wrap">
@@ -145,12 +159,15 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 					open in modal
 				</Button>
 			</div>
-
 		</>
 	);
 };
 
-export const FormPage: () => JSX.Element = withOptions<IFormProps>(FormPageBase, {
-	controls: {},
-	validateOnBlur: false
-}, 'FormPageBase');
+export const FormPage: () => JSX.Element = withOptions<IFormProps>(
+	FormPageBase,
+	{
+		controls: {},
+		validateOnBlur: false,
+	},
+	'FormPageBase'
+);

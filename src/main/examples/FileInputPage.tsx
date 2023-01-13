@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
-import type { IFileInputProps} from 'lib';
+import type { IFileInputProps } from 'lib';
 import { FileInput, FormControl, snackbarService } from 'lib';
-import type { IShowcaseBaseProps} from './components';
+import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
 const FileInputPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IFileInputProps>): JSX.Element => {
-
 	useEffect(() => {
 		setSettingsControls({
 			accept: new FormControl(settingValues.accept, [], 'text', { label: 'accept' }),
@@ -26,16 +25,19 @@ const FileInputPageBase = ({ settingValues, setSettingsControls }: IShowcaseBase
 				multiple={settingValues.multiple}
 				deletable={settingValues.deletable}
 				disabled={settingValues.disabled}
-				onChange={handleOnChange}
-			>
+				onChange={handleOnChange}>
 				choose a file
 			</FileInput>
 		</>
 	);
 };
 
-export const FileInputPage: () => JSX.Element = withOptions<IFileInputProps>(FileInputPageBase, {
-	accept: '*',
-	multiple: false,
-	disabled: false
-}, 'FileInputPageBase');
+export const FileInputPage: () => JSX.Element = withOptions<IFileInputProps>(
+	FileInputPageBase,
+	{
+		accept: '*',
+		multiple: false,
+		disabled: false,
+	},
+	'FileInputPageBase'
+);
