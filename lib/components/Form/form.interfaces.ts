@@ -5,8 +5,8 @@ export interface IControls {
 }
 
 export interface IFormTextAreaOptions {
-	rows: number;
-	resize: boolean;
+	rows?: number;
+	resize?: boolean;
 }
 
 export interface IFormSelectOptions {

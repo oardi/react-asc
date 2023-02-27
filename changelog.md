@@ -1,3 +1,7 @@
+### 25.5.1
+
+-   textarea - fixed styling
+
 ### 25.5.0
 
 -   datepicker - added component
