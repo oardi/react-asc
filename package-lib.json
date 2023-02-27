@@ -1,6 +1,6 @@
 {
 	"name": "react-asc",
-	"version": "25.5.0",
+	"version": "25.5.1",
 	"description": "handcrafted react components",
 	"main": "index.js",
 	"module": "index.es.js",
@@ -18,12 +18,5 @@
 	"scripts": {
 		"pub": "npm publish --access public"
 	},
-	"keywords": [
-		"react",
-		"component library",
-		"ui library",
-		"components",
-		"library",
-		"material"
-	]
+	"keywords": ["react", "component library", "ui library", "components", "library", "material"]
 }
