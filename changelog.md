@@ -1,3 +1,7 @@
+### 25.5.2
+
+-   form - typings
+
 ### 25.5.1
 
 -   textarea - fixed styling

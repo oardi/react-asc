@@ -1,19 +1,22 @@
 import React, { Component, createRef } from 'react';
-import { FormLabel } from './FormLabel';
-import { FormGroup } from './FormGroup';
-import { FormInput } from './FormInput';
-import { FormHint } from './FormHint';
-import { FormError } from './FormError';
-import type { IControls, IFormInputError } from './form.interfaces';
-import { IsEmptyValidator, EmailValidator, IsEqualValidator, MaxValidator, MinValidator } from './validators';
-import type { FormControl } from './form.models';
 import type { IDictionary } from '../../interfaces';
+import type { IControls, IFormInputError } from './form.interfaces';
+import type { FormControl } from './form.models';
+import { FormError } from './FormError';
+import { FormGroup } from './FormGroup';
+import { FormHint } from './FormHint';
+import { FormInput } from './FormInput';
+import { FormLabel } from './FormLabel';
+import { EmailValidator, IsEmptyValidator, IsEqualValidator, MaxValidator, MinValidator } from './validators';
 
 export interface IFormProps {
+	className?: string;
 	controls: IControls;
 	validateOnBlur?: boolean;
-	onSubmit?: (values: unknown) => void;
-	onChange?: (values: unknown) => void;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	onSubmit?: (values: any) => void;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	onChange?: (values: any) => void;
 	submitOnEnter?: boolean;
 }
 
@@ -23,20 +26,23 @@ export interface IFormState {
 	isSubmitted: boolean;
 	isChanged: boolean;
 	submitOnEnter?: boolean;
-	// values -> set onChange etc?
 }
-
-// values, isSubmitting, handleChange, handleBlur, handleSubmit
 
 export class Form extends Component<IFormProps, IFormState> {
 	constructor(props: IFormProps) {
 		super(props);
-		this.state = { controls: undefined, isValid: false, isChanged: false, isSubmitted: false, submitOnEnter: props.submitOnEnter !== undefined ? props.submitOnEnter : true };
+		this.state = {
+			controls: undefined,
+			isValid: false,
+			isChanged: false,
+			isSubmitted: false,
+			submitOnEnter: props.submitOnEnter !== undefined ? props.submitOnEnter : true,
+		};
 	}
 
-	static getDerivedStateFromProps(nextProps: IFormProps, state: IFormState): { controls: IControls; } | null {
+	static getDerivedStateFromProps(nextProps: IFormProps, state: IFormState): { controls: IControls } | null {
 		if (!state.controls && nextProps.controls) {
-			return ({ controls: nextProps.controls });
+			return { controls: nextProps.controls };
 		}
 		return null;
 	}
@@ -46,19 +52,21 @@ export class Form extends Component<IFormProps, IFormState> {
 	handleChange(): void {
 		// get value by myForm instead of getControl?
 		if (this.state.isChanged || this.state.isSubmitted) {
-			const keys: string[] = Object.keys((this.state.controls as IControls));
+			const keys: string[] = Object.keys(this.state.controls as IControls);
 			const values: IDictionary<string> = keys.reduce((obj, f) => {
 				const control: FormControl = this.getControl(f);
 				// eslint-disable-next-line @typescript-eslint/no-explicit-any
-				const newValue: any = (
+				const newValue: any =
 					(control.type === 'date' || control.type === 'datetime-local') &&
 					control.value &&
-					isValidDate((control.value) as unknown as Date)) ? new Date((control.value) as unknown as Date).toISOString() : control.value;
+					isValidDate(control.value as unknown as Date)
+						? new Date(control.value as unknown as Date).toISOString()
+						: control.value;
 
-				return ({
+				return {
 					...obj,
-					[f]: newValue
-				});
+					[f]: newValue,
+				};
 			}, {});
 
 			if (this.state.isValid && this.state.isSubmitted) {
@@ -135,7 +143,7 @@ export class Form extends Component<IFormProps, IFormState> {
 
 	private handleOnBlur(e: React.FocusEvent<HTMLInputElement>): void {
 		if (this.props.validateOnBlur) {
-			const { name } = (e.target as HTMLInputElement);
+			const { name } = e.target as HTMLInputElement;
 			const field: FormControl = this.getControl(name);
 			field.isDirty = true;
 			field.errors = this.validateField(field.value, field.validators);
@@ -168,11 +176,15 @@ export class Form extends Component<IFormProps, IFormState> {
 
 	private renderLabel(fieldKey: string, label: string, labelClassName: string = 'form-label'): JSX.Element {
 		const cssClasses: (string | undefined)[] = [labelClassName, this.isRequired(fieldKey) ? 'required' : undefined];
-		return <FormLabel htmlFor={fieldKey} className={cssClasses.join(' ')}>{label}</FormLabel>;
+		return (
+			<FormLabel htmlFor={fieldKey} className={cssClasses.join(' ')}>
+				{label}
+			</FormLabel>
+		);
 	}
 
 	handleFormSubmit(): void {
-		for (const fieldKey of Object.keys((this.state.controls as IControls))) {
+		for (const fieldKey of Object.keys(this.state.controls as IControls)) {
 			const field: FormControl = this.getControl(fieldKey);
 
 			// redundant mit handleBlur
@@ -181,16 +193,21 @@ export class Form extends Component<IFormProps, IFormState> {
 			field.isValid = field.errors.length === 0;
 		}
 
-		this.setState({
-			controls: { ...this.state.controls },
-			isSubmitted: true,
-			isValid: Object.keys((this.state.controls as IControls)).map(f => this.getControl(f).isValid).every(valid => valid === true)
-		}, () => this.handleChange());
+		this.setState(
+			{
+				controls: { ...this.state.controls },
+				isSubmitted: true,
+				isValid: Object.keys(this.state.controls as IControls)
+					.map(f => this.getControl(f).isValid)
+					.every(valid => valid === true),
+			},
+			() => this.handleChange()
+		);
 	}
 
 	// trigger via ref
 	handleFormReset(): void {
-		for (const fieldKey of Object.keys((this.state.controls as IControls))) {
+		for (const fieldKey of Object.keys(this.state.controls as IControls)) {
 			const field: FormControl = this.getControl(fieldKey);
 			field.value = '';
 			field.isDirty = false;
@@ -202,7 +219,7 @@ export class Form extends Component<IFormProps, IFormState> {
 			controls: { ...this.state.controls },
 			isSubmitted: false,
 			isChanged: false,
-			isValid: false
+			isValid: false,
 		});
 	}
 
@@ -223,59 +240,61 @@ export class Form extends Component<IFormProps, IFormState> {
 
 	render(): JSX.Element {
 		return (
-			<form ref={this.myForm}>
+			<form className={this.props.className} ref={this.myForm}>
+				{this.state &&
+					this.state.controls &&
+					Object.keys(this.state.controls).map(fieldKey => {
+						return (
+							<FormGroup key={fieldKey} className={this.getFormGroupCssClass(fieldKey)}>
+								{this.getControl(fieldKey).config.labelPosition !== 'behind' &&
+									this.getControl(fieldKey).type !== 'checkbox' &&
+									this.renderLabel(
+										fieldKey,
+										this.getControl(fieldKey).config.label,
+										this.getControl(fieldKey).config.labelClassName
+									)}
 
-				{this.state && this.state.controls && Object.keys(this.state.controls).map((fieldKey) => {
-					return (
-						<FormGroup key={fieldKey} className={this.getFormGroupCssClass(fieldKey)}>
+								{/* TODO - pass configObject instead of every single Config */}
+								<FormInput
+									autoFocus={this.getControl(fieldKey).config.autoFocus}
+									className={this.getControl(fieldKey).config.formControlClassName}
+									isValid={!this.isInvalid(fieldKey)}
+									label={this.getControl(fieldKey).config.label}
+									name={fieldKey}
+									options={this.getControl(fieldKey).config.options}
+									placeholder={this.getControl(fieldKey).config.placeholder}
+									textareaOptions={this.getControl(fieldKey).config.textareaOptions}
+									selectOptions={this.getControl(fieldKey).config.selectOptions}
+									autoCompleteOptions={this.getControl(fieldKey).config.autoCompleteOptions}
+									type={this.getControl(fieldKey).type}
+									value={this.getControl(fieldKey).value}
+									disabled={this.getControl(fieldKey).config.disabled}
+									readonly={this.getControl(fieldKey).config.readonly}
+									onChange={({ name, value }): void => this.handleInputChange(name as string, value)}
+									onBlur={(e): void => this.handleOnBlur(e)}
+									onKeyDown={(e): void => this.handleOnKeyDown(e)}
+								/>
 
-							{
-								this.getControl(fieldKey).config.labelPosition !== 'behind' && this.getControl(fieldKey).type !== 'checkbox' &&
-								this.renderLabel(fieldKey, this.getControl(fieldKey).config.label, this.getControl(fieldKey).config.labelClassName)
-							}
+								{this.getControl(fieldKey).config.labelPosition === 'behind' &&
+									this.getControl(fieldKey).type !== 'checkbox' &&
+									this.renderLabel(
+										fieldKey,
+										this.getControl(fieldKey).config.label,
+										this.getControl(fieldKey).config.labelClassName
+									)}
 
-							{/* TODO - pass configObject instead of every single Config */}
-							<FormInput
-								autoFocus={this.getControl(fieldKey).config.autoFocus}
-								className={this.getControl(fieldKey).config.formControlClassName}
-								isValid={!this.isInvalid(fieldKey)}
-								label={this.getControl(fieldKey).config.label}
-								name={fieldKey}
-								options={this.getControl(fieldKey).config.options}
-								placeholder={this.getControl(fieldKey).config.placeholder}
-								textareaOptions={this.getControl(fieldKey).config.textareaOptions}
-								selectOptions={this.getControl(fieldKey).config.selectOptions}
-								autoCompleteOptions={this.getControl(fieldKey).config.autoCompleteOptions}
-								type={this.getControl(fieldKey).type}
-								value={this.getControl(fieldKey).value}
-								disabled={this.getControl(fieldKey).config.disabled}
-								readonly={this.getControl(fieldKey).config.readonly}
-								onChange={({ name, value }): void => this.handleInputChange(name as string, value)}
-								onBlur={(e): void => this.handleOnBlur(e)}
-								onKeyDown={(e): void => this.handleOnKeyDown(e)}
-							/>
+								{this.getControl(fieldKey).config.hint && (
+									<FormHint>{this.getControl(fieldKey).config.hint as string}</FormHint>
+								)}
 
-							{
-								this.getControl(fieldKey).config.labelPosition === 'behind' && this.getControl(fieldKey).type !== 'checkbox' &&
-								this.renderLabel(fieldKey, this.getControl(fieldKey).config.label, this.getControl(fieldKey).config.labelClassName)
-							}
-
-							{this.getControl(fieldKey).config.hint &&
-								<FormHint>{this.getControl(fieldKey).config.hint as string}</FormHint>
-							}
-
-							{this.getControl(fieldKey).errors &&
-								<FormError errors={this.getControl(fieldKey).errors} />
-							}
-						</FormGroup>
-					);
-				})}
-
+								{this.getControl(fieldKey).errors && <FormError errors={this.getControl(fieldKey).errors} />}
+							</FormGroup>
+						);
+					})}
 			</form>
 		);
 	}
 }
-
 
 function isValidDate(dateObject: Date): boolean {
 	return new Date(dateObject).toString() !== 'Invalid Date';

@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import dayjs from 'dayjs';
 import type { IControls, IFormProps } from 'lib';
-import { FormControl, Form, Button, VARIANT, COLOR, modalService } from 'lib';
+import { Button, COLOR, Form, FormControl, modalService, VARIANT } from 'lib';
+import React, { useEffect, useRef, useState } from 'react';
+import { loggerService } from '../../shared';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
-import dayjs from 'dayjs';
-import { loggerService } from '../../shared';
 
 export interface IFormPageControls {
 	text: string;
@@ -136,11 +136,12 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	return (
 		<>
 			<Form
+				className={'my-form-class'}
 				ref={myForm}
 				controls={controls}
 				validateOnBlur={settingValues.validateOnBlur}
-				onSubmit={(values): void => onFormSubmit(values as IFormPageControls)}
-				onChange={(values): void => onFormChange(values as IFormPageControls)}
+				onSubmit={onFormSubmit}
+				onChange={onFormChange}
 			/>
 
 			<pre>
