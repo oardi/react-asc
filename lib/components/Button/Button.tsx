@@ -1,8 +1,8 @@
 import React from 'react';
-import { Icon } from '../Icon';
 import { COLOR, VARIANT } from '../component.enums';
+import { Icon } from '../Icon';
 import styles from './Button.module.scss';
-import type { IButtonContext} from './ButtonContext';
+import type { IButtonContext } from './ButtonContext';
 import { useButtonContext } from './ButtonContext';
 
 export interface IButtonProps extends React.ComponentProps<'button'> {
@@ -16,9 +16,20 @@ export interface IButtonProps extends React.ComponentProps<'button'> {
 	block?: boolean;
 }
 
-export const Button: React.FunctionComponent<IButtonProps> = (props) => {
-
-	const { children, variant = VARIANT.contained, color = COLOR.primary, isRounded, isActive, className, startIcon, endIcon, shadow = true, block, ...rest } = props;
+export const Button: React.FunctionComponent<IButtonProps> = props => {
+	const {
+		children,
+		variant = VARIANT.contained,
+		color = COLOR.primary,
+		isRounded,
+		isActive,
+		className,
+		startIcon,
+		endIcon,
+		shadow = true,
+		block,
+		...rest
+	} = props;
 
 	const buttonContext: IButtonContext = useButtonContext();
 
@@ -53,23 +64,11 @@ export const Button: React.FunctionComponent<IButtonProps> = (props) => {
 	};
 
 	return (
-		<button
-			type="button"
-			className={getCssClasses()}
-			{...rest}
-		>
+		<button type="button" className={getCssClasses()} {...rest}>
 			<span className="d-flex justify-content-center">
-				{startIcon &&
-					<Icon className={styles.startIcon}>
-						{startIcon}
-					</Icon>
-				}
+				{startIcon && <Icon className={styles.startIcon}>{startIcon}</Icon>}
 				{children}
-				{endIcon &&
-					<Icon className={styles.endIcon}>
-						{endIcon}
-					</Icon>
-				}
+				{endIcon && <Icon className={styles.endIcon}>{endIcon}</Icon>}
 			</span>
 		</button>
 	);

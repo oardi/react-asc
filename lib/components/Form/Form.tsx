@@ -2,6 +2,7 @@ import React, { Component, createRef } from 'react';
 import type { IDictionary } from '../../interfaces';
 import type { IControls, IFormInputError } from './form.interfaces';
 import type { FormControl } from './form.models';
+import styles from './Form.module.scss';
 import { FormError } from './FormError';
 import { FormGroup } from './FormGroup';
 import { FormHint } from './FormHint';
@@ -38,6 +39,13 @@ export class Form extends Component<IFormProps, IFormState> {
 			isSubmitted: false,
 			submitOnEnter: props.submitOnEnter !== undefined ? props.submitOnEnter : true,
 		};
+	}
+
+	getCssClasses(): string {
+		const cssClasses: string[] = [];
+		cssClasses.push(styles.form);
+		this.props.className && cssClasses.push(this.props.className);
+		return cssClasses.filter(css => css).join(' ');
 	}
 
 	static getDerivedStateFromProps(nextProps: IFormProps, state: IFormState): { controls: IControls } | null {
@@ -240,7 +248,7 @@ export class Form extends Component<IFormProps, IFormState> {
 
 	render(): JSX.Element {
 		return (
-			<form className={this.props.className} ref={this.myForm}>
+			<form className={this.getCssClasses()} ref={this.myForm}>
 				{this.state &&
 					this.state.controls &&
 					Object.keys(this.state.controls).map(fieldKey => {
