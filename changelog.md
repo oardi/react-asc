@@ -1,3 +1,7 @@
+### 25.5.4
+
+-   added utility css classes
+
 ### 25.5.3
 
 -   form - style fixes

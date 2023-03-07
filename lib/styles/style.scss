@@ -1,12 +1,12 @@
-@import "./variables/breakpoints.scss";
-@import "./variables/button.scss";
-@import "./variables/colors.scss";
-@import "./variables/font.scss";
-@import "./variables/margins.scss";
-@import "./variables/paddings.scss";
-@import "./variables/spaces.scss";
-@import "./Form.scss";
-@import "./utility.scss";
+@import './variables/breakpoints.scss';
+@import './variables/button.scss';
+@import './variables/colors.scss';
+@import './variables/font.scss';
+@import './variables/margins.scss';
+@import './variables/paddings.scss';
+@import './variables/spaces.scss';
+@import './Form.scss';
+@import './utility.scss';
 
 * {
 	min-width: 0;
@@ -17,7 +17,7 @@ label.required {
 	&::after {
 		display: inline-block;
 		line-height: 0.8;
-		content: "*";
+		content: '*';
 		vertical-align: text-top;
 	}
 }

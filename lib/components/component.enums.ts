@@ -4,14 +4,25 @@ export enum COLOR {
 	secondary = 'secondary',
 	// danger = 'danger',
 	light = 'light',
-	dark = 'dark'
+	dark = 'dark',
 }
 
-export enum VARIANT { contained = 'contained', outline = 'outline', text = 'text' }
+export enum VARIANT {
+	contained = 'contained',
+	outline = 'outline',
+	text = 'text',
+}
 
-export enum SIZE { sm = 'sm', md = 'md', lg = 'lg' }
+export enum SIZE {
+	sm = 'sm',
+	md = 'md',
+	lg = 'lg',
+}
 
-export enum POSITION { right = 'right', left = 'left' }
+export enum POSITION {
+	right = 'right',
+	left = 'left',
+}
 
 export enum STATUS {
 	HOVERED = 'hovered',
