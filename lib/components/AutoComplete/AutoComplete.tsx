@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { IconButton } from '../IconButton';
-import { TimesSolidIcon } from '../../icons';
 import { useDebounce } from '../../hooks';
+import { TimesSolidIcon } from '../../icons';
 import { Backdrop } from '../Backdrop';
 import type { ISelectOption } from '../component.interfaces';
+import { IconButton } from '../IconButton';
 import { List, ListItem, ListItemText } from '../List';
 import styles from './AutoComplete.module.scss';
 
@@ -31,7 +31,6 @@ export interface IAutoCompleteProps {
 // custom template render items
 
 export const AutoComplete = (props: IAutoCompleteProps): JSX.Element => {
-
 	const {
 		id,
 		name,
@@ -45,7 +44,7 @@ export const AutoComplete = (props: IAutoCompleteProps): JSX.Element => {
 		showClearButton,
 		onChange,
 		onSelect,
-		value
+		value,
 	} = props;
 
 	const [model, setModel] = useState<string | undefined>('');
@@ -57,7 +56,7 @@ export const AutoComplete = (props: IAutoCompleteProps): JSX.Element => {
 	useEffect(() => {
 		if (value !== model) {
 			const option: ISelectOption | undefined = options.find(o => o.value === value);
-			setModel(option ? option.label as string : '');
+			setModel(option ? (option.label as string) : '');
 		}
 	}, [value]);
 
@@ -129,7 +128,6 @@ export const AutoComplete = (props: IAutoCompleteProps): JSX.Element => {
 	return (
 		<div ref={selectConainter} className={styles.selectContainer}>
 			<div className="d-flex">
-
 				<input
 					type="text"
 					className={getCssClass()}
@@ -144,36 +142,28 @@ export const AutoComplete = (props: IAutoCompleteProps): JSX.Element => {
 					value={model}
 				/>
 
-				{showClearButton && (model?.length as number) > 0 &&
-					<IconButton
-						icon={<TimesSolidIcon />}
-						onClick={handleClickReset}
-					/>}
+				{showClearButton && (model?.length as number) > 0 && <IconButton icon={<TimesSolidIcon />} onClick={handleClickReset} />}
 			</div>
 
-			{isShow &&
+			{isShow && (
 				<>
 					<div className={styles.selectMenu}>
 						<List>
-							{_options && _options.map((option, index) =>
-								<ListItem
-									id={`list-item-${index}`}
-									key={option.value}
-									onClick={(): void => handleOnClick(option)}
-									disabled={!option.value}
-								>
-									<ListItemText primary={option.label ? option.label : option.value} />
-								</ListItem>
-							)}
+							{_options &&
+								_options.map((option, index) => (
+									<ListItem
+										id={`list-item-${index}`}
+										key={option.value}
+										onClick={(): void => handleOnClick(option)}
+										disabled={!option.value}>
+										<ListItemText primary={option.label ? option.label : option.value} />
+									</ListItem>
+								))}
 						</List>
 					</div>
-					<Backdrop
-						isTransparent
-						onClick={(): void => hide()}
-					/>
+					<Backdrop isTransparent onClick={(): void => hide()} />
 				</>
-			}
-
+			)}
 		</div>
 	);
 };

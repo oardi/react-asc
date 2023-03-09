@@ -13,8 +13,8 @@
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"noEmit": true,
-		"jsx": "react",
+		"jsx": "react-jsx",
 		"declaration": true
 	},
-	"include": ["lib/custom.d.ts", "lib/**/*"]
+	"include": ["lib/custom.d.ts", "lib/**/*", "rollup.config.js"]
 }

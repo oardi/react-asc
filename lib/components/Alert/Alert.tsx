@@ -1,8 +1,7 @@
 import type { ReactNode } from 'react';
 import React from 'react';
-import { VARIANT } from '../component.enums';
 import type { SIZE } from '../component.enums';
-import { COLOR } from '../component.enums';
+import { COLOR, VARIANT } from '../component.enums';
 import styles from './Alert.module.scss';
 
 export interface IAlertProps extends React.ComponentProps<'div'> {
@@ -14,7 +13,6 @@ export interface IAlertProps extends React.ComponentProps<'div'> {
 }
 
 export const Alert = (props: IAlertProps): JSX.Element => {
-
 	const { children, className, color = COLOR.primary, variant = VARIANT.contained, shadow = true, ...rest } = props;
 
 	const getCssClasses = (): string => {

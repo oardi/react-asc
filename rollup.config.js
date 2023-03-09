@@ -1,15 +1,16 @@
-import typescript from 'rollup-plugin-typescript2';
-import commonjs from 'rollup-plugin-commonjs';
-import external from 'rollup-plugin-peer-deps-external';
-import resolve from 'rollup-plugin-node-resolve';
+/* eslint-disable @typescript-eslint/typedef */
 import json from '@rollup/plugin-json';
+import commonjs from 'rollup-plugin-commonjs';
+import resolve from 'rollup-plugin-node-resolve';
+import external from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
+import typescript from 'rollup-plugin-typescript2';
 import pkg from './package.json';
 
 const rollupConfig = {
 	input: 'lib/index.ts',
 
-	external: ['react', 'react-dom', '@popperjs/core', 'modern-normalize'],
+	external: ['react', 'react-dom', 'react/jsx-runtime', '@popperjs/core', 'modern-normalize'],
 
 	// preserveModules: true,
 

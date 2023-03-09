@@ -1,5 +1,5 @@
-import { useCssClasses } from '../../hooks';
 import React from 'react';
+import { useCssClasses } from '../../hooks';
 import { COLOR } from '../component.enums';
 import styles from './Badge.module.scss';
 
@@ -9,14 +9,9 @@ export interface IBadgeProps extends React.ComponentProps<'div'> {
 }
 
 export const Badge = (props: IBadgeProps): JSX.Element => {
-
 	const { children, content, className, color = COLOR.primary, ...rest } = props;
 
-	const [cssClassName] = useCssClasses([
-		styles.badge,
-		styles[color],
-		className as string
-	]);
+	const [cssClassName] = useCssClasses([styles.badge, styles[color], className as string]);
 
 	return (
 		<BadgeContainer>
@@ -29,13 +24,9 @@ export const Badge = (props: IBadgeProps): JSX.Element => {
 };
 
 const BadgeContainer = (props: React.ComponentProps<'div'>): JSX.Element => {
-
 	const { children, className, ...rest } = props;
 
-	const [cssClassName] = useCssClasses([
-		styles.badgeContainer,
-		className as string,
-	]);
+	const [cssClassName] = useCssClasses([styles.badgeContainer, className as string]);
 
 	return (
 		<div className={cssClassName} {...rest}>
