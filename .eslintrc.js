@@ -18,7 +18,7 @@ module.exports = {
 		curly: 'error',
 		'default-case': 'error',
 		eqeqeq: 'error',
-		'no-promise-executor-return': 'error',
+		'no-promise-executor-return': 'off',
 		'no-unused-expressions': 'off',
 		'no-unreachable': 'error',
 		'object-shorthand': ['error', 'never'],

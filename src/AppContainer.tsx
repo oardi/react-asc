@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import App from './App';
 import type { IAppContext } from './AppContext';
 import { AppContext } from './AppContext';
-import App from './App';
 
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import type { IAppInfo } from './app.interfaces';
 
 export const AppContainer = (): JSX.Element => {

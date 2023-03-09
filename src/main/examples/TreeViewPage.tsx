@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
 import type { ITreeItemProps } from 'lib';
 import { FormControl, snackbarService, TreeItem, TreeView, Typography } from 'lib';
+import { useEffect, useState } from 'react';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
@@ -18,7 +18,7 @@ const TreeViewPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 		if (e.isSelected) {
 			oldIds = oldIds.concat([e.id]);
 			setSelectedIds(oldIds);
-			e.isSelected && snackbarService.show(e.id);
+			e.isSelected && void snackbarService.show(e.id);
 		} else {
 			oldIds = oldIds.filter(oldId => oldId !== e.id);
 			setSelectedIds(oldIds);

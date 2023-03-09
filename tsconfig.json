@@ -21,5 +21,5 @@
 		"types": ["node", "jest", "vite-plugin-pwa/client"]
 	},
 	"exclude": ["dist"],
-	"include": ["src/**/*", "lib/**/*", ".eslintrc.js", "rollup.config.js", "vite.config.ts"]
+	"include": ["src/**/*", "lib/**/*", ".eslintrc.js", "rollup.config.js", "vite.config.ts", "copyfiles-build.js"]
 }
