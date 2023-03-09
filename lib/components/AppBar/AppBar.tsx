@@ -12,7 +12,6 @@ export interface IAppBarProps extends React.ComponentProps<'nav'> {
 }
 
 export const AppBar = (props: IAppBarProps): JSX.Element => {
-
 	const { children, className, color = COLOR.primary, shadow = true, ...rest } = props;
 
 	const getCssClasses = (): string => {

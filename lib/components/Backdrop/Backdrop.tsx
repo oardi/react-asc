@@ -8,7 +8,6 @@ export interface IBackdropProps extends React.ComponentProps<'div'> {
 }
 
 export const Backdrop = (props: IBackdropProps): JSX.Element => {
-
 	const { target = document.body, isTransparent = false, onClick, style, ...rest } = props;
 
 	const handleClick = (e: React.MouseEvent<HTMLDivElement>): void => {
@@ -32,7 +31,7 @@ export const Backdrop = (props: IBackdropProps): JSX.Element => {
 	};
 
 	return (
-		<Portal className='backdrop-root' target={target}>
+		<Portal className="backdrop-root" target={target}>
 			<div className={getCssClasses()} onClick={handleClick} style={getStyles()} {...rest} />
 		</Portal>
 	);

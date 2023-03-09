@@ -2,12 +2,11 @@ import type { ReactNode } from 'react';
 import React from 'react';
 import styles from './AppBarTitle.module.scss';
 
-export interface IAppBarTitleProps extends React.ComponentProps<'div'>  {
+export interface IAppBarTitleProps extends React.ComponentProps<'div'> {
 	children?: ReactNode;
 }
 
 export const AppBarTitle = (props: IAppBarTitleProps): JSX.Element => {
-
 	const { children, className, onClick } = props;
 
 	const getCssClass = (): string => {

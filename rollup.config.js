@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/typedef */
 import json from '@rollup/plugin-json';
 import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
@@ -9,7 +10,7 @@ import pkg from './package.json';
 const rollupConfig = {
 	input: 'lib/index.ts',
 
-	external: ['react', 'react-dom', '@popperjs/core', 'modern-normalize'],
+	external: ['react', 'react-dom', 'react/jsx-runtime', '@popperjs/core', 'modern-normalize'],
 
 	// preserveModules: true,
 
