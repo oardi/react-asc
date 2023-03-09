@@ -13,7 +13,7 @@ module.exports = {
 	},
 	plugins: ['@typescript-eslint'],
 	rules: {
-		camelcase: 'error',
+		camelcase: ['error', { properties: 'never' }],
 		'consistent-return': 'error',
 		curly: 'error',
 		'default-case': 'error',
