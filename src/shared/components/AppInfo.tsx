@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import type { AxiosResponse } from 'axios';
 import { COLOR, IconButton, modalService, useConstructor } from 'lib';
+import { useState } from 'react';
 import { InfoSolidIcon } from '../../main/assets';
 import { fileLoaderService, loggerService } from '../services';
 import { Markdown } from './Markdown';
-import type { AxiosResponse } from 'axios';
 
 export const AppInfo = (): JSX.Element => {
 	const [markdownText, setMarkdownText] = useState<string>('');

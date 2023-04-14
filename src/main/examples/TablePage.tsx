@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
 import type { ITableProps } from 'lib';
 import { FormControl, Table, TableBody, TableCell, TableHead, TableRow } from 'lib';
+import { useEffect } from 'react';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 

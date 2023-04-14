@@ -1,5 +1,5 @@
-import React from 'react';
 import { Snackbar, useConstructor } from 'lib';
+import React from 'react';
 import { registerSW } from 'virtual:pwa-register';
 
 export const ServiceWorkerWrapper = (): JSX.Element => {

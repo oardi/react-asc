@@ -3,9 +3,11 @@ import { useCssClasses } from '../../hooks';
 import { COLOR } from '../component.enums';
 import styles from './Badge.module.scss';
 
-export interface IBadgeProps extends React.ComponentProps<'div'> {
+export interface IBadgeProps {
 	color?: COLOR;
 	content?: React.ReactNode;
+	className?: string;
+	children?: React.ReactNode;
 }
 
 export const Badge = (props: IBadgeProps): JSX.Element => {

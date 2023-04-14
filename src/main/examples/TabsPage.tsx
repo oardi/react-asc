@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
 import type { ITabsProps } from 'lib';
-import { COLOR, FormControl, snackbarService, Tab, TabPanel, Tabs } from 'lib';
+import { COLOR, FormControl, Tab, TabPanel, Tabs, snackbarService } from 'lib';
+import { useEffect, useState } from 'react';
 import { loggerService } from '../../shared';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';

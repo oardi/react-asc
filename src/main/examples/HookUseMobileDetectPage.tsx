@@ -1,4 +1,3 @@
-import React from 'react';
 import { withOptions } from './components';
 
 const HookUseMobileDetectPageBase = (): JSX.Element => {

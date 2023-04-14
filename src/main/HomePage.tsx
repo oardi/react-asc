@@ -1,9 +1,8 @@
-import React from 'react';
-import { Layout } from './Layout';
+import { Button, Card, CardBody, CardText, CardTitle, Column, Row, Typography } from 'lib';
 import type { NavigateFunction } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { Layout } from './Layout';
 import { RocketSolidIcon } from './assets';
-import { Button, Card, CardBody, CardText, CardTitle, Column, Row, Typography } from 'lib';
 
 export const HomePage = (): JSX.Element => {
 	const navigate: NavigateFunction = useNavigate();

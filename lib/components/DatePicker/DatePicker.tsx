@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import type { Value } from 'react-calendar/dist/cjs/shared/types';
 import styles from './DatePicker.module.scss';
 
 export interface IDatePickerProps {
@@ -14,7 +15,6 @@ export interface IDatePickerProps {
 }
 
 export const DatePicker = (props: IDatePickerProps): JSX.Element => {
-
 	const {
 		value = new Date(),
 		selectRange,
@@ -26,9 +26,9 @@ export const DatePicker = (props: IDatePickerProps): JSX.Element => {
 	} = props;
 	const [currDate, setCurrDate] = useState<Date>(value);
 
-	const handleOnChange = (e: Date): void => {
-		setCurrDate(e);
-		onChange && onChange(e);
+	const handleOnChange = (value: Value): void => {
+		setCurrDate(value as Date);
+		onChange && onChange(value as Date);
 	};
 
 	return (

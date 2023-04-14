@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
 import type { ISelectProps } from 'lib';
-import { CheckSolidIcon, Icon } from 'lib';
-import { FormControl, Select, snackbarService } from 'lib';
+import { CheckSolidIcon, FormControl, Icon, Select, snackbarService } from 'lib';
+import { useEffect, useState } from 'react';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 

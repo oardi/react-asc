@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
 import type { INumberSelectProps } from 'lib';
 import { FormControl, NumberSelect, snackbarService } from 'lib';
+import { useEffect, useState } from 'react';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 

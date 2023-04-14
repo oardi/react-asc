@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { Button, snackbarService, useOnDestroy } from 'lib';
+import { useState } from 'react';
 import { withOptions } from './components';
 
 const MyTest = (): JSX.Element => {

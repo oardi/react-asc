@@ -1,18 +1,18 @@
-import React, { useEffect } from 'react';
 import type { IListProps } from 'lib';
 import {
+	COLOR,
+	HomeSolidIcon,
+	IconButton,
 	List,
 	ListItem,
-	ListItemAvatar,
-	HomeSolidIcon,
 	ListItemAction,
-	IconButton,
-	ListItemText,
+	ListItemAvatar,
 	ListItemIcon,
-	snackbarService,
-	COLOR,
+	ListItemText,
 	VARIANT,
+	snackbarService,
 } from 'lib';
+import React, { useEffect } from 'react';
 import { UserCircleSolidIcon } from '../assets';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
@@ -107,6 +107,9 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 				</ListItem>
 				<ListItem onClick={handleClickItem}>
 					<ListItemText primary="lorem ipsum" />
+					<ListItemAction>
+						<IconButton color={COLOR.accent} variant={VARIANT.text} onClick={handleClickAction} icon={<HomeSolidIcon />} />
+					</ListItemAction>
 					<ListItemAction>
 						<IconButton color={COLOR.accent} variant={VARIANT.text} onClick={handleClickAction} icon={<HomeSolidIcon />} />
 					</ListItemAction>

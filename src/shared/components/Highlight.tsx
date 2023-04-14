@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { fileLoaderService, loggerService } from '../services';
 import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
+import { useEffect, useState } from 'react';
+import { fileLoaderService, loggerService } from '../services';
 
-import snarkdown from 'snarkdown';
 import type { AxiosResponse } from 'axios';
+import snarkdown from 'snarkdown';
 
 // if lineNumber -> add className="line-numbers"
 

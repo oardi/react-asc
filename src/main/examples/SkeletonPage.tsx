@@ -1,4 +1,3 @@
-import React from 'react';
 import { SkeletonAvatar, SkeletonFooter, SkeletonImage, SkeletonText } from 'lib';
 import { withOptions } from './components';
 

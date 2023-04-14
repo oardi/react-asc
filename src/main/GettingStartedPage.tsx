@@ -1,5 +1,4 @@
-import React from 'react';
-import { ListItem, Typography, List, Link } from 'lib';
+import { Link, List, ListItem, Typography } from 'lib';
 import { Highlight } from '../shared';
 import { Layout } from './Layout';
 

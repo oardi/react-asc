@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
 import type { IIconProps } from 'lib';
 import { COLOR, FormControl, HomeSolidIcon, Icon } from 'lib';
+import { useEffect } from 'react';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 

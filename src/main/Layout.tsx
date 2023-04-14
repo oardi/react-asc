@@ -1,6 +1,5 @@
-import type { ReactNode } from 'react';
-import React from 'react';
 import { Typography } from 'lib';
+import type { ReactNode } from 'react';
 
 interface ILayoutProps {
 	children?: ReactNode;

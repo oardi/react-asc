@@ -4,7 +4,7 @@ import App from './App';
 import type { IAppContext } from './AppContext';
 import { AppContext } from './AppContext';
 
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import type { IAppInfo } from './app.interfaces';
 
 export const AppContainer = (): JSX.Element => {

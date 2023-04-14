@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
 import type { ITypographyProps } from 'lib';
 import { FormControl, Typography } from 'lib';
+import { useEffect } from 'react';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 

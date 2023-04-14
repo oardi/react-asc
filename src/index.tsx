@@ -1,8 +1,8 @@
 import React, { Suspense } from 'react';
 import type { Root } from 'react-dom/client';
 import { createRoot } from 'react-dom/client';
-import './index.scss';
 import { AppContainer } from './AppContainer';
+import './index.scss';
 
 const rootElement: HTMLElement | null = document.getElementById('root');
 const root: Root = createRoot(rootElement as HTMLElement);

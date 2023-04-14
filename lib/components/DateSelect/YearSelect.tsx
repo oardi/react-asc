@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import type { ISelectOption } from '../component.interfaces';
+import { useEffect, useState } from 'react';
 import { Select } from '../Select';
+import type { ISelectOption } from '../component.interfaces';
 
 export interface IYearProps {
 	from?: number;
@@ -14,16 +14,15 @@ export interface IYearProps {
 }
 
 export const YearSelect = (props: IYearProps): JSX.Element => {
-
 	const {
 		className,
 		from = 1970,
-		to = new Date().getFullYear().toString(),
+		to = new Date().getFullYear(),
 		value = new Date().getFullYear().toString(),
 		id,
 		name,
 		disabled,
-		onChange
+		onChange,
 	} = props;
 	const [newValue, setNewValue] = useState<string>(value.toString());
 	const [years, setYears] = useState<ISelectOption[]>();

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
 import type { IMenuProps } from 'lib';
-import { Button, Menu, MenuItem, FormControl, snackbarService, ListItemAvatar, ListItemText } from 'lib';
+import { Button, FormControl, ListItemAvatar, ListItemText, Menu, MenuItem, snackbarService } from 'lib';
+import { useEffect, useState } from 'react';
 import { loggerService } from '../../shared';
+import { UserCircleSolidIcon } from '../assets';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
-import { UserCircleSolidIcon } from '../assets';
 
 const MenuPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IMenuProps>): JSX.Element => {
 	const [open, setOpen] = useState(false);

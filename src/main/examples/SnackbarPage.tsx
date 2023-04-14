@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
 import type { ISnackbarProps } from 'lib';
 import { Button, COLOR, FormControl, snackbarService } from 'lib';
+import React, { useEffect } from 'react';
 import { loggerService } from '../../shared';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';

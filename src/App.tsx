@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import './index.scss';
-import { AppSidebar, AppInfo, AppBreadcrumb, loggerService, ServiceWorkerWrapper, PageNotFound } from './shared';
-import { useAppContext } from './AppContext';
-import { APPSTATE } from './app.enums';
-import { MenuModel, RouteModel } from './main';
-import { BarsSolidIcon } from './main/assets';
 import type { ISidebarItem } from 'lib';
 import { AppBar, AppBarTitle, COLOR, Drawer, IconButton, useMobileDetect } from 'lib';
+import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { useAppContext } from './AppContext';
 import { menuItems } from './AppMenu';
+import { APPSTATE } from './app.enums';
+import './index.scss';
+import { MenuModel, RouteModel } from './main';
+import { BarsSolidIcon } from './main/assets';
+import { AppBreadcrumb, AppInfo, AppSidebar, PageNotFound, ServiceWorkerWrapper, loggerService } from './shared';
 
 const CLASSNAME: string = 'App';
 
