@@ -9,14 +9,14 @@
 	"homepage": "https://react-asc.netlify.app",
 	"license": "MIT",
 	"dependencies": {
-		"@popperjs/core": "2.11.5",
+		"@popperjs/core": "2.11.8",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
-		"modern-normalize": "1.1.0",
-		"react-calendar": "^3.9.0"
+		"modern-normalize": "2.0.0",
+		"react-calendar": "4.2.1"
 	},
 	"scripts": {
 		"pub": "npm publish --access public"
 	},
-	"keywords": ["react", "component library", "ui library", "components", "library", "material"]
+	"keywords": ["react", "component library", "ui library", "components", "library", "material", "bootstrap"]
 }

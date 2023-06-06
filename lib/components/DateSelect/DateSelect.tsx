@@ -1,22 +1,25 @@
-import React, { useState } from 'react';
-import { Row, Column } from '../Grid';
+import { useState } from 'react';
 import { FormLabel } from '../Form';
+import { Column, Row } from '../Grid';
 import { DaySelect } from './DaySelect';
 import { MonthSelect } from './MonthSelect';
 import { YearSelect } from './YearSelect';
 
-export enum DATEMODE { YEAR, MONTH, DAY }
+export enum DATEMODE {
+	YEAR,
+	MONTH,
+	DAY,
+}
 
 export interface IDateSelectProps {
 	value?: Date;
 	className?: string;
 	disabled?: boolean;
-	yearConfig?: { from?: number, to?: number };
+	yearConfig?: { from?: number; to?: number };
 	onChange?: (val: Date) => void;
 }
 
 export const DateSelect = (props: IDateSelectProps): JSX.Element => {
-
 	const { className, value = new Date(), disabled, yearConfig, onChange } = props;
 
 	const getCssClasses = (): string => {
@@ -52,11 +55,7 @@ export const DateSelect = (props: IDateSelectProps): JSX.Element => {
 			</Column>
 			<Column>
 				<FormLabel>Month</FormLabel>
-				<MonthSelect
-					value={currDate.getMonth()}
-					disabled={disabled}
-					onChange={(e): void => handleOnChange(e, DATEMODE.MONTH)}
-				/>
+				<MonthSelect value={currDate.getMonth()} disabled={disabled} onChange={(e): void => handleOnChange(e, DATEMODE.MONTH)} />
 			</Column>
 			<Column>
 				<FormLabel>Day</FormLabel>
@@ -73,13 +72,13 @@ export const DateSelect = (props: IDateSelectProps): JSX.Element => {
 };
 
 /*
-* result = { year, month, day, dayOfWeek, weekNumber }
-*/
+ * result = { year, month, day, dayOfWeek, weekNumber }
+ */
 
-	// const getWeekNumber = () => {
-	// 	var d = new Date(Date.UTC(this.getFullYear(), this.getMonth(), this.getDate()));
-	// 	var dayNum = d.getUTCDay() || 7;
-	// 	d.setUTCDate(d.getUTCDate() + 4 - dayNum);
-	// 	var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
-	// 	return Math.ceil((((d - yearStart) / 86400000) + 1) / 7)
-	// };
+// const getWeekNumber = () => {
+// 	var d = new Date(Date.UTC(this.getFullYear(), this.getMonth(), this.getDate()));
+// 	var dayNum = d.getUTCDay() || 7;
+// 	d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+// 	var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+// 	return Math.ceil((((d - yearStart) / 86400000) + 1) / 7)
+// };

@@ -1,3 +1,7 @@
+### 25.6.0
+
+-   upgraded packages
+
 ### 25.5.4
 
 -   added utility css classes
