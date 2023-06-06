@@ -1,6 +1,11 @@
+### 25.7.0
+
+-   updated packages
+
 ### 25.6.0
 
--   upgraded packages
+-   fixed formatting
+-   updated packages
 
 ### 25.5.4
 
