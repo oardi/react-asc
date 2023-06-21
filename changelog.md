@@ -1,3 +1,7 @@
+### 25.7.1
+
+-   fixed styling listitem
+
 ### 25.7.0
 
 -   updated packages
