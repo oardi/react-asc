@@ -1,3 +1,7 @@
+### 25.7.3
+
+-   added html attributes to expansion-panel
+
 ### 25.7.2
 
 -   fixed styling listitem

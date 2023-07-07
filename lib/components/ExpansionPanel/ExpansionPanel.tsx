@@ -1,20 +1,19 @@
-import type { ReactNode} from 'react';
+import type { ReactNode } from 'react';
 import React, { useEffect, useState } from 'react';
+import styles from './ExpansionPanel.module.scss';
 import { ExpansionPanelContent } from './ExpansionPanelContent';
 import { ExpansionPanelHeader } from './ExpansionPanelHeader';
-import styles from './ExpansionPanel.module.scss';
 
-export interface IExpansionPanelProps {
+export interface IExpansionPanelProps extends React.ComponentProps<'div'> {
 	header: ReactNode;
 	children: ReactNode;
 	isExpanded?: boolean;
 	shadow?: boolean;
-	onChange?: (event: React.MouseEvent, isExpanded: boolean) => void;
+	onToggle?: (event: React.MouseEvent, isExpanded: boolean) => void;
 }
 
 export const ExpansionPanel = (props: IExpansionPanelProps): JSX.Element => {
-
-	const { header, children, isExpanded = false, shadow, onChange } = props;
+	const { header, children, isExpanded = false, shadow, onToggle } = props;
 
 	const [_isExpanded, setIsExpanded] = useState<boolean>(false);
 
@@ -34,7 +33,7 @@ export const ExpansionPanel = (props: IExpansionPanelProps): JSX.Element => {
 
 	const handleClickHeader = (event: React.MouseEvent): void => {
 		setIsExpanded(!_isExpanded);
-		onChange && onChange(event, !_isExpanded);
+		onToggle && onToggle(event, !_isExpanded);
 	};
 
 	return (
@@ -43,9 +42,7 @@ export const ExpansionPanel = (props: IExpansionPanelProps): JSX.Element => {
 				{header}
 			</ExpansionPanelHeader>
 
-			{_isExpanded &&
-				<ExpansionPanelContent>{children}</ExpansionPanelContent>
-			}
+			{_isExpanded && <ExpansionPanelContent>{children}</ExpansionPanelContent>}
 		</div>
 	);
 };
