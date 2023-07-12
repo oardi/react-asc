@@ -1,22 +1,21 @@
-import type { ReactElement} from 'react';
+import type { ReactElement } from 'react';
 import React, { useEffect, useRef, useState } from 'react';
 import { ChevronDownSolidIcon } from '../../icons';
+import { Backdrop } from '../Backdrop';
 import { Checkbox } from '../Checkbox';
 import { Chip } from '../Chip';
-import { COLOR } from '../component.enums';
-import { List, ListItem, ListItemText } from '../List';
 import { Icon } from '../Icon';
+import { List, ListItem, ListItemText } from '../List';
+import { Portal } from '../Portal';
+import { COLOR } from '../component.enums';
 import type { ISelectOption } from '../component.interfaces';
 import styles from './Select.module.scss';
-import { Backdrop } from '../Backdrop';
-import { Portal } from '../Portal';
 
 // TODO
 // navigate by keys
 // on key down
 // option als component auslagern?
 // custom template render items
-
 
 export interface ISelectProps {
 	id?: string;
@@ -33,7 +32,6 @@ export interface ISelectProps {
 }
 
 export const Select = (props: ISelectProps): JSX.Element => {
-
 	const { id, className, options = [], value, multiple, multipleMaxCountItems = 5, disabled, readOnly, onChange, onKeyDown } = props;
 
 	const [model, setModel] = useState<string | string[]>('');
@@ -41,6 +39,7 @@ export const Select = (props: ISelectProps): JSX.Element => {
 	const [isShow, setIsShow] = useState<boolean>(false);
 	const [selectedOptions, setSelectedOptions] = useState<ISelectOption[]>([]);
 	const selectConainter: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
+	const selectMenu: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
 
 	const getCssClass = (): string => {
 		const cssClasses: string[] = [];
@@ -64,14 +63,16 @@ export const Select = (props: ISelectProps): JSX.Element => {
 
 	useEffect(() => {
 		if (hoverIndex) {
-			scrollIntoView(hoverIndex);
+			setTimeout(() => {
+				scrollIntoView(hoverIndex);
+			}, 100);
 		}
 	}, [hoverIndex, isShow]);
 
 	const scrollIntoView = (index: number): void => {
-		const htmlListItem: Element | null | undefined = selectConainter.current?.querySelector(`#list-item-${index}`);
+		const htmlListItem: Element | null | undefined = selectMenu.current?.children[0]?.querySelector(`#list-item-${index}`);
 		if (htmlListItem) {
-			htmlListItem?.scrollIntoView({ block: 'end', behavior: 'smooth' });
+			htmlListItem?.scrollIntoView({ block: 'center', behavior: 'smooth' });
 		}
 	};
 
@@ -133,17 +134,11 @@ export const Select = (props: ISelectProps): JSX.Element => {
 	const renderMultipleViewModel = (): ReactElement | ReactElement[] | null => {
 		let result: ReactElement | ReactElement[] | null = null;
 		if (selectedOptions.length <= multipleMaxCountItems && selectedOptions.length > 0) {
-			result = selectedOptions
-				.map(option =>
-					<Chip
-						key={option.value}
-						color={COLOR.primary}
-						isDeletable={true}
-						onDelete={(e): void => handleOnDelete(e, option)}
-					>
-						{option.label}
-					</Chip>
-				);
+			result = selectedOptions.map(option => (
+				<Chip key={option.value} color={COLOR.primary} isDeletable={true} onDelete={(e): void => handleOnDelete(e, option)}>
+					{option.label}
+				</Chip>
+			));
 		} else {
 			result = <span>{selectedOptions.length} Items selected</span>;
 		}
@@ -178,7 +173,9 @@ export const Select = (props: ISelectProps): JSX.Element => {
 				case 'Enter':
 					if (hoverIndex) {
 						const option: ISelectOption = options[hoverIndex];
-						if (option) { handleOnClick(option); }
+						if (option) {
+							handleOnClick(option);
+						}
 					}
 					break;
 				default:
@@ -189,59 +186,46 @@ export const Select = (props: ISelectProps): JSX.Element => {
 
 	return (
 		<div ref={selectConainter} className={styles.selectContainer}>
-
-			<div
-				id={id}
-				className={getCssClass()}
-				onClick={(): void => show()}
-				tabIndex={0}
-				onKeyDown={(e): void => handleOnKeyDown(e)}>
+			<div id={id} className={getCssClass()} onClick={(): void => show()} tabIndex={0} onKeyDown={(e): void => handleOnKeyDown(e)}>
 				<>
 					{!multiple && renderSingleViewModel()}
 
-					{multiple &&
-						<div className={styles.chipContainer}>
-							{renderMultipleViewModel()}
-						</div>
-					}
+					{multiple && <div className={styles.chipContainer}>{renderMultipleViewModel()}</div>}
 
-					<Icon className="ml-auto"><ChevronDownSolidIcon /></Icon>
+					<Icon className="ml-auto">
+						<ChevronDownSolidIcon />
+					</Icon>
 				</>
 			</div>
 
-			{isShow &&
-				<Portal className='backdrop-root'>
-					<div className={styles.selectMenu} style={{ left: selectConainter.current?.getBoundingClientRect().x, top: selectConainter.current?.getBoundingClientRect().y, width: selectConainter.current?.getBoundingClientRect().width }}>
+			{isShow && (
+				<Portal className="backdrop-root">
+					<div
+						ref={selectMenu}
+						className={styles.selectMenu}
+						style={{
+							left: selectConainter.current?.getBoundingClientRect().x,
+							top: selectConainter.current?.getBoundingClientRect().y,
+							width: selectConainter.current?.getBoundingClientRect().width,
+						}}>
 						<List>
-							{options && options.map((option, index) =>
-								<ListItem
-									id={`list-item-${index}`}
-									key={option.value}
-									onClick={(): void => handleOnClick(option)}
-									active={isActive(option)}>
+							{options &&
+								options.map((option, index) => (
+									<ListItem
+										id={`list-item-${index}`}
+										key={option.value}
+										onClick={(): void => handleOnClick(option)}
+										active={isActive(option)}>
+										{multiple && <Checkbox checked={isActive(option)} onChange={(): void => handleOnClick(option)} />}
 
-									{multiple &&
-										<Checkbox
-											checked={isActive(option)}
-											onChange={(): void => handleOnClick(option)}
-										/>
-									}
-
-									<ListItemText
-										primary={option.label ? option.label : option.value}
-									/>
-								</ListItem>
-							)}
+										<ListItemText primary={option.label ? option.label : option.value} />
+									</ListItem>
+								))}
 						</List>
 					</div>
-					<Backdrop
-						style={{ zIndex: 1111 }}
-						isTransparent
-						onClick={(): void => hide()}
-					/>
+					<Backdrop style={{ zIndex: 1111 }} isTransparent onClick={(): void => hide()} />
 				</Portal>
-			}
-
+			)}
 		</div>
 	);
 };

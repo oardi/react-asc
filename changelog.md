@@ -1,3 +1,7 @@
+### 25.7.4
+
+-   fixed scrollIntoView for SelectItems
+
 ### 25.7.3
 
 -   added html attributes to expansion-panel
