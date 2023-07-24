@@ -1,6 +1,7 @@
-import React from 'react';
-import { COLOR, SIZE, VARIANT } from '../component.enums';
+import React, { useEffect, useState } from 'react';
 import { Icon } from '../Icon';
+import { LoadingIndicator, LoadingIndicatorContainer } from '../LoadingIndicator';
+import { COLOR, SIZE, VARIANT } from '../component.enums';
 import styles from './IconButton.module.scss';
 
 export interface IIconButtonProps extends React.ComponentProps<'button'> {
@@ -10,11 +11,44 @@ export interface IIconButtonProps extends React.ComponentProps<'button'> {
 	isActive?: boolean;
 	variant?: VARIANT;
 	shadow?: boolean;
+	loading?: boolean;
 }
 
 export const IconButton = (props: IIconButtonProps): JSX.Element => {
+	const {
+		children,
+		icon,
+		variant = VARIANT.text,
+		color = COLOR.dark,
+		size = SIZE.md,
+		isActive,
+		disabled,
+		loading,
+		className,
+		shadow,
+		...rest
+	} = props;
 
-	const { children, icon, variant = VARIANT.text, color = COLOR.dark, size = SIZE.md, isActive, disabled, className, shadow, ...rest } = props;
+	const [isDisabled, setIsDisabled] = useState<boolean>(false);
+	const [isLoading, setIsLoading] = useState<boolean>(false);
+
+	useEffect(() => {
+		if (loading) {
+			setIsLoading(true);
+			setIsDisabled(true);
+		} else {
+			setIsLoading(false);
+			if (disabled !== true) {
+				setIsDisabled(false);
+			}
+		}
+	}, [loading]);
+
+	useEffect(() => {
+		if (disabled !== undefined) {
+			setIsDisabled(disabled);
+		}
+	}, [disabled]);
 
 	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
@@ -33,14 +67,19 @@ export const IconButton = (props: IIconButtonProps): JSX.Element => {
 	};
 
 	return (
-		<button
-			type="button"
-			className={getCssClasses()}
-			disabled={disabled}
-			{...rest}
-		>
-			{icon && <Icon>{icon}</Icon>}
-			{children}
-		</button >
+		<button type="button" className={getCssClasses()} disabled={isDisabled} {...rest}>
+			{isLoading && (
+				<LoadingIndicatorContainer>
+					<LoadingIndicator />
+				</LoadingIndicatorContainer>
+			)}
+
+			{!isLoading && (
+				<>
+					{icon && <Icon>{icon}</Icon>}
+					{children}
+				</>
+			)}
+		</button>
 	);
 };

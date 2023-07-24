@@ -1,3 +1,7 @@
+### 25.8.1
+
+-   added missing loading state to iconbutton
+
 ### 25.8.0
 
 -   added loading state to button

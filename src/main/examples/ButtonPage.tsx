@@ -28,7 +28,7 @@ const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 			block: new FormControl(settingValues.block, [], 'checkbox', { label: 'block' }),
 			isActive: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'isActive' }),
 			isRounded: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'isRounded' }),
-			loading: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'loading' }),
+			loading: new FormControl(settingValues.loading, [], 'checkbox', { label: 'loading' }),
 			showStartIcon: new FormControl(settingValues.showStartIcon, [], 'checkbox', { label: 'showStartIcon' }),
 			showEndIcon: new FormControl(settingValues.showEndIcon, [], 'checkbox', { label: 'showEndIcon' }),
 			shadow: new FormControl(settingValues.shadow, [], 'checkbox', { label: 'shadow' }),

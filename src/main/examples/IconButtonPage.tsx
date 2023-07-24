@@ -12,6 +12,7 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 				options: Object.keys(COLOR).map(c => ({ label: c, value: c })),
 			}),
 			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' }),
+			loading: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'loading' }),
 			isActive: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'isActive' }),
 			shadow: new FormControl(settingValues.size, [], 'checkbox', { label: 'shadow' }),
 			variant: new FormControl(settingValues.variant, [], 'select', {
@@ -35,6 +36,7 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 				color={settingValues.color}
 				isActive={settingValues.isActive}
 				disabled={settingValues.disabled}
+				loading={settingValues.loading}
 				icon={<HomeSolidIcon />}
 				variant={settingValues.variant}
 				size={settingValues.size}
