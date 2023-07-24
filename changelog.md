@@ -1,3 +1,7 @@
+### 25.8.0
+
+-   added loading state to button
+
 ### 25.7.4
 
 -   fixed scrollIntoView for SelectItems

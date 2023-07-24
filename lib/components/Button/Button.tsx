@@ -1,6 +1,7 @@
-import React from 'react';
-import { COLOR, VARIANT } from '../component.enums';
+import React, { useEffect, useState } from 'react';
 import { Icon } from '../Icon';
+import { LoadingIndicator, LoadingIndicatorContainer } from '../LoadingIndicator';
+import { COLOR, VARIANT } from '../component.enums';
 import styles from './Button.module.scss';
 import type { IButtonContext } from './ButtonContext';
 import { useButtonContext } from './ButtonContext';
@@ -14,6 +15,7 @@ export interface IButtonProps extends React.ComponentProps<'button'> {
 	endIcon?: React.ReactNode;
 	shadow?: boolean;
 	block?: boolean;
+	loading?: boolean;
 }
 
 export const Button: React.FunctionComponent<IButtonProps> = props => {
@@ -28,8 +30,31 @@ export const Button: React.FunctionComponent<IButtonProps> = props => {
 		endIcon,
 		shadow = true,
 		block,
+		loading,
+		disabled,
 		...rest
 	} = props;
+
+	const [isDisabled, setIsDisabled] = useState<boolean>(false);
+	const [isLoading, setIsLoading] = useState<boolean>(false);
+
+	useEffect(() => {
+		if (loading) {
+			setIsLoading(true);
+			setIsDisabled(true);
+		} else {
+			setIsLoading(false);
+			if (disabled !== true) {
+				setIsDisabled(false);
+			}
+		}
+	}, [loading]);
+
+	useEffect(() => {
+		if (disabled !== undefined) {
+			setIsDisabled(disabled);
+		}
+	}, [disabled]);
 
 	const buttonContext: IButtonContext = useButtonContext();
 
@@ -64,8 +89,15 @@ export const Button: React.FunctionComponent<IButtonProps> = props => {
 	};
 
 	return (
-		<button type="button" className={getCssClasses()} {...rest}>
+		<button type="button" className={getCssClasses()} disabled={isDisabled} {...rest}>
 			<span className="d-flex justify-content-center">
+				{isLoading && (
+					<div className="mr-1">
+						<LoadingIndicatorContainer>
+							<LoadingIndicator />
+						</LoadingIndicatorContainer>
+					</div>
+				)}
 				{startIcon && <Icon className={styles.startIcon}>{startIcon}</Icon>}
 				{children}
 				{endIcon && <Icon className={styles.endIcon}>{endIcon}</Icon>}

@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
 import type { IButtonProps } from 'lib';
 import { Button, COLOR, FormControl, snackbarService, VARIANT } from 'lib';
+import { useEffect } from 'react';
 import { InfoSolidIcon } from '../assets';
-import { withOptions } from './components';
 import type { IShowcaseBaseProps } from './components';
+import { withOptions } from './components';
 
 interface IButtonExampleProps extends IButtonProps {
 	showStartIcon?: boolean;
@@ -28,6 +28,7 @@ const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 			block: new FormControl(settingValues.block, [], 'checkbox', { label: 'block' }),
 			isActive: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'isActive' }),
 			isRounded: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'isRounded' }),
+			loading: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'loading' }),
 			showStartIcon: new FormControl(settingValues.showStartIcon, [], 'checkbox', { label: 'showStartIcon' }),
 			showEndIcon: new FormControl(settingValues.showEndIcon, [], 'checkbox', { label: 'showEndIcon' }),
 			shadow: new FormControl(settingValues.shadow, [], 'checkbox', { label: 'shadow' }),
@@ -44,6 +45,7 @@ const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 				color={settingValues.color}
 				disabled={settingValues.disabled}
 				block={settingValues.block}
+				loading={settingValues.loading}
 				isActive={settingValues.isActive}
 				isRounded={settingValues.isRounded}
 				variant={settingValues.variant}
