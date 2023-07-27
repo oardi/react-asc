@@ -1,13 +1,13 @@
 import React, { Component, createRef } from 'react';
 import type { IDictionary } from '../../interfaces';
-import type { IControls, IFormInputError } from './form.interfaces';
-import type { FormControl } from './form.models';
 import styles from './Form.module.scss';
 import { FormError } from './FormError';
 import { FormGroup } from './FormGroup';
 import { FormHint } from './FormHint';
 import { FormInput } from './FormInput';
 import { FormLabel } from './FormLabel';
+import type { IControls, IFormInputError } from './form.interfaces';
+import type { FormControl } from './form.models';
 import { EmailValidator, IsEmptyValidator, IsEqualValidator, MaxValidator, MinValidator } from './validators';
 
 export interface IFormProps {
@@ -194,7 +194,6 @@ export class Form extends Component<IFormProps, IFormState> {
 	handleFormSubmit(): void {
 		for (const fieldKey of Object.keys(this.state.controls as IControls)) {
 			const field: FormControl = this.getControl(fieldKey);
-
 			// redundant mit handleBlur
 			field.isDirty = true;
 			field.errors = this.validateField(field.value, field.validators);

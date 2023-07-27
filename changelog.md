@@ -1,3 +1,7 @@
+### 25.8.2
+
+-   fixed setting disabled to formInputs
+
 ### 25.8.1
 
 -   added missing loading state to iconbutton

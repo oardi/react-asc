@@ -4,7 +4,7 @@ import { Checkbox } from '../../Checkbox';
 import { FileInput } from '../../FileInput';
 import { Select } from '../../Select';
 import { Textarea } from '../../Textarea';
-import type { IFormInputOptions, IFormTextAreaOptions, IFormSelectOptions, IFormAutoCompleteOptions } from '../form.interfaces';
+import type { IFormAutoCompleteOptions, IFormInputOptions, IFormSelectOptions, IFormTextAreaOptions } from '../form.interfaces';
 import type { IFormControlType } from '../form.types';
 import styles from './FormInput.module.scss';
 
@@ -38,7 +38,6 @@ export interface IFormInputProps {
 }
 
 export const FormInput = (props: IFormInputProps): JSX.Element => {
-
 	const {
 		value,
 		name,
@@ -57,7 +56,7 @@ export const FormInput = (props: IFormInputProps): JSX.Element => {
 		onInput,
 		onChange,
 		onBlur,
-		onKeyDown
+		onKeyDown,
 	} = props;
 
 	const getCssClasses = (): string => {
@@ -82,18 +81,14 @@ export const FormInput = (props: IFormInputProps): JSX.Element => {
 		<>
 			{/* 'toggle' */}
 
-			{
-				(
-					type === 'text' ||
-					type === 'date' ||
-					type === 'datetime-local' ||
-					type === 'email' ||
-					type === 'number' ||
-					type === 'password' ||
-					type === 'color' ||
-					type === 'time'
-				)
-				&&
+			{(type === 'text' ||
+				type === 'date' ||
+				type === 'datetime-local' ||
+				type === 'email' ||
+				type === 'number' ||
+				type === 'password' ||
+				type === 'color' ||
+				type === 'time') && (
 				<input
 					id={name}
 					name={name}
@@ -109,9 +104,9 @@ export const FormInput = (props: IFormInputProps): JSX.Element => {
 					disabled={disabled}
 					onKeyDown={onKeyDown}
 				/>
-			}
+			)}
 
-			{type === 'file' &&
+			{type === 'file' && (
 				<FileInput
 					id={name}
 					name={name}
@@ -120,20 +115,19 @@ export const FormInput = (props: IFormInputProps): JSX.Element => {
 					autoFocus={autoFocus}
 					readOnly={readonly}
 					disabled={disabled}
-					onChange={(e): void => handleOnChange(e.target.value, type, name)}
-				>
+					onChange={(e): void => handleOnChange(e.target.value, type, name)}>
 					choose a file
 				</FileInput>
-			}
+			)}
 
-			{
-				type === 'textarea' &&
+			{type === 'textarea' && (
 				<Textarea
 					id={name}
 					name={name}
 					className={className}
 					error={!isValid}
 					value={value}
+					disabled={disabled}
 					autoFocus={autoFocus}
 					onInput={(e): void => handleOnInput((e.target as HTMLTextAreaElement).value, type, name as string)}
 					onChange={(e): void => handleOnChange((e.target as HTMLTextAreaElement).value, type, name as string)}
@@ -141,46 +135,46 @@ export const FormInput = (props: IFormInputProps): JSX.Element => {
 					rows={textareaOptions?.rows}
 					style={textareaOptions?.resize !== false ? undefined : { resize: 'none' }}
 				/>
-			}
+			)}
 
-			{
-				type === 'select' &&
+			{type === 'select' && (
 				<Select
 					id={name}
 					name={name}
 					className={className + (!isValid ? ' is-invalid' : '')}
 					value={value as string}
+					disabled={disabled}
 					multiple={selectOptions?.multiple}
 					onChange={(e): void => handleOnChange(e, type, name as string)}
 					options={options}
 				/>
-			}
+			)}
 
-			{
-				type === 'autocomplete' &&
+			{type === 'autocomplete' && (
 				<AutoComplete
 					id={name}
 					name={name}
 					className={className + (!isValid ? ' is-invalid' : '')}
 					value={value as string}
+					disabled={disabled}
 					openOnFocus={autoCompleteOptions?.openOnFocus}
 					onChange={(e): void => handleOnChange(e, type, name as string)}
 					onSelect={(e): void => handleOnChange(e.value, type, name as string)}
 					options={options}
 				/>
-			}
+			)}
 
-			{
-				type === 'checkbox' &&
+			{type === 'checkbox' && (
 				<Checkbox
 					id={name}
 					name={name}
 					label={label}
-					className={(!isValid ? ' is-invalid' : '')}
+					disabled={disabled}
+					className={!isValid ? ' is-invalid' : ''}
 					onChange={(e): void => handleOnChange((e?.target as HTMLInputElement).checked, type, name as string)}
 					checked={value}
 				/>
-			}
+			)}
 
 			{/* {
 				type === 'checkboxgroup' &&
@@ -198,10 +192,9 @@ export const FormInput = (props: IFormInputProps): JSX.Element => {
 				)
 			} */}
 
-			{
-				type === 'radio' &&
+			{type === 'radio' && (
 				<>
-					{options.map((option) =>
+					{options.map(option => (
 						<div className="form-check" key={option.id}>
 							<input
 								id={option.id ? option.id : option.value}
@@ -217,10 +210,9 @@ export const FormInput = (props: IFormInputProps): JSX.Element => {
 								{option.label}
 							</label>
 						</div>
-					)}
+					))}
 				</>
-			}
-
+			)}
 		</>
 	);
 };
