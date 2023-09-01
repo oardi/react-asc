@@ -1,3 +1,9 @@
+### 25.10.0
+- added clipboard service
+- added file service
+- added local service
+- added logger service
+
 ### 25.9.0
 - added hook usePrevious
 
