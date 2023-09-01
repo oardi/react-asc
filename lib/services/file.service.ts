@@ -1,7 +1,7 @@
 import saveAs from 'file-saver';
-import type { Nullable } from 'lib/types';
 import type { ParseResult, UnparseObject } from 'papaparse';
 import { parse, unparse } from 'papaparse';
+import type { Nullable } from '../types';
 import { loggerService } from './logger.service';
 
 const CLASSNAME: string = 'FileService';

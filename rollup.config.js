@@ -12,7 +12,7 @@ export default [
 	{
 		input: 'lib/index.ts',
 
-		external: ['react', 'react-dom', 'react/jsx-runtime', '@popperjs/core', 'modern-normalize'],
+		external: ['react', 'react-dom', 'react/jsx-runtime', '@popperjs/core', 'modern-normalize', 'papaparse', 'file-saver'],
 
 		output: [
 			{

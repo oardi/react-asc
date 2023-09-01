@@ -1,4 +1,4 @@
-import type { Nullable } from 'lib/types';
+import type { Nullable } from '../types';
 import { loggerService } from './logger.service';
 
 const CLASSNAME: string = 'LocalService';
