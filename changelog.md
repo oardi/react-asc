@@ -1,3 +1,6 @@
+### 25.9.0
+- added hook usePrevious
+
 ### 25.8.2
 
 -   fixed setting disabled to formInputs
