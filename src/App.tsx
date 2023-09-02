@@ -1,5 +1,5 @@
 import type { ISidebarItem } from 'lib';
-import { AppBar, AppBarTitle, COLOR, Drawer, IconButton, useMobileDetect } from 'lib';
+import { AppBar, AppBarTitle, COLOR, Drawer, IconButton, loggerService, useMobileDetect } from 'lib';
 import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useAppContext } from './AppContext';
@@ -8,7 +8,7 @@ import { APPSTATE } from './app.enums';
 import './index.scss';
 import { MenuModel, RouteModel } from './main';
 import { BarsSolidIcon } from './main/assets';
-import { AppBreadcrumb, AppInfo, AppSidebar, PageNotFound, ServiceWorkerWrapper, loggerService } from './shared';
+import { AppBreadcrumb, AppInfo, AppSidebar, PageNotFound, ServiceWorkerWrapper } from './shared';
 
 const CLASSNAME: string = 'App';
 

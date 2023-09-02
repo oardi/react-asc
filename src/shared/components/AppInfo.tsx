@@ -1,8 +1,8 @@
 import type { AxiosResponse } from 'axios';
-import { COLOR, IconButton, modalService, useConstructor } from 'lib';
+import { COLOR, IconButton, loggerService, modalService, useConstructor } from 'lib';
 import { useState } from 'react';
 import { InfoSolidIcon } from '../../main/assets';
-import { fileLoaderService, loggerService } from '../services';
+import { fileLoaderService } from '../services';
 import { Markdown } from './Markdown';
 
 export const AppInfo = (): JSX.Element => {

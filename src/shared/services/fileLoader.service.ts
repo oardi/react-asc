@@ -1,6 +1,6 @@
 import type { AxiosRequestConfig, AxiosResponse } from 'axios';
 import axios from 'axios';
-import { loggerService } from './logger.service';
+import { loggerService } from 'lib';
 
 const CLASSNAME: string = 'FileLoaderService';
 

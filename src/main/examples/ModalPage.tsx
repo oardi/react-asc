@@ -1,7 +1,6 @@
 import type { IControls, IModalProps } from 'lib';
-import { Button, COLOR, FormControl, MODALBUTTONTYPE, Modal, SIZE, VARIANT, modalService, snackbarService } from 'lib';
+import { Button, COLOR, FormControl, MODALBUTTONTYPE, Modal, SIZE, VARIANT, loggerService, modalService, snackbarService } from 'lib';
 import { useEffect, useState } from 'react';
-import { loggerService } from '../../shared';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 

@@ -1,14 +1,21 @@
+### 25.11.0
+
+-   added extension methods
+
 ### 25.10.1
-- 	fixed build
+
+-   fixed build
 
 ### 25.10.0
-- 	added clipboard service
-- 	added file service
-- 	added local service
-- 	added logger service
+
+-   added clipboard service
+-   added file service
+-   added local service
+-   added logger service
 
 ### 25.9.0
--	 added hook usePrevious
+
+-   added hook usePrevious
 
 ### 25.8.2
 

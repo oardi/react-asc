@@ -1,9 +1,10 @@
 import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 import { useEffect, useState } from 'react';
-import { fileLoaderService, loggerService } from '../services';
+import { fileLoaderService } from '../services';
 
 import type { AxiosResponse } from 'axios';
+import { loggerService } from 'lib';
 import snarkdown from 'snarkdown';
 
 // if lineNumber -> add className="line-numbers"

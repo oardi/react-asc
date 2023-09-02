@@ -1,8 +1,8 @@
 import type { AxiosResponse } from 'axios';
-import { Typography } from 'lib';
+import { Typography, loggerService } from 'lib';
 import { useEffect, useState } from 'react';
 import snarkdown from 'snarkdown';
-import { fileLoaderService, loggerService } from '../services';
+import { fileLoaderService } from '../services';
 
 export interface IMarkdownProps {
 	text?: string;

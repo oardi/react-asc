@@ -1,7 +1,6 @@
 import type { ITabsProps } from 'lib';
-import { COLOR, FormControl, Tab, TabPanel, Tabs, snackbarService } from 'lib';
+import { COLOR, FormControl, Tab, TabPanel, Tabs, loggerService, snackbarService } from 'lib';
 import { useEffect, useState } from 'react';
-import { loggerService } from '../../shared';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 

@@ -1,7 +1,6 @@
 import type { IMenuProps } from 'lib';
-import { Button, FormControl, ListItemAvatar, ListItemText, Menu, MenuItem, snackbarService } from 'lib';
+import { Button, FormControl, ListItemAvatar, ListItemText, Menu, MenuItem, loggerService, snackbarService } from 'lib';
 import { useEffect, useState } from 'react';
-import { loggerService } from '../../shared';
 import { UserCircleSolidIcon } from '../assets';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';

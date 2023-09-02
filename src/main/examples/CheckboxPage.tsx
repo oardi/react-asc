@@ -1,8 +1,7 @@
-import type { FocusEvent } from 'react';
-import React, { useEffect } from 'react';
 import type { ICheckboxProps } from 'lib';
-import { FormControl, Checkbox } from 'lib';
-import { loggerService } from '../../shared';
+import { Checkbox, FormControl, loggerService } from 'lib';
+import type { FocusEvent } from 'react';
+import { useEffect } from 'react';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 

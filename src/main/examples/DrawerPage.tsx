@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
 import type { IDrawerProps } from 'lib';
-import { Button, Drawer, FormControl } from 'lib';
-import { loggerService } from '../../shared';
+import { Button, Drawer, FormControl, loggerService } from 'lib';
+import { useEffect, useState } from 'react';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 

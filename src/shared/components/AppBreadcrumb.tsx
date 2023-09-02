@@ -1,8 +1,7 @@
-import { Breadcrumb, BreadcrumbItem, HomeSolidIcon, Icon } from 'lib';
+import { Breadcrumb, BreadcrumbItem, HomeSolidIcon, Icon, loggerService } from 'lib';
 import React, { useEffect, useState } from 'react';
 import type { Location, NavigateFunction } from 'react-router-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { loggerService } from '../services';
 
 interface IAppBreadcrumbProps {
 	className?: string;
