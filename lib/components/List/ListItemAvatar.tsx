@@ -3,10 +3,26 @@ import styles from './ListItemAvatar.module.scss';
 
 interface IListItemAvatarProps extends React.ComponentProps<'div'> {
 	avatar: React.ReactNode;
+	avatarSize?: ListItemAvatarSize;
 }
 
-export const ListItemAvatar = ({ avatar, ...rest }: IListItemAvatarProps): JSX.Element => (
-	<div className={styles.avatar} {...rest}>
-		{avatar}
-	</div>
-);
+export enum ListItemAvatarSize {
+	sm = 'sm',
+	md = 'md',
+	lg = 'lg',
+}
+
+export const ListItemAvatar = ({ avatar, avatarSize = ListItemAvatarSize.sm, ...rest }: IListItemAvatarProps): JSX.Element => {
+	const getCssClasses = (): string => {
+		const cssClasses: string[] = [];
+		cssClasses.push(styles.avatar);
+		cssClasses.push(styles[avatarSize]);
+		return cssClasses.filter(css => css).join(' ');
+	};
+
+	return (
+		<div className={getCssClasses()} {...rest}>
+			{avatar}
+		</div>
+	);
+};

@@ -57,7 +57,7 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 			placeholder: 'some notes',
 			textareaOptions: { rows: 3, resize: false },
 		}),
-		number: new FormControl('', [], 'number', { label: 'Number' }),
+		number: new FormControl('', ['required'], 'number', { label: 'Number' }),
 		password: new FormControl('', ['required'], 'password', { label: 'Password' }),
 		passwordMatch: new FormControl('', ['required', 'match:password'], 'password', { label: 'Password Match' }),
 		color: new FormControl('#FFFFFF', [], 'color', { label: 'Color' }),

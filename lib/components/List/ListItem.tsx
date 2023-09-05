@@ -10,7 +10,6 @@ export interface IListItemProps extends React.ComponentProps<'li'> {
 }
 
 export const ListItem = (props: IListItemProps): JSX.Element => {
-
 	const { children, color, active, className, disabled, onClick, ...rest } = props;
 
 	const getCssClasses = (): string => {
@@ -28,11 +27,7 @@ export const ListItem = (props: IListItemProps): JSX.Element => {
 	};
 
 	return (
-		<li
-			onClick={handleClick}
-			className={getCssClasses()}
-			{...rest}
-		>
+		<li onClick={handleClick} className={getCssClasses()} {...rest}>
 			{children}
 		</li>
 	);

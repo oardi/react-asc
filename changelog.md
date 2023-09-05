@@ -1,3 +1,7 @@
+### 25.12.0
+
+-   added list item avatar size
+
 ### 25.11.0
 
 -   added extension methods

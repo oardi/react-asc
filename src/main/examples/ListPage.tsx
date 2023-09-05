@@ -7,6 +7,7 @@ import {
 	ListItem,
 	ListItemAction,
 	ListItemAvatar,
+	ListItemAvatarSize,
 	ListItemIcon,
 	ListItemText,
 	VARIANT,
@@ -75,7 +76,15 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 			<List isFlush={settingValues.isFlush}>
 				<ListItem onClick={handleClickItem}>
 					<ListItemAvatar avatar={<UserCircleSolidIcon />} />
-					<ListItemText primary="lorem ipsum" />
+					<ListItemText primary="with Avatar Size SM" />
+				</ListItem>
+				<ListItem onClick={handleClickItem}>
+					<ListItemAvatar avatar={<UserCircleSolidIcon />} avatarSize={ListItemAvatarSize.md} />
+					<ListItemText primary="with Avatar Size MD" />
+				</ListItem>
+				<ListItem onClick={handleClickItem}>
+					<ListItemAvatar avatar={<UserCircleSolidIcon />} avatarSize={ListItemAvatarSize.lg} />
+					<ListItemText primary="with Avatar Size LG" />
 				</ListItem>
 				<ListItem onClick={handleClickItem}>
 					<ListItemAvatar avatar={<span>2</span>} />

@@ -3,9 +3,28 @@
 	align-items: center;
 	margin-right: 16px;
 
-	svg, img {
-		width: 24px;
-		height: 24px;
+	&.sm {
+		svg,
+		img {
+			width: 24px;
+			height: 24px;
+		}
+	}
+
+	&.md {
+		svg,
+		img {
+			width: 32px;
+			height: 32px;
+		}
+	}
+
+	&.lg {
+		svg,
+		img {
+			width: 40px;
+			height: 40px;
+		}
 	}
 
 	img {
