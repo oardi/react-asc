@@ -26,6 +26,20 @@
 			height: 40px;
 		}
 	}
+	&.xl {
+		svg,
+		img {
+			width: 48px;
+			height: 48px;
+		}
+	}
+	&.xxl {
+		svg,
+		img {
+			width: 56px;
+			height: 56px;
+		}
+	}
 
 	img {
 		border-radius: 50%;

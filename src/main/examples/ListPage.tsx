@@ -87,6 +87,14 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 					<ListItemText primary="with Avatar Size LG" />
 				</ListItem>
 				<ListItem onClick={handleClickItem}>
+					<ListItemAvatar avatar={<UserCircleSolidIcon />} avatarSize={ListItemAvatarSize.xl} />
+					<ListItemText primary="with Avatar Size XL" />
+				</ListItem>
+				<ListItem onClick={handleClickItem}>
+					<ListItemAvatar avatar={<UserCircleSolidIcon />} avatarSize={ListItemAvatarSize.xxl} />
+					<ListItemText primary="with Avatar Size XXL" />
+				</ListItem>
+				<ListItem onClick={handleClickItem}>
 					<ListItemAvatar avatar={<span>2</span>} />
 					<ListItemText primary="lorem ipsum" />
 				</ListItem>

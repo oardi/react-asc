@@ -1,1 +1,1 @@
-export const MaxValidator = (val: string, valueB: number): boolean => val.length <= valueB;
+export const MaxValidator = (val: string | undefined, valueB: number): boolean => (val && val.length <= valueB) || false;

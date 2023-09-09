@@ -10,6 +10,8 @@ export enum ListItemAvatarSize {
 	sm = 'sm',
 	md = 'md',
 	lg = 'lg',
+	xl = 'xl',
+	xxl = 'xxl',
 }
 
 export const ListItemAvatar = ({ avatar, avatarSize = ListItemAvatarSize.sm, ...rest }: IListItemAvatarProps): JSX.Element => {

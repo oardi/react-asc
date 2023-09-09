@@ -1,3 +1,7 @@
+### 25.12.1
+
+-   fixed form min / max validator
+
 ### 25.12.0
 
 -   added list item avatar size
