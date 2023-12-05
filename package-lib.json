@@ -1,6 +1,6 @@
 {
 	"name": "react-asc",
-	"version": "25.12.1",
+	"version": "25.13.0",
 	"description": "handcrafted react components",
 	"main": "index.js",
 	"module": "index.es.js",
@@ -9,15 +9,15 @@
 	"homepage": "https://react-asc.netlify.app",
 	"license": "MIT",
 	"dependencies": {
-		"@popperjs/core": "2.11.8",
-		"react": "18.2.0",
-		"react-dom": "18.2.0",
-		"modern-normalize": "2.0.0",
-		"react-calendar": "4.2.1"
+		"@popperjs/core": "^2.11.8",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"modern-normalize": "^2.0.0",
+		"react-calendar": "^4.2.1"
 	},
 	"peerDependencies": {
-		"@types/file-saver": "^2.0.5",
-		"@types/papaparse": "^5.3.8",
+		"@types/file-saver": "^2.0.7",
+		"@types/papaparse": "^5.3.14",
 		"file-saver": "^2.0.5",
 		"papaparse": "^5.4.1"
 	},
