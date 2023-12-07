@@ -4,7 +4,12 @@ handcrafted components inspired by Material Design and bundled with rollup.
 
 ## showcase
 
-react-asc interactive showcase [link](https://react-asc.netlify.app)
+react-asc interactive showcase with code snippets [link](https://react-asc.netlify.app)
+
+## Stackblitz Examples
+
+- react-asc and jsx [link](https://stackblitz.com/edit/react-asc-example-js)
+- react-asc and tsx [link](https://stackblitz.com/edit/react-asc-example-ts)
 
 ## usage
 
