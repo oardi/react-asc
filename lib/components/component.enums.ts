@@ -2,7 +2,8 @@ export enum COLOR {
 	primary = 'primary',
 	accent = 'accent',
 	secondary = 'secondary',
-	danger = 'danger',
+	success = 'success',
+	error = 'error',
 	light = 'light',
 	dark = 'dark',
 }
