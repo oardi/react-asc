@@ -66,6 +66,24 @@
 		}
 	}
 
+	&.success {
+		color: var(--success-contrast-text);
+		background-color: var(--success);
+
+		&:hover:not(:disabled) {
+			background-color: var(--success-dark);
+		}
+	}
+
+	&.error {
+		color: var(--error-contrast-text);
+		background-color: var(--error);
+
+		&:hover:not(:disabled) {
+			background-color: var(--error-dark);
+		}
+	}
+
 	&.light {
 		color: var(--light-contrast-text);
 		background-color: var(--light);

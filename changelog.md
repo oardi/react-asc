@@ -1,3 +1,7 @@
+### 25.14.1
+
+- fixed button colors
+
 ### 25.14.0
 
 - added success and error colors
