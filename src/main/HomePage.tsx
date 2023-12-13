@@ -28,7 +28,7 @@ export const HomePage = (): JSX.Element => {
 			</div>
 
 			<Row className="mt-3">
-				<Column md={6}>
+				<Column size={60}>
 					<Card className="h-100">
 						<CardBody>
 							<CardTitle>Well documentated</CardTitle>
@@ -39,7 +39,7 @@ export const HomePage = (): JSX.Element => {
 					</Card>
 				</Column>
 
-				<Column md={6}>
+				<Column size={60}>
 					<Card className="h-100">
 						<CardBody>
 							<CardTitle>Compatible</CardTitle>

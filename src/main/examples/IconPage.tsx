@@ -1,5 +1,5 @@
 import type { IIconProps } from 'lib';
-import { COLOR, FormControl, HomeSolidIcon, Icon } from 'lib';
+import { Color, FormControl, HomeSolidIcon, Icon } from 'lib';
 import { useEffect } from 'react';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
@@ -9,7 +9,7 @@ const IconPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 		setSettingsControls({
 			iconColor: new FormControl(settingValues.iconColor, [], 'select', {
 				label: 'color',
-				options: Object.keys(COLOR).map(c => ({ label: c, value: c })),
+				options: Object.keys(Color).map(c => ({ label: c, value: c })),
 			}),
 		});
 	}, []);
@@ -26,7 +26,7 @@ const IconPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 export const IconPage: () => JSX.Element = withOptions<IIconProps>(
 	IconPageBase,
 	{
-		iconColor: COLOR.primary,
+		iconColor: Color.primary,
 	},
 	'IconPageBase'
 );

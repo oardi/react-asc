@@ -1,18 +1,17 @@
 import React from 'react';
-import { COLOR } from '../component.enums';
+import { Color } from '../../enums';
 import styles from './TabIndicator.module.scss';
 
 export interface ITabIndicatorProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	amount?: number;
 	index?: number;
-	color?: COLOR;
+	color?: Color;
 	width?: string;
 	left?: number;
 }
 
 export const TabIndicator = (props: ITabIndicatorProps): JSX.Element => {
-
-	const { color = COLOR.primary, width, amount, index } = props;
+	const { color = Color.primary, width, amount, index } = props;
 
 	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
@@ -26,8 +25,7 @@ export const TabIndicator = (props: ITabIndicatorProps): JSX.Element => {
 			className={getCssClasses()}
 			style={{
 				width: width,
-				left: `calc(calc(100% / ${amount}) * ${index})`
-			}}>
-			</span>
+				left: `calc(calc(100% / ${amount}) * ${index})`,
+			}}></span>
 	);
 };

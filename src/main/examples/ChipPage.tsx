@@ -1,5 +1,5 @@
 import type { IChipProps } from 'lib';
-import { Chip, COLOR, FormControl, loggerService, snackbarService } from 'lib';
+import { Chip, Color, FormControl, loggerService, snackbarService } from 'lib';
 import { useEffect } from 'react';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
@@ -10,7 +10,7 @@ export const ChipPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 		setSettingsControls({
 			color: new FormControl(settingValues.color, [], 'select', {
 				label: 'color',
-				options: Object.keys(COLOR).map(c => ({ label: c, value: c })),
+				options: Object.keys(Color).map(c => ({ label: c, value: c })),
 			}),
 			isDeletable: new FormControl(settingValues.isDeletable, [], 'checkbox', { label: 'isDeletable' }),
 			shadow: new FormControl(settingValues.shadow, [], 'checkbox', { label: 'Shadow' }),
@@ -32,7 +32,7 @@ export const ChipPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 export const ChipPage: () => JSX.Element = withOptions<IChipProps>(
 	ChipPageBase,
 	{
-		color: COLOR.primary,
+		color: Color.primary,
 		shadow: false,
 	},
 	'ChipPageBase'

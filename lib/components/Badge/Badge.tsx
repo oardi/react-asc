@@ -1,17 +1,17 @@
 import React from 'react';
+import { Color } from '../../enums';
 import { useCssClasses } from '../../hooks';
-import { COLOR } from '../component.enums';
 import styles from './Badge.module.scss';
 
 export interface IBadgeProps {
-	color?: COLOR;
+	color?: Color;
 	content?: React.ReactNode;
 	className?: string;
 	children?: React.ReactNode;
 }
 
 export const Badge = (props: IBadgeProps): JSX.Element => {
-	const { children, content, className, color = COLOR.primary, ...rest } = props;
+	const { children, content, className, color = Color.secondary, ...rest } = props;
 
 	const [cssClassName] = useCssClasses([styles.badge, styles[color], className as string]);
 

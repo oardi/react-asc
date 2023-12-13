@@ -1,9 +1,9 @@
 import React from 'react';
-import type { COLOR } from '../component.enums';
+import type { Color } from '../../enums';
 import styles from './ListItem.module.scss';
 
 export interface IListItemProps extends React.ComponentProps<'li'> {
-	color?: COLOR;
+	color?: Color;
 	active?: boolean;
 	isHoverable?: boolean;
 	disabled?: boolean;

@@ -1,5 +1,5 @@
 import type { IIconButtonProps } from 'lib';
-import { COLOR, FormControl, HomeSolidIcon, IconButton, SIZE, VARIANT, snackbarService } from 'lib';
+import { Color, FormControl, HomeSolidIcon, IconButton, SIZE, VARIANT, snackbarService } from 'lib';
 import { useEffect } from 'react';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
@@ -9,7 +9,7 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 		setSettingsControls({
 			color: new FormControl(settingValues.color, [], 'select', {
 				label: 'color',
-				options: Object.keys(COLOR).map(c => ({ label: c, value: c })),
+				options: Object.keys(Color).map(c => ({ label: c, value: c })),
 			}),
 			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' }),
 			loading: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'loading' }),
@@ -50,7 +50,7 @@ const IconButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBas
 export const IconButtonPage: () => JSX.Element = withOptions<IIconButtonProps>(
 	IconButtonPageBase,
 	{
-		color: COLOR.primary,
+		color: Color.primary,
 		variant: VARIANT.text,
 		size: SIZE.md,
 	},

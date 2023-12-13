@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
 import type { IAppBarProps } from 'lib';
-import { AppBar, AppBarTitle, COLOR, FormControl, HomeSolidIcon, IconButton, Tooltip, Typography } from 'lib';
+import { AppBar, AppBarTitle, Color, FormControl, HomeSolidIcon, IconButton, Tooltip, Typography } from 'lib';
+import { useEffect } from 'react';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
@@ -9,7 +9,7 @@ const AppBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 		setSettingsControls({
 			color: new FormControl(settingValues.color, [], 'select', {
 				label: 'color',
-				options: Object.keys(COLOR).map(c => ({ label: c, value: c })),
+				options: Object.keys(Color).map(c => ({ label: c, value: c })),
 			}),
 			shadow: new FormControl(settingValues.shadow, [], 'checkbox', { label: 'Shadow' }),
 		});
@@ -23,7 +23,7 @@ const AppBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 						<Typography>Some AppBar Title with some more text to test</Typography>
 					</Tooltip>
 				</AppBarTitle>
-				<IconButton className="ml-auto" color={COLOR.light} icon={<HomeSolidIcon />} />
+				<IconButton className="ml-auto" color={Color.light} icon={<HomeSolidIcon />} />
 			</AppBar>
 		</>
 	);
@@ -33,7 +33,7 @@ export const AppBarPage: () => JSX.Element = withOptions<IAppBarProps>(
 	AppBarPageBase,
 	{
 		shadow: false,
-		color: COLOR.light,
+		color: Color.light,
 	},
 	'AppBarPageBase'
 );

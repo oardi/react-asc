@@ -1,6 +1,6 @@
 import type { IListProps } from 'lib';
 import {
-	COLOR,
+	Color,
 	HomeSolidIcon,
 	IconButton,
 	List,
@@ -119,16 +119,16 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 				<ListItem onClick={handleClickItem}>
 					<ListItemText primary="lorem ipsum" />
 					<ListItemAction>
-						<IconButton color={COLOR.primary} onClick={handleClickAction} icon={<HomeSolidIcon />} />
+						<IconButton color={Color.primary} onClick={handleClickAction} icon={<HomeSolidIcon />} />
 					</ListItemAction>
 				</ListItem>
 				<ListItem onClick={handleClickItem}>
 					<ListItemText primary="lorem ipsum" />
 					<ListItemAction>
-						<IconButton color={COLOR.accent} variant={VARIANT.text} onClick={handleClickAction} icon={<HomeSolidIcon />} />
+						<IconButton color={Color.accent} variant={VARIANT.text} onClick={handleClickAction} icon={<HomeSolidIcon />} />
 					</ListItemAction>
 					<ListItemAction>
-						<IconButton color={COLOR.accent} variant={VARIANT.text} onClick={handleClickAction} icon={<HomeSolidIcon />} />
+						<IconButton color={Color.accent} variant={VARIANT.text} onClick={handleClickAction} icon={<HomeSolidIcon />} />
 					</ListItemAction>
 				</ListItem>
 				<ListItem onClick={handleClickItem}>
@@ -141,11 +141,11 @@ export const ListPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 
 			<h3 className="mt-3">Colors</h3>
 			<List isFlush={settingValues.isFlush}>
-				<ListItem color={COLOR.primary}>primary</ListItem>
-				<ListItem color={COLOR.accent}>accent</ListItem>
-				<ListItem color={COLOR.secondary}>secondary</ListItem>
-				<ListItem color={COLOR.light}>light</ListItem>
-				<ListItem color={COLOR.dark}>dark</ListItem>
+				<ListItem color={Color.primary}>primary</ListItem>
+				<ListItem color={Color.accent}>accent</ListItem>
+				<ListItem color={Color.secondary}>secondary</ListItem>
+				<ListItem color={Color.light}>light</ListItem>
+				<ListItem color={Color.dark}>dark</ListItem>
 			</List>
 		</>
 	);

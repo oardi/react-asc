@@ -1,3 +1,7 @@
+### 25.15.0
+- breaking change in Enum naming
+- added size to columns 10 to 100%
+
 ### 25.14.1
 
 - fixed button colors

@@ -1,17 +1,16 @@
 import type { ComponentProps } from 'react';
 import React from 'react';
-import { COLOR } from '../component.enums';
+import { Color } from '../../enums';
 import styles from './Snackbar.module.scss';
 
 export interface ISnackbarProps extends ComponentProps<'div'> {
-	color?: COLOR;
+	color?: Color;
 	actionText?: string;
 	onOk?: (e: React.MouseEvent) => void;
 }
 
 export const Snackbar = (props: ISnackbarProps): JSX.Element => {
-
-	const { children, color = COLOR.dark, actionText = 'ok', onOk, ...rest } = props;
+	const { children, color = Color.dark, actionText = 'ok', onOk, ...rest } = props;
 
 	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
@@ -27,9 +26,7 @@ export const Snackbar = (props: ISnackbarProps): JSX.Element => {
 
 	return (
 		<div className={getCssClasses()} {...rest}>
-			<div className={styles.text}>
-				{children}
-			</div>
+			<div className={styles.text}>{children}</div>
 
 			<div className={styles.action + ' text-accent'} onClick={handleClickAction}>
 				<span>{actionText}</span>

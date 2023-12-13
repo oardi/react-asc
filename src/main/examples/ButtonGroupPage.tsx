@@ -1,5 +1,5 @@
 import type { IButtonGroupProps } from 'lib';
-import { Button, ButtonGroup, COLOR, FormControl, snackbarService } from 'lib';
+import { Button, ButtonGroup, Color, FormControl, snackbarService } from 'lib';
 import { useEffect } from 'react';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
@@ -9,7 +9,7 @@ const ButtonGroupPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 		setSettingsControls({
 			color: new FormControl(settingValues.color, [], 'select', {
 				label: 'color',
-				options: Object.keys(COLOR).map(c => ({ label: c, value: c })),
+				options: Object.keys(Color).map(c => ({ label: c, value: c })),
 			}),
 		});
 	}, []);
@@ -38,7 +38,7 @@ const ButtonGroupPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 export const ButtonGroupPage: () => JSX.Element = withOptions(
 	ButtonGroupPageBase,
 	{
-		color: COLOR.primary,
+		color: Color.primary,
 	},
 	'ButtonGroupPageBase'
 );

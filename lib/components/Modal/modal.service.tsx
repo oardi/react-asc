@@ -1,11 +1,10 @@
-import React from 'react';
-import type { Root} from 'react-dom/client';
-import { createRoot } from 'react-dom/client';
-import { GlobalModal } from './GlobalModal';
-import type { IControls } from '../Form';
 import type { ReactElement } from 'react';
+import type { Root } from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
+import type { SIZE } from '../../enums';
+import type { IControls } from '../Form';
+import { GlobalModal } from './GlobalModal';
 import type { IModalButton } from './modal.interfaces';
-import type { SIZE } from '../component.enums';
 
 export interface IModalService {
 	show(title: string, description: string | ReactElement, options?: IModalOptions): Promise<void>;
@@ -97,7 +96,6 @@ class ModalService implements IModalService {
 			this.container = undefined;
 		}
 	}
-
 }
 
 export const modalService: ModalService = new ModalService();

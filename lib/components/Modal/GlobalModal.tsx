@@ -1,7 +1,7 @@
-import type { ReactElement} from 'react';
+import type { ReactElement } from 'react';
 import React, { useEffect, useRef, useState } from 'react';
+import { Color, SIZE, VARIANT } from '../../enums';
 import { Button } from '../Button';
-import { SIZE, COLOR, VARIANT } from '../component.enums';
 import type { IControls } from '../Form';
 import { Form } from '../Form';
 import { Modal } from './Modal';
@@ -33,13 +33,12 @@ export const GlobalModal = ({
 	onBackdropClick,
 	isDismissable = false,
 	buttons = [
-		{ label: 'Cancel', type: MODALBUTTONTYPE.CANCEL, color: COLOR.secondary, variant: VARIANT.text, shadow: false },
+		{ label: 'Cancel', type: MODALBUTTONTYPE.CANCEL, color: Color.secondary, variant: VARIANT.text, shadow: false },
 		{ label: 'Ok', type: MODALBUTTONTYPE.OK, variant: VARIANT.contained, focus: true },
 	],
 	size = SIZE.md,
-	fullScreen = false
+	fullScreen = false,
 }: IModalProps): JSX.Element => {
-
 	// workaround for getDerivedStateFromProps
 	const [myControls, setMyControls] = useState<IControls | null>(null);
 	useEffect(() => {
@@ -105,21 +104,13 @@ export const GlobalModal = ({
 					))}
 				</>
 			}>
-
 			{description && <div>{description}</div>}
 
-			{
-				modalType === MODALTYPE.FORM &&
+			{modalType === MODALTYPE.FORM && (
 				<>
-					<Form
-						ref={myForm}
-						controls={(myControls as IControls)}
-						validateOnBlur
-						onSubmit={onSubmit}
-						onChange={onChange}
-					/>
+					<Form ref={myForm} controls={myControls as IControls} validateOnBlur onSubmit={onSubmit} onChange={onChange} />
 				</>
-			}
+			)}
 		</Modal>
 	);
 };

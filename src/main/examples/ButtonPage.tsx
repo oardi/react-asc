@@ -1,5 +1,5 @@
 import type { IButtonProps } from 'lib';
-import { Button, COLOR, FormControl, snackbarService, VARIANT } from 'lib';
+import { Button, Color, FormControl, snackbarService, VARIANT } from 'lib';
 import { useEffect } from 'react';
 import { InfoSolidIcon } from '../assets';
 import type { IShowcaseBaseProps } from './components';
@@ -15,7 +15,7 @@ const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 		setSettingsControls({
 			color: new FormControl(settingValues.color, [], 'select', {
 				label: 'color',
-				options: Object.keys(COLOR).map(c => ({ label: c, value: c })),
+				options: Object.keys(Color).map(c => ({ label: c, value: c })),
 			}),
 			variant: new FormControl(settingValues.variant, [], 'select', {
 				label: 'variant',
@@ -62,7 +62,7 @@ const ButtonPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 export const ButtonPage: () => JSX.Element = withOptions<IButtonExampleProps>(
 	ButtonPageBase,
 	{
-		color: COLOR.primary,
+		color: Color.primary,
 		variant: VARIANT.contained,
 		shadow: true,
 	},

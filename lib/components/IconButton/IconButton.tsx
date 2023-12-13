@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { Color, SIZE, VARIANT } from '../../enums';
 import { Icon } from '../Icon';
 import { LoadingIndicator, LoadingIndicatorContainer } from '../LoadingIndicator';
-import { COLOR, SIZE, VARIANT } from '../component.enums';
 import styles from './IconButton.module.scss';
 
 export interface IIconButtonProps extends React.ComponentProps<'button'> {
 	icon?: React.ReactNode;
-	color?: COLOR;
+	color?: Color;
 	size?: SIZE;
 	isActive?: boolean;
 	variant?: VARIANT;
@@ -19,7 +19,7 @@ export const IconButton = (props: IIconButtonProps): JSX.Element => {
 		children,
 		icon,
 		variant = VARIANT.text,
-		color = COLOR.dark,
+		color = Color.dark,
 		size = SIZE.md,
 		isActive,
 		disabled,

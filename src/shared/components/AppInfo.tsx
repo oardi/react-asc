@@ -1,5 +1,5 @@
 import type { AxiosResponse } from 'axios';
-import { COLOR, IconButton, loggerService, modalService, useConstructor } from 'lib';
+import { Color, IconButton, loggerService, modalService, useConstructor } from 'lib';
 import { useState } from 'react';
 import { InfoSolidIcon } from '../../main/assets';
 import { fileLoaderService } from '../services';
@@ -23,5 +23,5 @@ export const AppInfo = (): JSX.Element => {
 		}
 	};
 
-	return <IconButton color={COLOR.primary} className="ml-auto" icon={<InfoSolidIcon />} onClick={handleClick} />;
+	return <IconButton color={Color.primary} className="ml-auto" icon={<InfoSolidIcon />} onClick={handleClick} />;
 };

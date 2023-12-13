@@ -1,5 +1,5 @@
 import type { IControls, IModalProps } from 'lib';
-import { Button, COLOR, FormControl, MODALBUTTONTYPE, Modal, SIZE, VARIANT, loggerService, modalService, snackbarService } from 'lib';
+import { Button, Color, FormControl, MODALBUTTONTYPE, Modal, SIZE, VARIANT, loggerService, modalService, snackbarService } from 'lib';
 import { useEffect, useState } from 'react';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
@@ -29,8 +29,8 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 		void modalService
 			.show('Hello Modal', 'Modal with custom buttons - using custom buttons make sure to attach Modalbuttontype for ok and cancel', {
 				buttons: [
-					{ label: 'delete', color: COLOR.accent, handler: customHandler },
-					{ label: 'cancel', type: MODALBUTTONTYPE.CANCEL, color: COLOR.secondary, variant: VARIANT.text },
+					{ label: 'delete', color: Color.accent, handler: customHandler },
+					{ label: 'cancel', type: MODALBUTTONTYPE.CANCEL, color: Color.secondary, variant: VARIANT.text },
 					{ label: 'ok', type: MODALBUTTONTYPE.OK, autoFocus: true },
 				],
 				fullScreen: fullscreen,

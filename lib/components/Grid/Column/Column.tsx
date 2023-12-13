@@ -1,25 +1,18 @@
 import React from 'react';
 import styles from './Column.module.scss';
+import type { ColumnSize } from './column.types';
 
 interface IColProps extends React.ComponentProps<'div'> {
-	xs?: number;
-	sm?: number;
-	md?: number;
-	lg?: number;
-	xl?: number;
+	size?: ColumnSize;
 }
 
 export const Column = (props: IColProps): JSX.Element => {
-
-	const {
-		children,
-		className,
-		...rest
-	} = props;
+	const { children, className, size, ...rest } = props;
 
 	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.column);
+		size && cssClasses.push(styles[`column-${size}`]);
 		className && cssClasses.push(className);
 		return cssClasses.filter(css => css).join(' ');
 	};

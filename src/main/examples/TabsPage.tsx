@@ -1,5 +1,5 @@
 import type { ITabsProps } from 'lib';
-import { COLOR, FormControl, Tab, TabPanel, Tabs, loggerService, snackbarService } from 'lib';
+import { Color, FormControl, Tab, TabPanel, Tabs, loggerService, snackbarService } from 'lib';
 import { useEffect, useState } from 'react';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
@@ -12,7 +12,7 @@ const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 		setSettingsControls({
 			color: new FormControl(settingValues.color, [], 'select', {
 				label: 'color',
-				options: Object.keys(COLOR).map(c => ({ label: c, value: c })),
+				options: Object.keys(Color).map(c => ({ label: c, value: c })),
 			}),
 		});
 	}, []);
@@ -51,7 +51,7 @@ const TabsPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 export const TabsPage: () => JSX.Element = withOptions<ITabsProps>(
 	TabsPageBase,
 	{
-		color: COLOR.primary,
+		color: Color.primary,
 		fixed: false,
 	},
 	CLASSNAME

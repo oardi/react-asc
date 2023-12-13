@@ -1,25 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { COLOR } from '../component.enums';
+import { Color } from '../../enums';
 import { Tooltip } from '../Tooltip';
 import styles from './ProgressBar.module.scss';
 
 export interface IProgressBarProps extends React.ComponentProps<'div'> {
 	className?: string;
-	color?: COLOR;
+	color?: Color;
 	value?: number;
 	indeterminate?: boolean;
 }
 
 export const ProgressBar = (props: IProgressBarProps): JSX.Element => {
-
-	const { className, color = COLOR.primary, value, indeterminate, ...rest } = props;
+	const { className, color = Color.primary, value, indeterminate, ...rest } = props;
 	const [model, setModel] = useState<number>();
 
 	useEffect(() => {
-		document.body.style.setProperty(
-			'--progress-bar-bg',
-			`var(--${color})`
-		);
+		document.body.style.setProperty('--progress-bar-bg', `var(--${color})`);
 	}, [color]);
 
 	useEffect(() => {
@@ -58,12 +54,7 @@ export const ProgressBar = (props: IProgressBarProps): JSX.Element => {
 	return (
 		<Tooltip text={!indeterminate ? model?.toString() : ''}>
 			<div className={getCssClasses()} {...rest}>
-				<div
-					className={getCssClassesBar()}
-					style={{ 'width': getStyle() }}
-					role="progressbar"
-				>
-				</div>
+				<div className={getCssClassesBar()} style={{ width: getStyle() }} role="progressbar"></div>
 			</div>
 		</Tooltip>
 	);

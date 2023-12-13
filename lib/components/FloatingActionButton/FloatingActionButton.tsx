@@ -1,11 +1,12 @@
 import React from 'react';
-import { COLOR, SIZE, VARIANT } from '../component.enums';
+import { Color, SIZE, VARIANT } from '../../enums';
 import { IconButton } from '../IconButton';
 import styles from './FloatingActionButton.module.scss';
 
-export interface IFloatingActionButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
+export interface IFloatingActionButtonProps
+	extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
 	icon?: React.ReactNode;
-	color?: COLOR;
+	color?: Color;
 	size?: SIZE;
 	fixed?: boolean;
 	isActive?: boolean;
@@ -15,8 +16,7 @@ export interface IFloatingActionButtonProps extends React.DetailedHTMLProps<Reac
 }
 
 export const FloatingActionButton = (props: IFloatingActionButtonProps): JSX.Element => {
-
-	const { className, icon, color = COLOR.primary, fixed, position = 'rightBottom', size = SIZE.lg, isActive, disabled, onClick } = props;
+	const { className, icon, color = Color.primary, fixed, position = 'rightBottom', size = SIZE.lg, isActive, disabled, onClick } = props;
 
 	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];

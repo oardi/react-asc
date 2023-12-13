@@ -1,5 +1,6 @@
 import type { ReactElement } from 'react';
 import React, { useEffect, useRef, useState } from 'react';
+import { Color } from '../../enums';
 import { ChevronDownSolidIcon } from '../../icons';
 import { Backdrop } from '../Backdrop';
 import { Checkbox } from '../Checkbox';
@@ -7,7 +8,6 @@ import { Chip } from '../Chip';
 import { Icon } from '../Icon';
 import { List, ListItem, ListItemText } from '../List';
 import { Portal } from '../Portal';
-import { COLOR } from '../component.enums';
 import type { ISelectOption } from '../component.interfaces';
 import styles from './Select.module.scss';
 
@@ -135,7 +135,7 @@ export const Select = (props: ISelectProps): JSX.Element => {
 		let result: ReactElement | ReactElement[] | null = null;
 		if (selectedOptions.length <= multipleMaxCountItems && selectedOptions.length > 0) {
 			result = selectedOptions.map(option => (
-				<Chip key={option.value} color={COLOR.primary} isDeletable={true} onDelete={(e): void => handleOnDelete(e, option)}>
+				<Chip key={option.value} color={Color.primary} isDeletable={true} onDelete={(e): void => handleOnDelete(e, option)}>
 					{option.label}
 				</Chip>
 			));

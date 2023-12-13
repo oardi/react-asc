@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
 import type { IAlertProps } from 'lib';
-import { Alert, COLOR, FormControl, VARIANT } from 'lib';
+import { Alert, Color, FormControl, VARIANT } from 'lib';
+import { useEffect } from 'react';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
@@ -9,7 +9,7 @@ const AlertPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 		setSettingsControls({
 			color: new FormControl(settingValues.color, [], 'select', {
 				label: 'color',
-				options: Object.keys(COLOR).map(c => ({ label: c, value: c })),
+				options: Object.keys(Color).map(c => ({ label: c, value: c })),
 			}),
 			variant: new FormControl(settingValues.variant, [], 'select', {
 				label: 'variant',
@@ -35,7 +35,7 @@ export const AlertPage: () => JSX.Element = withOptions<IAlertProps>(
 	{
 		shadow: false,
 		variant: VARIANT.contained,
-		color: COLOR.primary,
+		color: Color.primary,
 	},
 	'AlertPageBase'
 );

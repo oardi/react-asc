@@ -1,10 +1,10 @@
 import React from 'react';
+import type { Color } from '../../enums';
 import { TimesCircleSolidIcon } from '../../icons';
-import type { COLOR } from '../component.enums';
 import styles from './Chip.module.scss';
 
 export interface IChipProps extends React.ComponentProps<'div'> {
-	color?: COLOR;
+	color?: Color;
 	shadow?: boolean;
 	onClick?: (e: React.MouseEvent<Element>) => void;
 	isDeletable?: boolean;
@@ -13,8 +13,18 @@ export interface IChipProps extends React.ComponentProps<'div'> {
 }
 
 export const Chip = (props: IChipProps): JSX.Element => {
-
-	const { children, color = 'secondary', className, shadow, onClick, isDeletable, onDelete, deleteIcon = <TimesCircleSolidIcon />, style, ...rest } = props;
+	const {
+		children,
+		color = 'secondary',
+		className,
+		shadow,
+		onClick,
+		isDeletable,
+		onDelete,
+		deleteIcon = <TimesCircleSolidIcon />,
+		style,
+		...rest
+	} = props;
 
 	const getCssClass = (): string => {
 		const cssClasses: string[] = [];
@@ -33,9 +43,7 @@ export const Chip = (props: IChipProps): JSX.Element => {
 
 	return (
 		<div className={getCssClass()} {...rest} style={style}>
-			<span>
-				{children}
-			</span>
+			<span>{children}</span>
 			{isDeletable && (
 				<div className={styles.deleteIcon} onClick={(e): void => handleClickOnDelete(e)}>
 					{deleteIcon}

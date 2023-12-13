@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { Color, VARIANT } from '../../enums';
 import { Icon } from '../Icon';
 import { LoadingIndicator, LoadingIndicatorContainer } from '../LoadingIndicator';
-import { COLOR, VARIANT } from '../component.enums';
 import styles from './Button.module.scss';
 import type { IButtonContext } from './ButtonContext';
 import { useButtonContext } from './ButtonContext';
 
 export interface IButtonProps extends React.ComponentProps<'button'> {
-	color?: COLOR;
+	color?: Color;
 	isActive?: boolean;
 	isRounded?: boolean;
 	variant?: VARIANT;
@@ -22,7 +22,7 @@ export const Button: React.FunctionComponent<IButtonProps> = props => {
 	const {
 		children,
 		variant = VARIANT.contained,
-		color = COLOR.primary,
+		color = Color.primary,
 		isRounded,
 		isActive,
 		className,
@@ -62,7 +62,7 @@ export const Button: React.FunctionComponent<IButtonProps> = props => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.button);
 
-		const buttonColor: COLOR = buttonContext.color || color;
+		const buttonColor: Color = buttonContext.color || color;
 
 		if (variant !== 'outline' && variant !== 'text') {
 			cssClasses.push(styles.btnContained);
@@ -90,7 +90,7 @@ export const Button: React.FunctionComponent<IButtonProps> = props => {
 
 	return (
 		<button type="button" className={getCssClasses()} disabled={isDisabled} {...rest}>
-			<span className="d-flex justify-content-center">
+			<span className="d-flex justify-content-center align-items-center">
 				{isLoading && (
 					<div className="mr-1">
 						<LoadingIndicatorContainer>

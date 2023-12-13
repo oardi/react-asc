@@ -1,5 +1,5 @@
 import type { ISidebarItem } from 'lib';
-import { AppBar, AppBarTitle, COLOR, Sidebar } from 'lib';
+import { AppBar, AppBarTitle, Color, Sidebar } from 'lib';
 import type { Location, NavigateFunction } from 'react-router-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -20,7 +20,7 @@ export const AppSidebar = ({ menuItems, onItemClicked }: IAppSidebarProps): JSX.
 	return (
 		<>
 			<div className="d-flex flex-column h-100">
-				<AppBar color={COLOR.light}>
+				<AppBar color={Color.light}>
 					<AppBarTitle>Menu</AppBarTitle>
 				</AppBar>
 				<div style={{ overflowY: 'auto' }}>

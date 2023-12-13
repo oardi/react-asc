@@ -1,14 +1,13 @@
 import React from 'react';
+import { Color } from '../../enums';
 import { ButtonContext } from '../Button/ButtonContext';
-import { COLOR } from '../component.enums';
 import styles from './ButtonGroup.module.scss';
 
 export interface IButtonGroupProps extends React.ComponentProps<'div'> {
-	color?: COLOR;
+	color?: Color;
 }
 
 export const ButtonGroup = (props: IButtonGroupProps): JSX.Element => {
-
 	const { children, className, color, ...rest } = props;
 
 	const getCssClasses = (): string => {
@@ -19,7 +18,7 @@ export const ButtonGroup = (props: IButtonGroupProps): JSX.Element => {
 	};
 
 	return (
-		<ButtonContext.Provider value={{ color: color || COLOR.primary }}>
+		<ButtonContext.Provider value={{ color: color || Color.primary }}>
 			<div className={getCssClasses()} role="group" {...rest}>
 				{children}
 			</div>

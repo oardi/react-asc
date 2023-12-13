@@ -1,10 +1,10 @@
-import type { COLOR, VARIANT } from '../component.enums';
+import type { Color, VARIANT } from '../../enums';
 import type { MODALBUTTONTYPE } from './modal.enum';
 
 export interface IModalButton {
 	label: string;
 	variant?: VARIANT;
-	color?: COLOR;
+	color?: Color;
 	handler?: () => void;
 	autoFocus?: boolean;
 	type?: MODALBUTTONTYPE;

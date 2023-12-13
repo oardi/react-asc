@@ -1,15 +1,14 @@
 import type { ComponentProps } from 'react';
 import React from 'react';
-import type { COLOR } from '../component.enums';
+import type { Color } from '../../enums';
 import styles from './Icon.module.scss';
 
-export interface IIconProps extends ComponentProps<'div'>  {
-	iconColor?: COLOR;
+export interface IIconProps extends ComponentProps<'div'> {
+	iconColor?: Color;
 	children?: React.ReactNode;
 }
 
 export const Icon = (props: IIconProps): JSX.Element => {
-
 	const { children, iconColor, className, ...rest } = props;
 
 	const getCssClasses = (): string => {
@@ -21,10 +20,7 @@ export const Icon = (props: IIconProps): JSX.Element => {
 	};
 
 	return (
-		<div
-			className={getCssClasses()}
-			{...rest}
-		>
+		<div className={getCssClasses()} {...rest}>
 			{children}
 		</div>
 	);

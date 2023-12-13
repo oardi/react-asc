@@ -1,7 +1,7 @@
 import React from 'react';
-import type { Root} from 'react-dom/client';
+import type { Root } from 'react-dom/client';
 import { createRoot } from 'react-dom/client';
-import { COLOR } from '../component.enums';
+import { Color } from '../../enums';
 import { Snackbar } from './Snackbar';
 
 export interface ISnackbarService {
@@ -11,7 +11,7 @@ export interface ISnackbarService {
 export interface ISnackbarOptions {
 	actionText?: string;
 	timeout?: number;
-	color?: COLOR;
+	color?: Color;
 	target?: HTMLElement;
 }
 
@@ -21,10 +21,10 @@ class SnackbarService implements ISnackbarService {
 	private root: Root | undefined;
 
 	show(message: React.ReactNode | string, options?: ISnackbarOptions): Promise<void> {
-		const defaultOptions: ISnackbarOptions = { timeout: 3000, actionText: 'ok', color: COLOR.dark, target: document.body };
+		const defaultOptions: ISnackbarOptions = { timeout: 3000, actionText: 'ok', color: Color.dark, target: document.body };
 		const mergedOptions: ISnackbarOptions = Object.assign(defaultOptions, options);
 
-		return new Promise((resolve) => {
+		return new Promise(resolve => {
 			if (this.container) {
 				this.hide();
 			}
@@ -45,11 +45,7 @@ class SnackbarService implements ISnackbarService {
 
 			this.root = createRoot(this.container);
 			this.root.render(
-				<Snackbar
-					color={mergedOptions.color}
-					actionText={mergedOptions.actionText}
-					onOk={handleOk}
-				>
+				<Snackbar color={mergedOptions.color} actionText={mergedOptions.actionText} onOk={handleOk}>
 					{message}
 				</Snackbar>
 			);

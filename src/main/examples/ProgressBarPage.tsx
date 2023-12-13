@@ -1,5 +1,5 @@
 import type { IProgressBarProps } from 'lib';
-import { COLOR, FormControl, ProgressBar } from 'lib';
+import { Color, FormControl, ProgressBar } from 'lib';
 import { useEffect } from 'react';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
@@ -9,7 +9,7 @@ const ProgressBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 		setSettingsControls({
 			color: new FormControl(settingValues.color, [], 'select', {
 				label: 'color',
-				options: Object.keys(COLOR).map(c => ({ label: c, value: c })),
+				options: Object.keys(Color).map(c => ({ label: c, value: c })),
 			}),
 			value: new FormControl(settingValues.value, ['min:0', 'max:100'], 'number', {
 				label: 'value',
@@ -32,7 +32,7 @@ const ProgressBarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 export const ProgressBarPage: () => JSX.Element = withOptions<IProgressBarProps>(
 	ProgressBarPageBase,
 	{
-		color: COLOR.primary,
+		color: Color.primary,
 		value: 10,
 	},
 	'ProgressBarPageBase'

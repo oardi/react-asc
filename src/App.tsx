@@ -1,5 +1,5 @@
 import type { ISidebarItem } from 'lib';
-import { AppBar, AppBarTitle, COLOR, Drawer, IconButton, loggerService, useMobileDetect } from 'lib';
+import { AppBar, AppBarTitle, Color, Drawer, IconButton, loggerService, useMobileDetect } from 'lib';
 import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useAppContext } from './AppContext';
@@ -44,8 +44,8 @@ const App = (): JSX.Element => {
 
 	return (
 		<>
-			<AppBar shadow color={COLOR.light}>
-				<IconButton color={COLOR.primary} icon={<BarsSolidIcon />} onClick={(): void => setShowMenu(!showMenu)} />
+			<AppBar shadow color={Color.light}>
+				<IconButton color={Color.primary} icon={<BarsSolidIcon />} onClick={(): void => setShowMenu(!showMenu)} />
 
 				{appInfo && (
 					<AppBarTitle>

@@ -1,19 +1,17 @@
 import React from 'react';
-import { VARIANT } from '../component.enums';
-import { COLOR } from '../component.enums';
+import { Color, VARIANT } from '../../enums';
 import { IconButton } from '../IconButton';
 import styles from './SpeedDialAction.module.scss';
 
 export interface ISpeedDialActionProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	icon: React.ReactNode;
 	tooltipTitle?: string;
-	color?: COLOR;
+	color?: Color;
 	onClick?: (e: React.MouseEvent) => void;
 }
 
 export const SpeedDialAction = (props: ISpeedDialActionProps): JSX.Element => {
-
-	const { icon, color = COLOR.light, onClick, className } = props;
+	const { icon, color = Color.light, onClick, className } = props;
 
 	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
@@ -22,14 +20,5 @@ export const SpeedDialAction = (props: ISpeedDialActionProps): JSX.Element => {
 		return cssClasses.filter(css => css).join(' ');
 	};
 
-	return (
-		<IconButton
-			className={getCssClasses()}
-			icon={icon}
-			color={color}
-			variant={VARIANT.contained}
-			shadow={true}
-			onClick={onClick}
-		/>
-	);
+	return <IconButton className={getCssClasses()} icon={icon} color={color} variant={VARIANT.contained} shadow={true} onClick={onClick} />;
 };

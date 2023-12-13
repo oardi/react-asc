@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
 import type { IFloatingActionButtonProps } from 'lib';
-import { HomeSolidIcon, FormControl, COLOR, snackbarService, FloatingActionButton, SIZE } from 'lib';
+import { Color, FloatingActionButton, FormControl, HomeSolidIcon, SIZE, snackbarService } from 'lib';
+import { useEffect } from 'react';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
@@ -12,7 +12,7 @@ const FloatingActionButtonPageBase = ({
 		setSettingsControls({
 			color: new FormControl(settingValues.color, [], 'select', {
 				label: 'color',
-				options: Object.keys(COLOR).map((c: string) => ({ label: c, value: c })),
+				options: Object.keys(Color).map((c: string) => ({ label: c, value: c })),
 			}),
 			fixed: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'fixed' }),
 			disabled: new FormControl(settingValues.disabled, [], 'checkbox', { label: 'disabled' }),
@@ -46,7 +46,7 @@ const FloatingActionButtonPageBase = ({
 export const FloatingActionButtonPage: () => JSX.Element = withOptions<IFloatingActionButtonProps>(
 	FloatingActionButtonPageBase,
 	{
-		color: COLOR.primary,
+		color: Color.primary,
 		size: SIZE.lg,
 	},
 	'FloatingActionButtonPageBase'

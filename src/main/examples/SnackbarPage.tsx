@@ -1,5 +1,5 @@
 import type { ISnackbarProps } from 'lib';
-import { Button, COLOR, FormControl, loggerService, snackbarService } from 'lib';
+import { Button, Color, FormControl, loggerService, snackbarService } from 'lib';
 import React, { useEffect } from 'react';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
@@ -16,7 +16,7 @@ const SnackbarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 			timeout: new FormControl(settingValues.timeout, [], 'number', { label: 'timeout' }),
 			color: new FormControl(settingValues.color, [], 'select', {
 				label: 'color',
-				options: Object.keys(COLOR).map(c => ({ label: c, value: c })),
+				options: Object.keys(Color).map(c => ({ label: c, value: c })),
 			}),
 		});
 	}, []);
@@ -43,7 +43,7 @@ export const SnackbarPage: () => JSX.Element = withOptions<ISnackbarServiceProps
 	{
 		children: 'snackbar message',
 		actionText: 'ok',
-		color: COLOR.dark,
+		color: Color.dark,
 		timeout: 3000,
 	},
 	'SnackbarPageBase'

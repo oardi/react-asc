@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 import React from 'react';
-import { CheckSolidIcon, CircleSolidIcon } from '../../../icons';
+import { Color } from '../../../enums';
 import { useHover } from '../../../hooks';
-import { COLOR } from '../../component.enums';
+import { CheckSolidIcon, CircleSolidIcon } from '../../../icons';
 import { Icon } from '../../Icon';
 import { Typography } from '../../Typography';
 import styles from './Step.module.scss';
@@ -19,11 +19,10 @@ export interface IStepProps {
 	isOptional?: boolean;
 	className?: string;
 	showProgressCheckIcon?: boolean;
-	onClick?: (e: { event: React.MouseEvent, value: string }) => void;
+	onClick?: (e: { event: React.MouseEvent; value: string }) => void;
 }
 
 export const Step = (props: IStepProps): JSX.Element => {
-
 	const { className, label, showLabel, index, value, isActive, isDone, isDisabled, showProgressCheckIcon, onClick } = props;
 	const [hoverRef, isHovered] = useHover();
 
@@ -59,36 +58,26 @@ export const Step = (props: IStepProps): JSX.Element => {
 	};
 
 	return (
-		<div
-			ref={hoverRef as React.MutableRefObject<null>}
-			className={getCssClasses()}
-			onClick={handleClick}>
-
+		<div ref={hoverRef as React.MutableRefObject<null>} className={getCssClasses()} onClick={handleClick}>
 			<div className={getCssClassesStep()}>
 				<Icon
 					className={styles.stepIconCircle}
-					iconColor={(isHovered || isActive) && !isDisabled ? COLOR.primary : COLOR.secondary}>
+					iconColor={(isHovered || isActive) && !isDisabled ? Color.primary : Color.secondary}>
 					<CircleSolidIcon />
 				</Icon>
 
 				<div className={getCssClassesStepValue()}>
-					{showProgressCheckIcon && isActive && isDone ?
+					{showProgressCheckIcon && isActive && isDone ? (
 						<Icon>
 							<CheckSolidIcon />
 						</Icon>
-						:
-						<Typography>
-							{(index as number) + 1}
-						</Typography>
-					}
+					) : (
+						<Typography>{(index as number) + 1}</Typography>
+					)}
 				</div>
 			</div>
 
-			{label && showLabel &&
-				<Typography className="flex-shrink-0">
-					{label}
-				</Typography>
-			}
+			{label && showLabel && <Typography className="flex-shrink-0">{label}</Typography>}
 		</div>
 	);
 };

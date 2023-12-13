@@ -1,7 +1,7 @@
 import React from 'react';
-import { IconButton } from '../IconButton';
-import { VARIANT } from '../component.enums';
+import { VARIANT } from '../../enums';
 import { TimesSolidIcon } from '../../icons';
+import { IconButton } from '../IconButton';
 import styles from './ModalHeader.module.scss';
 
 interface IModalHeaderProps extends React.ComponentProps<'div'> {
@@ -11,7 +11,6 @@ interface IModalHeaderProps extends React.ComponentProps<'div'> {
 }
 
 export const ModalHeader = (props: IModalHeaderProps): JSX.Element => {
-
 	const { children, shadow, className, isDismissable = false, onClose, ...rest } = props;
 
 	const getCssClasses = (): string => {
@@ -28,17 +27,8 @@ export const ModalHeader = (props: IModalHeaderProps): JSX.Element => {
 
 	return (
 		<div className={getCssClasses()} {...rest}>
-			<h5 className={styles.modalTitle}>
-				{children}
-			</h5>
-			{
-				isDismissable &&
-				<IconButton
-					icon={<TimesSolidIcon />}
-					variant={VARIANT.text}
-					onClick={handleClick}
-				/>
-			}
+			<h5 className={styles.modalTitle}>{children}</h5>
+			{isDismissable && <IconButton icon={<TimesSolidIcon />} variant={VARIANT.text} onClick={handleClick} />}
 		</div>
 	);
 };

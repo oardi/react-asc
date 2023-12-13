@@ -1,16 +1,16 @@
-import type { PropsWithChildren, ReactElement} from 'react';
+import type { PropsWithChildren, ReactElement } from 'react';
 import React, { useEffect, useRef, useState } from 'react';
+import { Color } from '../../enums';
 import { ButtonContext } from '../Button';
-import { COLOR } from '../component.enums';
 import type { ITabProps } from './Tab';
-import type { ITabsContext} from './TabContext';
+import type { ITabsContext } from './TabContext';
 import { TabContext } from './TabContext';
 import { TabIndicator } from './TabIndicator';
 import styles from './Tabs.module.scss';
 
 export interface ITabsProps {
-	color?: COLOR;
-	indicatorColor?: COLOR;
+	color?: Color;
+	indicatorColor?: Color;
 	children?: ReactElement<ITabProps> | ReactElement<ITabProps>[];
 	className?: string;
 	fixed?: boolean;
@@ -19,17 +19,16 @@ export interface ITabsProps {
 }
 
 export const Tabs = (props: ITabsProps): JSX.Element => {
-
-	const { children, className, fixed = false, color, indicatorColor = COLOR.accent, value, onChange } = props;
+	const { children, className, fixed = false, color, indicatorColor = Color.accent, value, onChange } = props;
 
 	const [selectedValue, setSelectedValue] = useState<string>('');
 	const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
-	const tabContext: ITabsContext = ({
+	const tabContext: ITabsContext = {
 		selectedValue: selectedValue,
 		setSelectedValue: setSelectedValue,
-		fixed: fixed
-	});
+		fixed: fixed,
+	};
 
 	const prevSelectedValueRef: React.MutableRefObject<string | undefined> = useRef<string>();
 	useEffect(() => {
@@ -58,19 +57,19 @@ export const Tabs = (props: ITabsProps): JSX.Element => {
 	};
 
 	return (
-		<ButtonContext.Provider value={{ color: color || COLOR.light }}>
+		<ButtonContext.Provider value={{ color: color || Color.light }}>
 			<TabContext.Provider value={tabContext}>
 				<div className={getCssClasses()}>
 					{children}
 
-					{children &&
+					{children && (
 						<TabIndicator
 							color={indicatorColor}
-							width={(100 / React.Children.toArray(children).length) + '%'}
+							width={100 / React.Children.toArray(children).length + '%'}
 							index={selectedIndex}
 							amount={React.Children.toArray(children).length}
 						/>
-					}
+					)}
 				</div>
 			</TabContext.Provider>
 		</ButtonContext.Provider>

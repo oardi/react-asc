@@ -1,7 +1,6 @@
-import React from 'react';
+import { Color, VARIANT } from '../../../enums';
 import { CheckSolidIcon, ChevronLeftSolidIcon, ChevronRightSolidIcon } from '../../../icons';
 import { Button } from '../../Button';
-import { COLOR, VARIANT } from '../../component.enums';
 import styles from './StepperActions.module.scss';
 
 export interface IStepperActionsProps {
@@ -18,19 +17,7 @@ export interface IStepperActionsProps {
 }
 
 export const StepperActions = (props: IStepperActionsProps): JSX.Element => {
-
-	const {
-		className,
-		showDoneButton,
-		showResetButton,
-		isCompleted,
-		isFirstStep,
-		isStepOptional,
-		onBack,
-		onSkip,
-		onNext,
-		onReset
-	} = props;
+	const { className, showDoneButton, showResetButton, isCompleted, isFirstStep, isStepOptional, onBack, onSkip, onNext, onReset } = props;
 
 	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
@@ -41,63 +28,50 @@ export const StepperActions = (props: IStepperActionsProps): JSX.Element => {
 
 	return (
 		<div className={getCssClasses()}>
-
-			{!isFirstStep &&
+			{!isFirstStep && (
 				<Button
 					className="mr-2"
 					variant={VARIANT.outline}
 					startIcon={<ChevronLeftSolidIcon />}
-					onClick={(): void => onBack && onBack()}
-				>
+					onClick={(): void => onBack && onBack()}>
 					Back
 				</Button>
-			}
+			)}
 
 			<div className="ml-auto">
 				{isCompleted && showResetButton && (
-					<Button
-						color={COLOR.secondary}
-						variant={VARIANT.text}
-						onClick={(): void => onReset && onReset()}
-					>
+					<Button color={Color.secondary} variant={VARIANT.text} onClick={(): void => onReset && onReset()}>
 						Reset
 					</Button>
 				)}
 
 				{isStepOptional && (
-					<Button
-						variant={VARIANT.contained}
-						color={COLOR.primary}
-						onClick={(): void => onSkip && onSkip()}
-					>
+					<Button variant={VARIANT.contained} color={Color.primary} onClick={(): void => onSkip && onSkip()}>
 						Skip
 					</Button>
 				)}
 
-				{!isCompleted &&
+				{!isCompleted && (
 					<Button
-						className='ml-2'
+						className="ml-2"
 						variant={VARIANT.contained}
-						color={COLOR.primary}
+						color={Color.primary}
 						endIcon={<ChevronRightSolidIcon />}
-						onClick={(): void => onNext && onNext()}
-					>
+						onClick={(): void => onNext && onNext()}>
 						Next
 					</Button>
-				}
+				)}
 
-				{isCompleted && showDoneButton &&
+				{isCompleted && showDoneButton && (
 					<Button
-						className='ml-2'
+						className="ml-2"
 						variant={VARIANT.contained}
-						color={COLOR.primary}
+						color={Color.primary}
 						startIcon={<CheckSolidIcon />}
-						onClick={(): void => onNext && onNext()}
-					>
+						onClick={(): void => onNext && onNext()}>
 						Done
 					</Button>
-				}
-
+				)}
 			</div>
 		</div>
 	);
