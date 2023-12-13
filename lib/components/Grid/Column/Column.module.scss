@@ -1,3 +1,9 @@
+// @media (max-width: 575.98px) {
+// 	.column {
+// 		flex: 1;
+// 	}
+// }
+
 .column {
 	flex: 1 0 0%;
 }
@@ -40,10 +46,4 @@
 
 .column-100 {
 	flex: 0 0 100%;
-}
-
-@media (max-width: 575.98px) {
-	.column {
-		flex: 1;
-	}
 }

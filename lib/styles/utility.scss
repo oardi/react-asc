@@ -74,11 +74,12 @@
 	font-weight: 700 !important;
 }
 
-@media (max-width: 576px) {
-	.flex-row {
-		flex-direction: column !important;
-	}
-}
+// @media (max-width: 320px) {
+// 	.flex-row {
+// 		flex-direction: column !important;
+// 	}
+// }
+
 @media (min-width: 768px) {
 	.justify-content-md-center {
 		justify-content: center !important;
