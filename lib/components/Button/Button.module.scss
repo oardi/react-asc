@@ -144,6 +144,24 @@
 		}
 	}
 
+	&.success {
+		color: var(--success);
+
+		&:hover:not(:disabled) {
+			text-decoration: none;
+			background: var(--success-highlight);
+		}
+	}
+
+	&.error {
+		color: var(--error);
+
+		&:hover:not(:disabled) {
+			text-decoration: none;
+			background: var(--error-highlight);
+		}
+	}
+
 	&.light {
 		color: var(--light-contrast-text);
 
@@ -191,6 +209,24 @@
 
 		&:hover:not(:disabled) {
 			background: var(--accent-highlight);
+		}
+	}
+
+	&.success {
+		color: var(--success);
+		border-color: var(--success);
+
+		&:hover:not(:disabled) {
+			background: var(--success-highlight);
+		}
+	}
+
+	&.error {
+		color: var(--error);
+		border-color: var(--error);
+
+		&:hover:not(:disabled) {
+			background: var(--error-highlight);
 		}
 	}
 

@@ -10,3 +10,9 @@
 		max-width: 100%;
 	}
 }
+
+@media (max-width: 380px) {
+	.row {
+		flex-direction: column;
+	}
+}
