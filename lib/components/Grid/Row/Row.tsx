@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ScreenSize } from '../../../enums';
 import { useScreenSizeDetect } from '../../../hooks';
+import type { Nullable } from '../../../types';
 import styles from './Row.module.scss';
 
 export type TRowDirection = 'row' | 'column';
@@ -9,18 +10,27 @@ export interface IContainerProps extends React.ComponentProps<'div'> {
 	direction?: TRowDirection;
 }
 
-export const Row = ({ children, direction = 'row', className, ...rest }: IContainerProps): JSX.Element => {
-	const [_direction, setDirection] = useState<string>(direction);
+export const Row = ({ children, direction, className, ...rest }: IContainerProps): JSX.Element => {
+	const [_direction, setDirection] = useState<Nullable<string>>(direction);
 	const { screenSize } = useScreenSizeDetect();
+
 	useEffect(() => {
-		setDirection(screenSize === ScreenSize.xs ? 'column' : 'row');
-	}, [screenSize]);
+		setDirection(direction);
+	}, [direction]);
 
 	const getCssClasses = (): string => {
 		const cssClasses: string[] = [];
 		cssClasses.push(styles.row);
 		className && cssClasses.push(className);
-		direction && cssClasses.push(`flex-${_direction}`);
+
+		if (_direction) {
+			cssClasses.push(`flex-${_direction}`);
+		} else if (screenSize === ScreenSize.xs || screenSize === ScreenSize.sm) {
+			cssClasses.push(`flex-column`);
+		} else {
+			cssClasses.push(`flex-row`);
+		}
+
 		return cssClasses.filter(css => css).join(' ');
 	};
 

@@ -15,7 +15,7 @@ const GridPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 	}, []);
 
 	return (
-		<Row direction={settingValues.direction}>
+		<Row>
 			<Column size={20}>col 20%</Column>
 			<Column>col auto width</Column>
 			<Column>col auto width</Column>

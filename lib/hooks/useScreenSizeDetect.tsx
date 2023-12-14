@@ -3,9 +3,19 @@ import { ScreenSize } from '../enums';
 import type { IUseWindowSize } from './useWindowSize';
 import { useWindowSize } from './useWindowSize';
 
-export function useScreenSizeDetect(): { screenSize: ScreenSize } {
-	const [screenSize, setScreenSize] = useState<ScreenSize>(ScreenSize.md);
+export interface IUseScreenSizeDetect {
+	screenSize: ScreenSize;
+	isMobile?: boolean;
+	isTablet?: boolean;
+	isSmallScreen?: boolean;
+	isDesktop?: boolean;
+	isExtraLargeScreen?: boolean;
+}
+
+export function useScreenSizeDetect(): IUseScreenSizeDetect {
 	const windowSize: IUseWindowSize = useWindowSize();
+
+	const [screenSize, setScreenSize] = useState<ScreenSize>(ScreenSize.md);
 
 	const checkScreenSize = (height: number, width: number): void => {
 		if (height > 0 && width > 0) {
@@ -31,5 +41,12 @@ export function useScreenSizeDetect(): { screenSize: ScreenSize } {
 		windowSize && checkScreenSize(windowSize.height, windowSize.width);
 	}, [windowSize]);
 
-	return { screenSize: screenSize };
+	return {
+		screenSize: screenSize,
+		isMobile: screenSize === ScreenSize.xs,
+		isTablet: screenSize === ScreenSize.sm,
+		isSmallScreen: screenSize === ScreenSize.md,
+		isDesktop: screenSize === ScreenSize.lg,
+		isExtraLargeScreen: screenSize === ScreenSize.xxl,
+	};
 }

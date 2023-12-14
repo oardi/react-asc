@@ -27,7 +27,7 @@ export const HomePage = (): JSX.Element => {
 				</Button>
 			</div>
 
-			<Row direction="row" className="mt-3">
+			<Row className="mt-3">
 				<Column>
 					<Card className="h-100">
 						<CardBody>
