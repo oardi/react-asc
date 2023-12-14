@@ -1,3 +1,7 @@
+### 25.16.0
+- refactored row component
+- added screenSize
+
 ### 25.15.0
 - breaking change in Enum naming
 - added size to columns 10 to 100%

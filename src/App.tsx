@@ -1,5 +1,5 @@
 import type { ISidebarItem } from 'lib';
-import { AppBar, AppBarTitle, Color, Drawer, IconButton, loggerService, useMobileDetect } from 'lib';
+import { AppBar, AppBarTitle, Color, Drawer, IconButton, ScreenSize, loggerService, useMobileDetect, useScreenSizeDetect } from 'lib';
 import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useAppContext } from './AppContext';
@@ -17,6 +17,7 @@ const App = (): JSX.Element => {
 
 	const [appState, setAppState] = useState(APPSTATE.init);
 	const [showMenu, setShowMenu] = useState<boolean>(false);
+	const { screenSize } = useScreenSizeDetect();
 	const { isMobile } = useMobileDetect();
 	const [routes, setRoutes] = useState<RouteModel[]>([]);
 	const [sidebarItems, setSidebarItems] = useState<ISidebarItem[]>([]);
@@ -27,9 +28,9 @@ const App = (): JSX.Element => {
 
 	useEffect(() => {
 		if (appState === APPSTATE.ready) {
-			setShowMenu(!isMobile);
+			setShowMenu(screenSize !== ScreenSize.xs && screenSize !== ScreenSize.sm);
 		}
-	}, [isMobile, appState]);
+	}, [screenSize, appState]);
 
 	const init = (): void => {
 		loggerService.debug(CLASSNAME, 'init');
@@ -57,7 +58,9 @@ const App = (): JSX.Element => {
 
 			<div className="main">
 				{showMenu && (
-					<Drawer permanent={!isMobile} onClickBackdrop={(): void => setShowMenu(false)}>
+					<Drawer
+						permanent={screenSize !== ScreenSize.xs && screenSize !== ScreenSize.sm}
+						onClickBackdrop={(): void => setShowMenu(false)}>
 						<AppSidebar menuItems={sidebarItems} onItemClicked={(): false | void => isMobile && setShowMenu(false)} />
 					</Drawer>
 				)}

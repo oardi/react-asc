@@ -5,4 +5,5 @@ export * from './useHover';
 export * from './useMobileDetect';
 export * from './useOnDestroy';
 export * from './usePrevious';
+export * from './useScreenSizeDetect';
 export * from './useWindowSize';
