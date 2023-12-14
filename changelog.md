@@ -1,7 +1,9 @@
-### 25.16.0
-- refactored row component
+### 25.17.0
 - added useScreenSize hook
 - fixed showing side drawer on smaller screens
+
+### 25.16.0
+- refactored row component
 
 ### 25.15.0
 - breaking change in Enum naming
