@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { Button, Card, CardBody, CssTransition } from 'lib';
+import { useState } from 'react';
 import { withOptions } from './components';
 
 export const CssTransitionPageBase = (): JSX.Element => {

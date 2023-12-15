@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import type { ISelectOption } from '../component.interfaces';
+import { useEffect, useState } from 'react';
 import { Select } from '../Select';
+import type { ISelectOption } from '../component.interfaces';
 
 export interface IMilliSecondProps {
 	className?: string;
@@ -13,7 +13,6 @@ export interface IMilliSecondProps {
 }
 
 export const MilliSecondSelect = (props: IMilliSecondProps): JSX.Element => {
-
 	const { className, value = 0, steps = 100, id, name, disabled, onChange } = props;
 	const [newValue, setNewValue] = useState<number>(value);
 	const [milliSecondOptions, setMilliSecondOptions] = useState<ISelectOption[]>();

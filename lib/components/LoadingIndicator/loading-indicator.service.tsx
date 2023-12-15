@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Root } from 'react-dom/client';
 import { createRoot } from 'react-dom/client';
 import { LoadingIndicator } from './LoadingIndicator';
@@ -27,7 +26,6 @@ class LoadingIndicatorService implements ILoadingIndicatorService {
 				<LoadingIndicator />
 			</LoadingIndicatorContainer>
 		);
-
 	}
 
 	hide(): void {

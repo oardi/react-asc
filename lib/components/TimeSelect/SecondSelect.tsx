@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import type { ISelectOption } from '../component.interfaces';
+import { useEffect, useState } from 'react';
 import { Select } from '../Select';
+import type { ISelectOption } from '../component.interfaces';
 export interface ISecondProps {
 	value?: number;
 	className?: string;
@@ -11,7 +11,6 @@ export interface ISecondProps {
 }
 
 export const SecondSelect = (props: ISecondProps): JSX.Element => {
-
 	const { className, value = 0, id, name, disabled, onChange } = props;
 	const [newValue, setNewValue] = useState<number>(value);
 	const [secondOptions, setSecondOptions] = useState<ISelectOption[]>();

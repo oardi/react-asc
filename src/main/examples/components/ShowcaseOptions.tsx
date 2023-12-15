@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
 import type { IControls } from 'lib';
+import { Fragment } from 'react';
 import { ShowcaseSettings } from './ShowcaseSettings';
 
 interface IShowcaseOptionsProps {
@@ -10,10 +10,7 @@ interface IShowcaseOptionsProps {
 export const ShowcaseOptions = ({ controls, onFormChange }: IShowcaseOptionsProps): JSX.Element => {
 	return (
 		<Fragment>
-			<ShowcaseSettings
-				controls={controls}
-				onFormChange={onFormChange}
-			/>
+			<ShowcaseSettings controls={controls} onFormChange={onFormChange} />
 		</Fragment>
 	);
 };

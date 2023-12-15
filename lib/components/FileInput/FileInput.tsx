@@ -7,7 +7,6 @@ export interface IFileInputProps extends React.DetailedHTMLProps<React.InputHTML
 }
 
 export const FileInput = (props: IFileInputProps): JSX.Element => {
-
 	const {
 		id,
 		className,
@@ -25,7 +24,7 @@ export const FileInput = (props: IFileInputProps): JSX.Element => {
 	const inputFileElement: React.RefObject<HTMLInputElement> = useRef<HTMLInputElement>(null);
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const [model, setModel] = useState(value);
+	const [model] = useState(value);
 	const [fileList, setFileList] = useState<FileList>();
 
 	const getCssClasses = (): string => {
@@ -46,24 +45,17 @@ export const FileInput = (props: IFileInputProps): JSX.Element => {
 
 	return (
 		<div className="d-flex align-items-start">
-			<Button
-				className="flex-wrap"
-				disabled={disabled}
-				onClick={(): void => inputFileElement.current?.click()}
-			>
+			<Button className="flex-wrap" disabled={disabled} onClick={(): void => inputFileElement.current?.click()}>
 				{children}
 			</Button>
 
 			<div className="d-flex align-items-center flex-wrap ml-1">
-				{fileList && Array.from(fileList).map((file) =>
-					<Chip
-						key={file.name}
-						isDeletable={deletable}
-						onDelete={(): void => handleOnDelete()}
-					>
-						{file.name}
-					</Chip>
-				)}
+				{fileList &&
+					Array.from(fileList).map(file => (
+						<Chip key={file.name} isDeletable={deletable} onDelete={(): void => handleOnDelete()}>
+							{file.name}
+						</Chip>
+					))}
 			</div>
 
 			<input

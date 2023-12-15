@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
 import type { IBackdropProps } from 'lib';
-import { FormControl, Button, Backdrop } from 'lib';
+import { Backdrop, Button, FormControl } from 'lib';
+import { useEffect, useState } from 'react';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 

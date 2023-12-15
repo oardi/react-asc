@@ -15,6 +15,8 @@ const MenuPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 				options: [
 					{ value: 'left', label: 'left' },
 					{ value: 'right', label: 'right' },
+					{ value: 'bottom', label: 'bottom' },
+					{ value: 'top', label: 'top' },
 				],
 			}),
 		});

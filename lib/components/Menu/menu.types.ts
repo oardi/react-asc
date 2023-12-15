@@ -1,1 +1,1 @@
-export type MenuPosition = 'right' | 'left';
+export type MenuPosition = 'right' | 'left' | 'bottom' | 'top';

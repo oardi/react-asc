@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import type { ISelectOption } from '../component.interfaces';
+import { useEffect, useState } from 'react';
 import { Select } from '../Select';
+import type { ISelectOption } from '../component.interfaces';
 
 export interface INumberSelectProps {
 	value?: number;
@@ -14,7 +14,6 @@ export interface INumberSelectProps {
 }
 
 export const NumberSelect = (props: INumberSelectProps): JSX.Element => {
-
 	const { className, value = 0, from = 0, to = 100, id, name, disabled = false, onChange } = props;
 
 	const [newValue, setNewValue] = useState<number>(0);

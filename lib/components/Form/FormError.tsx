@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
-import type { IFormInputError } from './form.interfaces';
+import { Fragment } from 'react';
 import styles from './FormError.module.scss';
+import type { IFormInputError } from './form.interfaces';
 
 interface IFormErrorProps {
 	className?: string;
@@ -8,17 +8,17 @@ interface IFormErrorProps {
 }
 
 export const FormError = (props: IFormErrorProps): JSX.Element => {
-
 	const { className = styles.isInvalid, errors = [] } = props;
 
 	return (
 		<Fragment>
-			{
-				errors &&
+			{errors && (
 				<div className={className}>
-					{errors.map(e => <div key={e.validator}>{e.message}</div>)}
+					{errors.map(e => (
+						<div key={e.validator}>{e.message}</div>
+					))}
 				</div>
-			}
+			)}
 		</Fragment>
 	);
 };

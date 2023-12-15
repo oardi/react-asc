@@ -1,8 +1,8 @@
-import type { ReactElement} from 'react';
+import type { ReactElement } from 'react';
 import React, { useRef } from 'react';
-import type { MenuPosition } from './menu.types';
-import { MenuBody } from './MenuBody';
 import type { IListItemProps } from '../List';
+import { MenuBody } from './MenuBody';
+import type { MenuPosition } from './menu.types';
 
 export interface IMenuProps extends React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	toggle?: ReactElement;
@@ -13,7 +13,6 @@ export interface IMenuProps extends React.DetailedHTMLProps<React.HtmlHTMLAttrib
 }
 
 export const Menu = (props: IMenuProps): JSX.Element => {
-
 	const { toggle, children, className, open, menuPosition, onClickBackdrop, ...rest } = props;
 
 	const menuContainer: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
@@ -31,20 +30,15 @@ export const Menu = (props: IMenuProps): JSX.Element => {
 
 	return (
 		<div ref={menuContainer} className={getCssClasses()} {...rest}>
-
-			<div ref={toggleContainerRef}>
+			<div className="d-inline" ref={toggleContainerRef}>
 				{toggle}
 			</div>
 
-			{open &&
-				<MenuBody
-					parentRef={toggleContainerRef}
-					menuPosition={menuPosition}
-					onClickBackdrop={handleClickBackdrop}
-				>
+			{open && (
+				<MenuBody parentRef={toggleContainerRef} menuPosition={menuPosition} onClickBackdrop={handleClickBackdrop}>
 					{children}
 				</MenuBody>
-			}
+			)}
 		</div>
 	);
 };

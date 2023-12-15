@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card, CardBody, CardText, CardTitle } from 'lib';
 
 export const ShowcaseApiOptions = (): JSX.Element => {
@@ -27,7 +26,6 @@ export const ShowcaseApiOptions = (): JSX.Element => {
 							</tbody>
 						</table>
 					</div> */}
-
 					TODO
 				</CardText>
 			</CardBody>

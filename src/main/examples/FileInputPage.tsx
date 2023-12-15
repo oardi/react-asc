@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
 import type { IFileInputProps } from 'lib';
 import { FileInput, FormControl, snackbarService } from 'lib';
+import { useEffect } from 'react';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 

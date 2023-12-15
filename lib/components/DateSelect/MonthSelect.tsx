@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import type { ISelectOption } from '../component.interfaces';
+import { useEffect, useState } from 'react';
 import { Select } from '../Select';
+import type { ISelectOption } from '../component.interfaces';
 
 export interface IMonthProps {
 	value?: number;
@@ -12,8 +12,20 @@ export interface IMonthProps {
 }
 
 export const MonthSelect = (props: IMonthProps): JSX.Element => {
-
-	const months: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	const months: string[] = [
+		'January',
+		'February',
+		'March',
+		'April',
+		'May',
+		'June',
+		'July',
+		'August',
+		'September',
+		'October',
+		'November',
+		'December',
+	];
 
 	const { className, value = new Date().getMonth(), id, name, disabled, onChange } = props;
 	const [newValue, setNewValue] = useState<number>(value);

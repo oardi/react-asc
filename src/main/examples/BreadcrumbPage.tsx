@@ -1,4 +1,3 @@
-import React from 'react';
 import { Breadcrumb, BreadcrumbItem } from 'lib';
 import { withOptions } from './components';
 

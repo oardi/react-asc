@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
 import type { IAutoCompleteProps, ISelectOption } from 'lib';
 import { AutoComplete, FormControl, snackbarService } from 'lib';
+import { useEffect, useState } from 'react';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 

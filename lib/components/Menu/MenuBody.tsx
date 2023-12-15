@@ -1,15 +1,14 @@
-import type { ReactElement} from 'react';
-import { useState } from 'react';
-import React, { useEffect, useRef } from 'react';
-import { Backdrop } from '../Backdrop';
-import type { MenuPosition } from './menu.types';
 import type { Instance } from '@popperjs/core';
 import { createPopper } from '@popperjs/core';
-import styles from './MenuBody.module.scss';
-import { Portal } from '../Portal';
+import type { ReactElement } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useOnDestroy } from '../../hooks';
+import { Backdrop } from '../Backdrop';
 import type { IListItemProps } from '../List';
 import { List } from '../List';
-import { useOnDestroy } from '../../hooks';
+import { Portal } from '../Portal';
+import styles from './MenuBody.module.scss';
+import type { MenuPosition } from './menu.types';
 
 export interface IMenuBodyProps {
 	children?: ReactElement<IListItemProps> | ReactElement<IListItemProps>[];
@@ -21,7 +20,6 @@ export interface IMenuBodyProps {
 }
 
 export const MenuBody = (props: IMenuBodyProps): JSX.Element => {
-
 	const { parentRef, children, className, shadow = true, menuPosition = 'left', onClickBackdrop } = props;
 	const [popperInstance, setPopperInstance] = useState<Instance>();
 	const menuBodyRef: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
@@ -45,9 +43,8 @@ export const MenuBody = (props: IMenuBodyProps): JSX.Element => {
 								return [];
 							},
 						},
-
 					},
-				]
+				],
 			});
 			setPopperInstance(popperInstance);
 		} else {
@@ -72,20 +69,12 @@ export const MenuBody = (props: IMenuBodyProps): JSX.Element => {
 	});
 
 	return (
-		<Portal className='menu-root'>
-			<div
-				ref={menuBodyRef}
-				className={getCssClasses()}
-			>
-				<List>
-					{children}
-				</List>
+		<Portal className="menu-root">
+			<div ref={menuBodyRef} className={getCssClasses()}>
+				<List>{children}</List>
 			</div>
 
-			<Backdrop
-				isTransparent
-				onClick={handleClickBackdrop}
-			/>
+			<Backdrop isTransparent onClick={handleClickBackdrop} />
 		</Portal>
 	);
 };

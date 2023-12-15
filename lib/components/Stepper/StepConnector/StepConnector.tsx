@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './StepConnector.module.scss';
 
 export interface IStepConnectorProps {
@@ -7,7 +6,6 @@ export interface IStepConnectorProps {
 }
 
 export const StepConnector = (props: IStepConnectorProps): JSX.Element => {
-
 	const { isActive, isHorizontal = true } = props;
 
 	const getCssClassesConnector = (): string => {

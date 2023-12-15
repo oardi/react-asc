@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
-import { Row, Column } from '../Grid';
+import { useState } from 'react';
 import { FormLabel } from '../Form';
+import { Column, Row } from '../Grid';
 import { HourSelect } from './HourSelect';
 import { MilliSecondSelect } from './MilliSecondSelect';
 import { MinuteSelect } from './MinuteSelect';
 import { SecondSelect } from './SecondSelect';
 
-export enum TIMEMODE { HOUR, MINUTE, SECONDS, MILLISECONDS }
+export enum TIMEMODE {
+	HOUR,
+	MINUTE,
+	SECONDS,
+	MILLISECONDS,
+}
 
 export interface ITimeSelectProps {
 	value?: Date;
@@ -22,7 +27,6 @@ export interface ITimeSelectProps {
 }
 
 export const TimeSelect = (props: ITimeSelectProps): JSX.Element => {
-
 	const {
 		className,
 		value = new Date(),
@@ -31,7 +35,7 @@ export const TimeSelect = (props: ITimeSelectProps): JSX.Element => {
 		showMinutes = true,
 		showSeconds = false,
 		showMilliSeconds = false,
-		onChange
+		onChange,
 	} = props;
 
 	const [currDate, setCurrDate] = useState<Date>(value);
@@ -61,7 +65,7 @@ export const TimeSelect = (props: ITimeSelectProps): JSX.Element => {
 
 	return (
 		<Row className={getCssClasses()}>
-			{showHours &&
+			{showHours && (
 				<Column>
 					<FormLabel>Hours</FormLabel>
 					<HourSelect
@@ -70,9 +74,9 @@ export const TimeSelect = (props: ITimeSelectProps): JSX.Element => {
 						onChange={(e: number): void => handleOnChange(e, TIMEMODE.HOUR)}
 					/>
 				</Column>
-			}
+			)}
 
-			{showMinutes &&
+			{showMinutes && (
 				<Column>
 					<FormLabel>Minutes</FormLabel>
 					<MinuteSelect
@@ -81,9 +85,9 @@ export const TimeSelect = (props: ITimeSelectProps): JSX.Element => {
 						onChange={(e: number): void => handleOnChange(e, TIMEMODE.MINUTE)}
 					/>
 				</Column>
-			}
+			)}
 
-			{showSeconds &&
+			{showSeconds && (
 				<Column>
 					<FormLabel>Seconds</FormLabel>
 					<SecondSelect
@@ -92,9 +96,9 @@ export const TimeSelect = (props: ITimeSelectProps): JSX.Element => {
 						onChange={(e: number): void => handleOnChange(e, TIMEMODE.SECONDS)}
 					/>
 				</Column>
-			}
+			)}
 
-			{showMilliSeconds &&
+			{showMilliSeconds && (
 				<Column>
 					<FormLabel>Milliseconds</FormLabel>
 					<MilliSecondSelect
@@ -103,7 +107,7 @@ export const TimeSelect = (props: ITimeSelectProps): JSX.Element => {
 						onChange={(e: number): void => handleOnChange(e, TIMEMODE.MILLISECONDS)}
 					/>
 				</Column>
-			}
+			)}
 		</Row>
 	);
 };

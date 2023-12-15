@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
 import type { IDateSelectProps } from 'lib';
 import { DateSelect } from 'lib';
+import { useEffect } from 'react';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 

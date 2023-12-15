@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import type { ISelectOption } from '../component.interfaces';
+import { useEffect, useState } from 'react';
 import { Select } from '../Select';
+import type { ISelectOption } from '../component.interfaces';
 
 export interface IDaySelectProps {
 	day?: number;
@@ -14,7 +14,6 @@ export interface IDaySelectProps {
 }
 
 export const DaySelect = (props: IDaySelectProps): JSX.Element => {
-
 	const {
 		className,
 		day = new Date().getDate(),
@@ -23,7 +22,7 @@ export const DaySelect = (props: IDaySelectProps): JSX.Element => {
 		disabled,
 		id,
 		name,
-		onChange
+		onChange,
 	} = props;
 
 	useEffect(() => {

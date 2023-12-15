@@ -1,3 +1,9 @@
+### 25.18.0
+- added compilerOption no-unused-locals
+- formatting & cleanup
+- added menu position top and bottom
+- edited showcase options for menu
+
 ### 25.17.2
 - fixed row responsive behavior
 

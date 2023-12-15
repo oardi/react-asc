@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react';
-import React from 'react';
 import styles from './ExpansionPanelContent.module.scss';
 
 export interface IExpansionPanelContentProps {
@@ -7,9 +6,5 @@ export interface IExpansionPanelContentProps {
 }
 
 export const ExpansionPanelContent = ({ children }: IExpansionPanelContentProps): JSX.Element => {
-	return (
-		<div className={styles.expansionPanelContent}>
-			{children}
-		</div>
-	);
+	return <div className={styles.expansionPanelContent}>{children}</div>;
 };
