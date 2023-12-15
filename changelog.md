@@ -1,3 +1,6 @@
+### 25.17.2
+- fixed row responsive behavior
+
 ### 25.17.1
 - showcase and documentation fixes
 
