@@ -1,3 +1,6 @@
+### 25.17.1
+- showcase and documentation fixes
+
 ### 25.17.0
 - added useScreenSize hook
 - fixed showing side drawer on smaller screens

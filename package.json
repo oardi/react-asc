@@ -1,6 +1,6 @@
 {
 	"name": "react-asc",
-	"version": "25.17.0",
+	"version": "25.17.1",
 	"description": "handcrafted react components",
 	"main": "dist/index.js",
 	"module": "dist/index.es.js",
