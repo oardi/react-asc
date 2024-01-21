@@ -1,3 +1,6 @@
+### 25.18.1
+- fixed min max validator
+
 ### 25.18.0
 - added compilerOption no-unused-locals
 - formatting & cleanup
