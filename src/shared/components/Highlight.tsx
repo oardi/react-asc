@@ -48,15 +48,13 @@ export const Highlight = ({ url, text, language = 'javascript' }: IHighlightProp
 	};
 
 	return (
-		<>
-			<pre style={{ margin: '0' }}>
-				{url && <code className={`language-${language}`}>{url && highlightedText}</code>}
-				{text && (
-					<code className={`language-${language}`} dangerouslySetInnerHTML={{ __html: highlightedText }}>
-						{url && highlightedText}
-					</code>
-				)}
-			</pre>
-		</>
+		<pre style={{ margin: '0' }}>
+			{url && <code className={`language-${language}`}>{url && highlightedText}</code>}
+			{text && (
+				<code className={`language-${language}`} dangerouslySetInnerHTML={{ __html: highlightedText }}>
+					{url && highlightedText}
+				</code>
+			)}
+		</pre>
 	);
 };
