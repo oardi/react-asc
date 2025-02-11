@@ -9,7 +9,7 @@ export interface ILoadingIndicatorService {
 
 class LoadingIndicatorService implements ILoadingIndicatorService {
 	private container: HTMLDivElement | undefined;
-	private handler: NodeJS.Timer | undefined;
+	private handler: number | undefined;
 	private root: Root | undefined;
 
 	show(): void {
@@ -33,7 +33,9 @@ class LoadingIndicatorService implements ILoadingIndicatorService {
 			this.root?.unmount();
 			document.body.removeChild(this.container);
 			this.container = undefined;
-			this.handler && clearTimeout(this.handler);
+			if (this.handler) {
+				clearTimeout(this.handler);
+			}
 		}
 	}
 }

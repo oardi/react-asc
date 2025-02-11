@@ -1,6 +1,6 @@
 ### hooks
-- usePageScreenSize?
--> get current PageSize in sm, md, lg, xxl
+- usePageScreenSize
+	- get current PageSize in sm, md, lg, xxl
 
 ### CssTransitipon
 
@@ -20,7 +20,7 @@
 
 ### ListItemAction
 
--   color prüfen
+-   check color
 
 ### select
 
@@ -33,60 +33,18 @@
 
 ### autocomplete
 
--   start to filter on X chars?
--   highlight filter?
+-   start to filter on X chars
+-   highlight filter
 -   check in form
-
-### Tests
-
--   AppBar
--   Backdrop
--   Badge
--   Breadcrumb
--   Button
--   ButtonGroup
--   Card
--   Checkbox
--   Chip
--   ConditionalWrapper
--   DateSelect
--   Drawer
--   DropDown
--   ExpansionPanel
--   FileInput
--   FloatingActionButton
--   Form
--   Grid
--   Icon
--   IconButton
--   Link
--   List
--   LoadingIndicator
--   Modal
--   NumberSelect
--   Portal
--   Select
--   Sidebar
--   Skeleton
--   Snackbar
--   SpeedDial
--   Stepper
--   Table
--   Tabs
--   Textarea
--   TimeSelect
--   Tooltip
--   TreeView
--   Typography
 
 ### stepper
 
--   set selected with SET
+-   set selected with step
 
 ### radio
 
 -   add component
--   add to form
+-   include to form
 
 ### form
 
@@ -97,7 +55,6 @@
 -   select - add "choose" only if needed with config?
 -   handle date and time
 -   add generic interface for controly keys -> IControls<T>
--   add match validator (i.e. password) + error message
 -   password autocomplete
 -   prepend, append inputGroup
 
@@ -109,7 +66,6 @@
 
 -   css vars
 -   theme provider
--   css modules?
 
 ## Components
 

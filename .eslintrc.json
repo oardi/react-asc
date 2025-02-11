@@ -3,7 +3,7 @@
 	"ignorePatterns": ["node_modules"],
 	"overrides": [
 		{
-			"files": ["*.ts", "*.tsx"],
+			"files": ["*.ts", "*.tsx", "*.js", "*.mjs"],
 			"excludedFiles": "*.test.js",
 			"parserOptions": {
 				"ecmaVersion": "latest",
