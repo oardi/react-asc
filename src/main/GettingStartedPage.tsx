@@ -18,8 +18,8 @@ export const GettingStartedPage = (): JSX.Element => {
 			</Typography>
 			<Highlight
 				text={`
-				@import "modern-normalize";
-				@import "react-asc/react-asc.scss";`}
+				@use "modern-normalize";
+				@use "react-asc/react-asc.scss";`}
 			/>
 
 			<Typography as="h3" className="mt-3">

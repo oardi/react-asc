@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/typedef */
 import json from '@rollup/plugin-json';
 import commonjs from 'rollup-plugin-commonjs';
 import dts from 'rollup-plugin-dts';
@@ -6,7 +5,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import external from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import typescript from 'rollup-plugin-typescript2';
-import pkg from './package.json' assert { type: 'json' };
+import pkg from './package.json' with { type: 'json' };
 
 export default [
 	{

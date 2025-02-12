@@ -24,8 +24,8 @@ react-asc interactive showcase with code snippets [link](https://react-asc.netli
 ### Include styles
 
 ```scss
-@import "modern-normalize";
-@import "react-asc/react-asc.scss";
+@use "modern-normalize";
+@use "react-asc/react-asc.scss";
 ```
 
 ### Usage
