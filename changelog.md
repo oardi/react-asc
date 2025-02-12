@@ -1,3 +1,7 @@
+### 25.19.0
+- upgraded packages 
+- added local build
+
 ### 25.18.1
 - fixed min max validator
 
