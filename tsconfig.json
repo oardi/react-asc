@@ -21,6 +21,6 @@
 		"target": "es2020",
 		"types": ["node", "jest", "vite-plugin-pwa/client"]
 	},
-	"exclude": ["dist"],
-	"include": ["src/**/*", "lib/**/*", ".eslintrc.js", "rollup.config.mjs", "vite.config.ts", "copyfiles-build.js"]
+	"exclude": ["node_modules", "dist"],
+	"include": ["src"]
 }
