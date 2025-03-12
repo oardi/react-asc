@@ -60,7 +60,10 @@ const App = (): React.JSX.Element => {
 					<Drawer
 						permanent={screenSize !== ScreenSize.xs && screenSize !== ScreenSize.sm}
 						onClickBackdrop={(): void => setShowMenu(false)}>
-						<AppSidebar menuItems={sidebarItems} onItemClicked={(): false | void => setShowMenu(false)} />
+						<AppSidebar
+							menuItems={sidebarItems}
+							onItemClicked={(): false | void => setShowMenu(screenSize !== ScreenSize.xs && screenSize !== ScreenSize.sm)}
+						/>
 					</Drawer>
 				)}
 
