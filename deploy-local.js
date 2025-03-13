@@ -2,7 +2,7 @@
 import shell from 'shelljs';
 
 shell.exec('npm run build:lib');
-shell.cd('dist');
+shell.cd('dist/lib');
 shell.exec('git init');
 shell.exec('git add .');
 shell.exec("git commit -m 'Update'");

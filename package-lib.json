@@ -2,7 +2,7 @@
 	"name": "react-asc",
 	"version": "25.19.0",
 	"description": "handcrafted react components",
-	"main": "index.js",
+	"main": "index.cjs.js",
 	"module": "index.es.js",
 	"jsnext:main": "index.es.js",
 	"author": "Ardian Shala",
