@@ -2,7 +2,7 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
-import viteTsconfigPaths from 'vite-tsconfig-paths';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
 	root: './src/lib',
@@ -15,11 +15,17 @@ export default defineConfig({
 		},
 		outDir: '../../dist/lib',
 		rollupOptions: {
-			external: ['react', 'react-dom'],
+			external: [/^react/, /^react-dom/, '@popperjs/core', 'modern-normalize', 'papaparse', 'file-saver', 'react-calendar'],
 			output: {
 				globals: {
 					react: 'React',
 					'react-dom': 'ReactDOM',
+					'react/jsx-runtime': 'jsxRuntime',
+					'@popperjs/core': 'Popper',
+					'modern-normalize': 'modernNormalize',
+					papaparse: 'Papa',
+					'file-saver': 'FileSaver',
+					'react-calendar': 'ReactCalendar',
 				},
 			},
 		},
@@ -29,13 +35,18 @@ export default defineConfig({
 		dts({
 			insertTypesEntry: true,
 		}),
-		viteTsconfigPaths(),
+		tsconfigPaths(),
 	],
 	css: {
-		modules: {
-			localsConvention: 'camelCase',
-			generateScopedName: '[name]__[local]___[hash:base64:5]',
+		preprocessorOptions: {
+			scss: {
+				api: 'modern-compiler',
+				silenceDeprecations: ['color-functions', 'global-builtin', 'import', 'mixed-decls'],
+			},
 		},
+	},
+	optimizeDeps: {
+		include: ['**/*.scss'], // Include all .scss files
 	},
 	resolve: {
 		alias: {
