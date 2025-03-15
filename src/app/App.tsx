@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import type { ISidebarItem } from 'src/lib';
-import { AppBar, AppBarTitle, Color, Drawer, IconButton, ScreenSize, loggerService, useScreenSizeDetect } from 'src/lib';
+import { AppBar, AppBarTitle, Color, Drawer, IconButton, ScreenSize, useScreenSizeDetect } from 'src/lib';
 import { useAppContext } from './AppContext';
 import { menuItems } from './AppMenu';
 import { APPSTATE } from './app.enums';
@@ -9,8 +9,6 @@ import './index.scss';
 import { MenuModel, RouteModel } from './main';
 import { BarsSolidIcon } from './main/assets';
 import { AppBreadcrumb, AppInfo, AppSidebar, PageNotFound, ServiceWorkerWrapper } from './shared';
-
-const CLASSNAME: string = 'App';
 
 const App = (): React.JSX.Element => {
 	const { appInfo } = useAppContext();
@@ -32,13 +30,13 @@ const App = (): React.JSX.Element => {
 	}, [screenSize, appState]);
 
 	const init = (): void => {
-		loggerService.debug(CLASSNAME, 'init');
 		try {
 			setRoutes(menuItems.map(item => new RouteModel(item)));
 			setSidebarItems(menuItems.map(item => new MenuModel(item)));
 			setAppState(APPSTATE.ready);
 		} catch (err) {
-			loggerService.error('init', err);
+			// eslint-disable-next-line no-console
+			console.error('init', err);
 		}
 	};
 

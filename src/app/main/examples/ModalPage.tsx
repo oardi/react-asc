@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { IControls, IModalProps } from 'src/lib';
-import { Button, Color, FormControl, MODALBUTTONTYPE, Modal, SIZE, VARIANT, loggerService, modalService, snackbarService } from 'src/lib';
+import { Button, Color, FormControl, MODALBUTTONTYPE, Modal, SIZE, VARIANT, modalService, snackbarService } from 'src/lib';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
@@ -36,7 +36,8 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 				fullScreen: fullscreen,
 				size: settingValues.size,
 			})
-			.then(() => loggerService.debug('ok clicked'));
+			// eslint-disable-next-line no-console
+			.then(() => console.debug('ok clicked'));
 	};
 
 	const customHandler = (): void => {
@@ -125,7 +126,8 @@ const ModalPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProp
 		};
 
 		void modalService.showForm<IModalPageValues>('Form', controls, { size: settingValues.size }).then(res => {
-			loggerService.debug(res);
+			// eslint-disable-next-line no-console
+			console.debug(res);
 		});
 	};
 

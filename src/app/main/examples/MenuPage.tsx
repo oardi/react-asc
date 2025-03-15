@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { IMenuProps } from 'src/lib';
-import { Button, FormControl, ListItemAvatar, ListItemText, Menu, MenuItem, loggerService, snackbarService } from 'src/lib';
+import { Button, FormControl, ListItemAvatar, ListItemText, Menu, MenuItem, snackbarService } from 'src/lib';
 import { UserCircleSolidIcon } from '../assets';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
@@ -23,7 +23,6 @@ const MenuPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps
 	}, []);
 
 	const handleClick = (text: string): void => {
-		loggerService.debug('handleClick', text);
 		setOpen(false);
 		void snackbarService.show(`you clicked action ${text}`);
 	};

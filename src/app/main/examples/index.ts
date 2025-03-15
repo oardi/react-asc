@@ -47,9 +47,4 @@ export * from './HookUseOnDestroyPage';
 export * from './HookUsePreviousPage';
 export * from './HookUseWindowSizePage';
 
-export * from './ServiceClipboardPage';
-export * from './ServiceFilePage';
-export * from './ServiceLocalPage';
-export * from './ServiceLoggerPage';
-
 export * from '../assets';

@@ -1,7 +1,7 @@
 import type { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
 import snarkdown from 'snarkdown';
-import { Typography, loggerService } from 'src/lib';
+import { Typography } from 'src/lib';
 import { fileLoaderService } from '../services';
 
 export interface IMarkdownProps {
@@ -29,7 +29,8 @@ export const Markdown = ({ url, text }: IMarkdownProps): React.JSX.Element => {
 			const response: AxiosResponse<string> = await fileLoaderService.get<string>(url, { responseType: 'text' });
 			setMarkdownText(response.data);
 		} catch (err) {
-			loggerService.error(`Markdown: file ${url} not found.`, err);
+			// eslint-disable-next-line no-console
+			console.error(`Markdown: file ${url} not found.`, err);
 		}
 	};
 

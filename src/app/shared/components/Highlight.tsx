@@ -5,7 +5,6 @@ import { fileLoaderService } from '../services';
 
 import type { AxiosResponse } from 'axios';
 import snarkdown from 'snarkdown';
-import { loggerService } from 'src/lib';
 
 // if lineNumber -> add className="line-numbers"
 
@@ -39,7 +38,8 @@ export const Highlight = ({ url, text, language = 'javascript' }: IHighlightProp
 			const response: AxiosResponse<string> = await fileLoaderService.get<string>(url, { responseType: 'text' });
 			setHighlightedText(response.data);
 		} catch (err) {
-			loggerService.error(`Highlight: file ${url} not found.`, err);
+			// eslint-disable-next-line no-console
+			console.error(`Highlight: file ${url} not found.`, err);
 		}
 	};
 

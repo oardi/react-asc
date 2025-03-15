@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import type { IDrawerProps } from 'src/lib';
-import { Button, Drawer, FormControl, loggerService } from 'src/lib';
+import { Button, Drawer, FormControl } from 'src/lib';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
-const CLASSNAME: string = 'ShowcaseDrawerBase';
 const DrawerPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IDrawerProps>): React.JSX.Element => {
 	const [isVisible, setIsVisible] = useState(false);
 
@@ -22,7 +21,6 @@ const DrawerPageBase = ({ settingValues, setSettingsControls }: IShowcaseBasePro
 	}, []);
 
 	const handleClick = (): void => {
-		loggerService.debug(CLASSNAME, 'handleClick');
 		setIsVisible(!isVisible);
 	};
 

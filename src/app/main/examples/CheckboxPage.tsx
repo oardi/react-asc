@@ -1,7 +1,7 @@
 import type { FocusEvent } from 'react';
 import { useEffect } from 'react';
 import type { ICheckboxProps } from 'src/lib';
-import { Checkbox, FormControl, loggerService } from 'src/lib';
+import { Checkbox, FormControl } from 'src/lib';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
@@ -17,7 +17,8 @@ export const CheckboxPageBase = ({ settingValues, setSettingsControls }: IShowca
 	}, []);
 
 	const handleChange = (event: FocusEvent<HTMLInputElement>): void => {
-		loggerService.debug(CLASSNAME, 'handleCheck', event.target.checked);
+		// eslint-disable-next-line no-console
+		console.debug(CLASSNAME, 'handleCheck', event.target.checked);
 	};
 
 	return (

@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
 import type { IChipProps } from 'src/lib';
-import { Chip, Color, FormControl, loggerService, snackbarService } from 'src/lib';
+import { Chip, Color, FormControl, snackbarService } from 'src/lib';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
-const CLASSNAME: string = 'ShowcaseChipPageBase';
 export const ChipPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IChipProps>): React.JSX.Element => {
 	useEffect(() => {
 		setSettingsControls({
@@ -18,7 +17,6 @@ export const ChipPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	}, []);
 
 	const handleClick = (): void => {
-		loggerService.debug(CLASSNAME, 'handleClick');
 		void snackbarService.show('chip clicked');
 	};
 

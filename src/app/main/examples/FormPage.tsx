@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import React, { useEffect, useRef, useState } from 'react';
 import type { IControls, IFormProps } from 'src/lib';
-import { Button, Color, Form, FormControl, VARIANT, loggerService, modalService } from 'src/lib';
+import { Button, Color, Form, FormControl, VARIANT, modalService } from 'src/lib';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
@@ -24,7 +24,6 @@ export interface IFormPageControls {
 	autoComplete: string;
 }
 
-const CLASSNAME: string = 'ShowcaseForm';
 export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseProps<IFormProps>): React.JSX.Element => {
 	const [values, setValues] = useState<IFormPageControls | undefined>();
 	const myForm: React.RefObject<Form | null> = useRef<Form>(null);
@@ -109,27 +108,24 @@ export const FormPageBase = ({ settingValues, setSettingsControls }: IShowcaseBa
 	};
 
 	const onFormSubmit = (values: IFormPageControls): void => {
-		loggerService.debug(CLASSNAME, 'onFormSubmit');
 		setValues(values);
 	};
 
 	const handleClickSubmit = (): void => {
-		loggerService.debug(CLASSNAME, 'handleClickSubmit');
 		myForm?.current?.handleFormSubmit();
 	};
 
 	const handleClickReset = (): void => {
-		loggerService.debug(CLASSNAME, 'handleClickReset');
 		myForm?.current?.handleFormReset();
 	};
 
 	const onFormChange = (values: IFormPageControls): void => {
-		loggerService.debug(CLASSNAME, 'onFormChange');
 		setValues(values);
 	};
 
 	const handleOpenInModal = (): void => {
-		void modalService.showForm<IFormPageControls>('Form', controls).then(res => loggerService.debug(res));
+		// eslint-disable-next-line no-console
+		void modalService.showForm<IFormPageControls>('Form', controls).then(res => console.debug(res));
 	};
 
 	return (

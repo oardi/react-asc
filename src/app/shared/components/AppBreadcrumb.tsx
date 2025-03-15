@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import type { Location, NavigateFunction } from 'react-router-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Breadcrumb, BreadcrumbItem, HomeSolidIcon, Icon, loggerService } from 'src/lib';
+import { Breadcrumb, BreadcrumbItem, HomeSolidIcon, Icon } from 'src/lib';
 
 interface IAppBreadcrumbProps {
 	className?: string;
@@ -14,7 +14,6 @@ interface IAppBreadcrumb {
 	icon?: React.ReactElement;
 }
 
-const CLASSNAME: string = 'AppBreadcrumb';
 export const AppBreadcrumb = ({ className }: IAppBreadcrumbProps): React.JSX.Element => {
 	const location: Location = useLocation();
 	const navigate: NavigateFunction = useNavigate();
@@ -31,7 +30,6 @@ export const AppBreadcrumb = ({ className }: IAppBreadcrumbProps): React.JSX.Ele
 	}, [location]);
 
 	const handleClickBreadcrumbItem = (item: IAppBreadcrumb): void => {
-		loggerService.debug(CLASSNAME, 'handleClickBreadcrumbItem');
 		if (!item.isActive && location.pathname !== item.path) {
 			void navigate(item.path as string);
 		}

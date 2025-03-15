@@ -1,49 +1,60 @@
 ### Unreleased
 
-- upgraded to react 19.0.0
-- refactored structure
+### 26.0.0
+
+-   upgraded to react 19.0.0
+-   refactored structure
+-   removed utility services (can be installed through gccb-utilities)
 
 ### 25.19.0
-- upgraded packages 
-- added local build
+
+-   upgraded packages
+-   added local build
 
 ### 25.18.1
-- fixed min max validator
+
+-   fixed min max validator
 
 ### 25.18.0
-- added compilerOption no-unused-locals
-- formatting & cleanup
-- added menu position top and bottom
-- edited showcase options for menu
+
+-   added compilerOption no-unused-locals
+-   formatting & cleanup
+-   added menu position top and bottom
+-   edited showcase options for menu
 
 ### 25.17.2
-- fixed row responsive behavior
+
+-   fixed row responsive behavior
 
 ### 25.17.1
-- showcase and documentation fixes
+
+-   showcase and documentation fixes
 
 ### 25.17.0
-- added useScreenSize hook
-- fixed showing side drawer on smaller screens
+
+-   added useScreenSize hook
+-   fixed showing side drawer on smaller screens
 
 ### 25.16.0
-- refactored row component
+
+-   refactored row component
 
 ### 25.15.0
-- breaking change in Enum naming
-- added size to columns 10 to 100%
+
+-   breaking change in Enum naming
+-   added size to columns 10 to 100%
 
 ### 25.14.1
 
-- fixed button colors
+-   fixed button colors
 
 ### 25.14.0
 
-- added success and error colors
+-   added success and error colors
 
 ### 25.13.0
 
-- cleanup datepicker
+-   cleanup datepicker
 
 ### 25.12.1
 

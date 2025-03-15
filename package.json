@@ -1,6 +1,6 @@
 {
 	"name": "react-asc",
-	"version": "25.19.0",
+	"version": "26.0.0",
 	"description": "handcrafted react components",
 	"main": "dist/index.js",
 	"module": "dist/index.es.js",
@@ -36,9 +36,6 @@
 	"devDependencies": {
 		"@eslint/eslintrc": "^3.3.0",
 		"@eslint/js": "^9.21.0",
-		"@rollup/plugin-json": "6.1.0",
-		"@rollup/plugin-url": "8.0.2",
-		"@svgr/rollup": "8.1.0",
 		"@testing-library/jest-dom": "6.6.3",
 		"@testing-library/react": "16.2.0",
 		"@testing-library/user-event": "14.6.1",

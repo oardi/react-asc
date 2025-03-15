@@ -1,6 +1,6 @@
 import type { AxiosResponse } from 'axios';
 import { useState } from 'react';
-import { Color, IconButton, loggerService, modalService, useConstructor } from 'src/lib';
+import { Color, IconButton, modalService, useConstructor } from 'src/lib';
 import { InfoSolidIcon } from '../../main/assets';
 import { fileLoaderService } from '../services';
 import { Markdown } from './Markdown';
@@ -19,7 +19,8 @@ export const AppInfo = (): React.JSX.Element => {
 		try {
 			void modalService.show('Changelog', <Markdown text={markdownText} />, { isDismissable: true });
 		} catch (err) {
-			loggerService.error(err);
+			// eslint-disable-next-line no-console
+			console.error(err);
 		}
 	};
 

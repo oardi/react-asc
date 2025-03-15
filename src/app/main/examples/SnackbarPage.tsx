@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import type { ISnackbarProps } from 'src/lib';
-import { Button, Color, FormControl, loggerService, snackbarService } from 'src/lib';
+import { Button, Color, FormControl, snackbarService } from 'src/lib';
 import type { IShowcaseBaseProps } from './components';
 import { withOptions } from './components';
 
@@ -28,7 +28,8 @@ const SnackbarPageBase = ({ settingValues, setSettingsControls }: IShowcaseBaseP
 				timeout: settingValues.timeout,
 				color: settingValues.color,
 			})
-			.then(() => loggerService.debug('onOk clicked'));
+			// eslint-disable-next-line no-console
+			.then(() => console.debug('onOk clicked'));
 	};
 
 	return (
