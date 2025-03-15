@@ -1,0 +1,44 @@
+@use './variables/breakpoints.scss';
+@use './variables/button.scss';
+@use './variables/colors.scss';
+@use './variables/font.scss';
+@use './variables/margins.scss';
+@use './variables/paddings.scss';
+@use './variables/spaces.scss';
+@use './Form.scss';
+@use './utility.scss';
+
+* {
+	min-width: 0;
+	min-height: 0;
+}
+
+label.required {
+	&::after {
+		display: inline-block;
+		line-height: 0.8;
+		content: '*';
+		vertical-align: text-top;
+	}
+}
+
+.overline {
+	font-size: var(--textOverlineFontSize) !important;
+	line-height: var(--textOverlineLineHeight) !important;
+	text-transform: var(--textOverlineTransform) !important;
+	font-weight: bold;
+}
+
+.body1 {
+	font-size: var(--textBody1FontSize) !important;
+	line-height: var(--textBody1LineHeight) !important;
+}
+
+.body2 {
+	font-size: var(--textBody2FontSize) !important;
+	line-height: var(--textBody2LineHeight) !important;
+}
+
+.uppercase {
+	text-transform: uppercase !important;
+}

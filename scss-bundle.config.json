@@ -1,7 +1,7 @@
 {
 	"bundlerOptions": {
-		"entryFile": "./lib/styles/style.scss",
-		"rootDir": "./lib/styles/",
-		"outFile": "./dist/react-asc.scss"
+		"entryFile": "./src/lib/styles/style.scss",
+		"rootDir": "./src/lib/styles/",
+		"outFile": "./dist/lib/react-asc.scss"
 	}
 }

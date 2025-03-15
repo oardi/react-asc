@@ -1,3 +1,8 @@
+### Unreleased
+
+- upgraded to react 19.0.0
+- refactored structure
+
 ### 25.19.0
 - upgraded packages 
 - added local build
@@ -150,7 +155,7 @@
 
 ### 25.2.11
 
--   select - changed label to jsx.element and string
+-   select - changed label to React.JSX.Element and string
 
 ### 25.2.10
 
