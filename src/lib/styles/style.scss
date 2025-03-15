@@ -1,12 +1,12 @@
-@import './variables/breakpoints.scss';
-@import './variables/button.scss';
-@import './variables/colors.scss';
-@import './variables/font.scss';
-@import './variables/margins.scss';
-@import './variables/paddings.scss';
-@import './variables/spaces.scss';
-@import './Form.scss';
-@import './utility.scss';
+@use './variables/breakpoints.scss';
+@use './variables/button.scss';
+@use './variables/colors.scss';
+@use './variables/font.scss';
+@use './variables/margins.scss';
+@use './variables/paddings.scss';
+@use './variables/spaces.scss';
+@use './Form.scss';
+@use './utility.scss';
 
 * {
 	min-width: 0;

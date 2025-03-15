@@ -6,3 +6,4 @@ export * from './interfaces';
 export * from './services';
 export * from './types';
 export * from './typings';
+import './styles/style.scss';

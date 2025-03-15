@@ -12,3 +12,8 @@ declare module '*.module.scss' {
 }
 
 declare module '*.md';
+
+declare module '*.scss?inline' {
+	const content: string;
+	export default content;
+}
