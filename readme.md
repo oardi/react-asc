@@ -1,6 +1,6 @@
 # react-asc
 
-handcrafted components inspired by Material Design and bundled with rollup.
+handcrafted components inspired by Material Design and bundled with Vite.
 
 ## showcase
 
@@ -8,8 +8,8 @@ react-asc interactive showcase with code snippets [link](https://react-asc.netli
 
 ## Stackblitz Examples
 
-- react-asc and jsx [link](https://stackblitz.com/edit/react-asc-example-js)
-- react-asc and tsx [link](https://stackblitz.com/edit/react-asc-example-ts)
+-   react-asc and jsx [link](https://stackblitz.com/edit/react-asc-example-js)
+-   react-asc and tsx [link](https://stackblitz.com/edit/react-asc-example-ts)
 
 ## usage
 
@@ -17,32 +17,32 @@ react-asc interactive showcase with code snippets [link](https://react-asc.netli
 
 `npm install react-asc`
 
-### install modern-normalize
+### Include style
+
+```scss
+@use 'react-asc/react-asc.scss';
+```
+
+### optional - include modern-normalize
 
 `npm install modern-normalize`
 
-### Include styles
-
 ```scss
-@use "modern-normalize";
-@use "react-asc/react-asc.scss";
+@use 'react-asc/react-asc.scss';
 ```
 
 ### Usage
 
 ```js
-import React from "react";
-import { Button } from "react-asc";
+import React from 'react';
+import { Button } from 'react-asc';
 
-const MyApp = () => {
-	return <Button>some button</Button>;
-};
+const MyApp = () => <Button>some button text</Button>;
 ```
 
-
 ## TypeScript
-react-asc provides built-in ts definition
 
+react-asc provides built-in ts definition
 
 ## Included Components
 
@@ -57,7 +57,7 @@ react-asc provides built-in ts definition
 -   Card
 -   Checkbox
 -   Chip
--	CssTransition
+-   CssTransition
 -   ConditionalWrapper
 -   DateSelect
 -   Drawer
@@ -74,10 +74,10 @@ react-asc provides built-in ts definition
 -   Menu
 -   Modal + ModalService
 -   NumberSelect
-	Portal
+    Portal
 -   Select
 -   Sidebar
--	Skeleton (Avatar, Image, Text, SkeletonFooter)
+-   Skeleton (Avatar, Image, Text, SkeletonFooter)
 -   Snackbar + SnackbarService
 -   SpeedDial
 -   Stepper (beta)
@@ -88,7 +88,6 @@ react-asc provides built-in ts definition
 -   Tooltip
 -   TreeView (beta)
 -   Typography
-
 
 ## Credit
 
