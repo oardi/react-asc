@@ -1,2 +1,7 @@
 [build]
   node_version = "22"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
